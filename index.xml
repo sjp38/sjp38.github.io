@@ -6,8 +6,40 @@
     <description>Recent content on A Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 19 Jan 2017 18:06:54 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 20 Jan 2017 13:18:56 +0900</lastBuildDate>
     <atom:link href="https://sjp38.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>uninstall kernel</title>
+      <link>https://sjp38.github.io/post/uninstall-kernel/</link>
+      <pubDate>Fri, 20 Jan 2017 13:18:56 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/uninstall-kernel/</guid>
+      <description>
+
+&lt;p&gt;테스트 등을 위해 소스코드로부터 커널을 직접 빌드, 설치하기 시작하면 어느새
+수많은 커널이 설치되어 있는 것을 확인할 수 있다.  삭제를 위해선 &lt;code&gt;make install&lt;/code&gt;
+로 만들어진 파일들을 직접 제거하고 grub 을 업데이트 해줘야 한다.&lt;/p&gt;
+
+&lt;p&gt;예를 들어 시스템이 현재 부팅되어 있는 버전의 커널을 언인스톨하고자 한다면
+다음의 일련의 커맨드를 입력하면 된다:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;rm /boot/vmlinuz-$(uname -r)
+rm /boot/initrd.img-$(uname -r)
+rm /boot/System.map-$(uname -r)
+rm /boot/config-$(uname -r)
+rm -fr /lib/modules/$(uname -r)
+rm /var/lib/initramfs-tools/$(uname -r)
+update-grub2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;참고-문서&#34;&gt;참고 문서&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://askubuntu.com/questions/594443/how-can-i-remove-compiled-kernel&#34;&gt;http://askubuntu.com/questions/594443/how-can-i-remove-compiled-kernel&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>donate mozilla</title>
