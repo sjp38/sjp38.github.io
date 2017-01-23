@@ -23,13 +23,13 @@
 &lt;p&gt;예를 들어 시스템이 현재 부팅되어 있는 버전의 커널을 언인스톨하고자 한다면
 다음의 일련의 커맨드를 입력하면 된다:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;rm /boot/vmlinuz-$(uname -r)
-rm /boot/initrd.img-$(uname -r)
-rm /boot/System.map-$(uname -r)
-rm /boot/config-$(uname -r)
-rm -fr /lib/modules/$(uname -r)
-rm /var/lib/initramfs-tools/$(uname -r)
-update-grub2
+&lt;pre&gt;&lt;code&gt;# rm /boot/vmlinuz-$(uname -r)
+# rm /boot/initrd.img-$(uname -r)
+# rm /boot/System.map-$(uname -r)
+# rm /boot/config-$(uname -r)
+# rm -fr /lib/modules/$(uname -r)
+# rm /var/lib/initramfs-tools/$(uname -r)
+# update-grub2
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;다른 버전의 설치되어있는 커널을 제거하고 싶다면 위의 &lt;code&gt;$(uname -r)&lt;/code&gt; 부분을
