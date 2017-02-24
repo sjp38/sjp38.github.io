@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>1990년대의 palmtop, HP 95LX 를 득템</title>
+<title>beautifulhugo 테마 tags 기능 구현</title>
 <meta name="description" content="This is a blog of SeongJae Park for miscellaneous things.">
 <meta name="generator" content="Hugo 0.18-DEV" />
-<meta property="og:title" content="1990년대의 palmtop, HP 95LX 를 득템" />
-<meta property="og:description" content="이사로 생긴 쓰레기 정리를 돕다가 보니 한 물건이 유난히 눈에 띄었다. 자그마한 크기에 왠지 모르게 90년대 감성. 자세히 살펴 보니 전자사전 같이 생겼는데 왠지 옛날에 유행하던 palmtop[1] 같은 느낌. 어차피 버릴 물건이기에 따로 챙겨두고 컴퓨터로 검색을 해보았다.
-모델명인 HP 95LX 로 검색해보니[2] 한때 스프레드시트 프로그램의 대명사였던 Lotus 123 을 탑재한 것으로 유명한 palmtop PC 로, MS-DOS 를 장착한 모델이다. 당연하게도 바로는 안켜지지만 잘 살펴보니 전용 배터리가 아니라 2A 건전지를 사용하고 있기에 건전지를 끼고 파워 버튼을 눌러봤지만 역시 잠잠." />
+<meta property="og:title" content="beautifulhugo 테마 tags 기능 구현" />
+<meta property="og:description" content="꽤 맘에 드는 hugo 테마[1]를 찾았다. 하지만 tag 기능이 빠져있어 너무 아쉬워하다가 이대로 포기하기엔 너무 맘에 들어 이래저래 찾아보니 과거에 tag 기능 관련 이슈가 올라왔지만 close 처리된 상태. 이대로는 암만 기다려도 tag 기능을 구현해주진 않겠구나 싶어서 이것저것 보고 낑낑대며 서툴고 간단하게나마 tag 기능을 구현[2]. Pull request[3] 도 보냈는데 과연 받아들여줄런지.
+[1] http://themes.gohugo.io/beautifulhugo/ [2] https://github.com/sjp38/beautifulhugo/tree/support_tag [3] https://github.com/halogenica/beautifulhugo/pull/15" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://sjp38.github.io/post/hp_95lx/" />
+<meta property="og:url" content="https://sjp38.github.io/post/beautifulhugo_contribute/" />
 
 
-<meta property="og:updated_time" content="2017-02-02T16:24:02&#43;09:00"/>
+<meta property="og:updated_time" content="2017-02-24T22:58:25&#43;09:00"/>
 
 
 
@@ -76,80 +76,36 @@
 <div class="main-content mr-content" role="main" itemprop="mainContentOfPage">
 	<article class="post">
 		<header class="entry-header clearfix">
-			<h1 class="entry-title">1990년대의 palmtop, HP 95LX 를 득템</h1>
+			<h1 class="entry-title">beautifulhugo 테마 tags 기능 구현</h1>
 			<p class="mr-meta entry-meta">
 				<svg class="icon icon-time" height="14" viewBox="0 0 16 16" width="14" xmlns="http://www.w3.org/2000/svg"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
-				<time class="entry-meta-date updated" datetime="2017-02-02 16:24:02 &#43;0900 KST">February 02, 2017</time>
+				<time class="entry-meta-date updated" datetime="2017-02-24 22:58:25 &#43;0900 KST">February 24, 2017</time>
 				<span class="entry-meta-categories">
 					<svg class="icon icon-category" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
-					<a class="meta-categories" href="/categories/life" rel="category">life</a></span>
+					<a class="meta-categories" href="/categories/open-source" rel="category">open source</a></span>
 			</p>
 		</header>
 		<div class="entry-content clearfix">
 			
-			
+			<p>꽤 맘에 드는 hugo 테마[1]를 찾았다.  하지만 tag 기능이 빠져있어 너무
+아쉬워하다가 이대로 포기하기엔 너무 맘에 들어 이래저래 찾아보니 과거에 tag 기능
+관련 이슈가 올라왔지만 close 처리된 상태.  이대로는 암만 기다려도 tag 기능을
+구현해주진 않겠구나 싶어서 이것저것 보고 낑낑대며 서툴고 간단하게나마 tag
+기능을 구현[2].  Pull request[3] 도 보냈는데 과연 받아들여줄런지.</p>
 
-<p>이사로 생긴 쓰레기 정리를 돕다가 보니 한 물건이 유난히 눈에 띄었다.  자그마한
-크기에 왠지 모르게 90년대 감성.  자세히 살펴 보니 전자사전 같이 생겼는데 왠지
-옛날에 유행하던 palmtop[1] 같은 느낌.  어차피 버릴 물건이기에 따로 챙겨두고
-컴퓨터로 검색을 해보았다.</p>
-
-<p><img src="/img/hp95lx/1.jpg" alt="HP 95LX" /></p>
-
-<p>모델명인 HP 95LX 로 검색해보니[2] 한때 스프레드시트 프로그램의 대명사였던
-<code>Lotus 123</code> 을 탑재한 것으로 유명한 palmtop PC 로, MS-DOS 를 장착한 모델이다.
-당연하게도 바로는 안켜지지만 잘 살펴보니 전용 배터리가 아니라 2A 건전지를
-사용하고 있기에 건전지를 끼고 파워 버튼을 눌러봤지만 역시 잠잠.  시무룩.
-하지만 또 여기저기 살펴보니 충전지 비슷한 물건이 있다.  배터리 교체 시에
-in-memory 데이터가 날아가지 않도록 해당 충전지를 충전 후 동작하는 형태가 아닐까
-싶어 잠시 동안 놔두었다 켜봤더니, 켜진다!</p>
-
-<p><img src="/img/hp95lx/2.jpg" alt="HP 95LX boot" /></p>
-
-<p>몇가지 주요 어플리케이션을 통해 주요 기능들을 제공한다.
-파일 탐색, 약속 관리, 전화번호부 관리, 메모, 계산기, 그리고 Lotus 123 을 통한
-스프레드 시트 관리가 가능하다.3</p>
-
-<p>파일 탐색 기능.  실행 파일의 실행도 가능한 듯 하다.
-<img src="/img/hp95lx/4.jpg" alt="HP 95LX filer" /></p>
-
-<p>약속 관리 기능.  2017년 달력도 존재.
-<img src="/img/hp95lx/5.jpg" alt="HP 95LX appointment book" /></p>
-
-<p>전화번호부.
-<img src="/img/hp95lx/6.jpg" alt="HP 95LX phone book" /></p>
-
-<p>메모.
-<img src="/img/hp95lx/7.jpg" alt="HP 95LX memo" /></p>
-
-<p>그리고, 시대를 풍미한 스프레드시트, Lotus 123.
-<img src="/img/hp95lx/8.jpg" alt="HP 95LX lotus 123" /></p>
-
-<p>한참 가지고 놀다가 뒤늦게야 시간과 사용자를 설정.  연도 설정이 두자리라 혹시나
-Y2K 문제가 있진 않을까 걱정했지만 2017 년으로 잘 인식한다.  잘 짜여진
-프로그램이란 이리도 멋지다.
-<img src="/img/hp95lx/9.jpg" alt="HP 95LX boot" /></p>
-
-<p>요즘 나오는 스마트폰에 비교하자면 보잘것없지만 그 시절에도 이만한 휴대성과
-완성도의 물건을 아직도 동작할 만큼 튼튼하게 제품으로 만들어냈다는 사실에
-경외로움을 숨길 수 없거니와, 여전히 텍스트 기반 UI 를 즐겨 사용하는 내
-입장에서는 이 UI 도 여전히 멋지다.  물론 Unix 계열 셸을 제공했다면
-완벽했겠지만&hellip;  과거의 물건이 유난한 감동을 준 하루였다.</p>
-
-<h2 id="references">References</h2>
-
-<p>[1] <a href="https://en.wikipedia.org/wiki/Palmtop_PC">https://en.wikipedia.org/wiki/Palmtop_PC</a></p>
-
-<p>[2] <a href="https://en.wikipedia.org/wiki/HP_95LX">https://en.wikipedia.org/wiki/HP_95LX</a></p>
+<p>[1] <a href="http://themes.gohugo.io/beautifulhugo/">http://themes.gohugo.io/beautifulhugo/</a>
+[2] <a href="https://github.com/sjp38/beautifulhugo/tree/support_tag">https://github.com/sjp38/beautifulhugo/tree/support_tag</a>
+[3] <a href="https://github.com/halogenica/beautifulhugo/pull/15">https://github.com/halogenica/beautifulhugo/pull/15</a></p>
 
 		</div>
 		
 <div class="entry-tags clearfix">
 	<svg class="icon icon-tag" width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="m4.73135 3.3795002q0-.5597-.39604-.9557-.39604-.3961-.95577-.3961-.55974 0-.95578.3961-.39604.396-.39604.9557 0 .5598.39604.9558.39604.3961.95578.3961.55973 0 .95577-.3961.39604-.396.39604-.9558zm11.26865 6.0832q0 .5596998-.39076.9504998l-5.18548 5.196q-.41188.3908-.9610504.3908-.55974 0-.9505-.3908l-7.5511496-7.5616998q-.40132-.3907-.68119-1.0666-.27987-.6759-.27987-1.2357v-4.3934q0-.54920004.40132-.95050004.40132-.4013.9505-.4013h4.39339q.55974 0 1.23565.2799.67591.2798 1.07723.6812l7.55115 7.54060004q.39076.4118.39076.961z"/></svg>
 	<ul>
-		<li><a href="/tags/life/" rel="tag">life</a></li>
-		<li><a href="/tags/gadget/" rel="tag">gadget</a></li>
-		<li><a href="/tags/artifact/" rel="tag">artifact</a></li>
+		<li><a href="/tags/hugo/" rel="tag">hugo</a></li>
+		<li><a href="/tags/theme/" rel="tag">theme</a></li>
+		<li><a href="/tags/open-source/" rel="tag">open source</a></li>
+		<li><a href="/tags/contribute/" rel="tag">contribute</a></li>
 		
 	</ul>
 </div>
@@ -171,13 +127,9 @@ Y2K 문제가 있진 않을까 걱정했지만 2017 년으로 잘 인식한다. 
 
 	<nav class="mr-post-nav mr-row clearfix" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
 		
-		<div class="mr-col-1-2 mr-post-nav-item mr-post-nav-prev">
-			<a href="https://sjp38.github.io/post/beautifulhugo_contribute/" rel="prev"><span>«Previous</span><p>beautifulhugo 테마 tags 기능 구현</p></a>
-		</div>
-		
 		
 		<div class="mr-col-1-2 mr-post-nav-item mr-post-nav-next">
-			<a href="https://sjp38.github.io/post/uninstall-kernel/" rel="next"><span>Next»</span><p>uninstall kernel</p></a>
+			<a href="https://sjp38.github.io/post/hp_95lx/" rel="next"><span>Next»</span><p>1990년대의 palmtop, HP 95LX 를 득템</p></a>
 		</div>
 		
 	</nav>
