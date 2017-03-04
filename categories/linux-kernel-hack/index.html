@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Happy Hacking</title>
+  <title>Linux Kernel Hack</title>
   
   <meta name="author" content="SeongJae Park"/>
   <meta name="generator" content="Hugo 0.18-DEV" />
@@ -23,9 +23,9 @@
   <link rel="stylesheet" href="https://sjp38.github.io/css/highlight.min.css">
   
   
-  <meta property="og:title" content="Happy Hacking" />
+  <meta property="og:title" content="Linux Kernel Hack" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="/" />
+  <meta property="og:url" content="/categories/linux-kernel-hack/" />
   <meta property="og:image" content="/" />
   
 </head>
@@ -91,11 +91,7 @@
           <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
               <div class="page-heading">
-                <h1>Happy Hacking</h1>
-                
-                  <hr class="small">
-                  <span class="page-subheading">A blog for miscellaneous hacks</span>
-                
+                <h2>#Linux Kernel Hack</h2>
               </div>
             </div>
           </div>
@@ -103,29 +99,25 @@
       </div>
     </header>
 
-
-    <div role="main" class="container">
-      <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-          <div class="posts-list">
+    <div class="container" role="main">
             
             
             <article class="post-preview">
-              <a href="https://sjp38.github.io/post/uninstall-kernel/">
-          	  <h2 class="post-title">uninstall kernel</h2>
-          	
-          	    
+              <a href="https://sjp38.github.io/post/001_linux_dev_intro/">
+                <h2 class="post-title">Starting &#39;Linux Kernel Hack&#39; series</h2>
+
+                
               </a>
 
               <p class="post-meta">
-                Posted on January 20, 2017
+                Posted on March 4, 2017
               </p>
               <div class="post-entry">
               
-                테스트 등을 위해 소스코드로부터 커널을 직접 빌드, 설치하기 시작하면 어느새 수많은 커널이 설치되어 있는 것을 확인할 수 있다. 삭제를 위해선 make install 로 만들어진 파일들을 직접 제거하고 grub 을 업데이트 해줘야 한다.
-예를 들어 시스템이 현재 부팅되어 있는 버전의 커널을 언인스톨하고자 한다면 다음의 일련의 커맨드를 입력하면 된다:
-# rm /boot/vmlinuz-$(uname -r) # rm /boot/initrd.img-$(uname -r) # rm /boot/System.map-$(uname -r) # rm /boot/config-$(uname -r) # rm -fr /lib/modules/$(uname -r) # rm /var/lib/initramfs-tools/$(uname -r) # update-grub2  다른 버전의 설치되어있는 커널을 제거하고 싶다면 위의 $(uname -r) 부분을 제거하고자 하는 커널 버전으로 대체하면 된다.
-                <a href="https://sjp38.github.io/post/uninstall-kernel/" class="post-read-more">[Read&nbsp;More]</a>
+                많은 영역에서 사용되고 있는 리눅스 커널. 그렇기에 만져볼수록 재밌고 뜯어볼수록 신기합니다. 아마도 이게 hack 의 재미가 아닐까요.
+리눅스 커널을 hack 하는데에 필요한 기본적인 내용부터 몇가지 팁들, 소스 코드는 어떻게 가져오고 어떻게 빌드해서 시스템에 설치를 하는지, 패치는 어떻게 보내면 되는지와 같은 것들을 정리해 볼까 합니다.
+So many environments and users are using Linux kernel. That&rsquo;s why it is so fun and mysterious to touch and analyze it. Maybe it is the fun of hack.
+                <a href="https://sjp38.github.io/post/001_linux_dev_intro/" class="post-read-more">[Read&nbsp;More]</a>
               
               </div>
 
@@ -138,69 +130,7 @@
 		  
 	            #<a href="/tags/tip">tip</a>&nbsp;
 		  
-	        </span>
-	      
-
-             </article>
-            
-            <article class="post-preview">
-              <a href="https://sjp38.github.io/post/donate-mozilla/">
-          	  <h2 class="post-title">donate mozilla</h2>
-          	
-          	    
-              </a>
-
-              <p class="post-meta">
-                Posted on January 19, 2017
-              </p>
-              <div class="post-entry">
-              
-                나는 보통의 경우 크롬으로 웹브라우징을 한다. 하지만 몇달 전부터 몇가지 예외에 대해서는 파이어폭스를 함께 쓰고 있다.
-부족한 하드웨어 스펙 나의 데스크탑 환경은 모니터 세대를 연결한 PC 하나로 구성되어 있었는데, FHD 모니터 세대를 돌리기는 벅찼는지 간헐적 입력 랙이 자주 발생했다. 또, 모니터를 한대 정도 더 늘리고 싶었다. 해서 집에서 놀고있던 5년된 HP 랩탑에 모니터 하나를 연결시키고 이 랩탑과 PC 를 키보드/마우스 하나로 제어하는 환경을 구축했다. PC 에 연결되는 모니터는 두대로 줄어드니까 입력 랙도 줄어들 것이라 생각한것.
-                <a href="https://sjp38.github.io/post/donate-mozilla/" class="post-read-more">[Read&nbsp;More]</a>
-              
-              </div>
-
-	      
-	        <span class="post-meta">
-	          
-	            #<a href="/tags/life">life</a>&nbsp;
-		  
-	            #<a href="/tags/mozilla">mozilla</a>&nbsp;
-		  
-	            #<a href="/tags/firefox">firefox</a>&nbsp;
-		  
-	        </span>
-	      
-
-             </article>
-            
-            <article class="post-preview">
-              <a href="https://sjp38.github.io/post/us-sues-oracle/">
-          	  <h2 class="post-title">us sues oracle</h2>
-          	
-          	    
-              </a>
-
-              <p class="post-meta">
-                Posted on January 19, 2017
-              </p>
-              <div class="post-entry">
-              
-                <p>오라클이 백인 남성에게 더 많은 월급을 지불하고 아시아인, 그중에서도 인도 사람을
-많이 개발직에 채용했다는 이유로 미국 정부가 오라클을 고소.</p>
-
-<p><a href="http://www.reuters.com/article/us-oracle-usa-labor-idUSKBN1522O6?il=0">http://www.reuters.com/article/us-oracle-usa-labor-idUSKBN1522O6?il=0</a></p>
-
-              
-              </div>
-
-	      
-	        <span class="post-meta">
-	          
-	            #<a href="/tags/news">news</a>&nbsp;
-		  
-	            #<a href="/tags/oracle">oracle</a>&nbsp;
+	            #<a href="/tags/english">english</a>&nbsp;
 		  
 	        </span>
 	      
@@ -208,23 +138,6 @@
              </article>
             
           </div>
-
-          
-          <ul class="pager main-pager">
-            
-            <li class="previous">
-              <a href="/page/1">&larr; Newer Posts</a>
-            </li>
-            
-            
-            <li class="next">
-              <a href="/page/3">Older Posts &rarr;</a>
-            </li>
-            
-          </ul>
-          
-        </div>
-      </div>
     </div>
 
     <footer>
