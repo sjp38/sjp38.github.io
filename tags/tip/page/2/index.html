@@ -25,7 +25,7 @@
   
   <meta property="og:title" content="Tip" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="/categories/tip/" />
+  <meta property="og:url" content="/tags/tip/" />
   <meta property="og:image" content="/" />
   
 </head>
@@ -103,72 +103,32 @@
             
             
             <article class="post-preview">
-              <a href="https://sjp38.github.io/post/fedora-chrome-update/">
-                <h2 class="post-title">Updating Google Chrome on Fedora 23</h2>
+              <a href="https://sjp38.github.io/post/uninstall-kernel/">
+                <h2 class="post-title">uninstall kernel</h2>
 
                 
               </a>
 
               <p class="post-meta">
-                Posted on March 20, 2017
+                Posted on January 20, 2017
               </p>
               <div class="post-entry">
               
-                I am using Fedora 23 laptop and installed stable version Google Chrome from its official website [0]. In this case, just using Updates of Fedora Software program doesn&rsquo;t update Chrome automatically. For the case, follow below commands to update your Chrome:
-$ sudo dnf update google-chrome-stable ... $ sudo killall chrome $ google-chrome-stable  The second killall command is necessary because Chrome doesn&rsquo;t kill its process by just cliking Close button.
-                <a href="https://sjp38.github.io/post/fedora-chrome-update/" class="post-read-more">[Read&nbsp;More]</a>
+                테스트 등을 위해 소스코드로부터 커널을 직접 빌드, 설치하기 시작하면 어느새 수많은 커널이 설치되어 있는 것을 확인할 수 있다. 삭제를 위해선 make install 로 만들어진 파일들을 직접 제거하고 grub 을 업데이트 해줘야 한다.
+예를 들어 시스템이 현재 부팅되어 있는 버전의 커널을 언인스톨하고자 한다면 다음의 일련의 커맨드를 입력하면 된다:
+# rm /boot/vmlinuz-$(uname -r) # rm /boot/initrd.img-$(uname -r) # rm /boot/System.map-$(uname -r) # rm /boot/config-$(uname -r) # rm -fr /lib/modules/$(uname -r) # rm /var/lib/initramfs-tools/$(uname -r) # update-grub2  다른 버전의 설치되어있는 커널을 제거하고 싶다면 위의 $(uname -r) 부분을 제거하고자 하는 커널 버전으로 대체하면 된다.
+                <a href="https://sjp38.github.io/post/uninstall-kernel/" class="post-read-more">[Read&nbsp;More]</a>
               
               </div>
 
 	      
 	        <span class="post-meta">
 	          
-	            #<a href="/tags/tip">tip</a>&nbsp;
-		  
-	            #<a href="/tags/fedora">fedora</a>&nbsp;
-		  
 	            #<a href="/tags/linux">linux</a>&nbsp;
 		  
-	            #<a href="/tags/google">google</a>&nbsp;
+	            #<a href="/tags/kernel">kernel</a>&nbsp;
 		  
-	            #<a href="/tags/chrome">chrome</a>&nbsp;
-		  
-	            #<a href="/tags/english">english</a>&nbsp;
-		  
-	        </span>
-	      
-
-             </article>
-            
-            <article class="post-preview">
-              <a href="https://sjp38.github.io/post/arping-howto/">
-                <h2 class="post-title">Using arping to know ip-MAC mapping</h2>
-
-                
-              </a>
-
-              <p class="post-meta">
-                Posted on March 7, 2017
-              </p>
-              <div class="post-entry">
-              
-                You can use arping to know IP address to MAC address mapping of your local network. Usage is simple:
-arping [-AbDfhqUV] [-c count] [-w deadline] [-s source] -I interface destination  For example, you may use the command as below:
-$ arping -I eth0 10.0.0.1 ARPING 10.0.0.1 from 10.0.0.2 eth0 Unicast reply from 10.0.0.1 [11:22:33:44:55:66] 0.123ms Unicast reply from 10.0.0.1 [11:22:33:44:55:66] 0.251ms ...  Secret of the tool is ARP protocol [1].
-                <a href="https://sjp38.github.io/post/arping-howto/" class="post-read-more">[Read&nbsp;More]</a>
-              
-              </div>
-
-	      
-	        <span class="post-meta">
-	          
 	            #<a href="/tags/tip">tip</a>&nbsp;
-		  
-	            #<a href="/tags/linux">linux</a>&nbsp;
-		  
-	            #<a href="/tags/network">network</a>&nbsp;
-		  
-	            #<a href="/tags/english">english</a>&nbsp;
 		  
 	        </span>
 	      

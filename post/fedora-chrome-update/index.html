@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Tip</title>
+  <title>Updating Google Chrome on Fedora 23</title>
   
   <meta name="author" content="SeongJae Park"/>
   <meta name="generator" content="Hugo 0.18-DEV" />
@@ -23,9 +23,9 @@
   <link rel="stylesheet" href="https://sjp38.github.io/css/highlight.min.css">
   
   
-  <meta property="og:title" content="Tip" />
+  <meta property="og:title" content="Updating Google Chrome on Fedora 23" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="/categories/tip/" />
+  <meta property="og:url" content="/post/fedora-chrome-update/" />
   <meta property="og:image" content="/" />
   
 </head>
@@ -84,98 +84,92 @@
   </div>
 </nav>
 
+    
 
-    <header class="header-section ">
-      <div class="intro-header no-img">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-              <div class="page-heading">
-                <h2>#Tip</h2>
-              </div>
-            </div>
-          </div>
+
+
+  
+
+  <header class="header-section ">
+  
+  <div class="intro-header no-img">
+      <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>Updating Google Chrome on Fedora 23</h1>
+      
+      
+      
+      <span class="post-meta">Posted on March 20, 2017</span>
+      
         </div>
       </div>
-    </header>
+    </div>
+  </div>
+  </div>
+  </header>
 
-    <div class="container" role="main">
-            
-            
-            <article class="post-preview">
-              <a href="https://sjp38.github.io/post/fedora-chrome-update/">
-                <h2 class="post-title">Updating Google Chrome on Fedora 23</h2>
 
-                
-              </a>
+    <div class="container" role="main">	  
+      
+        <div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+          <p>I am using Fedora 23 laptop and installed stable version Google Chrome from its
+official website [0].  In this case, just using <code>Updates</code> of Fedora <code>Software</code>
+program doesn&rsquo;t update Chrome automatically.  For the case, follow below
+commands to update your Chrome:</p>
 
-              <p class="post-meta">
-                Posted on March 20, 2017
-              </p>
-              <div class="post-entry">
-              
-                I am using Fedora 23 laptop and installed stable version Google Chrome from its official website [0]. In this case, just using Updates of Fedora Software program doesn&rsquo;t update Chrome automatically. For the case, follow below commands to update your Chrome:
-$ sudo dnf update google-chrome-stable ... $ sudo killall chrome $ google-chrome-stable  The second killall command is necessary because Chrome doesn&rsquo;t kill its process by just cliking Close button.
-                <a href="https://sjp38.github.io/post/fedora-chrome-update/" class="post-read-more">[Read&nbsp;More]</a>
-              
-              </div>
+<pre><code>$ sudo dnf update google-chrome-stable
+...
+$ sudo killall chrome
+$ google-chrome-stable
+</code></pre>
 
-	      
-	        <span class="post-meta">
-	          
-	            #<a href="/tags/tip">tip</a>&nbsp;
-		  
-	            #<a href="/tags/fedora">fedora</a>&nbsp;
-		  
-	            #<a href="/tags/linux">linux</a>&nbsp;
-		  
-	            #<a href="/tags/google">google</a>&nbsp;
-		  
-	            #<a href="/tags/chrome">chrome</a>&nbsp;
-		  
-	            #<a href="/tags/english">english</a>&nbsp;
-		  
-	        </span>
-	      
+<p>The second <code>killall</code> command is necessary because Chrome doesn&rsquo;t kill its
+process by just cliking <code>Close</code> button.  Or, you may reboot your computer but
+you wouldn&rsquo;t like that.</p>
 
-             </article>
-            
-            <article class="post-preview">
-              <a href="https://sjp38.github.io/post/arping-howto/">
-                <h2 class="post-title">Using arping to know ip-MAC mapping</h2>
+<hr />
 
-                
-              </a>
+<p>랩톱에 Fedora 23 을 깔고 크롬을 공식 홈페이지 [0] 에서 다운받아 메인 브라우저로
+사용하고 있습니다.  그런데 이렇게 설치한 경우에는 단순히 Fedora <code>Software</code>
+프로그램의 <code>Updates</code> 기능을 통해 업데이트가 되지 않더군요.  이런 경우에는
+다음의 커맨드를 통해 직접 업데이트를 할 수 있습니다:</p>
 
-              <p class="post-meta">
-                Posted on March 7, 2017
-              </p>
-              <div class="post-entry">
-              
-                You can use arping to know IP address to MAC address mapping of your local network. Usage is simple:
-arping [-AbDfhqUV] [-c count] [-w deadline] [-s source] -I interface destination  For example, you may use the command as below:
-$ arping -I eth0 10.0.0.1 ARPING 10.0.0.1 from 10.0.0.2 eth0 Unicast reply from 10.0.0.1 [11:22:33:44:55:66] 0.123ms Unicast reply from 10.0.0.1 [11:22:33:44:55:66] 0.251ms ...  Secret of the tool is ARP protocol [1].
-                <a href="https://sjp38.github.io/post/arping-howto/" class="post-read-more">[Read&nbsp;More]</a>
-              
-              </div>
+<pre><code>$ sudo dnf update google-chrome-stable
+...
+$ sudo killall chrome
+$ google-chrome-stable
+</code></pre>
 
-	      
-	        <span class="post-meta">
-	          
-	            #<a href="/tags/tip">tip</a>&nbsp;
-		  
-	            #<a href="/tags/linux">linux</a>&nbsp;
-		  
-	            #<a href="/tags/network">network</a>&nbsp;
-		  
-	            #<a href="/tags/english">english</a>&nbsp;
-		  
-	        </span>
-	      
+<p>두번째의 <code>killall</code> 커맨드는 Chrome 프로세스들이 <code>닫기</code> 버튼을 누르는 것만으로는
+모두 종료되지 않기 때문에 명시적으로 종료시키기 위해 필요합니다.  컴퓨터를 아예
+리붓 하는 방법도 있겠지만 별로 그러고 싶지는 않을테지요.  이후에 크롬을 다시
+시작하면 업데이트된 버전으로 시작됩니다.</p>
 
-             </article>
-            
-          </div>
+<p>[0] <a href="https://www.google.com/chrome/browser/desktop/index.html?brand=CHBD&amp;gclid=CKiMjdqX5dICFYcGKgodqZIM2Q">https://www.google.com/chrome/browser/desktop/index.html?brand=CHBD&amp;gclid=CKiMjdqX5dICFYcGKgodqZIM2Q</a></p>
+
+      </article>
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="https://sjp38.github.io/post/kakaobot/" data-toggle="tooltip" data-placement="top" title="Golang kakaotalk chat bot making">&larr; Previous Post</a>
+        </li>
+        
+        
+      </ul>
+
+      
+
+    </div>
+  </div>
+</div>
+
+      
     </div>
 
     <footer>
