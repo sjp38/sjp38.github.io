@@ -11,6 +11,74 @@
     <atom:link href="https://sjp38.github.io/tags/open-source/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Fetching linux kernel source code</title>
+      <link>https://sjp38.github.io/post/fetching-linux-source-code/</link>
+      <pubDate>Mon, 20 Mar 2017 22:37:03 +0900</pubDate>
+      <author>sj38.park@gmail.com (SeongJae Park)</author>
+      <guid>https://sjp38.github.io/post/fetching-linux-source-code/</guid>
+      <description>
+
+&lt;p&gt;리눅스 커널은 오픈 소스 소프트웨어이므로 그 소스코드가 공개되어 있어 누구나
+인터넷을 통해 쉽게 얻을 수 있습니다.  이 글에서는 리눅스 커널 소스코드를 받아올
+수 있는 몇가지 방법을 설명합니다.&lt;/p&gt;
+
+&lt;h1 id=&#34;kernel-org&#34;&gt;kernel.org&lt;/h1&gt;
+
+&lt;p&gt;리눅스 커널 소스 코드를 받아오기 위한 공식 사이트는
+&lt;a href=&#34;https://www.kerne.org&#34;&gt;kernel.org&lt;/a&gt; 라 할 수 있겠는데, 이 사이트에는 소스
+코드를 포함해 리눅스 커널을 위한 다양한 리소스가 정리되어 있습니다.  이
+사이트에 웹브라우저를 통해 들어가보면 첫페이지에서부터 가장 최근에 릴리즈된
+버전의 소스코드, 가장 최근의 안정화된 버전의 소스코드 등을 &lt;code&gt;tar.xz&lt;/code&gt; 포맷의 압축
+파일 또는 &lt;code&gt;patch&lt;/code&gt; 등 다양한 형태로 다운받을 수 있는 링크가 있습니다.&lt;/p&gt;
+
+&lt;h2 id=&#34;specific-version&#34;&gt;Specific Version&lt;/h2&gt;
+
+&lt;p&gt;kernel.org 첫 페이지에는 몇가지 버전의 소스코드만 존재하므로 찾고 있는 버전은
+해당 페이지에 링크가 존재하지 않을 수 있습니다.  특정 버전을 찾기 위한 페이지
+역시 kernel.org 는 제공하는데, &lt;a href=&#34;https://www.kernel.org/pub/linux/kernel/&#34;&gt;https://www.kernel.org/pub/linux/kernel/&lt;/a&gt; 주소로
+들어가면 특정 버전의 커널 소스코드를 받을 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;예를 들어 4.2.1 버전을 받고 싶다면, 다음 커맨드를 셸에서 수행해 받아올 수
+있습니다:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ wget https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.2.1.tar.xz
+$ tar xvf linux-4.2.1.tar.xz
+$ ls linux-4.2.1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;git-repository-cloning&#34;&gt;Git Repository Cloning&lt;/h1&gt;
+
+&lt;p&gt;주요 리눅스 개발자들은 각자의 git repository 로 자신이 개발중인 버전의 리눅스
+커널 소스코드를 관리하는데, 이 역시 남들이 볼 수 있게 공유해 두고 있습니다.
+따라서, 원한다면 특정 리눅스 개발자의 개발중인 리눅스 커널 소스코드를 git 으로
+clone 해올 수 있습니다.  많은 주요 개발자들이 kernel.org 위에 자신의 git
+repository 를 호스팅 하고 있으며, github 을 사용하는 사람들도 많습니다.  예를
+들어 리누스 토발즈는 kernel.org 위에 자신의 git repository 를 호스팅 하면서
+github 에 미러링도 하고 있습니다.  각각의 repository 의 주소는 다음과 같습니다:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git&#34;&gt;https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/torvalds/linux.git&#34;&gt;https://github.com/torvalds/linux.git&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;다음과 같은 명령을 통해 리누스 토발즈의 개발중인 리눅스 커널 소스코드를 clone
+해올 수 있습니다:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ git clone https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+$ ls linux
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;리누스 토발즈의 git repository 에는 2.6 이후 모든 버전의 소스코드가 버전 관리
+되고 있으므로, 이렇게 한번만 clone 을 해오면 리누스 토발즈가 릴리즈 하는 모든
+버전의 소스코드를 체크아웃할 수 있습니다.  단점은, 그렇다보니 git repository 의
+용량이 꽤 큰 편이라 처음 &lt;code&gt;git clone&lt;/code&gt; 할 때 시간이 오래 걸립니다.  리눅스 커널
+개발에 참여하고 싶다면 토발즈의 git repository 를 clone 하는게, 그렇지 않고
+특정 버전 소스코드가 필요할 뿐이라면 앞서 이야기한 방식으로 특정 버전의
+압축파일 버전만 얻어오는게 좋을 겁니다.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Golang kakaotalk chat bot making</title>
       <link>https://sjp38.github.io/post/kakaobot/</link>
       <pubDate>Wed, 15 Mar 2017 22:40:32 +0900</pubDate>

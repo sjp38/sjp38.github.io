@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Happy Hacking</title>
+  <title>Fetching linux kernel source code</title>
   
   <meta name="author" content="SeongJae Park"/>
   <meta name="generator" content="Hugo 0.18-DEV" />
@@ -23,9 +23,9 @@
   <link rel="stylesheet" href="https://sjp38.github.io/css/highlight.min.css">
   
   
-  <meta property="og:title" content="Happy Hacking" />
+  <meta property="og:title" content="Fetching linux kernel source code" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="/" />
+  <meta property="og:url" content="/post/fetching-linux-source-code/" />
   <meta property="og:image" content="/" />
   
 </head>
@@ -84,159 +84,117 @@
   </div>
 </nav>
 
+    
 
-    <header class="header-section ">
-      <div class="intro-header no-img">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-              <div class="page-heading">
-                <h1>Happy Hacking</h1>
-                
-                  <hr class="small">
-                  <span class="page-subheading">A blog for miscellaneous hacks</span>
-                
-              </div>
-            </div>
-          </div>
+
+
+  
+
+  <header class="header-section ">
+  
+  <div class="intro-header no-img">
+      <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>Fetching linux kernel source code</h1>
+      
+      
+      
+      <span class="post-meta">Posted on March 20, 2017</span>
+      
         </div>
       </div>
-    </header>
+    </div>
+  </div>
+  </div>
+  </header>
 
 
-    <div role="main" class="container">
-      <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-          <div class="posts-list">
-            
-            
-            <article class="post-preview">
-              <a href="https://sjp38.github.io/post/us-sues-oracle/">
-          	  <h2 class="post-title">us sues oracle</h2>
-          	
-          	    
-              </a>
+    <div class="container" role="main">	  
+      
+        <div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+          
 
-              <p class="post-meta">
-                Posted on January 19, 2017
-              </p>
-              <div class="post-entry">
-              
-                <p>오라클이 백인 남성에게 더 많은 월급을 지불하고 아시아인, 그중에서도 인도 사람을
-많이 개발직에 채용했다는 이유로 미국 정부가 오라클을 고소.</p>
+<p>리눅스 커널은 오픈 소스 소프트웨어이므로 그 소스코드가 공개되어 있어 누구나
+인터넷을 통해 쉽게 얻을 수 있습니다.  이 글에서는 리눅스 커널 소스코드를 받아올
+수 있는 몇가지 방법을 설명합니다.</p>
 
-<p><a href="http://www.reuters.com/article/us-oracle-usa-labor-idUSKBN1522O6?il=0">http://www.reuters.com/article/us-oracle-usa-labor-idUSKBN1522O6?il=0</a></p>
+<h1 id="kernel-org">kernel.org</h1>
 
-              
-              </div>
+<p>리눅스 커널 소스 코드를 받아오기 위한 공식 사이트는
+<a href="https://www.kerne.org">kernel.org</a> 라 할 수 있겠는데, 이 사이트에는 소스
+코드를 포함해 리눅스 커널을 위한 다양한 리소스가 정리되어 있습니다.  이
+사이트에 웹브라우저를 통해 들어가보면 첫페이지에서부터 가장 최근에 릴리즈된
+버전의 소스코드, 가장 최근의 안정화된 버전의 소스코드 등을 <code>tar.xz</code> 포맷의 압축
+파일 또는 <code>patch</code> 등 다양한 형태로 다운받을 수 있는 링크가 있습니다.</p>
 
-	      
-	        <span class="post-meta">
-	          
-	            #<a href="/tags/news">news</a>&nbsp;
-		  
-	            #<a href="/tags/oracle">oracle</a>&nbsp;
-		  
-	        </span>
-	      
+<h2 id="specific-version">Specific Version</h2>
 
-             </article>
-            
-            <article class="post-preview">
-              <a href="https://sjp38.github.io/post/gcma/">
-          	  <h2 class="post-title">GCMA: Guaranteed Contiguous Memory Allocator</h2>
-          	
-          	    
-              </a>
+<p>kernel.org 첫 페이지에는 몇가지 버전의 소스코드만 존재하므로 찾고 있는 버전은
+해당 페이지에 링크가 존재하지 않을 수 있습니다.  특정 버전을 찾기 위한 페이지
+역시 kernel.org 는 제공하는데, <a href="https://www.kernel.org/pub/linux/kernel/">https://www.kernel.org/pub/linux/kernel/</a> 주소로
+들어가면 특정 버전의 커널 소스코드를 받을 수 있습니다.</p>
 
-              <p class="post-meta">
-                Posted on January 14, 2017
-              </p>
-              <div class="post-entry">
-              
-                GCMA (Guaranteed Contiguous Memory Allocator) is a contiguous memory allocator for Linux kernel that guarantees fast latency, success of allocation, and reasonable system memory utilization. Our evaluation on Raspberry Pi 2 shows 15 to 130 times faster and more predictable allocation latency without system performance degradation compared to Linux v3.18 default CMA.
-The project has been introduced by Linux Foundation Korea Forum 2014[1] and Embedded Operating Systems Workshop 2015[2]. A paper about the project has been published by proceeding of Embedded Operating Systems Workshop 2015 and 45th issue of ACM SIGBED Review.
-                <a href="https://sjp38.github.io/post/gcma/" class="post-read-more">[Read&nbsp;More]</a>
-              
-              </div>
+<p>예를 들어 4.2.1 버전을 받고 싶다면, 다음 커맨드를 셸에서 수행해 받아올 수
+있습니다:</p>
 
-	      
-	        <span class="post-meta">
-	          
-	            #<a href="/tags/projects">projects</a>&nbsp;
-		  
-	            #<a href="/tags/gcma">gcma</a>&nbsp;
-		  
-	            #<a href="/tags/english">english</a>&nbsp;
-		  
-	        </span>
-	      
+<pre><code>$ wget https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.2.1.tar.xz
+$ tar xvf linux-4.2.1.tar.xz
+$ ls linux-4.2.1
+</code></pre>
 
-             </article>
-            
-            <article class="post-preview">
-              <a href="https://sjp38.github.io/post/about/">
-          	  <h2 class="post-title">about</h2>
-          	
-          	    
-              </a>
+<h1 id="git-repository-cloning">Git Repository Cloning</h1>
 
-              <p class="post-meta">
-                Posted on January 14, 2017
-              </p>
-              <div class="post-entry">
-              
-                
-
-<p>SeongJae Park is a programmer who loves to analyse and develop systems just for
-fun.</p>
-
-<h2 id="contact-information">Contact information</h2>
+<p>주요 리눅스 개발자들은 각자의 git repository 로 자신이 개발중인 버전의 리눅스
+커널 소스코드를 관리하는데, 이 역시 남들이 볼 수 있게 공유해 두고 있습니다.
+따라서, 원한다면 특정 리눅스 개발자의 개발중인 리눅스 커널 소스코드를 git 으로
+clone 해올 수 있습니다.  많은 주요 개발자들이 kernel.org 위에 자신의 git
+repository 를 호스팅 하고 있으며, github 을 사용하는 사람들도 많습니다.  예를
+들어 리누스 토발즈는 kernel.org 위에 자신의 git repository 를 호스팅 하면서
+github 에 미러링도 하고 있습니다.  각각의 repository 의 주소는 다음과 같습니다:</p>
 
 <ul>
-<li><a href="mailto:sjpark@dcslab.snu.ac.kr">sjpark@dcslab.snu.ac.kr</a></li>
-<li><a href="mailto:sj38.park@gmail.com">sj38.park@gmail.com</a></li>
+<li><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git">https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git</a></li>
+<li><a href="https://github.com/torvalds/linux.git">https://github.com/torvalds/linux.git</a></li>
 </ul>
 
-<h2 id="linkedin">LinkedIn</h2>
+<p>다음과 같은 명령을 통해 리누스 토발즈의 개발중인 리눅스 커널 소스코드를 clone
+해올 수 있습니다:</p>
 
-<p><a href="https://www.linkedin.com/in/seongjae-park-1a5b9954">https://www.linkedin.com/in/seongjae-park-1a5b9954</a></p>
+<pre><code>$ git clone https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+$ ls linux
+</code></pre>
 
-<h2 id="github">Github</h2>
+<p>리누스 토발즈의 git repository 에는 2.6 이후 모든 버전의 소스코드가 버전 관리
+되고 있으므로, 이렇게 한번만 clone 을 해오면 리누스 토발즈가 릴리즈 하는 모든
+버전의 소스코드를 체크아웃할 수 있습니다.  단점은, 그렇다보니 git repository 의
+용량이 꽤 큰 편이라 처음 <code>git clone</code> 할 때 시간이 오래 걸립니다.  리눅스 커널
+개발에 참여하고 싶다면 토발즈의 git repository 를 clone 하는게, 그렇지 않고
+특정 버전 소스코드가 필요할 뿐이라면 앞서 이야기한 방식으로 특정 버전의
+압축파일 버전만 얻어오는게 좋을 겁니다.</p>
 
-<p><a href="https://github.com/sjp38">https://github.com/sjp38</a></p>
+      </article>
 
-<h2 id="openhub">Openhub</h2>
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="https://sjp38.github.io/post/fedora-chrome-update/" data-toggle="tooltip" data-placement="top" title="Updating Google Chrome on Fedora 23">&larr; Previous Post</a>
+        </li>
+        
+        
+      </ul>
 
-<p><a href="https://www.openhub.net/accounts/sjpark">https://www.openhub.net/accounts/sjpark</a></p>
+      
 
-              
-              </div>
+    </div>
+  </div>
+</div>
 
-	      
-	        <span class="post-meta">
-	          
-	            #<a href="/tags/about">about</a>&nbsp;
-		  
-	        </span>
-	      
-
-             </article>
-            
-          </div>
-
-          
-          <ul class="pager main-pager">
-            
-            <li class="previous">
-              <a href="/page/3">&larr; Newer Posts</a>
-            </li>
-            
-            
-          </ul>
-          
-        </div>
-      </div>
+      
     </div>
 
     <footer>
