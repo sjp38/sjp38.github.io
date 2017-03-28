@@ -8,8 +8,229 @@
     <language>en-us</language>
     <managingEditor>sj38.park@gmail.com (SeongJae Park)</managingEditor>
     <webMaster>sj38.park@gmail.com (SeongJae Park)</webMaster>
-    <lastBuildDate>Mon, 20 Mar 2017 22:37:03 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 29 Mar 2017 05:10:55 +0900</lastBuildDate>
     <atom:link href="https://sjp38.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>spec_cpu2006_install</title>
+      <link>https://sjp38.github.io/post/spec_cpu2006_install/</link>
+      <pubDate>Wed, 29 Mar 2017 05:10:55 +0900</pubDate>
+      <author>sj38.park@gmail.com (SeongJae Park)</author>
+      <guid>https://sjp38.github.io/post/spec_cpu2006_install/</guid>
+      <description>
+
+&lt;p&gt;SPEC 은 벤치마크를 위한 협력기구 [0] 로, 다양한 벤치마크 suite 들을 만들고
+공유합니다.  SPEC CPU 2006 은 여기서 만든 벤치마크 도구집합 중 하나 [1] 로 계산
+작업 집중적인 워크로드에 대한 성능을 측정을 목표로 만들어졌으며, 많은 곳에서
+사용되고 있습니다.  본 글은 Ubuntu 16.04 서버 위에서의 SPEC CPU 2006 v1.1 의
+설치에 대해 간단히 설명합니다.&lt;/p&gt;
+
+&lt;h1 id=&#34;설치-환경&#34;&gt;설치 환경&lt;/h1&gt;
+
+&lt;p&gt;본 글에서 설명하는 내용은 다음과 같은 환경의 머신 위에서 수행되었습니다:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Intel Xeon E7-8870 v3&lt;/li&gt;
+&lt;li&gt;Linux 4.10 kernel&lt;/li&gt;
+&lt;li&gt;Ubuntu 16.04.1 Server version&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;소스-코드-구하기&#34;&gt;소스 코드 구하기&lt;/h1&gt;
+
+&lt;p&gt;먼저 소스 코드가 있어야겠죠.  SPEC CPU 2006 은 DVD 또는 &lt;code&gt;.iso&lt;/code&gt; 파일의 형태로
+배포되고 있으며, 안타깝지만 돈을 내고 (작성 시점에서 SPEC CPU 2006 v1.2 의
+가격은 $800 군요) 구매해야 [2] 합니다.  이 글에선 SPEC CPU 2006 v1.1 을
+바탕으로 설명합니다.  &lt;code&gt;.iso&lt;/code&gt; 파일을 구했다면 다음과 같은 명령으로 mount 해서 그
+안의 파일들을 보고 사용할 수 있습니다:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ mkdir tmnt
+$ sudo mount -o loop SPEC_CPU2006v1.1.iso ./tmnt
+$ ls tmnt
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;마운트한 위치에서 곧바로 설치 / 실행을 수행해도 좋지만 파일을 복사해두고
+사용하겠습니다.  &lt;code&gt;mount&lt;/code&gt; 를 &lt;code&gt;sudo&lt;/code&gt; 로 해야하는 관계로 이 파일들의 owner 는
+&lt;code&gt;root&lt;/code&gt; 이며 쓰기권한도 없습니다.  굳이 &lt;code&gt;root&lt;/code&gt; 가 되지 않고도 벤치마크를
+설치하고 돌릴 수 있으므로 파일의 owner 와 권한을 바꿔줍니다:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ mkdir SPEC_CPU2006v1.1
+$ cp -R ./tmnt/* SPEC_CPU2006v1.1/
+$ sudo umount ./tmnt &amp;amp;&amp;amp; rm -fr ./tmnt
+$ sudo chown -R &amp;lt;username&amp;gt; SPEC_CPU2006v1.1
+$ sudo chmod -R 755 SPEC_CPU2006v1.1
+$ cd SPEC_CPU2006v1.1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;툴-빌드&#34;&gt;툴 빌드&lt;/h1&gt;
+
+&lt;p&gt;SPEC 에서 사용되는 도구들은 앞서 가져온 &lt;code&gt;.iso&lt;/code&gt; 파일 안에 redhat, suse 등 여러
+플랫폼 용으로 미리 빌드되어 있습니다.  하지만 Ubuntu 를 위한 버전은 없습니다.
+따라서 다음과 같이 소스코드로부터 직접 빌드를 해야 합니다:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ cd tools/src
+$ ./buildtools
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;buildtools&lt;/code&gt; 는 셸 스크립트로, &lt;code&gt;tools/src&lt;/code&gt; 아래 있는 각 툴들을 빌드합니다.
+곧바로 진행되면 좋겠지만, 다음과 같은 에러들이 발생합니다.&lt;/p&gt;
+
+&lt;h2 id=&#34;conflicting-types-for-getline&#34;&gt;Conflicting types for &amp;lsquo;getline&amp;rsquo;&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;md5sum&lt;/code&gt; 빌드 중 다음과 같은 에러 메세지가 나옵니다:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;gcc -DHAVE_CONFIG_H    -I/home/sjpark/benchmarks/spec/SPEC_CPU2006v1.1/tools/output/include   -I. -Ilib  -c -o md5sum.o md5sum.c
+In file included from md5sum.c:38:0:
+lib/getline.h:31:1: error: conflicting types for &#39;getline&#39;
+ getline PARAMS ((char **_lineptr, size_t *_n, FILE *_stream));
+ ^
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;md5sum&lt;/code&gt; 빌드 중 &lt;code&gt;getline()&lt;/code&gt;, &lt;code&gt;getdelim()&lt;/code&gt; 함수가 &lt;code&gt;stdio.h&lt;/code&gt; 에서 선언되어
+있는데도 &lt;code&gt;getline.h&lt;/code&gt; 파일에 또 선언되어서 conflicting type 으로 나는
+문제입니다.  역시 툴 중 하나인 &lt;code&gt;tar&lt;/code&gt; 의 경우엔 GLIBC 버전을 체크해 2 이상일
+경우엔 해당 declaration 을 제거해 두었는데, &lt;code&gt;md5sum&lt;/code&gt; 아래의 &lt;code&gt;getline.h&lt;/code&gt; 엔 이
+체크가 없기 때문에 문제가 됩니다.  다음과 같이 GLIBC 버전 체크를 추가해
+중복선언이 없도록 수정해 줍니다:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;--- a/tools/src/specmd5sum/lib/getline.h
++++ b/tools/src/specmd5sum/lib/getline.h
+@@ -27,10 +27,14 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.  */
+ #  endif
+ # endif
+
++# if __GLIBC__ &amp;lt; 2
++
+ int
+ getline PARAMS ((char **_lineptr, size_t *_n, FILE *_stream));
+
+ int
+ getdelim PARAMS ((char **_lineptr, size_t *_n, int _delimiter, FILE *_stream));
+
++#endif
++
+ #endif /* not GETLINE_H_ */
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;undefined-reference-to-pow&#34;&gt;Undefined reference to &lt;code&gt;pow&lt;/code&gt;&lt;/h2&gt;
+
+&lt;p&gt;이 문제와 아래의 두개의 문제는 인터넷 상의 SPEC CPU 2000 에 대한 비슷한 문제의
+해결책[3] 을 참고했습니다.&lt;/p&gt;
+
+&lt;p&gt;이제 &lt;code&gt;perl&lt;/code&gt; 빌드 중 다음과 같은 에러 메세지가 발생합니다:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cc -L/home/sjpark/benchmarks/spec/SPEC_CPU2006v1.1/tools/output/lib -L/usr/local/lib -o miniperl \
+            miniperlmain.o opmini.o libperl.a
+libperl.a(pp.o): In function `Perl_pp_pow&#39;:
+pp.c:(.text+0x2a76): undefined reference to `pow&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;pow&lt;/code&gt; 함수를 찾지 못하는 문제로, &lt;code&gt;libm&lt;/code&gt; 라이브러리를 링크 시점에 링크하도록
+알려줘야 합니다.  다음과 같이 &lt;code&gt;PERLFLAGS&lt;/code&gt; 환경변수를 설정하고 &lt;code&gt;buildtools&lt;/code&gt; 를
+실행하는 것으로 해결할 수 있습니다:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;$ PERLFLAGS=&amp;quot;-A libs=-lm -A libs=-ldl&amp;quot; ./buildtools&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;asm-page-h-file-not-found&#34;&gt;&lt;code&gt;asm/page.h&lt;/code&gt; file not found&lt;/h2&gt;
+
+&lt;p&gt;커널 헤더파일인 &lt;code&gt;asm/page.h&lt;/code&gt; 파일을 &lt;code&gt;tools/src/perl-5.8.8/ext/IPC/SysV/SysV.xs&lt;/code&gt;
+파일에서 &lt;code&gt;include&lt;/code&gt; 하고 있어 발생하는 문제가 다음과 같이 발생합니다:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cc -c   -I/home/sjpark/benchmarks/spec/SPEC_CPU2006v1.1/tools/output/include -fno-strict-aliasing -pipe -Wdeclaration-after-statement -I/usr/local/include -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -O2   -DVERSION=\&amp;quot;1.04\&amp;quot; -DXS_VERSION=\&amp;quot;1.04\&amp;quot; -fpic &amp;quot;-I../../..&amp;quot;   SysV.c
+SysV.xs:7:25: fatal error: asm/page.h: No such file or directory
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;SysV.xs&lt;/code&gt; 파일의 해당 &lt;code&gt;include&lt;/code&gt; 문을 다음과 같이 막고 &lt;code&gt;PAGE_SIZE&lt;/code&gt; 를 정의해준다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;--- a/tools/src/perl-5.8.8/ext/IPC/SysV/SysV.xs
++++ b/tools/src/perl-5.8.8/ext/IPC/SysV/SysV.xs
+@@ -4,7 +4,7 @@
+
+ #include &amp;lt;sys/types.h&amp;gt;
+ #ifdef __linux__
+-#   include &amp;lt;asm/page.h&amp;gt;
++#define PAGE_SIZE      4096
+ #endif
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;you-haven-t-done-a-make-depend-yet&#34;&gt;You haven&amp;rsquo;t done a &amp;ldquo;make depend&amp;rdquo; yet!&lt;/h2&gt;
+
+&lt;p&gt;이어서 다음 에러 메세지가 나옵니다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;You haven&#39;t done a &amp;quot;make depend&amp;quot; yet!
+make[1]: *** [hash.o] Error 1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;perl&lt;/code&gt; 빌드 중 사용되는 &lt;code&gt;/bin/sh&lt;/code&gt; 은 &lt;code&gt;/bin/dash&lt;/code&gt; 를 가리키고 있는데, &lt;code&gt;dash&lt;/code&gt;
+에서 생기는 문제입니다.  다음과 같이 심볼릭 링크를 수정해 &lt;code&gt;bin/sh&lt;/code&gt; 이 &lt;code&gt;bash&lt;/code&gt; 를
+가리키도록 하면 문제는 해결됩니다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo rm /bin/sh
+$ sudo ln -s /bin/bash /bin/sh
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;시스템을 원래대로 돌리고 싶다면 빌드 끝나고 나중에 심볼릭 링크를 되돌리면
+됩니다.&lt;/p&gt;
+
+&lt;h2 id=&#34;perl-test-fail&#34;&gt;&lt;code&gt;perl&lt;/code&gt; test fail&lt;/h2&gt;
+
+&lt;p&gt;위의 해결책을 모두 적용하고 &lt;code&gt;$ PERLFLAGS=&amp;quot;-A libs=-lm -A libs=-ldl&amp;quot;
+./buildtools&lt;/code&gt; 를 수행하면 perl 쪽의 테스트 약 900개 가운데 9개 정도 fail 나는
+문제가 있긴 하지만 이건 무시하겠다고 하면 무시가 되고 빌드 진행이 됩니다.
+테스트 9개가 fail 났는데 무시하겠냐는 질문이 아래와 같이 뜨는데, 무시하겠다고
+답해줍시다 (해당 프롬프트에서 설명하는대로, &lt;code&gt;y&lt;/code&gt; 를 입력하면 됩니다).&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Failed 9 test scripts out of 907, 99.01% okay.
+### Since not all tests were successful, you may want to run some of
+### them individually and examine any diagnostic messages they produce.
+### See the INSTALL document&#39;s section on &amp;quot;make test&amp;quot;.
+### You have a good chance to get more information by running
+###   ./perl harness
+### in the &#39;t&#39; directory since most (&amp;gt;=80%) of the tests succeeded.
+### You may have to set your dynamic library search path,
+### LD_LIBRARY_PATH, to point to the build directory:
+###   setenv LD_LIBRARY_PATH `pwd`:$LD_LIBRARY_PATH; cd t; ./perl harness
+###   LD_LIBRARY_PATH=`pwd`:$LD_LIBRARY_PATH; export LD_LIBRARY_PATH; cd t; ./perl harness
+###   export LD_LIBRARY_PATH=`pwd`:$LD_LIBRARY_PATH; cd t; ./perl harness
+### for csh-style shells, like tcsh; or for traditional/modern
+### Bourne-style shells, like bash, ksh, and zsh, respectively.
+u=0.92  s=0.69  cu=89.23  cs=5.47  scripts=907  tests=112394
+make[2]: *** [_test_tty] Error 1
+make[2]: Leaving directory `/home/sjpark/benchmarks/spec/SPEC_CPU2006v1.1/tools/src/perl-5.8.8&#39;
+make[1]: *** [_test] Error 2
+make[1]: Leaving directory `/home/sjpark/benchmarks/spec/SPEC_CPU2006v1.1/tools/src/perl-5.8.8&#39;
+make: *** [test] Error 2
++ &#39;[&#39; 2 -ne 0 &#39;]&#39;
++ set +x
+
+
+Hey!  Some of the Perl tests failed!  If you think this is okay, enter y now:
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;build-success&#34;&gt;Build success&lt;/h2&gt;
+
+&lt;p&gt;여기까지 오면 이제 빌드가 완료됩니다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Tools built successfully.  Go to the top of the tree and
+source the shrc file.  Then you should be ready.
+$
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h1&gt;
+
+&lt;p&gt;SPEC CPU 2006 을 Ubuntu 16.04 에 설치하는 과정을 알아봤습니다.  다음 글에서는
+SPEC CPU 벤치마크를 실행해 보는 방법을 설명합니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;[0] &lt;a href=&#34;http://spec.org/&#34;&gt;http://spec.org/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;[1] &lt;a href=&#34;http://spec.org/benchmarks.html#cpu&#34;&gt;http://spec.org/benchmarks.html#cpu&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;[2] &lt;a href=&#34;http://spec.org/order.html&#34;&gt;http://spec.org/order.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;[3] &lt;a href=&#34;https://wiki.linaro.org/MichaelHope/Sandbox/BuildingSPECTools&#34;&gt;https://wiki.linaro.org/MichaelHope/Sandbox/BuildingSPECTools&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Fetching linux kernel source code</title>

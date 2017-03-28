@@ -2,13 +2,13 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Happy Hacking</title>
-    <link>https://sjp38.github.io/categories/tip/index.xml</link>
+    <link>https://sjp38.github.io/tags/spec_cpu2006/index.xml</link>
     <description>Recent content on Happy Hacking</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <managingEditor>sj38.park@gmail.com (SeongJae Park)</managingEditor>
     <webMaster>sj38.park@gmail.com (SeongJae Park)</webMaster>
-    <atom:link href="https://sjp38.github.io/categories/tip/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://sjp38.github.io/tags/spec_cpu2006/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>spec_cpu2006_install</title>
@@ -228,110 +228,6 @@ SPEC CPU 벤치마크를 실행해 보는 방법을 설명합니다.&lt;/p&gt;
 &lt;p&gt;[2] &lt;a href=&#34;http://spec.org/order.html&#34;&gt;http://spec.org/order.html&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;[3] &lt;a href=&#34;https://wiki.linaro.org/MichaelHope/Sandbox/BuildingSPECTools&#34;&gt;https://wiki.linaro.org/MichaelHope/Sandbox/BuildingSPECTools&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Updating Google Chrome on Fedora 23</title>
-      <link>https://sjp38.github.io/post/fedora-chrome-update/</link>
-      <pubDate>Mon, 20 Mar 2017 22:24:26 +0900</pubDate>
-      <author>sj38.park@gmail.com (SeongJae Park)</author>
-      <guid>https://sjp38.github.io/post/fedora-chrome-update/</guid>
-      <description>&lt;p&gt;I am using Fedora 23 laptop and installed stable version Google Chrome from its
-official website [0].  In this case, just using &lt;code&gt;Updates&lt;/code&gt; of Fedora &lt;code&gt;Software&lt;/code&gt;
-program doesn&amp;rsquo;t update Chrome automatically.  For the case, follow below
-commands to update your Chrome:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo dnf update google-chrome-stable
-...
-$ sudo killall chrome
-$ google-chrome-stable
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The second &lt;code&gt;killall&lt;/code&gt; command is necessary because Chrome doesn&amp;rsquo;t kill its
-process by just cliking &lt;code&gt;Close&lt;/code&gt; button.  Or, you may reboot your computer but
-you wouldn&amp;rsquo;t like that.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;랩톱에 Fedora 23 을 깔고 크롬을 공식 홈페이지 [0] 에서 다운받아 메인 브라우저로
-사용하고 있습니다.  그런데 이렇게 설치한 경우에는 단순히 Fedora &lt;code&gt;Software&lt;/code&gt;
-프로그램의 &lt;code&gt;Updates&lt;/code&gt; 기능을 통해 업데이트가 되지 않더군요.  이런 경우에는
-다음의 커맨드를 통해 직접 업데이트를 할 수 있습니다:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo dnf update google-chrome-stable
-...
-$ sudo killall chrome
-$ google-chrome-stable
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;두번째의 &lt;code&gt;killall&lt;/code&gt; 커맨드는 Chrome 프로세스들이 &lt;code&gt;닫기&lt;/code&gt; 버튼을 누르는 것만으로는
-모두 종료되지 않기 때문에 명시적으로 종료시키기 위해 필요합니다.  컴퓨터를 아예
-리붓 하는 방법도 있겠지만 별로 그러고 싶지는 않을테지요.  이후에 크롬을 다시
-시작하면 업데이트된 버전으로 시작됩니다.&lt;/p&gt;
-
-&lt;p&gt;[0] &lt;a href=&#34;https://www.google.com/chrome/browser/desktop/index.html?brand=CHBD&amp;amp;gclid=CKiMjdqX5dICFYcGKgodqZIM2Q&#34;&gt;https://www.google.com/chrome/browser/desktop/index.html?brand=CHBD&amp;amp;gclid=CKiMjdqX5dICFYcGKgodqZIM2Q&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Using arping to know ip-MAC mapping</title>
-      <link>https://sjp38.github.io/post/arping-howto/</link>
-      <pubDate>Tue, 07 Mar 2017 19:41:16 +0900</pubDate>
-      <author>sj38.park@gmail.com (SeongJae Park)</author>
-      <guid>https://sjp38.github.io/post/arping-howto/</guid>
-      <description>&lt;p&gt;You can use &lt;code&gt;arping&lt;/code&gt; to know IP address to MAC address mapping of your local
-network.  Usage is simple:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;arping  [-AbDfhqUV]  [-c count] [-w deadline] [-s source] -I interface destination
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;For example, you may use the command as below:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ arping -I eth0 10.0.0.1
-ARPING 10.0.0.1 from 10.0.0.2 eth0
-Unicast reply from 10.0.0.1 [11:22:33:44:55:66]  0.123ms
-Unicast reply from 10.0.0.1 [11:22:33:44:55:66]  0.251ms
-...
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Secret of the tool is ARP protocol [1].  To know the MAC address of the machine
-that has a specific IP address, IP protocol layer uses the protocol.  MAC
-address that found in this way can be used to communicate with Ethernet
-protocol layer.  &lt;code&gt;arping&lt;/code&gt; just sends the ARP REQUEST to local network
-neighbour.&lt;/p&gt;
-
-&lt;p&gt;It could be useful in case of internet connection problem if IP duplication is
-suspicious.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;로컬 네트워크에서 어떤 IP 주소가 어떤 MAC 어드레스에 매핑되는지 알기 위해
-&lt;code&gt;arping&lt;/code&gt; 을 사용할 수 있습니다. 사용법은 간단합니다:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;arping  [-AbDfhqUV]  [-c count] [-w deadline] [-s source] -I interface destination
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;예를 들면, 다음과 같습니다:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ arping -I eth0 10.0.0.1
-ARPING 10.0.0.1 from 10.0.0.2 eth0
-Unicast reply from 10.0.0.1 [11:22:33:44:55:66]  0.123ms
-Unicast reply from 10.0.0.1 [11:22:33:44:55:66]  0.251ms
-...
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;이 툴의 동작 원리는 ARP 프로토콜 [1] 입니다.  IP 프로토콜 레이어는 이
-프로토콜을 사용해 특정 IP 주소를 사용하는 기계의 MAC 어드레스를 파악하고 이
-주소를 아랫단의 Ethernet 레이어에 보냅니다.  &lt;code&gt;arping&lt;/code&gt; 은 단지 ARP REQUEST 를
-로컬 네트워크의 컴퓨터들에게 보내는 일을 합니다.&lt;/p&gt;
-
-&lt;p&gt;인터넷 연결 문제가 발생했을 때, IP 중복이 의심된다면 유용하게 사용될 수
-있습니다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;[1] &lt;a href=&#34;http://www.erg.abdn.ac.uk/users/gorry/course/inet-pages/arp.html&#34;&gt;http://www.erg.abdn.ac.uk/users/gorry/course/inet-pages/arp.html&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
