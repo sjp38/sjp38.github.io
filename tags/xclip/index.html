@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Posts</title>
+  <title>Xclip</title>
   
   <meta name="author" content="SeongJae Park"/>
   <meta name="generator" content="Hugo 0.18-DEV" />
@@ -23,9 +23,9 @@
   <link rel="stylesheet" href="https://sjp38.github.io/css/highlight.min.css">
   
   
-  <meta property="og:title" content="Posts" />
+  <meta property="og:title" content="Xclip" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="/post/" />
+  <meta property="og:url" content="/tags/xclip/" />
   <meta property="og:image" content="/" />
   
 </head>
@@ -91,7 +91,7 @@
           <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
               <div class="page-heading">
-                <h2>#Posts</h2>
+                <h2>#Xclip</h2>
               </div>
             </div>
           </div>
@@ -103,72 +103,27 @@
             
             
             <article class="post-preview">
-              <a href="https://sjp38.github.io/post/gcma/">
-                <h2 class="post-title">GCMA: Guaranteed Contiguous Memory Allocator</h2>
+              <a href="https://sjp38.github.io/post/xclip_copy_remote_clipboard/">
+                <h2 class="post-title">원격 데스크탑의 clipboard 를 ssh 와 xclip 으로 복사해오기</h2>
 
                 
               </a>
 
               <p class="post-meta">
-                Posted on January 14, 2017
+                Posted on March 31, 2017
               </p>
               <div class="post-entry">
               
-                GCMA (Guaranteed Contiguous Memory Allocator) is a contiguous memory allocator for Linux kernel that guarantees fast latency, success of allocation, and reasonable system memory utilization. Our evaluation on Raspberry Pi 2 shows 15 to 130 times faster and more predictable allocation latency without system performance degradation compared to Linux v3.18 default CMA.
-The project has been introduced by Linux Foundation Korea Forum 2014[1] and Embedded Operating Systems Workshop 2015[2]. A paper about the project has been published by proceeding of Embedded Operating Systems Workshop 2015 and 45th issue of ACM SIGBED Review.
-                <a href="https://sjp38.github.io/post/gcma/" class="post-read-more">[Read&nbsp;More]</a>
-              
-              </div>
+                <p>여러개의 리눅스 데스크탑 PC 를 한 책상 위에서 사용하는 경우가 있다.  이 때, 한
+PC 에서 Ctrl-C 해서 clipboard 에 복사한 내용을 다른쪽 PC 에서 Ctrl-V 로
+붙여넣고 싶은 경우가 있다.  여러가지 해결책이 있겠으나, 다음과 같이 ssh 와
+xclip 을 사용해서 해결할 수도 있다:</p>
 
-	      
-	        <span class="post-meta">
-	          
-	            #<a href="/tags/projects">projects</a>&nbsp;
-		  
-	            #<a href="/tags/gcma">gcma</a>&nbsp;
-		  
-	            #<a href="/tags/english">english</a>&nbsp;
-		  
-	        </span>
-	      
+<pre><code>$ ssh &lt;username&gt;@&lt;remote host&gt; 'DISPLAY=:0 xclip -o -selection clipboard' | \
+	xclip -i -selection clipboard
+</code></pre>
 
-             </article>
-            
-            <article class="post-preview">
-              <a href="https://sjp38.github.io/post/about/">
-                <h2 class="post-title">about</h2>
-
-                
-              </a>
-
-              <p class="post-meta">
-                Posted on January 14, 2017
-              </p>
-              <div class="post-entry">
-              
-                
-
-<p>SeongJae Park is a programmer who loves to analyse and develop systems just for
-fun.</p>
-
-<h2 id="contact-information">Contact information</h2>
-
-<ul>
-<li><a href="mailto:sjpark@dcslab.snu.ac.kr">sjpark@dcslab.snu.ac.kr</a></li>
-<li><a href="mailto:sj38.park@gmail.com">sj38.park@gmail.com</a></li>
-</ul>
-
-<h2 id="linkedin">LinkedIn</h2>
-
-<p><a href="https://www.linkedin.com/in/seongjae-park-1a5b9954">https://www.linkedin.com/in/seongjae-park-1a5b9954</a></p>
-
-<h2 id="github">Github</h2>
-
-<p><a href="https://github.com/sjp38">https://github.com/sjp38</a></p>
-
-<h2 id="openhub">Openhub</h2>
-
-<p><a href="https://www.openhub.net/accounts/sjpark">https://www.openhub.net/accounts/sjpark</a></p>
+<p>참고: <a href="http://askubuntu.com/questions/513442/can-two-pcs-with-ubuntu-share-the-clipboard-buffer">http://askubuntu.com/questions/513442/can-two-pcs-with-ubuntu-share-the-clipboard-buffer</a></p>
 
               
               </div>
@@ -176,7 +131,9 @@ fun.</p>
 	      
 	        <span class="post-meta">
 	          
-	            #<a href="/tags/about">about</a>&nbsp;
+	            #<a href="/tags/tip">tip</a>&nbsp;
+		  
+	            #<a href="/tags/xclip">xclip</a>&nbsp;
 		  
 	        </span>
 	      
