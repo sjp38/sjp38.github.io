@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Ubuntu 16.04 Server 위에 MariaDB 설치/사용하기</title>
+  
+  <meta name="author" content="SeongJae Park"/>
+  <meta name="generator" content="Hugo 0.18-DEV" />
+  
+
+  <link rel="alternate" href="https://sjp38.github.io/index.xml" type="application/rss+xml" title="Happy Hacking">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://sjp38.github.io//css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://sjp38.github.io//css/main.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://sjp38.github.io//css/pygment_highlights.css" />
+  <link rel="stylesheet" href="https://sjp38.github.io/css/highlight.min.css">
+  
+  
+  <meta property="og:title" content="Ubuntu 16.04 Server 위에 MariaDB 설치/사용하기" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="/post/mariadb_setup/" />
+  <meta property="og:image" content="/img/tux.png" />
+  
+</head>
+
+
+  <body>
+
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://sjp38.github.io/">Happy Hacking</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+          <a title="about" href="/post/about/">about</a>
+  	      </li>
+  	    
+      
+        
+          <li>
+          <a title="Categories" href="/categories">Categories</a>
+  	      </li>
+  	    
+      
+        
+          <li>
+          <a title="Projects" href="/categories/projects">Projects</a>
+  	      </li>
+  	    
+      
+        
+          <li>
+          <a title="Tags" href="/tags">Tags</a>
+  	      </li>
+  	    
+      
+      </ul>
+    </div>
+
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+      
+          <a title="Happy Hacking" href="https://sjp38.github.io/">
+              <img class="avatar-img" src="https://sjp38.github.io//img/tux.png" alt="Happy Hacking" />
+          </a>
+      
+	  </div>
+	</div>
+
+  </div>
+</nav>
+
+    
+
+
+
+  
+
+  <header class="header-section ">
+  
+  <div class="intro-header no-img">
+      <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>Ubuntu 16.04 Server 위에 MariaDB 설치/사용하기</h1>
+      
+      
+      
+      <span class="post-meta">Posted on May 17, 2017</span>
+      
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </header>
+
+
+    <div class="container" role="main">	  
+      
+        <div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+          
+
+<p>악의 조직 Oracle 에서 Sun 을 인수한 후 이어진 반 open source 적 행보에 MySQL
+개발자는 MySQL 을 fork 해서 MariaDB 를 개발하고 있습니다.  저작권을 악용해
+중요한 기능은 천천히 릴리즈 하거나 유료 라이센스로만 공개하기도 하는 Oracle 의
+MySQL 과 달리 MariaDB 는 예전 MySQL 처럼 공개적으로 개발되고 있어 새롭고
+진보적인 기능도 많이 있는 편인 것 같습니다.</p>
+
+<p>이 글에서는 Ubuntu 16.04 서버에 MariaDB 를 소스코드부터 가져와서 설치하고
+사용하는 간단한 사용법을 정리해 봅니다.</p>
+
+<h1 id="build-and-install">Build and Install</h1>
+
+<p>MariaDB 는 대부분의 리눅스 배포본을 위한 패키징이 잘 되어 있어서 각 배포본의
+패키징 시스템을 사용하면 한두줄의 커맨드로 쉽게 설치할 수 있습니다.  하지만
+여기선 문서[1] 를 참고해 가며 소스 코드부터 가져와서 바닥부터 가장 최신 버전을
+설치해 보기로 합시다.</p>
+
+<p>소스코드는 github 에 git repository 의 형태로 공개되어 있습니다.  아래의
+명령어로 코드를 <code>mariadb/</code> 디렉토리 아래에 가져올 수 있습니다.</p>
+
+<pre><code>$ git clone https://github.com/MariaDB/server.git mariadb
+$ cd mariadb
+</code></pre>
+
+<p>git repository 인만큼 버전은 git 을 통해 tag 로 관리되고 있습니다.  이 글을
+작성 중인 시점에서 가장 최신 stable 릴리즈는 10.1.22[2] 로, 2017년 3월 11일
+자로 릴리즈 되었습니다.  다음 커맨드로 해당 버전의 코드를 checkout 할 수
+있습니다:</p>
+
+<pre><code>$ git checkout mariadb-10.1.22
+</code></pre>
+
+<p>이제 소스코드는 준비되었고, 빌드할 차례입니다.  <code>cmake</code> 를 사용해 어떻게
+빌드할지 등을 설정할 수 있는데, 여기선 release 할때 사용하는 설정을 사용해
+보겠습니다.  이어서 간단히 <code>make</code> 를 사용해 빌드하고 설치를 할 수 있습니다.
+설치는 super user 권한이 필요하기 때문에 <code>sudo</code> 를 사용해야 합니다.</p>
+
+<pre><code>$ cmake . -DBUILD_CONFIG=mysql_release
+$ make
+$ sudo make install
+</code></pre>
+
+<p>어떤 사양의 머신에서 빌드하느냐에 따라 다르겠지만 빌드하는데 꽤 긴 시간이
+걸립니다.  이 글을 작성하며 사용한 72 코어 / 144 쓰레드 머신에서는 <code>-j144</code>
+옵션을 줘서 빌드할 경우 1분 5초 걸렸습니다.</p>
+
+<h1 id="start-mariadb-server">Start MariaDB Server</h1>
+
+<p>이제 MariaDB 를 띄워 볼 차례입니다.  아무 프로세스나 super user 권한으로
+실행하는 건 보안적으로 위험할 수 있으므로, MariaDB 는 기본적으로 별개의 사용자
+계정을 사용할 것을 권장합니다.  다음 예에서는 mysql 이라는 이름의 user 를
+생성해서 이 사용자 계정을 사용하도록 해서 초기화를 진행합니다.</p>
+
+<pre><code>$ sudo adduser mysql
+$ sudo chown -R mysql /usr/local/mysql/
+$ cd /usr/local/mysql/
+$ sudo -u mysql ./scripts/mysql_install_db --user=mysql
+</code></pre>
+
+<p>이제 준비가 끝났습니다.  다음 커맨드로 MariaDB 서버를 시작할 수 있습니다:</p>
+
+<pre><code>$ sudo -u mysql /usr/local/mysql/bin/mysqld_safe --user=mysql
+</code></pre>
+
+<h1 id="connect-to-local-mariadb-server">Connect to Local MariaDB Server</h1>
+
+<p>다음 커맨드로 mariadb local shell 을 열 수 있습니다.  이 커맨드는 같은 기계
+위에 띄워져 있는 MariaDB 서버 프로세스에 접속해 해당 서버에 sql 쿼리를 날릴 수
+있는 프롬프트를 띄워 줍니다.</p>
+
+<pre><code>$ /usr/local/mysql/bin/mysql
+</code></pre>
+
+<p>위 커맨드에 &ndash;version 인자를 주면 현재 mariadb 의 버전도 볼 수 있습니다:</p>
+
+<pre><code>$ /usr/local/mysql/bin/mysql --version
+mysql  Ver 15.1 Distrib 10.1.22-MariaDB, for Linux (x86_64) using readline 5.1
+</code></pre>
+
+<h1 id="kill-mariadb-server">Kill MariaDB Server</h1>
+
+<p>서버를 끝낼 수도 있어야겠죠.  다음의 커맨드로 mysql 서버 프로세스에게 SIGTERM
+시그널을 날려서 서버 프로세스를 종료시킬 수 있습니다.</p>
+
+<pre><code>$ sudo -u mysql kill -SIGTERM `pidof mysqld`
+</code></pre>
+
+<h1 id="basical-usage">Basical Usage</h1>
+
+<p>프롬프트에서 다음과 같이 기본적인 sql 쿼리를 날릴 수 있습니다.</p>
+
+<pre><code>$ sudo /usr/local/mysql/bin/mysql
+&gt; create database sj_db;
+&gt; create table sjtable ( id INT PRIMARY KEY, name VARCHAR(20) );
+&gt; insert into sjtable values ( 1, 'Will' );
+&gt; select * from sjtable;
+</code></pre>
+
+<p>그 외의 MariaDB sql 문법을 위해서는 MariaDB basic sql statement 문서[3] 를
+참고합시다.</p>
+
+<h1 id="my-cnf-configuration">my.cnf configuration</h1>
+
+<p>mysql 과 마찬가지로 MariaDB 역시 my.cnf 파일을 사용해[1] 대부분의 설정을
+구성합니다.  기본적으로 /etc/my.cnf, /etc/mysql/my.cnf &hellip; 순으로 설정 파일을
+찾게 되며, mysqld_safe 실행파일 실행 시에 &ndash;defaults-file 인자로 파일 경로를
+줄수도 있습니다.  소스 코드 디렉토리의 support-files/ 디렉토리 아래에
+my-huge.cnf, my-large.cnf, my-medium.cnf 등의 예제 설정도 있습니다.</p>
+
+<h1 id="data-directory-specification">Data Directory Specification</h1>
+
+<p>실험용으로 MariaDB 를 사용하는 경우라면 MariaDB 데이터를 최초 상태로 백업해
+두거나 서로 다른 설정의 데이터를 유지해야 할 수도 있습니다.</p>
+
+<p>MariaDB 의 default data directory 는 /usr/local/mysql/data/ 로, 프롬프트에서</p>
+
+<pre><code>&gt; select @@datadir;
+</code></pre>
+
+<p>명령으로 현재 띄워진 MariaDB 서버 프로세스가 사용중인 data directory 의 경로를
+볼 수 있습니다.  이 경로는 my.cnf 상에서 수정할 수도 있고, mysqld_safe 실행 시
+&ndash;datadir 옵션으로 지정할 수도 있습니다.  주의할 점은, 이때 &ndash;datadir 인자로
+주는 데이터 디렉토리는 한번은 scripts/mysql_install_db 를 실행해준 디렉토리여야
+한다는 것입니다.  mysql_install_db 명령에도 &ndash;datadir 인자를 줄수 있습니다.</p>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>MariaDB 최신 버전의 소스코드를 가져와 빌드하고 설치해서 사용하는 방법을
+알아봤습니다.  하나의 예제로 정리해 보자면 다음과 같습니다.</p>
+
+<pre><code>$ git clone https://github.com/MariaDB/server.git mariadb
+$ cd mariadb
+$ git checkout mariadb-10.1.22
+$ cmake . -DBUILD_CONFIG=mysql_release
+$ make
+$ sudo make install
+$ sudo adduser mysql
+$ sudo chown -R mysql /usr/local/mysql/
+$ cd /usr/local/mysql/
+$ sudo -u mysql ./scripts/mysql_install_db --user=mysql &amp;
+$ /usr/local/mysql/bin/mysql
+</code></pre>
+
+<h1 id="references">References</h1>
+
+<pre><code>[1] https://mariadb.com/kb/en/mariadb/generic-build-instructions/
+[2] https://downloads.mariadb.org/mariadb/+releases/
+[3] https://mariadb.com/kb/en/mariadb/basic-sql-statements/
+[4] https://mariadb.com/kb/en/mariadb/configuring-mariadb-with-mycnf/
+</code></pre>
+
+      </article>
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="https://sjp38.github.io/post/xclip_copy_remote_clipboard/" data-toggle="tooltip" data-placement="top" title="원격 데스크탑의 clipboard 를 ssh 와 xclip 으로 복사해오기">&larr; Previous Post</a>
+        </li>
+        
+        
+      </ul>
+
+      
+
+    </div>
+  </div>
+</div>
+
+      
+    </div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/sjp38" title="GitHub">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		      
+		      
+          <li>
+            <a href="mailto:sj38.park@gmail.com" title="Email me">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		      
+          <li>
+            <a href="https://linkedin.com/in/seongjae-park-1a5b9954" title="LinkedIn">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+	    	  
+          
+           
+          
+          
+          
+
+    		  <li>
+      			<a href="https://sjp38.github.io/index.xml" title="RSS">
+      			  <span class="fa-stack fa-lg">
+        				<i class="fa fa-circle fa-stack-2x"></i>
+        				<i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+      			  </span>
+      			</a>
+    		  </li>		
+
+        </ul>
+        <p class="credits copyright text-muted">
+    	  SeongJae Park
+    	  &nbsp;&bull;&nbsp;
+    	  2017
+    		  
+    	  
+    	  &nbsp;&bull;&nbsp;
+    	  <a href="https://sjp38.github.io/">Happy Hacking</a>
+    	  
+  	    </p>
+  	    
+    	<p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.18-DEV</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">beautiful-jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          
+    	</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://sjp38.github.io//js/jquery-1.11.2.min.js"></script>
+<script src="https://sjp38.github.io//js/bootstrap.min.js"></script>
+<script src="https://sjp38.github.io//js/main.js"></script>
+<script src="https://sjp38.github.io/js/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-30621335-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+
+
+  </body>
+</html>
