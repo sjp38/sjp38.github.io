@@ -8,8 +8,284 @@
     <language>en-us</language>
     <managingEditor>sj38.park@gmail.com (SeongJae Park)</managingEditor>
     <webMaster>sj38.park@gmail.com (SeongJae Park)</webMaster>
-    <lastBuildDate>Wed, 17 May 2017 22:44:07 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 19 May 2017 06:23:15 +0900</lastBuildDate>
     <atom:link href="https://sjp38.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Parsec 3.0 설치 / 사용법</title>
+      <link>https://sjp38.github.io/post/parsec_3_howto/</link>
+      <pubDate>Fri, 19 May 2017 06:23:15 +0900</pubDate>
+      <author>sj38.park@gmail.com (SeongJae Park)</author>
+      <guid>https://sjp38.github.io/post/parsec_3_howto/</guid>
+      <description>
+
+&lt;p&gt;PARSEC 은 멀티쓰레드 프로그램들로 구성된 benchmark suite 입니다.  멀티쓰레드로
+구성되어 있기 때문에 멀티코어 시스템에서의 multi core scalability 를 테스트
+하기에도 적합합니다.  이 글에선 현재 최신 버전인 3.0 버전의 PARSEC 을 Ubuntu
+16.04 server 에 설치하면서 겪는 문제의 해결법과 간단한 사용법을 정리해 봅니다.&lt;/p&gt;
+
+&lt;h1 id=&#34;parsec-3-0-download&#34;&gt;PARSEC 3.0 Download&lt;/h1&gt;
+
+&lt;p&gt;공식 홈페이지[1] 에 들어가면 PARSEC 3.0 다운로드 링크가 첫페이지부터 있습니다.
+해당 링크를 사용하면 &lt;code&gt;tar.gz&lt;/code&gt; 포맷의 tarball 로 정리된 PARSEC 3.0 을 다운받을
+수 있습니다.  웹브라우저로 들어가서 다운로드를 받는 방법도 있겠고, &lt;code&gt;curl&lt;/code&gt; 이나
+&lt;code&gt;wget&lt;/code&gt; 등의 command line tool 을 사용해 다운받을 수도 있겠습니다.  다음
+커맨드는 PARSEC 3.0 을 다운받아 &lt;code&gt;parsec-3.0/&lt;/code&gt; 디렉토리 아래 압축을 풀고 압축을
+푼 디렉토리로 이동합니다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ wget http://parsec.cs.princeton.edu/download/3.0/parsec-3.0.tar.gz
+$ tar zxvf parsec-3.0.tar.gz
+$ cd parsec-3.0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;build&#34;&gt;Build&lt;/h1&gt;
+
+&lt;p&gt;이제 PARSEC 3.0 을 빌드해야 합니다.  PARSEC 은 여러 벤치마크를 포함하고
+있으므로 개별적 벤치마크를 하나하나 직접적으로 다루기보다는 suite 내의 각
+벤치마크를 통합적으로 관리할 수 있는 &lt;code&gt;parsecmgmt&lt;/code&gt; 라는 관리 프로그램을
+사용하도록 되어 있습니다.  빌드 역시 마찬가지입니다.  참고로, &lt;code&gt;parsecmgmt&lt;/code&gt; 는
+bash script 입니다.&lt;/p&gt;
+
+&lt;p&gt;기본적인 PARSEC 3.0 빌드 방법은 다음과 같이 간단합니다:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ source ./env.sh
+$ parsecmgmt -a build
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;첫번째 커맨드는 parsecmgmt 의 경로를 PATH 에 추가하는 등, 환경 변수 설정 등의
+일을 처리해 주며, 두번째의 간단한 커맨드가 전체 PARSEC 3.0 빌드 프로세스를
+수행하게 됩니다.&lt;/p&gt;
+
+&lt;h2 id=&#34;perl-version-problem&#34;&gt;Perl Version Problem&lt;/h2&gt;
+
+&lt;p&gt;하지만 Ubuntu 16.04 server 에서는 다음과 같은 에러 메세지를 내뱉으며 빌드에
+실패합니다:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;smime.pod around line 272: Expected text after =item, not a number
+smime.pod around line 276: Expected text after =item, not a number
+smime.pod around line 280: Expected text after =item, not a number
+smime.pod around line 285: Expected text after =item, not a number
+smime.pod around line 289: Expected text after =item, not a number
+POD document had syntax errors at /usr/bin/pod2man line 68.
+make: *** [install_docs] Error 1
+Makefile:680: recipe for target &#39;install_docs&#39; failed
+[PARSEC] Error: &#39;env PATH=/usr/bin:/home/sjpark/benchmarks/parsec/parsec-3.0/bin:/home/sjpark/bin:/home/sjpark/.local/bin:/home/sjpark/bin:/home/sjpark/bin:/home/sjpark/.local/bin:/home/sjpark/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/snap/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/home/sjpark/benchmarks/parsec/parsec-3.0/bin /usr/bin/make install&#39; failed.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;에러 메세지에서 유추할 수 있듯 PARSEC 3.0 의 소스 코드 중 smime.pod 파일이
+문법에 맞지 않아 생긴 문제입니다.  참고로 pod 는 perl 프로그램 문서화에
+사용되는 간단한 markup language 입니다[2].  Ubuntu 16.04 는 perl 5.22.1 버전을
+기본으로 사용하고 있는데, PARSEC 3.0 에 있는 코드는 perl 5.14.2 버전에 맞춰져
+있으며 최신 버전으로 오는 사이 문법이 바뀐 것으로 인한 문제로 보입니다.
+해결책은 두가지가 있습니다.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;방법 1: perl 5.14.2 설치&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Google groups 의 관련 쓰레드[3] 를 참고한 방법입니다.
+5.14.2 버전의 perl 소스코드를 받아와 이를 설치하고 PARSEC 빌드에 이 버전의 perl
+을 사용하는 방법입니다.  다음의 커맨드로 &lt;code&gt;~/localperl/&lt;/code&gt; 디렉토리 아래 5.14.2
+버전 perl 을 설치하고 사용할 수 있습니다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;wget http://www.cpan.org/src/5.0/perl-5.14.2.tar.gz
+$ tar zxvf perl-5.14.2.tar.gz
+$ cd perl-5.14.2/
+$ mkdir ~/localperl
+$ ./Configure -des -Dprefix=$HOME/localperl
+$ time make -j # hydra 에서 16초 걸린다.
+$ make test
+$ make install
+$ ~/localperl/bin/perl -v
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;방법 2: pod 파일 문법 오류 수정&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;좀 더 정공법에 가까운 방법으로, 다음 글을 참고한 해결책입니다:
+&lt;a href=&#34;https://yulistic.gitlab.io/2016/05/parsec-3.0-installation-issues/&#34;&gt;https://yulistic.gitlab.io/2016/05/parsec-3.0-installation-issues/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;최신 버전의 문법에 맞게 pod 파일의 문제시 되는 부분들을 고쳐주는 것으로,
+문제되는 모든 pod 파일의 &lt;code&gt;=item [0-9]&lt;/code&gt; 을 &lt;code&gt;=item C&amp;lt;[0-9]&amp;gt;&lt;/code&gt; 으로 바꿔줍니다.
+&lt;code&gt;diff&lt;/code&gt; 로 표현하면 다음과 같은 수정을 가하게 되겠습니다:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;--- a/pkgs/libs/ssl/src/doc/apps/smime.pod
++++ b/pkgs/libs/ssl/src/doc/apps/smime.pod
+@@ -265,28 +265,28 @@ encrypted data is used for other purposes.
+
+ =over 4
+
+-=item 0
++=item C&amp;lt;0&amp;gt;
+
+ the operation was completely successfully.
+
+-=item 1
++=item C&amp;lt;1&amp;gt;
+
+ an error occurred parsing the command options.
+
+-=item 2
++=item C&amp;lt;2&amp;gt;
+
+ one of the input files could not be read.
+
+-=item 3
++=item C&amp;lt;3&amp;gt;
+
+ an error occurred creating the PKCS#7 file or when reading the MIME
+ message.
+
+-=item 4
++=item C&amp;lt;4&amp;gt;
+
+ an error occurred decrypting or verifying the message.
+
+-=item 5
++=item C&amp;lt;5&amp;gt;
+
+ the message was verified correctly but an error occurred writing out
+ the signers certificates.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;이렇게 파일 하나하나 수정하면 이 에러 메세지는 사라집니다.  참고한 링크에서는
+하나하나 손으로 수정하기보다는 다음과 같이 간단한 bash shell script 를 짜서
+일괄적으로 수정하는 걸 추천합니다:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#! /bin/bash
+for i in 0 1 2 3 4 5 6 7 8 9 
+do
+    echo &amp;quot;Replacing &#39;=item $i&#39; to &#39;=item C&amp;lt;$i&amp;gt;&#39;&amp;quot;
+    grep -rl &amp;quot;=item $i&amp;quot; * | xargs sed -i &amp;quot;s/=item $i/=item C&amp;lt;$i&amp;gt;/g&amp;quot;
+done
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;이어서 설명할 문제들과 해결책도 해당 링크를 참고한 것임을 밝혀둡니다.&lt;/p&gt;
+
+&lt;h2 id=&#34;mbstate-t-conflict&#34;&gt;&lt;code&gt;__mbstate_t&lt;/code&gt; Conflict&lt;/h2&gt;
+
+&lt;p&gt;앞의 에러 메세지는 사라지지만 이제 다음과 같은 에러 메세지가 나올 겁니다:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;/usr/include/wchar.h:94:3: error: conflicting types for ‘__mbstate_t’
+ } __mbstate_t;
+   ^
+In file included from ../include/machine/bsd_endian.h:37:0,
+                 from ../include/sys/bsd_types.h:44,
+                 from ../include/sys/bsd_param.h:64,
+                 from if_host.c:48:
+../include/sys/bsd__types.h:105:3: note: previous declaration of ‘__mbstate_t’ was here
+ } __mbstate_t;
+   ^
+In file included from ../include/net/bsd_if_var.h:82:0,
+                 from ../include/net/bsd_if.h:459,
+                 from if_host.c:57:
+../include/sys/bsd_buf_ring.h: In function ‘buf_ring_dequeue_sc’:
+../include/sys/bsd_buf_ring.h:200:33: warning: variable ‘cons_next_next’ set but not used [-Wunused-but-set-variable]
+  uint32_t cons_head, cons_next, cons_next_next;
+                                 ^
+make[1]: *** [if_host.o] Error 1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;basd__types.h&lt;/code&gt; 파일에 &lt;code&gt;__mbstate_t&lt;/code&gt; 타입을 중복 정의했기 때문에 발생한
+문제입니다.  해당 파일에서 해당 정의 부분을 다음과 같이 주석 처리하면 이 문제는
+사라집니다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;diff --git a/pkgs/libs/uptcpip/src/include/sys/bsd__types.h b/pkgs/libs/uptcpip/src/include/sys/bsd__types.h
+index fa1b0f0f26d9..bd7e6a97f4c8 100644
+--- a/pkgs/libs/uptcpip/src/include/sys/bsd__types.h
++++ b/pkgs/libs/uptcpip/src/include/sys/bsd__types.h
+@@ -93,6 +93,7 @@ typedef       __ct_rune_t     __wint_t;       /* wint_t (see above) */
+
+ typedef        __uint32_t      __fixpt_t;      /* fixed point number */
+
++#if 0  /* Skip conflicting __mbstate_t definition */
+ /*
+  * mbstate_t is an opaque object to keep conversion state during multibyte
+  * stream conversions.
+@@ -104,5 +105,6 @@ typedef union {
+        __int64_t       _mbstateL;      /* for alignment */
+ } __mbstate_t;
+ #endif
++#endif /* Skip conflicting __mbstate_t definition */
+
+ #endif /* !_BSD_SYS__TYPES_H_ */
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;pkg-config-package-not-found&#34;&gt;pkg-config Package Not Found&lt;/h2&gt;
+
+&lt;p&gt;성공적인 빌드를 위해선 당연하지만 PARSEC 3.0 이 의존성을 가진 패키지가 모두
+설치되어 있어야 합니다.  이를 주의 깊게 미리 설치해 두지 않았다면 다음과 같은
+에러 메세지를 만날 수도 있습니다:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;configure: error: *** pkg-config not found. See http://www.freedesktop.org/software/pkgconfig/
+[PARSEC] Error: &#39;env CFLAGS=-I/home/sjpark/benchmarks/parsec/parsec-3.0/pkgs/libs/zlib/inst/amd64-linux.gcc/include  -O3 -g -funroll-loops -fprefetch-loop-arrays -static-libgcc -Wl,--hash-style=both,--as-needed -DPARSEC_VERSION=3.0-beta-20150206 LDFLAGS=-L/home/sjpark/benchmarks/parsec/parsec-3.0/pkgs/libs/zlib/inst/amd64-linux.gcc/lib -L/usr/lib64 -L/usr/lib /home/sjpark/benchmarks/parsec/parsec-3.0/pkgs/libs/glib/src/configure --disable-shared --enable-threads --with-threads=posix --prefix=/home/sjpark/benchmarks/parsec/parsec-3.0/pkgs/libs/glib/inst/amd64-linux.gcc&#39; failed.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;위 메세지는 &lt;code&gt;pkg-config&lt;/code&gt; 프로그램이 설치되어 있지 않아서 발생한 문제임을 알 수
+있습니다.  간단히 Ubuntu 의 package 시스템인 apt 를 사용해 다음과 같이 해당
+프로그램을 설치해 주면 문제는 사라집니다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo apt install pkg-config
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;build-success&#34;&gt;Build Success&lt;/h2&gt;
+
+&lt;p&gt;이 정도까지가 나타날 수 있는 대부분의 문제입니다.  위 해결책들을 모두
+적용했다면 아마 빌드에 성공할 겁니다.  빌드에 성공하면 다음과 같이 성공했다는
+메세지를 볼 수 있을 겁니다:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC] [2] Woo et al. The SPLASH-2 Programs: Characterization and Methodological Considerations. ISCA, 1995.
+[PARSEC]
+[PARSEC] Done.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;참고로 빌드에 꽤 긴 시간이 소모됩니다.  제가 사용한 72 코어 / 144 쓰레드
+머신에서도 약 10분이 걸렸습니다.&lt;/p&gt;
+
+&lt;h1 id=&#34;simple-usage&#34;&gt;Simple Usage&lt;/h1&gt;
+
+&lt;p&gt;이제 빌드가 잘 되었는지 돌려봐야 할 차례입니다.  다음 커맨드는 각 벤치마크를
+가장 작은 크기의 데이터셋을 가지고 실행해 보기 때문에 각 벤치마크가 돌아가긴
+하는지만 보는데 적격입니다:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;parsecmgmt -a run
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;가장 작은 크기의 데이터셋을 사용하기 때문에 모든 벤치마크를 수행하지만 빠르게
+종료됩니다.&lt;/p&gt;
+
+&lt;h2 id=&#34;parsecmgmt-options&#34;&gt;&lt;code&gt;parsecmgmt&lt;/code&gt; Options&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;-a&lt;/code&gt; 옵션은 action 을 의미합니다.  앞의 섹션에서는 빌드를 위해 여기에 &lt;code&gt;build&lt;/code&gt;
+값을 주었고, 여기선 벤치마크 수행을 위해 &lt;code&gt;run&lt;/code&gt; 값을 준 것입니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;-i&lt;/code&gt; 옵션을 통해 벤치마크들은 워크로드에서 사용할 데이터 크기를 지정할 수
+있습니다.  이 인자의 값으로 test, simdev, simsmall, simmedium, simlarge, native
+를 줄 수 있습니다.  Test 는 정확성 테스트만을 위한, 빨리 끝나는 데이터로 이
+인자를 주지 않으면 default 로 이 값이 취해집니다.  native 는 가장 realworld
+workload 에 가까운 벤치마크를 위한 데이터라 볼 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;-p&lt;/code&gt; 옵션을 통해 어떤 sub benchmark 를 돌릴지 정할 수 있습니다.  이 옵션을
+별도로 주지 않으면 모든 benchmark 를 돌리게 됩니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;-n&lt;/code&gt; 옵션은 number of threads to use 입니다.&lt;/p&gt;
+
+&lt;p&gt;예를 들어 &lt;code&gt;parsecmgmt -p canneal -a run -i native -n 1&lt;/code&gt; 은 &lt;code&gt;canneal&lt;/code&gt; sub
+benchmark 하나만을 쓰레드 한개 써서 &lt;code&gt;native&lt;/code&gt; 데이터셋으로 실행합니다.&lt;/p&gt;
+
+&lt;h1 id=&#34;references&#34;&gt;References&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code&gt;[1] http://parsec.cs.princeton.edu
+[2] https://en.wikipedia.org/wiki/Plain_Old_Documentation
+[3] https://groups.google.com/forum/#!topic/snipersim/_1qpbmpPRtg
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>Ubuntu 16.04 Server 위에 MariaDB 설치/사용하기</title>
@@ -891,38 +1167,6 @@ issue 에 출판되었습니다.  소스코드는 LKML에 토론을 위해 공�
 &lt;li&gt;[4] &lt;a href=&#34;https://lkml.org/lkml/2015/2/23/480&#34;&gt;https://lkml.org/lkml/2015/2/23/480&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;[5] &lt;a href=&#34;https://github.com/sjp38/linux.gcma&#34;&gt;https://github.com/sjp38/linux.gcma&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>about</title>
-      <link>https://sjp38.github.io/post/about/</link>
-      <pubDate>Sat, 14 Jan 2017 04:51:08 +0900</pubDate>
-      <author>sj38.park@gmail.com (SeongJae Park)</author>
-      <guid>https://sjp38.github.io/post/about/</guid>
-      <description>
-
-&lt;p&gt;SeongJae Park is a programmer who loves to analyse and develop systems just for
-fun.&lt;/p&gt;
-
-&lt;h2 id=&#34;contact-information&#34;&gt;Contact information&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;mailto:sjpark@dcslab.snu.ac.kr&#34;&gt;sjpark@dcslab.snu.ac.kr&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;mailto:sj38.park@gmail.com&#34;&gt;sj38.park@gmail.com&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;linkedin&#34;&gt;LinkedIn&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://www.linkedin.com/in/seongjae-park-1a5b9954&#34;&gt;https://www.linkedin.com/in/seongjae-park-1a5b9954&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;github&#34;&gt;Github&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/sjp38&#34;&gt;https://github.com/sjp38&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;openhub&#34;&gt;Openhub&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://www.openhub.net/accounts/sjpark&#34;&gt;https://www.openhub.net/accounts/sjpark&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
