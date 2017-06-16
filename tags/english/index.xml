@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Happy Hacking</title>
-    <link>https://sjp38.github.io/tags/english/index.xml</link>
-    <description>Recent content on Happy Hacking</description>
+    <title>English on Happy Hacking</title>
+    <link>https://sjp38.github.io/tags/english/</link>
+    <description>Recent content in English on Happy Hacking</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <managingEditor>sj38.park@gmail.com (SeongJae Park)</managingEditor>
     <webMaster>sj38.park@gmail.com (SeongJae Park)</webMaster>
-    <atom:link href="https://sjp38.github.io/tags/english/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 28 May 2017 17:51:43 +0900</lastBuildDate>
+    
+	<atom:link href="https://sjp38.github.io/tags/english/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>lkml livestream</title>
@@ -16,25 +19,9 @@
       <pubDate>Sun, 28 May 2017 17:51:43 +0900</pubDate>
       <author>sj38.park@gmail.com (SeongJae Park)</author>
       <guid>https://sjp38.github.io/post/lkml_go/</guid>
-      <description>
-
-&lt;p&gt;I wrote a simple, stupid program[1] that showing LKML[2] mails in terminal
-briefly like twitter livestream in Go language.  It is just an early version
-and so many things to be complemented exists, though.  Nevertheless, now it
-just works as I wanted at first.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;쏟아지는 LKML[2] 의 메일들을 트위터 라이브스트림처럼 터미널에 보여주는 간단한
-프로그램[1] 을 go 언어로 만들어 봤습니다.  아직 보완할 점 투성이지만 이제
-최초의 목적대로는 동작하는군요.&lt;/p&gt;
-
-&lt;h1 id=&#34;references&#34;&gt;References&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;[1] https://github.com/sjp38/lkml
-[2] https://en.wikipedia.org/wiki/Linux_kernel_mailing_list
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+      <description>I wrote a simple, stupid program[1] that showing LKML[2] mails in terminal briefly like twitter livestream in Go language. It is just an early version and so many things to be complemented exists, though. Nevertheless, now it just works as I wanted at first.
+쏟아지는 LKML[2] 의 메일들을 트위터 라이브스트림처럼 터미널에 보여주는 간단한 프로그램[1] 을 go 언어로 만들어 봤습니다. 아직 보완할 점 투성이지만 이제 최초의 목적대로는 동작하는군요.
+References [1] https://github.</description>
     </item>
     
     <item>
@@ -43,41 +30,8 @@ just works as I wanted at first.&lt;/p&gt;
       <pubDate>Mon, 20 Mar 2017 22:24:26 +0900</pubDate>
       <author>sj38.park@gmail.com (SeongJae Park)</author>
       <guid>https://sjp38.github.io/post/fedora-chrome-update/</guid>
-      <description>&lt;p&gt;I am using Fedora 23 laptop and installed stable version Google Chrome from its
-official website [0].  In this case, just using &lt;code&gt;Updates&lt;/code&gt; of Fedora &lt;code&gt;Software&lt;/code&gt;
-program doesn&amp;rsquo;t update Chrome automatically.  For the case, follow below
-commands to update your Chrome:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo dnf update google-chrome-stable
-...
-$ sudo killall chrome
-$ google-chrome-stable
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The second &lt;code&gt;killall&lt;/code&gt; command is necessary because Chrome doesn&amp;rsquo;t kill its
-process by just cliking &lt;code&gt;Close&lt;/code&gt; button.  Or, you may reboot your computer but
-you wouldn&amp;rsquo;t like that.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;랩톱에 Fedora 23 을 깔고 크롬을 공식 홈페이지 [0] 에서 다운받아 메인 브라우저로
-사용하고 있습니다.  그런데 이렇게 설치한 경우에는 단순히 Fedora &lt;code&gt;Software&lt;/code&gt;
-프로그램의 &lt;code&gt;Updates&lt;/code&gt; 기능을 통해 업데이트가 되지 않더군요.  이런 경우에는
-다음의 커맨드를 통해 직접 업데이트를 할 수 있습니다:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo dnf update google-chrome-stable
-...
-$ sudo killall chrome
-$ google-chrome-stable
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;두번째의 &lt;code&gt;killall&lt;/code&gt; 커맨드는 Chrome 프로세스들이 &lt;code&gt;닫기&lt;/code&gt; 버튼을 누르는 것만으로는
-모두 종료되지 않기 때문에 명시적으로 종료시키기 위해 필요합니다.  컴퓨터를 아예
-리붓 하는 방법도 있겠지만 별로 그러고 싶지는 않을테지요.  이후에 크롬을 다시
-시작하면 업데이트된 버전으로 시작됩니다.&lt;/p&gt;
-
-&lt;p&gt;[0] &lt;a href=&#34;https://www.google.com/chrome/browser/desktop/index.html?brand=CHBD&amp;amp;gclid=CKiMjdqX5dICFYcGKgodqZIM2Q&#34;&gt;https://www.google.com/chrome/browser/desktop/index.html?brand=CHBD&amp;amp;gclid=CKiMjdqX5dICFYcGKgodqZIM2Q&lt;/a&gt;&lt;/p&gt;
-</description>
+      <description>I am using Fedora 23 laptop and installed stable version Google Chrome from its official website [0]. In this case, just using Updates of Fedora Software program doesn&amp;rsquo;t update Chrome automatically. For the case, follow below commands to update your Chrome:
+$ sudo dnf update google-chrome-stable ... $ sudo killall chrome $ google-chrome-stable  The second killall command is necessary because Chrome doesn&amp;rsquo;t kill its process by just cliking Close button.</description>
     </item>
     
     <item>
@@ -86,39 +40,7 @@ $ google-chrome-stable
       <pubDate>Wed, 15 Mar 2017 22:40:32 +0900</pubDate>
       <author>sj38.park@gmail.com (SeongJae Park)</author>
       <guid>https://sjp38.github.io/post/kakaobot/</guid>
-      <description>
-
-&lt;p&gt;I have developed a chat bot [1] for Kakaotalk [2] using Go language because I
-have been curious about the process of Kakaotalk chat bot development process.
-Implementation to major version has consumed only two hours owing to power of
-Go language, simpleness of Kakaotalk auto-reply API, and simple simple
-functionality requirement of my bot.  It has coded really simply and in
-brute-force manner, do only simple echoing.  However, for the reason, the code
-could be helpful for beginner of Kakaotalk chat bot or Go language Restful API
-server programmer.  That&amp;rsquo;s why I am introducing it here.  You can get the code
-from below link:&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/sjp38/kakaobot&#34;&gt;https://github.com/sjp38/kakaobot&lt;/a&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;Kakaotalk [1] chat bot [2] 은 어떻게 만드는지 궁금해져서 Go 언어로 간단한
-Kakaotalk chat bot 을 만들어 봤습니다.  Go 언어의 강력함과 Kakaotalk auto-reply
-API 의 단순성, 그리고 echo 서버 역할 정도만 하자는 심플하다 못해 썰렁한 기능
-목표 덕에 최초 목표한 데까지는 두시간 만에 만들어졌습니다.  매우 단순히 echo
-서버 정도의 역할만 하고 있지만, 매우 단순하게 짜여져 있기 때문에 Kakaotalk chat
-bot 을 만들고자 할 때, 또는 Restful API 를 사용하는 서버를 Go 언어로 짜고자 할
-때 시작용으로 참고할 만 하지 않을까 싶어 소개합니다.  아래 링크를 통해 코드를
-얻을 수 있습니다:&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/sjp38/kakaobot&#34;&gt;https://github.com/sjp38/kakaobot&lt;/a&gt;&lt;/p&gt;
-
-&lt;h1 id=&#34;references&#34;&gt;References&lt;/h1&gt;
-
-&lt;p&gt;[1] &lt;a href=&#34;https://en.wikipedia.org/wiki/Chatbot&#34;&gt;https://en.wikipedia.org/wiki/Chatbot&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;[2] &lt;a href=&#34;http://www.kakao.com/services/8&#34;&gt;http://www.kakao.com/services/8&lt;/a&gt;&lt;/p&gt;
-</description>
+      <description>I have developed a chat bot [1] for Kakaotalk [2] using Go language because I have been curious about the process of Kakaotalk chat bot development process. Implementation to major version has consumed only two hours owing to power of Go language, simpleness of Kakaotalk auto-reply API, and simple simple functionality requirement of my bot. It has coded really simply and in brute-force manner, do only simple echoing. However, for the reason, the code could be helpful for beginner of Kakaotalk chat bot or Go language Restful API server programmer.</description>
     </item>
     
     <item>
@@ -127,59 +49,9 @@ bot 을 만들고자 할 때, 또는 Restful API 를 사용하는 서버를 Go �
       <pubDate>Tue, 07 Mar 2017 19:41:16 +0900</pubDate>
       <author>sj38.park@gmail.com (SeongJae Park)</author>
       <guid>https://sjp38.github.io/post/arping-howto/</guid>
-      <description>&lt;p&gt;You can use &lt;code&gt;arping&lt;/code&gt; to know IP address to MAC address mapping of your local
-network.  Usage is simple:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;arping  [-AbDfhqUV]  [-c count] [-w deadline] [-s source] -I interface destination
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;For example, you may use the command as below:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ arping -I eth0 10.0.0.1
-ARPING 10.0.0.1 from 10.0.0.2 eth0
-Unicast reply from 10.0.0.1 [11:22:33:44:55:66]  0.123ms
-Unicast reply from 10.0.0.1 [11:22:33:44:55:66]  0.251ms
-...
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Secret of the tool is ARP protocol [1].  To know the MAC address of the machine
-that has a specific IP address, IP protocol layer uses the protocol.  MAC
-address that found in this way can be used to communicate with Ethernet
-protocol layer.  &lt;code&gt;arping&lt;/code&gt; just sends the ARP REQUEST to local network
-neighbour.&lt;/p&gt;
-
-&lt;p&gt;It could be useful in case of internet connection problem if IP duplication is
-suspicious.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;로컬 네트워크에서 어떤 IP 주소가 어떤 MAC 어드레스에 매핑되는지 알기 위해
-&lt;code&gt;arping&lt;/code&gt; 을 사용할 수 있습니다. 사용법은 간단합니다:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;arping  [-AbDfhqUV]  [-c count] [-w deadline] [-s source] -I interface destination
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;예를 들면, 다음과 같습니다:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ arping -I eth0 10.0.0.1
-ARPING 10.0.0.1 from 10.0.0.2 eth0
-Unicast reply from 10.0.0.1 [11:22:33:44:55:66]  0.123ms
-Unicast reply from 10.0.0.1 [11:22:33:44:55:66]  0.251ms
-...
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;이 툴의 동작 원리는 ARP 프로토콜 [1] 입니다.  IP 프로토콜 레이어는 이
-프로토콜을 사용해 특정 IP 주소를 사용하는 기계의 MAC 어드레스를 파악하고 이
-주소를 아랫단의 Ethernet 레이어에 보냅니다.  &lt;code&gt;arping&lt;/code&gt; 은 단지 ARP REQUEST 를
-로컬 네트워크의 컴퓨터들에게 보내는 일을 합니다.&lt;/p&gt;
-
-&lt;p&gt;인터넷 연결 문제가 발생했을 때, IP 중복이 의심된다면 유용하게 사용될 수
-있습니다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;[1] &lt;a href=&#34;http://www.erg.abdn.ac.uk/users/gorry/course/inet-pages/arp.html&#34;&gt;http://www.erg.abdn.ac.uk/users/gorry/course/inet-pages/arp.html&lt;/a&gt;&lt;/p&gt;
-</description>
+      <description>You can use arping to know IP address to MAC address mapping of your local network. Usage is simple:
+arping [-AbDfhqUV] [-c count] [-w deadline] [-s source] -I interface destination  For example, you may use the command as below:
+$ arping -I eth0 10.0.0.1 ARPING 10.0.0.1 from 10.0.0.2 eth0 Unicast reply from 10.0.0.1 [11:22:33:44:55:66] 0.123ms Unicast reply from 10.0.0.1 [11:22:33:44:55:66] 0.251ms ...  Secret of the tool is ARP protocol [1].</description>
     </item>
     
     <item>
@@ -188,22 +60,9 @@ Unicast reply from 10.0.0.1 [11:22:33:44:55:66]  0.251ms
       <pubDate>Sat, 04 Mar 2017 15:53:08 +0900</pubDate>
       <author>sj38.park@gmail.com (SeongJae Park)</author>
       <guid>https://sjp38.github.io/post/001_linux_dev_intro/</guid>
-      <description>&lt;p&gt;많은 영역에서 사용되고 있는 리눅스 커널.  그렇기에 만져볼수록 재밌고 뜯어볼수록
-신기합니다.  아마도 이게 hack 의 재미가 아닐까요.&lt;/p&gt;
-
-&lt;p&gt;리눅스 커널을 hack 하는데에 필요한 기본적인 내용부터 몇가지 팁들, 소스 코드는
-어떻게 가져오고 어떻게 빌드해서 시스템에 설치를 하는지, 패치는 어떻게 보내면
-되는지와 같은 것들을 정리해 볼까 합니다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;So many environments and users are using Linux kernel.  That&amp;rsquo;s why it is so fun
-and mysterious to touch and analyze it.  Maybe it is the fun of &lt;code&gt;hack&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;I will organize some basic informations and tips about linux kernel hacking,
-for example, how to get the source code, how to build it, how to install it,
-and how the patch can be submitted to &lt;code&gt;Linus Torvalds&lt;/code&gt;.&lt;/p&gt;
-</description>
+      <description>많은 영역에서 사용되고 있는 리눅스 커널. 그렇기에 만져볼수록 재밌고 뜯어볼수록 신기합니다. 아마도 이게 hack 의 재미가 아닐까요.
+리눅스 커널을 hack 하는데에 필요한 기본적인 내용부터 몇가지 팁들, 소스 코드는 어떻게 가져오고 어떻게 빌드해서 시스템에 설치를 하는지, 패치는 어떻게 보내면 되는지와 같은 것들을 정리해 볼까 합니다.
+So many environments and users are using Linux kernel. That&amp;rsquo;s why it is so fun and mysterious to touch and analyze it. Maybe it is the fun of hack.</description>
     </item>
     
     <item>
@@ -212,40 +71,8 @@ and how the patch can be submitted to &lt;code&gt;Linus Torvalds&lt;/code&gt;.&l
       <pubDate>Sat, 14 Jan 2017 07:11:23 +0900</pubDate>
       <author>sj38.park@gmail.com (SeongJae Park)</author>
       <guid>https://sjp38.github.io/post/gcma/</guid>
-      <description>&lt;p&gt;GCMA (Guaranteed Contiguous Memory Allocator) is a contiguous memory allocator
-for Linux kernel that guarantees fast latency, success of allocation, and
-reasonable system memory utilization.  Our evaluation on Raspberry Pi 2 shows
-&lt;strong&gt;15 to 130 times faster&lt;/strong&gt; and more predictable allocation latency without
-system performance degradation compared to Linux v3.18 default CMA.&lt;/p&gt;
-
-&lt;p&gt;The project has been introduced by Linux Foundation Korea Forum 2014[1] and
-Embedded Operating Systems Workshop 2015[2].  A paper about the project has
-been published by proceeding of Embedded Operating Systems Workshop 2015 and
-45th issue of ACM SIGBED Review.  The source code has been submitted to LKML[4]
-for discussion.  It is also available at Github[6].&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;GCMA (Guaranteed Contiguous Memory Allocator) 는 리눅스 커널을 위한 물리적으로
-연속적인 메모리 영역 할당자로, 빠른 응답시간과 할당의 성공, 그리고 합리적인
-시스템 메모리 활용을 보장합니다.  Raspberry Pi 2 위에서의 저희의 성능 평가
-실험은 Linux v3.18 의 기본 CMA 대비 &lt;strong&gt;15 배에서 130배 빠른&lt;/strong&gt;, 그리고 더 예측
-가능한 응답시간을 보임을 보였습니다.&lt;/p&gt;
-
-&lt;p&gt;이 프로젝트는 Linux Foundation Korea Forum 2014[1] 와 Embedded Operating
-Systems Workshop 2015[2] 에서 발표되었습니다.  이 프로젝트에 대한 논문은
-Embedded Operating System Workshop 2015 proceeding 과 ACM SIGBED Review 45th
-issue 에 출판되었습니다.  소스코드는 LKML에 토론을 위해 공개되었으며[4] Github
-에서도 받아보실 수 있습니다[6].&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;[1] &lt;a href=&#34;https://korealinuxforum2014.sched.com/event/1qZcBAO/gcma-guaranteed-contiguous-memory-allocator-seongjae-park-seoul-national-university-minchan-kim-lg&#34;&gt;https://korealinuxforum2014.sched.com/event/1qZcBAO/gcma-guaranteed-contiguous-memory-allocator-seongjae-park-seoul-national-university-minchan-kim-lg&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;[2] &lt;a href=&#34;http://ceur-ws.org/Vol-1464/&#34;&gt;http://ceur-ws.org/Vol-1464/&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;[3] &lt;a href=&#34;http://sigbed.seas.upenn.edu/vol13_num1.html#issue&#34;&gt;http://sigbed.seas.upenn.edu/vol13_num1.html#issue&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;[4] &lt;a href=&#34;https://lkml.org/lkml/2015/2/23/480&#34;&gt;https://lkml.org/lkml/2015/2/23/480&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;[5] &lt;a href=&#34;https://github.com/sjp38/linux.gcma&#34;&gt;https://github.com/sjp38/linux.gcma&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
+      <description>GCMA (Guaranteed Contiguous Memory Allocator) is a contiguous memory allocator for Linux kernel that guarantees fast latency, success of allocation, and reasonable system memory utilization. Our evaluation on Raspberry Pi 2 shows 15 to 130 times faster and more predictable allocation latency without system performance degradation compared to Linux v3.18 default CMA.
+The project has been introduced by Linux Foundation Korea Forum 2014[1] and Embedded Operating Systems Workshop 2015[2]. A paper about the project has been published by proceeding of Embedded Operating Systems Workshop 2015 and 45th issue of ACM SIGBED Review.</description>
     </item>
     
   </channel>

@@ -1,15 +1,27 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Post-rsses on Happy Hacking</title>
-    <link>https://sjp38.github.io/post/index.xml</link>
-    <description>Recent content in Post-rsses on Happy Hacking</description>
+    <title>Posts on Happy Hacking</title>
+    <link>https://sjp38.github.io/post/</link>
+    <description>Recent content in Posts on Happy Hacking</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <managingEditor>sj38.park@gmail.com (SeongJae Park)</managingEditor>
     <webMaster>sj38.park@gmail.com (SeongJae Park)</webMaster>
-    <lastBuildDate>Sun, 28 May 2017 17:51:43 +0900</lastBuildDate>
-    <atom:link href="https://sjp38.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 16 Jun 2017 16:46:09 +0900</lastBuildDate>
+    
+	<atom:link href="https://sjp38.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Kernel text addresses removed from calltrace</title>
+      <link>https://sjp38.github.io/post/kernel-text-addresses-removed-from-calltrace/</link>
+      <pubDate>Fri, 16 Jun 2017 16:46:09 +0900</pubDate>
+      <author>sj38.park@gmail.com (SeongJae Park)</author>
+      <guid>https://sjp38.github.io/post/kernel-text-addresses-removed-from-calltrace/</guid>
+      <description>최근 커널은 stakc ump 에서 콜 트레이스(Call Trace) 에 각 코드의 메모리 어드레스를 찍어주지 않습니다. 이에 대해 포스팅을 해봅니다.
+Call Trace 커널은 문제가 발생하거나 하면 문제의 원인을 찾을 수 있는 다양한 정보를 담고 있는 stack dump 를 로그로 뿌려 줍니다. 문제의 원인을 찾는데 매우 소중한 정보입니다. 그 정보 중에서도 중요한 것 중 하나가 콜 트레이스로, 이 문제의 순간에 오기까지 어느 함수의 어느 지점에서 어느 함수를 호출해서 여기까지 왔는가를 담는 정보입니다.</description>
+    </item>
     
     <item>
       <title>lkml livestream</title>
@@ -17,25 +29,9 @@
       <pubDate>Sun, 28 May 2017 17:51:43 +0900</pubDate>
       <author>sj38.park@gmail.com (SeongJae Park)</author>
       <guid>https://sjp38.github.io/post/lkml_go/</guid>
-      <description>
-
-&lt;p&gt;I wrote a simple, stupid program[1] that showing LKML[2] mails in terminal
-briefly like twitter livestream in Go language.  It is just an early version
-and so many things to be complemented exists, though.  Nevertheless, now it
-just works as I wanted at first.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;쏟아지는 LKML[2] 의 메일들을 트위터 라이브스트림처럼 터미널에 보여주는 간단한
-프로그램[1] 을 go 언어로 만들어 봤습니다.  아직 보완할 점 투성이지만 이제
-최초의 목적대로는 동작하는군요.&lt;/p&gt;
-
-&lt;h1 id=&#34;references&#34;&gt;References&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;[1] https://github.com/sjp38/lkml
-[2] https://en.wikipedia.org/wiki/Linux_kernel_mailing_list
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+      <description>I wrote a simple, stupid program[1] that showing LKML[2] mails in terminal briefly like twitter livestream in Go language. It is just an early version and so many things to be complemented exists, though. Nevertheless, now it just works as I wanted at first.
+쏟아지는 LKML[2] 의 메일들을 트위터 라이브스트림처럼 터미널에 보여주는 간단한 프로그램[1] 을 go 언어로 만들어 봤습니다. 아직 보완할 점 투성이지만 이제 최초의 목적대로는 동작하는군요.
+References [1] https://github.</description>
     </item>
     
     <item>
@@ -44,274 +40,8 @@ just works as I wanted at first.&lt;/p&gt;
       <pubDate>Fri, 19 May 2017 06:23:15 +0900</pubDate>
       <author>sj38.park@gmail.com (SeongJae Park)</author>
       <guid>https://sjp38.github.io/post/parsec_3_howto/</guid>
-      <description>
-
-&lt;p&gt;PARSEC 은 멀티쓰레드 프로그램들로 구성된 benchmark suite 입니다.  멀티쓰레드로
-구성되어 있기 때문에 멀티코어 시스템에서의 multi core scalability 를 테스트
-하기에도 적합합니다.  이 글에선 현재 최신 버전인 3.0 버전의 PARSEC 을 Ubuntu
-16.04 server 에 설치하면서 겪는 문제의 해결법과 간단한 사용법을 정리해 봅니다.&lt;/p&gt;
-
-&lt;h1 id=&#34;parsec-3-0-download&#34;&gt;PARSEC 3.0 Download&lt;/h1&gt;
-
-&lt;p&gt;공식 홈페이지[1] 에 들어가면 PARSEC 3.0 다운로드 링크가 첫페이지부터 있습니다.
-해당 링크를 사용하면 &lt;code&gt;tar.gz&lt;/code&gt; 포맷의 tarball 로 정리된 PARSEC 3.0 을 다운받을
-수 있습니다.  웹브라우저로 들어가서 다운로드를 받는 방법도 있겠고, &lt;code&gt;curl&lt;/code&gt; 이나
-&lt;code&gt;wget&lt;/code&gt; 등의 command line tool 을 사용해 다운받을 수도 있겠습니다.  다음
-커맨드는 PARSEC 3.0 을 다운받아 &lt;code&gt;parsec-3.0/&lt;/code&gt; 디렉토리 아래 압축을 풀고 압축을
-푼 디렉토리로 이동합니다.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ wget http://parsec.cs.princeton.edu/download/3.0/parsec-3.0.tar.gz
-$ tar zxvf parsec-3.0.tar.gz
-$ cd parsec-3.0
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;build&#34;&gt;Build&lt;/h1&gt;
-
-&lt;p&gt;이제 PARSEC 3.0 을 빌드해야 합니다.  PARSEC 은 여러 벤치마크를 포함하고
-있으므로 개별적 벤치마크를 하나하나 직접적으로 다루기보다는 suite 내의 각
-벤치마크를 통합적으로 관리할 수 있는 &lt;code&gt;parsecmgmt&lt;/code&gt; 라는 관리 프로그램을
-사용하도록 되어 있습니다.  빌드 역시 마찬가지입니다.  참고로, &lt;code&gt;parsecmgmt&lt;/code&gt; 는
-bash script 입니다.&lt;/p&gt;
-
-&lt;p&gt;기본적인 PARSEC 3.0 빌드 방법은 다음과 같이 간단합니다:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ source ./env.sh
-$ parsecmgmt -a build
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;첫번째 커맨드는 parsecmgmt 의 경로를 PATH 에 추가하는 등, 환경 변수 설정 등의
-일을 처리해 주며, 두번째의 간단한 커맨드가 전체 PARSEC 3.0 빌드 프로세스를
-수행하게 됩니다.&lt;/p&gt;
-
-&lt;h2 id=&#34;perl-version-problem&#34;&gt;Perl Version Problem&lt;/h2&gt;
-
-&lt;p&gt;하지만 Ubuntu 16.04 server 에서는 다음과 같은 에러 메세지를 내뱉으며 빌드에
-실패합니다:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;smime.pod around line 272: Expected text after =item, not a number
-smime.pod around line 276: Expected text after =item, not a number
-smime.pod around line 280: Expected text after =item, not a number
-smime.pod around line 285: Expected text after =item, not a number
-smime.pod around line 289: Expected text after =item, not a number
-POD document had syntax errors at /usr/bin/pod2man line 68.
-make: *** [install_docs] Error 1
-Makefile:680: recipe for target &#39;install_docs&#39; failed
-[PARSEC] Error: &#39;env PATH=/usr/bin:/home/sjpark/benchmarks/parsec/parsec-3.0/bin:/home/sjpark/bin:/home/sjpark/.local/bin:/home/sjpark/bin:/home/sjpark/bin:/home/sjpark/.local/bin:/home/sjpark/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/snap/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/home/sjpark/benchmarks/parsec/parsec-3.0/bin /usr/bin/make install&#39; failed.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;에러 메세지에서 유추할 수 있듯 PARSEC 3.0 의 소스 코드 중 smime.pod 파일이
-문법에 맞지 않아 생긴 문제입니다.  참고로 pod 는 perl 프로그램 문서화에
-사용되는 간단한 markup language 입니다[2].  Ubuntu 16.04 는 perl 5.22.1 버전을
-기본으로 사용하고 있는데, PARSEC 3.0 에 있는 코드는 perl 5.14.2 버전에 맞춰져
-있으며 최신 버전으로 오는 사이 문법이 바뀐 것으로 인한 문제로 보입니다.
-해결책은 두가지가 있습니다.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;방법 1: perl 5.14.2 설치&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Google groups 의 관련 쓰레드[3] 를 참고한 방법입니다.
-5.14.2 버전의 perl 소스코드를 받아와 이를 설치하고 PARSEC 빌드에 이 버전의 perl
-을 사용하는 방법입니다.  다음의 커맨드로 &lt;code&gt;~/localperl/&lt;/code&gt; 디렉토리 아래 5.14.2
-버전 perl 을 설치하고 사용할 수 있습니다.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;wget http://www.cpan.org/src/5.0/perl-5.14.2.tar.gz
-$ tar zxvf perl-5.14.2.tar.gz
-$ cd perl-5.14.2/
-$ mkdir ~/localperl
-$ ./Configure -des -Dprefix=$HOME/localperl
-$ time make -j # hydra 에서 16초 걸린다.
-$ make test
-$ make install
-$ ~/localperl/bin/perl -v
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-&lt;li&gt;방법 2: pod 파일 문법 오류 수정&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;좀 더 정공법에 가까운 방법으로, 다음 글을 참고한 해결책입니다:
-&lt;a href=&#34;https://yulistic.gitlab.io/2016/05/parsec-3.0-installation-issues/&#34;&gt;https://yulistic.gitlab.io/2016/05/parsec-3.0-installation-issues/&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;최신 버전의 문법에 맞게 pod 파일의 문제시 되는 부분들을 고쳐주는 것으로,
-문제되는 모든 pod 파일의 &lt;code&gt;=item [0-9]&lt;/code&gt; 을 &lt;code&gt;=item C&amp;lt;[0-9]&amp;gt;&lt;/code&gt; 으로 바꿔줍니다.
-&lt;code&gt;diff&lt;/code&gt; 로 표현하면 다음과 같은 수정을 가하게 되겠습니다:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;--- a/pkgs/libs/ssl/src/doc/apps/smime.pod
-+++ b/pkgs/libs/ssl/src/doc/apps/smime.pod
-@@ -265,28 +265,28 @@ encrypted data is used for other purposes.
-
- =over 4
-
--=item 0
-+=item C&amp;lt;0&amp;gt;
-
- the operation was completely successfully.
-
--=item 1
-+=item C&amp;lt;1&amp;gt;
-
- an error occurred parsing the command options.
-
--=item 2
-+=item C&amp;lt;2&amp;gt;
-
- one of the input files could not be read.
-
--=item 3
-+=item C&amp;lt;3&amp;gt;
-
- an error occurred creating the PKCS#7 file or when reading the MIME
- message.
-
--=item 4
-+=item C&amp;lt;4&amp;gt;
-
- an error occurred decrypting or verifying the message.
-
--=item 5
-+=item C&amp;lt;5&amp;gt;
-
- the message was verified correctly but an error occurred writing out
- the signers certificates.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;이렇게 파일 하나하나 수정하면 이 에러 메세지는 사라집니다.  참고한 링크에서는
-하나하나 손으로 수정하기보다는 다음과 같이 간단한 bash shell script 를 짜서
-일괄적으로 수정하는 걸 추천합니다:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;#! /bin/bash
-for i in 0 1 2 3 4 5 6 7 8 9 
-do
-    echo &amp;quot;Replacing &#39;=item $i&#39; to &#39;=item C&amp;lt;$i&amp;gt;&#39;&amp;quot;
-    grep -rl &amp;quot;=item $i&amp;quot; * | xargs sed -i &amp;quot;s/=item $i/=item C&amp;lt;$i&amp;gt;/g&amp;quot;
-done
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;이어서 설명할 문제들과 해결책도 해당 링크를 참고한 것임을 밝혀둡니다.&lt;/p&gt;
-
-&lt;h2 id=&#34;mbstate-t-conflict&#34;&gt;&lt;code&gt;__mbstate_t&lt;/code&gt; Conflict&lt;/h2&gt;
-
-&lt;p&gt;앞의 에러 메세지는 사라지지만 이제 다음과 같은 에러 메세지가 나올 겁니다:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;/usr/include/wchar.h:94:3: error: conflicting types for ‘__mbstate_t’
- } __mbstate_t;
-   ^
-In file included from ../include/machine/bsd_endian.h:37:0,
-                 from ../include/sys/bsd_types.h:44,
-                 from ../include/sys/bsd_param.h:64,
-                 from if_host.c:48:
-../include/sys/bsd__types.h:105:3: note: previous declaration of ‘__mbstate_t’ was here
- } __mbstate_t;
-   ^
-In file included from ../include/net/bsd_if_var.h:82:0,
-                 from ../include/net/bsd_if.h:459,
-                 from if_host.c:57:
-../include/sys/bsd_buf_ring.h: In function ‘buf_ring_dequeue_sc’:
-../include/sys/bsd_buf_ring.h:200:33: warning: variable ‘cons_next_next’ set but not used [-Wunused-but-set-variable]
-  uint32_t cons_head, cons_next, cons_next_next;
-                                 ^
-make[1]: *** [if_host.o] Error 1
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;code&gt;basd__types.h&lt;/code&gt; 파일에 &lt;code&gt;__mbstate_t&lt;/code&gt; 타입을 중복 정의했기 때문에 발생한
-문제입니다.  해당 파일에서 해당 정의 부분을 다음과 같이 주석 처리하면 이 문제는
-사라집니다.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;diff --git a/pkgs/libs/uptcpip/src/include/sys/bsd__types.h b/pkgs/libs/uptcpip/src/include/sys/bsd__types.h
-index fa1b0f0f26d9..bd7e6a97f4c8 100644
---- a/pkgs/libs/uptcpip/src/include/sys/bsd__types.h
-+++ b/pkgs/libs/uptcpip/src/include/sys/bsd__types.h
-@@ -93,6 +93,7 @@ typedef       __ct_rune_t     __wint_t;       /* wint_t (see above) */
-
- typedef        __uint32_t      __fixpt_t;      /* fixed point number */
-
-+#if 0  /* Skip conflicting __mbstate_t definition */
- /*
-  * mbstate_t is an opaque object to keep conversion state during multibyte
-  * stream conversions.
-@@ -104,5 +105,6 @@ typedef union {
-        __int64_t       _mbstateL;      /* for alignment */
- } __mbstate_t;
- #endif
-+#endif /* Skip conflicting __mbstate_t definition */
-
- #endif /* !_BSD_SYS__TYPES_H_ */
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;pkg-config-package-not-found&#34;&gt;pkg-config Package Not Found&lt;/h2&gt;
-
-&lt;p&gt;성공적인 빌드를 위해선 당연하지만 PARSEC 3.0 이 의존성을 가진 패키지가 모두
-설치되어 있어야 합니다.  이를 주의 깊게 미리 설치해 두지 않았다면 다음과 같은
-에러 메세지를 만날 수도 있습니다:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;configure: error: *** pkg-config not found. See http://www.freedesktop.org/software/pkgconfig/
-[PARSEC] Error: &#39;env CFLAGS=-I/home/sjpark/benchmarks/parsec/parsec-3.0/pkgs/libs/zlib/inst/amd64-linux.gcc/include  -O3 -g -funroll-loops -fprefetch-loop-arrays -static-libgcc -Wl,--hash-style=both,--as-needed -DPARSEC_VERSION=3.0-beta-20150206 LDFLAGS=-L/home/sjpark/benchmarks/parsec/parsec-3.0/pkgs/libs/zlib/inst/amd64-linux.gcc/lib -L/usr/lib64 -L/usr/lib /home/sjpark/benchmarks/parsec/parsec-3.0/pkgs/libs/glib/src/configure --disable-shared --enable-threads --with-threads=posix --prefix=/home/sjpark/benchmarks/parsec/parsec-3.0/pkgs/libs/glib/inst/amd64-linux.gcc&#39; failed.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;위 메세지는 &lt;code&gt;pkg-config&lt;/code&gt; 프로그램이 설치되어 있지 않아서 발생한 문제임을 알 수
-있습니다.  간단히 Ubuntu 의 package 시스템인 apt 를 사용해 다음과 같이 해당
-프로그램을 설치해 주면 문제는 사라집니다.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo apt install pkg-config
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;build-success&#34;&gt;Build Success&lt;/h2&gt;
-
-&lt;p&gt;이 정도까지가 나타날 수 있는 대부분의 문제입니다.  위 해결책들을 모두
-적용했다면 아마 빌드에 성공할 겁니다.  빌드에 성공하면 다음과 같이 성공했다는
-메세지를 볼 수 있을 겁니다:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;[PARSEC]
-[PARSEC] BIBLIOGRAPHY
-[PARSEC]
-[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
-[PARSEC] [2] Woo et al. The SPLASH-2 Programs: Characterization and Methodological Considerations. ISCA, 1995.
-[PARSEC]
-[PARSEC] Done.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;참고로 빌드에 꽤 긴 시간이 소모됩니다.  제가 사용한 72 코어 / 144 쓰레드
-머신에서도 약 10분이 걸렸습니다.&lt;/p&gt;
-
-&lt;h1 id=&#34;simple-usage&#34;&gt;Simple Usage&lt;/h1&gt;
-
-&lt;p&gt;이제 빌드가 잘 되었는지 돌려봐야 할 차례입니다.  다음 커맨드는 각 벤치마크를
-가장 작은 크기의 데이터셋을 가지고 실행해 보기 때문에 각 벤치마크가 돌아가긴
-하는지만 보는데 적격입니다:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;parsecmgmt -a run
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;가장 작은 크기의 데이터셋을 사용하기 때문에 모든 벤치마크를 수행하지만 빠르게
-종료됩니다.&lt;/p&gt;
-
-&lt;h2 id=&#34;parsecmgmt-options&#34;&gt;&lt;code&gt;parsecmgmt&lt;/code&gt; Options&lt;/h2&gt;
-
-&lt;p&gt;&lt;code&gt;-a&lt;/code&gt; 옵션은 action 을 의미합니다.  앞의 섹션에서는 빌드를 위해 여기에 &lt;code&gt;build&lt;/code&gt;
-값을 주었고, 여기선 벤치마크 수행을 위해 &lt;code&gt;run&lt;/code&gt; 값을 준 것입니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;-i&lt;/code&gt; 옵션을 통해 벤치마크들은 워크로드에서 사용할 데이터 크기를 지정할 수
-있습니다.  이 인자의 값으로 test, simdev, simsmall, simmedium, simlarge, native
-를 줄 수 있습니다.  Test 는 정확성 테스트만을 위한, 빨리 끝나는 데이터로 이
-인자를 주지 않으면 default 로 이 값이 취해집니다.  native 는 가장 realworld
-workload 에 가까운 벤치마크를 위한 데이터라 볼 수 있습니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;-p&lt;/code&gt; 옵션을 통해 어떤 sub benchmark 를 돌릴지 정할 수 있습니다.  이 옵션을
-별도로 주지 않으면 모든 benchmark 를 돌리게 됩니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;-n&lt;/code&gt; 옵션은 number of threads to use 입니다.&lt;/p&gt;
-
-&lt;p&gt;예를 들어 &lt;code&gt;parsecmgmt -p canneal -a run -i native -n 1&lt;/code&gt; 은 &lt;code&gt;canneal&lt;/code&gt; sub
-benchmark 하나만을 쓰레드 한개 써서 &lt;code&gt;native&lt;/code&gt; 데이터셋으로 실행합니다.&lt;/p&gt;
-
-&lt;h1 id=&#34;references&#34;&gt;References&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;[1] http://parsec.cs.princeton.edu
-[2] https://en.wikipedia.org/wiki/Plain_Old_Documentation
-[3] https://groups.google.com/forum/#!topic/snipersim/_1qpbmpPRtg
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+      <description>PARSEC 은 멀티쓰레드 프로그램들로 구성된 benchmark suite 입니다. 멀티쓰레드로 구성되어 있기 때문에 멀티코어 시스템에서의 multi core scalability 를 테스트 하기에도 적합합니다. 이 글에선 현재 최신 버전인 3.0 버전의 PARSEC 을 Ubuntu 16.04 server 에 설치하면서 겪는 문제의 해결법과 간단한 사용법을 정리해 봅니다.
+PARSEC 3.0 Download 공식 홈페이지[1] 에 들어가면 PARSEC 3.0 다운로드 링크가 첫페이지부터 있습니다. 해당 링크를 사용하면 tar.gz 포맷의 tarball 로 정리된 PARSEC 3.0 을 다운받을 수 있습니다. 웹브라우저로 들어가서 다운로드를 받는 방법도 있겠고, curl 이나 wget 등의 command line tool 을 사용해 다운받을 수도 있겠습니다.</description>
     </item>
     
     <item>
@@ -320,164 +50,8 @@ benchmark 하나만을 쓰레드 한개 써서 &lt;code&gt;native&lt;/code&gt; �
       <pubDate>Wed, 17 May 2017 22:44:07 +0900</pubDate>
       <author>sj38.park@gmail.com (SeongJae Park)</author>
       <guid>https://sjp38.github.io/post/mariadb_setup/</guid>
-      <description>
-
-&lt;p&gt;악의 조직 Oracle 에서 Sun 을 인수한 후 이어진 반 open source 적 행보에 MySQL
-개발자는 MySQL 을 fork 해서 MariaDB 를 개발하고 있습니다.  저작권을 악용해
-중요한 기능은 천천히 릴리즈 하거나 유료 라이센스로만 공개하기도 하는 Oracle 의
-MySQL 과 달리 MariaDB 는 예전 MySQL 처럼 공개적으로 개발되고 있어 새롭고
-진보적인 기능도 많이 있는 편인 것 같습니다.&lt;/p&gt;
-
-&lt;p&gt;이 글에서는 Ubuntu 16.04 서버에 MariaDB 를 소스코드부터 가져와서 설치하고
-사용하는 간단한 사용법을 정리해 봅니다.&lt;/p&gt;
-
-&lt;h1 id=&#34;build-and-install&#34;&gt;Build and Install&lt;/h1&gt;
-
-&lt;p&gt;MariaDB 는 대부분의 리눅스 배포본을 위한 패키징이 잘 되어 있어서 각 배포본의
-패키징 시스템을 사용하면 한두줄의 커맨드로 쉽게 설치할 수 있습니다.  하지만
-여기선 문서[1] 를 참고해 가며 소스 코드부터 가져와서 바닥부터 가장 최신 버전을
-설치해 보기로 합시다.&lt;/p&gt;
-
-&lt;p&gt;소스코드는 github 에 git repository 의 형태로 공개되어 있습니다.  아래의
-명령어로 코드를 &lt;code&gt;mariadb/&lt;/code&gt; 디렉토리 아래에 가져올 수 있습니다.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ git clone https://github.com/MariaDB/server.git mariadb
-$ cd mariadb
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;git repository 인만큼 버전은 git 을 통해 tag 로 관리되고 있습니다.  이 글을
-작성 중인 시점에서 가장 최신 stable 릴리즈는 10.1.22[2] 로, 2017년 3월 11일
-자로 릴리즈 되었습니다.  다음 커맨드로 해당 버전의 코드를 checkout 할 수
-있습니다:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ git checkout mariadb-10.1.22
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;이제 소스코드는 준비되었고, 빌드할 차례입니다.  &lt;code&gt;cmake&lt;/code&gt; 를 사용해 어떻게
-빌드할지 등을 설정할 수 있는데, 여기선 release 할때 사용하는 설정을 사용해
-보겠습니다.  &lt;code&gt;cmake&lt;/code&gt; 가 실패하는 경우는 대부분 필요 패키지가 설치되지 않은
-경우입니다.  &lt;code&gt;libaio-dev&lt;/code&gt;, &lt;code&gt;libjemalloc-dev&lt;/code&gt; 등의 패키지가 설치되어 있어야
-합니다.  해당 패키지 설치 후에도 같은 에러 메세지가 나올 수 있는데, cmake 의
-기존 결과가 캐싱되어 재사용되기 때문입니다.  &lt;code&gt;CMakeCache.txt&lt;/code&gt; 와 &lt;code&gt;CMakeFiles/&lt;/code&gt;
-디렉토리를 제거해주면 캐싱된 내용은 사라집니다.&lt;/p&gt;
-
-&lt;p&gt;이어서 간단히 &lt;code&gt;make&lt;/code&gt; 를 사용해 빌드하고 설치를 할 수 있습니다.
-설치는 super user 권한이 필요하기 때문에 &lt;code&gt;sudo&lt;/code&gt; 를 사용해야 합니다.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ cmake . -DBUILD_CONFIG=mysql_release
-$ make
-$ sudo make install
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;어떤 사양의 머신에서 빌드하느냐에 따라 다르겠지만 빌드하는데 꽤 긴 시간이
-걸립니다.  이 글을 작성하며 사용한 72 코어 / 144 쓰레드 머신에서는 &lt;code&gt;-j144&lt;/code&gt;
-옵션을 줘서 빌드할 경우 1분 5초 걸렸습니다.&lt;/p&gt;
-
-&lt;h1 id=&#34;start-mariadb-server&#34;&gt;Start MariaDB Server&lt;/h1&gt;
-
-&lt;p&gt;이제 MariaDB 를 띄워 볼 차례입니다.  아무 프로세스나 super user 권한으로
-실행하는 건 보안적으로 위험할 수 있으므로, MariaDB 는 기본적으로 별개의 사용자
-계정을 사용할 것을 권장합니다.  다음 예에서는 mysql 이라는 이름의 user 를
-생성해서 이 사용자 계정을 사용하도록 해서 초기화를 진행합니다.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo adduser mysql
-$ sudo chown -R mysql /usr/local/mysql/
-$ cd /usr/local/mysql/
-$ sudo -u mysql ./scripts/mysql_install_db --user=mysql
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;이제 준비가 끝났습니다.  다음 커맨드로 MariaDB 서버를 시작할 수 있습니다:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo -u mysql /usr/local/mysql/bin/mysqld_safe --user=mysql
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;connect-to-local-mariadb-server&#34;&gt;Connect to Local MariaDB Server&lt;/h1&gt;
-
-&lt;p&gt;다음 커맨드로 mariadb local shell 을 열 수 있습니다.  이 커맨드는 같은 기계
-위에 띄워져 있는 MariaDB 서버 프로세스에 접속해 해당 서버에 sql 쿼리를 날릴 수
-있는 프롬프트를 띄워 줍니다.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ /usr/local/mysql/bin/mysql
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;위 커맨드에 &amp;ndash;version 인자를 주면 현재 mariadb 의 버전도 볼 수 있습니다:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ /usr/local/mysql/bin/mysql --version
-mysql  Ver 15.1 Distrib 10.1.22-MariaDB, for Linux (x86_64) using readline 5.1
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;kill-mariadb-server&#34;&gt;Kill MariaDB Server&lt;/h1&gt;
-
-&lt;p&gt;서버를 끝낼 수도 있어야겠죠.  다음의 커맨드로 mysql 서버 프로세스에게 SIGTERM
-시그널을 날려서 서버 프로세스를 종료시킬 수 있습니다.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo -u mysql kill -SIGTERM `pidof mysqld`
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;basical-usage&#34;&gt;Basical Usage&lt;/h1&gt;
-
-&lt;p&gt;프롬프트에서 다음과 같이 기본적인 sql 쿼리를 날릴 수 있습니다.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo /usr/local/mysql/bin/mysql
-&amp;gt; create database sj_db;
-&amp;gt; create table sjtable ( id INT PRIMARY KEY, name VARCHAR(20) );
-&amp;gt; insert into sjtable values ( 1, &#39;Will&#39; );
-&amp;gt; select * from sjtable;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;그 외의 MariaDB sql 문법을 위해서는 MariaDB basic sql statement 문서[3] 를
-참고합시다.&lt;/p&gt;
-
-&lt;h1 id=&#34;my-cnf-configuration&#34;&gt;my.cnf configuration&lt;/h1&gt;
-
-&lt;p&gt;mysql 과 마찬가지로 MariaDB 역시 my.cnf 파일을 사용해[1] 대부분의 설정을
-구성합니다.  기본적으로 /etc/my.cnf, /etc/mysql/my.cnf &amp;hellip; 순으로 설정 파일을
-찾게 되며, mysqld_safe 실행파일 실행 시에 &amp;ndash;defaults-file 인자로 파일 경로를
-줄수도 있습니다.  소스 코드 디렉토리의 support-files/ 디렉토리 아래에
-my-huge.cnf, my-large.cnf, my-medium.cnf 등의 예제 설정도 있습니다.&lt;/p&gt;
-
-&lt;h1 id=&#34;data-directory-specification&#34;&gt;Data Directory Specification&lt;/h1&gt;
-
-&lt;p&gt;실험용으로 MariaDB 를 사용하는 경우라면 MariaDB 데이터를 최초 상태로 백업해
-두거나 서로 다른 설정의 데이터를 유지해야 할 수도 있습니다.&lt;/p&gt;
-
-&lt;p&gt;MariaDB 의 default data directory 는 /usr/local/mysql/data/ 로, 프롬프트에서&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;gt; select @@datadir;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;명령으로 현재 띄워진 MariaDB 서버 프로세스가 사용중인 data directory 의 경로를
-볼 수 있습니다.  이 경로는 my.cnf 상에서 수정할 수도 있고, mysqld_safe 실행 시
-&amp;ndash;datadir 옵션으로 지정할 수도 있습니다.  주의할 점은, 이때 &amp;ndash;datadir 인자로
-주는 데이터 디렉토리는 한번은 scripts/mysql_install_db 를 실행해준 디렉토리여야
-한다는 것입니다.  mysql_install_db 명령에도 &amp;ndash;datadir 인자를 줄수 있습니다.&lt;/p&gt;
-
-&lt;h1 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h1&gt;
-
-&lt;p&gt;MariaDB 최신 버전의 소스코드를 가져와 빌드하고 설치해서 사용하는 방법을
-알아봤습니다.  하나의 예제로 정리해 보자면 다음과 같습니다.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ git clone https://github.com/MariaDB/server.git mariadb
-$ cd mariadb
-$ git checkout mariadb-10.1.22
-$ cmake . -DBUILD_CONFIG=mysql_release
-$ make
-$ sudo make install
-$ sudo adduser mysql
-$ sudo chown -R mysql /usr/local/mysql/
-$ cd /usr/local/mysql/
-$ sudo -u mysql ./scripts/mysql_install_db --user=mysql &amp;amp;
-$ /usr/local/mysql/bin/mysql
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;references&#34;&gt;References&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;[1] https://mariadb.com/kb/en/mariadb/generic-build-instructions/
-[2] https://downloads.mariadb.org/mariadb/+releases/
-[3] https://mariadb.com/kb/en/mariadb/basic-sql-statements/
-[4] https://mariadb.com/kb/en/mariadb/configuring-mariadb-with-mycnf/
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+      <description>악의 조직 Oracle 에서 Sun 을 인수한 후 이어진 반 open source 적 행보에 MySQL 개발자는 MySQL 을 fork 해서 MariaDB 를 개발하고 있습니다. 저작권을 악용해 중요한 기능은 천천히 릴리즈 하거나 유료 라이센스로만 공개하기도 하는 Oracle 의 MySQL 과 달리 MariaDB 는 예전 MySQL 처럼 공개적으로 개발되고 있어 새롭고 진보적인 기능도 많이 있는 편인 것 같습니다.
+이 글에서는 Ubuntu 16.04 서버에 MariaDB 를 소스코드부터 가져와서 설치하고 사용하는 간단한 사용법을 정리해 봅니다.</description>
     </item>
     
     <item>
@@ -486,17 +60,8 @@ $ /usr/local/mysql/bin/mysql
       <pubDate>Fri, 31 Mar 2017 13:53:54 +0900</pubDate>
       <author>sj38.park@gmail.com (SeongJae Park)</author>
       <guid>https://sjp38.github.io/post/xclip_copy_remote_clipboard/</guid>
-      <description>&lt;p&gt;여러개의 리눅스 데스크탑 PC 를 한 책상 위에서 사용하는 경우가 있다.  이 때, 한
-PC 에서 Ctrl-C 해서 clipboard 에 복사한 내용을 다른쪽 PC 에서 Ctrl-V 로
-붙여넣고 싶은 경우가 있다.  여러가지 해결책이 있겠으나, 다음과 같이 ssh 와
-xclip 을 사용해서 해결할 수도 있다:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ ssh &amp;lt;username&amp;gt;@&amp;lt;remote host&amp;gt; &#39;DISPLAY=:0 xclip -o -selection clipboard&#39; | \
-	xclip -i -selection clipboard
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;참고: &lt;a href=&#34;http://askubuntu.com/questions/513442/can-two-pcs-with-ubuntu-share-the-clipboard-buffer&#34;&gt;http://askubuntu.com/questions/513442/can-two-pcs-with-ubuntu-share-the-clipboard-buffer&lt;/a&gt;&lt;/p&gt;
-</description>
+      <description>여러개의 리눅스 데스크탑 PC 를 한 책상 위에서 사용하는 경우가 있다. 이 때, 한 PC 에서 Ctrl-C 해서 clipboard 에 복사한 내용을 다른쪽 PC 에서 Ctrl-V 로 붙여넣고 싶은 경우가 있다. 여러가지 해결책이 있겠으나, 다음과 같이 ssh 와 xclip 을 사용해서 해결할 수도 있다:
+$ ssh &amp;lt;username&amp;gt;@&amp;lt;remote host&amp;gt; &#39;DISPLAY=:0 xclip -o -selection clipboard&#39; | \ xclip -i -selection clipboard  참고: http://askubuntu.com/questions/513442/can-two-pcs-with-ubuntu-share-the-clipboard-buffer</description>
     </item>
     
     <item>
@@ -505,222 +70,8 @@ xclip 을 사용해서 해결할 수도 있다:&lt;/p&gt;
       <pubDate>Wed, 29 Mar 2017 05:10:55 +0900</pubDate>
       <author>sj38.park@gmail.com (SeongJae Park)</author>
       <guid>https://sjp38.github.io/post/spec_cpu2006_install/</guid>
-      <description>
-
-&lt;p&gt;SPEC 은 벤치마크를 위한 협력기구 [0] 로, 다양한 벤치마크 suite 들을 만들고
-공유합니다.  SPEC CPU 2006 은 여기서 만든 벤치마크 도구집합 중 하나 [1] 로 계산
-작업 집중적인 워크로드에 대한 성능을 측정을 목표로 만들어졌으며, 많은 곳에서
-사용되고 있습니다.  2006년 1.0 버전이, 2008년에 1.1 버전이, 그리고 2011년에 1.2
-버전이 나왔습니다.  본 글은 Ubuntu 16.04 서버 위에서의 SPEC CPU 2006 v1.1 의
-설치에 대해 간단히 설명합니다.&lt;/p&gt;
-
-&lt;h1 id=&#34;설치-환경&#34;&gt;설치 환경&lt;/h1&gt;
-
-&lt;p&gt;본 글에서 설명하는 내용은 다음과 같은 환경의 머신 위에서 수행되었습니다:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Intel Xeon E7-8870 v3&lt;/li&gt;
-&lt;li&gt;Linux 4.10 kernel&lt;/li&gt;
-&lt;li&gt;Ubuntu 16.04.1 Server version&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&#34;소스-코드-구하기&#34;&gt;소스 코드 구하기&lt;/h1&gt;
-
-&lt;p&gt;먼저 소스 코드가 있어야겠죠.  SPEC CPU 2006 은 DVD 또는 &lt;code&gt;.iso&lt;/code&gt; 파일의 형태로
-구매 [2] 될 수 있습니다 (작성 시점에서 SPEC CPU 2006 v1.2 의 가격은 $800 군요).
-이렇게 구매된 DVD 안에는 벤치마크 소스코드와 벤치마크의 컴파일과 수행, 검증을
-위한 tool 프로그램들의 소스코드, 미리 컴파일된 tool 프로그램들, 벤치마크 실행을
-위한 규칙 파일, 그리고 문서등이 들어있습니다.  이 글에선 SPEC CPU 2006 v1.1 을
-바탕으로 설명합니다.  &lt;code&gt;.iso&lt;/code&gt; 파일을 구했다면 다음과 같은 명령으로 mount 해서 그
-안의 파일들을 보고 사용할 수 있습니다:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ mkdir tmnt
-$ sudo mount -o loop SPEC_CPU2006v1.1.iso ./tmnt
-$ ls tmnt
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;마운트한 위치에서 곧바로 설치 / 실행을 수행해도 좋지만 파일을 복사해두고
-사용하겠습니다.  &lt;code&gt;mount&lt;/code&gt; 를 &lt;code&gt;sudo&lt;/code&gt; 로 해야하는 관계로 이 파일들의 owner 는
-&lt;code&gt;root&lt;/code&gt; 이며 쓰기권한도 없습니다.  굳이 &lt;code&gt;root&lt;/code&gt; 가 되지 않고도 벤치마크를
-설치하고 돌릴 수 있으므로 파일의 owner 와 권한을 바꿔줍니다:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ mkdir SPEC_CPU2006v1.1
-$ cp -R ./tmnt/* SPEC_CPU2006v1.1/
-$ sudo umount ./tmnt &amp;amp;&amp;amp; rm -fr ./tmnt
-$ sudo chown -R &amp;lt;username&amp;gt; SPEC_CPU2006v1.1
-$ sudo chmod -R 755 SPEC_CPU2006v1.1
-$ cd SPEC_CPU2006v1.1
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;툴-빌드&#34;&gt;툴 빌드&lt;/h1&gt;
-
-&lt;p&gt;SPEC 에서 사용되는 도구들은 앞서 가져온 &lt;code&gt;.iso&lt;/code&gt; 파일 안에 redhat, suse 등 여러
-플랫폼 용으로 미리 빌드되어 있습니다.  하지만 Ubuntu 를 위한 버전은 없습니다.
-따라서 다음과 같이 소스코드로부터 직접 빌드를 해야 합니다:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ cd tools/src
-$ ./buildtools
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;code&gt;buildtools&lt;/code&gt; 는 셸 스크립트로, &lt;code&gt;tools/src&lt;/code&gt; 아래 있는 각 툴들을 빌드합니다.
-곧바로 진행되면 좋겠지만, 다음과 같은 에러들이 발생합니다.&lt;/p&gt;
-
-&lt;h2 id=&#34;conflicting-types-for-getline&#34;&gt;Conflicting types for &amp;lsquo;getline&amp;rsquo;&lt;/h2&gt;
-
-&lt;p&gt;&lt;code&gt;md5sum&lt;/code&gt; 빌드 중 다음과 같은 에러 메세지가 나옵니다:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;gcc -DHAVE_CONFIG_H    -I/home/sjpark/benchmarks/spec/SPEC_CPU2006v1.1/tools/output/include   -I. -Ilib  -c -o md5sum.o md5sum.c
-In file included from md5sum.c:38:0:
-lib/getline.h:31:1: error: conflicting types for &#39;getline&#39;
- getline PARAMS ((char **_lineptr, size_t *_n, FILE *_stream));
- ^
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;code&gt;md5sum&lt;/code&gt; 빌드 중 &lt;code&gt;getline()&lt;/code&gt;, &lt;code&gt;getdelim()&lt;/code&gt; 함수가 &lt;code&gt;stdio.h&lt;/code&gt; 에서 선언되어
-있는데도 &lt;code&gt;getline.h&lt;/code&gt; 파일에 또 선언되어서 conflicting type 으로 나는
-문제입니다.  역시 툴 중 하나인 &lt;code&gt;tar&lt;/code&gt; 의 경우엔 GLIBC 버전을 체크해 2 이상일
-경우엔 해당 declaration 을 제거해 두었는데, &lt;code&gt;md5sum&lt;/code&gt; 아래의 &lt;code&gt;getline.h&lt;/code&gt; 엔 이
-체크가 없기 때문에 문제가 됩니다.  다음과 같이 GLIBC 버전 체크를 추가해
-중복선언이 없도록 수정해 줍니다:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;--- a/tools/src/specmd5sum/lib/getline.h
-+++ b/tools/src/specmd5sum/lib/getline.h
-@@ -27,10 +27,14 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.  */
- #  endif
- # endif
-
-+# if __GLIBC__ &amp;lt; 2
-+
- int
- getline PARAMS ((char **_lineptr, size_t *_n, FILE *_stream));
-
- int
- getdelim PARAMS ((char **_lineptr, size_t *_n, int _delimiter, FILE *_stream));
-
-+#endif
-+
- #endif /* not GETLINE_H_ */
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;undefined-reference-to-pow&#34;&gt;Undefined reference to &lt;code&gt;pow&lt;/code&gt;&lt;/h2&gt;
-
-&lt;p&gt;이 문제와 아래의 두개의 문제는 인터넷 상의 SPEC CPU 2000 에 대한 비슷한 문제의
-해결책[3] 을 참고했습니다.&lt;/p&gt;
-
-&lt;p&gt;이제 &lt;code&gt;perl&lt;/code&gt; 빌드 중 다음과 같은 에러 메세지가 발생합니다:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;cc -L/home/sjpark/benchmarks/spec/SPEC_CPU2006v1.1/tools/output/lib -L/usr/local/lib -o miniperl \
-            miniperlmain.o opmini.o libperl.a
-libperl.a(pp.o): In function `Perl_pp_pow&#39;:
-pp.c:(.text+0x2a76): undefined reference to `pow&#39;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;code&gt;pow&lt;/code&gt; 함수를 찾지 못하는 문제로, &lt;code&gt;libm&lt;/code&gt; 라이브러리를 링크 시점에 링크하도록
-알려줘야 합니다.  다음과 같이 &lt;code&gt;PERLFLAGS&lt;/code&gt; 환경변수를 설정하고 &lt;code&gt;buildtools&lt;/code&gt; 를
-실행하는 것으로 해결할 수 있습니다:&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;$ PERLFLAGS=&amp;quot;-A libs=-lm -A libs=-ldl&amp;quot; ./buildtools&lt;/code&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;asm-page-h-file-not-found&#34;&gt;&lt;code&gt;asm/page.h&lt;/code&gt; file not found&lt;/h2&gt;
-
-&lt;p&gt;커널 헤더파일인 &lt;code&gt;asm/page.h&lt;/code&gt; 파일을 &lt;code&gt;tools/src/perl-5.8.8/ext/IPC/SysV/SysV.xs&lt;/code&gt;
-파일에서 &lt;code&gt;include&lt;/code&gt; 하고 있어 발생하는 문제가 다음과 같이 발생합니다:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;cc -c   -I/home/sjpark/benchmarks/spec/SPEC_CPU2006v1.1/tools/output/include -fno-strict-aliasing -pipe -Wdeclaration-after-statement -I/usr/local/include -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -O2   -DVERSION=\&amp;quot;1.04\&amp;quot; -DXS_VERSION=\&amp;quot;1.04\&amp;quot; -fpic &amp;quot;-I../../..&amp;quot;   SysV.c
-SysV.xs:7:25: fatal error: asm/page.h: No such file or directory
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;code&gt;SysV.xs&lt;/code&gt; 파일의 해당 &lt;code&gt;include&lt;/code&gt; 문을 다음과 같이 막고 &lt;code&gt;PAGE_SIZE&lt;/code&gt; 를 정의해준다.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;--- a/tools/src/perl-5.8.8/ext/IPC/SysV/SysV.xs
-+++ b/tools/src/perl-5.8.8/ext/IPC/SysV/SysV.xs
-@@ -4,7 +4,7 @@
-
- #include &amp;lt;sys/types.h&amp;gt;
- #ifdef __linux__
--#   include &amp;lt;asm/page.h&amp;gt;
-+#define PAGE_SIZE      4096
- #endif
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;you-haven-t-done-a-make-depend-yet&#34;&gt;You haven&amp;rsquo;t done a &amp;ldquo;make depend&amp;rdquo; yet!&lt;/h2&gt;
-
-&lt;p&gt;이어서 다음 에러 메세지가 나옵니다.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;You haven&#39;t done a &amp;quot;make depend&amp;quot; yet!
-make[1]: *** [hash.o] Error 1
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;code&gt;perl&lt;/code&gt; 빌드 중 사용되는 &lt;code&gt;/bin/sh&lt;/code&gt; 은 &lt;code&gt;/bin/dash&lt;/code&gt; 를 가리키고 있는데, &lt;code&gt;dash&lt;/code&gt;
-에서 생기는 문제입니다.  다음과 같이 심볼릭 링크를 수정해 &lt;code&gt;bin/sh&lt;/code&gt; 이 &lt;code&gt;bash&lt;/code&gt; 를
-가리키도록 하면 문제는 해결됩니다.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo rm /bin/sh
-$ sudo ln -s /bin/bash /bin/sh
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;시스템을 원래대로 돌리고 싶다면 빌드 끝나고 나중에 심볼릭 링크를 되돌리면
-됩니다.&lt;/p&gt;
-
-&lt;h2 id=&#34;perl-test-fail&#34;&gt;&lt;code&gt;perl&lt;/code&gt; test fail&lt;/h2&gt;
-
-&lt;p&gt;위의 해결책을 모두 적용하고 &lt;code&gt;$ PERLFLAGS=&amp;quot;-A libs=-lm -A libs=-ldl&amp;quot;
-./buildtools&lt;/code&gt; 를 수행하면 perl 쪽의 테스트 약 900개 가운데 9개 정도 fail 나는
-문제가 있긴 하지만 이건 무시하겠다고 하면 무시가 되고 빌드 진행이 됩니다.
-테스트 9개가 fail 났는데 무시하겠냐는 질문이 아래와 같이 뜨는데, 무시하겠다고
-답해줍시다 (해당 프롬프트에서 설명하는대로, &lt;code&gt;y&lt;/code&gt; 를 입력하면 됩니다).&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;Failed 9 test scripts out of 907, 99.01% okay.
-### Since not all tests were successful, you may want to run some of
-### them individually and examine any diagnostic messages they produce.
-### See the INSTALL document&#39;s section on &amp;quot;make test&amp;quot;.
-### You have a good chance to get more information by running
-###   ./perl harness
-### in the &#39;t&#39; directory since most (&amp;gt;=80%) of the tests succeeded.
-### You may have to set your dynamic library search path,
-### LD_LIBRARY_PATH, to point to the build directory:
-###   setenv LD_LIBRARY_PATH `pwd`:$LD_LIBRARY_PATH; cd t; ./perl harness
-###   LD_LIBRARY_PATH=`pwd`:$LD_LIBRARY_PATH; export LD_LIBRARY_PATH; cd t; ./perl harness
-###   export LD_LIBRARY_PATH=`pwd`:$LD_LIBRARY_PATH; cd t; ./perl harness
-### for csh-style shells, like tcsh; or for traditional/modern
-### Bourne-style shells, like bash, ksh, and zsh, respectively.
-u=0.92  s=0.69  cu=89.23  cs=5.47  scripts=907  tests=112394
-make[2]: *** [_test_tty] Error 1
-make[2]: Leaving directory `/home/sjpark/benchmarks/spec/SPEC_CPU2006v1.1/tools/src/perl-5.8.8&#39;
-make[1]: *** [_test] Error 2
-make[1]: Leaving directory `/home/sjpark/benchmarks/spec/SPEC_CPU2006v1.1/tools/src/perl-5.8.8&#39;
-make: *** [test] Error 2
-+ &#39;[&#39; 2 -ne 0 &#39;]&#39;
-+ set +x
-
-
-Hey!  Some of the Perl tests failed!  If you think this is okay, enter y now:
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;build-success&#34;&gt;Build success&lt;/h2&gt;
-
-&lt;p&gt;여기까지 오면 이제 빌드가 완료됩니다.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;Tools built successfully.  Go to the top of the tree and
-source the shrc file.  Then you should be ready.
-$
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h1&gt;
-
-&lt;p&gt;SPEC CPU 2006 을 Ubuntu 16.04 에 설치하는 과정을 알아봤습니다.  다음 글에서는
-SPEC CPU 벤치마크를 실행해 보는 방법을 설명합니다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;[0] &lt;a href=&#34;http://spec.org/&#34;&gt;http://spec.org/&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;[1] &lt;a href=&#34;http://spec.org/benchmarks.html#cpu&#34;&gt;http://spec.org/benchmarks.html#cpu&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;[2] &lt;a href=&#34;http://spec.org/order.html&#34;&gt;http://spec.org/order.html&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;[3] &lt;a href=&#34;https://wiki.linaro.org/MichaelHope/Sandbox/BuildingSPECTools&#34;&gt;https://wiki.linaro.org/MichaelHope/Sandbox/BuildingSPECTools&lt;/a&gt;&lt;/p&gt;
-</description>
+      <description>SPEC 은 벤치마크를 위한 협력기구 [0] 로, 다양한 벤치마크 suite 들을 만들고 공유합니다. SPEC CPU 2006 은 여기서 만든 벤치마크 도구집합 중 하나 [1] 로 계산 작업 집중적인 워크로드에 대한 성능을 측정을 목표로 만들어졌으며, 많은 곳에서 사용되고 있습니다. 2006년 1.0 버전이, 2008년에 1.1 버전이, 그리고 2011년에 1.2 버전이 나왔습니다. 본 글은 Ubuntu 16.04 서버 위에서의 SPEC CPU 2006 v1.1 의 설치에 대해 간단히 설명합니다.
+설치 환경 본 글에서 설명하는 내용은 다음과 같은 환경의 머신 위에서 수행되었습니다:</description>
     </item>
     
     <item>
@@ -729,89 +80,8 @@ SPEC CPU 벤치마크를 실행해 보는 방법을 설명합니다.&lt;/p&gt;
       <pubDate>Mon, 20 Mar 2017 22:37:03 +0900</pubDate>
       <author>sj38.park@gmail.com (SeongJae Park)</author>
       <guid>https://sjp38.github.io/post/fetching-linux-source-code/</guid>
-      <description>
-
-&lt;p&gt;리눅스 커널은 오픈 소스 소프트웨어이므로 그 소스코드가 공개되어 있어 누구나
-인터넷을 통해 쉽게 얻을 수 있습니다.  이 글에서는 리눅스 커널 소스코드를 받아올
-수 있는 몇가지 방법을 설명합니다.&lt;/p&gt;
-
-&lt;h1 id=&#34;kernel-org&#34;&gt;kernel.org&lt;/h1&gt;
-
-&lt;p&gt;리눅스 커널 소스 코드를 받아오기 위한 기본적 공식 사이트는
-&lt;a href=&#34;https://www.kernel.org&#34;&gt;kernel.org&lt;/a&gt; 라 할 수 있겠는데, 이 사이트에는 소스
-코드를 포함해 리눅스 커널을 위한 다양한 리소스가 정리되어 있습니다.  이
-사이트에 웹브라우저를 통해 들어가보면 첫페이지에서부터 가장 최근에 릴리즈된
-버전의 소스코드, 가장 최근의 안정화된 버전의 소스코드 등을 &lt;code&gt;tar.xz&lt;/code&gt; 포맷의 압축
-파일 또는 &lt;code&gt;patch&lt;/code&gt; 등 다양한 형태로 다운받을 수 있는 링크가 있습니다.&lt;/p&gt;
-
-&lt;p&gt;한가지 유의할 것은 kernel.org 는 공식적 사이트일 뿐으로 비슷하게 소스코드를
-호스팅 하는 사이트는 github 을 포함해 여럿 있을 수 있다는 점입니다.  또한,
-특정한 회사나 개인이 수정한 버전의 커널의 소스코드는 kernel.org 에서 받을 수
-없을 수 있습니다.  하지만, 리눅스 커널의 라이센스가 GPL 인만큼, 그들도 자신이
-수정한 버전을 상품 등으로 배포하고 있다면 소스코드를 공개해야 하므로, 해당
-버전을 만든 사람 또는 회사에 문의해 보면 그 소스코드를 받을 수 있을 겁니다.
-예를 들어 안드로이드의 경우 자신들이 수정한 커널을 사용하며, 그렇게 수정된
-커널의 소스코드를 자신들의 소스코드 &lt;a href=&#34;https://android.googlesource.com/&#34;&gt;호스팅 사이트&lt;/a&gt; 에 공개하고 있습니다.&lt;/p&gt;
-
-&lt;h2 id=&#34;specific-version&#34;&gt;Specific Version&lt;/h2&gt;
-
-&lt;p&gt;kernel.org 첫 페이지에는 몇가지 버전의 소스코드만 존재하므로 찾고 있는 버전은
-해당 페이지에 링크가 존재하지 않을 수 있습니다.  특정 버전을 찾기 위한 페이지
-역시 kernel.org 는 제공하는데, &lt;a href=&#34;https://www.kernel.org/pub/linux/kernel/&#34;&gt;https://www.kernel.org/pub/linux/kernel/&lt;/a&gt; 주소로
-들어가면 특정 버전의 커널 소스코드를 받을 수 있습니다.&lt;/p&gt;
-
-&lt;p&gt;예를 들어 4.2.1 버전을 받고 싶다면, 다음 커맨드를 셸에서 수행해 받아올 수
-있습니다:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ wget https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.2.1.tar.xz
-$ tar xvf linux-4.2.1.tar.xz
-$ ls linux-4.2.1
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;git-repository-cloning&#34;&gt;Git Repository Cloning&lt;/h1&gt;
-
-&lt;p&gt;주요 리눅스 개발자들은 각자의 git repository 로 자신이 개발중인 버전의 리눅스
-커널 소스코드를 관리하는데, 이 역시 남들이 볼 수 있게 공유해 두고 있습니다.
-따라서, 원한다면 특정 리눅스 개발자의 개발중인 리눅스 커널 소스코드를 git 으로
-clone 해올 수 있습니다.  많은 주요 개발자들이 kernel.org 위에 자신의 git
-repository 를 호스팅 하고 있으며, github 을 사용하는 사람들도 많습니다.  예를
-들어 리누스 토발즈는 kernel.org 위에 자신의 git repository 를 호스팅 하면서
-github 에 미러링도 하고 있습니다.  각각의 repository 의 주소는 다음과 같습니다:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git&#34;&gt;https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/torvalds/linux.git&#34;&gt;https://github.com/torvalds/linux.git&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;다음과 같은 명령을 통해 리누스 토발즈의 개발중인 리눅스 커널 소스코드를 clone
-해올 수 있습니다:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ git clone https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
-$ ls linux
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;개발자의 repository 를 클론해 오는 방식의 장점은, 일단 아직 릴리즈 되지 않은
-따끈따끈한 버전의 소스코드를 그 commit history 와 함께 볼 수 있다는 점일
-겁니다.  리눅스 커널 개발에 참여하고 싶다면 현재 어떤 기능이 구현되고 있고 어떤
-버그가 아직 고쳐지지 않았는지 등을 알 수 있으므로 필수적입니다.  또하나의
-장점은 git repository 에는 그동안 해당 repository 에서 릴리즈한 버전들이 모두
-포함되어 있어, 해당 버전을 언제든지 &lt;code&gt;checkout&lt;/code&gt; 할 수 있다는 점입니다.&lt;/p&gt;
-
-&lt;p&gt;단점은, commit history 와 개발중인 코드를 원하는게 아니라면 불필요하게 많은
-용량의 데이터를 다운로드 받아야 한다는 것입니다.  현재 소스코드를 필요로 하는
-목적에 맞춰, 특정 버전의 코드가 필요할 뿐이라면 압축 파일을, 그렇지 않다면 git
-repository 를 사용한 접근을 하는 편이 옳을 겁니다.&lt;/p&gt;
-
-&lt;h1 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h1&gt;
-
-&lt;p&gt;리눅스 커널의 소스코드를 얻어오는 몇가지 방법을 알아봤습니다.  리눅스 커널은
-오픈소스 형태라 그 소스코드를 쉽게 구할 수 있으며, kernel.org 또는 github 등의
-호스팅 사이트에서 압축 파일, 패치, 또는 git repository 의 형태로 얻을 수
-있습니다.  개발중인 repository 의 clone 을 통한 형태는 commit history 와
-개발중인 코드의 정보를 알 수 있다는 장점이 있지만 그만큼 다운로드 받아야 하는
-데이터의 양이 크다는 단점도 존재합니다.  자신이 현재 소스코드를 얻고자 하는
-목적에 맞춰 적합한 방법으로 소스코드를 얻어오는 것이 좋을 겁니다.&lt;/p&gt;
-</description>
+      <description>리눅스 커널은 오픈 소스 소프트웨어이므로 그 소스코드가 공개되어 있어 누구나 인터넷을 통해 쉽게 얻을 수 있습니다. 이 글에서는 리눅스 커널 소스코드를 받아올 수 있는 몇가지 방법을 설명합니다.
+kernel.org 리눅스 커널 소스 코드를 받아오기 위한 기본적 공식 사이트는 kernel.org 라 할 수 있겠는데, 이 사이트에는 소스 코드를 포함해 리눅스 커널을 위한 다양한 리소스가 정리되어 있습니다. 이 사이트에 웹브라우저를 통해 들어가보면 첫페이지에서부터 가장 최근에 릴리즈된 버전의 소스코드, 가장 최근의 안정화된 버전의 소스코드 등을 tar.</description>
     </item>
     
     <item>
@@ -820,41 +90,8 @@ repository 를 사용한 접근을 하는 편이 옳을 겁니다.&lt;/p&gt;
       <pubDate>Mon, 20 Mar 2017 22:24:26 +0900</pubDate>
       <author>sj38.park@gmail.com (SeongJae Park)</author>
       <guid>https://sjp38.github.io/post/fedora-chrome-update/</guid>
-      <description>&lt;p&gt;I am using Fedora 23 laptop and installed stable version Google Chrome from its
-official website [0].  In this case, just using &lt;code&gt;Updates&lt;/code&gt; of Fedora &lt;code&gt;Software&lt;/code&gt;
-program doesn&amp;rsquo;t update Chrome automatically.  For the case, follow below
-commands to update your Chrome:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo dnf update google-chrome-stable
-...
-$ sudo killall chrome
-$ google-chrome-stable
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The second &lt;code&gt;killall&lt;/code&gt; command is necessary because Chrome doesn&amp;rsquo;t kill its
-process by just cliking &lt;code&gt;Close&lt;/code&gt; button.  Or, you may reboot your computer but
-you wouldn&amp;rsquo;t like that.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;랩톱에 Fedora 23 을 깔고 크롬을 공식 홈페이지 [0] 에서 다운받아 메인 브라우저로
-사용하고 있습니다.  그런데 이렇게 설치한 경우에는 단순히 Fedora &lt;code&gt;Software&lt;/code&gt;
-프로그램의 &lt;code&gt;Updates&lt;/code&gt; 기능을 통해 업데이트가 되지 않더군요.  이런 경우에는
-다음의 커맨드를 통해 직접 업데이트를 할 수 있습니다:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo dnf update google-chrome-stable
-...
-$ sudo killall chrome
-$ google-chrome-stable
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;두번째의 &lt;code&gt;killall&lt;/code&gt; 커맨드는 Chrome 프로세스들이 &lt;code&gt;닫기&lt;/code&gt; 버튼을 누르는 것만으로는
-모두 종료되지 않기 때문에 명시적으로 종료시키기 위해 필요합니다.  컴퓨터를 아예
-리붓 하는 방법도 있겠지만 별로 그러고 싶지는 않을테지요.  이후에 크롬을 다시
-시작하면 업데이트된 버전으로 시작됩니다.&lt;/p&gt;
-
-&lt;p&gt;[0] &lt;a href=&#34;https://www.google.com/chrome/browser/desktop/index.html?brand=CHBD&amp;amp;gclid=CKiMjdqX5dICFYcGKgodqZIM2Q&#34;&gt;https://www.google.com/chrome/browser/desktop/index.html?brand=CHBD&amp;amp;gclid=CKiMjdqX5dICFYcGKgodqZIM2Q&lt;/a&gt;&lt;/p&gt;
-</description>
+      <description>I am using Fedora 23 laptop and installed stable version Google Chrome from its official website [0]. In this case, just using Updates of Fedora Software program doesn&amp;rsquo;t update Chrome automatically. For the case, follow below commands to update your Chrome:
+$ sudo dnf update google-chrome-stable ... $ sudo killall chrome $ google-chrome-stable  The second killall command is necessary because Chrome doesn&amp;rsquo;t kill its process by just cliking Close button.</description>
     </item>
     
     <item>
@@ -863,39 +100,7 @@ $ google-chrome-stable
       <pubDate>Wed, 15 Mar 2017 22:40:32 +0900</pubDate>
       <author>sj38.park@gmail.com (SeongJae Park)</author>
       <guid>https://sjp38.github.io/post/kakaobot/</guid>
-      <description>
-
-&lt;p&gt;I have developed a chat bot [1] for Kakaotalk [2] using Go language because I
-have been curious about the process of Kakaotalk chat bot development process.
-Implementation to major version has consumed only two hours owing to power of
-Go language, simpleness of Kakaotalk auto-reply API, and simple simple
-functionality requirement of my bot.  It has coded really simply and in
-brute-force manner, do only simple echoing.  However, for the reason, the code
-could be helpful for beginner of Kakaotalk chat bot or Go language Restful API
-server programmer.  That&amp;rsquo;s why I am introducing it here.  You can get the code
-from below link:&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/sjp38/kakaobot&#34;&gt;https://github.com/sjp38/kakaobot&lt;/a&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;Kakaotalk [1] chat bot [2] 은 어떻게 만드는지 궁금해져서 Go 언어로 간단한
-Kakaotalk chat bot 을 만들어 봤습니다.  Go 언어의 강력함과 Kakaotalk auto-reply
-API 의 단순성, 그리고 echo 서버 역할 정도만 하자는 심플하다 못해 썰렁한 기능
-목표 덕에 최초 목표한 데까지는 두시간 만에 만들어졌습니다.  매우 단순히 echo
-서버 정도의 역할만 하고 있지만, 매우 단순하게 짜여져 있기 때문에 Kakaotalk chat
-bot 을 만들고자 할 때, 또는 Restful API 를 사용하는 서버를 Go 언어로 짜고자 할
-때 시작용으로 참고할 만 하지 않을까 싶어 소개합니다.  아래 링크를 통해 코드를
-얻을 수 있습니다:&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/sjp38/kakaobot&#34;&gt;https://github.com/sjp38/kakaobot&lt;/a&gt;&lt;/p&gt;
-
-&lt;h1 id=&#34;references&#34;&gt;References&lt;/h1&gt;
-
-&lt;p&gt;[1] &lt;a href=&#34;https://en.wikipedia.org/wiki/Chatbot&#34;&gt;https://en.wikipedia.org/wiki/Chatbot&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;[2] &lt;a href=&#34;http://www.kakao.com/services/8&#34;&gt;http://www.kakao.com/services/8&lt;/a&gt;&lt;/p&gt;
-</description>
+      <description>I have developed a chat bot [1] for Kakaotalk [2] using Go language because I have been curious about the process of Kakaotalk chat bot development process. Implementation to major version has consumed only two hours owing to power of Go language, simpleness of Kakaotalk auto-reply API, and simple simple functionality requirement of my bot. It has coded really simply and in brute-force manner, do only simple echoing. However, for the reason, the code could be helpful for beginner of Kakaotalk chat bot or Go language Restful API server programmer.</description>
     </item>
     
     <item>
@@ -904,59 +109,9 @@ bot 을 만들고자 할 때, 또는 Restful API 를 사용하는 서버를 Go �
       <pubDate>Tue, 07 Mar 2017 19:41:16 +0900</pubDate>
       <author>sj38.park@gmail.com (SeongJae Park)</author>
       <guid>https://sjp38.github.io/post/arping-howto/</guid>
-      <description>&lt;p&gt;You can use &lt;code&gt;arping&lt;/code&gt; to know IP address to MAC address mapping of your local
-network.  Usage is simple:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;arping  [-AbDfhqUV]  [-c count] [-w deadline] [-s source] -I interface destination
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;For example, you may use the command as below:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ arping -I eth0 10.0.0.1
-ARPING 10.0.0.1 from 10.0.0.2 eth0
-Unicast reply from 10.0.0.1 [11:22:33:44:55:66]  0.123ms
-Unicast reply from 10.0.0.1 [11:22:33:44:55:66]  0.251ms
-...
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Secret of the tool is ARP protocol [1].  To know the MAC address of the machine
-that has a specific IP address, IP protocol layer uses the protocol.  MAC
-address that found in this way can be used to communicate with Ethernet
-protocol layer.  &lt;code&gt;arping&lt;/code&gt; just sends the ARP REQUEST to local network
-neighbour.&lt;/p&gt;
-
-&lt;p&gt;It could be useful in case of internet connection problem if IP duplication is
-suspicious.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;로컬 네트워크에서 어떤 IP 주소가 어떤 MAC 어드레스에 매핑되는지 알기 위해
-&lt;code&gt;arping&lt;/code&gt; 을 사용할 수 있습니다. 사용법은 간단합니다:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;arping  [-AbDfhqUV]  [-c count] [-w deadline] [-s source] -I interface destination
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;예를 들면, 다음과 같습니다:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ arping -I eth0 10.0.0.1
-ARPING 10.0.0.1 from 10.0.0.2 eth0
-Unicast reply from 10.0.0.1 [11:22:33:44:55:66]  0.123ms
-Unicast reply from 10.0.0.1 [11:22:33:44:55:66]  0.251ms
-...
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;이 툴의 동작 원리는 ARP 프로토콜 [1] 입니다.  IP 프로토콜 레이어는 이
-프로토콜을 사용해 특정 IP 주소를 사용하는 기계의 MAC 어드레스를 파악하고 이
-주소를 아랫단의 Ethernet 레이어에 보냅니다.  &lt;code&gt;arping&lt;/code&gt; 은 단지 ARP REQUEST 를
-로컬 네트워크의 컴퓨터들에게 보내는 일을 합니다.&lt;/p&gt;
-
-&lt;p&gt;인터넷 연결 문제가 발생했을 때, IP 중복이 의심된다면 유용하게 사용될 수
-있습니다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;[1] &lt;a href=&#34;http://www.erg.abdn.ac.uk/users/gorry/course/inet-pages/arp.html&#34;&gt;http://www.erg.abdn.ac.uk/users/gorry/course/inet-pages/arp.html&lt;/a&gt;&lt;/p&gt;
-</description>
+      <description>You can use arping to know IP address to MAC address mapping of your local network. Usage is simple:
+arping [-AbDfhqUV] [-c count] [-w deadline] [-s source] -I interface destination  For example, you may use the command as below:
+$ arping -I eth0 10.0.0.1 ARPING 10.0.0.1 from 10.0.0.2 eth0 Unicast reply from 10.0.0.1 [11:22:33:44:55:66] 0.123ms Unicast reply from 10.0.0.1 [11:22:33:44:55:66] 0.251ms ...  Secret of the tool is ARP protocol [1].</description>
     </item>
     
     <item>
@@ -965,22 +120,9 @@ Unicast reply from 10.0.0.1 [11:22:33:44:55:66]  0.251ms
       <pubDate>Sat, 04 Mar 2017 15:53:08 +0900</pubDate>
       <author>sj38.park@gmail.com (SeongJae Park)</author>
       <guid>https://sjp38.github.io/post/001_linux_dev_intro/</guid>
-      <description>&lt;p&gt;많은 영역에서 사용되고 있는 리눅스 커널.  그렇기에 만져볼수록 재밌고 뜯어볼수록
-신기합니다.  아마도 이게 hack 의 재미가 아닐까요.&lt;/p&gt;
-
-&lt;p&gt;리눅스 커널을 hack 하는데에 필요한 기본적인 내용부터 몇가지 팁들, 소스 코드는
-어떻게 가져오고 어떻게 빌드해서 시스템에 설치를 하는지, 패치는 어떻게 보내면
-되는지와 같은 것들을 정리해 볼까 합니다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;So many environments and users are using Linux kernel.  That&amp;rsquo;s why it is so fun
-and mysterious to touch and analyze it.  Maybe it is the fun of &lt;code&gt;hack&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;I will organize some basic informations and tips about linux kernel hacking,
-for example, how to get the source code, how to build it, how to install it,
-and how the patch can be submitted to &lt;code&gt;Linus Torvalds&lt;/code&gt;.&lt;/p&gt;
-</description>
+      <description>많은 영역에서 사용되고 있는 리눅스 커널. 그렇기에 만져볼수록 재밌고 뜯어볼수록 신기합니다. 아마도 이게 hack 의 재미가 아닐까요.
+리눅스 커널을 hack 하는데에 필요한 기본적인 내용부터 몇가지 팁들, 소스 코드는 어떻게 가져오고 어떻게 빌드해서 시스템에 설치를 하는지, 패치는 어떻게 보내면 되는지와 같은 것들을 정리해 볼까 합니다.
+So many environments and users are using Linux kernel. That&amp;rsquo;s why it is so fun and mysterious to touch and analyze it. Maybe it is the fun of hack.</description>
     </item>
     
     <item>
@@ -989,20 +131,9 @@ and how the patch can be submitted to &lt;code&gt;Linus Torvalds&lt;/code&gt;.&l
       <pubDate>Fri, 24 Feb 2017 22:58:25 +0900</pubDate>
       <author>sj38.park@gmail.com (SeongJae Park)</author>
       <guid>https://sjp38.github.io/post/beautifulhugo_contribute/</guid>
-      <description>&lt;p&gt;꽤 맘에 드는 hugo 테마[1]를 찾았다.  하지만 tag 기능이 빠져있어 너무
-아쉬워하다가 이대로 포기하기엔 너무 맘에 들어 이래저래 찾아보니 과거에 tag 기능
-관련 이슈가 올라왔지만 close 처리된 상태.  이대로는 암만 기다려도 tag 기능을
-구현해주진 않겠구나 싶어서 이것저것 보고 낑낑대며 서툴고 간단하게나마 tag
-기능을 구현[2].  Pull request[3] 도 보냈는데 과연 받아들여줄런지.&lt;/p&gt;
-
-&lt;p&gt;업데이트: 별다른 discussion 없이 머지됐다 ;)&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;[1] &lt;a href=&#34;http://themes.gohugo.io/beautifulhugo/&#34;&gt;http://themes.gohugo.io/beautifulhugo/&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;[2] &lt;a href=&#34;https://github.com/sjp38/beautifulhugo-sj&#34;&gt;https://github.com/sjp38/beautifulhugo-sj&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;[3] &lt;a href=&#34;https://github.com/halogenica/beautifulhugo/pull/15&#34;&gt;https://github.com/halogenica/beautifulhugo/pull/15&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
+      <description>꽤 맘에 드는 hugo 테마[1]를 찾았다. 하지만 tag 기능이 빠져있어 너무 아쉬워하다가 이대로 포기하기엔 너무 맘에 들어 이래저래 찾아보니 과거에 tag 기능 관련 이슈가 올라왔지만 close 처리된 상태. 이대로는 암만 기다려도 tag 기능을 구현해주진 않겠구나 싶어서 이것저것 보고 낑낑대며 서툴고 간단하게나마 tag 기능을 구현[2]. Pull request[3] 도 보냈는데 과연 받아들여줄런지.
+업데이트: 별다른 discussion 없이 머지됐다 ;)
+ [1] http://themes.gohugo.io/beautifulhugo/ [2] https://github.com/sjp38/beautifulhugo-sj [3] https://github.com/halogenica/beautifulhugo/pull/15  </description>
     </item>
     
     <item>
@@ -1011,61 +142,8 @@ and how the patch can be submitted to &lt;code&gt;Linus Torvalds&lt;/code&gt;.&l
       <pubDate>Thu, 02 Feb 2017 16:24:02 +0900</pubDate>
       <author>sj38.park@gmail.com (SeongJae Park)</author>
       <guid>https://sjp38.github.io/post/hp_95lx/</guid>
-      <description>
-
-&lt;p&gt;이사로 생긴 쓰레기 정리를 돕다가 보니 한 물건이 유난히 눈에 띄었다.  자그마한
-크기에 왠지 모르게 90년대 감성.  자세히 살펴 보니 전자사전 같이 생겼는데 왠지
-옛날에 유행하던 palmtop[1] 같은 느낌.  어차피 버릴 물건이기에 따로 챙겨두고
-컴퓨터로 검색을 해보았다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/hp95lx/1.jpg&#34; alt=&#34;HP 95LX&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;모델명인 HP 95LX 로 검색해보니[2] 한때 스프레드시트 프로그램의 대명사였던
-&lt;code&gt;Lotus 123&lt;/code&gt; 을 탑재한 것으로 유명한 palmtop PC 로, MS-DOS 를 장착한 모델이다.
-당연하게도 바로는 안켜지지만 잘 살펴보니 전용 배터리가 아니라 2A 건전지를
-사용하고 있기에 건전지를 끼고 파워 버튼을 눌러봤지만 역시 잠잠.  시무룩.
-하지만 또 여기저기 살펴보니 충전지 비슷한 물건이 있다.  배터리 교체 시에
-in-memory 데이터가 날아가지 않도록 해당 충전지를 충전 후 동작하는 형태가 아닐까
-싶어 잠시 동안 놔두었다 켜봤더니, 켜진다!&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/hp95lx/2.jpg&#34; alt=&#34;HP 95LX boot&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;몇가지 주요 어플리케이션을 통해 주요 기능들을 제공한다.
-파일 탐색, 약속 관리, 전화번호부 관리, 메모, 계산기, 그리고 Lotus 123 을 통한
-스프레드 시트 관리가 가능하다.3&lt;/p&gt;
-
-&lt;p&gt;파일 탐색 기능.  실행 파일의 실행도 가능한 듯 하다.
-&lt;img src=&#34;https://sjp38.github.io/img/hp95lx/4.jpg&#34; alt=&#34;HP 95LX filer&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;약속 관리 기능.  2017년 달력도 존재.
-&lt;img src=&#34;https://sjp38.github.io/img/hp95lx/5.jpg&#34; alt=&#34;HP 95LX appointment book&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;전화번호부.
-&lt;img src=&#34;https://sjp38.github.io/img/hp95lx/6.jpg&#34; alt=&#34;HP 95LX phone book&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;메모.
-&lt;img src=&#34;https://sjp38.github.io/img/hp95lx/7.jpg&#34; alt=&#34;HP 95LX memo&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;그리고, 시대를 풍미한 스프레드시트, Lotus 123.
-&lt;img src=&#34;https://sjp38.github.io/img/hp95lx/8.jpg&#34; alt=&#34;HP 95LX lotus 123&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;한참 가지고 놀다가 뒤늦게야 시간과 사용자를 설정.  연도 설정이 두자리라 혹시나
-Y2K 문제가 있진 않을까 걱정했지만 2017 년으로 잘 인식한다.  잘 짜여진
-프로그램이란 이리도 멋지다.
-&lt;img src=&#34;https://sjp38.github.io/img/hp95lx/9.jpg&#34; alt=&#34;HP 95LX boot&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;요즘 나오는 스마트폰에 비교하자면 보잘것없지만 그 시절에도 이만한 휴대성과
-완성도의 물건을 아직도 동작할 만큼 튼튼하게 제품으로 만들어냈다는 사실에
-경외로움을 숨길 수 없거니와, 여전히 텍스트 기반 UI 를 즐겨 사용하는 내
-입장에서는 이 UI 도 여전히 멋지다.  물론 Unix 계열 셸을 제공했다면
-완벽했겠지만&amp;hellip;  과거의 물건이 유난한 감동을 준 하루였다.&lt;/p&gt;
-
-&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
-
-&lt;p&gt;[1] &lt;a href=&#34;https://en.wikipedia.org/wiki/Palmtop_PC&#34;&gt;https://en.wikipedia.org/wiki/Palmtop_PC&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;[2] &lt;a href=&#34;https://en.wikipedia.org/wiki/HP_95LX&#34;&gt;https://en.wikipedia.org/wiki/HP_95LX&lt;/a&gt;&lt;/p&gt;
-</description>
+      <description>이사로 생긴 쓰레기 정리를 돕다가 보니 한 물건이 유난히 눈에 띄었다. 자그마한 크기에 왠지 모르게 90년대 감성. 자세히 살펴 보니 전자사전 같이 생겼는데 왠지 옛날에 유행하던 palmtop[1] 같은 느낌. 어차피 버릴 물건이기에 따로 챙겨두고 컴퓨터로 검색을 해보았다.
+모델명인 HP 95LX 로 검색해보니[2] 한때 스프레드시트 프로그램의 대명사였던 Lotus 123 을 탑재한 것으로 유명한 palmtop PC 로, MS-DOS 를 장착한 모델이다. 당연하게도 바로는 안켜지지만 잘 살펴보니 전용 배터리가 아니라 2A 건전지를 사용하고 있기에 건전지를 끼고 파워 버튼을 눌러봤지만 역시 잠잠.</description>
     </item>
     
     <item>
@@ -1074,33 +152,9 @@ Y2K 문제가 있진 않을까 걱정했지만 2017 년으로 잘 인식한다. 
       <pubDate>Fri, 20 Jan 2017 13:18:56 +0900</pubDate>
       <author>sj38.park@gmail.com (SeongJae Park)</author>
       <guid>https://sjp38.github.io/post/uninstall-kernel/</guid>
-      <description>
-
-&lt;p&gt;테스트 등을 위해 소스코드로부터 커널을 직접 빌드, 설치하기 시작하면 어느새
-수많은 커널이 설치되어 있는 것을 확인할 수 있다.  삭제를 위해선 &lt;code&gt;make install&lt;/code&gt;
-로 만들어진 파일들을 직접 제거하고 grub 을 업데이트 해줘야 한다.&lt;/p&gt;
-
-&lt;p&gt;예를 들어 시스템이 현재 부팅되어 있는 버전의 커널을 언인스톨하고자 한다면
-다음의 일련의 커맨드를 입력하면 된다:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# rm /boot/vmlinuz-$(uname -r)
-# rm /boot/initrd.img-$(uname -r)
-# rm /boot/System.map-$(uname -r)
-# rm /boot/config-$(uname -r)
-# rm -fr /lib/modules/$(uname -r)
-# rm /var/lib/initramfs-tools/$(uname -r)
-# update-grub2
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;다른 버전의 설치되어있는 커널을 제거하고 싶다면 위의 &lt;code&gt;$(uname -r)&lt;/code&gt; 부분을
-제거하고자 하는 커널 버전으로 대체하면 된다.&lt;/p&gt;
-
-&lt;h2 id=&#34;참고-문서&#34;&gt;참고 문서&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://askubuntu.com/questions/594443/how-can-i-remove-compiled-kernel&#34;&gt;http://askubuntu.com/questions/594443/how-can-i-remove-compiled-kernel&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
+      <description>테스트 등을 위해 소스코드로부터 커널을 직접 빌드, 설치하기 시작하면 어느새 수많은 커널이 설치되어 있는 것을 확인할 수 있다. 삭제를 위해선 make install 로 만들어진 파일들을 직접 제거하고 grub 을 업데이트 해줘야 한다.
+예를 들어 시스템이 현재 부팅되어 있는 버전의 커널을 언인스톨하고자 한다면 다음의 일련의 커맨드를 입력하면 된다:
+# rm /boot/vmlinuz-$(uname -r) # rm /boot/initrd.img-$(uname -r) # rm /boot/System.map-$(uname -r) # rm /boot/config-$(uname -r) # rm -fr /lib/modules/$(uname -r) # rm /var/lib/initramfs-tools/$(uname -r) # update-grub2  다른 버전의 설치되어있는 커널을 제거하고 싶다면 위의 $(uname -r) 부분을 제거하고자 하는 커널 버전으로 대체하면 된다.</description>
     </item>
     
     <item>
@@ -1109,43 +163,8 @@ Y2K 문제가 있진 않을까 걱정했지만 2017 년으로 잘 인식한다. 
       <pubDate>Thu, 19 Jan 2017 18:06:54 +0900</pubDate>
       <author>sj38.park@gmail.com (SeongJae Park)</author>
       <guid>https://sjp38.github.io/post/donate-mozilla/</guid>
-      <description>
-
-&lt;p&gt;나는 보통의 경우 크롬으로 웹브라우징을 한다.  하지만 몇달 전부터 몇가지 예외에
-대해서는 파이어폭스를 함께 쓰고 있다.&lt;/p&gt;
-
-&lt;h2 id=&#34;부족한-하드웨어-스펙&#34;&gt;부족한 하드웨어 스펙&lt;/h2&gt;
-
-&lt;p&gt;나의 데스크탑 환경은 모니터 세대를 연결한 PC 하나로 구성되어 있었는데, FHD
-모니터 세대를 돌리기는 벅찼는지 간헐적 입력 랙이 자주 발생했다.  또, 모니터를
-한대 정도 더 늘리고 싶었다.  해서 집에서 놀고있던 5년된 HP 랩탑에 모니터 하나를
-연결시키고 이 랩탑과 PC 를 키보드/마우스 하나로 제어하는 환경을 구축했다.  PC
-에 연결되는 모니터는 두대로 줄어드니까 입력 랙도 줄어들 것이라 생각한것.
-여기까지는 계산대로였는데, HP 랩탑이 5년전 모델이라 램이 2 GB.  난 크롬에서 탭
-10여개를 띄워두는데, 가뜩이나 메모리 많이 먹는 크롬이라 도무지 무리.  램 2 GB
-를 사서 추가로 달아줬지만 그래도 영 버벅였다.  기존 환경으로 돌아가긴 싫은데&amp;hellip;
-싶던 와중 파이어폭스를 떠올렸고, 파이어폭스는 역시 적당한 메모리 사용량으로 내
-워크로드를 충족해 주었다.&lt;/p&gt;
-
-&lt;h2 id=&#34;일부-성급한-최적화가-이루어진-사이트&#34;&gt;일부 성급한 최적화가 이루어진 사이트&lt;/h2&gt;
-
-&lt;p&gt;리눅스용 크롬에서의 페이스북은 한글 입력 문제가 있다.  뭐라 설명하기도
-짜증나는데 한마디로 한글로 글을 입력하려 하면 사람을 짱나게 만드는 문제가
-존재한다.  모바일 페이지에선 안그러는 것 같은데, 암튼 짜증난다.  크롬 문제인지
-페이스북 문제인지 리눅스 문제인지 모르겠지만 암튼 이불킥할 글을 좀 덜 쓰게
-해주는 장점도 있지만 여간 불편한게 아니다.  파이어폭스에서는 문제가 없다.&lt;/p&gt;
-
-&lt;h2 id=&#34;모질라에-감사의-마음을-금전으로&#34;&gt;모질라에 감사의 마음을 금전으로&lt;/h2&gt;
-
-&lt;p&gt;파이어폭스를 만들고 있는 모질라는 세상에 많은 것을 기여하는 훌륭한 곳인데 돈이
-항상 부족하다.  대안적 도구의 중요성을 되새기고 감사의 마음을 담아 소액이나마
-기부해 보았다.  기부를 하고 싶다면 다음 링크를 사용하면 된다:
-&lt;a href=&#34;https://donate.mozilla.org/ko/&#34;&gt;https://donate.mozilla.org/ko/&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;뱀발&#34;&gt;뱀발&lt;/h2&gt;
-
-&lt;p&gt;w3m 같은 CLI 웹브라우저들도 훌륭한 대안 웹브라우저다 ;)&lt;/p&gt;
-</description>
+      <description>나는 보통의 경우 크롬으로 웹브라우징을 한다. 하지만 몇달 전부터 몇가지 예외에 대해서는 파이어폭스를 함께 쓰고 있다.
+부족한 하드웨어 스펙 나의 데스크탑 환경은 모니터 세대를 연결한 PC 하나로 구성되어 있었는데, FHD 모니터 세대를 돌리기는 벅찼는지 간헐적 입력 랙이 자주 발생했다. 또, 모니터를 한대 정도 더 늘리고 싶었다. 해서 집에서 놀고있던 5년된 HP 랩탑에 모니터 하나를 연결시키고 이 랩탑과 PC 를 키보드/마우스 하나로 제어하는 환경을 구축했다. PC 에 연결되는 모니터는 두대로 줄어드니까 입력 랙도 줄어들 것이라 생각한것.</description>
     </item>
     
     <item>
@@ -1154,11 +173,32 @@ Y2K 문제가 있진 않을까 걱정했지만 2017 년으로 잘 인식한다. 
       <pubDate>Thu, 19 Jan 2017 10:17:09 +0900</pubDate>
       <author>sj38.park@gmail.com (SeongJae Park)</author>
       <guid>https://sjp38.github.io/post/us-sues-oracle/</guid>
-      <description>&lt;p&gt;오라클이 백인 남성에게 더 많은 월급을 지불하고 아시아인, 그중에서도 인도 사람을
-많이 개발직에 채용했다는 이유로 미국 정부가 오라클을 고소.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://www.reuters.com/article/us-oracle-usa-labor-idUSKBN1522O6?il=0&#34;&gt;http://www.reuters.com/article/us-oracle-usa-labor-idUSKBN1522O6?il=0&lt;/a&gt;&lt;/p&gt;
-</description>
+      <description>오라클이 백인 남성에게 더 많은 월급을 지불하고 아시아인, 그중에서도 인도 사람을 많이 개발직에 채용했다는 이유로 미국 정부가 오라클을 고소.
+http://www.reuters.com/article/us-oracle-usa-labor-idUSKBN1522O6?il=0</description>
+    </item>
+    
+    <item>
+      <title>GCMA: Guaranteed Contiguous Memory Allocator</title>
+      <link>https://sjp38.github.io/post/gcma/</link>
+      <pubDate>Sat, 14 Jan 2017 07:11:23 +0900</pubDate>
+      <author>sj38.park@gmail.com (SeongJae Park)</author>
+      <guid>https://sjp38.github.io/post/gcma/</guid>
+      <description>GCMA (Guaranteed Contiguous Memory Allocator) is a contiguous memory allocator for Linux kernel that guarantees fast latency, success of allocation, and reasonable system memory utilization. Our evaluation on Raspberry Pi 2 shows 15 to 130 times faster and more predictable allocation latency without system performance degradation compared to Linux v3.18 default CMA.
+The project has been introduced by Linux Foundation Korea Forum 2014[1] and Embedded Operating Systems Workshop 2015[2]. A paper about the project has been published by proceeding of Embedded Operating Systems Workshop 2015 and 45th issue of ACM SIGBED Review.</description>
+    </item>
+    
+    <item>
+      <title>about</title>
+      <link>https://sjp38.github.io/post/about/</link>
+      <pubDate>Sat, 14 Jan 2017 04:51:08 +0900</pubDate>
+      <author>sj38.park@gmail.com (SeongJae Park)</author>
+      <guid>https://sjp38.github.io/post/about/</guid>
+      <description>SeongJae Park is a programmer who loves to analyse and develop systems just for fun.
+Contact information  sjpark@dcslab.snu.ac.kr sj38.park@gmail.com  Education  Ph.D Candiates, Computer Science and Engineering at Seoul National University,
+Sep 2012 - Present B.S., Electrical Engineering / Information and Computer Engineering (dual degree) at Ajou University,
+Jan 2009  Experiance  Graduate Research Assistant at DCSLAB, Seoul National University
+(Sep 2012 - Present)
+Researching multi-core system performance scalability.</description>
     </item>
     
   </channel>
