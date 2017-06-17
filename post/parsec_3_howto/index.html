@@ -173,7 +173,7 @@ smime.pod around line 289: Expected text after =item, not a number
 POD document had syntax errors at /usr/bin/pod2man line 68.
 make: *** [install_docs] Error 1
 Makefile:680: recipe for target 'install_docs' failed
-[PARSEC] Error: 'env PATH=/usr/bin:/home/sjpark/benchmarks/parsec/parsec-3.0/bin:/home/sjpark/bin:/home/sjpark/.local/bin:/home/sjpark/bin:/home/sjpark/bin:/home/sjpark/.local/bin:/home/sjpark/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/snap/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/home/sjpark/benchmarks/parsec/parsec-3.0/bin /usr/bin/make install' failed.
+[PARSEC] Error: 'env PATH=/usr/local/sbin:...' failed.
 </code></pre>
 
 <p>에러 메세지에서 유추할 수 있듯 PARSEC 3.0 의 소스 코드 중 smime.pod 파일이
@@ -323,7 +323,7 @@ index fa1b0f0f26d9..bd7e6a97f4c8 100644
 에러 메세지를 만날 수도 있습니다:</p>
 
 <pre><code>configure: error: *** pkg-config not found. See http://www.freedesktop.org/software/pkgconfig/
-[PARSEC] Error: 'env CFLAGS=-I/home/sjpark/benchmarks/parsec/parsec-3.0/pkgs/libs/zlib/inst/amd64-linux.gcc/include  -O3 -g -funroll-loops -fprefetch-loop-arrays -static-libgcc -Wl,--hash-style=both,--as-needed -DPARSEC_VERSION=3.0-beta-20150206 LDFLAGS=-L/home/sjpark/benchmarks/parsec/parsec-3.0/pkgs/libs/zlib/inst/amd64-linux.gcc/lib -L/usr/lib64 -L/usr/lib /home/sjpark/benchmarks/parsec/parsec-3.0/pkgs/libs/glib/src/configure --disable-shared --enable-threads --with-threads=posix --prefix=/home/sjpark/benchmarks/parsec/parsec-3.0/pkgs/libs/glib/inst/amd64-linux.gcc' failed.
+[PARSEC] Error: ...
 </code></pre>
 
 <p>위 메세지는 <code>pkg-config</code> 프로그램이 설치되어 있지 않아서 발생한 문제임을 알 수

@@ -185,7 +185,7 @@ $ ./buildtools
 
 <p><code>md5sum</code> 빌드 중 다음과 같은 에러 메세지가 나옵니다:</p>
 
-<pre><code>gcc -DHAVE_CONFIG_H    -I/home/sjpark/benchmarks/spec/SPEC_CPU2006v1.1/tools/output/include   -I. -Ilib  -c -o md5sum.o md5sum.c
+<pre><code>gcc -DHAVE_CONFIG_H    -I/home/sjpark/SPEC_CPU2006v1.1/tools/output/include   -I. -Ilib  -c -o md5sum.o md5sum.c
 In file included from md5sum.c:38:0:
 lib/getline.h:31:1: error: conflicting types for 'getline'
  getline PARAMS ((char **_lineptr, size_t *_n, FILE *_stream));
@@ -225,7 +225,7 @@ lib/getline.h:31:1: error: conflicting types for 'getline'
 
 <p>이제 <code>perl</code> 빌드 중 다음과 같은 에러 메세지가 발생합니다:</p>
 
-<pre><code>cc -L/home/sjpark/benchmarks/spec/SPEC_CPU2006v1.1/tools/output/lib -L/usr/local/lib -o miniperl \
+<pre><code>cc -L/home/sjpark/SPEC_CPU2006v1.1/tools/output/lib -L/usr/local/lib -o miniperl \
             miniperlmain.o opmini.o libperl.a
 libperl.a(pp.o): In function `Perl_pp_pow':
 pp.c:(.text+0x2a76): undefined reference to `pow'
@@ -242,7 +242,7 @@ pp.c:(.text+0x2a76): undefined reference to `pow'
 <p>커널 헤더파일인 <code>asm/page.h</code> 파일을 <code>tools/src/perl-5.8.8/ext/IPC/SysV/SysV.xs</code>
 파일에서 <code>include</code> 하고 있어 발생하는 문제가 다음과 같이 발생합니다:</p>
 
-<pre><code>cc -c   -I/home/sjpark/benchmarks/spec/SPEC_CPU2006v1.1/tools/output/include -fno-strict-aliasing -pipe -Wdeclaration-after-statement -I/usr/local/include -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -O2   -DVERSION=\&quot;1.04\&quot; -DXS_VERSION=\&quot;1.04\&quot; -fpic &quot;-I../../..&quot;   SysV.c
+<pre><code>cc -c   -I/home/sjpark/SPEC_CPU2006v1.1/tools/output/include -fno-strict-aliasing -pipe -Wdeclaration-after-statement -I/usr/local/include -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -O2   -DVERSION=\&quot;1.04\&quot; -DXS_VERSION=\&quot;1.04\&quot; -fpic &quot;-I../../..&quot;   SysV.c
 SysV.xs:7:25: fatal error: asm/page.h: No such file or directory
 </code></pre>
 
@@ -302,9 +302,9 @@ $ sudo ln -s /bin/bash /bin/sh
 ### Bourne-style shells, like bash, ksh, and zsh, respectively.
 u=0.92  s=0.69  cu=89.23  cs=5.47  scripts=907  tests=112394
 make[2]: *** [_test_tty] Error 1
-make[2]: Leaving directory `/home/sjpark/benchmarks/spec/SPEC_CPU2006v1.1/tools/src/perl-5.8.8'
+make[2]: Leaving directory `/home/sjpark/SPEC_CPU2006v1.1/tools/src/perl-5.8.8'
 make[1]: *** [_test] Error 2
-make[1]: Leaving directory `/home/sjpark/benchmarks/spec/SPEC_CPU2006v1.1/tools/src/perl-5.8.8'
+make[1]: Leaving directory `/home/sjpark/SPEC_CPU2006v1.1/tools/src/perl-5.8.8'
 make: *** [test] Error 2
 + '[' 2 -ne 0 ']'
 + set +x
