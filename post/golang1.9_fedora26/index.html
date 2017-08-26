@@ -194,32 +194,27 @@ go version devel +bad6b6fa91 Fri Aug 25 23:29:55 2017 +0000 linux/amd64
 
 <p>위와 같이 결과가 나오면 잘 설치된 것입니다.</p>
 
-<pre><code>
+<h1 id="additional-configuration">Additional Configuration</h1>
 
-Additional Configuration
-========================
-
-추가적으로 go 바이너리의 위치를 PATH 에 넣어주고, 사용할 GOPATH 를 지정해
+<p>추가적으로 go 바이너리의 위치를 PATH 에 넣어주고, 사용할 GOPATH 를 지정해
 줍니다.  golang 은 개발 코드의 위치와 go 언어로 짜여진 프로그램의 설치 위치
 규칙을 기본적으로 권장하는 규칙이 있는데, 이를 위해 사용되는 디렉토리의
 꼭대기가 GOPATH 입니다.  나만의 방식으로 go 언어를 다루겠다면 굳이 지정할 필요
 없지만, 전 그정도 규칙은 따르는 편이므로 다음 내용을 홈 디렉토리의 .bashrc 에
-추가해 이를 지정해 줍니다.
-</code></pre>
+추가해 이를 지정해 줍니다.</p>
 
-<p>export GOPATH=$HOME/gopath
+<pre><code>export GOPATH=$HOME/gopath
 export PATH=$PATH:$HOME/go/bin
-export PATH=$PATH:$GOPATH/bin</p>
-
-<pre><code>
-GOPATH 아래 `bin/` 디렉토리는 일반적으로 설치한 go 언어 프로그램의 실행파일을
-위치시키는 곳이므로 역시 PATH 에 추가해줬습니다 (line 3).
-
-이 규칙을 이해하기 쉽게 다음과 같이 제가 만든 `hn` 이라는 프로그램을 설치해
-보고, 이 명령이 GOPATH 를 어떻게 사용하는지 보면 다음과 같습니다.
+export PATH=$PATH:$GOPATH/bin
 </code></pre>
 
-<p>$ go get github.com/sjp38/hn
+<p>GOPATH 아래 <code>bin/</code> 디렉토리는 일반적으로 설치한 go 언어 프로그램의 실행파일을
+위치시키는 곳이므로 역시 PATH 에 추가해줬습니다 (line 3).</p>
+
+<p>이 규칙을 이해하기 쉽게 다음과 같이 제가 만든 <code>hn</code> 이라는 프로그램을 설치해
+보고, 이 명령이 GOPATH 를 어떻게 사용하는지 보면 다음과 같습니다.</p>
+
+<pre><code>$ go get github.com/sjp38/hn
 $ tree gopath/
 gopath/
 ├── bin
@@ -230,21 +225,17 @@ gopath/
             └── hn
                 ├── hn.go
                 ├── LICENSE
-                └── README.md</p>
+                └── README.md
 
-<p>5 directories, 4 files</p>
-
-<pre><code>
-
-References
-==========
-
+5 directories, 4 files
 </code></pre>
 
-<p>[0] <a href="https://fedoramagazine.org/fedora-24-eol/">https://fedoramagazine.org/fedora-24-eol/</a>
-[1] <a href="https://github.com/golang/go/issues/18156#issuecomment-264389887">https://github.com/golang/go/issues/18156#issuecomment-264389887</a>
-[2] <a href="https://github.com/golang/go/issues/18156#issuecomment-264492152">https://github.com/golang/go/issues/18156#issuecomment-264492152</a>
-```</p>
+<h1 id="references">References</h1>
+
+<pre><code>[0] https://fedoramagazine.org/fedora-24-eol/
+[1] https://github.com/golang/go/issues/18156#issuecomment-264389887
+[2] https://github.com/golang/go/issues/18156#issuecomment-264492152
+</code></pre>
 
       </article>
 
