@@ -105,7 +105,7 @@
       
       
       
-      <span class="post-meta">Posted on May 17, 2017</span>
+      <span class="post-meta">Posted on August 31, 2017</span>
       
         </div>
       </div>
@@ -132,6 +132,10 @@ MySQL 과 달리 MariaDB 는 예전 MySQL 처럼 공개적으로 개발되고 �
 <p>이 글에서는 Ubuntu 16.04 서버에 MariaDB 를 소스코드부터 가져와서 설치하고
 사용하는 간단한 사용법을 정리해 봅니다.</p>
 
+<h1 id="environment">Environment</h1>
+
+<p>이 글에서는 Ubuntu 16.04.2 server 버전을 사용합니다.</p>
+
 <h1 id="build-and-install">Build and Install</h1>
 
 <p>MariaDB 는 대부분의 리눅스 배포본을 위한 패키징이 잘 되어 있어서 각 배포본의
@@ -147,20 +151,22 @@ $ cd mariadb
 </code></pre>
 
 <p>git repository 인만큼 버전은 git 을 통해 tag 로 관리되고 있습니다.  이 글을
-작성 중인 시점에서 가장 최신 stable 릴리즈는 10.1.22[2] 로, 2017년 3월 11일
+작성 중인 시점에서 가장 최신 stable 릴리즈는 10.2.8[2] 로, 2017년 8월 18일
 자로 릴리즈 되었습니다.  다음 커맨드로 해당 버전의 코드를 checkout 할 수
 있습니다:</p>
 
-<pre><code>$ git checkout mariadb-10.1.22
+<pre><code>$ git checkout mariadb-10.2.8
 </code></pre>
 
 <p>이제 소스코드는 준비되었고, 빌드할 차례입니다.  <code>cmake</code> 를 사용해 어떻게
 빌드할지 등을 설정할 수 있는데, 여기선 release 할때 사용하는 설정을 사용해
 보겠습니다.  <code>cmake</code> 가 실패하는 경우는 대부분 필요 패키지가 설치되지 않은
-경우입니다.  <code>libaio-dev</code>, <code>libjemalloc-dev</code> 등의 패키지가 설치되어 있어야
-합니다.  해당 패키지 설치 후에도 같은 에러 메세지가 나올 수 있는데, cmake 의
-기존 결과가 캐싱되어 재사용되기 때문입니다.  <code>CMakeCache.txt</code> 와 <code>CMakeFiles/</code>
-디렉토리를 제거해주면 캐싱된 내용은 사라집니다.</p>
+경우입니다.  <code>libaio-dev</code>, <code>libjemalloc-dev</code>, <code>libgnutls-dev</code> 등의 패키지가
+설치되어 있어야 합니다.</p>
+
+<p>해당 패키지 설치 후에도 같은 에러 메세지가 나올 수 있는데, cmake 의 기존 결과가
+캐싱되어 재사용되기 때문입니다.  <code>CMakeCache.txt</code> 와 <code>CMakeFiles/</code> 디렉토리를
+제거해주면 캐싱된 내용은 사라집니다.</p>
 
 <p>이어서 간단히 <code>make</code> 를 사용해 빌드하고 설치를 할 수 있습니다.
 설치는 super user 권한이 필요하기 때문에 <code>sudo</code> 를 사용해야 합니다.</p>
@@ -172,14 +178,20 @@ $ sudo make install
 
 <p>어떤 사양의 머신에서 빌드하느냐에 따라 다르겠지만 빌드하는데 꽤 긴 시간이
 걸립니다.  이 글을 작성하며 사용한 72 코어 / 144 쓰레드 머신에서는 <code>-j144</code>
-옵션을 줘서 빌드할 경우 1분 5초 걸렸습니다.</p>
+옵션을 줘서 빌드할 경우 1분 5초 걸렸습니다.  별다른 에러 메세지가 없다면 빌드에
+성공한 것입니다.</p>
 
-<h1 id="start-mariadb-server">Start MariaDB Server</h1>
+<h1 id="initialize-mariadb-server">Initialize MariaDB Server</h1>
 
-<p>이제 MariaDB 를 띄워 볼 차례입니다.  아무 프로세스나 super user 권한으로
-실행하는 건 보안적으로 위험할 수 있으므로, MariaDB 는 기본적으로 별개의 사용자
-계정을 사용할 것을 권장합니다.  다음 예에서는 mysql 이라는 이름의 user 를
-생성해서 이 사용자 계정을 사용하도록 해서 초기화를 진행합니다.</p>
+<p>이제 MariaDB 의 기본 설치는 마무리 되었지만, 아직 MariaDB 구동을 위한 준비가
+모두 끝나진 않았습니다.  MariaDB 가 제대로 동작하기 위해서는 test database,
+default user 등등의 최소 데이터를 생성하는 초기화 작업을 진행해야 합니다.  앞의
+설치는 MariaDB 실행파일을 만들어 시스템에 설치한 것이고, 이 초기화 작업은
+MariaDB 서비스의 설치라고 생각하면 이해가 조금 편할 수도 있겠습니다.</p>
+
+<p>super user 권한의 남용은 보안적으로 위험할 수 있으므로, MariaDB 는 기본적으로
+별개의 사용자 계정을 사용할 것을 권장합니다.  다음 예에서는 mysql 이라는 이름의
+user 를 생성하고 이 사용자 계정을 사용하도록 해서 초기화를 진행합니다.</p>
 
 <pre><code>$ sudo adduser mysql
 $ sudo chown -R mysql /usr/local/mysql/
@@ -187,16 +199,59 @@ $ cd /usr/local/mysql/
 $ sudo -u mysql ./scripts/mysql_install_db --user=mysql
 </code></pre>
 
-<p>이제 준비가 끝났습니다.  다음 커맨드로 MariaDB 서버를 시작할 수 있습니다:</p>
+<p>순조롭게 진행되었다면 다음과 같은 메세지를 볼 수 있을 겁니다:</p>
 
-<pre><code>$ sudo -u mysql /usr/local/mysql/bin/mysqld_safe --user=mysql
+<pre><code>Installing MariaDB/MySQL system tables in './data' ...
+OK
+
+To start mysqld at boot time you have to copy
+support-files/mysql.server to the right place for your system
+
+PLEASE REMEMBER TO SET A PASSWORD FOR THE MariaDB root USER !
+To do so, start the server, then issue the following commands:
+
+'./bin/mysqladmin' -u root password 'new-password'
+'./bin/mysqladmin' -u root -h hydra password 'new-password'
+
+Alternatively you can run:
+'./bin/mysql_secure_installation'
+
+which will also give you the option of removing the test
+databases and anonymous user created by default.  This is
+strongly recommended for production servers.
+
+See the MariaDB Knowledgebase at http://mariadb.com/kb or the
+MySQL manual for more instructions.
+
+You can start the MariaDB daemon with:
+cd '.' ; ./bin/mysqld_safe --datadir='./data'
+
+You can test the MariaDB daemon with mysql-test-run.pl
+cd './mysql-test' ; perl mysql-test-run.pl
+
+Please report any problems at http://mariadb.org/jira
+
+The latest information about MariaDB is available at http://mariadb.org/.
+You can find additional information about the MySQL part at:
+http://dev.mysql.com
+Consider joining MariaDB's strong and vibrant community:
+https://mariadb.org/get-involved/
+</code></pre>
+
+<h1 id="starting-mariadb">Starting MariaDB</h1>
+
+<p>이제 준비가 끝났습니다.  앞의 초기화 과정 이후 나온 메세지에서도 알 수 있듯이,
+다음 커맨드로 MariaDB 서버를 시작할 수 있습니다:</p>
+
+<pre><code>$ sudo -u mysql /usr/local/mysql/bin/mysqld_safe --datadir='./data'
 </code></pre>
 
 <h1 id="connect-to-local-mariadb-server">Connect to Local MariaDB Server</h1>
 
-<p>다음 커맨드로 mariadb local shell 을 열 수 있습니다.  이 커맨드는 같은 기계
-위에 띄워져 있는 MariaDB 서버 프로세스에 접속해 해당 서버에 sql 쿼리를 날릴 수
-있는 프롬프트를 띄워 줍니다.</p>
+<p>MariaDB 는 여러가지 방법으로 접근해 사용할 수 있는데, 관리 목적 등으로는 local
+shell 을 사용하는게 가장 간단합니다.  다음 커맨드로 local shell 을 열 수
+있습니다.  이 커맨드는 같은 기계 위에 띄워져 있는 MariaDB 서버 프로세스에
+접속해 해당 서버에 sql 쿼리를 날릴 수 있는 프롬프트를 띄워 줍니다.</p>
 
 <pre><code>$ /usr/local/mysql/bin/mysql
 </code></pre>
@@ -204,7 +259,8 @@ $ sudo -u mysql ./scripts/mysql_install_db --user=mysql
 <p>위 커맨드에 &ndash;version 인자를 주면 현재 mariadb 의 버전도 볼 수 있습니다:</p>
 
 <pre><code>$ /usr/local/mysql/bin/mysql --version
-mysql  Ver 15.1 Distrib 10.1.22-MariaDB, for Linux (x86_64) using readline 5.1
+/usr/local/mysql/bin/mysql  Ver 15.1 Distrib 10.2.8-MariaDB, for Linux (x86_64) using readline 5.1
+s
 </code></pre>
 
 <h1 id="kill-mariadb-server">Kill MariaDB Server</h1>
@@ -236,6 +292,15 @@ mysql  Ver 15.1 Distrib 10.1.22-MariaDB, for Linux (x86_64) using readline 5.1
 찾게 되며, mysqld_safe 실행파일 실행 시에 &ndash;defaults-file 인자로 파일 경로를
 줄수도 있습니다.  소스 코드 디렉토리의 support-files/ 디렉토리 아래에
 my-huge.cnf, my-large.cnf, my-medium.cnf 등의 예제 설정도 있습니다.</p>
+
+<p>앞의 과정을 따라서 설치하면 /etc/ 아래에 my.cnf 파일이 없을 겁니다.  이 때의
+기본 설정은 어떻게 되는지는 다음 커맨드를 통해 알 수 있습니다.</p>
+
+<pre><code>$ /usr/local/mysql/bin/mysql -NBe 'SHOW VARIABLES'
+</code></pre>
+
+<p>askapache.com 에서는[5] 이를 이용해 기본 my.cnf 를 추출하는 커맨드도 소개하고
+있으니 필요하면 참고하시기 바랍니다.</p>
 
 <h1 id="data-directory-specification">Data Directory Specification</h1>
 
@@ -276,20 +341,17 @@ $ /usr/local/mysql/bin/mysql
 <p>[1] <a href="https://mariadb.com/kb/en/mariadb/generic-build-instructions/">https://mariadb.com/kb/en/mariadb/generic-build-instructions/</a><br />
 [2] <a href="https://downloads.mariadb.org/mariadb/+releases/">https://downloads.mariadb.org/mariadb/+releases/</a><br />
 [3] <a href="https://mariadb.com/kb/en/mariadb/basic-sql-statements/">https://mariadb.com/kb/en/mariadb/basic-sql-statements/</a><br />
-[4] <a href="https://mariadb.com/kb/en/mariadb/configuring-mariadb-with-mycnf/">https://mariadb.com/kb/en/mariadb/configuring-mariadb-with-mycnf/</a></p>
+[4] <a href="https://mariadb.com/kb/en/mariadb/configuring-mariadb-with-mycnf/">https://mariadb.com/kb/en/mariadb/configuring-mariadb-with-mycnf/</a><br />
+[5] <a href="https://www.askapache.com/mysql/view-mysql-variables-my-cnf/">https://www.askapache.com/mysql/view-mysql-variables-my-cnf/</a></p>
 
       </article>
 
       <ul class="pager blog-pager">
         
         <li class="previous">
-          <a href="https://sjp38.github.io/post/xclip_copy_remote_clipboard/" data-toggle="tooltip" data-placement="top" title="원격 데스크탑의 clipboard 를 ssh 와 xclip 으로 복사해오기">&larr; Previous Post</a>
+          <a href="https://sjp38.github.io/post/golang1.9_fedora26/" data-toggle="tooltip" data-placement="top" title="Golang 1.9 install on Fedora 26">&larr; Previous Post</a>
         </li>
         
-        
-        <li class="next">
-          <a href="https://sjp38.github.io/post/parsec_3_howto/" data-toggle="tooltip" data-placement="top" title="Parsec 3.0 설치 / 사용법">Next Post &rarr;</a>
-        </li>
         
       </ul>
 
