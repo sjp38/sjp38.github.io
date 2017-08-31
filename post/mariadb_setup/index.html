@@ -325,14 +325,14 @@ my-huge.cnf, my-large.cnf, my-medium.cnf 등의 예제 설정도 있습니다.</
 
 <pre><code>$ git clone https://github.com/MariaDB/server.git mariadb
 $ cd mariadb
-$ git checkout mariadb-10.1.22
+$ git checkout mariadb-10.2.8
 $ cmake . -DBUILD_CONFIG=mysql_release
 $ make
 $ sudo make install
 $ sudo adduser mysql
 $ sudo chown -R mysql /usr/local/mysql/
 $ cd /usr/local/mysql/
-$ sudo -u mysql ./scripts/mysql_install_db --user=mysql &amp;
+$ sudo -u mysql ./scripts/mysql_install_db --datadirr='./data' &amp;
 $ /usr/local/mysql/bin/mysql
 </code></pre>
 
