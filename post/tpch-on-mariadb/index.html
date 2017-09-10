@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>TPC-H on MariaDB (MySQL)</title>
+  
+  <meta name="author" content="SeongJae Park"/>
+  <meta name="generator" content="Hugo 0.21" />
+  
+
+  <link rel="alternate" href="https://sjp38.github.io/index.xml" type="application/rss+xml" title="Happy Hacking">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://sjp38.github.io//css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://sjp38.github.io//css/main.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://sjp38.github.io//css/pygment_highlights.css" />
+  <link rel="stylesheet" href="https://sjp38.github.io/css/highlight.min.css">
+  
+  
+  <meta property="og:title" content="TPC-H on MariaDB (MySQL)" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="/post/tpch-on-mariadb/" />
+  <meta property="og:image" content="/img/tux.png" />
+  
+</head>
+
+
+  <body>
+
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://sjp38.github.io/">Happy Hacking</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+          <a title="Categories" href="/categories">Categories</a>
+  	      </li>
+  	    
+      
+        
+          <li>
+          <a title="Projects" href="/categories/projects">Projects</a>
+  	      </li>
+  	    
+      
+        
+          <li>
+          <a title="Tags" href="/tags">Tags</a>
+  	      </li>
+  	    
+      
+        
+          <li>
+          <a title="About" href="/post/about/">About</a>
+  	      </li>
+  	    
+      
+      </ul>
+    </div>
+
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+      
+          <a title="Happy Hacking" href="https://sjp38.github.io/">
+              <img class="avatar-img" src="https://sjp38.github.io//img/tux.png" alt="Happy Hacking" />
+          </a>
+      
+	  </div>
+	</div>
+
+  </div>
+</nav>
+
+    
+
+
+
+  
+
+  <header class="header-section ">
+  
+  <div class="intro-header no-img">
+      <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>TPC-H on MariaDB (MySQL)</h1>
+      
+      
+      
+      <span class="post-meta">Posted on September 10, 2017</span>
+      
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </header>
+
+
+    <div class="container" role="main">	  
+      
+        <div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+          
+
+<p>Database 를 위해 사용되는 벤치마크는 크게 OLTP vs OLAP 로 나뉩니다[1].  OLTP
+계열의 대표주자는 TPC-C 이고, OLAP 계열의 대표주자 중 하나로 TPC-H[2] 가
+있습니다.  이 글에서는 TPC-H 를 MariaDB 에서 돌리는 방법에 대해 설명합니다.</p>
+
+<h1 id="environment-setup">Environment Setup</h1>
+
+<p>이 글을 작성하면서 사용한 운영체제와 소프트웨어들의 버전은 다음과 같습니다.
+- Ubuntu 16.04.2 Server
+- MariaDB 10.2.8
+- TPC-H toolkit 2.17.2</p>
+
+<h1 id="automated-scripts">Automated Scripts</h1>
+
+<p>아래 설명할 모든 내용을 자동화 해서 손쉽게 TPC-H 를 돌릴 수 있도록 소스코드
+변경부터 빌드, 수행까지 정리한 스크립트들을 github 에 올려 두었습니다:
+<a href="https://github.com/sjp38/tpch-mariadb">https://github.com/sjp38/tpch-mariadb</a></p>
+
+<p>시간이 없다면 해당 스크립트를 사용하실 것을 권장합니다.</p>
+
+<h1 id="tpc-h-spec">TPC-H Spec</h1>
+
+<p>TPC-H 벤치마크 스펙은 TPC 웹사이트에서 얻을 수 있습니다[3].  하지만 여기서는
+간단히 설명을 해봅니다.  간단한 설명인 만큼 내용이 엄밀히 말해서 맞다고 할수는
+없으므로 엄밀한 내용은 정식 스펙 또는 다른 문서를 확인해 보시기 바랍니다.
+TPC-H 는 8개의 테이블에 많은 데이터를 쌓아놓고, 이 데이터의 분석을 위한 22개의
+쿼리를 수행하며 그 성능을 측정하는 형태로 구성되어 있습니다.  성능은 테이블에
+데이터를 로드하는데 걸리는 시간, 22개의 쿼리 각각의 수행 시간, 그리고 여러
+세션을 열어놓고 22개 쿼리를 각 세션에서 수행하면서 파악되는 처리량 (초당 처리된
+쿼리의 갯수)으로 측정됩니다.</p>
+
+<h1 id="get-tpc-h-toolkit">Get TPC-H Toolkit</h1>
+
+<p>TPC-H 는 8개의 테이블에 데이터가 쌓인 상태에서, 이 데이터의 분석을 위한 22개의
+쿼리들을 날리는 형태로 이루어져 있습니다.  테이블을 어떻게 만들고 거기에
+데이터는 어떻게 넣어야 하며, 쿼리는 어떤 것들로 이루어져야 하는지에 대한
+명세서를 TPC 에서 제공합니다.  이를 바탕으로 각자 TPC-H 를 구성해서 돌릴 수
+있습니다.  하지만 이걸 각자 하는건 귀찮고 힘들기 때문에, 테이블과 테이블의
+데이터, 그리고 쿼리들을 생성하는 도구를 TPC 에서 TPC-H Toolkit 이라는 이름으로
+그 소스코드를 공식적으로 제공하고 있습니다.  TPC 의 해당 사이트[4]를 찾아가
+개인정보를 입력하고 license 에 동의를 하면 다운로드 받을 수 있는 링크를 메일로
+보내줍니다.</p>
+
+<p>이렇게 받은 파일은 zip 파일입니다.  압축을 풀어보면 아래와 같이 해당 버전명의
+디렉토리가 나오고, 그 아래에 실제 소스 코드와 라이센스 파일이 있습니다.  여기서
+우린 dbgen/ 디렉토리를 사용할 겁니다.</p>
+
+<pre><code>$ tree 2.17.2 -L 1
+2.17.2
+├── dbgen
+├── dev-tools
+├── EULA.txt
+└── ref_data
+</code></pre>
+
+<h1 id="build-source-code">Build Source Code</h1>
+
+<p>dbgen 디렉토리 아래 dbgen 과 qgen 이라는, 우리가 사용하게 될 프로그램을 위한
+소스코드가 있습니다.  여기 있는 makefile.suite 라는 파일은 <code>make</code> 를 사용해 이
+코드를 빌드하기 위한 규칙의 기본 골조를 담고 있습니다.  이 파일을 `makefile&rsquo;
+이라는 이름으로 복사하고 내용을 다음과 같이 수정합니다.</p>
+
+<pre><code>$ diff -u makefile.suite makefile
+--- makefile.suite      2017-04-21 06:01:08.000000000 +0900
++++ makefile    2017-09-10 11:10:12.563384756 +0900
+@@ -100,15 +100,15 @@
+ ################
+ ## CHANGE NAME OF ANSI COMPILER HERE
+ ################
+-CC      =
++CC      = gcc
+ # Current values for DATABASE are: INFORMIX, DB2, TDAT (Teradata)
+ #                                  SQLSERVER, SYBASE, ORACLE, VECTORWISE
+ # Current values for MACHINE are:  ATT, DOS, HP, IBM, ICL, MVS,
+ #                                  SGI, SUN, U2200, VMS, LINUX, WIN32
+ # Current values for WORKLOAD are:  TPCH
+-DATABASE=
+-MACHINE =
+-WORKLOAD =
++DATABASE= SQLSERVER
++MACHINE = LINUX
++WORKLOAD = TPCH
+ #
+ CFLAGS = -g -DDBNAME=\&quot;dss\&quot; -D$(MACHINE) -D$(DATABASE) -D$(WORKLOAD) -DRNG_TEST -D_FILE_OFFSET_BITS=64
+ LDFLAGS = -O
+</code></pre>
+
+<p>이후, <code>$ make</code> 명령으로 dbgen 과 qgen 이라는 프로그램이 빌드됩니다.</p>
+
+<pre><code>$ make
+
+...
+
+ bm_utils.o qgen.o rnd.o varsub.o text.o bcd2.o permute.o speed_seed.o rng64.o -lm
+$ file dbgen
+dbgen: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 2.6.32, BuildID[sha1]=d0bca1a18c33947d85f5943c8325837faec7c95d, not stripped
+$ file qgen
+qgen: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 2.6.32, BuildID[sha1]=79a6216e04c446715b0e55f9c804586887b698c8, not stripped
+</code></pre>
+
+<h1 id="tpc-h-toolkit-usage">TPC-H Toolkit Usage</h1>
+
+<p>MariaDB 에 TPC-H 를 돌리기 위해선 여기서 몇가지 추가 수정을 해야합니다.  하지만
+그에 앞서 <code>dbgen/</code> 디렉토리 내의 파일들을 어떻게 사용해서 TPC-H 를 수행하는지
+알아봅시다.</p>
+
+<h2 id="data-preparation">Data Preparation</h2>
+
+<p>먼저 dss.ddl 파일은 8개의 테이블 생성에 사용되는 sql 문을 담고 있습니다.  DB
+에서 이 파일 내에 적힌 sql 문들을 그대로 수행하라고 하면 8개의 테이블이
+생성됩니다.</p>
+
+<p>dbgen 은 테이블에 데이터를 로드하는 sql 문을 생성합니다.  dbgen 에 scale factor
+등의 인자를 줘서 수행시키면 8개의 <code>.tbl</code> suffix 를 갖는 파일이 생성됩니다.  이
+파일들은 각각 파일명에 일치하는 이름의 테이블에 데이터를 insert 하는 query
+문들로 구성되어 있습니다.  DB 에 이 파일 내의 sql 명령들을 수행하라고 하면
+데이터가 로드되는 것입니다.</p>
+
+<p>dss.ri 는 테이블 인덱스 생성에 필요한 sql 문을 담고 있습니다.  DB 에 이 파일
+내의 sql 명령들을 수행하라고 함으로써 테이블 인덱스 생성이 완료되어 TPC-H 의
+쿼리들을 수행할 준비가 마쳐집니다.</p>
+
+<h2 id="query-creation-and-execution">Query Creation and Execution</h2>
+
+<p>qgen 은 TPC-H 의 분석 작업을 대표하는 22개의 쿼리를 생성해 줍니다.  22개의
+쿼리라고 표현했지만 22 종류의 쿼리라고 하는게 옳을 겁니다.  동일한 쿼리의 경우
+반복 수행되면 DB 에서 앞 쿼리의 결과를 캐시해 뒀다가 곧바로 리턴하기 때문에
+인자 등은 달라야 하기 때문입니다.  이를 위해 dbgen/queries/ 디렉토리 아래에는
+생성되어야 하는 22 종류 쿼리의 템플릿을 담고 있습니다.  qgen 은 이 템플릿을
+참고하고 랜덤하게 인자를 생성해 최종적으로 DB 에서 수행될 수 있는 쿼리문을
+생성합니다.  이 때 랜덤 시드는 dists.dss 라는 파일을 참고해 만들어집니다.</p>
+
+<h1 id="modify-tpc-h-toolkit-for-mariadb">Modify TPC-H Toolkit for MariaDB</h1>
+
+<p>DBMS 마다 query syntax 가 조금씩 다릅니다.  때문에 TPC-H Toolkit 은 지원하는
+DBMS 마다 다르게 테이블 생성, 쿼리 생성을 하도록 짜여져 있습니다만, 지원하는
+DBMS 목록에 MariaDB 는 포함되어 있지 않습니다.  따라서 MariaDB 에 TPC-H 를
+돌리기 위해선 TPC-H Toolkit 의 일부분을 수정해야 합니다.</p>
+
+<p>수정해야 하는 파일은 dss.ddl, dss.ri, 그리고 queries/ 디렉토리 아래의 템플릿
+등입니다.  하나하나 설명하는 것은 너무 내용이 길어지므로, 수정 내용을 patch
+형태로 만들어 github 에 올려두었습니다[5].  이 패치 파일을 가져와서 다음과 같이
+적용할 수 있습니다.  명령을 수행하는 디렉토리는 TPC-H Toolkit 소스코드 디렉토리
+여야 합니다.</p>
+
+<pre><code>$ wget https://raw.githubusercontent.com/sjp38/tpch-mariadb/07fdcbfa9ba1be26f437ff130338a223d0dbfecd/0001-Modify-for-MariaDB.patch
+$ patch -p1 &lt; 0001-Modify-for-MariaDB.patch
+</code></pre>
+
+<p>위 변경 사항은 makefile 의 수정도 포함되어 있습니다.  적용 후 dbgen, qgen 을
+빌드해 줍시다.</p>
+
+<h1 id="data-creation">Data Creation</h1>
+
+<p>dbgen/ 디렉토리로 들어가 dbgen 을 수행해 줍니다.  인자로 scale factor 등을 줄
+수 있습니다.  -h 인자를 줘서 dbgen 의 수행 방법을 알 수 있으니 참고합시다.
+수행이 마무리 되면 다음과 같이 8개의 .tbl suffix 를 갖는 파일들이 생성됩니다.</p>
+
+<pre><code>dbgen$ ls -ahl *.tbl
+-rw-rw-r-- 1 sjpark sjpark 187M Sep  9 10:48 customer.tbl
+-rw-rw-r-- 1 sjpark sjpark 5.8G Sep  9 10:48 lineitem.tbl
+-rw-rw-r-- 1 sjpark sjpark 2.2K Sep  9 10:48 nation.tbl
+-rw-rw-r-- 1 sjpark sjpark 1.4G Sep  9 10:48 orders.tbl
+-rw-rw-r-- 1 sjpark sjpark 919M Sep  9 10:48 partsupp.tbl
+-rw-rw-r-- 1 sjpark sjpark 186M Sep  9 10:48 part.tbl
+-rw-rw-r-- 1 sjpark sjpark  389 Sep  9 10:48 region.tbl
+-rw-rw-r-- 1 sjpark sjpark  11M Sep  9 10:48 supplier.tbl
+</code></pre>
+
+<p>참고로, 위 수행결과는 scale factor 값을 8로 준 결과입니다.</p>
+
+<h1 id="load-data">Load Data</h1>
+
+<p>이제 MariaDB 를 사용해 tpch 라는 이름의 데이터베이스를 생성하고 (line 1) 그
+아래 테이블을 생성하고 (line 2) 각 테이블에 데이터를 로드한 후 (line 3-5) 각
+테이블의 인덱스까지 만들어 줍시다 (line 6).</p>
+
+<pre><code>$ mysql -u root -p password -e &quot;create database tpch;&quot;
+$ mysql -u root -p password &lt; dss.ddl
+$ for table in customer lineitem nation orders partsupp part region supplier \
+	do mysql -u root -p -e \
+		&quot;LOAD DATA LOCAL INFILE '$table.tbl' FIELDS TERMINATED BY '|';&quot;
+	done
+$ mysql -u root -p password &lt; ./dss.ri
+</code></pre>
+
+<h1 id="create-queries">Create Queries</h1>
+
+<p>이제 쿼리를 만들어 봅시다.  qgen 은 인자로 생성할 쿼리의 타입을 1-22 사이 숫자로 받아서 쿼리문을 생성, 화면에 뿌려줍니다.  다음과 같은 커맨드로 이를 따로 저장합니다.  아래 커맨드는 dbgen/ 디렉토리 아래에서 수행됨을 가정합니다.</p>
+
+<pre><code>$ cd queries/
+$ for i in {1..22}; do ../qgen $i &gt; query-$i.sql; done
+</code></pre>
+
+<p>이제 dbgen/queries/ 디렉토리 아래에 <code>query-</code> 라는 prefix 의 쿼리문을 담는 파일
+22개가 생성되어 있습니다.</p>
+
+<h1 id="execute-queries">Execute Queries</h1>
+
+<p>앞서 생성한 쿼리문 파일은 MariaDB 에 호환되는 sql 문으로 구성되어 있으므로,
+아래와 같이 간단히 실행시키면 됩니다.</p>
+
+<pre><code>$ for i in {1..22}; do mysql -u root -p password &lt; dbgen/queries/query-$i.sql
+</code></pre>
+
+<p>일부 쿼리는 수십초, 일부 쿼리는 1초도 걸리지 않아 수행되는 걸 확인할 수
+있습니다.</p>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>TPC-H 가 어떻게 구성되어 있고 어떻게 수행시키며, MariaDB 에서의 수행을 위해서는
+어떤 수정이 필요한지 설명했습니다.  github 에 있는 자동화 스크립트[6]를
+이용하면 이 과정을 손쉽게 한번에 해결할 수 있습니다.</p>
+
+<h1 id="references">References</h1>
+
+<p>[1] <a href="http://datawarehouse4u.info/OLTP-vs-OLAP.html">http://datawarehouse4u.info/OLTP-vs-OLAP.html</a><br />
+[2] <a href="http://www.tpc.org/tpch/">http://www.tpc.org/tpch/</a><br />
+[3] <a href="http://www.tpc.org/tpc_documents_current_versions/pdf/tpc-h_v2.17.2.pdf">http://www.tpc.org/tpc_documents_current_versions/pdf/tpc-h_v2.17.2.pdf</a><br />
+[4] <a href="http://www.tpc.org/tpc_documents_current_versions/download_programs/tools-download-request.asp?bm_type=TPC-H&amp;bm_vers=2.17.2&amp;mode=CURRENT-ONLY">http://www.tpc.org/tpc_documents_current_versions/download_programs/tools-download-request.asp?bm_type=TPC-H&amp;bm_vers=2.17.2&amp;mode=CURRENT-ONLY</a><br />
+[5] <a href="https://raw.githubusercontent.com/sjp38/tpch-mariadb/07fdcbfa9ba1be26f437ff130338a223d0dbfecd/0001-Modify-for-MariaDB.patch">https://raw.githubusercontent.com/sjp38/tpch-mariadb/07fdcbfa9ba1be26f437ff130338a223d0dbfecd/0001-Modify-for-MariaDB.patch</a><br />
+[6] <a href="https://github.com/sjp38/tpch-mariadb">https://github.com/sjp38/tpch-mariadb</a></p>
+
+      </article>
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="https://sjp38.github.io/post/mariadb_setup/" data-toggle="tooltip" data-placement="top" title="Ubuntu 16.04 Server 위에 MariaDB 설치/사용하기">&larr; Previous Post</a>
+        </li>
+        
+        
+      </ul>
+
+      
+
+    </div>
+  </div>
+</div>
+
+      
+    </div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/sjp38" title="GitHub">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		      
+		      
+          <li>
+            <a href="mailto:sj38.park@gmail.com" title="Email me">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		      
+          <li>
+            <a href="https://linkedin.com/in/seongjae-park-1a5b9954" title="LinkedIn">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+	    	  
+          
+           
+          
+          
+          
+
+    		  <li>
+      			<a href="https://sjp38.github.io/index.xml" title="RSS">
+      			  <span class="fa-stack fa-lg">
+        				<i class="fa fa-circle fa-stack-2x"></i>
+        				<i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+      			  </span>
+      			</a>
+    		  </li>		
+
+        </ul>
+        <p class="credits copyright text-muted">
+    	  SeongJae Park
+    	  &nbsp;&bull;&nbsp;
+    	  2017
+    		  
+    	  
+    	  &nbsp;&bull;&nbsp;
+    	  <a href="https://sjp38.github.io/">Happy Hacking</a>
+    	  
+  	    </p>
+  	    
+    	<p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.21</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">beautiful-jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          
+    	</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://sjp38.github.io//js/jquery-1.11.2.min.js"></script>
+<script src="https://sjp38.github.io//js/bootstrap.min.js"></script>
+<script src="https://sjp38.github.io//js/main.js"></script>
+<script src="https://sjp38.github.io/js/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-30621335-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+
+
+  </body>
+</html>
