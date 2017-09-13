@@ -123,12 +123,13 @@
       <article role="main" class="blog-post">
           
 
-<p><code>idle_page_tracking</code>[1] is a simple, stupid toolbox for idle pages tracking.  It
-can be used to get real working set size of a process.</p>
+<p><code>idle_page_tracking</code>[1] is a simple, stupid toolbox for idle pages tracking.
+It can be used to get real working set size of a process.</p>
 
 <h1 id="tools">Tools</h1>
 
-<p>This section gives brief description and usage of each tool in box.</p>
+<p>This section describes two tools in the box though more tools exists.  You can
+get more description about each tool from the README in the repository[1].</p>
 
 <h2 id="userprog">userprog</h2>
 
@@ -138,73 +139,14 @@ After execution, it first asks how many pages to allocates.  Once you type in
 how many pages to allocate, the program will repeatedly asks how many pages in
 the allocated pages you want to do access.</p>
 
-<h2 id="heapof-py">heapof.py</h2>
-
-<p><code>heapof.py</code> receives pid as argument and print out virtual address range for
-heap of the process.  Internally, it uses /proc/pid/maps file.  For example,
-you may use the tool as below:</p>
-
-<pre><code>$ ./heapof.py `pidof userprog`
-0x00dfb000-0x00e1c000
-</code></pre>
-
-<h2 id="pfnof-py">pfnof.py</h2>
-
-<p><code>pfnof.py</code> receives pid and virtual address range as argument and giving page
-frame number for the virtual address range.  Output of <code>heapof.py</code> can be used
-as the argument for virtual address range.  Internally, it uses
-/proc/pid/pagemap.  Because of security, you should have root access.  For
-example, you may use the tool in below way:</p>
-
-<pre><code># PID=`pidof userprog`; HEAP=`./heapof.py $PID`; sudo ./pfnof.py $PID $HEAP
-100156099
-35988272
-45393716
-39988623
-39988620
-42619059
-37091435
-42283669
-47752799
-47576225
-40606338
-</code></pre>
-
-<h2 id="pageidle">pageidle</h2>
-
-<p><code>pageidle</code> is a program to set / get idleness of physical pages.  When running
-it, you should give at least 2 arguments.  First argument should be string,
-<code>set</code> or <code>get</code>.  After that, page frame number(s) of physical page(s) that you
-want to set or get their idleness should follow.  For example:</p>
-
-<pre><code>$ PID=`pidof userprog`; HEAP=`./heapof.py $PID`; \
-	PFNS=`sudo ./pfnof.py $PID $HEAP`; sudo ./pageidle set $PFNS
-$ PID=`pidof userprog`; HEAP=`./heapof.py $PID`; \
-	PFNS=`sudo ./pfnof.py $PID $HEAP`; sudo ./pageidle get $PFNS
-1 1 1 1 1 1 1 1 1 1 1
-</code></pre>
-
-<p>After you access few pages using <code>userprog</code>, the output of <code>get</code> becomes
-different.</p>
-
-<pre><code>/* From userprog */
-How many pages you want to access? 3
-will access 3 pages
-How many pages you want to access?
-
-/* From other terminal */
-$ PID=`pidof userprog`; HEAP=`./heapof.py $PID`; \
-	PFNS=`sudo ./pfnof.py $PID $HEAP`; sudo ./pageidle get $PFNS
-0 0 0 1 1 1 1 1 1 1 1
-</code></pre>
-
 <h2 id="wspages-sh">wspages.sh</h2>
 
-<p>Now you can calculate working set size of a process using the tools.  To
-simplify the life even more, <code>wspages.sh</code> helps the complicated works.  It
-receives pid and time interval as argument.  Then, it will prints out number of
-pages accessed between the time interval.  Simple example of usage and output
-is as below:</p>
+<p>In the tool box, few small, stupid tools exists and you can use them for your
+purpose.  However, for usual case, working set size would be the most common
+purpose.  To simplify your life, you may use <code>wspages.sh</code>.  It is a script that
+using the tools inside to get working set size.  The tool receives pid and time
+interval as argument.  Then, it will prints out number of pages accessed
+between the time interval.  Simple example of usage and output is as below:</p>
 
 <pre><code>$ ./wspages.sh `pidof userprog` 1
 3
