@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>GCMA: Guaranteed Contiguous Memory Allocator</title>
+  <title>&#34;Is Parallel Programming Hard, And, If So, What Can You Do About It?&#34; Translation</title>
   
   <meta name="author" content="SeongJae Park"/>
   <meta name="generator" content="Hugo 0.21" />
@@ -23,9 +23,9 @@
   <link rel="stylesheet" href="https://sjp38.github.io/css/highlight.min.css">
   
   
-  <meta property="og:title" content="GCMA: Guaranteed Contiguous Memory Allocator" />
+  <meta property="og:title" content="&#34;Is Parallel Programming Hard, And, If So, What Can You Do About It?&#34; Translation" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="/post/gcma/" />
+  <meta property="og:url" content="/post/perfbook-kokr/" />
   <meta property="og:image" content="/img/tux.png" />
   
 </head>
@@ -101,11 +101,11 @@
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <div class="post-heading">
-          <h1>GCMA: Guaranteed Contiguous Memory Allocator</h1>
+          <h1>&#34;Is Parallel Programming Hard, And, If So, What Can You Do About It?&#34; Translation</h1>
       
       
       
-      <span class="post-meta">Posted on January 14, 2017</span>
+      <span class="post-meta">Posted on January 10, 2017</span>
       
         </div>
       </div>
@@ -123,51 +123,34 @@
       <article role="main" class="blog-post">
           
 
-<p>GCMA (Guaranteed Contiguous Memory Allocator) is a contiguous memory allocator
-for Linux kernel that guarantees fast latency, success of allocation, and
-reasonable system memory utilization.  Our evaluation on Raspberry Pi 2 shows
-<strong>15 to 130 times faster</strong> and more predictable allocation latency without
-system performance degradation compared to Linux v3.18 default CMA.</p>
+<p>&ldquo;Is Parallel Programming is Hard, And, If So, What Can You Do About It?&rdquo;[1] 은
+parallel programming 분야에서 대가라 불릴만한 분으로, 이쪽 분야에서 매우 중요한
+동기화 메커니즘인 RCU[2] 를 개발했으며 리눅스 커널의 RCU 메인테이너로 활동하고
+있는 Paul E. McKenney[3] 가 오픈소스 방식으로 저술하고 있는, parallel
+programming 에 대한 책입니다.</p>
 
-<p>The project has been introduced by Linux Foundation Korea Forum 2014[1] and
-Embedded Operating Systems Workshop 2015[2].  A paper about the project has
-been published by proceeding of Embedded Operating Systems Workshop 2015 and
-45th issue of ACM SIGBED Review.  The source code has been submitted to LKML[4]
-for discussion.  It is also available at Github[6].</p>
+<p>개인적으로 이 책의 한국어 번역을 오픈소스[4]로 진행하고 있습니다.  이
+프로젝트는 원저작자인 Paul 에게 공식 한국어 번역으로 인증받았습니다[5].</p>
 
-<hr />
+<p>컨트리뷰션에 대해서도 열려 있으니, 이에 관심 있는 분은 repository 내의 README
+문서의 Contribution 섹션[6] 을 참고 바랍니다.</p>
 
-<p>GCMA (Guaranteed Contiguous Memory Allocator) 는 리눅스 커널을 위한 물리적으로
-연속적인 메모리 영역 할당자로, 빠른 응답시간과 할당의 성공, 그리고 합리적인
-시스템 메모리 활용을 보장합니다.  Raspberry Pi 2 위에서의 저희의 성능 평가
-실험은 Linux v3.18 의 기본 CMA 대비 <strong>15 배에서 130배 빠른</strong>, 그리고 더 예측
-가능한 응답시간을 보임을 보였습니다.</p>
+<h1 id="references">References</h1>
 
-<p>이 프로젝트는 Linux Foundation Korea Forum 2014[1] 와 Embedded Operating
-Systems Workshop 2015[2] 에서 발표되었습니다.  이 프로젝트에 대한 논문은
-Embedded Operating System Workshop 2015 proceeding 과 ACM SIGBED Review 45th
-issue 에 출판되었습니다.  소스코드는 LKML에 토론을 위해 공개되었으며[4] Github
-에서도 받아보실 수 있습니다[6].</p>
-
-<h2 id="references">References</h2>
-
-<p>[1] <a href="https://korealinuxforum2014.sched.com/event/1qZcBAO/gcma-guaranteed-contiguous-memory-allocator-seongjae-park-seoul-national-university-minchan-kim-lg">https://korealinuxforum2014.sched.com/event/1qZcBAO/gcma-guaranteed-contiguous-memory-allocator-seongjae-park-seoul-national-university-minchan-kim-lg</a><br />
-[2] <a href="http://ceur-ws.org/Vol-1464/">http://ceur-ws.org/Vol-1464/</a><br />
-[3] <a href="http://sigbed.seas.upenn.edu/vol13_num1.html#issue">http://sigbed.seas.upenn.edu/vol13_num1.html#issue</a><br />
-[4] <a href="https://lkml.org/lkml/2015/2/23/480">https://lkml.org/lkml/2015/2/23/480</a><br />
-[5] <a href="https://github.com/sjp38/linux.gcma">https://github.com/sjp38/linux.gcma</a></p>
+<p>[1] <a href="https://www.kernel.org/pub/linux/kernel/people/paulmck/perfbook/perfbook.html">https://www.kernel.org/pub/linux/kernel/people/paulmck/perfbook/perfbook.html</a><br />
+[2] <a href="https://en.wikipedia.org/wiki/Read-copy-update">https://en.wikipedia.org/wiki/Read-copy-update</a><br />
+[3] <a href="http://www.rdrop.com/~paulmck/">http://www.rdrop.com/~paulmck/</a><br />
+[4] <a href="https://github.com/sjp38/perfbook-ko_KR">https://github.com/sjp38/perfbook-ko_KR</a><br />
+[5] <a href="https://git.kernel.org/pub/scm/linux/kernel/git/paulmck/perfbook.git/commit/?id=edbfcdee046026d3f98592c411a20219b96c8e50">https://git.kernel.org/pub/scm/linux/kernel/git/paulmck/perfbook.git/commit/?id=edbfcdee046026d3f98592c411a20219b96c8e50</a><br />
+[6] <a href="https://github.com/sjp38/perfbook-ko_KR#contribution">https://github.com/sjp38/perfbook-ko_KR#contribution</a></p>
 
       </article>
 
       <ul class="pager blog-pager">
         
-        <li class="previous">
-          <a href="https://sjp38.github.io/post/about/" data-toggle="tooltip" data-placement="top" title="About">&larr; Previous Post</a>
-        </li>
-        
         
         <li class="next">
-          <a href="https://sjp38.github.io/post/us-sues-oracle/" data-toggle="tooltip" data-placement="top" title="us sues oracle">Next Post &rarr;</a>
+          <a href="https://sjp38.github.io/post/about/" data-toggle="tooltip" data-placement="top" title="About">Next Post &rarr;</a>
         </li>
         
       </ul>
