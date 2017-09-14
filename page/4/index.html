@@ -115,92 +115,21 @@
             
             
             <article class="post-preview">
-              <a href="https://sjp38.github.io/post/xclip_copy_remote_clipboard/">
-          	  <h2 class="post-title">원격 데스크탑의 clipboard 를 ssh 와 xclip 으로 복사해오기</h2>
+              <a href="https://sjp38.github.io/post/001_linux_dev_intro/">
+          	  <h2 class="post-title">Starting &#39;Linux Kernel Hack&#39; series</h2>
           	
           	    
               </a>
 
               <p class="post-meta">
-                Posted on March 31, 2017
+                Posted on March 4, 2017
               </p>
               <div class="post-entry">
               
-                <p>여러개의 리눅스 데스크탑 PC 를 한 책상 위에서 사용하는 경우가 있다.  이 때, 한
-PC 에서 Ctrl-C 해서 clipboard 에 복사한 내용을 다른쪽 PC 에서 Ctrl-V 로
-붙여넣고 싶은 경우가 있다.  여러가지 해결책이 있겠으나, 다음과 같이 ssh 와
-xclip 을 사용해서 해결할 수도 있다:</p>
-
-<pre><code>$ ssh &lt;username&gt;@&lt;remote host&gt; 'DISPLAY=:0 xclip -o -selection clipboard' | \
-	xclip -i -selection clipboard
-</code></pre>
-
-<p>참고: <a href="http://askubuntu.com/questions/513442/can-two-pcs-with-ubuntu-share-the-clipboard-buffer">http://askubuntu.com/questions/513442/can-two-pcs-with-ubuntu-share-the-clipboard-buffer</a></p>
-
-              
-              </div>
-
-	      
-	        <span class="post-meta">
-	          
-	            #<a href="/tags/tip">tip</a>&nbsp;
-		  
-	            #<a href="/tags/xclip">xclip</a>&nbsp;
-		  
-	        </span>
-	      
-
-             </article>
-            
-            <article class="post-preview">
-              <a href="https://sjp38.github.io/post/spec_cpu2006_install/">
-          	  <h2 class="post-title">spec cpu2006 벤치마크 설치하기</h2>
-          	
-          	    
-              </a>
-
-              <p class="post-meta">
-                Posted on March 29, 2017
-              </p>
-              <div class="post-entry">
-              
-                SPEC 은 벤치마크를 위한 협력기구 [0] 로, 다양한 벤치마크 suite 들을 만들고 공유합니다. SPEC CPU 2006 은 여기서 만든 벤치마크 도구집합 중 하나 [1] 로 계산 작업 집중적인 워크로드에 대한 성능을 측정을 목표로 만들어졌으며, 많은 곳에서 사용되고 있습니다. 2006년 1.0 버전이, 2008년에 1.1 버전이, 그리고 2011년에 1.2 버전이 나왔습니다. 본 글은 Ubuntu 16.04 서버 위에서의 SPEC CPU 2006 v1.1 의 설치에 대해 간단히 설명합니다.
-설치 환경 본 글에서 설명하는 내용은 다음과 같은 환경의 머신 위에서 수행되었습니다:
-                <a href="https://sjp38.github.io/post/spec_cpu2006_install/" class="post-read-more">[Read&nbsp;More]</a>
-              
-              </div>
-
-	      
-	        <span class="post-meta">
-	          
-	            #<a href="/tags/spec">spec</a>&nbsp;
-		  
-	            #<a href="/tags/benchmark">benchmark</a>&nbsp;
-		  
-	            #<a href="/tags/spec_cpu">spec_cpu</a>&nbsp;
-		  
-	            #<a href="/tags/spec_cpu2006">spec_cpu2006</a>&nbsp;
-		  
-	        </span>
-	      
-
-             </article>
-            
-            <article class="post-preview">
-              <a href="https://sjp38.github.io/post/fetching-linux-source-code/">
-          	  <h2 class="post-title">Fetching linux kernel source code</h2>
-          	
-          	    
-              </a>
-
-              <p class="post-meta">
-                Posted on March 20, 2017
-              </p>
-              <div class="post-entry">
-              
-                리눅스 커널은 오픈 소스 소프트웨어이므로 그 소스코드가 공개되어 있어 누구나 인터넷을 통해 쉽게 얻을 수 있습니다. 이 글에서는 리눅스 커널 소스코드를 받아올 수 있는 몇가지 방법을 설명합니다.
-kernel.org 리눅스 커널 소스 코드를 받아오기 위한 기본적 공식 사이트는 kernel.org 라 할 수 있겠는데, 이 사이트에는 소스 코드를 포함해 리눅스 커널을 위한 다양한 리소스가 정리되어 있습니다. 이 사이트에 웹브라우저를 통해 들어가보면 첫페이지에서부터 가장 최근에 릴리즈된 버전의 소스코드, 가장 최근의 안정화된 버전의 소스코드 등을 tar.
-                <a href="https://sjp38.github.io/post/fetching-linux-source-code/" class="post-read-more">[Read&nbsp;More]</a>
+                많은 영역에서 사용되고 있는 리눅스 커널. 그렇기에 만져볼수록 재밌고 뜯어볼수록 신기합니다. 아마도 이게 hack 의 재미가 아닐까요.
+리눅스 커널을 hack 하는데에 필요한 기본적인 내용부터 몇가지 팁들, 소스 코드는 어떻게 가져오고 어떻게 빌드해서 시스템에 설치를 하는지, 패치는 어떻게 보내면 되는지와 같은 것들을 정리해 볼까 합니다.
+So many environments and users are using Linux kernel. That&rsquo;s why it is so fun and mysterious to touch and analyze it. Maybe it is the fun of hack.
+                <a href="https://sjp38.github.io/post/001_linux_dev_intro/" class="post-read-more">[Read&nbsp;More]</a>
               
               </div>
 
@@ -211,9 +140,149 @@ kernel.org 리눅스 커널 소스 코드를 받아오기 위한 기본적 공�
 		  
 	            #<a href="/tags/kernel">kernel</a>&nbsp;
 		  
-	            #<a href="/tags/open-source">open-source</a>&nbsp;
+	            #<a href="/tags/tip">tip</a>&nbsp;
 		  
-	            #<a href="/tags/git">git</a>&nbsp;
+	            #<a href="/tags/english">english</a>&nbsp;
+		  
+	        </span>
+	      
+
+             </article>
+            
+            <article class="post-preview">
+              <a href="https://sjp38.github.io/post/beautifulhugo_contribute/">
+          	  <h2 class="post-title">beautifulhugo 테마 tags 기능 구현</h2>
+          	
+          	    
+              </a>
+
+              <p class="post-meta">
+                Posted on February 24, 2017
+              </p>
+              <div class="post-entry">
+              
+                <p>꽤 맘에 드는 hugo 테마[1]를 찾았다.  하지만 tag 기능이 빠져있어 너무
+아쉬워하다가 이대로 포기하기엔 너무 맘에 들어 이래저래 찾아보니 과거에 tag 기능
+관련 이슈가 올라왔지만 close 처리된 상태.  이대로는 암만 기다려도 tag 기능을
+구현해주진 않겠구나 싶어서 이것저것 보고 낑낑대며 서툴고 간단하게나마 tag
+기능을 구현[2].  Pull request[3] 도 보냈는데 과연 받아들여줄런지.</p>
+
+<p>업데이트: 별다른 discussion 없이 머지됐다 ;)</p>
+
+<p>[1] <a href="http://themes.gohugo.io/beautifulhugo/">http://themes.gohugo.io/beautifulhugo/</a><br />
+[2] <a href="https://github.com/sjp38/beautifulhugo-sj">https://github.com/sjp38/beautifulhugo-sj</a><br />
+[3] <a href="https://github.com/halogenica/beautifulhugo/pull/15">https://github.com/halogenica/beautifulhugo/pull/15</a></p>
+
+              
+              </div>
+
+	      
+	        <span class="post-meta">
+	          
+	            #<a href="/tags/hugo">hugo</a>&nbsp;
+		  
+	            #<a href="/tags/theme">theme</a>&nbsp;
+		  
+	            #<a href="/tags/open-source">open source</a>&nbsp;
+		  
+	            #<a href="/tags/contribute">contribute</a>&nbsp;
+		  
+	        </span>
+	      
+
+             </article>
+            
+            <article class="post-preview">
+              <a href="https://sjp38.github.io/post/hp_95lx/">
+          	  <h2 class="post-title">1990년대의 palmtop, HP 95LX 를 득템</h2>
+          	
+          	    
+              </a>
+
+              <p class="post-meta">
+                Posted on February 2, 2017
+              </p>
+              <div class="post-entry">
+              
+                이사로 생긴 쓰레기 정리를 돕다가 보니 한 물건이 유난히 눈에 띄었다. 자그마한 크기에 왠지 모르게 90년대 감성. 자세히 살펴 보니 전자사전 같이 생겼는데 왠지 옛날에 유행하던 palmtop[1] 같은 느낌. 어차피 버릴 물건이기에 따로 챙겨두고 컴퓨터로 검색을 해보았다.
+모델명인 HP 95LX 로 검색해보니[2] 한때 스프레드시트 프로그램의 대명사였던 Lotus 123 을 탑재한 것으로 유명한 palmtop PC 로, MS-DOS 를 장착한 모델이다. 당연하게도 바로는 안켜지지만 잘 살펴보니 전용 배터리가 아니라 2A 건전지를 사용하고 있기에 건전지를 끼고 파워 버튼을 눌러봤지만 역시 잠잠.
+                <a href="https://sjp38.github.io/post/hp_95lx/" class="post-read-more">[Read&nbsp;More]</a>
+              
+              </div>
+
+	      
+	        <span class="post-meta">
+	          
+	            #<a href="/tags/life">life</a>&nbsp;
+		  
+	            #<a href="/tags/gadget">gadget</a>&nbsp;
+		  
+	            #<a href="/tags/artifact">artifact</a>&nbsp;
+		  
+	        </span>
+	      
+
+             </article>
+            
+            <article class="post-preview">
+              <a href="https://sjp38.github.io/post/uninstall-kernel/">
+          	  <h2 class="post-title">uninstall kernel</h2>
+          	
+          	    
+              </a>
+
+              <p class="post-meta">
+                Posted on January 20, 2017
+              </p>
+              <div class="post-entry">
+              
+                테스트 등을 위해 소스코드로부터 커널을 직접 빌드, 설치하기 시작하면 어느새 수많은 커널이 설치되어 있는 것을 확인할 수 있다. 삭제를 위해선 make install 로 만들어진 파일들을 직접 제거하고 grub 을 업데이트 해줘야 한다.
+예를 들어 시스템이 현재 부팅되어 있는 버전의 커널을 언인스톨하고자 한다면 다음의 일련의 커맨드를 입력하면 된다:
+# rm /boot/vmlinuz-$(uname -r) # rm /boot/initrd.img-$(uname -r) # rm /boot/System.map-$(uname -r) # rm /boot/config-$(uname -r) # rm -fr /lib/modules/$(uname -r) # rm /var/lib/initramfs-tools/$(uname -r) # update-grub2  다른 버전의 설치되어있는 커널을 제거하고 싶다면 위의 $(uname -r) 부분을 제거하고자 하는 커널 버전으로 대체하면 된다.
+                <a href="https://sjp38.github.io/post/uninstall-kernel/" class="post-read-more">[Read&nbsp;More]</a>
+              
+              </div>
+
+	      
+	        <span class="post-meta">
+	          
+	            #<a href="/tags/linux">linux</a>&nbsp;
+		  
+	            #<a href="/tags/kernel">kernel</a>&nbsp;
+		  
+	            #<a href="/tags/tip">tip</a>&nbsp;
+		  
+	        </span>
+	      
+
+             </article>
+            
+            <article class="post-preview">
+              <a href="https://sjp38.github.io/post/donate-mozilla/">
+          	  <h2 class="post-title">donate mozilla</h2>
+          	
+          	    
+              </a>
+
+              <p class="post-meta">
+                Posted on January 19, 2017
+              </p>
+              <div class="post-entry">
+              
+                나는 보통의 경우 크롬으로 웹브라우징을 한다. 하지만 몇달 전부터 몇가지 예외에 대해서는 파이어폭스를 함께 쓰고 있다.
+부족한 하드웨어 스펙 나의 데스크탑 환경은 모니터 세대를 연결한 PC 하나로 구성되어 있었는데, FHD 모니터 세대를 돌리기는 벅찼는지 간헐적 입력 랙이 자주 발생했다. 또, 모니터를 한대 정도 더 늘리고 싶었다. 해서 집에서 놀고있던 5년된 HP 랩탑에 모니터 하나를 연결시키고 이 랩탑과 PC 를 키보드/마우스 하나로 제어하는 환경을 구축했다. PC 에 연결되는 모니터는 두대로 줄어드니까 입력 랙도 줄어들 것이라 생각한것.
+                <a href="https://sjp38.github.io/post/donate-mozilla/" class="post-read-more">[Read&nbsp;More]</a>
+              
+              </div>
+
+	      
+	        <span class="post-meta">
+	          
+	            #<a href="/tags/life">life</a>&nbsp;
+		  
+	            #<a href="/tags/mozilla">mozilla</a>&nbsp;
+		  
+	            #<a href="/tags/firefox">firefox</a>&nbsp;
 		  
 	        </span>
 	      

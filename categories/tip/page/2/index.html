@@ -107,76 +107,6 @@
             
             
             <article class="post-preview">
-              <a href="https://sjp38.github.io/post/parsec_3_howto/">
-                <h2 class="post-title">Parsec 3.0 설치 / 사용법</h2>
-
-                
-              </a>
-
-              <p class="post-meta">
-                Posted on May 19, 2017
-              </p>
-              <div class="post-entry">
-              
-                PARSEC 은 멀티쓰레드 프로그램들로 구성된 benchmark suite 입니다. 멀티쓰레드로 구성되어 있기 때문에 멀티코어 시스템에서의 multi core scalability 를 테스트 하기에도 적합합니다. 이 글에선 현재 최신 버전인 3.0 버전의 PARSEC 을 Ubuntu 16.04 server 에 설치하면서 겪는 문제의 해결법과 간단한 사용법을 정리해 봅니다.
-PARSEC 3.0 Download 공식 홈페이지[1] 에 들어가면 PARSEC 3.0 다운로드 링크가 첫페이지부터 있습니다. 해당 링크를 사용하면 tar.gz 포맷의 tarball 로 정리된 PARSEC 3.0 을 다운받을 수 있습니다. 웹브라우저로 들어가서 다운로드를 받는 방법도 있겠고, curl 이나 wget 등의 command line tool 을 사용해 다운받을 수도 있겠습니다.
-                <a href="https://sjp38.github.io/post/parsec_3_howto/" class="post-read-more">[Read&nbsp;More]</a>
-              
-              </div>
-
-	      
-	        <span class="post-meta">
-	          
-	            #<a href="/tags/parsec">parsec</a>&nbsp;
-		  
-	            #<a href="/tags/benchmark">benchmark</a>&nbsp;
-		  
-	            #<a href="/tags/parsec3.0">parsec3.0</a>&nbsp;
-		  
-	        </span>
-	      
-
-             </article>
-            
-            <article class="post-preview">
-              <a href="https://sjp38.github.io/post/xclip_copy_remote_clipboard/">
-                <h2 class="post-title">원격 데스크탑의 clipboard 를 ssh 와 xclip 으로 복사해오기</h2>
-
-                
-              </a>
-
-              <p class="post-meta">
-                Posted on March 31, 2017
-              </p>
-              <div class="post-entry">
-              
-                <p>여러개의 리눅스 데스크탑 PC 를 한 책상 위에서 사용하는 경우가 있다.  이 때, 한
-PC 에서 Ctrl-C 해서 clipboard 에 복사한 내용을 다른쪽 PC 에서 Ctrl-V 로
-붙여넣고 싶은 경우가 있다.  여러가지 해결책이 있겠으나, 다음과 같이 ssh 와
-xclip 을 사용해서 해결할 수도 있다:</p>
-
-<pre><code>$ ssh &lt;username&gt;@&lt;remote host&gt; 'DISPLAY=:0 xclip -o -selection clipboard' | \
-	xclip -i -selection clipboard
-</code></pre>
-
-<p>참고: <a href="http://askubuntu.com/questions/513442/can-two-pcs-with-ubuntu-share-the-clipboard-buffer">http://askubuntu.com/questions/513442/can-two-pcs-with-ubuntu-share-the-clipboard-buffer</a></p>
-
-              
-              </div>
-
-	      
-	        <span class="post-meta">
-	          
-	            #<a href="/tags/tip">tip</a>&nbsp;
-		  
-	            #<a href="/tags/xclip">xclip</a>&nbsp;
-		  
-	        </span>
-	      
-
-             </article>
-            
-            <article class="post-preview">
               <a href="https://sjp38.github.io/post/spec_cpu2006_install/">
                 <h2 class="post-title">spec cpu2006 벤치마크 설치하기</h2>
 
@@ -204,6 +134,79 @@ xclip 을 사용해서 해결할 수도 있다:</p>
 	            #<a href="/tags/spec_cpu">spec_cpu</a>&nbsp;
 		  
 	            #<a href="/tags/spec_cpu2006">spec_cpu2006</a>&nbsp;
+		  
+	        </span>
+	      
+
+             </article>
+            
+            <article class="post-preview">
+              <a href="https://sjp38.github.io/post/fedora-chrome-update/">
+                <h2 class="post-title">Updating Google Chrome on Fedora 23</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                Posted on March 20, 2017
+              </p>
+              <div class="post-entry">
+              
+                I am using Fedora 23 laptop and installed stable version Google Chrome from its official website [0]. In this case, just using Updates of Fedora Software program doesn&rsquo;t update Chrome automatically. For the case, follow below commands to update your Chrome:
+$ sudo dnf update google-chrome-stable ... $ sudo killall chrome $ google-chrome-stable  The second killall command is necessary because Chrome doesn&rsquo;t kill its process by just cliking Close button.
+                <a href="https://sjp38.github.io/post/fedora-chrome-update/" class="post-read-more">[Read&nbsp;More]</a>
+              
+              </div>
+
+	      
+	        <span class="post-meta">
+	          
+	            #<a href="/tags/tip">tip</a>&nbsp;
+		  
+	            #<a href="/tags/fedora">fedora</a>&nbsp;
+		  
+	            #<a href="/tags/linux">linux</a>&nbsp;
+		  
+	            #<a href="/tags/google">google</a>&nbsp;
+		  
+	            #<a href="/tags/chrome">chrome</a>&nbsp;
+		  
+	            #<a href="/tags/english">english</a>&nbsp;
+		  
+	        </span>
+	      
+
+             </article>
+            
+            <article class="post-preview">
+              <a href="https://sjp38.github.io/post/arping-howto/">
+                <h2 class="post-title">Using arping to know ip-MAC mapping</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                Posted on March 7, 2017
+              </p>
+              <div class="post-entry">
+              
+                You can use arping to know IP address to MAC address mapping of your local network. Usage is simple:
+arping [-AbDfhqUV] [-c count] [-w deadline] [-s source] -I interface destination  For example, you may use the command as below:
+$ arping -I eth0 10.0.0.1 ARPING 10.0.0.1 from 10.0.0.2 eth0 Unicast reply from 10.0.0.1 [11:22:33:44:55:66] 0.123ms Unicast reply from 10.0.0.1 [11:22:33:44:55:66] 0.251ms ...  Secret of the tool is ARP protocol [1].
+                <a href="https://sjp38.github.io/post/arping-howto/" class="post-read-more">[Read&nbsp;More]</a>
+              
+              </div>
+
+	      
+	        <span class="post-meta">
+	          
+	            #<a href="/tags/tip">tip</a>&nbsp;
+		  
+	            #<a href="/tags/linux">linux</a>&nbsp;
+		  
+	            #<a href="/tags/network">network</a>&nbsp;
+		  
+	            #<a href="/tags/english">english</a>&nbsp;
 		  
 	        </span>
 	      
