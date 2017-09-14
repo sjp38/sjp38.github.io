@@ -152,7 +152,22 @@ between the time interval.  Simple example of usage and output is as below:</p>
 3
 </code></pre>
 
-<p>Note that this script tracks heap pages only for now.</p>
+<p>Note that this script tracks heap, stack, and anonymous pages only for now.</p>
+
+<h2 id="wspgstat-sh">wspgstat.sh</h2>
+
+<p>Like <code>*stat</code> programs (such as vmstat, iostat, &hellip;), wspgstat.sh monitors and
+print out number of pages in working set of specific process repeatedly.  It
+receives pid of target program and delay between idleness check as arguments.
+Simple example usage is as below:</p>
+
+<pre><code>$ ./wspgstat.sh `pidof mysqld` 5
+1 17448
+9 21536
+18 21659
+</code></pre>
+
+<p>Note that this script tracks heap, stack, and anonymous pages only for now.</p>
 
 <h1 id="license">License</h1>
 
