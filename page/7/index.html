@@ -115,6 +115,71 @@
             
             
             <article class="post-preview">
+              <a href="https://sjp38.github.io/post/uninstall-kernel/">
+          	  <h2 class="post-title">uninstall kernel</h2>
+          	
+          	    
+              </a>
+
+              <p class="post-meta">
+                Posted on January 20, 2017
+              </p>
+              <div class="post-entry">
+              
+                테스트 등을 위해 소스코드로부터 커널을 직접 빌드, 설치하기 시작하면 어느새 수많은 커널이 설치되어 있는 것을 확인할 수 있다. 삭제를 위해선 make install 로 만들어진 파일들을 직접 제거하고 grub 을 업데이트 해줘야 한다.
+예를 들어 시스템이 현재 부팅되어 있는 버전의 커널을 언인스톨하고자 한다면 다음의 일련의 커맨드를 입력하면 된다:
+# rm /boot/vmlinuz-$(uname -r) # rm /boot/initrd.img-$(uname -r) # rm /boot/System.map-$(uname -r) # rm /boot/config-$(uname -r) # rm -fr /lib/modules/$(uname -r) # rm /var/lib/initramfs-tools/$(uname -r) # update-grub2  다른 버전의 설치되어있는 커널을 제거하고 싶다면 위의 $(uname -r) 부분을 제거하고자 하는 커널 버전으로 대체하면 된다.
+                <a href="https://sjp38.github.io/post/uninstall-kernel/" class="post-read-more">[Read&nbsp;More]</a>
+              
+              </div>
+
+	      
+	        <span class="post-meta">
+	          
+	            #<a href="/tags/linux">linux</a>&nbsp;
+		  
+	            #<a href="/tags/kernel">kernel</a>&nbsp;
+		  
+	            #<a href="/tags/tip">tip</a>&nbsp;
+		  
+	        </span>
+	      
+
+             </article>
+            
+            <article class="post-preview">
+              <a href="https://sjp38.github.io/post/donate-mozilla/">
+          	  <h2 class="post-title">donate mozilla</h2>
+          	
+          	    
+              </a>
+
+              <p class="post-meta">
+                Posted on January 19, 2017
+              </p>
+              <div class="post-entry">
+              
+                나는 보통의 경우 크롬으로 웹브라우징을 한다. 하지만 몇달 전부터 몇가지 예외에 대해서는 파이어폭스를 함께 쓰고 있다.
+부족한 하드웨어 스펙 나의 데스크탑 환경은 모니터 세대를 연결한 PC 하나로 구성되어 있었는데, FHD 모니터 세대를 돌리기는 벅찼는지 간헐적 입력 랙이 자주 발생했다. 또, 모니터를 한대 정도 더 늘리고 싶었다. 해서 집에서 놀고있던 5년된 HP 랩탑에 모니터 하나를 연결시키고 이 랩탑과 PC 를 키보드/마우스 하나로 제어하는 환경을 구축했다. PC 에 연결되는 모니터는 두대로 줄어드니까 입력 랙도 줄어들 것이라 생각한것.
+                <a href="https://sjp38.github.io/post/donate-mozilla/" class="post-read-more">[Read&nbsp;More]</a>
+              
+              </div>
+
+	      
+	        <span class="post-meta">
+	          
+	            #<a href="/tags/life">life</a>&nbsp;
+		  
+	            #<a href="/tags/mozilla">mozilla</a>&nbsp;
+		  
+	            #<a href="/tags/firefox">firefox</a>&nbsp;
+		  
+	        </span>
+	      
+
+             </article>
+            
+            <article class="post-preview">
               <a href="https://sjp38.github.io/post/us-sues-oracle/">
           	  <h2 class="post-title">us sues oracle</h2>
           	
@@ -146,69 +211,6 @@
 
              </article>
             
-            <article class="post-preview">
-              <a href="https://sjp38.github.io/post/gcma/">
-          	  <h2 class="post-title">GCMA: Guaranteed Contiguous Memory Allocator</h2>
-          	
-          	    
-              </a>
-
-              <p class="post-meta">
-                Posted on January 14, 2017
-              </p>
-              <div class="post-entry">
-              
-                GCMA (Guaranteed Contiguous Memory Allocator) is a contiguous memory allocator for Linux kernel that guarantees fast latency, success of allocation, and reasonable system memory utilization. Our evaluation on Raspberry Pi 2 shows 15 to 130 times faster and more predictable allocation latency without system performance degradation compared to Linux v3.18 default CMA.
-The project has been introduced by Linux Foundation Korea Forum 2014[1] and Embedded Operating Systems Workshop 2015[2]. A paper about the project has been published by proceeding of Embedded Operating Systems Workshop 2015 and 45th issue of ACM SIGBED Review.
-                <a href="https://sjp38.github.io/post/gcma/" class="post-read-more">[Read&nbsp;More]</a>
-              
-              </div>
-
-	      
-	        <span class="post-meta">
-	          
-	            #<a href="/tags/projects">projects</a>&nbsp;
-		  
-	            #<a href="/tags/gcma">gcma</a>&nbsp;
-		  
-	            #<a href="/tags/english">english</a>&nbsp;
-		  
-	        </span>
-	      
-
-             </article>
-            
-            <article class="post-preview">
-              <a href="https://sjp38.github.io/post/about/">
-          	  <h2 class="post-title">About</h2>
-          	
-          	    
-              </a>
-
-              <p class="post-meta">
-                Posted on January 14, 2017
-              </p>
-              <div class="post-entry">
-              
-                Bio SeongJae Park is a programmer who loves to analyse and develop systems just for fun.
-Contacts  sjpark@dcslab.snu.ac.kr sj38.park@gmail.com  Education  Ph.D Candiates, Computer Science and Engineering at Seoul National University,
-Sep 2012 - Present B.S., Electrical Engineering / Information and Computer Engineering (dual degree) at Ajou University, Jan 2009  Experiance  Graduate Research Assistant at DCSLAB, Seoul National University,
-Sep 2012 - Present
- Part-time Linux Kernel Hacker at Korea Open Source Software Lab,
-                <a href="https://sjp38.github.io/post/about/" class="post-read-more">[Read&nbsp;More]</a>
-              
-              </div>
-
-	      
-	        <span class="post-meta">
-	          
-	            #<a href="/tags/about">about</a>&nbsp;
-		  
-	        </span>
-	      
-
-             </article>
-            
           </div>
 
           
@@ -218,6 +220,10 @@ Sep 2012 - Present
               <a href="/page/6">&larr; Newer Posts</a>
             </li>
             
+            
+            <li class="next">
+              <a href="/page/8">Older Posts &rarr;</a>
+            </li>
             
           </ul>
           
