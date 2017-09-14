@@ -141,25 +141,25 @@ the allocated pages you want to do access.</p>
 
 <h2 id="wspages-sh">wspages.sh</h2>
 
-<p>In the tool box, few small, stupid tools exists and you can use them for your
-purpose.  However, for usual case, working set size would be the most common
-purpose.  To simplify your life, you may use <code>wspages.sh</code>.  It is a script that
-using the tools inside to get working set size.  The tool receives pid and time
-interval as argument.  Then, it will prints out number of pages accessed
-between the time interval.  Simple example of usage and output is as below:</p>
+<p>Now you can calculate working set size of a process using the tools.  To
+simplify the life even more, <code>wspages.sh</code> helps the complicated works.  It
+requires pid, time interval, and target memory mapped regions as argument.  The
+third argument can be ignored.  In the case, it uses heap, stack, and anonymous
+pages as target memory region by default.  If you give the arguments well, this
+tool will prints out number of pages accessed between the time interval.
+Simple example of usage and output is as below:</p>
 
-<pre><code>$ ./wspages.sh `pidof userprog` 1
+<pre><code>$ sudo ./wspages.sh `pidof userprog` 1 [heap]
 3
 </code></pre>
-
-<p>Note that this script tracks heap, stack, and anonymous pages only for now.</p>
 
 <h2 id="wspgstat-sh">wspgstat.sh</h2>
 
 <p>Like <code>*stat</code> programs (such as vmstat, iostat, &hellip;), wspgstat.sh monitors and
 print out number of pages in working set of specific process repeatedly.  It
-receives pid of target program and delay between idleness check as arguments.
-Simple example usage is as below:</p>
+requires pid of target program, delay between idleness check, and target memory
+mapped regions as arguments.  The third argument is optional and has default
+value as same as wspages.sh&rsquo;s same argument.  Simple example usage is as below:</p>
 
 <pre><code>$ ./wspgstat.sh `pidof mysqld` 5
 1 17448
@@ -167,7 +167,19 @@ Simple example usage is as below:</p>
 18 21659
 </code></pre>
 
-<p>Note that this script tracks heap, stack, and anonymous pages only for now.</p>
+<h1 id="limitations">Limitations</h1>
+
+<p>The tools use idle page tracking feature of the Linux kernel internally.  It
+means that the tools work on Linux systems that idle page tracking feature is
+turned on.  You can check whether your system turned on or off the feature by
+simply running the command below:</p>
+
+<pre><code>$ if [ -d /sys/kernel/mm/page_idle ]; \
+        then echo &quot;ON&quot;; else echo &quot;OFF&quot;; fi
+</code></pre>
+
+<p>It also shares limitation of idle page tracking feature of the Linux kernel.
+It tracks only userspace pages on LRU list of the kernel.</p>
 
 <h1 id="license">License</h1>
 
