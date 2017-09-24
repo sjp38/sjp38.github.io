@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>spec cpu2006 벤치마크 설치하기</title>
+  <title>spec cpu2006 벤치마크 설치 / 실행하기</title>
   
   <meta name="author" content="SeongJae Park"/>
   <meta name="generator" content="Hugo 0.21" />
@@ -23,7 +23,7 @@
   <link rel="stylesheet" href="https://sjp38.github.io/css/highlight.min.css">
   
   
-  <meta property="og:title" content="spec cpu2006 벤치마크 설치하기" />
+  <meta property="og:title" content="spec cpu2006 벤치마크 설치 / 실행하기" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="/post/spec_cpu2006_install/" />
   <meta property="og:image" content="/img/tux.png" />
@@ -101,7 +101,7 @@
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <div class="post-heading">
-          <h1>spec cpu2006 벤치마크 설치하기</h1>
+          <h1>spec cpu2006 벤치마크 설치 / 실행하기</h1>
       
       
       
@@ -128,7 +128,15 @@
 작업 집중적인 워크로드에 대한 성능을 측정을 목표로 만들어졌으며, 많은 곳에서
 사용되고 있습니다.  2006년 1.0 버전이, 2008년에 1.1 버전이, 그리고 2011년에 1.2
 버전이 나왔습니다.  본 글은 Ubuntu 16.04 서버 위에서의 SPEC CPU 2006 v1.1 의
-설치에 대해 간단히 설명합니다.</p>
+설치와 실행 방법에 대해 간단히 설명합니다.</p>
+
+<h1 id="automated-toolbox">Automated Toolbox</h1>
+
+<p>아래 내용들을 하나하나 읽고 따라하기엔 시간이 부족할 분들을 위해, 한방에 설치 /
+수행이 가능하도록 스크립트를 짜서 Github 에 올려뒀습니다[1].  시간이 없는
+분들은 이쪽을 사용 바랍니다.</p>
+
+<p>[1] <a href="https://github.com/sjp38/spec_on_ubuntu_xenial">https://github.com/sjp38/spec_on_ubuntu_xenial</a></p>
 
 <h1 id="설치-환경">설치 환경</h1>
 
@@ -322,6 +330,51 @@ Hey!  Some of the Perl tests failed!  If you think this is okay, enter y now:
 source the shrc file.  Then you should be ready.
 $
 </code></pre>
+
+<h1 id="실행">실행</h1>
+
+<h2 id="configuration-file">Configuration File</h2>
+
+<p>빌드가 완료되었다면 이제 실행을 해야겠죠.  벤치마크의 실행 환경을 구성해야
+하는데, config/ 디렉토리 밑에 예제 구성 파일들이 있습니다.  이 가운데,
+<code>Example-linux64-amd64-gcc43.cfg</code> 정도가 이 글을 작성하며 사용한 시스템에는
+적당할 겁니다.  해당 파일을 바탕으로 자신만의 구성 파일을 만들어 <code>config/</code>
+디렉토리 아래 저장합니다.  이 글에서는 <code>config/config.cfg</code> 라는 이름의 파일로
+<code>Example-linux64-amd64-gcc43.cfg</code> 파일을 단순히 복사했습니다.</p>
+
+<h2 id="environment-setup">Environment Setup</h2>
+
+<p>SPEC CPU 벤치마크를 수행하기 위한 환경변수 등을 설정해야 합니다.  다음 명령으로
+간단히 이를 수행할 수 있습니다.</p>
+
+<pre><code>$ source ./shrc
+</code></pre>
+
+<h2 id="running-workload">Running Workload</h2>
+
+<p>최종적인 워크로드의 수행은 <code>runspec</code> 이라는 프로그램을 사용해 이루어집니다.  이
+프로그램은 SPEC CPU 소스코드의 <code>bin/</code> 디렉토리 아래 위치해 있지만 앞서 행한
+환경변수 설정으로 인해 커맨드라인에 경로를 직접 입력하지 않고도 수행할 수
+있습니다.  예컨대 mcf 워크로드를 수행하고자 한다면 다음과 같은 커맨드를 사용할
+수 있습니다:</p>
+
+<pre><code>$ runspec --iterations 1 --size ref --action onlyrun --config config.cfg --noreportable mcf
+</code></pre>
+
+<p>위 커맨드를 수행하면 mcf 워크로드가 수행되며, 수행 결과를 요약한 로그 파일의
+경로를 다음과 같이 화면에 뿌려줍니다.</p>
+
+<pre><code>...
+
+Run Complete
+
+The log for this run is in /home/username/spec/spec_src/result/CPU2006.003.log
+
+runspec finished at Sun Sep 24 13:55:14 2017; 290 total seconds elapsed
+</code></pre>
+
+<p>더 자신의 목적에 맞는 실험을 위해선 <code>runspec</code> 의 사용법을 파악해야 합니다.  이
+글에서의 범위는 벗어나므로, 이에 대해서는 다른 문서들을 참고하시기 바랍니다.</p>
 
 <h1 id="conclusion">Conclusion</h1>
 
