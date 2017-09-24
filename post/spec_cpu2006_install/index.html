@@ -237,28 +237,6 @@ pp.c:(.text+0x2a76): undefined reference to `pow'
 
 <p><code>$ PERLFLAGS=&quot;-A libs=-lm -A libs=-ldl&quot; ./buildtools</code></p>
 
-<h2 id="asm-page-h-file-not-found"><code>asm/page.h</code> file not found</h2>
-
-<p>커널 헤더파일인 <code>asm/page.h</code> 파일을 <code>tools/src/perl-5.8.8/ext/IPC/SysV/SysV.xs</code>
-파일에서 <code>include</code> 하고 있어 발생하는 문제가 다음과 같이 발생합니다:</p>
-
-<pre><code>cc -c   -I/home/sjpark/SPEC_CPU2006v1.1/tools/output/include -fno-strict-aliasing -pipe -Wdeclaration-after-statement -I/usr/local/include -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -O2   -DVERSION=\&quot;1.04\&quot; -DXS_VERSION=\&quot;1.04\&quot; -fpic &quot;-I../../..&quot;   SysV.c
-SysV.xs:7:25: fatal error: asm/page.h: No such file or directory
-</code></pre>
-
-<p><code>SysV.xs</code> 파일의 해당 <code>include</code> 문을 다음과 같이 막고 <code>PAGE_SIZE</code> 를 정의해준다.</p>
-
-<pre><code>--- a/tools/src/perl-5.8.8/ext/IPC/SysV/SysV.xs
-+++ b/tools/src/perl-5.8.8/ext/IPC/SysV/SysV.xs
-@@ -4,7 +4,7 @@
-
- #include &lt;sys/types.h&gt;
- #ifdef __linux__
--#   include &lt;asm/page.h&gt;
-+#define PAGE_SIZE      4096
- #endif
-</code></pre>
-
 <h2 id="you-haven-t-done-a-make-depend-yet">You haven&rsquo;t done a &ldquo;make depend&rdquo; yet!</h2>
 
 <p>이어서 다음 에러 메세지가 나옵니다.</p>
@@ -277,6 +255,29 @@ $ sudo ln -s /bin/bash /bin/sh
 
 <p>시스템을 원래대로 돌리고 싶다면 빌드 끝나고 나중에 심볼릭 링크를 되돌리면
 됩니다.</p>
+
+<h2 id="asm-page-h-file-not-found"><code>asm/page.h</code> file not found</h2>
+
+<p>커널 헤더파일인 <code>asm/page.h</code> 파일을 <code>tools/src/perl-5.8.8/ext/IPC/SysV/SysV.xs</code>
+파일에서 <code>include</code> 하고 있어 발생하는 문제가 다음과 같이 발생합니다:</p>
+
+<pre><code>cc -c   -I/home/sjpark/SPEC_CPU2006v1.1/tools/output/include -fno-strict-aliasing -pipe -Wdeclaration-after-statement -I/usr/local/include -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -O2   -DVERSION=\&quot;1.04\&quot; -DXS_VERSION=\&quot;1.04\&quot; -fpic &quot;-I../../..&quot;   SysV.c
+SysV.xs:7:25: fatal error: asm/page.h: No such file or directory
+</code></pre>
+
+<p><code>SysV.xs</code> 파일의 해당 <code>include</code> 문을 다음과 같이 막고 <code>PAGE_SIZE</code> 를 정의해
+줍니다.</p>
+
+<pre><code>--- a/tools/src/perl-5.8.8/ext/IPC/SysV/SysV.xs
++++ b/tools/src/perl-5.8.8/ext/IPC/SysV/SysV.xs
+@@ -4,7 +4,7 @@
+
+ #include &lt;sys/types.h&gt;
+ #ifdef __linux__
+-#   include &lt;asm/page.h&gt;
++#define PAGE_SIZE      4096
+ #endif
+</code></pre>
 
 <h2 id="perl-test-fail"><code>perl</code> test fail</h2>
 
