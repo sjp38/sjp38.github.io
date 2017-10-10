@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Happy Hacking</title>
+  <title>Lkml News</title>
   
   <meta name="author" content="SeongJae Park"/>
   <meta name="generator" content="Hugo 0.21" />
@@ -23,9 +23,9 @@
   <link rel="stylesheet" href="https://sjp38.github.io/css/highlight.min.css">
   
   
-  <meta property="og:title" content="Happy Hacking" />
+  <meta property="og:title" content="Lkml News" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="/" />
+  <meta property="og:url" content="/categories/lkml-news/" />
   <meta property="og:image" content="/img/tux.png" />
   
 </head>
@@ -95,11 +95,7 @@
           <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
               <div class="page-heading">
-                <h1>Happy Hacking</h1>
-                
-                  <hr class="small">
-                  <span class="page-subheading">Let the hacking begin</span>
-                
+                <h2>#Lkml News</h2>
               </div>
             </div>
           </div>
@@ -107,135 +103,76 @@
       </div>
     </header>
 
-
-    <div role="main" class="container">
-      <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-          <div class="posts-list">
+    <div class="container" role="main">
             
             
             <article class="post-preview">
-              <a href="https://sjp38.github.io/post/us-sues-oracle/">
-          	  <h2 class="post-title">us sues oracle</h2>
-          	
-          	    
+              <a href="https://sjp38.github.io/post/lkml_news_0001/">
+                <h2 class="post-title">LKML News - 1</h2>
+
+                
               </a>
 
               <p class="post-meta">
-                Posted on January 19, 2017
+                Posted on October 10, 2017
               </p>
               <div class="post-entry">
               
-                <p>오라클이 백인 남성에게 더 많은 월급을 지불하고 아시아인, 그중에서도 인도 사람을
-많이 개발직에 채용했다는 이유로 미국 정부가 오라클을 고소.</p>
-
-<p><a href="http://www.reuters.com/article/us-oracle-usa-labor-idUSKBN1522O6?il=0">http://www.reuters.com/article/us-oracle-usa-labor-idUSKBN1522O6?il=0</a></p>
-
+                [PATCH RFC tip/core/rcu 0/15] Remove to-be-unneeded smp_read_barrier_depends() https://lkml.kernel.org/r/20171010001951.GA6476@linux.vnet.ibm.com
+smp_read_barrier_depends() 가 READ_ONCE() 에 들어갈 것을 Will Deacon 이 제안했고, 이 제안이 받아들여지면 불필요한 중복이 될 코드들을 커널 코드에서 제거하는 패치를 Paul E. McKenney 가 제안했습니다.
+smp_read_barrier_depends() 는 Alpha 외의 아키텍쳐에서는 모두 noop 인만큼, 이에 관련된 변경이 모두 머지된다면 core kernel 코드에서는 더이상 Alpha 만을 위한 코드가 사라지게 됩니다.
+관련 메인테이너들의 반응도 좋은편이라 큰 문제 없이 조만간 머지될 듯 합니다.
+Linux 4.
+                <a href="https://sjp38.github.io/post/lkml_news_0001/" class="post-read-more">[Read&nbsp;More]</a>
               
               </div>
 
 	      
 	        <span class="post-meta">
 	          
+	            #<a href="/tags/linux">linux</a>&nbsp;
+		  
+	            #<a href="/tags/kernel">kernel</a>&nbsp;
+		  
+	            #<a href="/tags/lkml">lkml</a>&nbsp;
+		  
 	            #<a href="/tags/news">news</a>&nbsp;
 		  
-	            #<a href="/tags/oracle">oracle</a>&nbsp;
-		  
 	        </span>
 	      
 
              </article>
             
             <article class="post-preview">
-              <a href="https://sjp38.github.io/post/gcma/">
-          	  <h2 class="post-title">GCMA: Guaranteed Contiguous Memory Allocator</h2>
-          	
-          	    
+              <a href="https://sjp38.github.io/post/lkml_news_0000/">
+                <h2 class="post-title">LKML News - Intro</h2>
+
+                
               </a>
 
               <p class="post-meta">
-                Posted on January 14, 2017
+                Posted on October 10, 2017
               </p>
               <div class="post-entry">
               
-                GCMA (Guaranteed Contiguous Memory Allocator) is a contiguous memory allocator for Linux kernel that guarantees fast latency, success of allocation, and reasonable system memory utilization. Our evaluation on Raspberry Pi 2 shows 15 to 130 times faster and more predictable allocation latency without system performance degradation compared to Linux v3.18 default CMA.
-The project has been introduced by Linux Foundation Korea Forum 2014[1] and Embedded Operating Systems Workshop 2015[2]. A paper about the project has been published by proceeding of Embedded Operating Systems Workshop 2015 and 45th issue of ACM SIGBED Review.
-                <a href="https://sjp38.github.io/post/gcma/" class="post-read-more">[Read&nbsp;More]</a>
+                <p>LKML 을 모니터링 하면서 흥미가는 패치나 토론을 <code>lkml news</code> 라는 카테고리로
+묶어서 비정기적, 비형식적으로 간략히 정리하고 관련 소식을 업데이트 해보고자
+합니다.  주로 모니터링 하는 메일은 메모리 매니지먼트 쪽과 rcu 관련 메일들이
+될겁니다.</p>
+
               
               </div>
 
 	      
 	        <span class="post-meta">
 	          
-	            #<a href="/tags/projects">projects</a>&nbsp;
+	            #<a href="/tags/linux">linux</a>&nbsp;
 		  
-	            #<a href="/tags/gcma">gcma</a>&nbsp;
+	            #<a href="/tags/kernel">kernel</a>&nbsp;
 		  
-	            #<a href="/tags/english">english</a>&nbsp;
+	            #<a href="/tags/lkml">lkml</a>&nbsp;
 		  
-	        </span>
-	      
-
-             </article>
-            
-            <article class="post-preview">
-              <a href="https://sjp38.github.io/post/about/">
-          	  <h2 class="post-title">About</h2>
-          	
-          	    
-              </a>
-
-              <p class="post-meta">
-                Posted on January 14, 2017
-              </p>
-              <div class="post-entry">
-              
-                Bio SeongJae Park is a programmer who loves to analyse and develop systems just for fun.
-Contacts  sjpark@dcslab.snu.ac.kr sj38.park@gmail.com  Education  Ph.D Candiates, Computer Science and Engineering at Seoul National University,
-Sep 2012 - Present B.S., Electrical Engineering / Information and Computer Engineering (dual degree) at Ajou University, Jan 2009  Experiance  Graduate Research Assistant at DCSLAB, Seoul National University,
-Sep 2012 - Present
- Part-time Linux Kernel Hacker at Korea Open Source Software Lab,
-                <a href="https://sjp38.github.io/post/about/" class="post-read-more">[Read&nbsp;More]</a>
-              
-              </div>
-
-	      
-	        <span class="post-meta">
-	          
-	            #<a href="/tags/about">about</a>&nbsp;
-		  
-	        </span>
-	      
-
-             </article>
-            
-            <article class="post-preview">
-              <a href="https://sjp38.github.io/post/perfbook-kokr/">
-          	  <h2 class="post-title">&#34;Is Parallel Programming Hard, And, If So, What Can You Do About It?&#34; Translation</h2>
-          	
-          	    
-              </a>
-
-              <p class="post-meta">
-                Posted on January 10, 2017
-              </p>
-              <div class="post-entry">
-              
-                &ldquo;Is Parallel Programming is Hard, And, If So, What Can You Do About It?&rdquo;[1] 은 parallel programming 분야에서 대가라 불릴만한 분으로, 이쪽 분야에서 매우 중요한 동기화 메커니즘인 RCU[2] 를 개발했으며 리눅스 커널의 RCU 메인테이너로 활동하고 있는 Paul E. McKenney[3] 가 오픈소스 방식으로 저술하고 있는, parallel programming 에 대한 책입니다.
-개인적으로 이 책의 한국어 번역을 오픈소스[4]로 진행하고 있습니다. 이 프로젝트는 원저작자인 Paul 에게 공식 한국어 번역으로 인증받았습니다[5].
-컨트리뷰션에 대해서도 열려 있으니, 이에 관심 있는 분은 repository 내의 README 문서의 Contribution 섹션[6] 을 참고 바랍니다.
-                <a href="https://sjp38.github.io/post/perfbook-kokr/" class="post-read-more">[Read&nbsp;More]</a>
-              
-              </div>
-
-	      
-	        <span class="post-meta">
-	          
-	            #<a href="/tags/projects">projects</a>&nbsp;
-		  
-	            #<a href="/tags/perfbook">perfbook</a>&nbsp;
-		  
-	            #<a href="/tags/translation">translation</a>&nbsp;
+	            #<a href="/tags/news">news</a>&nbsp;
 		  
 	        </span>
 	      
@@ -243,19 +180,6 @@ Sep 2012 - Present
              </article>
             
           </div>
-
-          
-          <ul class="pager main-pager">
-            
-            <li class="previous">
-              <a href="/page/4">&larr; Newer Posts</a>
-            </li>
-            
-            
-          </ul>
-          
-        </div>
-      </div>
     </div>
 
     <footer>

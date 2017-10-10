@@ -115,6 +115,79 @@
             
             
             <article class="post-preview">
+              <a href="https://sjp38.github.io/post/lkml_news_0001/">
+          	  <h2 class="post-title">LKML News - 1</h2>
+          	
+          	    
+              </a>
+
+              <p class="post-meta">
+                Posted on October 10, 2017
+              </p>
+              <div class="post-entry">
+              
+                [PATCH RFC tip/core/rcu 0/15] Remove to-be-unneeded smp_read_barrier_depends() https://lkml.kernel.org/r/20171010001951.GA6476@linux.vnet.ibm.com
+smp_read_barrier_depends() 가 READ_ONCE() 에 들어갈 것을 Will Deacon 이 제안했고, 이 제안이 받아들여지면 불필요한 중복이 될 코드들을 커널 코드에서 제거하는 패치를 Paul E. McKenney 가 제안했습니다.
+smp_read_barrier_depends() 는 Alpha 외의 아키텍쳐에서는 모두 noop 인만큼, 이에 관련된 변경이 모두 머지된다면 core kernel 코드에서는 더이상 Alpha 만을 위한 코드가 사라지게 됩니다.
+관련 메인테이너들의 반응도 좋은편이라 큰 문제 없이 조만간 머지될 듯 합니다.
+Linux 4.
+                <a href="https://sjp38.github.io/post/lkml_news_0001/" class="post-read-more">[Read&nbsp;More]</a>
+              
+              </div>
+
+	      
+	        <span class="post-meta">
+	          
+	            #<a href="/tags/linux">linux</a>&nbsp;
+		  
+	            #<a href="/tags/kernel">kernel</a>&nbsp;
+		  
+	            #<a href="/tags/lkml">lkml</a>&nbsp;
+		  
+	            #<a href="/tags/news">news</a>&nbsp;
+		  
+	        </span>
+	      
+
+             </article>
+            
+            <article class="post-preview">
+              <a href="https://sjp38.github.io/post/lkml_news_0000/">
+          	  <h2 class="post-title">LKML News - Intro</h2>
+          	
+          	    
+              </a>
+
+              <p class="post-meta">
+                Posted on October 10, 2017
+              </p>
+              <div class="post-entry">
+              
+                <p>LKML 을 모니터링 하면서 흥미가는 패치나 토론을 <code>lkml news</code> 라는 카테고리로
+묶어서 비정기적, 비형식적으로 간략히 정리하고 관련 소식을 업데이트 해보고자
+합니다.  주로 모니터링 하는 메일은 메모리 매니지먼트 쪽과 rcu 관련 메일들이
+될겁니다.</p>
+
+              
+              </div>
+
+	      
+	        <span class="post-meta">
+	          
+	            #<a href="/tags/linux">linux</a>&nbsp;
+		  
+	            #<a href="/tags/kernel">kernel</a>&nbsp;
+		  
+	            #<a href="/tags/lkml">lkml</a>&nbsp;
+		  
+	            #<a href="/tags/news">news</a>&nbsp;
+		  
+	        </span>
+	      
+
+             </article>
+            
+            <article class="post-preview">
               <a href="https://sjp38.github.io/post/idle_page_tracking/">
           	  <h2 class="post-title">Idle Page Tracking Tools</h2>
           	
@@ -212,75 +285,6 @@ Automated Scripts 아래 설명할 모든 내용을 자동화 해서 손쉽게 T
 	            #<a href="/tags/dbms">dbms</a>&nbsp;
 		  
 	            #<a href="/tags/mariadb">mariadb</a>&nbsp;
-		  
-	        </span>
-	      
-
-             </article>
-            
-            <article class="post-preview">
-              <a href="https://sjp38.github.io/post/golang1.9_fedora26/">
-          	  <h2 class="post-title">Golang 1.9 install on Fedora 26</h2>
-          	
-          	    
-              </a>
-
-              <p class="post-meta">
-                Posted on August 26, 2017
-              </p>
-              <div class="post-entry">
-              
-                현재 사용중인 랩탑에 설치한 OS 는 Fedora 24 였는데, 너무 오래되었고 지원도 얼마전 끝났기에[0] 이번에 Fedora 26 으로 새로 설치했습니다. 마침 go 언어도 1.9 가 최근에 릴리즈 되었기에 개인적으로 go 언어를 설치하는 방법을 기록해 둡니다.
-여기선 소스 코드만 가지고 빌드, 설치하는 방법을 기록합니다.
-Get Source Code go 언어는 오픈소스입니다. 다음 커맨드를 통해 구글로부터 소스코드를 받아올 수 있습니다.
-$ git clone https://go.googlesource.com/go  기다리면 go/ 디렉토리에 소스코드가 딸려옵니다.
-golang 1.4 Build &amp; Install go 언어를 빌드한다는 건 go 언어 컴파일러와 기본 라이브러리 등과 같은, go 언어로 짠 프로그램을 빌드하고 수행하는데 필요한 도구들을 빌드한다는 이야기입니다.
-                <a href="https://sjp38.github.io/post/golang1.9_fedora26/" class="post-read-more">[Read&nbsp;More]</a>
-              
-              </div>
-
-	      
-	        <span class="post-meta">
-	          
-	            #<a href="/tags/golang">golang</a>&nbsp;
-		  
-	            #<a href="/tags/install">install</a>&nbsp;
-		  
-	            #<a href="/tags/setup">setup</a>&nbsp;
-		  
-	            #<a href="/tags/fedora">fedora</a>&nbsp;
-		  
-	        </span>
-	      
-
-             </article>
-            
-            <article class="post-preview">
-              <a href="https://sjp38.github.io/post/kernel-text-addresses-removed-from-calltrace/">
-          	  <h2 class="post-title">Kernel text addresses removed from calltrace</h2>
-          	
-          	    
-              </a>
-
-              <p class="post-meta">
-                Posted on June 16, 2017
-              </p>
-              <div class="post-entry">
-              
-                최근 커널은 stakc dump 에서 콜 트레이스(Call Trace) 에 각 코드의 메모리 어드레스를 찍어주지 않습니다. 이에 대해 포스팅을 해봅니다.
-Call Trace 커널은 문제가 발생하거나 하면 문제의 원인을 찾을 수 있는 다양한 정보를 담고 있는 stack dump 를 로그로 뿌려 줍니다. 문제의 원인을 찾는데 매우 소중한 정보입니다. 그 정보 중에서도 중요한 것 중 하나가 콜 트레이스로, 이 문제의 순간에 오기까지 어느 함수의 어느 지점에서 어느 함수를 호출해서 여기까지 왔는가를 담는 정보입니다.
-                <a href="https://sjp38.github.io/post/kernel-text-addresses-removed-from-calltrace/" class="post-read-more">[Read&nbsp;More]</a>
-              
-              </div>
-
-	      
-	        <span class="post-meta">
-	          
-	            #<a href="/tags/linux">linux</a>&nbsp;
-		  
-	            #<a href="/tags/kernel">kernel</a>&nbsp;
-		  
-	            #<a href="/tags/tip">tip</a>&nbsp;
 		  
 	        </span>
 	      
