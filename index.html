@@ -126,11 +126,11 @@
               </p>
               <div class="post-entry">
               
-                [PATCH RFC tip/core/rcu 0/15] Remove to-be-unneeded smp_read_barrier_depends() https://lkml.kernel.org/r/20171010001951.GA6476@linux.vnet.ibm.com
+                Linux 4.14-rc4 https://lkml.kernel.org/r/CA+55aFwnCrWANr01O3piPc1mwhx13nZU3J+e97ksQC1oN0OnXA@mail.gmail.com
+리눅스 4.14 의 네번째 -rc 버전이 나왔습니다. 평소보다 좀 더 작업량이 컸던 -rc4 이지만 슬슬 정리가 되어가는 것 같다고 토발즈는 이야기 하네요
+[PATCH RFC tip/core/rcu 0/15] Remove to-be-unneeded smp_read_barrier_depends() https://lkml.kernel.org/r/20171010001951.GA6476@linux.vnet.ibm.com
 smp_read_barrier_depends() 가 READ_ONCE() 에 들어갈 것을 Will Deacon 이 제안했고, 이 제안이 받아들여지면 불필요한 중복이 될 코드들을 커널 코드에서 제거하는 패치를 Paul E. McKenney 가 제안했습니다.
 smp_read_barrier_depends() 는 Alpha 외의 아키텍쳐에서는 모두 noop 인만큼, 이에 관련된 변경이 모두 머지된다면 core kernel 코드에서는 더이상 Alpha 만을 위한 코드가 사라지게 됩니다.
-관련 메인테이너들의 반응도 좋은편이라 큰 문제 없이 조만간 머지될 듯 합니다.
-Linux 4.
                 <a href="https://sjp38.github.io/post/lkml_news_0001/" class="post-read-more">[Read&nbsp;More]</a>
               
               </div>

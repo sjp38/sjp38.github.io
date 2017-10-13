@@ -123,6 +123,13 @@
       <article role="main" class="blog-post">
           
 
+<h2 id="linux-4-14-rc4">Linux 4.14-rc4</h2>
+
+<p><a href="https://lkml.kernel.org/r/CA+55aFwnCrWANr01O3piPc1mwhx13nZU3J+e97ksQC1oN0OnXA@mail.gmail.com">https://lkml.kernel.org/r/CA+55aFwnCrWANr01O3piPc1mwhx13nZU3J+e97ksQC1oN0OnXA@mail.gmail.com</a></p>
+
+<p>리눅스 4.14 의 네번째 -rc 버전이 나왔습니다.  평소보다 좀 더 작업량이 컸던 -rc4
+이지만 슬슬 정리가 되어가는 것 같다고 토발즈는 이야기 하네요</p>
+
 <h2 id="patch-rfc-tip-core-rcu-0-15-remove-to-be-unneeded-smp-read-barrier-depends">[PATCH RFC tip/core/rcu 0/15] Remove to-be-unneeded smp_read_barrier_depends()</h2>
 
 <p><a href="https://lkml.kernel.org/r/20171010001951.GA6476@linux.vnet.ibm.com">https://lkml.kernel.org/r/20171010001951.GA6476@linux.vnet.ibm.com</a></p>
@@ -137,12 +144,44 @@
 
 <p>관련 메인테이너들의 반응도 좋은편이라 큰 문제 없이 조만간 머지될 듯 합니다.</p>
 
-<h2 id="linux-4-14-rc4">Linux 4.14-rc4</h2>
+<h2 id="patch-v5-00-20-speculative-page-faults">[PATCH v5 00/20] Speculative page faults</h2>
 
-<p><a href="https://lkml.kernel.org/r/CA+55aFwnCrWANr01O3piPc1mwhx13nZU3J+e97ksQC1oN0OnXA@mail.gmail.com">https://lkml.kernel.org/r/CA+55aFwnCrWANr01O3piPc1mwhx13nZU3J+e97ksQC1oN0OnXA@mail.gmail.com</a></p>
+<p><a href="https://lkml.kernel.org/r/1507729966-10660-1-git-send-email-ldufour@linux.vnet.ibm.com">https://lkml.kernel.org/r/1507729966-10660-1-git-send-email-ldufour@linux.vnet.ibm.com</a></p>
 
-<p>리눅스 4.14 의 네번째 -rc 버전이 나왔습니다.  평소보다 좀 더 작업량이 컸던 -rc4
-이지만 슬슬 정리가 되어가는 것 같다고 토발즈는 이야기 하네요.</p>
+<p>mmap_sem 으로 인해 병렬성이 제한되고 있는 리눅스의 VM 관리를 병렬화 하려는
+시도.  과거부터 Peter Zijlstra 에 의 의한 시도는 있었고[1] 그 패치셋의
+최신 리눅스 커널에의 포팅된 버전이 Laurent Dufour 에 의해 제시되고
+있는중입니다.  비슷하게 RCU 비슷한 테크닉을 사용했던 논문도 있지요.  어느새
+다섯번째 버전이네요.</p>
+
+<p>기본적으로 페이지 폴트 처리를 VMA 단위로 락을 잡지 않고 처리하고, 같은 VMA 에
+동시의 페이지 폴트가 있었거나 했다면 abort 하고 기존의 방식으로 fallback 하는
+형태입니다.  이를 위해 VMA 리스트를 SRCU 를 사용해 관리합니다.  하나의 VMA 에
+대한 동시의 접근은 VMA 별 시퀀스 락을 사용해 파악합니다.</p>
+
+<p>현재의 버전은 file mapped page 와 THP 에는 적용되지 않고 있는데, 일단 머지되면
+이 부분으로의 확장도 작업하겠노라고 약속하고 있습니다.</p>
+
+<p>실험 결과, Ebizzy 에서 16 cpu 에서 약 3.6배의 성능 향상을 보였습니다.</p>
+
+<p>[1] <a href="http://linux-kernel.2935.n7.nabble.com/RFC-PATCH-0-6-Another-go-at-speculative-page-faults-tt965642.html#none">http://linux-kernel.2935.n7.nabble.com/RFC-PATCH-0-6-Another-go-at-speculative-page-faults-tt965642.html#none</a>
+[2] <a href="https://pdos.csail.mit.edu/papers/radixvm:eurosys13.pdf">https://pdos.csail.mit.edu/papers/radixvm:eurosys13.pdf</a></p>
+
+<h2 id="rfc-mmap-map-contig">[RFC] mmap(MAP_CONTIG)</h2>
+
+<p><a href="https://lkml.kernel.org/r/21f1ec96-2822-1189-1c95-79a2bb491571@oracle.com">https://lkml.kernel.org/r/21f1ec96-2822-1189-1c95-79a2bb491571@oracle.com</a></p>
+
+<p>Linux Plumbers Conference 에서 있었던, contiguous memory 의 성능상의 이득
+발표[1]를 시작으로 제안된, User space contiguous memory allocation 을 위한 mmap()
+flag 의 RFC 입니다.</p>
+
+<p>해당 발표는 Mellanox 의 것으로, RDMA_READ 대역폭이 contiguous memory 를 사용할
+때 최대 58 %, 평균 27 % 정도의 성능 향상을 보이는 것을 보입니다.
+Scatter/Gather 의 성능 오버헤드와 더 나은 캐시 힛 때문이라는 것이죠.</p>
+
+<p>RFC 구현은 MAX_ORDER 이하의 할당은 buddy 를, 그 이상은 CMA 기반을 사용합니다.</p>
+
+<p>[1] <a href="https://linuxplumbersconf.org/2017/ocw//system/presentations/4669/original/Support%20user%20space%20POSIX%20conformant%20contiguous__v1.00.pdf">https://linuxplumbersconf.org/2017/ocw//system/presentations/4669/original/Support%20user%20space%20POSIX%20conformant%20contiguous__v1.00.pdf</a></p>
 
       </article>
 
