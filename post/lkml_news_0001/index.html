@@ -183,6 +183,41 @@ Scatter/Gather 의 성능 오버헤드와 더 나은 캐시 힛 때문이라는 
 
 <p>[1] <a href="https://linuxplumbersconf.org/2017/ocw//system/presentations/4669/original/Support%20user%20space%20POSIX%20conformant%20contiguous__v1.00.pdf">https://linuxplumbersconf.org/2017/ocw//system/presentations/4669/original/Support%20user%20space%20POSIX%20conformant%20contiguous__v1.00.pdf</a></p>
 
+<h2 id="patch-v12-00-11-complete-deferred-page-initialization">[PATCH v12 00/11] complete deferred page initialization</h2>
+
+<p><a href="https://lkml.kernel.org/r/20171013173214.27300-1-pasha.tatashin@oracle.com">https://lkml.kernel.org/r/20171013173214.27300-1-pasha.tatashin@oracle.com</a></p>
+
+<p>기본적으로 struct page 인스턴스들은 부팅 과정 초기에 미리 할당되고 초기화
+되는데 이 작업은 싱글쓰레드로 이루어집니다.
+이는 커다란 메모리와 많은 CPU 를 장착한 기계에서는 부팅 시간을 크게 늘릴 수
+있습니다.
+DEFERRED_STRUCT_PAGE_INIT 옵션이 켜진 커널은 부팅 중에는 그 중 일부만 초기화
+시키고, 나머지는 이후 모든 CPU 가 켜진 다음에 pgdatinitX 라는 이름의 커널
+쓰레드를 통해 초기화를 마무리 하게 합니다.
+하지만, 여전히 struct page 를 0으로 값을 쓰는 작업은 싱글쓰레드로 부팅 초기에
+수행되고 있으며, struct page 인스턴스가 초기화 되기 전에 해당 인스턴스에
+액세스하고 있습니다.
+이 패치셋은 초기화가 마무리 되기 전까지 struct page 인스턴스에 접근하지 못하게
+하고, 0으로 값을 쓰는 작업 역시 병렬화된 시점에서 수행되도록 합니다.</p>
+
+<p>8개 노드 Xeon E7-8895 v3, 1 TiB 메모리의 기계에서 처리시간은
+DEFERRED_STRUCT_PAGE_INIT 옵션이 꺼져있을 때 95초, 본 패치셋 적용되지 않고
+DEFERRED_STRUCT_PAGE_INIT 켜진 커널에서 77초, 본 패치셋 적용되고
+DEFERRED_STRUCT_PAGE_INIT 켜진 커널에서 55초로 기존 19% 스피드업을 40% 까지
+끌어올렸습니다.</p>
+
+<h2 id="dramatic-lockdep-slowdown-in-4-14">Dramatic lockdep slowdown in 4.14</h2>
+
+<p><a href="https://lkml.kernel.org/r/20171013090333.GA17356@localhost">https://lkml.kernel.org/r/20171013090333.GA17356@localhost</a></p>
+
+<p>BeagleBone Black 의 부팅 시간이 v4.13 커널까지 17초였는데 v4.14-rc4 커널에서
+35초로 늘었다는 레포트입니다.
+원인은 lockdep 에서의 변경, 28a903f63ec0 (&ldquo;locking/lockdep: Handle non(or
+multi)-acquisition of a crosslock&rdquo;) 였습니다.
+Ingo Molnar 는 일단 LOCKDEP_CROSSRELEASE 와 LOCKDEP_COMPLETIONS 옵션을 꺼보고
+문제가 없어졌는지 다시 확인해줄 것을 요청했고, 원래대로 돌아왔다고 합니다.
+어떻게 해결될 것인지 궁금하네요.</p>
+
       </article>
 
       <ul class="pager blog-pager">
@@ -191,6 +226,10 @@ Scatter/Gather 의 성능 오버헤드와 더 나은 캐시 힛 때문이라는 
           <a href="https://sjp38.github.io/post/lkml_news_0000/" data-toggle="tooltip" data-placement="top" title="LKML News - Intro">&larr; Previous Post</a>
         </li>
         
+        
+        <li class="next">
+          <a href="https://sjp38.github.io/post/lkml_news_0002/" data-toggle="tooltip" data-placement="top" title="LKML News - 2">Next Post &rarr;</a>
+        </li>
         
       </ul>
 

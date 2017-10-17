@@ -107,6 +107,44 @@
             
             
             <article class="post-preview">
+              <a href="https://sjp38.github.io/post/xclip_copy_remote_clipboard/">
+                <h2 class="post-title">원격 데스크탑의 clipboard 를 ssh 와 xclip 으로 복사해오기</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                Posted on March 31, 2017
+              </p>
+              <div class="post-entry">
+              
+                <p>여러개의 리눅스 데스크탑 PC 를 한 책상 위에서 사용하는 경우가 있다.  이 때, 한
+PC 에서 Ctrl-C 해서 clipboard 에 복사한 내용을 다른쪽 PC 에서 Ctrl-V 로
+붙여넣고 싶은 경우가 있다.  여러가지 해결책이 있겠으나, 다음과 같이 ssh 와
+xclip 을 사용해서 해결할 수도 있다:</p>
+
+<pre><code>$ ssh &lt;username&gt;@&lt;remote host&gt; 'DISPLAY=:0 xclip -o -selection clipboard' | \
+	xclip -i -selection clipboard
+</code></pre>
+
+<p>참고: <a href="http://askubuntu.com/questions/513442/can-two-pcs-with-ubuntu-share-the-clipboard-buffer">http://askubuntu.com/questions/513442/can-two-pcs-with-ubuntu-share-the-clipboard-buffer</a></p>
+
+              
+              </div>
+
+	      
+	        <span class="post-meta">
+	          
+	            #<a href="/tags/tip">tip</a>&nbsp;
+		  
+	            #<a href="/tags/xclip">xclip</a>&nbsp;
+		  
+	        </span>
+	      
+
+             </article>
+            
+            <article class="post-preview">
               <a href="https://sjp38.github.io/post/spec_cpu2006_install/">
                 <h2 class="post-title">spec cpu2006 벤치마크 설치 / 실행하기</h2>
 
@@ -241,41 +279,6 @@ $ sudo dnf update google-chrome-stable ... $ sudo killall chrome $ google-chrome
 	            #<a href="/tags/bot">bot</a>&nbsp;
 		  
 	            #<a href="/tags/kakaotalk">kakaotalk</a>&nbsp;
-		  
-	            #<a href="/tags/english">english</a>&nbsp;
-		  
-	        </span>
-	      
-
-             </article>
-            
-            <article class="post-preview">
-              <a href="https://sjp38.github.io/post/arping-howto/">
-                <h2 class="post-title">Using arping to know ip-MAC mapping</h2>
-
-                
-              </a>
-
-              <p class="post-meta">
-                Posted on March 7, 2017
-              </p>
-              <div class="post-entry">
-              
-                You can use arping to know IP address to MAC address mapping of your local network. Usage is simple:
-arping [-AbDfhqUV] [-c count] [-w deadline] [-s source] -I interface destination  For example, you may use the command as below:
-$ arping -I eth0 10.0.0.1 ARPING 10.0.0.1 from 10.0.0.2 eth0 Unicast reply from 10.0.0.1 [11:22:33:44:55:66] 0.123ms Unicast reply from 10.0.0.1 [11:22:33:44:55:66] 0.251ms ...  Secret of the tool is ARP protocol [1].
-                <a href="https://sjp38.github.io/post/arping-howto/" class="post-read-more">[Read&nbsp;More]</a>
-              
-              </div>
-
-	      
-	        <span class="post-meta">
-	          
-	            #<a href="/tags/tip">tip</a>&nbsp;
-		  
-	            #<a href="/tags/linux">linux</a>&nbsp;
-		  
-	            #<a href="/tags/network">network</a>&nbsp;
 		  
 	            #<a href="/tags/english">english</a>&nbsp;
 		  
