@@ -147,6 +147,37 @@ perf 와 selftest 에의 업데이트가 있었다고 이번 릴리즈를 정리
 HugeTLB 는 별도 인터페이스가 있구요.
 THP 에도 HugeTLB 처럼 별도 인터페이스를 사용하도록 제안한 패치입니다.</p>
 
+<h2 id="patch-1-2-lockdep-introduce-crossrelease-stack-trace-and-make-it">[PATCH <sup>1</sup>&frasl;<sub>2</sub>] lockdep: Introduce CROSSRELEASE_STACK_TRACE and make it</h2>
+
+<p><a href="https://lkml.kernel.org/r/1508318006-2090-1-git-send-email-byungchul.park@lge.com">https://lkml.kernel.org/r/1508318006-2090-1-git-send-email-byungchul.park@lge.com</a></p>
+
+<p>지난번 Johan Hovold 가 이야기한 lockdep crossrelease 에 의한 성능 문제 (부팅
+시간이 17초에서 35초까지 늘어났죠)에 대한 해결책입니다.</p>
+
+<p>stack unwind 를 너무 자주 해서 생긴 문제이므로 이를 선택적으로 할 수 있게 하고
+그 디폴트 값을 자주 하지 않도록 수정했네요.</p>
+
+<p>작은 qemu 머신에서 부팅시간이 lockdep disabled 시 1.543 초, lockdep enabled 시
+1.570 초, lockdep + crossrelease enabled 시 1.870 초를 보였는데, 이 패치를
+적용한 후 마지막 환경에서 부팅시간이 1.574 초로 줄었습니다.</p>
+
+<p>패치를 보낸 박병철 님은 커널 로그의 타임스탬프를 통해 부팅 시간을 측정했는데,
+Ingo Molnar 는 부팅 시간 테스트에 qemu 시작 스크립트에 <code>init=/bin/true</code> 과 같은
+kernel parameter 를 줘서 부팅 완료와 함께 종료되게 하고서 <code>perf --null
+--repeat</code> 옵션을 사용해서 부팅 시간을 측정할 것을 제안했습니다.
+유용한 팁 같습니다!</p>
+
+<h2 id="linux-kernel-examples-for-lkmm-recipes">Linux-kernel examples for LKMM recipes</h2>
+
+<p><a href="https://lkml.kernel.org/r/20171011223229.GA31650@linux.vnet.ibm.com">https://lkml.kernel.org/r/20171011223229.GA31650@linux.vnet.ibm.com</a></p>
+
+<p>리눅스 커널에서의 메모리 순서 규칙을 위한 리트머스 테스트들이 실제로 비슷한
+패턴으로 사용된 예를 Linux Plumbers Conference 에서 요청받은 Paul E. Mckenney
+가 이에 대한 내용을 문서로 만들어 업데이트 했습니다.</p>
+
+<p>해당 문서는 다음 링크에서도 얻을 수 있습니다:
+<a href="https://github.com/aparri/memory-model/blob/master/Documentation/recipes-LKcode.txt">https://github.com/aparri/memory-model/blob/master/Documentation/recipes-LKcode.txt</a></p>
+
       </article>
 
       <ul class="pager blog-pager">
