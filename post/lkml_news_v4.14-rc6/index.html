@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Posts</title>
+  <title>LKML News after v4.14-rc6</title>
   
   <meta name="author" content="SeongJae Park"/>
   <meta name="generator" content="Hugo 0.21" />
@@ -23,9 +23,9 @@
   <link rel="stylesheet" href="https://sjp38.github.io/css/highlight.min.css">
   
   
-  <meta property="og:title" content="Posts" />
+  <meta property="og:title" content="LKML News after v4.14-rc6" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="/post/" />
+  <meta property="og:url" content="/post/lkml_news_v4.14-rc6/" />
   <meta property="og:image" content="/img/tux.png" />
   
 </head>
@@ -88,58 +88,94 @@
   </div>
 </nav>
 
+    
 
-    <header class="header-section ">
-      <div class="intro-header no-img">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-              <div class="page-heading">
-                <h2>#Posts</h2>
-              </div>
-            </div>
-          </div>
+
+
+  
+
+  <header class="header-section ">
+  
+  <div class="intro-header no-img">
+      <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>LKML News after v4.14-rc6</h1>
+      
+      
+      
+      <span class="post-meta">Posted on October 14, 2017</span>
+      
         </div>
       </div>
-    </header>
+    </div>
+  </div>
+  </div>
+  </header>
 
-    <div class="container" role="main">
-            
-            
-            <article class="post-preview">
-              <a href="https://sjp38.github.io/post/perfbook-kokr/">
-                <h2 class="post-title">&#34;Is Parallel Programming Hard, And, If So, What Can You Do About It?&#34; Translation</h2>
 
-                
-              </a>
+    <div class="container" role="main">	  
+      
+        <div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+          
 
-              <p class="post-meta">
-                Posted on January 10, 2017
-              </p>
-              <div class="post-entry">
-              
-                &ldquo;Is Parallel Programming is Hard, And, If So, What Can You Do About It?&rdquo;[1] 은 parallel programming 분야에서 대가라 불릴만한 분으로, 이쪽 분야에서 매우 중요한 동기화 메커니즘인 RCU[2] 를 개발했으며 리눅스 커널의 RCU 메인테이너로 활동하고 있는 Paul E. McKenney[3] 가 오픈소스 방식으로 저술하고 있는, parallel programming 에 대한 책입니다.
-개인적으로 이 책의 한국어 번역을 오픈소스[4]로 진행하고 있습니다. 이 프로젝트는 원저작자인 Paul 에게 공식 한국어 번역으로 인증받았습니다[5].
-컨트리뷰션에 대해서도 열려 있으니, 이에 관심 있는 분은 repository 내의 README 문서의 Contribution 섹션[6] 을 참고 바랍니다.
-                <a href="https://sjp38.github.io/post/perfbook-kokr/" class="post-read-more">[Read&nbsp;More]</a>
-              
-              </div>
+<h2 id="linux-4-14-rc6">Linux 4.14-rc6</h2>
 
-	      
-	        <span class="post-meta">
-	          
-	            #<a href="/tags/projects">projects</a>&nbsp;
-		  
-	            #<a href="/tags/perfbook">perfbook</a>&nbsp;
-		  
-	            #<a href="/tags/translation">translation</a>&nbsp;
-		  
-	        </span>
-	      
+<p><a href="https://lkml.kernel.org/r/CA+55aFxSJGeN=2X-uX-on1Uq2Nb8+v1aiMDz5H1+tKW_N5Q+6g@mail.gmail.com">https://lkml.kernel.org/r/CA+55aFxSJGeN=2X-uX-on1Uq2Nb8+v1aiMDz5H1+tKW_N5Q+6g@mail.gmail.com</a></p>
 
-             </article>
-            
-          </div>
+<p>여섯번째 rc 버전의 릴리즈입니다.</p>
+
+<p>토발즈 집 인터넷 문제로 평소보다 늦은 릴리즈였군요.
+이번 rc 버전은 기대보다는 좀 많은 내용이 추가되었는데, 때문에 어쩌면 rc8 까지
+나올지도 모르겠다고 하는군요.  물론 확정되거나 한건 아니라고 합니다.</p>
+
+<h2 id="re-git-pull-rcu-next-rcu-commits-for-4-15">Re: [GIT PULL rcu/next] RCU commits for 4.15</h2>
+
+<p><a href="https://lkml.kernel.org/r/20171023204502.GA2776@linux.vnet.ibm.com">https://lkml.kernel.org/r/20171023204502.GA2776@linux.vnet.ibm.com</a></p>
+
+<p>4.15 에 들어가야 할 RCU 쪽 커밋들의 풀리퀘스트 입니다.</p>
+
+<p>문서, RCU CPU Stall warning 업데이트, rcutorture 쪽 업데이트가 포함되었네요.</p>
+
+<h2 id="git-pull-de-alpha-make-core-code-not-need-to-know-about-alpha-for-v4-15">[GIT PULL de-alpha] Make core code not need to know about Alpha for v4.15</h2>
+
+<p>코어 커널 코드에서 Alpha 를 위한 예외 케이스를 제거하기 위한 작업의 첫번째
+결과물이 v4.15 를 향합니다.</p>
+
+<p>먼저 <code>ACCESS_ONCE()</code> 를 모두 <code>READ_ONCE()</code> 와 <code>WRITE_ONCE()</code> 로 변경하고,
+<code>READ_ONCE()</code> 와 Alpha 의 값을 리턴하는 <code>_release</code> 와 <code>_relaxed</code> atomic RMW
+오퍼레이션들에 <code>smp_read_barrier_depends()</code> 를 내장시키며, 따라서 필요없어진
+<code>lockless_dereference()</code> 는 수정된 <code>READ_ONCE()</code> 로 대체되게 했습니다
+(lockless_dereference() 는 사실 READ_ONCE() 플러스 smp_read_barrier_depends()
+였는데 smp_read_barrier_depends() 는 Alpha 외의 아키텍쳐에서는 NOOP 이라 Alpha
+만을 위해 괜히 복잡했거든요).</p>
+
+      </article>
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="https://sjp38.github.io/post/lkml_news_v4.14-rc4/" data-toggle="tooltip" data-placement="top" title="LKML News after v4.14-rc4">&larr; Previous Post</a>
+        </li>
+        
+        
+        <li class="next">
+          <a href="https://sjp38.github.io/post/lkml_news_v4.14-rc5/" data-toggle="tooltip" data-placement="top" title="LKML News after v4.14-rc5">Next Post &rarr;</a>
+        </li>
+        
+      </ul>
+
+      
+
+    </div>
+  </div>
+</div>
+
+      
     </div>
 
     <footer>
