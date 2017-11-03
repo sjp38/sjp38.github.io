@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Linux</title>
+  
+  <meta name="author" content="SeongJae Park"/>
+  <meta name="generator" content="Hugo 0.26" />
+  
+
+  <link rel="alternate" href="https://sjp38.github.io/index.xml" type="application/rss+xml" title="Happy Hacking">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://sjp38.github.io//css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://sjp38.github.io//css/main.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://sjp38.github.io//css/pygment_highlights.css" />
+  <link rel="stylesheet" href="https://sjp38.github.io/css/highlight.min.css">
+  
+  
+  <meta property="og:title" content="Linux" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="/tags/linux/" />
+  <meta property="og:image" content="/img/tux.png" />
+  
+</head>
+
+
+  <body>
+
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://sjp38.github.io/">Happy Hacking</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+          <a title="Categories" href="/categories">Categories</a>
+  	      </li>
+  	    
+      
+        
+          <li>
+          <a title="Projects" href="/categories/projects">Projects</a>
+  	      </li>
+  	    
+      
+        
+          <li>
+          <a title="Tags" href="/tags">Tags</a>
+  	      </li>
+  	    
+      
+        
+          <li>
+          <a title="About" href="/post/about/">About</a>
+  	      </li>
+  	    
+      
+      </ul>
+    </div>
+
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+      
+          <a title="Happy Hacking" href="https://sjp38.github.io/">
+              <img class="avatar-img" src="https://sjp38.github.io//img/tux.png" alt="Happy Hacking" />
+          </a>
+      
+	  </div>
+	</div>
+
+  </div>
+</nav>
+
+
+    <header class="header-section ">
+      <div class="intro-header no-img">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+              <div class="page-heading">
+                <h2>#Linux</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="container" role="main">
+            
+            
+            <article class="post-preview">
+              <a href="https://sjp38.github.io/post/lkml_news_v4.14-rc4/">
+                <h2 class="post-title">LKML News after v4.14-rc4</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                Posted on October 10, 2017
+              </p>
+              <div class="post-entry">
+              
+                Linux 4.14-rc4 https://lkml.kernel.org/r/CA+55aFwnCrWANr01O3piPc1mwhx13nZU3J+e97ksQC1oN0OnXA@mail.gmail.com
+리눅스 4.14 의 네번째 -rc 버전이 나왔습니다. 평소보다 좀 더 작업량이 컸던 -rc4 이지만 슬슬 정리가 되어가는 것 같다고 토발즈는 이야기 하네요
+[PATCH RFC tip/core/rcu 0/15] Remove to-be-unneeded smp_read_barrier_depends() https://lkml.kernel.org/r/20171010001951.GA6476@linux.vnet.ibm.com
+smp_read_barrier_depends() 가 READ_ONCE() 에 들어갈 것을 Will Deacon 이 제안했고, 이 제안이 받아들여지면 불필요한 중복이 될 코드들을 커널 코드에서 제거하는 패치를 Paul E. McKenney 가 제안했습니다.
+smp_read_barrier_depends() 는 Alpha 외의 아키텍쳐에서는 모두 noop 인만큼, 이에 관련된 변경이 모두 머지된다면 core kernel 코드에서는 더이상 Alpha 만을 위한 코드가 사라지게 됩니다.
+                <a href="https://sjp38.github.io/post/lkml_news_v4.14-rc4/" class="post-read-more">[Read&nbsp;More]</a>
+              
+              </div>
+
+	      
+	        <span class="post-meta">
+	          
+	            #<a href="/tags/linux">linux</a>&nbsp;
+		  
+	            #<a href="/tags/kernel">kernel</a>&nbsp;
+		  
+	            #<a href="/tags/lkml">lkml</a>&nbsp;
+		  
+	            #<a href="/tags/news">news</a>&nbsp;
+		  
+	        </span>
+	      
+
+             </article>
+            
+            <article class="post-preview">
+              <a href="https://sjp38.github.io/post/lkml_news_0000/">
+                <h2 class="post-title">LKML News - Intro</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                Posted on October 10, 2017
+              </p>
+              <div class="post-entry">
+              
+                <p>LKML 을 모니터링 하면서 흥미가는 패치나 토론을 <code>lkml news</code> 라는 카테고리로
+묶어서 비정기적, 비형식적으로 간략히 정리하고 관련 소식을 업데이트 해보고자
+합니다.  주로 모니터링 하는 메일은 메모리 매니지먼트 쪽과 rcu 관련 메일들이
+될겁니다.</p>
+
+              
+              </div>
+
+	      
+	        <span class="post-meta">
+	          
+	            #<a href="/tags/linux">linux</a>&nbsp;
+		  
+	            #<a href="/tags/kernel">kernel</a>&nbsp;
+		  
+	            #<a href="/tags/lkml">lkml</a>&nbsp;
+		  
+	            #<a href="/tags/news">news</a>&nbsp;
+		  
+	        </span>
+	      
+
+             </article>
+            
+            <article class="post-preview">
+              <a href="https://sjp38.github.io/post/kernel-text-addresses-removed-from-calltrace/">
+                <h2 class="post-title">Kernel text addresses removed from calltrace</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                Posted on June 16, 2017
+              </p>
+              <div class="post-entry">
+              
+                최근 커널은 stakc dump 에서 콜 트레이스(Call Trace) 에 각 코드의 메모리 어드레스를 찍어주지 않습니다. 이에 대해 포스팅을 해봅니다.
+Call Trace 커널은 문제가 발생하거나 하면 문제의 원인을 찾을 수 있는 다양한 정보를 담고 있는 stack dump 를 로그로 뿌려 줍니다. 문제의 원인을 찾는데 매우 소중한 정보입니다. 그 정보 중에서도 중요한 것 중 하나가 콜 트레이스로, 이 문제의 순간에 오기까지 어느 함수의 어느 지점에서 어느 함수를 호출해서 여기까지 왔는가를 담는 정보입니다.
+                <a href="https://sjp38.github.io/post/kernel-text-addresses-removed-from-calltrace/" class="post-read-more">[Read&nbsp;More]</a>
+              
+              </div>
+
+	      
+	        <span class="post-meta">
+	          
+	            #<a href="/tags/linux">linux</a>&nbsp;
+		  
+	            #<a href="/tags/kernel">kernel</a>&nbsp;
+		  
+	            #<a href="/tags/tip">tip</a>&nbsp;
+		  
+	        </span>
+	      
+
+             </article>
+            
+            <article class="post-preview">
+              <a href="https://sjp38.github.io/post/fetching-linux-source-code/">
+                <h2 class="post-title">Fetching linux kernel source code</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                Posted on March 20, 2017
+              </p>
+              <div class="post-entry">
+              
+                리눅스 커널은 오픈 소스 소프트웨어이므로 그 소스코드가 공개되어 있어 누구나 인터넷을 통해 쉽게 얻을 수 있습니다. 이 글에서는 리눅스 커널 소스코드를 받아올 수 있는 몇가지 방법을 설명합니다.
+kernel.org 리눅스 커널 소스 코드를 받아오기 위한 기본적 공식 사이트는 kernel.org 라 할 수 있겠는데, 이 사이트에는 소스 코드를 포함해 리눅스 커널을 위한 다양한 리소스가 정리되어 있습니다. 이 사이트에 웹브라우저를 통해 들어가보면 첫페이지에서부터 가장 최근에 릴리즈된 버전의 소스코드, 가장 최근의 안정화된 버전의 소스코드 등을 tar.
+                <a href="https://sjp38.github.io/post/fetching-linux-source-code/" class="post-read-more">[Read&nbsp;More]</a>
+              
+              </div>
+
+	      
+	        <span class="post-meta">
+	          
+	            #<a href="/tags/linux">linux</a>&nbsp;
+		  
+	            #<a href="/tags/kernel">kernel</a>&nbsp;
+		  
+	            #<a href="/tags/open-source">open-source</a>&nbsp;
+		  
+	            #<a href="/tags/git">git</a>&nbsp;
+		  
+	        </span>
+	      
+
+             </article>
+            
+            <article class="post-preview">
+              <a href="https://sjp38.github.io/post/fedora-chrome-update/">
+                <h2 class="post-title">Updating Google Chrome on Fedora 23</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                Posted on March 20, 2017
+              </p>
+              <div class="post-entry">
+              
+                I am using Fedora 23 laptop and installed stable version Google Chrome from its official website [0]. In this case, just using Updates of Fedora Software program doesn&rsquo;t update Chrome automatically. For the case, follow below commands to update your Chrome:
+$ sudo dnf update google-chrome-stable ... $ sudo killall chrome $ google-chrome-stable  The second killall command is necessary because Chrome doesn&rsquo;t kill its process by just cliking Close button.
+                <a href="https://sjp38.github.io/post/fedora-chrome-update/" class="post-read-more">[Read&nbsp;More]</a>
+              
+              </div>
+
+	      
+	        <span class="post-meta">
+	          
+	            #<a href="/tags/tip">tip</a>&nbsp;
+		  
+	            #<a href="/tags/fedora">fedora</a>&nbsp;
+		  
+	            #<a href="/tags/linux">linux</a>&nbsp;
+		  
+	            #<a href="/tags/google">google</a>&nbsp;
+		  
+	            #<a href="/tags/chrome">chrome</a>&nbsp;
+		  
+	            #<a href="/tags/english">english</a>&nbsp;
+		  
+	        </span>
+	      
+
+             </article>
+            
+          </div>
+    </div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/sjp38" title="GitHub">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		      
+		      
+          <li>
+            <a href="mailto:sj38.park@gmail.com" title="Email me">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		      
+          <li>
+            <a href="https://linkedin.com/in/seongjae-park-1a5b9954" title="LinkedIn">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+	    	  
+          
+           
+          
+          
+          
+
+    		  <li>
+      			<a href="https://sjp38.github.io/index.xml" title="RSS">
+      			  <span class="fa-stack fa-lg">
+        				<i class="fa fa-circle fa-stack-2x"></i>
+        				<i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+      			  </span>
+      			</a>
+    		  </li>		
+
+        </ul>
+        <p class="credits copyright text-muted">
+    	  SeongJae Park
+    	  &nbsp;&bull;&nbsp;
+    	  2017
+    		  
+    	  
+    	  &nbsp;&bull;&nbsp;
+    	  <a href="https://sjp38.github.io/">Happy Hacking</a>
+    	  
+  	    </p>
+  	    
+    	<p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.26</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">beautiful-jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          
+    	</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://sjp38.github.io//js/jquery-1.11.2.min.js"></script>
+<script src="https://sjp38.github.io//js/bootstrap.min.js"></script>
+<script src="https://sjp38.github.io//js/main.js"></script>
+<script src="https://sjp38.github.io/js/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-30621335-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+
+
+  </body>
+</html>

@@ -107,6 +107,111 @@
             
             
             <article class="post-preview">
+              <a href="https://sjp38.github.io/post/lkml_news_v4.14-rc4/">
+                <h2 class="post-title">LKML News after v4.14-rc4</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                Posted on October 10, 2017
+              </p>
+              <div class="post-entry">
+              
+                Linux 4.14-rc4 https://lkml.kernel.org/r/CA+55aFwnCrWANr01O3piPc1mwhx13nZU3J+e97ksQC1oN0OnXA@mail.gmail.com
+리눅스 4.14 의 네번째 -rc 버전이 나왔습니다. 평소보다 좀 더 작업량이 컸던 -rc4 이지만 슬슬 정리가 되어가는 것 같다고 토발즈는 이야기 하네요
+[PATCH RFC tip/core/rcu 0/15] Remove to-be-unneeded smp_read_barrier_depends() https://lkml.kernel.org/r/20171010001951.GA6476@linux.vnet.ibm.com
+smp_read_barrier_depends() 가 READ_ONCE() 에 들어갈 것을 Will Deacon 이 제안했고, 이 제안이 받아들여지면 불필요한 중복이 될 코드들을 커널 코드에서 제거하는 패치를 Paul E. McKenney 가 제안했습니다.
+smp_read_barrier_depends() 는 Alpha 외의 아키텍쳐에서는 모두 noop 인만큼, 이에 관련된 변경이 모두 머지된다면 core kernel 코드에서는 더이상 Alpha 만을 위한 코드가 사라지게 됩니다.
+                <a href="https://sjp38.github.io/post/lkml_news_v4.14-rc4/" class="post-read-more">[Read&nbsp;More]</a>
+              
+              </div>
+
+	      
+	        <span class="post-meta">
+	          
+	            #<a href="/tags/linux">linux</a>&nbsp;
+		  
+	            #<a href="/tags/kernel">kernel</a>&nbsp;
+		  
+	            #<a href="/tags/lkml">lkml</a>&nbsp;
+		  
+	            #<a href="/tags/news">news</a>&nbsp;
+		  
+	        </span>
+	      
+
+             </article>
+            
+            <article class="post-preview">
+              <a href="https://sjp38.github.io/post/lkml_news_0000/">
+                <h2 class="post-title">LKML News - Intro</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                Posted on October 10, 2017
+              </p>
+              <div class="post-entry">
+              
+                <p>LKML 을 모니터링 하면서 흥미가는 패치나 토론을 <code>lkml news</code> 라는 카테고리로
+묶어서 비정기적, 비형식적으로 간략히 정리하고 관련 소식을 업데이트 해보고자
+합니다.  주로 모니터링 하는 메일은 메모리 매니지먼트 쪽과 rcu 관련 메일들이
+될겁니다.</p>
+
+              
+              </div>
+
+	      
+	        <span class="post-meta">
+	          
+	            #<a href="/tags/linux">linux</a>&nbsp;
+		  
+	            #<a href="/tags/kernel">kernel</a>&nbsp;
+		  
+	            #<a href="/tags/lkml">lkml</a>&nbsp;
+		  
+	            #<a href="/tags/news">news</a>&nbsp;
+		  
+	        </span>
+	      
+
+             </article>
+            
+            <article class="post-preview">
+              <a href="https://sjp38.github.io/post/kernel-text-addresses-removed-from-calltrace/">
+                <h2 class="post-title">Kernel text addresses removed from calltrace</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                Posted on June 16, 2017
+              </p>
+              <div class="post-entry">
+              
+                최근 커널은 stakc dump 에서 콜 트레이스(Call Trace) 에 각 코드의 메모리 어드레스를 찍어주지 않습니다. 이에 대해 포스팅을 해봅니다.
+Call Trace 커널은 문제가 발생하거나 하면 문제의 원인을 찾을 수 있는 다양한 정보를 담고 있는 stack dump 를 로그로 뿌려 줍니다. 문제의 원인을 찾는데 매우 소중한 정보입니다. 그 정보 중에서도 중요한 것 중 하나가 콜 트레이스로, 이 문제의 순간에 오기까지 어느 함수의 어느 지점에서 어느 함수를 호출해서 여기까지 왔는가를 담는 정보입니다.
+                <a href="https://sjp38.github.io/post/kernel-text-addresses-removed-from-calltrace/" class="post-read-more">[Read&nbsp;More]</a>
+              
+              </div>
+
+	      
+	        <span class="post-meta">
+	          
+	            #<a href="/tags/linux">linux</a>&nbsp;
+		  
+	            #<a href="/tags/kernel">kernel</a>&nbsp;
+		  
+	            #<a href="/tags/tip">tip</a>&nbsp;
+		  
+	        </span>
+	      
+
+             </article>
+            
+            <article class="post-preview">
               <a href="https://sjp38.github.io/post/fetching-linux-source-code/">
                 <h2 class="post-title">Fetching linux kernel source code</h2>
 
@@ -172,109 +277,6 @@ $ sudo dnf update google-chrome-stable ... $ sudo killall chrome $ google-chrome
 	            #<a href="/tags/chrome">chrome</a>&nbsp;
 		  
 	            #<a href="/tags/english">english</a>&nbsp;
-		  
-	        </span>
-	      
-
-             </article>
-            
-            <article class="post-preview">
-              <a href="https://sjp38.github.io/post/arping-howto/">
-                <h2 class="post-title">Using arping to know ip-MAC mapping</h2>
-
-                
-              </a>
-
-              <p class="post-meta">
-                Posted on March 7, 2017
-              </p>
-              <div class="post-entry">
-              
-                You can use arping to know IP address to MAC address mapping of your local network. Usage is simple:
-arping [-AbDfhqUV] [-c count] [-w deadline] [-s source] -I interface destination  For example, you may use the command as below:
-$ arping -I eth0 10.0.0.1 ARPING 10.0.0.1 from 10.0.0.2 eth0 Unicast reply from 10.0.0.1 [11:22:33:44:55:66] 0.123ms Unicast reply from 10.0.0.1 [11:22:33:44:55:66] 0.251ms ...  Secret of the tool is ARP protocol [1].
-                <a href="https://sjp38.github.io/post/arping-howto/" class="post-read-more">[Read&nbsp;More]</a>
-              
-              </div>
-
-	      
-	        <span class="post-meta">
-	          
-	            #<a href="/tags/tip">tip</a>&nbsp;
-		  
-	            #<a href="/tags/linux">linux</a>&nbsp;
-		  
-	            #<a href="/tags/network">network</a>&nbsp;
-		  
-	            #<a href="/tags/english">english</a>&nbsp;
-		  
-	        </span>
-	      
-
-             </article>
-            
-            <article class="post-preview">
-              <a href="https://sjp38.github.io/post/001_linux_dev_intro/">
-                <h2 class="post-title">Starting &#39;Linux Kernel Hack&#39; series</h2>
-
-                
-              </a>
-
-              <p class="post-meta">
-                Posted on March 4, 2017
-              </p>
-              <div class="post-entry">
-              
-                많은 영역에서 사용되고 있는 리눅스 커널. 그렇기에 만져볼수록 재밌고 뜯어볼수록 신기합니다. 아마도 이게 hack 의 재미가 아닐까요.
-리눅스 커널을 hack 하는데에 필요한 기본적인 내용부터 몇가지 팁들, 소스 코드는 어떻게 가져오고 어떻게 빌드해서 시스템에 설치를 하는지, 패치는 어떻게 보내면 되는지와 같은 것들을 정리해 볼까 합니다.
-So many environments and users are using Linux kernel. That&rsquo;s why it is so fun and mysterious to touch and analyze it. Maybe it is the fun of hack.
-                <a href="https://sjp38.github.io/post/001_linux_dev_intro/" class="post-read-more">[Read&nbsp;More]</a>
-              
-              </div>
-
-	      
-	        <span class="post-meta">
-	          
-	            #<a href="/tags/linux">linux</a>&nbsp;
-		  
-	            #<a href="/tags/kernel">kernel</a>&nbsp;
-		  
-	            #<a href="/tags/tip">tip</a>&nbsp;
-		  
-	            #<a href="/tags/english">english</a>&nbsp;
-		  
-	        </span>
-	      
-
-             </article>
-            
-            <article class="post-preview">
-              <a href="https://sjp38.github.io/post/uninstall-kernel/">
-                <h2 class="post-title">uninstall kernel</h2>
-
-                
-              </a>
-
-              <p class="post-meta">
-                Posted on January 20, 2017
-              </p>
-              <div class="post-entry">
-              
-                테스트 등을 위해 소스코드로부터 커널을 직접 빌드, 설치하기 시작하면 어느새 수많은 커널이 설치되어 있는 것을 확인할 수 있다. 삭제를 위해선 make install 로 만들어진 파일들을 직접 제거하고 grub 을 업데이트 해줘야 한다.
-예를 들어 시스템이 현재 부팅되어 있는 버전의 커널을 언인스톨하고자 한다면 다음의 일련의 커맨드를 입력하면 된다:
-# rm /boot/vmlinuz-$(uname -r) # rm /boot/initrd.img-$(uname -r) # rm /boot/System.map-$(uname -r) # rm /boot/config-$(uname -r) # rm -fr /lib/modules/$(uname -r) # rm /var/lib/initramfs-tools/$(uname -r) # update-grub2  다른 버전의 설치되어있는 커널을 제거하고 싶다면 위의 $(uname -r) 부분을 제거하고자 하는 커널 버전으로 대체하면 된다.
-                <a href="https://sjp38.github.io/post/uninstall-kernel/" class="post-read-more">[Read&nbsp;More]</a>
-              
-              </div>
-
-	      
-	        <span class="post-meta">
-	          
-	            #<a href="/tags/linux">linux</a>&nbsp;
-		  
-	            #<a href="/tags/kernel">kernel</a>&nbsp;
-		  
-	            #<a href="/tags/tip">tip</a>&nbsp;
 		  
 	        </span>
 	      
