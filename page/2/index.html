@@ -115,43 +115,6 @@
             
             
             <article class="post-preview">
-              <a href="https://sjp38.github.io/post/lkml_news_v4.14-rc4/">
-          	  <h2 class="post-title">LKML News after v4.14-rc4</h2>
-          	
-          	    
-              </a>
-
-              <p class="post-meta">
-                Posted on October 10, 2017
-              </p>
-              <div class="post-entry">
-              
-                Linux 4.14-rc4 https://lkml.kernel.org/r/CA+55aFwnCrWANr01O3piPc1mwhx13nZU3J+e97ksQC1oN0OnXA@mail.gmail.com
-리눅스 4.14 의 네번째 -rc 버전이 나왔습니다. 평소보다 좀 더 작업량이 컸던 -rc4 이지만 슬슬 정리가 되어가는 것 같다고 토발즈는 이야기 하네요
-[PATCH RFC tip/core/rcu 0/15] Remove to-be-unneeded smp_read_barrier_depends() https://lkml.kernel.org/r/20171010001951.GA6476@linux.vnet.ibm.com
-smp_read_barrier_depends() 가 READ_ONCE() 에 들어갈 것을 Will Deacon 이 제안했고, 이 제안이 받아들여지면 불필요한 중복이 될 코드들을 커널 코드에서 제거하는 패치를 Paul E. McKenney 가 제안했습니다.
-smp_read_barrier_depends() 는 Alpha 외의 아키텍쳐에서는 모두 noop 인만큼, 이에 관련된 변경이 모두 머지된다면 core kernel 코드에서는 더이상 Alpha 만을 위한 코드가 사라지게 됩니다.
-                <a href="https://sjp38.github.io/post/lkml_news_v4.14-rc4/" class="post-read-more">[Read&nbsp;More]</a>
-              
-              </div>
-
-	      
-	        <span class="post-meta">
-	          
-	            #<a href="/tags/linux">linux</a>&nbsp;
-		  
-	            #<a href="/tags/kernel">kernel</a>&nbsp;
-		  
-	            #<a href="/tags/lkml">lkml</a>&nbsp;
-		  
-	            #<a href="/tags/news">news</a>&nbsp;
-		  
-	        </span>
-	      
-
-             </article>
-            
-            <article class="post-preview">
               <a href="https://sjp38.github.io/post/lkml_news_0000/">
           	  <h2 class="post-title">LKML News - Intro</h2>
           	
@@ -285,6 +248,43 @@ Automated Scripts 아래 설명할 모든 내용을 자동화 해서 손쉽게 T
 	            #<a href="/tags/dbms">dbms</a>&nbsp;
 		  
 	            #<a href="/tags/mariadb">mariadb</a>&nbsp;
+		  
+	        </span>
+	      
+
+             </article>
+            
+            <article class="post-preview">
+              <a href="https://sjp38.github.io/post/golang1.9_fedora26/">
+          	  <h2 class="post-title">Golang 1.9 install on Fedora 26</h2>
+          	
+          	    
+              </a>
+
+              <p class="post-meta">
+                Posted on August 26, 2017
+              </p>
+              <div class="post-entry">
+              
+                현재 사용중인 랩탑에 설치한 OS 는 Fedora 24 였는데, 너무 오래되었고 지원도 얼마전 끝났기에[0] 이번에 Fedora 26 으로 새로 설치했습니다. 마침 go 언어도 1.9 가 최근에 릴리즈 되었기에 개인적으로 go 언어를 설치하는 방법을 기록해 둡니다.
+여기선 소스 코드만 가지고 빌드, 설치하는 방법을 기록합니다.
+Get Source Code go 언어는 오픈소스입니다. 다음 커맨드를 통해 구글로부터 소스코드를 받아올 수 있습니다.
+$ git clone https://go.googlesource.com/go  기다리면 go/ 디렉토리에 소스코드가 딸려옵니다.
+golang 1.4 Build &amp; Install go 언어를 빌드한다는 건 go 언어 컴파일러와 기본 라이브러리 등과 같은, go 언어로 짠 프로그램을 빌드하고 수행하는데 필요한 도구들을 빌드한다는 이야기입니다.
+                <a href="https://sjp38.github.io/post/golang1.9_fedora26/" class="post-read-more">[Read&nbsp;More]</a>
+              
+              </div>
+
+	      
+	        <span class="post-meta">
+	          
+	            #<a href="/tags/golang">golang</a>&nbsp;
+		  
+	            #<a href="/tags/install">install</a>&nbsp;
+		  
+	            #<a href="/tags/setup">setup</a>&nbsp;
+		  
+	            #<a href="/tags/fedora">fedora</a>&nbsp;
 		  
 	        </span>
 	      
