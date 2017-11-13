@@ -107,6 +107,43 @@
             
             
             <article class="post-preview">
+              <a href="https://sjp38.github.io/post/lkml_news_v4.14-rc4/">
+                <h2 class="post-title">LKML News after v4.14-rc4</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                Posted on October 10, 2017
+              </p>
+              <div class="post-entry">
+              
+                Linux 4.14-rc4 https://lkml.kernel.org/r/CA+55aFwnCrWANr01O3piPc1mwhx13nZU3J+e97ksQC1oN0OnXA@mail.gmail.com
+리눅스 4.14 의 네번째 -rc 버전이 나왔습니다. 평소보다 좀 더 작업량이 컸던 -rc4 이지만 슬슬 정리가 되어가는 것 같다고 토발즈는 이야기 하네요
+[PATCH RFC tip/core/rcu 0/15] Remove to-be-unneeded smp_read_barrier_depends() https://lkml.kernel.org/r/20171010001951.GA6476@linux.vnet.ibm.com
+smp_read_barrier_depends() 가 READ_ONCE() 에 들어갈 것을 Will Deacon 이 제안했고, 이 제안이 받아들여지면 불필요한 중복이 될 코드들을 커널 코드에서 제거하는 패치를 Paul E. McKenney 가 제안했습니다.
+smp_read_barrier_depends() 는 Alpha 외의 아키텍쳐에서는 모두 noop 인만큼, 이에 관련된 변경이 모두 머지된다면 core kernel 코드에서는 더이상 Alpha 만을 위한 코드가 사라지게 됩니다.
+                <a href="https://sjp38.github.io/post/lkml_news_v4.14-rc4/" class="post-read-more">[Read&nbsp;More]</a>
+              
+              </div>
+
+	      
+	        <span class="post-meta">
+	          
+	            #<a href="/tags/linux">linux</a>&nbsp;
+		  
+	            #<a href="/tags/kernel">kernel</a>&nbsp;
+		  
+	            #<a href="/tags/lkml">lkml</a>&nbsp;
+		  
+	            #<a href="/tags/news">news</a>&nbsp;
+		  
+	        </span>
+	      
+
+             </article>
+            
+            <article class="post-preview">
               <a href="https://sjp38.github.io/post/lkml_news_0000/">
                 <h2 class="post-title">LKML News - Intro</h2>
 
@@ -237,39 +274,6 @@ So many environments and users are using Linux kernel. That&rsquo;s why it is so
 	            #<a href="/tags/tip">tip</a>&nbsp;
 		  
 	            #<a href="/tags/english">english</a>&nbsp;
-		  
-	        </span>
-	      
-
-             </article>
-            
-            <article class="post-preview">
-              <a href="https://sjp38.github.io/post/uninstall-kernel/">
-                <h2 class="post-title">uninstall kernel</h2>
-
-                
-              </a>
-
-              <p class="post-meta">
-                Posted on January 20, 2017
-              </p>
-              <div class="post-entry">
-              
-                테스트 등을 위해 소스코드로부터 커널을 직접 빌드, 설치하기 시작하면 어느새 수많은 커널이 설치되어 있는 것을 확인할 수 있다. 삭제를 위해선 make install 로 만들어진 파일들을 직접 제거하고 grub 을 업데이트 해줘야 한다.
-예를 들어 시스템이 현재 부팅되어 있는 버전의 커널을 언인스톨하고자 한다면 다음의 일련의 커맨드를 입력하면 된다:
-# rm /boot/vmlinuz-$(uname -r) # rm /boot/initrd.img-$(uname -r) # rm /boot/System.map-$(uname -r) # rm /boot/config-$(uname -r) # rm -fr /lib/modules/$(uname -r) # rm /var/lib/initramfs-tools/$(uname -r) # update-grub2  다른 버전의 설치되어있는 커널을 제거하고 싶다면 위의 $(uname -r) 부분을 제거하고자 하는 커널 버전으로 대체하면 된다.
-                <a href="https://sjp38.github.io/post/uninstall-kernel/" class="post-read-more">[Read&nbsp;More]</a>
-              
-              </div>
-
-	      
-	        <span class="post-meta">
-	          
-	            #<a href="/tags/linux">linux</a>&nbsp;
-		  
-	            #<a href="/tags/kernel">kernel</a>&nbsp;
-		  
-	            #<a href="/tags/tip">tip</a>&nbsp;
 		  
 	        </span>
 	      
