@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>LKML News after v4.14</title>
+  <title>LKML News after v4.15-rc1</title>
   
   <meta name="author" content="SeongJae Park"/>
   <meta name="generator" content="Hugo 0.21" />
@@ -23,9 +23,9 @@
   <link rel="stylesheet" href="https://sjp38.github.io/css/highlight.min.css">
   
   
-  <meta property="og:title" content="LKML News after v4.14" />
+  <meta property="og:title" content="LKML News after v4.15-rc1" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="/post/lkml_news_v4.14/" />
+  <meta property="og:url" content="/post/lkml_news_v4.15-rc1/" />
   <meta property="og:image" content="/img/tux.png" />
   
 </head>
@@ -101,11 +101,11 @@
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <div class="post-heading">
-          <h1>LKML News after v4.14</h1>
+          <h1>LKML News after v4.15-rc1</h1>
       
       
       
-      <span class="post-meta">Posted on November 13, 2017</span>
+      <span class="post-meta">Posted on November 27, 2017</span>
       
         </div>
       </div>
@@ -123,63 +123,30 @@
       <article role="main" class="blog-post">
           
 
-<h2 id="linux-4-14">Linux 4.14</h2>
+<h2 id="linux-4-15-rc1">Linux 4.15-rc1</h2>
 
-<p>htpps://lkml.kernel.org/r/CA+55aFwqXh4rgJJ3T98k8wa-JYF7t8mWuwUjdxkbZyOyDEcGzQ@mail.gmail.com</p>
+<p><a href="https://lkml.kernel.org/r/CA+55aFzcudOPSwbD9XfVxBgFsQOhBjyncyYnGDYwZUEHOGUwcw@mail.gmail.com">https://lkml.kernel.org/r/CA+55aFzcudOPSwbD9XfVxBgFsQOhBjyncyYnGDYwZUEHOGUwcw@mail.gmail.com</a></p>
 
-<p>드디어 v4.14 의 릴리즈입니다.  이번 버전은 또하나의 LTS 커널이 될 예정이군요.</p>
+<p>예정대로 2주만에 4.15 의 첫번째 rc 버전이 나왔습니다.</p>
 
-<p>동시에, v4.15 를 위한 머지 윈도우가 열렸습니다.  이번 머지 윈도우는 thanks
-giving 이랑 겹치게 되었는데, 이때문에 머지 윈도우를 연장할지 아니면 아예 1주일
-줄일지 토발즈는 고민중인 것 같네요.</p>
+<p>지난주는 추수감사절이라 다들 휴가인 사람이 많았기에 첫번째 주에 최대한 많이
+풀리퀘스트를 받았고 지난주는 좀 더 까다롭게 풀리퀘스트를 검사했군요.  토발즈는
+두번째 주 동안 랩톱 들고 여행중이었고, 랩톱에서는 전체 모듈 빌드를 하지 않기
+때문이라 합니다.  메인테이너들도 가능한 첫번째 주에 중요 플리퀘스트를 보내는
+식으로 협조를 해줬다고 합니다.  그네들도 두번째주는 휴가가고 싶었을테니&hellip; ;)</p>
 
-<h2 id="rfc-patch-v11-for-4-15-01-24-restartable-sequences-system-call">[RFC PATCH v11 for 4.15 01/24] Restartable sequences system call</h2>
-
-<p><a href="https://lkml.kernel.org/r/20171114200414.2188-2-mathieu.desnoyers@efficios.com">https://lkml.kernel.org/r/20171114200414.2188-2-mathieu.desnoyers@efficios.com</a></p>
-
-<p>몇년전부터 올라오고 있으나 아직 머지되지 못한, restartable sequence 패치의 최신
-버전이 또 올라왔습니다.  유저스페이스의 크리티컬 섹션을 커널에게 제어할 수
-있도록 도와주는 기능입니다.  이번엔 머지될런지?</p>
-
-<h2 id="patch-v2-selftest-vm-add-test-case-for-mmap-across-128tb-boundary">[PATCH V2] selftest/vm: Add test case for mmap across 128TB boundary.</h2>
-
-<p><a href="https://lkml.kernel.org/r/20171123030313.6418-1-aneesh.kumar@linux.vnet.ibm.com">https://lkml.kernel.org/r/20171123030313.6418-1-aneesh.kumar@linux.vnet.ibm.com</a></p>
-
-<p>128TB mmap() 에 대한 테스트 케이스가 kselftest 에 추가되었습니다.  x86_64 와
-powerpc64 를 지원하는군요.</p>
-
-<p>이후 몇가지 코멘트를 받고 v3 도 올라왔습니다:
-<a href="https://lkml.kernel.org/r/20171123165226.32582-1-aneesh.kumar@linux.vnet.ibm.com">https://lkml.kernel.org/r/20171123165226.32582-1-aneesh.kumar@linux.vnet.ibm.com</a></p>
-
-<h2 id="xarray-documentation">XArray documentation</h2>
-
-<p><a href="https://lkml.kernel.org/r/20171124011607.GB3722@bombadil.infradead.org">https://lkml.kernel.org/r/20171124011607.GB3722@bombadil.infradead.org</a></p>
-
-<p>지난 ossummit europe 에서 흥미롭게 발표를 들었던 XArray 의 문서입니다.  radix
-tree 를 대체할 만한 인터페이스를 목표로 하고있다고 하더군요.</p>
-
-<h2 id="patch-mm-do-not-stall-register-shrinker">[PATCH] mm: Do not stall register_shrinker</h2>
-
-<p><a href="https://lkml.kernel.org/r/1511481899-20335-1-git-send-email-minchan@kernel.org">https://lkml.kernel.org/r/1511481899-20335-1-git-send-email-minchan@kernel.org</a></p>
-
-<p>메모리가 부족할 때 깨어나 일을 하게 되는 shrinker 의 등록 시 메모리가 부족해서
-다른 것들에 의해 shink_slab() 에서 시간을 보내느라 register_shrinker() 에서
-수십초씩이나 시스템을 멈춰있게 만드는 문제가 있었는데, shrink_slab() 에서
-shrinker 등록 여부를 rwsem 에 대한 contention 확인으로 파악하고 slab shrinking
-을 멈춰주도록 수정했습니다.</p>
+<p>4.14 가 LTS 였기에 이번 머지윈도우에는 변화가 크지 않을 것으로 예상했는데
+생각보다 많은 풀리퀘스트가 있었다고 합니다.  4.9 때와는 다른 경향인데, 4.9 에
+비해 4.14 가 변화가 크지 않았기 때문 아니겠냐고 토발즈는 생각하는군요.</p>
 
       </article>
 
       <ul class="pager blog-pager">
         
         <li class="previous">
-          <a href="https://sjp38.github.io/post/lkml_news_v4.14-rc8/" data-toggle="tooltip" data-placement="top" title="LKML News after v4.14-rc8">&larr; Previous Post</a>
+          <a href="https://sjp38.github.io/post/osse2017_05/" data-toggle="tooltip" data-placement="top" title="OSSummit 2017 Attendence - 05">&larr; Previous Post</a>
         </li>
         
-        
-        <li class="next">
-          <a href="https://sjp38.github.io/post/osse2017_04/" data-toggle="tooltip" data-placement="top" title="OSSummit 2017 Attendence - 04">Next Post &rarr;</a>
-        </li>
         
       </ul>
 
