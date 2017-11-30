@@ -139,6 +139,25 @@
 생각보다 많은 풀리퀘스트가 있었다고 합니다.  4.9 때와는 다른 경향인데, 4.9 에
 비해 4.14 가 변화가 크지 않았기 때문 아니겠냐고 토발즈는 생각하는군요.</p>
 
+<h2 id="patch-v3-0-4-introduce-get-user-pages-longterm">[PATCH v3 0/4] introduce get_user_pages_longterm()</h2>
+
+<p><a href="https://lkml.kernel.org/r/151197872943.26211.6551382719053304996.stgit@dwillia2-desk3.amr.corp.intel.com">https://lkml.kernel.org/r/151197872943.26211.6551382719053304996.stgit@dwillia2-desk3.amr.corp.intel.com</a></p>
+
+<p>커널스페이스에서 꽤 오랜시간 페이지를 잡아둬야 하는 경우를 위한, 예를 들어
+dma-to-dax vs truncate 문제를 위한, get_user_pages() 의 변종의 추가입니다.
+실제 이를 사용하는 패치는 나중에 올라올 것 같군요.</p>
+
+<h2 id="patch-00-18-introduce-a-new-tool-valid-access-checker">[PATCH 00/18] introduce a new tool, valid access checker</h2>
+
+<p><a href="https://lkml.kernel.org/r/1511855333-3570-1-git-send-email-iamjoonsoo.kim@lge.com">https://lkml.kernel.org/r/1511855333-3570-1-git-send-email-iamjoonsoo.kim@lge.com</a></p>
+
+<p>Valid access checker (Vchecker) 라는 이름의 새로운 메모리 에러 탐색 도구의
+소개입니다.  Out of bound access, use after free 같은, 의도되지 않은 메모리
+접근을 잡아낼 수 있게 해준다고 하는군요.  Kernel Address SANitizer (KASAN) 의
+기능에 많이 의존하고 있기 때문에 KASAN 메인테이너 중 하나인 Dmitry 는 이게
+별도의 도구로 머지되어야 할지 의문스럽다며 머지될 예정이면 한번 더 이야기
+해달라고 하네요.</p>
+
       </article>
 
       <ul class="pager blog-pager">
