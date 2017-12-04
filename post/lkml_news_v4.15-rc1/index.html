@@ -158,6 +158,23 @@ dma-to-dax vs truncate 문제를 위한, get_user_pages() 의 변종의 추가�
 별도의 도구로 머지되어야 할지 의문스럽다며 머지될 예정이면 한번 더 이야기
 해달라고 하네요.</p>
 
+<h2 id="patch-v2-0-3-mm-cma-manage-the-memory-of-the-cma-area-by-using-the-zone-movable">[PATCH v2 0/3] mm/cma: manage the memory of the CMA area by using the ZONE_MOVABLE</h2>
+
+<p><a href="https://lkml.kernel.org/r/1512114786-5085-1-git-send-email-iamjoonsoo.kim@lge.com">https://lkml.kernel.org/r/1512114786-5085-1-git-send-email-iamjoonsoo.kim@lge.com</a></p>
+
+<p>CMA 를 위한 영역은 하나의 zone 내에 위치하게 되는데, 이 zone 내에 다양한 특성의
+페이지들이 혼재되어있다보니 이런저런 문제가 생깁니다.  CMA 영역을 MOVABLE zone
+만 쓰도록 함으로써 이 문제를 해결하는 패치입니다.</p>
+
+<h2 id="patch-tip-core-rcu-0-21-de-emphasize-smp-read-barrier-depends">[PATCH tip/core/rcu 0/21] De-emphasize {smp_,}read_barrier_depends</h2>
+
+<p><a href="https://lkml.kernel.org/r/20171201195053.GA23494@linux.vnet.ibm.com">https://lkml.kernel.org/r/20171201195053.GA23494@linux.vnet.ibm.com</a></p>
+
+<p>RCU 패치는 일단 Paul 의 트리에 머지된 후, tip 트리로 머지되고 나서야 토발즈의
+트리에 들어갑니다.  이번에도 tip 트리로 머지되기 위한 패치들이 올라왔습니다.
+그중에서도 이 시리즈는 READ_ONCE() 에 들어간 smp_read_barrier_depends() 의
+architecture independent 한 코드로부터의 제거를 담고 있습니다.</p>
+
       </article>
 
       <ul class="pager blog-pager">
@@ -166,6 +183,10 @@ dma-to-dax vs truncate 문제를 위한, get_user_pages() 의 변종의 추가�
           <a href="https://sjp38.github.io/post/osse2017_05/" data-toggle="tooltip" data-placement="top" title="OSSummit 2017 Attendence - 05">&larr; Previous Post</a>
         </li>
         
+        
+        <li class="next">
+          <a href="https://sjp38.github.io/post/lkml_news_v4.15-rc2/" data-toggle="tooltip" data-placement="top" title="LKML News after v4.15-rc2">Next Post &rarr;</a>
+        </li>
         
       </ul>
 
