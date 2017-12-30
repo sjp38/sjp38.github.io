@@ -107,23 +107,24 @@
             
             
             <article class="post-preview">
-              <a href="https://sjp38.github.io/post/lkml_news_v4.14-rc4/">
-                <h2 class="post-title">LKML News after v4.14-rc4</h2>
+              <a href="https://sjp38.github.io/post/lkml_news_v4.14-rc5/">
+                <h2 class="post-title">LKML News after v4.14-rc5</h2>
 
                 
               </a>
 
               <p class="post-meta">
-                Posted on October 10, 2017
+                Posted on October 17, 2017
               </p>
               <div class="post-entry">
               
-                Linux 4.14-rc4 https://lkml.kernel.org/r/CA+55aFwnCrWANr01O3piPc1mwhx13nZU3J+e97ksQC1oN0OnXA@mail.gmail.com
-리눅스 4.14 의 네번째 -rc 버전이 나왔습니다. 평소보다 좀 더 작업량이 컸던 -rc4 이지만 슬슬 정리가 되어가는 것 같다고 토발즈는 이야기 하네요
-[PATCH RFC tip/core/rcu 0/15] Remove to-be-unneeded smp_read_barrier_depends() https://lkml.kernel.org/r/20171010001951.GA6476@linux.vnet.ibm.com
-smp_read_barrier_depends() 가 READ_ONCE() 에 들어갈 것을 Will Deacon 이 제안했고, 이 제안이 받아들여지면 불필요한 중복이 될 코드들을 커널 코드에서 제거하는 패치를 Paul E. McKenney 가 제안했습니다.
-smp_read_barrier_depends() 는 Alpha 외의 아키텍쳐에서는 모두 noop 인만큼, 이에 관련된 변경이 모두 머지된다면 core kernel 코드에서는 더이상 Alpha 만을 위한 코드가 사라지게 됩니다.
-                <a href="https://sjp38.github.io/post/lkml_news_v4.14-rc4/" class="post-read-more">[Read&nbsp;More]</a>
+                Linux 4.14-rc5 https://lkml.kernel.org/r/CA+55aFyKgEL3dj7XGYsPQd8y_z0GWx91TLZPSQAxjrua1aWOLw@mail.gmail.com
+다섯번째 rc 버전의 릴리즈입니다.
+Lazy TLB flushing 변경은 지나치게 게으르게 TLB flushing 을 해서 AMD 칩 일부에서 문제를 일으키기도 했었다는군요.
+일부 서브시스템에서 fuzzing 을 통한 문제 발견과 수정이 있었는데 좋은 현상이라고도 언급합니다.
+전체적으로 x86, powerpc, mips 에의 arch 업데이트, gpu, networking, usb, sound, misc 드라이버 업데이트, lockdep, networking, mm 쪽 코어 커널 업데이트, 그리고 perf 와 selftest 에의 업데이트가 있었다고 이번 릴리즈를 정리하는군요.
+[PATCH 0/2] mm, thp: introduce dedicated transparent huge page https://lkml.
+                <a href="https://sjp38.github.io/post/lkml_news_v4.14-rc5/" class="post-read-more">[Read&nbsp;More]</a>
               
               </div>
 

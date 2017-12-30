@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>LKML News after v4.14-rc4</title>
+  <title>LKML News after v4.15-rc5</title>
   
   <meta name="author" content="SeongJae Park"/>
   <meta name="generator" content="Hugo 0.31.1" />
@@ -23,7 +23,7 @@
   <link rel="stylesheet" href="https://sjp38.github.io/css/highlight.min.css">
   
   
-  <meta property="og:title" content="LKML News after v4.14-rc4" />
+  <meta property="og:title" content="LKML News after v4.15-rc5" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="/post/lkml_news_v4.14-rc4/" />
   <meta property="og:image" content="/img/tux.png" />
@@ -101,11 +101,11 @@
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <div class="post-heading">
-          <h1>LKML News after v4.14-rc4</h1>
+          <h1>LKML News after v4.15-rc5</h1>
       
       
       
-      <span class="post-meta">Posted on October 10, 2017</span>
+      <span class="post-meta">Posted on December 24, 2017</span>
       
         </div>
       </div>
@@ -123,112 +123,28 @@
       <article role="main" class="blog-post">
           
 
-<h2 id="linux-4-14-rc4">Linux 4.14-rc4</h2>
+<h2 id="linux-4-15-rc5">Linux 4.15-rc5</h2>
 
-<p><a href="https://lkml.kernel.org/r/CA+55aFwnCrWANr01O3piPc1mwhx13nZU3J+e97ksQC1oN0OnXA@mail.gmail.com">https://lkml.kernel.org/r/CA+55aFwnCrWANr01O3piPc1mwhx13nZU3J+e97ksQC1oN0OnXA@mail.gmail.com</a></p>
+<p><a href="https://lkml.kernel.org/r/CA+55aFy1U+uBLEAoCWU3=BqEbROW6rsbaHUdYJArR6iYQQWo_A@mail.gmail.com">https://lkml.kernel.org/r/CA+55aFy1U+uBLEAoCWU3=BqEbROW6rsbaHUdYJArR6iYQQWo_A@mail.gmail.com</a></p>
 
-<p>리눅스 4.14 의 네번째 -rc 버전이 나왔습니다.  평소보다 좀 더 작업량이 컸던 -rc4
-이지만 슬슬 정리가 되어가는 것 같다고 토발즈는 이야기 하네요</p>
+<p>4.15 의 다섯번째 rc 버전이 평소 스케쥴보다 하루 일찍 릴리즈 되었습니다.
+원래대로라면 내일일텐데, 미국 시간으로는 크리스마스 이브라서 그냥 오늘 릴리즈
+한다는군요.</p>
 
-<h2 id="patch-rfc-tip-core-rcu-0-15-remove-to-be-unneeded-smp-read-barrier-depends">[PATCH RFC tip/core/rcu 0/15] Remove to-be-unneeded smp_read_barrier_depends()</h2>
-
-<p><a href="https://lkml.kernel.org/r/20171010001951.GA6476@linux.vnet.ibm.com">https://lkml.kernel.org/r/20171010001951.GA6476@linux.vnet.ibm.com</a></p>
-
-<p>smp_read_barrier_depends() 가 READ_ONCE() 에 들어갈 것을 Will Deacon 이
-제안했고, 이 제안이 받아들여지면 불필요한 중복이 될 코드들을 커널 코드에서
-제거하는 패치를 Paul E. McKenney 가 제안했습니다.</p>
-
-<p>smp_read_barrier_depends() 는 Alpha 외의 아키텍쳐에서는 모두 noop 인만큼, 이에
-관련된 변경이 모두 머지된다면 core kernel 코드에서는 더이상 Alpha 만을 위한
-코드가 사라지게 됩니다.</p>
-
-<p>관련 메인테이너들의 반응도 좋은편이라 큰 문제 없이 조만간 머지될 듯 합니다.</p>
-
-<h2 id="patch-v5-00-20-speculative-page-faults">[PATCH v5 00/20] Speculative page faults</h2>
-
-<p><a href="https://lkml.kernel.org/r/1507729966-10660-1-git-send-email-ldufour@linux.vnet.ibm.com">https://lkml.kernel.org/r/1507729966-10660-1-git-send-email-ldufour@linux.vnet.ibm.com</a></p>
-
-<p>mmap_sem 으로 인해 병렬성이 제한되고 있는 리눅스의 VM 관리를 병렬화 하려는
-시도.  과거부터 Peter Zijlstra 에 의 의한 시도는 있었고[1] 그 패치셋의
-최신 리눅스 커널에의 포팅된 버전이 Laurent Dufour 에 의해 제시되고
-있는중입니다.  비슷하게 RCU 비슷한 테크닉을 사용했던 논문도 있지요.  어느새
-다섯번째 버전이네요.</p>
-
-<p>기본적으로 페이지 폴트 처리를 VMA 단위로 락을 잡지 않고 처리하고, 같은 VMA 에
-동시의 페이지 폴트가 있었거나 했다면 abort 하고 기존의 방식으로 fallback 하는
-형태입니다.  이를 위해 VMA 리스트를 SRCU 를 사용해 관리합니다.  하나의 VMA 에
-대한 동시의 접근은 VMA 별 시퀀스 락을 사용해 파악합니다.</p>
-
-<p>현재의 버전은 file mapped page 와 THP 에는 적용되지 않고 있는데, 일단 머지되면
-이 부분으로의 확장도 작업하겠노라고 약속하고 있습니다.</p>
-
-<p>실험 결과, Ebizzy 에서 16 cpu 에서 약 3.6배의 성능 향상을 보였습니다.</p>
-
-<p>[1] <a href="http://linux-kernel.2935.n7.nabble.com/RFC-PATCH-0-6-Another-go-at-speculative-page-faults-tt965642.html#none">http://linux-kernel.2935.n7.nabble.com/RFC-PATCH-0-6-Another-go-at-speculative-page-faults-tt965642.html#none</a>
-[2] <a href="https://pdos.csail.mit.edu/papers/radixvm:eurosys13.pdf">https://pdos.csail.mit.edu/papers/radixvm:eurosys13.pdf</a></p>
-
-<h2 id="rfc-mmap-map-contig">[RFC] mmap(MAP_CONTIG)</h2>
-
-<p><a href="https://lkml.kernel.org/r/21f1ec96-2822-1189-1c95-79a2bb491571@oracle.com">https://lkml.kernel.org/r/21f1ec96-2822-1189-1c95-79a2bb491571@oracle.com</a></p>
-
-<p>Linux Plumbers Conference 에서 있었던, contiguous memory 의 성능상의 이득
-발표[1]를 시작으로 제안된, User space contiguous memory allocation 을 위한 mmap()
-flag 의 RFC 입니다.</p>
-
-<p>해당 발표는 Mellanox 의 것으로, RDMA_READ 대역폭이 contiguous memory 를 사용할
-때 최대 58 %, 평균 27 % 정도의 성능 향상을 보이는 것을 보입니다.
-Scatter/Gather 의 성능 오버헤드와 더 나은 캐시 힛 때문이라는 것이죠.</p>
-
-<p>RFC 구현은 MAX_ORDER 이하의 할당은 buddy 를, 그 이상은 CMA 기반을 사용합니다.</p>
-
-<p>[1] <a href="https://linuxplumbersconf.org/2017/ocw//system/presentations/4669/original/Support%20user%20space%20POSIX%20conformant%20contiguous__v1.00.pdf">https://linuxplumbersconf.org/2017/ocw//system/presentations/4669/original/Support%20user%20space%20POSIX%20conformant%20contiguous__v1.00.pdf</a></p>
-
-<h2 id="patch-v12-00-11-complete-deferred-page-initialization">[PATCH v12 00/11] complete deferred page initialization</h2>
-
-<p><a href="https://lkml.kernel.org/r/20171013173214.27300-1-pasha.tatashin@oracle.com">https://lkml.kernel.org/r/20171013173214.27300-1-pasha.tatashin@oracle.com</a></p>
-
-<p>기본적으로 struct page 인스턴스들은 부팅 과정 초기에 미리 할당되고 초기화
-되는데 이 작업은 싱글쓰레드로 이루어집니다.
-이는 커다란 메모리와 많은 CPU 를 장착한 기계에서는 부팅 시간을 크게 늘릴 수
-있습니다.
-DEFERRED_STRUCT_PAGE_INIT 옵션이 켜진 커널은 부팅 중에는 그 중 일부만 초기화
-시키고, 나머지는 이후 모든 CPU 가 켜진 다음에 pgdatinitX 라는 이름의 커널
-쓰레드를 통해 초기화를 마무리 하게 합니다.
-하지만, 여전히 struct page 를 0으로 값을 쓰는 작업은 싱글쓰레드로 부팅 초기에
-수행되고 있으며, struct page 인스턴스가 초기화 되기 전에 해당 인스턴스에
-액세스하고 있습니다.
-이 패치셋은 초기화가 마무리 되기 전까지 struct page 인스턴스에 접근하지 못하게
-하고, 0으로 값을 쓰는 작업 역시 병렬화된 시점에서 수행되도록 합니다.</p>
-
-<p>8개 노드 Xeon E7-8895 v3, 1 TiB 메모리의 기계에서 처리시간은
-DEFERRED_STRUCT_PAGE_INIT 옵션이 꺼져있을 때 95초, 본 패치셋 적용되지 않고
-DEFERRED_STRUCT_PAGE_INIT 켜진 커널에서 77초, 본 패치셋 적용되고
-DEFERRED_STRUCT_PAGE_INIT 켜진 커널에서 55초로 기존 19% 스피드업을 40% 까지
-끌어올렸습니다.</p>
-
-<h2 id="dramatic-lockdep-slowdown-in-4-14">Dramatic lockdep slowdown in 4.14</h2>
-
-<p><a href="https://lkml.kernel.org/r/20171013090333.GA17356@localhost">https://lkml.kernel.org/r/20171013090333.GA17356@localhost</a></p>
-
-<p>BeagleBone Black 의 부팅 시간이 v4.13 커널까지 17초였는데 v4.14-rc4 커널에서
-35초로 늘었다는 레포트입니다.
-원인은 lockdep 에서의 변경, 28a903f63ec0 (&ldquo;locking/lockdep: Handle non(or
-multi)-acquisition of a crosslock&rdquo;) 였습니다.
-Ingo Molnar 는 일단 LOCKDEP_CROSSRELEASE 와 LOCKDEP_COMPLETIONS 옵션을 꺼보고
-문제가 없어졌는지 다시 확인해줄 것을 요청했고, 원래대로 돌아왔다고 합니다.
-어떻게 해결될 것인지 궁금하네요.</p>
+<p>이번 rc5 의 변경 사항들도 지난 릴리즈의 rc5 와 비슷했다고 하는데, 다만 x86 의
+커널 페이지 테이블 격리화 관련 작업이 진행 중인 게 좀 예외라고 하는군요.</p>
 
       </article>
 
       <ul class="pager blog-pager">
         
         <li class="previous">
-          <a href="https://sjp38.github.io/post/lkml_news_0000/" data-toggle="tooltip" data-placement="top" title="LKML News - Intro">&larr; Previous Post</a>
+          <a href="https://sjp38.github.io/post/lkml_news_v4.15-rc4/" data-toggle="tooltip" data-placement="top" title="LKML News after v4.15-rc4">&larr; Previous Post</a>
         </li>
         
         
         <li class="next">
-          <a href="https://sjp38.github.io/post/lkml_news_v4.14-rc6/" data-toggle="tooltip" data-placement="top" title="LKML News after v4.14-rc6">Next Post &rarr;</a>
+          <a href="https://sjp38.github.io/post/spec_cpu2006_modification/" data-toggle="tooltip" data-placement="top" title="spec cpu2006 벤치마크 수정하기">Next Post &rarr;</a>
         </li>
         
       </ul>
