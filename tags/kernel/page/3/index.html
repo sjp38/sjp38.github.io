@@ -107,6 +107,44 @@
             
             
             <article class="post-preview">
+              <a href="https://sjp38.github.io/post/lkml_news_v4.14-rc5/">
+                <h2 class="post-title">LKML News after v4.14-rc5</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                Posted on October 17, 2017
+              </p>
+              <div class="post-entry">
+              
+                Linux 4.14-rc5 https://lkml.kernel.org/r/CA+55aFyKgEL3dj7XGYsPQd8y_z0GWx91TLZPSQAxjrua1aWOLw@mail.gmail.com
+다섯번째 rc 버전의 릴리즈입니다.
+Lazy TLB flushing 변경은 지나치게 게으르게 TLB flushing 을 해서 AMD 칩 일부에서 문제를 일으키기도 했었다는군요.
+일부 서브시스템에서 fuzzing 을 통한 문제 발견과 수정이 있었는데 좋은 현상이라고도 언급합니다.
+전체적으로 x86, powerpc, mips 에의 arch 업데이트, gpu, networking, usb, sound, misc 드라이버 업데이트, lockdep, networking, mm 쪽 코어 커널 업데이트, 그리고 perf 와 selftest 에의 업데이트가 있었다고 이번 릴리즈를 정리하는군요.
+[PATCH 0/2] mm, thp: introduce dedicated transparent huge page https://lkml.
+                <a href="https://sjp38.github.io/post/lkml_news_v4.14-rc5/" class="post-read-more">[Read&nbsp;More]</a>
+              
+              </div>
+
+	      
+	        <span class="post-meta">
+	          
+	            #<a href="/tags/linux">linux</a>&nbsp;
+		  
+	            #<a href="/tags/kernel">kernel</a>&nbsp;
+		  
+	            #<a href="/tags/lkml">lkml</a>&nbsp;
+		  
+	            #<a href="/tags/news">news</a>&nbsp;
+		  
+	        </span>
+	      
+
+             </article>
+            
+            <article class="post-preview">
               <a href="https://sjp38.github.io/post/lkml_news_0000/">
                 <h2 class="post-title">LKML News - Intro</h2>
 
@@ -237,39 +275,6 @@ So many environments and users are using Linux kernel. That&rsquo;s why it is so
 	            #<a href="/tags/tip">tip</a>&nbsp;
 		  
 	            #<a href="/tags/english">english</a>&nbsp;
-		  
-	        </span>
-	      
-
-             </article>
-            
-            <article class="post-preview">
-              <a href="https://sjp38.github.io/post/uninstall-kernel/">
-                <h2 class="post-title">uninstall kernel</h2>
-
-                
-              </a>
-
-              <p class="post-meta">
-                Posted on January 20, 2017
-              </p>
-              <div class="post-entry">
-              
-                테스트 등을 위해 소스코드로부터 커널을 직접 빌드, 설치하기 시작하면 어느새 수많은 커널이 설치되어 있는 것을 확인할 수 있다. 삭제를 위해선 make install 로 만들어진 파일들을 직접 제거하고 grub 을 업데이트 해줘야 한다.
-예를 들어 시스템이 현재 부팅되어 있는 버전의 커널을 언인스톨하고자 한다면 다음의 일련의 커맨드를 입력하면 된다:
-# rm /boot/vmlinuz-$(uname -r) # rm /boot/initrd.img-$(uname -r) # rm /boot/System.map-$(uname -r) # rm /boot/config-$(uname -r) # rm -fr /lib/modules/$(uname -r) # rm /var/lib/initramfs-tools/$(uname -r) # update-grub2  다른 버전의 설치되어있는 커널을 제거하고 싶다면 위의 $(uname -r) 부분을 제거하고자 하는 커널 버전으로 대체하면 된다.
-                <a href="https://sjp38.github.io/post/uninstall-kernel/" class="post-read-more">[Read&nbsp;More]</a>
-              
-              </div>
-
-	      
-	        <span class="post-meta">
-	          
-	            #<a href="/tags/linux">linux</a>&nbsp;
-		  
-	            #<a href="/tags/kernel">kernel</a>&nbsp;
-		  
-	            #<a href="/tags/tip">tip</a>&nbsp;
 		  
 	        </span>
 	      

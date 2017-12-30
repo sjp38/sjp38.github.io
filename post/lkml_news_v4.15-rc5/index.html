@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>News</title>
+  <title>LKML News after v4.15-rc5</title>
   
   <meta name="author" content="SeongJae Park"/>
   <meta name="generator" content="Hugo 0.31.1" />
@@ -23,9 +23,9 @@
   <link rel="stylesheet" href="https://sjp38.github.io/css/highlight.min.css">
   
   
-  <meta property="og:title" content="News" />
+  <meta property="og:title" content="LKML News after v4.15-rc5" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="/tags/news/" />
+  <meta property="og:url" content="/post/lkml_news_v4.15-rc5/" />
   <meta property="og:image" content="/img/tux.png" />
   
 </head>
@@ -88,131 +88,93 @@
   </div>
 </nav>
 
+    
 
-    <header class="header-section ">
-      <div class="intro-header no-img">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-              <div class="page-heading">
-                <h2>#News</h2>
-              </div>
-            </div>
-          </div>
+
+
+  
+
+  <header class="header-section ">
+  
+  <div class="intro-header no-img">
+      <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>LKML News after v4.15-rc5</h1>
+      
+      
+      
+      <span class="post-meta">Posted on December 24, 2017</span>
+      
         </div>
       </div>
-    </header>
+    </div>
+  </div>
+  </div>
+  </header>
 
-    <div class="container" role="main">
-            
-            
-            <article class="post-preview">
-              <a href="https://sjp38.github.io/post/lkml_news_v4.14-rc5/">
-                <h2 class="post-title">LKML News after v4.14-rc5</h2>
 
-                
-              </a>
+    <div class="container" role="main">	  
+      
+        <div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+          
 
-              <p class="post-meta">
-                Posted on October 17, 2017
-              </p>
-              <div class="post-entry">
-              
-                Linux 4.14-rc5 https://lkml.kernel.org/r/CA+55aFyKgEL3dj7XGYsPQd8y_z0GWx91TLZPSQAxjrua1aWOLw@mail.gmail.com
-다섯번째 rc 버전의 릴리즈입니다.
-Lazy TLB flushing 변경은 지나치게 게으르게 TLB flushing 을 해서 AMD 칩 일부에서 문제를 일으키기도 했었다는군요.
-일부 서브시스템에서 fuzzing 을 통한 문제 발견과 수정이 있었는데 좋은 현상이라고도 언급합니다.
-전체적으로 x86, powerpc, mips 에의 arch 업데이트, gpu, networking, usb, sound, misc 드라이버 업데이트, lockdep, networking, mm 쪽 코어 커널 업데이트, 그리고 perf 와 selftest 에의 업데이트가 있었다고 이번 릴리즈를 정리하는군요.
-[PATCH 0/2] mm, thp: introduce dedicated transparent huge page https://lkml.
-                <a href="https://sjp38.github.io/post/lkml_news_v4.14-rc5/" class="post-read-more">[Read&nbsp;More]</a>
-              
-              </div>
+<h2 id="linux-4-15-rc5">Linux 4.15-rc5</h2>
 
-	      
-	        <span class="post-meta">
-	          
-	            #<a href="/tags/linux">linux</a>&nbsp;
-		  
-	            #<a href="/tags/kernel">kernel</a>&nbsp;
-		  
-	            #<a href="/tags/lkml">lkml</a>&nbsp;
-		  
-	            #<a href="/tags/news">news</a>&nbsp;
-		  
-	        </span>
-	      
+<p><a href="https://lkml.kernel.org/r/CA+55aFy1U+uBLEAoCWU3=BqEbROW6rsbaHUdYJArR6iYQQWo_A@mail.gmail.com">https://lkml.kernel.org/r/CA+55aFy1U+uBLEAoCWU3=BqEbROW6rsbaHUdYJArR6iYQQWo_A@mail.gmail.com</a></p>
 
-             </article>
-            
-            <article class="post-preview">
-              <a href="https://sjp38.github.io/post/lkml_news_0000/">
-                <h2 class="post-title">LKML News - Intro</h2>
+<p>4.15 의 다섯번째 rc 버전이 평소 스케쥴보다 하루 일찍 릴리즈 되었습니다.
+원래대로라면 내일일텐데, 미국 시간으로는 크리스마스 이브라서 그냥 오늘 릴리즈
+한다는군요.</p>
 
-                
-              </a>
+<p>이번 rc5 의 변경 사항들도 지난 릴리즈의 rc5 와 비슷했다고 하는데, 다만 x86 의
+커널 페이지 테이블 격리화 관련 작업이 진행 중인 게 좀 예외라고 하는군요.</p>
 
-              <p class="post-meta">
-                Posted on October 10, 2017
-              </p>
-              <div class="post-entry">
-              
-                <p>LKML 을 모니터링 하면서 흥미가는 패치나 토론을 <code>lkml news</code> 라는 카테고리로
-묶어서 비정기적, 비형식적으로 간략히 정리하고 관련 소식을 업데이트 해보고자
-합니다.  주로 모니터링 하는 메일은 메모리 매니지먼트 쪽과 rcu 관련 메일들이
-될겁니다.</p>
+<h2 id="re-about-the-try-to-remove-cross-release-feature-entirely-by-ingo">Re: About the try to remove cross-release feature entirely by Ingo</h2>
 
-              
-              </div>
+<p><a href="https://lkml.kernel.org/r/20171229014736.GA10341@X58A-UD3R">https://lkml.kernel.org/r/20171229014736.GA10341@X58A-UD3R</a></p>
 
-	      
-	        <span class="post-meta">
-	          
-	            #<a href="/tags/linux">linux</a>&nbsp;
-		  
-	            #<a href="/tags/kernel">kernel</a>&nbsp;
-		  
-	            #<a href="/tags/lkml">lkml</a>&nbsp;
-		  
-	            #<a href="/tags/news">news</a>&nbsp;
-		  
-	        </span>
-	      
+<p>Lockdep 의 cross release 기능은 너무 느렸고, false positive 가 많다는 이유로,
+특히 false positive 가 너무 많다는 이유로 Ingo Molnar 에 의해 제거되려 하고
+있습니다.  관련해서 이 블로그에서도 일단 default 로는 disable 되는 변경이 v4.14
+에 있었음을 이야기 했죠.</p>
 
-             </article>
-            
-            <article class="post-preview">
-              <a href="https://sjp38.github.io/post/us-sues-oracle/">
-                <h2 class="post-title">us sues oracle</h2>
+<p>Cross release 의 개발자인 박병철님께서 이에 대해 다른 의견을 내놓는 메일입니다.</p>
 
-                
-              </a>
+<h2 id="re-hang-with-v4-15-rc-trying-to-swap-back-in">Re: Hang with v4.15-rc trying to swap back in</h2>
 
-              <p class="post-meta">
-                Posted on January 19, 2017
-              </p>
-              <div class="post-entry">
-              
-                <p>오라클이 백인 남성에게 더 많은 월급을 지불하고 아시아인, 그중에서도 인도 사람을
-많이 개발직에 채용했다는 이유로 미국 정부가 오라클을 고소.</p>
+<p><a href="https://lkml.kernel.org/r/1514407817.4169.4.camel@HansenPartnership.com">https://lkml.kernel.org/r/1514407817.4169.4.camel@HansenPartnership.com</a></p>
 
-<p><a href="http://www.reuters.com/article/us-oracle-usa-labor-idUSKBN1522O6?il=0">http://www.reuters.com/article/us-oracle-usa-labor-idUSKBN1522O6?il=0</a></p>
+<p>스왑 레이어를 최적화하는 많은 변경이 최근에 있었는데, 그 중 하나가 시스템 행을
+일으키는군요.  관련된 패치들을 발본색원해서 레포팅 한 메일입니다.  충분히 빠른
+swap device 에 대해서는 swapcache 를 건너뛰게 한게 원인이 되었군요.</p>
 
-              
-              </div>
+      </article>
 
-	      
-	        <span class="post-meta">
-	          
-	            #<a href="/tags/news">news</a>&nbsp;
-		  
-	            #<a href="/tags/oracle">oracle</a>&nbsp;
-		  
-	        </span>
-	      
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="https://sjp38.github.io/post/lkml_news_v4.15-rc4/" data-toggle="tooltip" data-placement="top" title="LKML News after v4.15-rc4">&larr; Previous Post</a>
+        </li>
+        
+        
+        <li class="next">
+          <a href="https://sjp38.github.io/post/lkml_news_v4.14-rc4/" data-toggle="tooltip" data-placement="top" title="LKML News after v4.15-rc5">Next Post &rarr;</a>
+        </li>
+        
+      </ul>
 
-             </article>
-            
-          </div>
+      
+
+    </div>
+  </div>
+</div>
+
+      
     </div>
 
     <footer>
