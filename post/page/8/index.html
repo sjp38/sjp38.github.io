@@ -107,6 +107,39 @@
             
             
             <article class="post-preview">
+              <a href="https://sjp38.github.io/post/uninstall-kernel/">
+                <h2 class="post-title">uninstall kernel</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                Posted on January 20, 2017
+              </p>
+              <div class="post-entry">
+              
+                테스트 등을 위해 소스코드로부터 커널을 직접 빌드, 설치하기 시작하면 어느새 수많은 커널이 설치되어 있는 것을 확인할 수 있다. 삭제를 위해선 make install 로 만들어진 파일들을 직접 제거하고 grub 을 업데이트 해줘야 한다.
+예를 들어 시스템이 현재 부팅되어 있는 버전의 커널을 언인스톨하고자 한다면 다음의 일련의 커맨드를 입력하면 된다:
+# rm /boot/vmlinuz-$(uname -r) # rm /boot/initrd.img-$(uname -r) # rm /boot/System.map-$(uname -r) # rm /boot/config-$(uname -r) # rm -fr /lib/modules/$(uname -r) # rm /var/lib/initramfs-tools/$(uname -r) # update-grub2  다른 버전의 설치되어있는 커널을 제거하고 싶다면 위의 $(uname -r) 부분을 제거하고자 하는 커널 버전으로 대체하면 된다.
+                <a href="https://sjp38.github.io/post/uninstall-kernel/" class="post-read-more">[Read&nbsp;More]</a>
+              
+              </div>
+
+	      
+	        <span class="post-meta">
+	          
+	            #<a href="/tags/linux">linux</a>&nbsp;
+		  
+	            #<a href="/tags/kernel">kernel</a>&nbsp;
+		  
+	            #<a href="/tags/tip">tip</a>&nbsp;
+		  
+	        </span>
+	      
+
+             </article>
+            
+            <article class="post-preview">
               <a href="https://sjp38.github.io/post/donate-mozilla/">
                 <h2 class="post-title">donate mozilla</h2>
 
@@ -233,39 +266,6 @@ Sep 2012 - Present
 
              </article>
             
-            <article class="post-preview">
-              <a href="https://sjp38.github.io/post/perfbook-kokr/">
-                <h2 class="post-title">&#34;Is Parallel Programming Hard, And, If So, What Can You Do About It?&#34; Translation</h2>
-
-                
-              </a>
-
-              <p class="post-meta">
-                Posted on January 10, 2017
-              </p>
-              <div class="post-entry">
-              
-                &ldquo;Is Parallel Programming is Hard, And, If So, What Can You Do About It?&rdquo;[1] 은 parallel programming 분야에서 대가라 불릴만한 분으로, 이쪽 분야에서 매우 중요한 동기화 메커니즘인 RCU[2] 를 개발했으며 리눅스 커널의 RCU 메인테이너로 활동하고 있는 Paul E. McKenney[3] 가 오픈소스 방식으로 저술하고 있는, parallel programming 에 대한 책입니다.
-개인적으로 이 책의 한국어 번역을 오픈소스[4]로 진행하고 있습니다. 이 프로젝트는 원저작자인 Paul 에게 공식 한국어 번역으로 인증받았습니다[5].
-컨트리뷰션에 대해서도 열려 있으니, 이에 관심 있는 분은 repository 내의 README 문서의 Contribution 섹션[6] 을 참고 바랍니다.
-                <a href="https://sjp38.github.io/post/perfbook-kokr/" class="post-read-more">[Read&nbsp;More]</a>
-              
-              </div>
-
-	      
-	        <span class="post-meta">
-	          
-	            #<a href="/tags/projects">projects</a>&nbsp;
-		  
-	            #<a href="/tags/perfbook">perfbook</a>&nbsp;
-		  
-	            #<a href="/tags/translation">translation</a>&nbsp;
-		  
-	        </span>
-	      
-
-             </article>
-            
           </div>
     </div>
 
@@ -326,7 +326,7 @@ Sep 2012 - Present
         <p class="credits copyright text-muted">
     	  SeongJae Park
     	  &nbsp;&bull;&nbsp;
-    	  2017
+    	  2018
     		  
     	  
     	  &nbsp;&bull;&nbsp;
