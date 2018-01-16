@@ -107,6 +107,43 @@
             
             
             <article class="post-preview">
+              <a href="https://sjp38.github.io/post/lkml_news_v4.14-rc7/">
+                <h2 class="post-title">LKML News after v4.14-rc7</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                Posted on November 3, 2017
+              </p>
+              <div class="post-entry">
+              
+                Linux 4.14-rc7 https://lkml.kernel.org/r/CA+55aFwhgxivTE3k88nshbrH9nd-4nhmhXGzw-MxRVGxf-R8Eg@mail.gmail.com
+일곱번째 rc 버전의 릴리즈입니다.
+OSSE 와 kernel summit 으로 프라하를 방문했던 토발즈인데, 집에 잘 돌아왔다는군요. 이번 rc 버전은 기존의 rc7 보다도 작은 편에 가깝다고 합니다만, 다음 한주간이 정말 조용하지 않는한은 rc8 릴리즈를 할 생각이라는군요.
+Re: Page allocator bottleneck https://lkml.kernel.org/r/1c218381-067e-7757-ccc2-4e5befd2bfc3@mellanox.com
+멜라녹스의 빠른 네트워크 카드를 사용하는 환경에서는 page allocator 의 속도가 bottleneck 이 된다는 이야기에 대한 업데이트입니다. 여전히 해당 부분이 bottleneck 이며, queued_spin_lock_slowpath() 가 85 % 가까이 CPU 를 차지하고 있군요.
+                <a href="https://sjp38.github.io/post/lkml_news_v4.14-rc7/" class="post-read-more">[Read&nbsp;More]</a>
+              
+              </div>
+
+	      
+	        <span class="post-meta">
+	          
+	            #<a href="/tags/linux">linux</a>&nbsp;
+		  
+	            #<a href="/tags/kernel">kernel</a>&nbsp;
+		  
+	            #<a href="/tags/lkml">lkml</a>&nbsp;
+		  
+	            #<a href="/tags/news">news</a>&nbsp;
+		  
+	        </span>
+	      
+
+             </article>
+            
+            <article class="post-preview">
               <a href="https://sjp38.github.io/post/osse2017_01/">
                 <h2 class="post-title">OSSummit 2017 Attendence - 01</h2>
 
@@ -255,38 +292,6 @@ Lazy TLB flushing 변경은 지나치게 게으르게 TLB flushing 을 해서 AM
 	            #<a href="/tags/lkml">lkml</a>&nbsp;
 		  
 	            #<a href="/tags/news">news</a>&nbsp;
-		  
-	        </span>
-	      
-
-             </article>
-            
-            <article class="post-preview">
-              <a href="https://sjp38.github.io/post/kernel-text-addresses-removed-from-calltrace/">
-                <h2 class="post-title">Kernel text addresses removed from calltrace</h2>
-
-                
-              </a>
-
-              <p class="post-meta">
-                Posted on June 16, 2017
-              </p>
-              <div class="post-entry">
-              
-                최근 커널은 stakc dump 에서 콜 트레이스(Call Trace) 에 각 코드의 메모리 어드레스를 찍어주지 않습니다. 이에 대해 포스팅을 해봅니다.
-Call Trace 커널은 문제가 발생하거나 하면 문제의 원인을 찾을 수 있는 다양한 정보를 담고 있는 stack dump 를 로그로 뿌려 줍니다. 문제의 원인을 찾는데 매우 소중한 정보입니다. 그 정보 중에서도 중요한 것 중 하나가 콜 트레이스로, 이 문제의 순간에 오기까지 어느 함수의 어느 지점에서 어느 함수를 호출해서 여기까지 왔는가를 담는 정보입니다.
-                <a href="https://sjp38.github.io/post/kernel-text-addresses-removed-from-calltrace/" class="post-read-more">[Read&nbsp;More]</a>
-              
-              </div>
-
-	      
-	        <span class="post-meta">
-	          
-	            #<a href="/tags/linux">linux</a>&nbsp;
-		  
-	            #<a href="/tags/kernel">kernel</a>&nbsp;
-		  
-	            #<a href="/tags/tip">tip</a>&nbsp;
 		  
 	        </span>
 	      
