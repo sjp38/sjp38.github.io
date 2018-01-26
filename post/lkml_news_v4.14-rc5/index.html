@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme" content="hugo-academic">
+  <meta name="generator" content="Hugo 0.31.1" />
+  <meta name="author" content="SeongJae Park">
+  <meta name="description" content="System Programmer">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/lkml_news_v4.14-rc5/">
+
+  
+  
+
+
+  
+
+  
+  
+  
+  
+    
+  
+  
+    
+    
+      
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+      
+    
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha512-6MXa8B6uaO18Hid6blRMetEIoPqHf7Ux1tnyIQdpt9qI5OACx7C+O3IVTr98vwGnlcg0LOLa02i9Y1HpVhlfiw==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.1/css/academicons.min.css" integrity="sha512-NThgw3XKQ1absAahW6to7Ey42uycrVvfNfyjqcFNgCmOCQ5AR4AO0SiXrN+8ZtYeappp56lk1WtvjVmEa+VR6A==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous">
+  
+  
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700%7cRoboto:400,400italic,700%7cRoboto&#43;Mono">
+  
+  <link rel="stylesheet" href="/styles.css">
+  
+
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-30621335-1', 'auto');
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+
+  
+  <link rel="alternate" href="https://sjp38.github.io/index.xml" type="application/rss+xml" title="Hacklog">
+  <link rel="feed" href="https://sjp38.github.io/index.xml" type="application/rss+xml" title="Hacklog">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="https://sjp38.github.io/post/lkml_news_v4.14-rc5/">
+
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="og:site_name" content="Hacklog">
+  <meta property="og:url" content="https://sjp38.github.io/post/lkml_news_v4.14-rc5/">
+  <meta property="og:title" content="LKML News after v4.14-rc5 | Hacklog">
+  <meta property="og:description" content="">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2017-10-17T20:54:24&#43;09:00">
+  
+  <meta property="article:modified_time" content="2017-10-17T20:54:24&#43;09:00">
+  
+
+  
+
+  <title>LKML News after v4.14-rc5 | Hacklog</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+      <a class="navbar-brand" href="/">Hacklog</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#about">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#publications_selected">
+            
+            <span>Publications</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#posts">
+            
+            <span>Posts</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#projects">
+            
+            <span>Projects</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#contact">
+            
+            <span>Contact</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#tags">
+            
+            <span>Tags</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/post/about/">
+            
+            <span>About</span>
+            
+          </a>
+        </li>
+
+        
+        
+      
+
+      
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+  <div class="article-container">
+    <div class="article-inner">
+      <h1 itemprop="name">LKML News after v4.14-rc5</h1>
+
+      
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2017-10-17 20:54:24 &#43;0900 KST" itemprop="datePublished">
+      Oct 17, 2017
+    </time>
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/lkml-news">lkml news</a
+    >
+    
+  </span>
+  
+  
+
+  
+  
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=LKML%20News%20after%20v4.14-rc5&amp;url=https%3a%2f%2fsjp38.github.io%2fpost%2flkml_news_v4.14-rc5%2f"
+         target="_blank" rel="noopener">
+        <i class="fa fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fsjp38.github.io%2fpost%2flkml_news_v4.14-rc5%2f"
+         target="_blank" rel="noopener">
+        <i class="fa fa-facebook"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fsjp38.github.io%2fpost%2flkml_news_v4.14-rc5%2f&amp;title=LKML%20News%20after%20v4.14-rc5"
+         target="_blank" rel="noopener">
+        <i class="fa fa-linkedin"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fsjp38.github.io%2fpost%2flkml_news_v4.14-rc5%2f&amp;title=LKML%20News%20after%20v4.14-rc5"
+         target="_blank" rel="noopener">
+        <i class="fa fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=LKML%20News%20after%20v4.14-rc5&amp;body=https%3a%2f%2fsjp38.github.io%2fpost%2flkml_news_v4.14-rc5%2f">
+        <i class="fa fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+
+      <div class="article-style" itemprop="articleBody">
+        
+
+<h2 id="linux-4-14-rc5">Linux 4.14-rc5</h2>
+
+<p><a href="https://lkml.kernel.org/r/CA+55aFyKgEL3dj7XGYsPQd8y_z0GWx91TLZPSQAxjrua1aWOLw@mail.gmail.com" target="_blank">https://lkml.kernel.org/r/CA+55aFyKgEL3dj7XGYsPQd8y_z0GWx91TLZPSQAxjrua1aWOLw@mail.gmail.com</a></p>
+
+<p>다섯번째 rc 버전의 릴리즈입니다.</p>
+
+<p>Lazy TLB flushing 변경은 지나치게 게으르게 TLB flushing 을 해서 AMD 칩 일부에서
+문제를 일으키기도 했었다는군요.</p>
+
+<p>일부 서브시스템에서 fuzzing 을 통한 문제 발견과 수정이 있었는데 좋은
+현상이라고도 언급합니다.</p>
+
+<p>전체적으로 x86, powerpc, mips 에의 arch 업데이트, gpu, networking, usb, sound,
+misc 드라이버 업데이트, lockdep, networking, mm 쪽 코어 커널 업데이트, 그리고
+perf 와 selftest 에의 업데이트가 있었다고 이번 릴리즈를 정리하는군요.</p>
+
+<h2 id="patch-0-2-mm-thp-introduce-dedicated-transparent-huge-page">[PATCH 0/2] mm, thp: introduce dedicated transparent huge page</h2>
+
+<p><a href="https://lkml.kernel.org/r/1508145557-9944-1-git-send-email-changbin.du@intel.com" target="_blank">https://lkml.kernel.org/r/1508145557-9944-1-git-send-email-changbin.du@intel.com</a></p>
+
+<p>THP 의 메모리 할당은 좀 복잡하게 여기저기 코드 복사로 구현되어 있습니다.
+HugeTLB 는 별도 인터페이스가 있구요. THP 에도 HugeTLB 처럼 별도 인터페이스를
+사용하도록 제안한 패치입니다.</p>
+
+<h2 id="patch-1-2-lockdep-introduce-crossreleasestacktrace-and-make-it">[PATCH <sup>1</sup>&frasl;<sub>2</sub>] lockdep: Introduce CROSSRELEASESTACKTRACE and make it</h2>
+
+<p><a href="https://lkml.kernel.org/r/1508318006-2090-1-git-send-email-byungchul.park@lge.com" target="_blank">https://lkml.kernel.org/r/1508318006-2090-1-git-send-email-byungchul.park@lge.com</a></p>
+
+<p>지난번 Johan Hovold 가 이야기한 lockdep crossrelease 에 의한 성능 문제 (부팅
+시간이 17초에서 35초까지 늘어났죠)에 대한 해결책입니다.</p>
+
+<p>stack unwind 를 너무 자주 해서 생긴 문제이므로 이를 선택적으로 할 수 있게 하고
+그 디폴트 값을 자주 하지 않도록 수정했네요.</p>
+
+<p>작은 qemu 머신에서 부팅시간이 lockdep disabled 시 1.543 초, lockdep enabled 시
+1.570 초, lockdep + crossrelease enabled 시 1.870 초를 보였는데, 이 패치를
+적용한 후 마지막 환경에서 부팅시간이 1.574 초로 줄었습니다.</p>
+
+<p>패치를 보낸 박병철 님은 커널 로그의 타임스탬프를 통해 부팅 시간을 측정했는데,
+Ingo Molnar 는 부팅 시간 테스트에 qemu 시작 스크립트에 init=/bin/true 과 같은
+kernel parameter 를 줘서 부팅 완료와 함께 종료되게 하고서 perf &ndash;null &ndash;repeat
+옵션을 사용해서 부팅 시간을 측정할 것을 제안했습니다. 유용한 팁 같습니다!</p>
+
+<p>Linux-kernel examples for LKMM recipes
+<a href="https://lkml.kernel.org/r/20171011223229.GA31650@linux.vnet.ibm.com" target="_blank">https://lkml.kernel.org/r/20171011223229.GA31650@linux.vnet.ibm.com</a></p>
+
+<p>리눅스 커널에서의 메모리 순서 규칙을 위한 리트머스 테스트들이 실제로 비슷한
+패턴으로 사용된 예를 Linux Plumbers Conference 에서 요청받은 Paul E. Mckenney
+가 이에 대한 내용을 문서로 만들어 업데이트 했습니다.</p>
+
+<p>해당 문서는 다음 링크에서도 얻을 수 있습니다:
+<a href="https://github.com/aparri/memory-model/blob/master/Documentation/recipes-LKcode.txt" target="_blank">https://github.com/aparri/memory-model/blob/master/Documentation/recipes-LKcode.txt</a></p>
+
+      </div>
+
+      
+
+
+<div class="article-tags">
+  
+  <a class="btn btn-primary btn-outline" href="/tags/linux">linux</a>
+  
+  <a class="btn btn-primary btn-outline" href="/tags/kernel">kernel</a>
+  
+  <a class="btn btn-primary btn-outline" href="/tags/lkml">lkml</a>
+  
+  <a class="btn btn-primary btn-outline" href="/tags/news">news</a>
+  
+</div>
+
+
+
+    </div>
+  </div>
+
+</article>
+
+
+
+<div class="article-container article-widget">
+  <div class="hr-light"></div>
+  <h3>Related</h3>
+  <ul>
+    
+    <li><a href="/post/lkml_news_0000/">LKML News - Intro</a></li>
+    
+    <li><a href="/post/kernel-text-addresses-removed-from-calltrace/">Kernel text addresses removed from calltrace</a></li>
+    
+    <li><a href="/post/fetching-linux-source-code/">Fetching linux kernel source code</a></li>
+    
+    <li><a href="/post/001_linux_dev_intro/">Starting &#39;Linux Kernel Hack&#39; series</a></li>
+    
+    <li><a href="/post/uninstall-kernel/">uninstall kernel</a></li>
+    
+  </ul>
+</div>
+
+
+
+
+<div class="article-container">
+  
+
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <p class="powered-by">
+
+      &copy; 2017 Your Name &middot; 
+
+      Powered by the
+      <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+      <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+      <span class="pull-right" aria-hidden="true">
+        <a href="#" id="back_to_top">
+          <span class="button_icon">
+            <i class="fa fa-chevron-up fa-2x"></i>
+          </span>
+        </a>
+      </span>
+
+    </p>
+  </div>
+</footer>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close btn-large" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Cite</h4>
+      </div>
+      <div>
+        <pre><code class="modal-body tex"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-primary btn-outline js-copy-cite" href="#" target="_blank">
+          <i class="fa fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-primary btn-outline js-download-cite" href="#" target="_blank">
+          <i class="fa fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+
+    
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.3/imagesloaded.pkgd.min.js" integrity="sha512-umsR78NN0D23AzgoZ11K7raBD+R6hqKojyBZs1w8WvYlsI+QuKRGBx3LFCwhatzBunCjDuJpDHwxD13sLMbpRA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
+    
+    
+    <script src="/js/hugo-academic.js"></script>
+    
+
+    
+    
+      
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+      
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+
