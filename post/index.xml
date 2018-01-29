@@ -11,6 +11,46 @@
     <atom:link href="/post/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>LKML News after v4.15</title>
+      <link>https://sjp38.github.io/post/lkml_news_v4.15/</link>
+      <pubDate>Mon, 29 Jan 2018 09:20:38 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/lkml_news_v4.15/</guid>
+      <description>
+
+&lt;h2 id=&#34;linux-4-15&#34;&gt;Linux 4.15&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFzARtx-nA=d1j7vLOLf4FHMJLyRiQ-PKkoexJuTUHogdw@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CA+55aFzARtx-nA=d1j7vLOLf4FHMJLyRiQ-PKkoexJuTUHogdw@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;드디어 4.15 버전이 릴리즈 되었습니다.  지난 한주는 매우 조용하고 변경된 사항이
+거의 없었다는군요.&lt;/p&gt;
+
+&lt;p&gt;이렇게 meltdown/spectre 로 시끄럽고 길었던, 평범하지 않았던 릴리즈 사이클이
+끝났습니다.
+하지만, meltdown/spectre 관련한 일이 아주 끝난 건 아니라고 이야기 하는군요.
+특히, indirect bracnh mitigation 을 위한 가장 큰 수정사항을 반영받기 위해선
+커널만 업데이트 해선 안되고 컴파일러의 &amp;ldquo;retpoline&amp;rdquo; 지원이 있어야 합니다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cat /sys/devices/system/cpu/vulnerabilities/spectre_v2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;로 컴파일러 지원이 있는지 알 수 있는데, 컴파일러 지원이 없다면&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Vulnerable: Minimal generic ASM retpoline
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;이란 출력이 뜰겁니다.&lt;/p&gt;
+
+&lt;p&gt;한가지 더 이야기 해둬야 할건, 이번 릴리즈에 meltdown/spectre 가 많은 영향을
+끼치긴 했지만 그래도 다른 부분들은 평범하게 업데이트가 진행되었다는 겁니다.
+즉, 이번 릴리즈는 좀 평범하지 않기 했지만 그렇다고 아주 이상하기만 한 릴리즈도
+아니었다는 거죠.&lt;/p&gt;
+
+&lt;p&gt;어쨌든 4.15 버전이 드디어 나왔습니다!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>LKML News after v4.15-rc9</title>
       <link>https://sjp38.github.io/post/lkml_news_v4.15-rc9/</link>
       <pubDate>Tue, 23 Jan 2018 12:16:07 +0900</pubDate>
@@ -759,71 +799,6 @@ tree 를 대체할 만한 인터페이스를 목표로 하고있다고 하더군
 수십초씩이나 시스템을 멈춰있게 만드는 문제가 있었는데, shrink_slab() 에서
 shrinker 등록 여부를 rwsem 에 대한 contention 확인으로 파악하고 slab shrinking
 을 멈춰주도록 수정했습니다.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>LKML News after v4.14-rc8</title>
-      <link>https://sjp38.github.io/post/lkml_news_v4.14-rc8/</link>
-      <pubDate>Wed, 08 Nov 2017 04:19:47 +0900</pubDate>
-      
-      <guid>https://sjp38.github.io/post/lkml_news_v4.14-rc8/</guid>
-      <description>
-
-&lt;h2 id=&#34;linux-4-14-rc8&#34;&gt;Linux 4.14-rc8&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lwn.net/Articles/738207/&#34; target=&#34;_blank&#34;&gt;https://lwn.net/Articles/738207/&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;v4.14 를 향한 (아마도) 마지막 rc 버전의 릴리즈입니다.&lt;/p&gt;
-
-&lt;p&gt;정말로 별다른 일 없었다면 그냥 이번에 v4.14 릴리즈를 할 계획이었지만 그정도는
-아니었다고 하는군요.
-어쨌든 rc8 덕분에 v4.15 merge window 는 thanksgiving week 를 포함하게 되었는데
-토발즈는 이때 가족과 휴가를 갈 계획이라 랩톱 가지고 휴가다니는 동안에도 머지를
-잘 할 수 있길 바라지만 문제가 생기면 merge window 를 연장할 수도 있겠다고
-하네요.  일단 어떻게 될지 두고보자는군요.&lt;/p&gt;
-
-&lt;p&gt;이번 릴리즈에 포함된 변경은 대부분 드라이버 쪽 변경이고, SPDK 관련 소스코드에
-라이센스 추가 등을 한 사소하지만 커다란 양의 변경이 있습니다.  또 하나, 4.13
-버전에서 /proc/cpuinfo 가 CPU frequency 를 부정확하게 표시하게 하는 중대한
-버그가 있었는데, 다행히 이번에 고쳐졌군요.&lt;/p&gt;
-
-&lt;h2 id=&#34;page-allocator-bottleneck&#34;&gt;Page allocator bottleneck&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/cef85936-10b2-5d76-9f97-cb03b418fd94@mellanox.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/cef85936-10b2-5d76-9f97-cb03b418fd94@mellanox.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;차세대 고속 NIC 에 의해 두각이 드러나는 소프트웨어쪽 bottleneck 을 찾다보니
-page allocator 쪽에 오버헤드가 있다는 이야기로 시작된 쓰레드로, 9월부터 시작된
-쓰레드인데 요즘 다시 답변이 활기차게 붙고 있습니다.&lt;/p&gt;
-
-&lt;p&gt;ConnectX-5 100 Gbps NIC, Xeon CPU E5-2680 v3 @ 2.50GHz CPU 의 시스템에서
-super_netperf 를 사용, 128개 TCP 스트림을 RX queue 갯수 바꿔가며 돌려가며 BW 를
-측정했습니다.  mlx5 드라이버를 다음과 같이 수정, 사용했습니다.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;1) RX page cache disabled, 2 packets per page.
-2) RX page cache disabled, one packet per page.
-3) Huge RX page cache, one packet per page.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;두번째 드라이버는 200Gbps NIC 을 시뮬레이션 하기 위한 변경입니다.
-첫번째, 세번째 드라이버는 RX queue
-갯수에 따라 BW 가 증가, line rate 까지 도달하는데 두번째 드라이버는 그렇지
-못하고 8개 RX queue 부터는 오히려 BW 가 줄어들었습니다.
-이때 perf top 은
-&lt;code&gt;85.58% [kernel] [k] queued_spin_lock_slowpath&lt;/code&gt; 를 보여, 페이지 할당 메커니즘의
-자체적 성능도 문제고, 확장성도 문제라고 이슈를 최초 제기했습니다.&lt;/p&gt;
-
-&lt;p&gt;PCP (per-CPU) allocator 를 사용해 성능이 좋아지는 걸 확인하고 쓰레드가 닫히는
-것 같았는데, 11월 2일자로 다시 새로운 실험 결과를 가지고 왔습니다.
-PCP allocator 내의 페이지가 남아있을 동안은 문제가 없지만, 이후부터는 페이지가
-할당된 코어와 해제되는 코어가 달라서 buddy allocator 에 부담을 주더란
-이야기입니다.&lt;/p&gt;
-
-&lt;h2 id=&#34;patch-x86-selftests-add-test-for-mapping-placement-for-5-level-paging&#34;&gt;[PATCH] x86/selftests: Add test for mapping placement for 5-level paging&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20171108102250.38609-1-kirill.shutemov@linux.intel.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20171108102250.38609-1-kirill.shutemov@linux.intel.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;x86 의 5-level paging 을 위한 selftest 가 추가되었네요.&lt;/p&gt;
 </description>
     </item>
     
