@@ -364,6 +364,19 @@
 이게 CMA 의 응답시간에는 큰 도움이 되지만, fragmentation 으로 인한 메모리
 낭비가 심합니다.  Laura Abbott 은 이걸 LSFMM 에서 논의해보고 싶어하는군요.</p>
 
+<h2 id="git-pull-tools-linux-kernel-memory-model">[GIT PULL tools] Linux kernel memory model</h2>
+
+<p><a href="https://lkml.kernel.org/r/20180125093440.GA875@linux.vnet.ibm.com" target="_blank">https://lkml.kernel.org/r/20180125093440.GA875@linux.vnet.ibm.com</a></p>
+
+<p>Paul McKenney 의 리눅스 커널 메모리 모델이 리눅스 커널 소스트리의 <code>tools/</code>
+디렉토리로 머지될 것 같습니다!
+이 모델은 <code>cat</code> 언어로 쓰여져서 <code>herd7</code> 시뮬레이터로 실행될 수 있어서, 동시성을
+갖는 코드가 실제로 어떻게 동작할지 검사할 수 있게 해줍니다.
+과장 좀 보태서 자동화된 memory-barriers.txt 라고도 할 수 있죠.</p>
+
+<p>이미 Ingo Molnar 가 풀 했군요.  별다른 문제 없다면 정식 버전으로는 4.17
+버전에서 볼 수 있겠습니다.</p>
+
       </div>
 
       

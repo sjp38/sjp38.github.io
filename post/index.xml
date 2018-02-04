@@ -47,6 +47,39 @@
 아니었다는 거죠.&lt;/p&gt;
 
 &lt;p&gt;어쨌든 4.15 버전이 드디어 나왔습니다!&lt;/p&gt;
+
+&lt;h2 id=&#34;lsf-mm-topic-addressing-mmap-sem-contention&#34;&gt;[LSF/MM TOPIC] Addressing mmap_sem contention&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/4c20d397-1268-ca0f-4986-af59bb31022c@linux.vnet.ibm.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/4c20d397-1268-ca0f-4986-af59bb31022c@linux.vnet.ibm.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;리눅스 커널에서 메모리 매핑은 mmap_sem 이라는 reader-writer semaphor 를 이용해
+race condition 으로부터 보호되고 있습니다.  당연하게도, 쓰레드가 많은 환경에선
+여기 부하가 심하게 걸리고 성능 확장을 저해하게 됩니다.  Peter Zijlstra 의
+Speculative Page Fault 패치는 페이지 폴트 시에 메모리 매핑을 할 때 mmap_sem 을
+잡지 않고 매핑하려 시도해보고 중간에 동시에 같은 영역을 매핑하려 한 쓰레드가
+존재하면 abort &amp;amp; retry 를 하는식으로 이 문제를 완화시킵니다.
+해당 패치셋은 최근 Laurent 에 의해 다시 포팅되어 커뮤니티에 올라오기도 했죠.
+실제로 ebizzy[1] 와 같이 쓰레드를 많이 쓰는 벤치마크에서는 두배가까이 성능
+향상이 있었다고 하구요.&lt;/p&gt;
+
+&lt;p&gt;하지만 Speculative Page Fault 만으로는 모든 문제가 해결되지 않기에 mmap_sem
+자체에 대한 논의를 LSFMM 에서 하고 싶다는 메일입니다.&lt;/p&gt;
+
+&lt;p&gt;병렬 프로그래밍에 관심있는 제게도 흥미로운 주제네요.&lt;/p&gt;
+
+&lt;p&gt;[1] &lt;a href=&#34;http://ebizzy.sourceforge.net/&#34; target=&#34;_blank&#34;&gt;http://ebizzy.sourceforge.net/&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;lsf-mm-topic-lru-lock-scalability&#34;&gt;[LSF/MM TOPIC] lru_lock scalability&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/2a16be43-0757-d342-abfb-d4d043922da9@oracle.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/2a16be43-0757-d342-abfb-d4d043922da9@oracle.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;최근에 덜 사용된 (Least Recently Used) 페이지를 가려내기 위해 사용되는
+&lt;code&gt;lru_lock&lt;/code&gt; 은 메모리 집중적 벤치마크를 돌릴 때 커널에서 가장 뜨거워지는 락들
+가운데 하나입니다.
+당연히 확장성 문제가 있죠.&lt;/p&gt;
+
+&lt;p&gt;이걸 배칭 또는 페이지 개별적 락킹을 통해 해결해 보자는 안을 내놓고 이에 대해
+LSFMM 에서 이야기 해보자는 메일입니다.&lt;/p&gt;
 </description>
     </item>
     
@@ -82,6 +115,19 @@
 시간이 걸리므로, 하나의 비트가 여러개의 페이지를 담당하도록 되어있습니다.
 이게 CMA 의 응답시간에는 큰 도움이 되지만, fragmentation 으로 인한 메모리
 낭비가 심합니다.  Laura Abbott 은 이걸 LSFMM 에서 논의해보고 싶어하는군요.&lt;/p&gt;
+
+&lt;h2 id=&#34;git-pull-tools-linux-kernel-memory-model&#34;&gt;[GIT PULL tools] Linux kernel memory model&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20180125093440.GA875@linux.vnet.ibm.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20180125093440.GA875@linux.vnet.ibm.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Paul McKenney 의 리눅스 커널 메모리 모델이 리눅스 커널 소스트리의 &lt;code&gt;tools/&lt;/code&gt;
+디렉토리로 머지될 것 같습니다!
+이 모델은 &lt;code&gt;cat&lt;/code&gt; 언어로 쓰여져서 &lt;code&gt;herd7&lt;/code&gt; 시뮬레이터로 실행될 수 있어서, 동시성을
+갖는 코드가 실제로 어떻게 동작할지 검사할 수 있게 해줍니다.
+과장 좀 보태서 자동화된 memory-barriers.txt 라고도 할 수 있죠.&lt;/p&gt;
+
+&lt;p&gt;이미 Ingo Molnar 가 풀 했군요.  별다른 문제 없다면 정식 버전으로는 4.17
+버전에서 볼 수 있겠습니다.&lt;/p&gt;
 </description>
     </item>
     
