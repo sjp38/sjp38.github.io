@@ -354,6 +354,16 @@
 <p>다음주에는 꼭 4.15를 릴리즈 하고 싶다고 하는데, 아마도 다음주에는 4.15 정식
 버전이 릴리즈되길 빕니다.</p>
 
+<h2 id="lsf-mm-topic-cma-and-larger-page-sizes">[LSF/MM TOPIC] CMA and larger page sizes</h2>
+
+<p><a href="https://lkml.kernel.org/r/3a3d724e-4d74-9bd8-60f3-f6896cffac7a@redhat.com" target="_blank">https://lkml.kernel.org/r/3a3d724e-4d74-9bd8-60f3-f6896cffac7a@redhat.com</a></p>
+
+<p>Contiguous Memory Allocator (CMA) 는 할당에 사용되는 메모리 영역을 비트맵으로
+관리하는데, 페이지 하나에 비트 하나씩 주면 비트맵을 traverse 하는데 너무 많은
+시간이 걸리므로, 하나의 비트가 여러개의 페이지를 담당하도록 되어있습니다.
+이게 CMA 의 응답시간에는 큰 도움이 되지만, fragmentation 으로 인한 메모리
+낭비가 심합니다.  Laura Abbott 은 이걸 LSFMM 에서 논의해보고 싶어하는군요.</p>
+
       </div>
 
       
@@ -391,9 +401,9 @@
     
     <li><a href="/post/lkml_news_v4.15-rc6/">LKML News after v4.15-rc6</a></li>
     
-    <li><a href="/post/lkml_news_v4.15-rc5/">LKML News after v4.15-rc5</a></li>
-    
     <li><a href="/post/lkml_news_v4.14-rc4/">LKML News after v4.15-rc5</a></li>
+    
+    <li><a href="/post/lkml_news_v4.15-rc5/">LKML News after v4.15-rc5</a></li>
     
   </ul>
 </div>
