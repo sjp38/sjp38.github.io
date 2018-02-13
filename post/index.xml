@@ -11,6 +11,29 @@
     <atom:link href="/post/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Lkml_news_v4.16 Rc1</title>
+      <link>https://sjp38.github.io/post/lkml_news_v4.16-rc1/</link>
+      <pubDate>Tue, 13 Feb 2018 13:56:47 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/lkml_news_v4.16-rc1/</guid>
+      <description>
+
+&lt;h2 id=&#34;linux-4-16-rc1&#34;&gt;Linux 4.16-rc1&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFzXVqgCMhPL9EaMW_D9E=HCQ9+JSQAbBPe3Oa_iQtky=g@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CA+55aFzXVqgCMhPL9EaMW_D9E=HCQ9+JSQAbBPe3Oa_iQtky=g@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;어느덧 2주일이 지났습니다.  머지 윈도우가 닫히고 4.16 첫번째 rc 버전이
+나왔습니다.  4.15는 역시 토발즈에게 고통스러웠던 시간이었던지 이번 머지
+윈도우는 4.15 보다 훨씬 나았다는 토발즈의 이야기입니다.&lt;/p&gt;
+
+&lt;p&gt;이번 릴리즈에서는 GPU 쪽 변경 사항이 많고 대부분은 드라이버라 아주 큰 변화는
+거의 없지만, 여전히 arch 쪽에도, 네트워킹과 파일시스템 등에도 변경이 없지는
+않다고 정리하고 있습니다.
+스펙터 / 멜트다운 이슈에 대한 x86 외 아키텍쳐의 변경사항들도 들어왔군요.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>LKML News after v4.15</title>
       <link>https://sjp38.github.io/post/lkml_news_v4.15/</link>
       <pubDate>Mon, 29 Jan 2018 09:20:38 +0900</pubDate>
@@ -822,61 +845,6 @@ Track 등등으로 나뉘어 동시진행되었는데요.  아무래도 커널 �
 &lt;p&gt;그냥 돌아가기엔 시간이 좀 있기에 시내를 조금 둘러보면서 좀 걸었습니다.  프라하
 역사도 복잡하고 해서 뭔가 와닿지는 않은 도시인데, 그래도 아름다움 하나는
 인정할만 한 것 같습니다.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>LKML News after v4.14</title>
-      <link>https://sjp38.github.io/post/lkml_news_v4.14/</link>
-      <pubDate>Mon, 13 Nov 2017 17:07:44 +0900</pubDate>
-      
-      <guid>https://sjp38.github.io/post/lkml_news_v4.14/</guid>
-      <description>
-
-&lt;h2 id=&#34;linux-4-14&#34;&gt;Linux 4.14&lt;/h2&gt;
-
-&lt;p&gt;htpps://lkml.kernel.org/r/CA+55aFwqXh4rgJJ3T98k8wa-JYF7t8mWuwUjdxkbZyOyDEcGzQ@mail.gmail.com&lt;/p&gt;
-
-&lt;p&gt;드디어 v4.14 의 릴리즈입니다.  이번 버전은 또하나의 LTS 커널이 될 예정이군요.&lt;/p&gt;
-
-&lt;p&gt;동시에, v4.15 를 위한 머지 윈도우가 열렸습니다.  이번 머지 윈도우는 thanks
-giving 이랑 겹치게 되었는데, 이때문에 머지 윈도우를 연장할지 아니면 아예 1주일
-줄일지 토발즈는 고민중인 것 같네요.&lt;/p&gt;
-
-&lt;h2 id=&#34;rfc-patch-v11-for-4-15-01-24-restartable-sequences-system-call&#34;&gt;[RFC PATCH v11 for 4.15 01/24] Restartable sequences system call&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20171114200414.2188-2-mathieu.desnoyers@efficios.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20171114200414.2188-2-mathieu.desnoyers@efficios.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;몇년전부터 올라오고 있으나 아직 머지되지 못한, restartable sequence 패치의 최신
-버전이 또 올라왔습니다.  유저스페이스의 크리티컬 섹션을 커널에게 제어할 수
-있도록 도와주는 기능입니다.  이번엔 머지될런지?&lt;/p&gt;
-
-&lt;h2 id=&#34;patch-v2-selftest-vm-add-test-case-for-mmap-across-128tb-boundary&#34;&gt;[PATCH V2] selftest/vm: Add test case for mmap across 128TB boundary.&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20171123030313.6418-1-aneesh.kumar@linux.vnet.ibm.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20171123030313.6418-1-aneesh.kumar@linux.vnet.ibm.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;128TB mmap() 에 대한 테스트 케이스가 kselftest 에 추가되었습니다.  x86_64 와
-powerpc64 를 지원하는군요.&lt;/p&gt;
-
-&lt;p&gt;이후 몇가지 코멘트를 받고 v3 도 올라왔습니다:
-&lt;a href=&#34;https://lkml.kernel.org/r/20171123165226.32582-1-aneesh.kumar@linux.vnet.ibm.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20171123165226.32582-1-aneesh.kumar@linux.vnet.ibm.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;xarray-documentation&#34;&gt;XArray documentation&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20171124011607.GB3722@bombadil.infradead.org&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20171124011607.GB3722@bombadil.infradead.org&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;지난 ossummit europe 에서 흥미롭게 발표를 들었던 XArray 의 문서입니다.  radix
-tree 를 대체할 만한 인터페이스를 목표로 하고있다고 하더군요.&lt;/p&gt;
-
-&lt;h2 id=&#34;patch-mm-do-not-stall-register-shrinker&#34;&gt;[PATCH] mm: Do not stall register_shrinker&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/1511481899-20335-1-git-send-email-minchan@kernel.org&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/1511481899-20335-1-git-send-email-minchan@kernel.org&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;메모리가 부족할 때 깨어나 일을 하게 되는 shrinker 의 등록 시 메모리가 부족해서
-다른 것들에 의해 shink_slab() 에서 시간을 보내느라 register_shrinker() 에서
-수십초씩이나 시스템을 멈춰있게 만드는 문제가 있었는데, shrink_slab() 에서
-shrinker 등록 여부를 rwsem 에 대한 contention 확인으로 파악하고 slab shrinking
-을 멈춰주도록 수정했습니다.&lt;/p&gt;
 </description>
     </item>
     
