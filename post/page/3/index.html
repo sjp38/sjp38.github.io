@@ -73,7 +73,7 @@
   <meta property="og:description" content="System Programmer">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2017-10-29T16:55:24&#43;09:00">
+  <meta property="og:updated_time" content="2017-11-03T14:51:35&#43;09:00">
   
 
   
@@ -246,6 +246,71 @@
   
 
   
+  
+    
+    
+
+<div class="article-list-item" itemscope itemprop="blogPost">
+  
+  
+  <h3 class="article-title" itemprop="name">
+    <a href="https://sjp38.github.io/post/lkml_news_v4.14-rc7/" itemprop="url">LKML News after v4.14-rc7</a>
+  </h3>
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2017-11-03 14:51:35 &#43;0900 KST" itemprop="datePublished">
+      Nov 3, 2017
+    </time>
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/lkml-news">lkml news</a
+    >
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+  <div class="article-style" itemprop="articleBody">
+    
+    Linux 4.14-rc7 https://lkml.kernel.org/r/CA+55aFwhgxivTE3k88nshbrH9nd-4nhmhXGzw-MxRVGxf-R8Eg@mail.gmail.com
+일곱번째 rc 버전의 릴리즈입니다.
+OSSE 와 kernel summit 으로 프라하를 방문했던 토발즈인데, 집에 잘 돌아왔다는군요. 이번 rc 버전은 기존의 rc7 보다도 작은 편에 가깝다고 합니다만, 다음 한주간이 정말 조용하지 않는한은 rc8 릴리즈를 할 생각이라는군요.
+Re: Page allocator bottleneck https://lkml.kernel.org/r/1c218381-067e-7757-ccc2-4e5befd2bfc3@mellanox.com
+멜라녹스의 빠른 네트워크 카드를 사용하는 환경에서는 page allocator 의 속도가 bottleneck 이 된다는 이야기에 대한 업데이트입니다. 여전히 해당 부분이 bottleneck 이며, queued_spin_lock_slowpath() 가 85 % 가까이 CPU 를 차지하고 있군요.
+    
+  </div>
+  <p class="read-more">
+    <a href="https://sjp38.github.io/post/lkml_news_v4.14-rc7/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
   
     
     
@@ -816,69 +881,6 @@ Call Trace 커널은 문제가 발생하거나 하면 문제의 원인을 찾을
   </div>
   <p class="read-more">
     <a href="https://sjp38.github.io/post/kernel-text-addresses-removed-from-calltrace/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-  
-    
-    
-
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/lkml_go/" itemprop="url">lkml livestream</a>
-  </h3>
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2017-05-28 17:51:43 &#43;0900 KST" itemprop="datePublished">
-      May 28, 2017
-    </time>
-  </span>
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/projects">projects</a
-    >
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-  <div class="article-style" itemprop="articleBody">
-    
-    I wrote a simple, stupid program[1] that showing LKML[2] mails in terminal briefly like twitter livestream in Go language. It is just an early version and so many things to be complemented exists, though. Nevertheless, now it just works as I wanted at first.
-쏟아지는 LKML[2] 의 메일들을 트위터 라이브스트림처럼 터미널에 보여주는 간단한 프로그램[1] 을 go 언어로 만들어 봤습니다. 아직 보완할 점 투성이지만 이제 최초의 목적대로는 동작하는군요.
-References [1] https://github.
-    
-  </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/lkml_go/" class="btn btn-primary btn-outline">
       CONTINUE READING
     </a>
   </p>

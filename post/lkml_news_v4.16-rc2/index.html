@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
@@ -13,7 +11,7 @@
   <meta name="description" content="System Programmer">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/categories/lkml-news/">
+  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/lkml_news_v4.16-rc2/">
 
   
   
@@ -72,22 +70,24 @@
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://sjp38.github.io/categories/lkml-news/">
+  <link rel="canonical" href="https://sjp38.github.io/post/lkml_news_v4.16-rc2/">
 
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="Hacklog">
-  <meta property="og:url" content="https://sjp38.github.io/categories/lkml-news/">
-  <meta property="og:title" content="Lkml news | Hacklog">
-  <meta property="og:description" content="System Programmer">
+  <meta property="og:url" content="https://sjp38.github.io/post/lkml_news_v4.16-rc2/">
+  <meta property="og:title" content="Lkml_news_v4.16 Rc2 | Hacklog">
+  <meta property="og:description" content="">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2018-02-19T11:09:15&#43;09:00">
+  <meta property="article:published_time" content="2018-02-19T11:09:15&#43;09:00">
+  
+  <meta property="article:modified_time" content="2018-02-19T11:09:15&#43;09:00">
   
 
   
 
-  <title>Lkml news | Hacklog</title>
+  <title>Lkml_news_v4.16 Rc2 | Hacklog</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
@@ -245,127 +245,161 @@
 </nav>
 
 
-
-
-
-<div class="universal-wrapper">
-
-  <h1>Lkml news</h1>
+<article class="article" itemscope itemtype="http://schema.org/Article">
 
   
 
-  
-  
-  <div>
-    <h2><a href="https://sjp38.github.io/post/lkml_news_v4.16-rc2/">Lkml_news_v4.16 Rc2</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="https://sjp38.github.io/post/lkml_news_v4.16-rc1/">Lkml_news_v4.16 Rc1</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="https://sjp38.github.io/post/lkml_news_v4.15/">LKML News after v4.15</a></h2>
-    <div class="article-style">
-      
-      Linux 4.15 <a href="https://lkml.kernel.org/r/CA+55aFzARtx-nA=d1j7vLOLf4FHMJLyRiQ-PKkoexJuTUHogdw@mail.gmail.com" target="_blank">https://lkml.kernel.org/r/CA+55aFzARtx-nA=d1j7vLOLf4FHMJLyRiQ-PKkoexJuTUHogdw@mail.gmail.com</a>
-드디어 4.15 버전이 릴리즈 되었습니다. 지난 한주는 매우 조용하고 변경된 사항이 거의 없었다는군요.
-이렇게 meltdown/spectre 로 시끄럽고 길었던, 평범하지 않았던 릴리즈 사이클이 끝났습니다. 하지만, meltdown/spectre 관련한 일이 아주 끝난 건 아니라고 이야기 하는군요. 특히, indirect bracnh mitigation 을 위한 가장 큰 수정사항을 반영받기 위해선 커널만 업데이트 해선 안되고 컴파일러의 &ldquo;retpoline&rdquo; 지원이 있어야 합니다.
-cat /sys/devices/system/cpu/vulnerabilities/spectre_v2  로 컴파일러 지원이 있는지 알 수 있는데, 컴파일러 지원이 없다면
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="https://sjp38.github.io/post/lkml_news_v4.15-rc9/">LKML News after v4.15-rc9</a></h2>
-    <div class="article-style">
-      
-      Not final 4.15 this weekend <a href="https://lkml.kernel.org/r/CA+55aFxzQBH5gnG92ah-PREfOqb5_rjWriLH3fWHMWS1=BSQFw@mail.gmail.com" target="_blank">https://lkml.kernel.org/r/CA+55aFxzQBH5gnG92ah-PREfOqb5_rjWriLH3fWHMWS1=BSQFw@mail.gmail.com</a>
-원래대로라면 4.15 정식 버전의 릴리즈가 될 타이밍이었습니다만&hellip; 아직 충분히 안정화 되지 않은 것 같다는 토발즈의 판단 아래 이번주에도 rc 버전이 나왔습니다. rc9 입니다. 2011년의 3.1-rc9 이후 처음 나온 rc9 이네요.
-이번 릴리즈는 x86, arm powerpc, mips 쪽의 arch 업데이트, 드라이버, 그리고 네트워킹 핵심부 업데이트가 주된 변경이군요.
-다음주에는 꼭 4.15를 릴리즈 하고 싶다고 하는데, 아마도 다음주에는 4.15 정식 버전이 릴리즈되길 빕니다.
-[LSF/MM TOPIC] CMA and larger page sizes <a href="https://lkml" target="_blank">https://lkml</a>.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="https://sjp38.github.io/post/lkml_news_v4.15-rc8/">LKML News after v4.15-rc8</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="https://sjp38.github.io/post/lkml_news_v4.15-rc7/">LKML News after v4.15-rc7</a></h2>
-    <div class="article-style">
-      
-      Linux 4.15-rc7 <a href="https://lkml.kernel.org/r/CA+55aFwbmKznuQZe_VemxXJPSmB-9yy8uyWsMZcrkA4T=m8xkw@mail.gmail.com" target="_blank">https://lkml.kernel.org/r/CA+55aFwbmKznuQZe_VemxXJPSmB-9yy8uyWsMZcrkA4T=m8xkw@mail.gmail.com</a>
-Meltdown 과 Spectre 로 떠들썩했던 시간을 지나 4.15 의 일곱번째 rc 버전이 릴리즈 되었습니다. 지난 여섯번째 릴리즈 때도 상당히 안정화에 신경써야 할 시점임에도 x86 pti (page table isolation) 업데이트 패치가 많이 머지되어 의아했는데, 이게 Meltdown 과 Spectre 버그 때문이었음도 밝혀졌죠. 그렇다곤 해도 그 외의 부분은 예상대로 상당히 안정화 되어가고 있다고 합니다.
-더불어, Thomas Geixner 등의 인텔쪽 커널 개발자들의 노력 덕에 pti 등 Meltdown 과 Spectre 버그를 위한 패치가 잘 관리되어 비교적 쉽게 머지될 수 있었음에 리누스가 감사를 표하네요.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="https://sjp38.github.io/post/lkml_news_v4.15-rc6/">LKML News after v4.15-rc6</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="https://sjp38.github.io/post/lkml_news_v4.14-rc4/">LKML News after v4.15-rc5</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="https://sjp38.github.io/post/lkml_news_v4.15-rc5/">LKML News after v4.15-rc5</a></h2>
-    <div class="article-style">
-      
-      Linux 4.15-rc5 <a href="https://lkml.kernel.org/r/CA+55aFy1U+uBLEAoCWU3=BqEbROW6rsbaHUdYJArR6iYQQWo_A@mail.gmail.com" target="_blank">https://lkml.kernel.org/r/CA+55aFy1U+uBLEAoCWU3=BqEbROW6rsbaHUdYJArR6iYQQWo_A@mail.gmail.com</a>
-4.15 의 다섯번째 rc 버전이 평소 스케쥴보다 하루 일찍 릴리즈 되었습니다. 원래대로라면 내일일텐데, 미국 시간으로는 크리스마스 이브라서 그냥 오늘 릴리즈 한다는군요.
-이번 rc5 의 변경 사항들도 지난 릴리즈의 rc5 와 비슷했다고 하는데, 다만 x86 의 커널 페이지 테이블 격리화 관련 작업이 진행 중인 게 좀 예외라고 하는군요.
-Re: About the try to remove cross-release feature entirely by Ingo <a href="https://lkml.kernel.org/r/20171229014736.GA10341@X58A-UD3R" target="_blank">https://lkml.kernel.org/r/20171229014736.GA10341@X58A-UD3R</a>
-Lockdep 의 cross release 기능은 너무 느렸고, false positive 가 많다는 이유로, 특히 false positive 가 너무 많다는 이유로 Ingo Molnar 에 의해 제거되려 하고 있습니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="https://sjp38.github.io/post/lkml_news_v4.15-rc4/">LKML News after v4.15-rc4</a></h2>
-    <div class="article-style">
-      
-      Linux 4.15-rc4 <a href="https://lkml.kernel.org/r/CA+55aFysmVGm_shBvK4kmaS+_PsMEt3Mz_b+Dm0SDrmVtUofbA@mail.gmail.com" target="_blank">https://lkml.kernel.org/r/CA+55aFysmVGm_shBvK4kmaS+_PsMEt3Mz_b+Dm0SDrmVtUofbA@mail.gmail.com</a>
-4.15 의 네번째 rc 버전입니다. 지난 rc 버전들이 생각보다 커서 토발즈가 좀 걱정했는데, 이번 릴리즈에 들어서는 평범한 네번째 rc 만큼이나 변화가 많이 없어 충분히 안정화 되기 시작한 것 같다고 하는군요.
-이번에 가장 눈에 띌만한 변화는 suspend/resume 처리를 정리하고 고친 것이라고 합니다. 크로스 락킹 디버깅 기능은 부팅 시간을 늘리는 문제 등도 있어선지 이번에 일단 제거되었네요. 나중에 다시 되살릴 계획은 있는 것 같습니다.
-[PATCH v2 1&frasl;1] Move kfree_call_rcu() to slab_common.
-      
-    </div>
-  </div>
-  
 
-  
-<nav>
-  <ul class="pager">
+  <div class="article-container">
+    <div class="article-inner">
+      <h1 itemprop="name">Lkml_news_v4.16 Rc2</h1>
+
+      
+
+<div class="article-metadata">
+
+  <span class="article-date">
     
+    <time datetime="2018-02-19 11:09:15 &#43;0900 KST" itemprop="datePublished">
+      Feb 19, 2018
+    </time>
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
     
-    <li><a href="/categories/lkml-news/page/2/">&gt;</a></li>
+    <a href="/categories/lkml-news">lkml news</a
+    >
     
+  </span>
+  
+  
+
+  
+  
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Lkml_news_v4.16%20Rc2&amp;url=https%3a%2f%2fsjp38.github.io%2fpost%2flkml_news_v4.16-rc2%2f"
+         target="_blank" rel="noopener">
+        <i class="fa fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fsjp38.github.io%2fpost%2flkml_news_v4.16-rc2%2f"
+         target="_blank" rel="noopener">
+        <i class="fa fa-facebook"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fsjp38.github.io%2fpost%2flkml_news_v4.16-rc2%2f&amp;title=Lkml_news_v4.16%20Rc2"
+         target="_blank" rel="noopener">
+        <i class="fa fa-linkedin"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fsjp38.github.io%2fpost%2flkml_news_v4.16-rc2%2f&amp;title=Lkml_news_v4.16%20Rc2"
+         target="_blank" rel="noopener">
+        <i class="fa fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Lkml_news_v4.16%20Rc2&amp;body=https%3a%2f%2fsjp38.github.io%2fpost%2flkml_news_v4.16-rc2%2f">
+        <i class="fa fa-envelope"></i>
+      </a>
+    </li>
   </ul>
-</nav>
+</div>
 
 
+  
 
 </div>
+
+
+      <div class="article-style" itemprop="articleBody">
+        
+
+<h2 id="linux-4-16-rc2">Linux 4.16-rc2</h2>
+
+<p><a href="https://lkml.kernel.org/r/CA+55aFwDnBq9V6TVbc82DzVYpf-ELF7UcYzHuY0ei1Xjnob+0A@mail.gmail.com" target="_blank">https://lkml.kernel.org/r/CA+55aFwDnBq9V6TVbc82DzVYpf-ELF7UcYzHuY0ei1Xjnob+0A@mail.gmail.com</a></p>
+
+<p>4.16 두번째 rc 버전의 릴리즈입니다.  이번 한주는 매우 조용한 한주였군요.  머지
+윈도우가 끝나고 사람들이 좀 쉬기 때문일수도, 아직 버그를 찾지 못해서일 수도
+있고 일반적으로 rc2 는 조용한 편이지만, 어쨌든 토발즈는 만족스러운 눈치입니다.
+4.15 에서의 spectre &amp; meltdown 때문에 더 그럴지도 모르겠지만요.</p>
+
+      </div>
+
+      
+
+
+<div class="article-tags">
+  
+  <a class="btn btn-primary btn-outline" href="/tags/linux">linux</a>
+  
+  <a class="btn btn-primary btn-outline" href="/tags/kernel">kernel</a>
+  
+  <a class="btn btn-primary btn-outline" href="/tags/lkml">lkml</a>
+  
+  <a class="btn btn-primary btn-outline" href="/tags/news">news</a>
+  
+</div>
+
+
+
+    </div>
+  </div>
+
+</article>
+
+
+
+<div class="article-container article-widget">
+  <div class="hr-light"></div>
+  <h3>Related</h3>
+  <ul>
+    
+    <li><a href="/post/lkml_news_v4.16-rc1/">Lkml_news_v4.16 Rc1</a></li>
+    
+    <li><a href="/post/lkml_news_v4.15/">LKML News after v4.15</a></li>
+    
+    <li><a href="/post/lkml_news_v4.15-rc9/">LKML News after v4.15-rc9</a></li>
+    
+    <li><a href="/post/lkml_news_v4.15-rc8/">LKML News after v4.15-rc8</a></li>
+    
+    <li><a href="/post/lkml_news_v4.15-rc7/">LKML News after v4.15-rc7</a></li>
+    
+  </ul>
+</div>
+
+
+
+
+<div class="article-container">
+  
+
+</div>
+
 <footer class="site-footer">
   <div class="container">
     <p class="powered-by">
@@ -448,6 +482,4 @@ Lockdep 의 cross release 기능은 너무 느렸고, false positive 가 많다�
 
   </body>
 </html>
-
-
 
