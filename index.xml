@@ -11,6 +11,24 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>LKML News after v4.16-rc4</title>
+      <link>https://sjp38.github.io/post/lkml_news_v4.16-rc4/</link>
+      <pubDate>Mon, 05 Mar 2018 10:50:48 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/lkml_news_v4.16-rc4/</guid>
+      <description>
+
+&lt;h2 id=&#34;linux-4-16-rc4&#34;&gt;Linux 4.16-rc4&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFxXg8hi+T_DNCG_OrAotqSheyREw-Njf9XgUD1vXqAyHQ@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CA+55aFxXg8hi+T_DNCG_OrAotqSheyREw-Njf9XgUD1vXqAyHQ@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;벌써 개발 단계의 중반이라 할 수 있는 rc4 의 릴리즈입니다.  4.16 버전의 릴리즈도
+얼마 남지 않았군요.  여전히 충분히 조용한 한주였습니다.  다만 여기저기에 조금씩
+변경사항이 골고루 있군요.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Lkml_news_v4.16 Rc3</title>
       <link>https://sjp38.github.io/post/lkml_news_v4.16-rc3/</link>
       <pubDate>Mon, 26 Feb 2018 18:38:53 +0100</pubDate>
@@ -617,68 +635,6 @@ kthread_worker 는 하나의 쓰레드만 지원하기 때문에 ktask 를 새�
 새로운 자료구조 인터페이스입니다.  이번 버전의 패치를 통해 page cache 가 완전히
 Radix tree 에서 XArray 로 갈아타게 했다는군요.  하지만 여전히 문제들도 많아서
 바로 머지되진 않을 것 같다고 패치의 작성자도 이야기하네요.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>LKML News after v4.15-rc1</title>
-      <link>https://sjp38.github.io/post/lkml_news_v4.15-rc1/</link>
-      <pubDate>Mon, 27 Nov 2017 11:09:15 +0900</pubDate>
-      
-      <guid>https://sjp38.github.io/post/lkml_news_v4.15-rc1/</guid>
-      <description>
-
-&lt;h2 id=&#34;linux-4-15-rc1&#34;&gt;Linux 4.15-rc1&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFzcudOPSwbD9XfVxBgFsQOhBjyncyYnGDYwZUEHOGUwcw@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CA+55aFzcudOPSwbD9XfVxBgFsQOhBjyncyYnGDYwZUEHOGUwcw@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;예정대로 2주만에 4.15 의 첫번째 rc 버전이 나왔습니다.&lt;/p&gt;
-
-&lt;p&gt;지난주는 추수감사절이라 다들 휴가인 사람이 많았기에 첫번째 주에 최대한 많이
-풀리퀘스트를 받았고 지난주는 좀 더 까다롭게 풀리퀘스트를 검사했군요.  토발즈는
-두번째 주 동안 랩톱 들고 여행중이었고, 랩톱에서는 전체 모듈 빌드를 하지 않기
-때문이라 합니다.  메인테이너들도 가능한 첫번째 주에 중요 플리퀘스트를 보내는
-식으로 협조를 해줬다고 합니다.  그네들도 두번째주는 휴가가고 싶었을테니&amp;hellip; ;)&lt;/p&gt;
-
-&lt;p&gt;4.14 가 LTS 였기에 이번 머지윈도우에는 변화가 크지 않을 것으로 예상했는데
-생각보다 많은 풀리퀘스트가 있었다고 합니다.  4.9 때와는 다른 경향인데, 4.9 에
-비해 4.14 가 변화가 크지 않았기 때문 아니겠냐고 토발즈는 생각하는군요.&lt;/p&gt;
-
-&lt;h2 id=&#34;patch-v3-0-4-introduce-get-user-pages-longterm&#34;&gt;[PATCH v3 0/4] introduce get_user_pages_longterm()&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/151197872943.26211.6551382719053304996.stgit@dwillia2-desk3.amr.corp.intel.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/151197872943.26211.6551382719053304996.stgit@dwillia2-desk3.amr.corp.intel.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;커널스페이스에서 꽤 오랜시간 페이지를 잡아둬야 하는 경우를 위한, 예를 들어
-dma-to-dax vs truncate 문제를 위한, get_user_pages() 의 변종의 추가입니다.
-실제 이를 사용하는 패치는 나중에 올라올 것 같군요.&lt;/p&gt;
-
-&lt;h2 id=&#34;patch-00-18-introduce-a-new-tool-valid-access-checker&#34;&gt;[PATCH 00/18] introduce a new tool, valid access checker&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/1511855333-3570-1-git-send-email-iamjoonsoo.kim@lge.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/1511855333-3570-1-git-send-email-iamjoonsoo.kim@lge.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Valid access checker (Vchecker) 라는 이름의 새로운 메모리 에러 탐색 도구의
-소개입니다.  Out of bound access, use after free 같은, 의도되지 않은 메모리
-접근을 잡아낼 수 있게 해준다고 하는군요.  Kernel Address SANitizer (KASAN) 의
-기능에 많이 의존하고 있기 때문에 KASAN 메인테이너 중 하나인 Dmitry 는 이게
-별도의 도구로 머지되어야 할지 의문스럽다며 머지될 예정이면 한번 더 이야기
-해달라고 하네요.&lt;/p&gt;
-
-&lt;h2 id=&#34;patch-v2-0-3-mm-cma-manage-the-memory-of-the-cma-area-by-using-the-zone-movable&#34;&gt;[PATCH v2 0/3] mm/cma: manage the memory of the CMA area by using the ZONE_MOVABLE&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/1512114786-5085-1-git-send-email-iamjoonsoo.kim@lge.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/1512114786-5085-1-git-send-email-iamjoonsoo.kim@lge.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;CMA 를 위한 영역은 하나의 zone 내에 위치하게 되는데, 이 zone 내에 다양한 특성의
-페이지들이 혼재되어있다보니 이런저런 문제가 생깁니다.  CMA 영역을 MOVABLE zone
-만 쓰도록 함으로써 이 문제를 해결하는 패치입니다.&lt;/p&gt;
-
-&lt;h2 id=&#34;patch-tip-core-rcu-0-21-de-emphasize-smp-read-barrier-depends&#34;&gt;[PATCH tip/core/rcu 0/21] De-emphasize {smp_,}read_barrier_depends&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20171201195053.GA23494@linux.vnet.ibm.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20171201195053.GA23494@linux.vnet.ibm.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;RCU 패치는 일단 Paul 의 트리에 머지된 후, tip 트리로 머지되고 나서야 토발즈의
-트리에 들어갑니다.  이번에도 tip 트리로 머지되기 위한 패치들이 올라왔습니다.
-그중에서도 이 시리즈는 READ_ONCE() 에 들어간 smp_read_barrier_depends() 의
-architecture independent 한 코드로부터의 제거를 담고 있습니다.&lt;/p&gt;
 </description>
     </item>
     
