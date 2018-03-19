@@ -11,6 +11,24 @@
     <atom:link href="/post/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>LKML News after v4.16-rc6</title>
+      <link>https://sjp38.github.io/post/lkml_news_v4.16-rc6/</link>
+      <pubDate>Mon, 19 Mar 2018 10:19:34 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/lkml_news_v4.16-rc6/</guid>
+      <description>
+
+&lt;h2 id=&#34;linux-4-16-rc6&#34;&gt;Linux 4.16-rc6&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFzV1nffUeriZLksK90noD49T+w+WmgBsYMAO13rTbn3Pg@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CA+55aFzV1nffUeriZLksK90noD49T+w+WmgBsYMAO13rTbn3Pg@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;4.16 여섯번째 rc 버전이 나왔습니다.  4.16을 향한 이번 사이클은 상당히 순탄하게
+진행되는군요.  rc7 까진 만들 예정이라고 하는데, 그 후엔 4.16이 안정적으로
+나오게 될 것 같습니다.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>LKML News after v4.16-rc5</title>
       <link>https://sjp38.github.io/post/lkml_news_v4.16-rc5/</link>
       <pubDate>Mon, 12 Mar 2018 10:08:11 +0900</pubDate>
@@ -514,101 +532,6 @@ swap device 에 대해서는 swapcache 를 건너뛰게 한게 원인이 되었�
 
 &lt;p&gt;RCU 의 modularity 를 개선하는 패치입니다.  몇가지 쟁점이 있긴 하지만 기본
 아이디어는 받아들여지는 분위기군요.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>LKML News after v4.15-rc3</title>
-      <link>https://sjp38.github.io/post/lkml_news_v4.15-rc3/</link>
-      <pubDate>Mon, 11 Dec 2017 11:25:13 +0900</pubDate>
-      
-      <guid>https://sjp38.github.io/post/lkml_news_v4.15-rc3/</guid>
-      <description>
-
-&lt;h2 id=&#34;linux-4-15-rc3&#34;&gt;Linux 4.15-rc3&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFz9O9R8u3ori-QNPz4ALU+0B=Es0gd+oWmsce5qxugxXA@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CA+55aFz9O9R8u3ori-QNPz4ALU+0B=Es0gd+oWmsce5qxugxXA@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;4.15 의 세번째 rc 버전입니다.  지난주보단 조금 늦게 릴리즈 되었네요.&lt;/p&gt;
-
-&lt;p&gt;일반적으로 rc3 릴리즈는 좀 변경사항이 많지만 이번엔 그중에서도 변경사항이 많은
-편이라 걱정된다고 하는군요.  대부분은 드라이버쪽 변경인데 perf 쪽 변경도 꽤
-있고 core, networking, kvm, arch, 문서 업데이트도 물론 있습니다.  어쨌든
-토발즈는 이제는 정말 안정화가 되어가길 바라는 마음이라는군요.&lt;/p&gt;
-
-&lt;h2 id=&#34;patch-v2-mm-slab-do-not-hash-pointers-when-debugging-slab&#34;&gt;[PATCH v2] mm/slab: Do not hash pointers when debugging slab&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/1513179267-2509-1-git-send-email-geert+renesas@glider.be&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/1513179267-2509-1-git-send-email-geert+renesas@glider.be&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;이번 버전에 들어와 포인터 값을 기반으로 한 예측을 통해 공격이 들어오는 걸
-방지하기 위해 &amp;lsquo;%p&amp;rsquo; 가 포인터를 그냥 출력하는게 아니라 hash 한 다음에 출력하도록
-바뀌었죠.  때문에 디버깅이 좀 까다로워졌구요.  디버깅을 위해 온전한 포인터가
-필요한 곳에선 &amp;lsquo;%pX&amp;rsquo; 를 써야 합니다.  일단 slab 쪽에서도 그게 필요하기에 DEBUG
-옵션이 켜졌을 때에는 &amp;lsquo;%pX&amp;rsquo; 를 사용하도록 하는 패치입니다.&lt;/p&gt;
-
-&lt;h2 id=&#34;rfc-patch-mm-unclutter-thp-migration&#34;&gt;[RFC PATCH] mm: unclutter THP migration&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20171207124815.12075-1-mhocko@kernel.org&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20171207124815.12075-1-mhocko@kernel.org&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Transparent Huge Page 를 위한 Michal Hocko 의 패치입니다.&lt;/p&gt;
-
-&lt;p&gt;THP 마이그레이션을 위한 메모리 할당 콜백은 THP 가 한꺼번에 마이그레이션 될 수
-있는지 보고, 마이그레이션 될 곳에 메모리가 부족해 불가능하거나 하다면 평범한
-페이지를 할당받습니다.  이어서 unmap_and_mov() 가 THP 를 평범한 페이지로
-쪼개고, 그사이 THP 의 head page 는 split_huge_page() 를 통해 LRU 리스트에
-들어갑니다.  같은 일이 THP 할당에 실패할 때도 이러나는데, 이건 에러가 나기 쉬운
-행위라고 Michal 은 봅니다.&lt;/p&gt;
-
-&lt;p&gt;LRU 리스트에 split_huge_page() 를 행하는 것도 잘못된 행위인데, 모든 tail page
-들이 마이그레이션 되지 않았기 때문이죠.  이로 인해 발생하는 문제는 사용자가
-각각 처리해야 했습니다.&lt;/p&gt;
-
-&lt;p&gt;Michal 은 이 패치를 통해 THP 처리를 위한 특수한 부분들을 migrate_pages() 단계로
-올려서 이 상황을 정리하고자 합니다. 여기서 unmap_and_move() 가 ENOMEM 으로
-실패하면 THP 페이지를 쪼개고 현재 존재하는 리스트로 옮깁니다.  이렇게 함으로써
-우리는 모든 THP 서브페이지들을 항상 마이그레이션 하고 특정한 migrate_pages()
-사용자들은 앞서 이야기한 경우를 별도로 처리할 필요가 없어지는 것이죠.&lt;/p&gt;
-
-&lt;h2 id=&#34;patch-locking-lockdep-make-config-lockdep-crossrelease-and-config-lockdep-completions-optional&#34;&gt;[PATCH] locking/lockdep: Make CONFIG_LOCKDEP_CROSSRELEASE and CONFIG_LOCKDEP_COMPLETIONS optional&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/1513062681-5995-1-git-send-email-byungchul.park@lge.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/1513062681-5995-1-git-send-email-byungchul.park@lge.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;아직 락들의 classification 이 잘 되어있지 않아 너무 많은 false positive 가
-나오고 있어 lockdep 의 CROSSRELEASE 와 COMPLETIONS 를 기본 활성에서 옵셔널로
-바꾸는 패치입니다.&lt;/p&gt;
-
-&lt;h2 id=&#34;patch-mm-reduce-memory-bloat-with-thp&#34;&gt;[PATCH] mm: Reduce memory bloat with THP&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/1513301359-117568-1-git-send-email-nitin.m.gupta@oracle.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/1513301359-117568-1-git-send-email-nitin.m.gupta@oracle.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;THP 는 굉장히 aggressive 하게 huge page 를 선호하기 때문에 메모리 사용량을
-증가시키는 문제가 있습니다.  Redis 등에서는 그런 이유로 THP 를 꺼버리라고
-하기도 하죠.&lt;/p&gt;
-
-&lt;p&gt;이 패치는 어플리케이션이 특정 메모리 영역에 MADV_DONTNEED 를 보내면, 이 영역은
-&amp;ldquo;space-efficient&amp;rdquo; 로 마크되어서 해당 영역은 항상 huge page 를 사용하는게 아니라
-khugepaged 가 해당 영역이 정말로 매핑되어 있고 사용되고 있는지에 따라 huge page
-로 승격을 시키도록 합니다.  어플리케이션이 다시 MADV_HUGEPAGE 를 해당 영역에
-내면, 해당 영역은 다시 non-space-efficient 로 마크되어 원래대로 동작합니다.&lt;/p&gt;
-
-&lt;h2 id=&#34;patch-v2-rcutorture-add-basic-arm64-support-to-run-scripts&#34;&gt;[PATCH v2] rcutorture: Add basic ARM64 support to run scripts&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/1513070365-13436-1-git-send-email-lianglihao@huawei.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/1513070365-13436-1-git-send-email-lianglihao@huawei.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;RCU 를 테스트하는 rcutorture 드라이버의 드라이버 ;) 스크립트에 aarch64 지원을
-추가하는 패치입니다.&lt;/p&gt;
-
-&lt;h2 id=&#34;patch-v5-00-78-xarray-v5&#34;&gt;[PATCH v5 00/78] XArray v5&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20171215220450.7899-1-willy@infradead.org&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20171215220450.7899-1-willy@infradead.org&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Matthew Wilcox 의 XArray 다섯번째 버전 패치입니다.&lt;/p&gt;
-
-&lt;h2 id=&#34;patch-0-8-restructure-struct-page&#34;&gt;[PATCH 0/8] Restructure struct page&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20171216164425.8703-1-willy@infradead.org&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20171216164425.8703-1-willy@infradead.org&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;struct page&lt;/code&gt; 는 매우 민감한 구조체죠.  요걸 구조를 살짝 바꾸려는 패치입니다.&lt;/p&gt;
 </description>
     </item>
     
