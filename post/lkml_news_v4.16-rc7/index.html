@@ -353,6 +353,18 @@
 
 <p>다음주는 4.16이 릴리즈 될까요?  아니면, rc8이?</p>
 
+<h2 id="patch-mm-list-lru-replace-spinlock-with-rcu-in-list-lru-count-one">[PATCH] mm/list_lru: replace spinlock with RCU in <code>__list_lru_count_one</code></h2>
+
+<p><a href="https://lkml.kernel.org/r/1522137544-27496-1-git-send-email-lirongqing@baidu.com" target="_blank">https://lkml.kernel.org/r/1522137544-27496-1-git-send-email-lirongqing@baidu.com</a></p>
+
+<p><code>list_lru_count_one()</code> 이 스핀락을 잡기 때문에 <code>shrink_slab()</code> 이 많은 시간을
+소모하게 되는데, 이를 스핀락 대신 RCU 를 사용하게 해서 최적화 시킨 패치입니다.</p>
+
+<p><code>dd</code> 를 사용해 커다란 메모리를 사용한 후 파일을 제거하고서
+<code>/cgroup/memory/test/memory.limit_in_bytes</code> 의 크기를 작게 잡아 인위적으로
+reclaim 을 유발시키고 여기에 걸리는 시간을 측정했군요.  기존 0.415초에서 최적화
+후 0.395초로 개선되었습니다.</p>
+
       </div>
 
       
