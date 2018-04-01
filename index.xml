@@ -11,6 +11,24 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>LKML News after v4.16</title>
+      <link>https://sjp38.github.io/post/lkml_news_v4.16/</link>
+      <pubDate>Mon, 02 Apr 2018 07:13:40 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/lkml_news_v4.16/</guid>
+      <description>
+
+&lt;h2 id=&#34;linux-4-16&#34;&gt;Linux 4.16&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFyxn0bu5jOAJvO_63GHaGMkJ0uA=bVBm2T3HVX9SimZzw@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CA+55aFyxn0bu5jOAJvO_63GHaGMkJ0uA=bVBm2T3HVX9SimZzw@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;릴리즈 마지막 주 치고는 네트워킹 쪽에 조금 변경사항이 있었습니다만, 큰 문제가
+될 정도는 아니었습니다.  결과, 4.16이 드디어 릴리즈 되었습니다!  동시에 4.17
+머지 윈도우가 시작되는군요.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>LKML News after v4.16-rc7</title>
       <link>https://sjp38.github.io/post/lkml_news_v4.16-rc7/</link>
       <pubDate>Mon, 26 Mar 2018 08:45:19 +0900</pubDate>
@@ -574,46 +592,6 @@ index ccf4a72477c0..c8c0cd786522 100755
 
 &lt;p&gt;이번 rc5 의 변경 사항들도 지난 릴리즈의 rc5 와 비슷했다고 하는데, 다만 x86 의
 커널 페이지 테이블 격리화 관련 작업이 진행 중인 게 좀 예외라고 하는군요.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>LKML News after v4.15-rc5</title>
-      <link>https://sjp38.github.io/post/lkml_news_v4.15-rc5/</link>
-      <pubDate>Sun, 24 Dec 2017 14:24:13 +0900</pubDate>
-      
-      <guid>https://sjp38.github.io/post/lkml_news_v4.15-rc5/</guid>
-      <description>
-
-&lt;h2 id=&#34;linux-4-15-rc5&#34;&gt;Linux 4.15-rc5&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFy1U+uBLEAoCWU3=BqEbROW6rsbaHUdYJArR6iYQQWo_A@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CA+55aFy1U+uBLEAoCWU3=BqEbROW6rsbaHUdYJArR6iYQQWo_A@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;4.15 의 다섯번째 rc 버전이 평소 스케쥴보다 하루 일찍 릴리즈 되었습니다.
-원래대로라면 내일일텐데, 미국 시간으로는 크리스마스 이브라서 그냥 오늘 릴리즈
-한다는군요.&lt;/p&gt;
-
-&lt;p&gt;이번 rc5 의 변경 사항들도 지난 릴리즈의 rc5 와 비슷했다고 하는데, 다만 x86 의
-커널 페이지 테이블 격리화 관련 작업이 진행 중인 게 좀 예외라고 하는군요.&lt;/p&gt;
-
-&lt;h2 id=&#34;re-about-the-try-to-remove-cross-release-feature-entirely-by-ingo&#34;&gt;Re: About the try to remove cross-release feature entirely by Ingo&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20171229014736.GA10341@X58A-UD3R&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20171229014736.GA10341@X58A-UD3R&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Lockdep 의 cross release 기능은 너무 느렸고, false positive 가 많다는 이유로,
-특히 false positive 가 너무 많다는 이유로 Ingo Molnar 에 의해 제거되려 하고
-있습니다.  관련해서 이 블로그에서도 일단 default 로는 disable 되는 변경이 v4.14
-에 있었음을 이야기 했죠.&lt;/p&gt;
-
-&lt;p&gt;Cross release 의 개발자인 박병철님께서 이에 대해 다른 의견을 내놓는 메일입니다.&lt;/p&gt;
-
-&lt;h2 id=&#34;re-hang-with-v4-15-rc-trying-to-swap-back-in&#34;&gt;Re: Hang with v4.15-rc trying to swap back in&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/1514407817.4169.4.camel@HansenPartnership.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/1514407817.4169.4.camel@HansenPartnership.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;스왑 레이어를 최적화하는 많은 변경이 최근에 있었는데, 그 중 하나가 시스템 행을
-일으키는군요.  관련된 패치들을 발본색원해서 레포팅 한 메일입니다.  충분히 빠른
-swap device 에 대해서는 swapcache 를 건너뛰게 한게 원인이 되었군요.&lt;/p&gt;
 </description>
     </item>
     
