@@ -365,6 +365,21 @@
 reclaim 을 유발시키고 여기에 걸리는 시간을 측정했군요.  기존 0.415초에서 최적화
 후 0.395초로 개선되었습니다.</p>
 
+<h2 id="patch-v10-00-62-convert-page-cache-to-xarray">[PATCH v10 00/62] Convert page cache to XArray</h2>
+
+<p><a href="https://lkml.kernel.org/r/20180330034245.10462-1-willy@infradead.org" target="_blank">https://lkml.kernel.org/r/20180330034245.10462-1-willy@infradead.org</a></p>
+
+<p>XArray 패치 중 일부가 이미 Andrew Morton 의 -next 트리에 들어갔습니다.  Matthew
+Wilcox 는 XArray 를 활용하는 패치를 이어서 계속 올리고 있군요.</p>
+
+<h2 id="patch-mm-limit-a-process-rss">[PATCH] mm: limit a process RSS</h2>
+
+<p><a href="https://lkml.kernel.org/r/1522386674-12047-1-git-send-email-lirongqing@baidu.com" target="_blank">https://lkml.kernel.org/r/1522386674-12047-1-git-send-email-lirongqing@baidu.com</a></p>
+
+<p><code>ulimit -m</code> 명령을 이용해 프로세스의 최대 RSS (Resident Set Size) 를 제어할 수
+있는 인터페이스가 있지만 실제로 커널이 제한을 하고 있진 않습니다.  제한하도록
+구현하는 패치입니다.</p>
+
       </div>
 
       

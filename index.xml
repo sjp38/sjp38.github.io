@@ -25,6 +25,13 @@
 &lt;p&gt;릴리즈 마지막 주 치고는 네트워킹 쪽에 조금 변경사항이 있었습니다만, 큰 문제가
 될 정도는 아니었습니다.  결과, 4.16이 드디어 릴리즈 되었습니다!  동시에 4.17
 머지 윈도우가 시작되는군요.&lt;/p&gt;
+
+&lt;h2 id=&#34;patch-0-2-move-kfree-rcu-out-of-rcu-code-and-use-kfree-bulk&#34;&gt;[PATCH 0/2] Move kfree_rcu out of rcu code and use kfree_bulk&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/1522647064-27167-1-git-send-email-rao.shoaib@oracle.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/1522647064-27167-1-git-send-email-rao.shoaib@oracle.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;kfree_rcu() 대신 kfree_bulk() 라는 새로 만들어진, 더 효율적인 기능을 사용하도록
+하는 패치입니다.&lt;/p&gt;
 </description>
     </item>
     
@@ -61,6 +68,21 @@
 &lt;code&gt;/cgroup/memory/test/memory.limit_in_bytes&lt;/code&gt; 의 크기를 작게 잡아 인위적으로
 reclaim 을 유발시키고 여기에 걸리는 시간을 측정했군요.  기존 0.415초에서 최적화
 후 0.395초로 개선되었습니다.&lt;/p&gt;
+
+&lt;h2 id=&#34;patch-v10-00-62-convert-page-cache-to-xarray&#34;&gt;[PATCH v10 00/62] Convert page cache to XArray&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20180330034245.10462-1-willy@infradead.org&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20180330034245.10462-1-willy@infradead.org&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;XArray 패치 중 일부가 이미 Andrew Morton 의 -next 트리에 들어갔습니다.  Matthew
+Wilcox 는 XArray 를 활용하는 패치를 이어서 계속 올리고 있군요.&lt;/p&gt;
+
+&lt;h2 id=&#34;patch-mm-limit-a-process-rss&#34;&gt;[PATCH] mm: limit a process RSS&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/1522386674-12047-1-git-send-email-lirongqing@baidu.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/1522386674-12047-1-git-send-email-lirongqing@baidu.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;ulimit -m&lt;/code&gt; 명령을 이용해 프로세스의 최대 RSS (Resident Set Size) 를 제어할 수
+있는 인터페이스가 있지만 실제로 커널이 제한을 하고 있진 않습니다.  제한하도록
+구현하는 패치입니다.&lt;/p&gt;
 </description>
     </item>
     
