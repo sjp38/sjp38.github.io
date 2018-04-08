@@ -354,6 +354,15 @@
 <p>kfree_rcu() 대신 kfree_bulk() 라는 새로 만들어진, 더 효율적인 기능을 사용하도록
 하는 패치입니다.</p>
 
+<h2 id="rfc-patch-0-1-mm-support-multiple-kswapd-threads-per-node">[RFC PATCH 0/1] mm: Support multiple kswapd threads per node</h2>
+
+<p><a href="https://lkml.kernel.org/r/1522661062-39745-1-git-send-email-buddy.lumpkin@oracle.com" target="_blank">https://lkml.kernel.org/r/1522661062-39745-1-git-send-email-buddy.lumpkin@oracle.com</a></p>
+
+<p>NUMA 아키텍쳐에서 리눅스 커널은 NUMA 노드당 하나의 kswapd 쓰레드를 띄웁니다.
+노드당 kswapd 쓰레드 수를 늘려 성능을 높이려는 쓰레드입니다.  결국은 이런
+움직임이 있어야 할거라고 봅니다만, 당장 이 패치에 대해서는 수정 요청 의견도 꽤
+있군요.</p>
+
       </div>
 
       
