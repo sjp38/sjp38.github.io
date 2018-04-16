@@ -11,6 +11,47 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>LKML News after v4.17-rc1</title>
+      <link>https://sjp38.github.io/post/lkml_news_v4.17-rc1/</link>
+      <pubDate>Mon, 16 Apr 2018 10:59:58 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/lkml_news_v4.17-rc1/</guid>
+      <description>
+
+&lt;h2 id=&#34;linux-v4-17-rc1&#34;&gt;Linux v4.17-rc1&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFx62iBkj+hOmhLksUtvjwTcm_o1dwcyvaNnVpJ-AmvzVQ@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CA+55aFx62iBkj+hOmhLksUtvjwTcm_o1dwcyvaNnVpJ-AmvzVQ@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;2주간의 머지 윈도우가 지나고, v4.17-rc1 이 릴리즈 되었습니다.  크게 특별할 것
+없이 평범한 머지 윈도우였다고 토발즈는 평하는군요.  그리고 이번에 git objects
+mark 가 4백만을 넘겼습니다.  따라서 다음 커널이 v5.0 이어도 될 것 같은데, 꼭
+다음 버전에서 그렇게 할지는 모르겠다는군요.  리눅스 커널에서 버전은 그저 시간이
+흘렀음을 의미할 뿐, 큰 변화가 있어서 메이저 버전 넘버가 바뀌는게 아니기
+때문이죠.  참고로 v3.0 과 v4.0 은 각각 git objects mark 2백만과 4백만에서
+이루어졌군요.&lt;/p&gt;
+
+&lt;p&gt;암튼 언젠가는 v5.0 을 릴리즈 하겠지만 너무 큰 의미를 부여하지 말아달라고 이야기 하고 있습니다.&lt;/p&gt;
+
+&lt;p&gt;토발즈는 또한 이번 머지 윈도우에서의 변화로 몇가지를 꼽는데요.
+오래된 아키텍쳐인 backfin, cris, frv, m32r, metag, mn10300, score, tile
+아키텍쳐의 지원을 끊기로 했고 nds32 라는 새로운 아키텍쳐를 지원하게 되었군요.
+해당 아키텍쳐에 지원이 더 필요하다면 언제든 되살려도 좋지만 본인이 잘 관리할 수
+있음을 증명해야 함을 한번 더 언급하고 있습니다.&lt;/p&gt;
+
+&lt;p&gt;또한, 이번 머지 윈도우에선 클린업이 꽤 있었습니다.  staging 드라이버들 몇개가
+제거되었고, spdx 를 사용함으로써 카피라이트 문구도 많이 줄었습니다.
+pre-shipped lexer / parser 파일들도 사라졌구요.&lt;/p&gt;
+
+&lt;p&gt;결국, 이번 릴리즈는 추가된 코드 라인보다 삭제된 코드 라인이 많았던 릴리즈군요.
+프로젝트 관리자로써 토발즈가 속시원할 것 같습니다.  이런 경우는 커널 릴리즈
+역사상 처음이라는군요.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; 13538 files changed, 627723 insertions(+), 818855 deletions(-)
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
       <title>LKML News after v4.16</title>
       <link>https://sjp38.github.io/post/lkml_news_v4.16/</link>
       <pubDate>Mon, 02 Apr 2018 07:13:40 +0900</pubDate>
@@ -634,27 +675,6 @@ index ccf4a72477c0..c8c0cd786522 100755
              if ($sf =~ /\.bz2$/) {
                copy_bz2_file($sf, $file, [$target], 0);
 &lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>LKML News after v4.15-rc5</title>
-      <link>https://sjp38.github.io/post/lkml_news_v4.14-rc4/</link>
-      <pubDate>Sun, 24 Dec 2017 14:24:13 +0900</pubDate>
-      
-      <guid>https://sjp38.github.io/post/lkml_news_v4.14-rc4/</guid>
-      <description>
-
-&lt;h2 id=&#34;linux-4-15-rc5&#34;&gt;Linux 4.15-rc5&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFy1U+uBLEAoCWU3=BqEbROW6rsbaHUdYJArR6iYQQWo_A@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CA+55aFy1U+uBLEAoCWU3=BqEbROW6rsbaHUdYJArR6iYQQWo_A@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;4.15 의 다섯번째 rc 버전이 평소 스케쥴보다 하루 일찍 릴리즈 되었습니다.
-원래대로라면 내일일텐데, 미국 시간으로는 크리스마스 이브라서 그냥 오늘 릴리즈
-한다는군요.&lt;/p&gt;
-
-&lt;p&gt;이번 rc5 의 변경 사항들도 지난 릴리즈의 rc5 와 비슷했다고 하는데, 다만 x86 의
-커널 페이지 테이블 격리화 관련 작업이 진행 중인 게 좀 예외라고 하는군요.&lt;/p&gt;
 </description>
     </item>
     
