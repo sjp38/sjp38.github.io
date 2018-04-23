@@ -11,6 +11,23 @@
     <atom:link href="/post/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>LKML News after v4.17-rc2</title>
+      <link>https://sjp38.github.io/post/lkml_news_v4.17-rc2/</link>
+      <pubDate>Mon, 23 Apr 2018 12:03:23 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/lkml_news_v4.17-rc2/</guid>
+      <description>
+
+&lt;h2 id=&#34;linux-v4-17-rc2&#34;&gt;Linux v4.17-rc2&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFwzkGuq5ASF-vhYj7mEX26V0K+uZCLWi1BLYq+9F1n-Rw@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CA+55aFwzkGuq5ASF-vhYj7mEX26V0K+uZCLWi1BLYq+9F1n-Rw@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;두번째 rc 버전의 릴리즈입니다.  &lt;code&gt;perf&lt;/code&gt; 와 테스트 스크립트 쪽에 변경사항이 좀
+많긴 하지만 평소와 크게 다르지 않은 추이라는군요.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>LKML News after v4.17-rc1</title>
       <link>https://sjp38.github.io/post/lkml_news_v4.17-rc1/</link>
       <pubDate>Mon, 16 Apr 2018 10:59:58 +0900</pubDate>
@@ -569,112 +586,6 @@ Spectre 버그를 위한 패치가 잘 관리되어 비교적 쉽게 머지될 �
 변경사항도 많지 않습니다.
 다만 x86 pti 쪽 업데이트가 있었기 때문에 이번엔 rc8 까지 릴리즈 할수도 있을 것
 같다고 하는군요.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>spec cpu2006 벤치마크 수정하기</title>
-      <link>https://sjp38.github.io/post/spec_cpu2006_modification/</link>
-      <pubDate>Sun, 24 Dec 2017 17:30:12 +0900</pubDate>
-      
-      <guid>https://sjp38.github.io/post/spec_cpu2006_modification/</guid>
-      <description>&lt;p&gt;경우에 따라서 SPEC CPU2006 의 벤치마크 중 일부의 소스코드를 수정하고 싶을 수
-있습니다.  예를 들어 특정 벤치마크가 구체적으로 어떻게 동작하는지 알아보기 위해
-디버깅 메세지를 추가하고자 할수도 있고, 코드 변경을 통해 성능을 높인다거나 해볼
-수도 있겠죠.  그러나, SPEC CPU2006 은 엄정한 벤치마크 수트이기 때문에
-소스코드는 물론, 소스코드를 사용하는 도구가 변경된 경우 에러 메세지를 내고
-수행을 거부합니다.  수정된 소스코드로 얻어진 결과는 벤치마크 결과로 적합하지
-않기 때문이죠.&lt;/p&gt;
-
-&lt;p&gt;때문에, 어쩔 수 없이 수정이 필요하면서도 기존의 수행 방법을 따르려면 이 에러를
-내는 곳을 없애는 게 한가지 방법이 될 수 있습니다.  다음의 패치를 적용하면
-이 검증 코드가 사라져서 수정된 코드로도 벤치마크를 돌릴 수 있게 됩니다.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;diff --git a/bin/formatter/setup_common.pl b/bin/formatter/setup_common.pl
-index 36170cda1649..b21890972dbd 100755
---- a/bin/formatter/setup_common.pl
-+++ b/bin/formatter/setup_common.pl
-@@ -278,13 +278,13 @@ sub check_important_files {
-     return if (   $::suite_version &amp;gt; 4
-                &amp;amp;&amp;amp; !$ENV{&#39;SPEC_CHECK&#39;});
-     $::check_integrity = 1;
--    foreach my $important_file (jp(&#39;bin&#39;, basename($0)),
--                                grep { m/$re/ } keys %::file_md5) {
--        if (!check_files(\%::file_md5, $important_file)) {
--            print STDERR &amp;quot;\n\nPart of the tools ($important_file) is corrupt!\nAborting...\n\n&amp;quot;;
--            exit 1;
--        }
--    }
-+#    foreach my $important_file (jp(&#39;bin&#39;, basename($0)),
-+#                                grep { m/$re/ } keys %::file_md5) {
-+#        if (!check_files(\%::file_md5, $important_file)) {
-+#            print STDERR &amp;quot;\n\n Part of the tools ($important_file) is corrupt!\nAborting...\n\n&amp;quot;;
-+#            exit 1;
-+#        }
-+#    }
- }
- 
- 1;
-diff --git a/bin/setup_common.pl b/bin/setup_common.pl
-index 36170cda1649..d9dbe214d498 100755
---- a/bin/setup_common.pl
-+++ b/bin/setup_common.pl
-@@ -219,9 +219,9 @@ sub md5filedigest {
- sub load_module {
-     my ($module, $quiet) = @_;
- 
--    if ($::check_integrity &amp;amp;&amp;amp; !check_files(\%::file_md5, jp(&#39;bin&#39;, $module))) {
--	die &amp;quot;\n\nPart of the tools ($module) is corrupt!  Aborting...\n\n&amp;quot;;
--    }
-+#    if ($::check_integrity &amp;amp;&amp;amp; !check_files(\%::file_md5, jp(&#39;bin&#39;, $module))) {
-+#	die &amp;quot;\n\nPart of the tools ($module) is corrupt!  Aborting...\n\n&amp;quot;;
-+#    }
-     eval &amp;quot;require \&amp;quot;$module\&amp;quot;;&amp;quot;;
-     print &#39;.&#39; unless ($quiet);
-     if ($@) {
-@@ -278,13 +278,13 @@ sub check_important_files {
-     return if (   $::suite_version &amp;gt; 4
-                &amp;amp;&amp;amp; !$ENV{&#39;SPEC_CHECK&#39;});
-     $::check_integrity = 1;
--    foreach my $important_file (jp(&#39;bin&#39;, basename($0)),
--                                grep { m/$re/ } keys %::file_md5) {
--        if (!check_files(\%::file_md5, $important_file)) {
--            print STDERR &amp;quot;\n\nPart of the tools ($important_file) is corrupt!\nAborting...\n\n&amp;quot;;
--            exit 1;
--        }
--    }
-+#    foreach my $important_file (jp(&#39;bin&#39;, basename($0)),
-+#                                grep { m/$re/ } keys %::file_md5) {
-+#        if (!check_files(\%::file_md5, $important_file)) {
-+#            print STDERR &amp;quot;\n\nPart of the tools ($important_file) is corrupt!\nAborting...\n\n&amp;quot;;
-+#            exit 1;
-+#        }
-+#    }
- }
- 
- 1;
-diff --git a/bin/util.pl b/bin/util.pl
-index ccf4a72477c0..c8c0cd786522 100755
---- a/bin/util.pl
-+++ b/bin/util.pl
-@@ -211,11 +211,11 @@ sub copy_tree {
-                     offer_verify_advice();
- 		    return 0;
- 		}
--		if ($sumhash-&amp;gt;{$sf} ne md5filedigest($sf)) {
--		    Log(0, &amp;quot;\n$sf is corrupt!\n&amp;quot;);
--                    offer_verify_advice();
--		    return 0;
--		}
-+#		if ($sumhash-&amp;gt;{$sf} ne md5filedigest($sf)) {
-+#		    Log(0, &amp;quot;\n$sf is corrupt!\n&amp;quot;);
-+#                    offer_verify_advice();
-+#		    return 0;
-+#		}
- 	    }
-             if ($sf =~ /\.bz2$/) {
-               copy_bz2_file($sf, $file, [$target], 0);
-&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
