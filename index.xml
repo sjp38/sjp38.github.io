@@ -74,6 +74,43 @@ pre-shipped lexer / parser 파일들도 사라졌구요.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt; 13538 files changed, 627723 insertions(+), 818855 deletions(-)
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;patch-v10-00-25-speculative-page-faults&#34;&gt;[PATCH v10 00/25] Speculative page faults&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/1523975611-15978-1-git-send-email-ldufour@linux.vnet.ibm.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/1523975611-15978-1-git-send-email-ldufour@linux.vnet.ibm.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;어느새 열번째 버전의 speculative page faults 패치셋입니다.&lt;/p&gt;
+
+&lt;h2 id=&#34;patch-v2-00-12-improve-shrink-slab-scalability-old-complexity-was-o-n-2-new-is-o-n&#34;&gt;[PATCH v2 00/12] Improve shrink_slab() scalability (old complexity was O(n^2), new is O(n))&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/152397794111.3456.1281420602140818725.stgit@localhost.localdomain&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/152397794111.3456.1281420602140818725.stgit@localhost.localdomain&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;많은 memort shrinker 들 또는 메모리 cgroups 를 가진 시스템에서는 그 수의 제곱에
+비례해 &lt;code&gt;shrink_slab()&lt;/code&gt; 의 수행시간이 증가하는데, 이 문제를 해결하고자 하는
+패치셋입니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;# echo 3 &amp;gt; /proc/sys/vm/drop_caches&lt;/code&gt; 의 수행시간을 사용해 성능 차이를
+측정했군요.&lt;/p&gt;
+
+&lt;h2 id=&#34;patch-00-21-mm-thp-swap-swapout-swapin-thp-as-a-whole&#34;&gt;[PATCH 00/21] mm, THP, swap: Swapout/swapin THP as a whole&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20180417020230.26412-1-ying.huang@intel.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20180417020230.26412-1-ying.huang@intel.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;THP (Transparent Huge Page) 는 swap out 되기 전에 regular page 로 쪼개져야
+했습니다.  이 작업에 많은 시간이 걸렸기에 한번에 THP 를 swap out 하기 위한
+작업을 Huang Ying 이 해왔고 일단 쪼개는 작업은 최후로 미뤄뒀는데 마침내 완전히
+THP 단위로 swap out 을 행하는 패치셋을 올렸습니다.&lt;/p&gt;
+
+&lt;p&gt;RAM 으로 PMEM swap device 를 시뮬레이션 해서 vm-scalability 벤치마크의
+swap-w-seq 테스트를 16개 프로세스로 실험한 결과, 약 10배의 성능 개선을
+보았군요.&lt;/p&gt;
+
+&lt;h2 id=&#34;patch-tip-core-rcu-0-21-contention-reduction-for-v4-18&#34;&gt;[PATCH tip/core/rcu 0/21] Contention reduction for v4.18&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20180423030258.GA23370@linux.vnet.ibm.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20180423030258.GA23370@linux.vnet.ibm.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;RCU 의 루트 &amp;lsquo;rcu_node&amp;rsquo; 구조체로의 락 컨텐션을 줄이는 Paul McKenney 의
+패치셋입니다.  별 문제 없으면 4.18 버전에 들어가겠군요.&lt;/p&gt;
 </description>
     </item>
     
