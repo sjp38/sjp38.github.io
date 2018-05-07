@@ -356,6 +356,36 @@
 spread sheet 로 정리한 문서도 여기서 공개했나보군요:
 <a href="https://docs.google.com/spreadsheets/d/1tvCszs_7FXrjei9_mtFiKV6nW1FLnYyvPvW-qNZhdog/edit?usp=sharing" target="_blank">https://docs.google.com/spreadsheets/d/1tvCszs_7FXrjei9_mtFiKV6nW1FLnYyvPvW-qNZhdog/edit?usp=sharing</a></p>
 
+<h2 id="patch-v2-0-4-interface-for-higher-order-contiguous-allocations">[PATCH v2 0/4] Interface for higher order contiguous allocations</h2>
+
+<p><a href="https://lkml.kernel.org/r/20180503232935.22539-1-mike.kravetz@oracle.com" target="_blank">https://lkml.kernel.org/r/20180503232935.22539-1-mike.kravetz@oracle.com</a></p>
+
+<p><code>mmap(MAP_CONTIG)</code> 를 추가하자는 아이디어가 있었습니다.  현재 리눅스 커널에서
+연속된 메모리 공간 할당에 사용되기 위해 만들어진 인터페이스는 CMA가 있는데, 그
+목적이 좀 특수한 상황에 맞춰져 있다보니 좀 더 범용적 인터페이스가 있으면
+어떻겠나 하는 이야기가 나와, 그런 인터페이스를 만들어 제시하는 패치입니다.
+제안하는 인터페이스는 다음과 같습니다:</p>
+
+<pre><code>struct page *find_alloc_contig_pages(unsigned long nr_pages, gfp_t gfp,
+                                        int nid, nodemask_t *nodemask)
+</code></pre>
+
+<h2 id="rfc-distinguish-vmalloc-pages">[RFC] Distinguish vmalloc pages</h2>
+
+<p><a href="https://lkml.kernel.org/r/20180502152733.GB2737@bombadil.infradead.org" target="_blank">https://lkml.kernel.org/r/20180502152733.GB2737@bombadil.infradead.org</a></p>
+
+<p>VMalloc 페이지는 유저스페이스에 매핑될 수도 있으므로 성능 분석과 memory leak
+문제 분석의 편의를 위해  page-&gt;mapping 값에 이를 가리키는 표식과 해당 페이지를
+가리키는 <code>vm_struct</code> 와 그 안에서의 <code>offset</code> 을 저장하는 RFC 패치입니다.</p>
+
+<h2 id="introduce-atomic-dec-and-lock-irqsave">Introduce atomic_dec_and_lock_irqsave()</h2>
+
+<p><a href="https://lkml.kernel.org/r/20180504154533.8833-1-bigeasy@linutronix.de" target="_blank">https://lkml.kernel.org/r/20180504154533.8833-1-bigeasy@linutronix.de</a></p>
+
+<p><code>local_irq_save()</code> + <code>atomic_dec_and_lock()</code> 조합을 써야 하던 코드를 위해 이를
+감싸는 새로운 함수, <code>atomic_dec_and_lock_irqsave()</code> 를 만들고 기존의 코드가
+이를 사용하도록 고친 패치입니다.</p>
+
       </div>
 
       

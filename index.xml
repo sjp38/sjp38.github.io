@@ -50,6 +50,36 @@
 버전입니다.  지난주 LSFMM 에서도 소개한 모양인데, 이 변화의 전/후를 google
 spread sheet 로 정리한 문서도 여기서 공개했나보군요:
 &lt;a href=&#34;https://docs.google.com/spreadsheets/d/1tvCszs_7FXrjei9_mtFiKV6nW1FLnYyvPvW-qNZhdog/edit?usp=sharing&#34; target=&#34;_blank&#34;&gt;https://docs.google.com/spreadsheets/d/1tvCszs_7FXrjei9_mtFiKV6nW1FLnYyvPvW-qNZhdog/edit?usp=sharing&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;patch-v2-0-4-interface-for-higher-order-contiguous-allocations&#34;&gt;[PATCH v2 0/4] Interface for higher order contiguous allocations&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20180503232935.22539-1-mike.kravetz@oracle.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20180503232935.22539-1-mike.kravetz@oracle.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;mmap(MAP_CONTIG)&lt;/code&gt; 를 추가하자는 아이디어가 있었습니다.  현재 리눅스 커널에서
+연속된 메모리 공간 할당에 사용되기 위해 만들어진 인터페이스는 CMA가 있는데, 그
+목적이 좀 특수한 상황에 맞춰져 있다보니 좀 더 범용적 인터페이스가 있으면
+어떻겠나 하는 이야기가 나와, 그런 인터페이스를 만들어 제시하는 패치입니다.
+제안하는 인터페이스는 다음과 같습니다:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;struct page *find_alloc_contig_pages(unsigned long nr_pages, gfp_t gfp,
+                                        int nid, nodemask_t *nodemask)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;rfc-distinguish-vmalloc-pages&#34;&gt;[RFC] Distinguish vmalloc pages&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20180502152733.GB2737@bombadil.infradead.org&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20180502152733.GB2737@bombadil.infradead.org&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;VMalloc 페이지는 유저스페이스에 매핑될 수도 있으므로 성능 분석과 memory leak
+문제 분석의 편의를 위해  page-&amp;gt;mapping 값에 이를 가리키는 표식과 해당 페이지를
+가리키는 &lt;code&gt;vm_struct&lt;/code&gt; 와 그 안에서의 &lt;code&gt;offset&lt;/code&gt; 을 저장하는 RFC 패치입니다.&lt;/p&gt;
+
+&lt;h2 id=&#34;introduce-atomic-dec-and-lock-irqsave&#34;&gt;Introduce atomic_dec_and_lock_irqsave()&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20180504154533.8833-1-bigeasy@linutronix.de&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20180504154533.8833-1-bigeasy@linutronix.de&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;local_irq_save()&lt;/code&gt; + &lt;code&gt;atomic_dec_and_lock()&lt;/code&gt; 조합을 써야 하던 코드를 위해 이를
+감싸는 새로운 함수, &lt;code&gt;atomic_dec_and_lock_irqsave()&lt;/code&gt; 를 만들고 기존의 코드가
+이를 사용하도록 고친 패치입니다.&lt;/p&gt;
 </description>
     </item>
     
