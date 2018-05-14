@@ -268,7 +268,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -349,6 +349,75 @@
 
 <p>이번 rc5 의 변경 사항들도 지난 릴리즈의 rc5 와 비슷했다고 하는데, 다만 x86 의
 커널 페이지 테이블 격리화 관련 작업이 진행 중인 게 좀 예외라고 하는군요.</p>
+
+<h2 id="rfc-v3-patch-0-5-eliminate-zone-lock-contention-for-will-it-scale-page-fault1-and-parallel-free">[RFC v3 PATCH 0/5] Eliminate zone-&gt;lock contention for will-it-scale/page_fault1 and parallel free</h2>
+
+<p><a href="https://lkml.kernel.org/r/20180509085450.3524-1-aaron.lu@intel.com" target="_blank">https://lkml.kernel.org/r/20180509085450.3524-1-aaron.lu@intel.com</a></p>
+
+<p>패치셋 저자는 112개 CPU를 갖는 Intel Skylake 서버에서 will-it-scale/page_fult1
+워크로드를 돌려보았고 80% CPU 가 zone-&gt;lock 에서 스핀하며 시간을 보내고 있음을
+파악했습니다.  이 문제를 해결하기 위한 RFC 패치의 세번째 버전입니다.</p>
+
+<h2 id="patch-v4-00-13-improve-shrink-slab-scalability-old-complexity-was-o-n-2-new-is-o-n">[PATCH v4 00/13] Improve shrink_slab() scalability (old complexity was O(n^2), new is O(n))</h2>
+
+<p><a href="https://lkml.kernel.org/r/152586686544.3048.15776787801312398314.stgit@localhost.localdomain" target="_blank">https://lkml.kernel.org/r/152586686544.3048.15776787801312398314.stgit@localhost.localdomain</a></p>
+
+<p><code>shrink_slab()</code> 의 복잡도가 O(n^2) 이기 때문에 많은 shrinker 와 메모리 cgroups
+를 갖는 기계에서는 확장성의 병목이 될 수 있습니다.  이를 간단한 스크립트로
+보이는데요.  먼저 다음과 같이 4000개의 memory cgroup 들을 만들고,</p>
+
+<pre><code>$echo 1 &gt; /sys/fs/cgroup/memory/memory.use_hierarchy
+$mkdir /sys/fs/cgroup/memory/ct
+$echo 4000M &gt; /sys/fs/cgroup/memory/ct/memory.kmem.limit_in_bytes
+$for i in `seq 0 4000`;
+        do mkdir /sys/fs/cgroup/memory/ct/$i;
+        echo $$ &gt; /sys/fs/cgroup/memory/ct/$i/cgroup.procs;
+        mkdir -p s/$i; mount -t tmpfs $i s/$i; touch s/$i/file;
+done
+</code></pre>
+
+<p>아래와 같이 drop cache 를 다섯번 수행하며 여기 걸리는 시간을 측정했습니다:</p>
+
+<pre><code>$time echo 3 &gt; /proc/sys/vm/drop_caches
+
+0.00user 13.78system 0:13.78elapsed 99%CPU
+0.00user 5.59system 0:05.60elapsed 99%CPU
+0.00user 5.48system 0:05.48elapsed 99%CPU
+0.00user 8.35system 0:08.35elapsed 99%CPU
+0.00user 8.34system 0:08.35elapsed 99%CPU
+</code></pre>
+
+<p>반복해서 drop cache 를 할 뿐이기 때문에 뒤따르는 drop cache 들은 실질적으로
+cache 를 비우진 않고 그저 shrinker 와 memcg 를 둘러볼 뿐입니다.  그럼에도 최소
+5.48초가 걸렸군요.  그만큼 병목이 심하단 이야기죠.</p>
+
+<p>패치는 shrink_slab() 의 복잡도를 O(n)으로 고쳤고, 이후 다음과 같이 오버헤드가 거의 사라지는 결과를 내놓았습니다:</p>
+
+<pre><code>0.00user 1.10system 0:01.10elapsed 99%CPU
+0.00user 0.00system 0:00.01elapsed 64%CPU
+0.00user 0.01system 0:00.01elapsed 82%CPU
+0.00user 0.00system 0:00.01elapsed 64%CPU
+0.00user 0.01system 0:00.01elapsed 82%CPU
+</code></pre>
+
+<p>약 548배의 성능 향상이군요!</p>
+
+<h2 id="patch-mm-v2-00-21-mm-thp-swap-swapout-swapin-thp-as-a-whole">[PATCH -mm -V2 00/21] mm, THP, swap: Swapout/swapin THP as a whole</h2>
+
+<p><a href="https://lkml.kernel.org/r/20180509083846.14823-1-ying.huang@intel.com" target="_blank">https://lkml.kernel.org/r/20180509083846.14823-1-ying.huang@intel.com</a></p>
+
+<p>지난번에도 소개한, THP 를 2 MiB 그대로 한번에 swap out / swap in 하는
+패치입니다.  기존에는 THP 를 regular page 로 쪼개서 swap out / swap in
+했었거든요.</p>
+
+<h2 id="patch-mm-mm-thp-doc-add-document-for-thp-swpout-thp-swpout-fallback">[PATCH -mm] mm, THP, doc: Add document for thp_swpout/thp_swpout_fallback</h2>
+
+<p>https:/lkml.kernel.org/r/20180509082341.13953-1-ying.huang@intel.com</p>
+
+<p>앞에 설명한 THP swap 관련 최적화는 단계별로 적용되고 있는데, 그와 함께
+<code>/proc/vmstat</code> 에는 <code>thp_swpout</code> 과 <code>thp_swpout_fallback</code> 필드가
+추가되었습니다.  그에 대한 문서화가 아직 안들어와 있었는데, 이를 추가하는
+패치입니다.</p>
 
       </div>
 
