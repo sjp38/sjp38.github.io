@@ -11,6 +11,23 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>LKML News after v4.17-rc6</title>
+      <link>https://sjp38.github.io/post/lkml_news_v4.17-rc6/</link>
+      <pubDate>Mon, 21 May 2018 10:19:16 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/lkml_news_v4.17-rc6/</guid>
+      <description>
+
+&lt;h2 id=&#34;linux-v4-17-rc6&#34;&gt;Linux v4.17-rc6&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFxxYQFL3mwsQcC+__R23ZmO8c3F0SThi6r44TdK0ePNDQ@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CA+55aFxxYQFL3mwsQcC+__R23ZmO8c3F0SThi6r44TdK0ePNDQ@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;여섯번째 release candidate 버전입니다.  이번 릴리즈에도 특기할 만한 일은
+없었습니다.  이제 충분히 안정화 되었을 거라고 하는군요.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>LKML News after v4.17-rc5</title>
       <link>https://sjp38.github.io/post/lkml_news_v4.17-rc5/</link>
       <pubDate>Mon, 14 May 2018 10:23:45 +0900</pubDate>
@@ -608,48 +625,6 @@ Wilcox 는 XArray 를 활용하는 패치를 이어서 계속 올리고 있군�
 윈도우가 끝나고 사람들이 좀 쉬기 때문일수도, 아직 버그를 찾지 못해서일 수도
 있고 일반적으로 rc2 는 조용한 편이지만, 어쨌든 토발즈는 만족스러운 눈치입니다.
 4.15 에서의 spectre &amp;amp; meltdown 때문에 더 그럴지도 모르겠지만요.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Lkml_news_v4.16 Rc1</title>
-      <link>https://sjp38.github.io/post/lkml_news_v4.16-rc1/</link>
-      <pubDate>Tue, 13 Feb 2018 13:56:47 +0900</pubDate>
-      
-      <guid>https://sjp38.github.io/post/lkml_news_v4.16-rc1/</guid>
-      <description>
-
-&lt;h2 id=&#34;linux-4-16-rc1&#34;&gt;Linux 4.16-rc1&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFzXVqgCMhPL9EaMW_D9E=HCQ9+JSQAbBPe3Oa_iQtky=g@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CA+55aFzXVqgCMhPL9EaMW_D9E=HCQ9+JSQAbBPe3Oa_iQtky=g@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;어느덧 2주일이 지났습니다.  머지 윈도우가 닫히고 4.16 첫번째 rc 버전이
-나왔습니다.  4.15는 역시 토발즈에게 고통스러웠던 시간이었던지 이번 머지
-윈도우는 4.15 보다 훨씬 나았다는 토발즈의 이야기입니다.&lt;/p&gt;
-
-&lt;p&gt;이번 릴리즈에서는 GPU 쪽 변경 사항이 많고 대부분은 드라이버라 아주 큰 변화는
-거의 없지만, 여전히 arch 쪽에도, 네트워킹과 파일시스템 등에도 변경이 없지는
-않다고 정리하고 있습니다.
-스펙터 / 멜트다운 이슈에 대한 x86 외 아키텍쳐의 변경사항들도 들어왔군요.&lt;/p&gt;
-
-&lt;h2 id=&#34;patch-v8-00-24-speculative-page-faults&#34;&gt;[PATCH v8 00/24] Speculative page faults&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/1518794738-4186-1-git-send-email-ldufour@linux.vnet.ibm.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/1518794738-4186-1-git-send-email-ldufour@linux.vnet.ibm.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;4.15 릴리즈와 함께 4.15 위로 포팅된 Speculative page faults 패치가 계속
-올라오고 있습니다.  이 패치셋은 예전부터 제가 관심을 두고 보고 있는 패치인데,
-page fault handling 을 speculative 하게 함으로써 병렬성을 높이려는 패치입니다.
-아이디어가 시작된 건 오래되었고 그 아이디어를 이어와 다시 제안되고 있는
-패치이죠.  이번엔 업데이트 될런지 궁금하네요.&lt;/p&gt;
-
-&lt;h2 id=&#34;patch-mm-v5-resend-mm-swap-fix-race-between-swapoff-and-some-swap-operations&#34;&gt;[PATCH -mm -v5 RESEND] mm, swap: Fix race between swapoff and some swap operations&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20180213014220.2464-1-ying.huang@intel.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20180213014220.2464-1-ying.huang@intel.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;swapin 작업과 swapoff 작업 사이를 락으로 보호하지 않고 있기 때문에 segmentation
-fault 문제가 있을 수 있습니다.  swapoff 가 자주 불리진 않다보니 이 문제가 크게
-불거진 적 없는데, 어쨌건 race 는 race 라 고쳐야 한다는 Huang Ying 의
-패치입니다.&lt;/p&gt;
 </description>
     </item>
     
