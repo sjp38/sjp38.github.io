@@ -346,6 +346,27 @@
 <p>여섯번째 release candidate 버전입니다.  이번 릴리즈에도 특기할 만한 일은
 없었습니다.  이제 충분히 안정화 되었을 거라고 하는군요.</p>
 
+<h2 id="patch-mm-v3-00-21-mm-thp-swap-swapout-swapin-thp-in-one-piece">[PATCH -mm -V3 00/21] mm, THP, swap: Swapout/swapin THP in one piece</h2>
+
+<p><a href="https://lkml.kernel.org/r/20180523082625.6897-1-ying.huang@intel.com" target="_blank">https://lkml.kernel.org/r/20180523082625.6897-1-ying.huang@intel.com</a></p>
+
+<p>이전에도 이 시리즈로 소개했던, THP 의 swap out 과 swap in 최적화 마지막 단계
+패치의 세번째 버전입니다.  마지막 단계 이야기 하니 문득 인피니티워의 오역
+논란이 떠오르는군요 ;)  두번째 버전 이후 특정 컨피규레이션에서의 빌드 버그를
+수정했고, mmotm/master 브랜치의 5월 18일자 버전으로 rebase 한게 차이점의
+전부군요.</p>
+
+<p>RAM 으로 PMEM 을 시뮬레이션 하는 환경에서 vm-scalability 라는 벤치마크를 사용해
+16개 프로세스가 anonymous page 를 상당량 할당받고 반복해서 접근하는 워크로드로
+성능 차이를 비교했습니다.  이로 인해 패치 전 대비 워크로드 처리량 (throughput)
+이 992.8% 향상되었습니다.</p>
+
+<h2 id="patch-v3-0-4-fixes-cleanups-for-rcu-dev">[PATCH v3 0/4] fixes, cleanups for rcu/dev</h2>
+
+<p><a href="https://lkml.kernel.org/r/20180521044220.123933-1-joel@joelfernandes.org" target="_blank">https://lkml.kernel.org/r/20180521044220.123933-1-joel@joelfernandes.org</a></p>
+
+<p>RCU 코드의 주석, 변수 사용, 변수 이름 등의 개선 패치셋입니다.</p>
+
       </div>
 
       
