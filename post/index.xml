@@ -107,6 +107,31 @@ Notebook 서비스 중 하나인 Google Colab 에 대해 알아봤습니다.  �
     </item>
     
     <item>
+      <title>LKML News after 4.17-rc7</title>
+      <link>https://sjp38.github.io/post/lkml_news_v4.17-rc7/</link>
+      <pubDate>Mon, 28 May 2018 10:41:50 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/lkml_news_v4.17-rc7/</guid>
+      <description>
+
+&lt;h2 id=&#34;linux-4-17-rc7&#34;&gt;Linux 4.17-rc7&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFwUqz9z1Rf4Wwr29W7DeKxQ67qKEW5xty+JPyCY3aNQ=A@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CA+55aFwUqz9z1Rf4Wwr29W7DeKxQ67qKEW5xty+JPyCY3aNQ=A@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;일곱번째 rc 입니다.  지난 몇주보다는 조금 변경사항이 있었지만 그렇다 해도
+그렇게 심한 정도는 아니었기에 아마도 이게 마지막 rc 일 거라는군요.&lt;/p&gt;
+
+&lt;h2 id=&#34;patch-00-13-introdue-io-latency-io-controller-for-cgroups&#34;&gt;[PATCH 00/13] Introdue io.latency io controller for cgroups&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20180529211724.4531-1-josef@toxicpanda.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20180529211724.4531-1-josef@toxicpanda.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Cgroup 에 응답시간 (latency) 기반의 I/O 컨트롤러를 추가하는 패치셋입니다.
+Cgroup 은 용량 기반의 컨트롤러는 많지만 응답시간 기반의 컨트롤러가 부족하다고
+느껴왔는데, 역시 추가되어 가는군요.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>LKML News after v4.17-rc6</title>
       <link>https://sjp38.github.io/post/lkml_news_v4.17-rc6/</link>
       <pubDate>Mon, 21 May 2018 10:19:16 +0900</pubDate>
@@ -116,7 +141,7 @@ Notebook 서비스 중 하나인 Google Colab 에 대해 알아봤습니다.  �
 
 &lt;h2 id=&#34;linux-v4-17-rc6&#34;&gt;Linux v4.17-rc6&lt;/h2&gt;
 
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFxxYQFL3mwsQcC+__R23ZmO8c3F0SThi6r44TdK0ePNDQ@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CA+55aFxxYQFL3mwsQcC+__R23ZmO8c3F0SThi6r44TdK0ePNDQ@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;https://lkml.kernel.org/r/CA+55aFxxYQFL3mwsQcC+__R23ZmO8c3F0SThi6r44TdK0ePNDQ@mail.gmail.com&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;여섯번째 release candidate 버전입니다.  이번 릴리즈에도 특기할 만한 일은
 없었습니다.  이제 충분히 안정화 되었을 거라고 하는군요.&lt;/p&gt;
@@ -141,6 +166,33 @@ Notebook 서비스 중 하나인 Google Colab 에 대해 알아봤습니다.  �
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20180521044220.123933-1-joel@joelfernandes.org&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20180521044220.123933-1-joel@joelfernandes.org&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;RCU 코드의 주석, 변수 사용, 변수 이름 등의 개선 패치셋입니다.&lt;/p&gt;
+
+&lt;h2 id=&#34;resend-patch-v5-00-33-block-support-multipage-bvec&#34;&gt;[RESEND PATCH V5 00/33] block: support multipage bvec&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20180525034621.31147-1-ming.lei@redhat.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20180525034621.31147-1-ming.lei@redhat.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;하나의 &lt;code&gt;struct bio_bvec&lt;/code&gt; 이 물리적으로 연속적인 복수개의 페이지를 가질 수 있게
+하는 패치입니다.  시스템의 메모리가 거대해지고 THP 등이 널리 쓰임에 따라 이런
+변화가 필요했다는군요.&lt;/p&gt;
+
+&lt;h2 id=&#34;patch-v2-mm-0-4-mm-huge-page-copy-target-sub-page-last-when-copy-huge-page&#34;&gt;[PATCH -V2 -mm 0/4] mm, huge page: Copy target sub-page last when copy huge page&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20180524005851.4079-1-ying.huang@intel.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20180524005851.4079-1-ying.huang@intel.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Huge page 의 복사 시에는 source 와 destination page 각각에 접근을 해야 하므로,
+2 MiB huge page 를 사용한다 가정하면 총 4 MiB 데이터 액세스가 필요합니다.
+예컨대 Xeon E5 v3 2699 CPU 는 18개의 코어, 36개 쓰레드, 그리고 45 MiB Last
+Level Cache 를 가지므로 코어별로는 2.5 MiB, 쓰레드별로는 1.25 MiB 의 Last Level
+Cache 밖에 갖지 못하므로, 여기서 huge page 복사가 일어나면 자신의 Last Level
+Cache 를 모조리 접근해서 데이터가 flooding 나고 이후 데이터 접근은 cache miss
+가 날 수 있게 됩니다.&lt;/p&gt;
+
+&lt;p&gt;이 패치셋은 target huge page 의 sub-page 를 마지막에 복사하도록 복사 시의
+데이터 접근 순서를 약간 바꿔서 대부분의 경우에는 캐시 미스를 좀 더 줄일 수
+있도록 했습니다.&lt;/p&gt;
+
+&lt;p&gt;vm-scalability 의 anon-cow-seq 테스트 케이스를 2 socket Xeon E5 v3 2699
+시스템에서 돌려본 결과, 약 16.6% 까지의 성능 향상이 있었다고 합니다.&lt;/p&gt;
 </description>
     </item>
     
@@ -714,25 +766,6 @@ Wilcox 는 XArray 를 활용하는 패치를 이어서 계속 올리고 있군�
 
 &lt;p&gt;RCU 등의 동기화 도구의 동시성 버그를 찾는데 사용되는 torture test 의 업데이트
 패치셋입니다.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Lkml_news_v4.16 Rc2</title>
-      <link>https://sjp38.github.io/post/lkml_news_v4.16-rc2/</link>
-      <pubDate>Mon, 19 Feb 2018 11:09:15 +0900</pubDate>
-      
-      <guid>https://sjp38.github.io/post/lkml_news_v4.16-rc2/</guid>
-      <description>
-
-&lt;h2 id=&#34;linux-4-16-rc2&#34;&gt;Linux 4.16-rc2&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFwDnBq9V6TVbc82DzVYpf-ELF7UcYzHuY0ei1Xjnob+0A@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CA+55aFwDnBq9V6TVbc82DzVYpf-ELF7UcYzHuY0ei1Xjnob+0A@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;4.16 두번째 rc 버전의 릴리즈입니다.  이번 한주는 매우 조용한 한주였군요.  머지
-윈도우가 끝나고 사람들이 좀 쉬기 때문일수도, 아직 버그를 찾지 못해서일 수도
-있고 일반적으로 rc2 는 조용한 편이지만, 어쨌든 토발즈는 만족스러운 눈치입니다.
-4.15 에서의 spectre &amp;amp; meltdown 때문에 더 그럴지도 모르겠지만요.&lt;/p&gt;
 </description>
     </item>
     
