@@ -11,6 +11,25 @@
     <atom:link href="/post/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Lkml_news_v4.18 Rc3</title>
+      <link>https://sjp38.github.io/post/lkml_news_v4.18-rc3/</link>
+      <pubDate>Mon, 02 Jul 2018 11:18:24 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/lkml_news_v4.18-rc3/</guid>
+      <description>
+
+&lt;h2 id=&#34;linux-4-18-rc3&#34;&gt;Linux 4.18-rc3&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFwGk-pWKKCtp+kQUN_hov9tW+vUo6Wgob91bewwBL17fA@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CA+55aFwGk-pWKKCtp+kQUN_hov9tW+vUo6Wgob91bewwBL17fA@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;4.18 을 향하는 세번째 릴리즈입니다.  그간 일본에 중국을 방문하고 있던 토발즈가
+집에 돌아와서 이번엔 평소처럼 한국시간으로는 월요일 아침 릴리즈가 되었군요.&lt;/p&gt;
+
+&lt;p&gt;큰 이상은 없고 드라이버, arch, 파일시스템 등에 변경이 있군요.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Lkml_news_v4.18 Rc2</title>
       <link>https://sjp38.github.io/post/lkml_news_v4.18-rc2/</link>
       <pubDate>Mon, 25 Jun 2018 08:45:22 +0900</pubDate>
@@ -27,6 +46,16 @@
 시간으로 일요일 저녁의 rc 릴리즈입니다.&lt;/p&gt;
 
 &lt;p&gt;이번 rc 에서도 큰 변경은 없고 평범한 rc 입니다.&lt;/p&gt;
+
+&lt;h2 id=&#34;patch-tip-core-rcu-0-40-rcu-gp-seq-conversion-for-v4-19&#34;&gt;[PATCH tip/core/rcu 0/40] RCU -&amp;gt;gp_seq conversion for v4.19&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20180626000841.GA15696@linux.vnet.ibm.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20180626000841.GA15696@linux.vnet.ibm.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;RCU 의 &lt;code&gt;-&amp;gt;gpnum&lt;/code&gt; 과 &lt;code&gt;-&amp;gt;completed&lt;/code&gt; 필드를 하나의 &lt;code&gt;-&amp;gt;gp_seq&lt;/code&gt; 로 대체하는
+패치입니다.  그동안 &lt;code&gt;-&amp;gt;gpnum&lt;/code&gt; 과 &lt;code&gt;-&amp;gt;completed&lt;/code&gt; 로 grace period 를 관리해오고
+있지만 사실상 &lt;code&gt;-&amp;gt;gpnum&lt;/code&gt; 과 &lt;code&gt;-&amp;gt;completed&lt;/code&gt; 는 수가 똑같거나 하나 차이이니 하나의
+bit 으로도 같은 정보를 처리할 수 있을 뿐더러 로드 횟수를 두번에서 한번으로 줄일
+수 있다는 거죠.&lt;/p&gt;
 </description>
     </item>
     
@@ -788,24 +817,6 @@ Wilcox 는 XArray 를 활용하는 패치를 이어서 계속 올리고 있군�
 &lt;p&gt;&lt;code&gt;ulimit -m&lt;/code&gt; 명령을 이용해 프로세스의 최대 RSS (Resident Set Size) 를 제어할 수
 있는 인터페이스가 있지만 실제로 커널이 제한을 하고 있진 않습니다.  제한하도록
 구현하는 패치입니다.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>LKML News after v4.16-rc6</title>
-      <link>https://sjp38.github.io/post/lkml_news_v4.16-rc6/</link>
-      <pubDate>Mon, 19 Mar 2018 10:19:34 +0900</pubDate>
-      
-      <guid>https://sjp38.github.io/post/lkml_news_v4.16-rc6/</guid>
-      <description>
-
-&lt;h2 id=&#34;linux-4-16-rc6&#34;&gt;Linux 4.16-rc6&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFzV1nffUeriZLksK90noD49T+w+WmgBsYMAO13rTbn3Pg@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CA+55aFzV1nffUeriZLksK90noD49T+w+WmgBsYMAO13rTbn3Pg@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;4.16 여섯번째 rc 버전이 나왔습니다.  4.16을 향한 이번 사이클은 상당히 순탄하게
-진행되는군요.  rc7 까진 만들 예정이라고 하는데, 그 후엔 4.16이 안정적으로
-나오게 될 것 같습니다.&lt;/p&gt;
 </description>
     </item>
     
