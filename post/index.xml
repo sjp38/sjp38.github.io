@@ -11,6 +11,52 @@
     <atom:link href="/post/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Alpine for LKML</title>
+      <link>https://sjp38.github.io/post/alpine-for-lkml/</link>
+      <pubDate>Wed, 18 Jul 2018 21:09:54 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/alpine-for-lkml/</guid>
+      <description>
+
+&lt;p&gt;리눅스 커널 커뮤니티는 버그 레포팅, 패치 업로드, 리뷰, 릴리즈, 토론 등등 모든
+활동은 이메일을 통해 이루어집니다.  이 포스트에서는 리누스 토발즈도 쓰는 이메일
+클라이언트인 Alpine 을 gmail 과 연동하는 방법을 알아봅니다.&lt;/p&gt;
+
+&lt;p&gt;먼저 alpine 설치는 대부분 리눅스 배포판의 패키지 시스템에 등록되어 있으므로
+해당 패키지 시스템을 사용해 쉽게 설치할 수 있습니다.  데비안 계열이면 &lt;code&gt;apt
+install alpine&lt;/code&gt;, 페도라 계열이면 &lt;code&gt;dnf install alpine&lt;/code&gt; 이죠.&lt;/p&gt;
+
+&lt;h1 id=&#34;gmail-imap-정보-입력&#34;&gt;gmail imap 정보 입력&lt;/h1&gt;
+
+&lt;p&gt;S (Settings) -&amp;gt; L (collectionLists) -&amp;gt; A (Add Cltn)&lt;/p&gt;
+
+&lt;p&gt;Nickname: gmail or anything
+Server: imap.gmail.com/ssl/user=sj@gmail.com&lt;/p&gt;
+
+&lt;p&gt;^X (Commit change)
+E (Exit Setup)&lt;/p&gt;
+
+&lt;h1 id=&#34;smtp-서버-설정&#34;&gt;SMTP 서버 설정&lt;/h1&gt;
+
+&lt;p&gt;S (Setup) -&amp;gt; C (config)&lt;/p&gt;
+
+&lt;p&gt;SMTP server: smtp.gmail.com/tls/user=sj@gmail.com&lt;/p&gt;
+
+&lt;h2 id=&#34;쓰레드-기반-소팅&#34;&gt;쓰레드 기반 소팅&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;[Sort key]&lt;/code&gt;: tHread (enter)&lt;/p&gt;
+
+&lt;h2 id=&#34;리눅스-커널-커뮤니티에서-요구하는-설정&#34;&gt;리눅스 커널 커뮤니티에서 요구하는 설정&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;[Sending Preferences]&lt;/code&gt;: Do Not Send Flowed Text, Strip Whitespace Before Sending&lt;/p&gt;
+
+&lt;h1 id=&#34;references&#34;&gt;References&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://harbhag.wordpress.com/2010/07/14/configure-alpine-to-sendreceive-emails-from-gmail/&#34; target=&#34;_blank&#34;&gt;https://harbhag.wordpress.com/2010/07/14/configure-alpine-to-sendreceive-emails-from-gmail/&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Lkml_news_v4.18 Rc4</title>
       <link>https://sjp38.github.io/post/lkml_news_v4.18-rc4/</link>
       <pubDate>Mon, 09 Jul 2018 10:01:05 +0900</pubDate>
@@ -730,72 +776,6 @@ swap-w-seq 테스트를 16개 프로세스로 실험한 결과, 약 10배의 성
 
 &lt;p&gt;RCU 의 루트 &amp;lsquo;rcu_node&amp;rsquo; 구조체로의 락 컨텐션을 줄이는 Paul McKenney 의
 패치셋입니다.  별 문제 없으면 4.18 버전에 들어가겠군요.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>LKML News after v4.16</title>
-      <link>https://sjp38.github.io/post/lkml_news_v4.16/</link>
-      <pubDate>Mon, 02 Apr 2018 07:13:40 +0900</pubDate>
-      
-      <guid>https://sjp38.github.io/post/lkml_news_v4.16/</guid>
-      <description>
-
-&lt;h2 id=&#34;linux-4-16&#34;&gt;Linux 4.16&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFyxn0bu5jOAJvO_63GHaGMkJ0uA=bVBm2T3HVX9SimZzw@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CA+55aFyxn0bu5jOAJvO_63GHaGMkJ0uA=bVBm2T3HVX9SimZzw@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;릴리즈 마지막 주 치고는 네트워킹 쪽에 조금 변경사항이 있었습니다만, 큰 문제가
-될 정도는 아니었습니다.  결과, 4.16이 드디어 릴리즈 되었습니다!  동시에 4.17
-머지 윈도우가 시작되는군요.&lt;/p&gt;
-
-&lt;h2 id=&#34;patch-0-2-move-kfree-rcu-out-of-rcu-code-and-use-kfree-bulk&#34;&gt;[PATCH 0/2] Move kfree_rcu out of rcu code and use kfree_bulk&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/1522647064-27167-1-git-send-email-rao.shoaib@oracle.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/1522647064-27167-1-git-send-email-rao.shoaib@oracle.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;kfree_rcu() 대신 kfree_bulk() 라는 새로 만들어진, 더 효율적인 기능을 사용하도록
-하는 패치입니다.&lt;/p&gt;
-
-&lt;h2 id=&#34;rfc-patch-0-1-mm-support-multiple-kswapd-threads-per-node&#34;&gt;[RFC PATCH 0/1] mm: Support multiple kswapd threads per node&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/1522661062-39745-1-git-send-email-buddy.lumpkin@oracle.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/1522661062-39745-1-git-send-email-buddy.lumpkin@oracle.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;NUMA 아키텍쳐에서 리눅스 커널은 NUMA 노드당 하나의 kswapd 쓰레드를 띄웁니다.
-노드당 kswapd 쓰레드 수를 늘려 성능을 높이려는 쓰레드입니다.  결국은 이런
-움직임이 있어야 할거라고 봅니다만, 당장 이 패치에 대해서는 수정 요청 의견도 꽤
-있군요.&lt;/p&gt;
-
-&lt;h2 id=&#34;rfc-group-struct-page-elements&#34;&gt;[RFC] Group struct page elements&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20180408142334.GA29357@bombadil.infradead.org&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20180408142334.GA29357@bombadil.infradead.org&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;커널에서 페이지를 관리하는 구조체인 &lt;code&gt;struct page&lt;/code&gt; 는 매우 복잡한 구조로
-되어있고, 페이지가 어떤 목적으로 쓰이느냐에 따라 같은 필드가 다른 목적으로
-쓰이기도 합니다.
-이 RFC 패치는 이 혼란스러운 구조를 좀 개선해 보려는 시도를 담고 있습니다.&lt;/p&gt;
-
-&lt;h2 id=&#34;patch-1-2-slab-gfp-zero-is-incompatible-with-a-constructor&#34;&gt;[PATCH &lt;sup&gt;1&lt;/sup&gt;&amp;frasl;&lt;sub&gt;2&lt;/sub&gt;] slab: &lt;code&gt;__GFP_ZERO&lt;/code&gt; is incompatible with a constructor&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20180410125351.15837-1-willy@infradead.org&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20180410125351.15837-1-willy@infradead.org&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;시작은 김민찬 님의 null pointer dereference 문제에 대한 수정을 담은
-패치셋이었습니다
-(&lt;a href=&#34;https://lkml.kernel.org/r/20180409015815.235943-1-minchan@kernel.org&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20180409015815.235943-1-minchan@kernel.org&lt;/a&gt;).
-이걸 Matthew 는 근본적인 실수가 있었던 것 같다고 보고 이 패치셋을 내놓았습니다.
-메모리 할당 요청에 &lt;code&gt;__GFP_ZERO&lt;/code&gt; 플래그를 넣으면 메모리 영역을 0으로 초기화 해서
-할당을 해줍니다.  그런데 constructor 가 있다면 초기화 작업을 constructor 에서
-해야 하기에 &lt;code&gt;__GFP_ZERO&lt;/code&gt; 플래그를 여기에 넣는건 뭔가 이상하죠.
-이 패치셋은 그런 경우는 모두 실수에 의한 것이라 보고 경고를 표시해 주도록
-합니다.&lt;/p&gt;
-
-&lt;h2 id=&#34;rfc-tip-locking-lockdep-v6-20-20-lockdep-selftest-add-a-test-case-for-srcu&#34;&gt;[RFC tip/locking/lockdep v6 &lt;sup&gt;20&lt;/sup&gt;&amp;frasl;&lt;sub&gt;20&lt;/sub&gt;] lockdep/selftest: Add a test case for SRCU&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20180411135721.22723-1-boqun.feng@gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20180411135721.22723-1-boqun.feng@gmail.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;리눅스 커널의 락킹 관련 문제 추적 기능인 &lt;code&gt;lockdep&lt;/code&gt; 이 SRCU 를 지원하게 하는
-패치와 함께 올라온 패치입니다.
-&lt;code&gt;lockdep&lt;/code&gt; 을 위한 selftest 에 SRCU 기능 역시 테스트하도록 테스트를
-추가했습니다.&lt;/p&gt;
 </description>
     </item>
     
