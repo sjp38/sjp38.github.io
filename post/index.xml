@@ -11,6 +11,28 @@
     <atom:link href="/post/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Lkml_news_v4.18 Rc6</title>
+      <link>https://sjp38.github.io/post/lkml_news_v4.18-rc6/</link>
+      <pubDate>Tue, 24 Jul 2018 06:19:53 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/lkml_news_v4.18-rc6/</guid>
+      <description>
+
+&lt;h2 id=&#34;linux-4-18-rc6&#34;&gt;Linux 4.18-rc6&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFzMheDA-2z=MdGgJrz-REcrknb+4OEvRKaJipm+x6xEhw@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CA+55aFzMheDA-2z=MdGgJrz-REcrknb+4OEvRKaJipm+x6xEhw@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;이번 rc는 평소보다 조금 크게 되었는데, 네트워킹 쪽 메인테이너인 David 가 많은
+수정사항을 아직 보내지 않았다가 이번에 모아서 보냈기 때문이라는군요.  그렇다
+해도 그렇게 큰 양까진 아니라는 토발즈의 설명입니다.&lt;/p&gt;
+
+&lt;p&gt;지난 rc5 작업 주간을 귀찮게 했던 VM 버그에 대한 두줄의 수정이 rc5 에
+들어갔었지만 32비트 환경에 대한 고려가 없었기에 이번에 그 수정이
+들어갔다는군요.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Alpine for LKML</title>
       <link>https://sjp38.github.io/post/alpine-for-lkml/</link>
       <pubDate>Wed, 18 Jul 2018 21:09:54 +0900</pubDate>
@@ -53,6 +75,29 @@ E (Exit Setup)&lt;/p&gt;
 &lt;h1 id=&#34;references&#34;&gt;References&lt;/h1&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://harbhag.wordpress.com/2010/07/14/configure-alpine-to-sendreceive-emails-from-gmail/&#34; target=&#34;_blank&#34;&gt;https://harbhag.wordpress.com/2010/07/14/configure-alpine-to-sendreceive-emails-from-gmail/&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Lkml_news_v4.18 Rc5</title>
+      <link>https://sjp38.github.io/post/lkml_news_v4.18-rc5/</link>
+      <pubDate>Mon, 16 Jul 2018 06:07:33 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/lkml_news_v4.18-rc5/</guid>
+      <description>
+
+&lt;h2 id=&#34;linux-4-18-rc5&#34;&gt;Linux 4.18-rc5&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/A+55aFwfMr2D2A_yesUyt_Lo3XMRk9epzgeBMt2HxMHiXMDYcg@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/A+55aFwfMr2D2A_yesUyt_Lo3XMRk9epzgeBMt2HxMHiXMDYcg@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;다섯번째 rc 릴리즈입니다.  토발즈 개인적으로는 조금 바쁘단 느낌이 있었지만
+숫자로 보면 평범한 rc 릴리즈 주간이었다는 평입니다.&lt;/p&gt;
+
+&lt;p&gt;토발즈를 귀찮게 만들었던 건 VM 쪽 버그로, 단 두줄의 수정으로 고쳐졌다는데,
+아무래도 아래 패치인 것 같군요:
+&lt;a href=&#34;https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=bce73e4842390f7b7309c8e253e139db71288ac3&#34; target=&#34;_blank&#34;&gt;https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=bce73e4842390f7b7309c8e253e139db71288ac3&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;그리고 repeatable sequence 에 대한 cleanup 도 있었군요.&lt;/p&gt;
 </description>
     </item>
     
@@ -681,101 +726,6 @@ spread sheet 로 정리한 문서도 여기서 공개했나보군요:
 &lt;p&gt;&lt;code&gt;local_irq_save()&lt;/code&gt; + &lt;code&gt;atomic_dec_and_lock()&lt;/code&gt; 조합을 써야 하던 코드를 위해 이를
 감싸는 새로운 함수, &lt;code&gt;atomic_dec_and_lock_irqsave()&lt;/code&gt; 를 만들고 기존의 코드가
 이를 사용하도록 고친 패치입니다.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>LKML News after v4.17-rc2</title>
-      <link>https://sjp38.github.io/post/lkml_news_v4.17-rc2/</link>
-      <pubDate>Mon, 23 Apr 2018 12:03:23 +0900</pubDate>
-      
-      <guid>https://sjp38.github.io/post/lkml_news_v4.17-rc2/</guid>
-      <description>
-
-&lt;h2 id=&#34;linux-v4-17-rc2&#34;&gt;Linux v4.17-rc2&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFwzkGuq5ASF-vhYj7mEX26V0K+uZCLWi1BLYq+9F1n-Rw@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CA+55aFwzkGuq5ASF-vhYj7mEX26V0K+uZCLWi1BLYq+9F1n-Rw@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;두번째 rc 버전의 릴리즈입니다.  &lt;code&gt;perf&lt;/code&gt; 와 테스트 스크립트 쪽에 변경사항이 좀
-많긴 하지만 평소와 크게 다르지 않은 추이라는군요.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>LKML News after v4.17-rc1</title>
-      <link>https://sjp38.github.io/post/lkml_news_v4.17-rc1/</link>
-      <pubDate>Mon, 16 Apr 2018 10:59:58 +0900</pubDate>
-      
-      <guid>https://sjp38.github.io/post/lkml_news_v4.17-rc1/</guid>
-      <description>
-
-&lt;h2 id=&#34;linux-v4-17-rc1&#34;&gt;Linux v4.17-rc1&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFx62iBkj+hOmhLksUtvjwTcm_o1dwcyvaNnVpJ-AmvzVQ@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CA+55aFx62iBkj+hOmhLksUtvjwTcm_o1dwcyvaNnVpJ-AmvzVQ@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;2주간의 머지 윈도우가 지나고, v4.17-rc1 이 릴리즈 되었습니다.  크게 특별할 것
-없이 평범한 머지 윈도우였다고 토발즈는 평하는군요.  그리고 이번에 git objects
-mark 가 4백만을 넘겼습니다.  따라서 다음 커널이 v5.0 이어도 될 것 같은데, 꼭
-다음 버전에서 그렇게 할지는 모르겠다는군요.  리눅스 커널에서 버전은 그저 시간이
-흘렀음을 의미할 뿐, 큰 변화가 있어서 메이저 버전 넘버가 바뀌는게 아니기
-때문이죠.  참고로 v3.0 과 v4.0 은 각각 git objects mark 2백만과 4백만에서
-이루어졌군요.&lt;/p&gt;
-
-&lt;p&gt;암튼 언젠가는 v5.0 을 릴리즈 하겠지만 너무 큰 의미를 부여하지 말아달라고 이야기 하고 있습니다.&lt;/p&gt;
-
-&lt;p&gt;토발즈는 또한 이번 머지 윈도우에서의 변화로 몇가지를 꼽는데요.
-오래된 아키텍쳐인 backfin, cris, frv, m32r, metag, mn10300, score, tile
-아키텍쳐의 지원을 끊기로 했고 nds32 라는 새로운 아키텍쳐를 지원하게 되었군요.
-해당 아키텍쳐에 지원이 더 필요하다면 언제든 되살려도 좋지만 본인이 잘 관리할 수
-있음을 증명해야 함을 한번 더 언급하고 있습니다.&lt;/p&gt;
-
-&lt;p&gt;또한, 이번 머지 윈도우에선 클린업이 꽤 있었습니다.  staging 드라이버들 몇개가
-제거되었고, spdx 를 사용함으로써 카피라이트 문구도 많이 줄었습니다.
-pre-shipped lexer / parser 파일들도 사라졌구요.&lt;/p&gt;
-
-&lt;p&gt;결국, 이번 릴리즈는 추가된 코드 라인보다 삭제된 코드 라인이 많았던 릴리즈군요.
-프로젝트 관리자로써 토발즈가 속시원할 것 같습니다.  이런 경우는 커널 릴리즈
-역사상 처음이라는군요.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt; 13538 files changed, 627723 insertions(+), 818855 deletions(-)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;patch-v10-00-25-speculative-page-faults&#34;&gt;[PATCH v10 00/25] Speculative page faults&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/1523975611-15978-1-git-send-email-ldufour@linux.vnet.ibm.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/1523975611-15978-1-git-send-email-ldufour@linux.vnet.ibm.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;어느새 열번째 버전의 speculative page faults 패치셋입니다.&lt;/p&gt;
-
-&lt;h2 id=&#34;patch-v2-00-12-improve-shrink-slab-scalability-old-complexity-was-o-n-2-new-is-o-n&#34;&gt;[PATCH v2 00/12] Improve shrink_slab() scalability (old complexity was O(n^2), new is O(n))&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/152397794111.3456.1281420602140818725.stgit@localhost.localdomain&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/152397794111.3456.1281420602140818725.stgit@localhost.localdomain&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;많은 memort shrinker 들 또는 메모리 cgroups 를 가진 시스템에서는 그 수의 제곱에
-비례해 &lt;code&gt;shrink_slab()&lt;/code&gt; 의 수행시간이 증가하는데, 이 문제를 해결하고자 하는
-패치셋입니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;# echo 3 &amp;gt; /proc/sys/vm/drop_caches&lt;/code&gt; 의 수행시간을 사용해 성능 차이를
-측정했군요.&lt;/p&gt;
-
-&lt;h2 id=&#34;patch-00-21-mm-thp-swap-swapout-swapin-thp-as-a-whole&#34;&gt;[PATCH 00/21] mm, THP, swap: Swapout/swapin THP as a whole&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20180417020230.26412-1-ying.huang@intel.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20180417020230.26412-1-ying.huang@intel.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;THP (Transparent Huge Page) 는 swap out 되기 전에 regular page 로 쪼개져야
-했습니다.  이 작업에 많은 시간이 걸렸기에 한번에 THP 를 swap out 하기 위한
-작업을 Huang Ying 이 해왔고 일단 쪼개는 작업은 최후로 미뤄뒀는데 마침내 완전히
-THP 단위로 swap out 을 행하는 패치셋을 올렸습니다.&lt;/p&gt;
-
-&lt;p&gt;RAM 으로 PMEM swap device 를 시뮬레이션 해서 vm-scalability 벤치마크의
-swap-w-seq 테스트를 16개 프로세스로 실험한 결과, 약 10배의 성능 개선을
-보았군요.&lt;/p&gt;
-
-&lt;h2 id=&#34;patch-tip-core-rcu-0-21-contention-reduction-for-v4-18&#34;&gt;[PATCH tip/core/rcu 0/21] Contention reduction for v4.18&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20180423030258.GA23370@linux.vnet.ibm.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20180423030258.GA23370@linux.vnet.ibm.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;RCU 의 루트 &amp;lsquo;rcu_node&amp;rsquo; 구조체로의 락 컨텐션을 줄이는 Paul McKenney 의
-패치셋입니다.  별 문제 없으면 4.18 버전에 들어가겠군요.&lt;/p&gt;
 </description>
     </item>
     
