@@ -11,6 +11,30 @@
     <atom:link href="/post/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>LKML News after v4.18-rc8</title>
+      <link>https://sjp38.github.io/post/lkml_news_v4.18-rc8/</link>
+      <pubDate>Mon, 06 Aug 2018 17:53:02 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/lkml_news_v4.18-rc8/</guid>
+      <description>
+
+&lt;h2 id=&#34;linux-4-18-rc8&#34;&gt;Linux 4.18-rc8&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFw49Bh9u3KvGsMbnSLfHvevpWPuqgrWQT0tC0XCajNwzA@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CA+55aFw49Bh9u3KvGsMbnSLfHvevpWPuqgrWQT0tC0XCajNwzA@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;원래대로라면 오늘 4.18 정식 릴리즈가 있어야 했지만, 지난주 동안 여러 일이
+있었고, 결국 여덟번째 rc 버전이 나오고 말았습니다.  VM 쪽 이슈가 큰 이유였고,
+그것만 문제였으면 그냥 정식 릴리즈를 하려 했지만 네트워킹 쪽에서도 뒤늦은
+문제가 터지고 VFS 쪽에도 이슈가 있었던 관계로 정식 릴리즈를 미루기로 결심했다고
+합니다.&lt;/p&gt;
+
+&lt;p&gt;8월에 휴가를 많이 떠나는 유럽 개발자들을 고려해서 토발즈는 휴가가 예정되어
+있다면 그냥 원래 예상된 스케쥴대로 이번주부터 머지 윈도우 열렸다고 생각하고
+풀리퀘스트 보내고 휴가 가라고 대인배라면 대인배 같은 면모를 보이는군요.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Linux Kernel Performance (LKP) Tests</title>
       <link>https://sjp38.github.io/post/lkp-tests/</link>
       <pubDate>Thu, 02 Aug 2018 17:20:10 +0900</pubDate>
@@ -805,43 +829,6 @@ Cache 를 모조리 접근해서 데이터가 flooding 나고 이후 데이터 �
 
 &lt;p&gt;vm-scalability 의 anon-cow-seq 테스트 케이스를 2 socket Xeon E5 v3 2699
 시스템에서 돌려본 결과, 약 16.6% 까지의 성능 향상이 있었다고 합니다.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>LKML News after v4.17-rc5</title>
-      <link>https://sjp38.github.io/post/lkml_news_v4.17-rc5/</link>
-      <pubDate>Mon, 14 May 2018 10:23:45 +0900</pubDate>
-      
-      <guid>https://sjp38.github.io/post/lkml_news_v4.17-rc5/</guid>
-      <description>
-
-&lt;h2 id=&#34;linux-4-17-rc5&#34;&gt;Linux 4.17-rc5&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFxi-Q6hvdHn+JwYSQ9b3feNGoFM3eeAuKNhpkfxVNAGpA@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CA+55aFxi-Q6hvdHn+JwYSQ9b3feNGoFM3eeAuKNhpkfxVNAGpA@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;4.17을 향한 다섯번째 rc 릴리즈입니다.  이번 릴리즈도 여느 때와 다름없이
-평범하군요.  대부분 드라이버 변경들이고, amd gpu 쪽 변경이 있지만 나머지
-부분들은 그렇게 많지 않고 대부분 한두줄 짜리 변경들입니다.  이대로라면 이번
-4.17 릴리즈는 꽤 무난무난하게 끝나겠군요.&lt;/p&gt;
-
-&lt;h2 id=&#34;patch-v11-00-26-speculative-page-faults&#34;&gt;[PATCH v11 00/26] Speculative page faults&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/1526555193-7242-1-git-send-email-ldufour@linux.vnet.ibm.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/1526555193-7242-1-git-send-email-ldufour@linux.vnet.ibm.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;이 블로그에서도 몇차례 소개한, speculative page fault 의 11번째 버전입니다.
-지난 LSFMM 에서도 관련해 논의를 한 것 같던데, 아주 긍정적 반응은 아니었던 것
-같습니다만, 어쨌든 오랫만에 올라온 새로운 버전의 패치셋이군요.&lt;/p&gt;
-
-&lt;h2 id=&#34;patch-v6-00-17-rearrange-struct-page&#34;&gt;[PATCH v6 00/17] Rearrange struct page&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20180518194519.3820-1-willy@infradead.org&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20180518194519.3820-1-willy@infradead.org&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;struct page&lt;/code&gt; 의 구조를 좀 더 사용하기 쉽게 개선하는 패치의 여섯번째
-버전입니다.  LSFMM 에서는 그 구조를 구글 문서[1]를 사용해 그림으로 그려가며
-설명했고, 꽤 괜찮은 반응을 얻었던 것 같더군요.&lt;/p&gt;
-
-&lt;p&gt;[1] &lt;a href=&#34;https://docs.google.com/spreadsheets/d/1tvCszs_7FXrjei9_mtFiKV6nW1FLnYyvPvW-qNZhdog/edit?usp=sharing&#34; target=&#34;_blank&#34;&gt;https://docs.google.com/spreadsheets/d/1tvCszs_7FXrjei9_mtFiKV6nW1FLnYyvPvW-qNZhdog/edit?usp=sharing&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
