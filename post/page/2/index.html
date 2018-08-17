@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme" content="hugo-academic">
-  <meta name="generator" content="Hugo 0.36.1" />
+  <meta name="generator" content="Hugo 0.31.1" />
   <meta name="author" content="SeongJae Park">
   <meta name="description" content="System Programmer">
 
@@ -73,7 +73,7 @@
   <meta property="og:description" content="System Programmer">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2018-06-17T11:59:59&#43;09:00">
+  <meta property="og:updated_time" content="2018-06-25T08:45:22&#43;09:00">
   
 
   
@@ -246,6 +246,62 @@
   
 
   
+  
+    
+    
+
+<div class="article-list-item" itemscope itemprop="blogPost">
+  
+  
+  <h3 class="article-title" itemprop="name">
+    <a href="https://sjp38.github.io/post/lkml_news_v4.18-rc2/" itemprop="url">Lkml_news_v4.18 Rc2</a>
+  </h3>
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2018-06-25 08:45:22 &#43;0900 KST" itemprop="datePublished">
+      Jun 25, 2018
+    </time>
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  
+
+  
+
+</div>
+
+  <div class="article-style" itemprop="articleBody">
+    
+    Linux 4.18-rc2 https://lkml.kernel.org/r/alpine.LFD.2.21.999.1806242116240.20621@xps13.linux-foundation.org
+이번주도 지난주처럼 평소보단 빠른 릴리즈입니다. 토발즈가 여전히 여행중이라는군요. 지난주엔 일본이었고, 이번주는 중국이라는군요. 그런고로 중국 시간으로 일요일 저녁의 rc 릴리즈입니다.
+이번 rc 에서도 큰 변경은 없고 평범한 rc 입니다.
+[PATCH tip/core/rcu 0/40] RCU -&gt;gp_seq conversion for v4.19 https://lkml.kernel.org/r/20180626000841.GA15696@linux.vnet.ibm.com
+RCU 의 -&gt;gpnum 과 -&gt;completed 필드를 하나의 -&gt;gp_seq 로 대체하는 패치입니다. 그동안 -&gt;gpnum 과 -&gt;completed 로 grace period 를 관리해오고 있지만 사실상 -&gt;gpnum 과 -&gt;completed 는 수가 똑같거나 하나 차이이니 하나의 bit 으로도 같은 정보를 처리할 수 있을 뿐더러 로드 횟수를 두번에서 한번으로 줄일 수 있다는 거죠.
+    
+  </div>
+  <p class="read-more">
+    <a href="https://sjp38.github.io/post/lkml_news_v4.18-rc2/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
   
     
     
@@ -824,75 +880,6 @@ Cgroup 은 용량 기반의 컨트롤러는 많지만 응답시간 기반의 컨
   </div>
   <p class="read-more">
     <a href="https://sjp38.github.io/post/lkml_news_v4.17-rc3/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-  
-    
-    
-
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/lkml_news_v4.17-rc2/" itemprop="url">LKML News after v4.17-rc2</a>
-  </h3>
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2018-04-23 12:03:23 &#43;0900 KST" itemprop="datePublished">
-      Apr 23, 2018
-    </time>
-  </span>
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/lkml-news">lkml news</a
-    >
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-  <div class="article-style" itemprop="articleBody">
-    
-    
-
-<h2 id="linux-v4-17-rc2">Linux v4.17-rc2</h2>
-
-<p><a href="https://lkml.kernel.org/r/CA+55aFwzkGuq5ASF-vhYj7mEX26V0K+uZCLWi1BLYq+9F1n-Rw@mail.gmail.com" target="_blank">https://lkml.kernel.org/r/CA+55aFwzkGuq5ASF-vhYj7mEX26V0K+uZCLWi1BLYq+9F1n-Rw@mail.gmail.com</a></p>
-
-<p>두번째 rc 버전의 릴리즈입니다.  <code>perf</code> 와 테스트 스크립트 쪽에 변경사항이 좀
-많긴 하지만 평소와 크게 다르지 않은 추이라는군요.</p>
-
-    
-  </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/lkml_news_v4.17-rc2/" class="btn btn-primary btn-outline">
       CONTINUE READING
     </a>
   </p>

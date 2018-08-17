@@ -11,6 +11,42 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Lkml_news_v4.18</title>
+      <link>https://sjp38.github.io/post/lkml_news_v4.18/</link>
+      <pubDate>Mon, 13 Aug 2018 10:50:27 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/lkml_news_v4.18/</guid>
+      <description>
+
+&lt;h2 id=&#34;linux-4-18&#34;&gt;Linux 4.18&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFzos7tr=OLju10Oe-z7r=eB2dSaFa7vwz2ApGO13B=z_g@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CA+55aFzos7tr=OLju10Oe-z7r=eB2dSaFa7vwz2ApGO13B=z_g@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;자, 오랫만에 rc 버전을 8개나 내며 긴 안정화 기간을 거친 4.18 버전이 릴리즈
+되었습니다.  따라서 지난주는 조용해야 했고 실제로 조용했지만 그럼에도 불구하고
+vfs 레이스 컨디션 문제 수정 등의 변경도 있긴 했습니다.  이번 정식 릴리즈로
+포함된 기능 중 개인적으로는 Restartable Sequence 가 눈에 띄고 흥미롭군요.  아마
+2015년? 인가에 서울에서 커널 서밋 열려서 거기서 발표 들었을 때부터
+관심있었거든요.  유저스페이스에서 이 기능을 잘 사용하면 멀티코어 성능확장성에
+큰 개선이 가능할 것 같습니다.&lt;/p&gt;
+
+&lt;p&gt;어쨌건, 이로써 4.19 버전을 향한 머지 윈도우가 열렸습니다.  5.x 는 언제
+시작되려나요?&lt;/p&gt;
+
+&lt;h2 id=&#34;git-pull-xarray-for-4-19&#34;&gt;[GIT PULL] XArray for 4.19&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20180813161357.GB1199@bombadil.infradead.org&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20180813161357.GB1199@bombadil.infradead.org&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;이 블로그에서도 몇번 소개한 XArray 의 개발자, Matthew 가 충분히 리뷰도 받고
+수정도 했다고 생각하는 것 같습니다.  4.18 릴리즈와 함께 열린 4.19 머지윈도우에
+XArray 풀리퀘스트를 리누스 토발즈에게 던졌군요!&lt;/p&gt;
+
+&lt;p&gt;이 풀리퀘스트는 XArray 의 구현과 &lt;code&gt;pagecache&lt;/code&gt; 가 XArray 를 사용하도록 하는
+변경을 담고 있습니다.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>LKML News after v4.18-rc8</title>
       <link>https://sjp38.github.io/post/lkml_news_v4.18-rc8/</link>
       <pubDate>Mon, 06 Aug 2018 17:53:02 +0900</pubDate>
@@ -31,6 +67,42 @@
 &lt;p&gt;8월에 휴가를 많이 떠나는 유럽 개발자들을 고려해서 토발즈는 휴가가 예정되어
 있다면 그냥 원래 예상된 스케쥴대로 이번주부터 머지 윈도우 열렸다고 생각하고
 풀리퀘스트 보내고 휴가 가라고 대인배라면 대인배 같은 면모를 보이는군요.&lt;/p&gt;
+
+&lt;h2 id=&#34;patch-rfc-00-10-introduce-lockless-shrink-slab&#34;&gt;[PATCH RFC 00/10] Introduce lockless shrink_slab()&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/153365347929.19074.12509495712735843805.stgit@localhost.localdomain&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/153365347929.19074.12509495712735843805.stgit@localhost.localdomain&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;이 블로그에서도 이야기 했던 &amp;ldquo;Improve shrink_slab() scalability&amp;hellip;&amp;rdquo; 패치의 머지
+후, 성능 병목 지점이 &lt;code&gt;shrink_lab()&lt;/code&gt; 에서 &lt;code&gt;down_read_trylock()&lt;/code&gt; 으로
+넘어갔습니다!&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;     &amp;gt; I created 255 memcgs, 255 ext4 mounts and made each memcg create a
+     &amp;gt; file containing few KiBs on corresponding mount. Then in a separate
+     &amp;gt; memcg of 200 MiB limit ran a fork-bomb.
+     &amp;gt;
+     &amp;gt; I ran the &amp;quot;perf record -ag -- sleep 60&amp;quot; and below are the results:
+     &amp;gt; +  47.49%            fb.sh  [kernel.kallsyms]    [k] down_read_trylock
+     &amp;gt; +  30.72%            fb.sh  [kernel.kallsyms]    [k] up_read
+     &amp;gt; +   9.51%            fb.sh  [kernel.kallsyms]    [k] mem_cgroup_iter
+     &amp;gt; +   1.69%            fb.sh  [kernel.kallsyms]    [k] shrink_node_memcg
+     &amp;gt; +   1.35%            fb.sh  [kernel.kallsyms]    [k] mem_cgroup_protected
+     &amp;gt; +   1.05%            fb.sh  [kernel.kallsyms]    [k] queued_spin_lock_slowpath
+     &amp;gt; +   0.85%            fb.sh  [kernel.kallsyms]    [k] _raw_spin_lock
+     &amp;gt; +   0.78%            fb.sh  [kernel.kallsyms]    [k] lruvec_lru_size
+     &amp;gt; +   0.57%            fb.sh  [kernel.kallsyms]    [k] shrink_node
+     &amp;gt; +   0.54%            fb.sh  [kernel.kallsyms]    [k] queue_work_on
+     &amp;gt; +   0.46%            fb.sh  [kernel.kallsyms]    [k] shrink_slab_memcg
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;이 패치셋은 계속해서 &lt;code&gt;shrink_slab()&lt;/code&gt; 의 멀티코어 성능 확장성을 위해 lock 을
+사용하지 않게끔 경로를 최적화 하고 있습니다.&lt;/p&gt;
+
+&lt;p&gt;먼저 &lt;code&gt;shrink_slab()&lt;/code&gt; 과 &lt;code&gt;unregister_shrinker()&lt;/code&gt; 사이의 동기화에 SRCU 를
+사용하고, 그럴 수 없는 경우에는 &lt;code&gt;percpu_rw_semaphore&lt;/code&gt; 를 사용합니다.  그리고
+&lt;code&gt;shrinker_rwsem&lt;/code&gt; 을 뮤텍스로 교체합니다.&lt;/p&gt;
+
+&lt;p&gt;SRCU 를 사용함으로 인해 커널 바이너리 사이즈가 커지는 문제가 있는데, 과거에도
+비슷한 시도가 이런 이유로 취소된 적 있었군요.&lt;/p&gt;
 </description>
     </item>
     
@@ -254,6 +326,12 @@ distribution name&amp;gt;/&amp;lt;kernel config&amp;gt;/&amp;lt;gcc version&amp;
       <guid>https://sjp38.github.io/post/linux_release_history/</guid>
       <description>
 
+&lt;h2 id=&#34;linux-4-18&#34;&gt;Linux 4.18&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFzos7tr=OLju10Oe-z7r=eB2dSaFa7vwz2ApGO13B=z_g@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CA+55aFzos7tr=OLju10Oe-z7r=eB2dSaFa7vwz2ApGO13B=z_g@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;2018-08-13&lt;/p&gt;
+
 &lt;h2 id=&#34;linux-4-18-rc8&#34;&gt;Linux 4.18-rc8&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFw49Bh9u3KvGsMbnSLfHvevpWPuqgrWQT0tC0XCajNwzA@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CA+55aFw49Bh9u3KvGsMbnSLfHvevpWPuqgrWQT0tC0XCajNwzA@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
@@ -306,6 +384,34 @@ distribution name&amp;gt;/&amp;lt;kernel config&amp;gt;/&amp;lt;gcc version&amp;
 
 &lt;p&gt;일곱번째 rc 릴리즈입니다.  별다른 일 없으면 다음주에 4.18이 릴리즈 되겠다고
 토발즈도 이야기 하는군요.&lt;/p&gt;
+
+&lt;h2 id=&#34;patch-v4-0-6-kmalloc-reclaimable-caches&#34;&gt;[PATCH v4 0/6] kmalloc-reclaimable caches&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20180731090649.16028-1-vbabka@suse.cz&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20180731090649.16028-1-vbabka@suse.cz&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;내부적으로 SLAB 할당자를 사용하는 kmem cache 들은 &lt;code&gt;SLAB_RECLAIM_ACCOUNT&lt;/code&gt;
+플래그를 가지고 생성될 경우에 시스템 메모리가 부족한 경우 기존에 할당받은
+오브젝트들을 회수해도 좋다고 알리게 됩니다.&lt;/p&gt;
+
+&lt;p&gt;일반적인 kmem cache 들은 이 플래그 없이 생성되서는 시스템의 메모리가 부족한
+경우에 회수되어도 좋은 오브젝트의 할당에 사용되기도 하는데, 다양한 크기의
+오브젝트들은 &lt;code&gt;SLAB_RECLAIM_ACCOUNT&lt;/code&gt; 플래그를 가진 하나의 kmem cache 에서 처리될
+수 없기 때문이죠.  &lt;code&gt;dcache&lt;/code&gt; 의 &lt;code&gt;external name&lt;/code&gt; 들이 그 예입니다.&lt;/p&gt;
+
+&lt;p&gt;이와 비슷한 경우들을 해결하기 위해 이 패치셋은 kmalloc cache 에
+SLAB_RECLAIM_ACCOUNT  와 비슷한 특성을 갖는 변종을 kmalloc-rcl-x 라는 이름으로
+만들었습니다.  kmalloc() 시에 &lt;code&gt;__GFP_RECLAIMABLE&lt;/code&gt; 플래그를 넣으면 이 캐시에서
+메모리가 할당됩니다.&lt;/p&gt;
+
+&lt;h2 id=&#34;patch-swap-use-try-to-reclaim-swap-in-free-swap-and-cache&#34;&gt;&lt;code&gt;[PATCH] swap: Use __try_to_reclaim_swap() in free_swap_and_cache()&lt;/code&gt;&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20180803123014.15431-1-ying.huang@intel.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20180803123014.15431-1-ying.huang@intel.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;스왑 엔트리를 회수하는 코드 경로는 &lt;code&gt;free_swap_and_cache()&lt;/code&gt; 가 있고
+&lt;code&gt;__try_to_reclaim_swap()&lt;/code&gt; 이 있는데, 코딩 스타일 빼고는 실제 하는 일이 거의
+똑같습니다.  이 패치는 &lt;code&gt;free_swap_and_cache()&lt;/code&gt; 에서 내부적으로
+&lt;code&gt;__try_to_reclaim_cache()&lt;/code&gt; 를 사용하게 함으로써 코드의 가독성을 높이고 잠재적
+버그를 줄였습니다.&lt;/p&gt;
 </description>
     </item>
     
@@ -770,71 +876,6 @@ Notebook 서비스 중 하나인 Google Colab 에 대해 알아봤습니다.  �
 &lt;p&gt;Cgroup 에 응답시간 (latency) 기반의 I/O 컨트롤러를 추가하는 패치셋입니다.
 Cgroup 은 용량 기반의 컨트롤러는 많지만 응답시간 기반의 컨트롤러가 부족하다고
 느껴왔는데, 역시 추가되어 가는군요.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>LKML News after v4.17-rc6</title>
-      <link>https://sjp38.github.io/post/lkml_news_v4.17-rc6/</link>
-      <pubDate>Mon, 21 May 2018 10:19:16 +0900</pubDate>
-      
-      <guid>https://sjp38.github.io/post/lkml_news_v4.17-rc6/</guid>
-      <description>
-
-&lt;h2 id=&#34;linux-v4-17-rc6&#34;&gt;Linux v4.17-rc6&lt;/h2&gt;
-
-&lt;p&gt;&lt;code&gt;https://lkml.kernel.org/r/CA+55aFxxYQFL3mwsQcC+__R23ZmO8c3F0SThi6r44TdK0ePNDQ@mail.gmail.com&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;여섯번째 release candidate 버전입니다.  이번 릴리즈에도 특기할 만한 일은
-없었습니다.  이제 충분히 안정화 되었을 거라고 하는군요.&lt;/p&gt;
-
-&lt;h2 id=&#34;patch-mm-v3-00-21-mm-thp-swap-swapout-swapin-thp-in-one-piece&#34;&gt;[PATCH -mm -V3 00/21] mm, THP, swap: Swapout/swapin THP in one piece&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20180523082625.6897-1-ying.huang@intel.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20180523082625.6897-1-ying.huang@intel.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;이전에도 이 시리즈로 소개했던, THP 의 swap out 과 swap in 최적화 마지막 단계
-패치의 세번째 버전입니다.  마지막 단계 이야기 하니 문득 인피니티워의 오역
-논란이 떠오르는군요 ;)  두번째 버전 이후 특정 컨피규레이션에서의 빌드 버그를
-수정했고, mmotm/master 브랜치의 5월 18일자 버전으로 rebase 한게 차이점의
-전부군요.&lt;/p&gt;
-
-&lt;p&gt;RAM 으로 PMEM 을 시뮬레이션 하는 환경에서 vm-scalability 라는 벤치마크를 사용해
-16개 프로세스가 anonymous page 를 상당량 할당받고 반복해서 접근하는 워크로드로
-성능 차이를 비교했습니다.  이로 인해 패치 전 대비 워크로드 처리량 (throughput)
-이 992.8% 향상되었습니다.&lt;/p&gt;
-
-&lt;h2 id=&#34;patch-v3-0-4-fixes-cleanups-for-rcu-dev&#34;&gt;[PATCH v3 0/4] fixes, cleanups for rcu/dev&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20180521044220.123933-1-joel@joelfernandes.org&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20180521044220.123933-1-joel@joelfernandes.org&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;RCU 코드의 주석, 변수 사용, 변수 이름 등의 개선 패치셋입니다.&lt;/p&gt;
-
-&lt;h2 id=&#34;resend-patch-v5-00-33-block-support-multipage-bvec&#34;&gt;[RESEND PATCH V5 00/33] block: support multipage bvec&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20180525034621.31147-1-ming.lei@redhat.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20180525034621.31147-1-ming.lei@redhat.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;하나의 &lt;code&gt;struct bio_bvec&lt;/code&gt; 이 물리적으로 연속적인 복수개의 페이지를 가질 수 있게
-하는 패치입니다.  시스템의 메모리가 거대해지고 THP 등이 널리 쓰임에 따라 이런
-변화가 필요했다는군요.&lt;/p&gt;
-
-&lt;h2 id=&#34;patch-v2-mm-0-4-mm-huge-page-copy-target-sub-page-last-when-copy-huge-page&#34;&gt;[PATCH -V2 -mm 0/4] mm, huge page: Copy target sub-page last when copy huge page&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20180524005851.4079-1-ying.huang@intel.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20180524005851.4079-1-ying.huang@intel.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Huge page 의 복사 시에는 source 와 destination page 각각에 접근을 해야 하므로,
-2 MiB huge page 를 사용한다 가정하면 총 4 MiB 데이터 액세스가 필요합니다.
-예컨대 Xeon E5 v3 2699 CPU 는 18개의 코어, 36개 쓰레드, 그리고 45 MiB Last
-Level Cache 를 가지므로 코어별로는 2.5 MiB, 쓰레드별로는 1.25 MiB 의 Last Level
-Cache 밖에 갖지 못하므로, 여기서 huge page 복사가 일어나면 자신의 Last Level
-Cache 를 모조리 접근해서 데이터가 flooding 나고 이후 데이터 접근은 cache miss
-가 날 수 있게 됩니다.&lt;/p&gt;
-
-&lt;p&gt;이 패치셋은 target huge page 의 sub-page 를 마지막에 복사하도록 복사 시의
-데이터 접근 순서를 약간 바꿔서 대부분의 경우에는 캐시 미스를 좀 더 줄일 수
-있도록 했습니다.&lt;/p&gt;
-
-&lt;p&gt;vm-scalability 의 anon-cow-seq 테스트 케이스를 2 socket Xeon E5 v3 2699
-시스템에서 돌려본 결과, 약 16.6% 까지의 성능 향상이 있었다고 합니다.&lt;/p&gt;
 </description>
     </item>
     
