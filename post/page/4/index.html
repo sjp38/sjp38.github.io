@@ -73,7 +73,7 @@
   <meta property="og:description" content="System Programmer">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2018-01-29T09:20:38&#43;09:00">
+  <meta property="og:updated_time" content="2018-02-13T13:56:47&#43;09:00">
   
 
   
@@ -246,6 +246,70 @@
   
 
   
+  
+    
+    
+
+<div class="article-list-item" itemscope itemprop="blogPost">
+  
+  
+  <h3 class="article-title" itemprop="name">
+    <a href="https://sjp38.github.io/post/lkml_news_v4.16-rc1/" itemprop="url">Lkml_news_v4.16 Rc1</a>
+  </h3>
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2018-02-13 13:56:47 &#43;0900 KST" itemprop="datePublished">
+      Feb 13, 2018
+    </time>
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/lkml-news">lkml news</a
+    >
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+  <div class="article-style" itemprop="articleBody">
+    
+    Linux 4.16-rc1 https://lkml.kernel.org/r/CA+55aFzXVqgCMhPL9EaMW_D9E=HCQ9+JSQAbBPe3Oa_iQtky=g@mail.gmail.com
+어느덧 2주일이 지났습니다. 머지 윈도우가 닫히고 4.16 첫번째 rc 버전이 나왔습니다. 4.15는 역시 토발즈에게 고통스러웠던 시간이었던지 이번 머지 윈도우는 4.15 보다 훨씬 나았다는 토발즈의 이야기입니다.
+이번 릴리즈에서는 GPU 쪽 변경 사항이 많고 대부분은 드라이버라 아주 큰 변화는 거의 없지만, 여전히 arch 쪽에도, 네트워킹과 파일시스템 등에도 변경이 없지는 않다고 정리하고 있습니다. 스펙터 / 멜트다운 이슈에 대한 x86 외 아키텍쳐의 변경사항들도 들어왔군요.
+[PATCH v8 00/24] Speculative page faults https://lkml.
+    
+  </div>
+  <p class="read-more">
+    <a href="https://sjp38.github.io/post/lkml_news_v4.16-rc1/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
   
     
     
@@ -834,71 +898,6 @@ Lockdep 의 cross release 기능은 너무 느렸고, false positive 가 많다�
   </div>
   <p class="read-more">
     <a href="https://sjp38.github.io/post/lkml_news_v4.15-rc4/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-  
-    
-    
-
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/lkml_news_v4.15-rc3/" itemprop="url">LKML News after v4.15-rc3</a>
-  </h3>
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2017-12-11 11:25:13 &#43;0900 KST" itemprop="datePublished">
-      Dec 11, 2017
-    </time>
-  </span>
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    3 min read
-  </span>
-  
-
-  
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/lkml-news">lkml news</a
-    >
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-  <div class="article-style" itemprop="articleBody">
-    
-    Linux 4.15-rc3 https://lkml.kernel.org/r/CA+55aFz9O9R8u3ori-QNPz4ALU+0B=Es0gd+oWmsce5qxugxXA@mail.gmail.com
-4.15 의 세번째 rc 버전입니다. 지난주보단 조금 늦게 릴리즈 되었네요.
-일반적으로 rc3 릴리즈는 좀 변경사항이 많지만 이번엔 그중에서도 변경사항이 많은 편이라 걱정된다고 하는군요. 대부분은 드라이버쪽 변경인데 perf 쪽 변경도 꽤 있고 core, networking, kvm, arch, 문서 업데이트도 물론 있습니다. 어쨌든 토발즈는 이제는 정말 안정화가 되어가길 바라는 마음이라는군요.
-[PATCH v2] mm/slab: Do not hash pointers when debugging slab https://lkml.kernel.org/r/1513179267-2509-1-git-send-email-geert+renesas@glider.be
-이번 버전에 들어와 포인터 값을 기반으로 한 예측을 통해 공격이 들어오는 걸 방지하기 위해 &lsquo;%p&rsquo; 가 포인터를 그냥 출력하는게 아니라 hash 한 다음에 출력하도록 바뀌었죠.
-    
-  </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/lkml_news_v4.15-rc3/" class="btn btn-primary btn-outline">
       CONTINUE READING
     </a>
   </p>

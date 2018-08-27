@@ -11,6 +11,76 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Raspberry Pi 3 Model B Setup</title>
+      <link>https://sjp38.github.io/post/rasp3-modelb-setup/</link>
+      <pubDate>Mon, 27 Aug 2018 16:03:42 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/rasp3-modelb-setup/</guid>
+      <description>&lt;p&gt;OSSE 2016 에서 받아온 라즈베리 파이3 셋업을 해봅니다.
+셋업에 사용된 호스트 환경은 Ubuntu 16.04 데스크탑입니다.&lt;/p&gt;
+
+&lt;p&gt;라즈베리 파이는 SD 카드를 저장소로 사용합니다.  따라서 여기에 운영체제를 깔아야
+합니다.  다만, 라즈베리 파이를 구매하면 SD 카드는 따라오지 않습니다.  각자
+알아서 사야 합니다.  전 예전에 사둔 16 GiB 짜리 SD 카드를 사용하겠습니다.&lt;/p&gt;
+
+&lt;p&gt;라즈베리 파이를 지원하는 운영체제는 여러가지 있는데, 데비안 계열의 Raspbian 이
+공식 운영체제입니다.  &lt;a href=&#34;https://www.raspberrypi.org/downloads/&#34; target=&#34;_blank&#34;&gt;다운로드 페이지&lt;/a&gt;
+에서 Raspbian stretch lite 를 다운받고 압축을 풀어줍니다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ls
+2018-06-27-raspbian-stretch-lite.zip
+$ unzip 2018-06-27-raspbian-stretch-lite.zip 
+Archive:  2018-06-27-raspbian-stretch-lite.zip
+  inflating: 2018-06-27-raspbian-stretch-lite.img  
+
+$ ls
+2018-06-27-raspbian-stretch-lite.img  2018-06-27-raspbian-stretch-lite.zip
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;압축 파일이 350 MiB, 압축 푼 이미지는 1.8 GiB 나 하는군요.&lt;/p&gt;
+
+&lt;p&gt;이제 요걸 SD 카드에 써야하는데요, 일단 SD 카드를 데스크탑에 연결하고, &lt;code&gt;df&lt;/code&gt; 명령을 이용해 이게 어떤 디바이스 파일로 인식되었는지 봅시다:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ df -h
+Filesystem      Size  Used Avail Use% Mounted on
+udev            7.8G     0  7.8G   0% /dev
+tmpfs           1.6G  174M  1.4G  11% /run
+/dev/sda1       222G  127G   84G  61% /
+tmpfs           7.8G  161M  7.7G   3% /dev/shm
+tmpfs           5.0M  4.0K  5.0M   1% /run/lock
+tmpfs           7.8G     0  7.8G   0% /sys/fs/cgroup
+tmpfs           1.6G   68K  1.6G   1% /run/user/1000
+/dev/sdb        917G  541G  330G  63% /media/sjpark/47f422d0-445f-4dfc-86ca-559b801eb9d3
+/dev/sdc2        15G  4.7G  9.3G  34% /media/sjpark/f24a4949-f4b2-4cad-a780-a138695079ec
+/dev/sdc1        56M   24M   33M  42% /media/sjpark/boot
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;제가 사용한 SD 카드는 기존에 라즈베리파이2 모델 B+ 운영체제가 설치되어
+있었습니다.  /&lt;code&gt;dev/sdc&lt;/code&gt; 로 SD 카드가 잡혔고, &lt;code&gt;/dev/sdc1&lt;/code&gt; 으로 부팅 파티션이,
+&lt;code&gt;/dev/sdc2&lt;/code&gt; 로 데이터 파티션이 잡힌 것 같군요.&lt;/p&gt;
+
+&lt;p&gt;이제 마운트된 파티션들을 언마운트하고, &lt;code&gt;dd&lt;/code&gt; 명령으로 이미지를 덮어씌웁시다:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo umount /media/sjpark/f24a4949-f4b2-4cad-a780-a138695079ec
+$ sudo umount /media/sjpark/boot
+$ sudo dd bs=4M if=./2018-06-27-raspbian-stretch-lite.img of=/dev/sdc
+444+0 records in
+444+0 records out
+1862270976 bytes (1.9 GB, 1.7 GiB) copied, 199.44 s, 9.3 MB/s
+$ sync
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;처음 두개 커맨드가 언마운트를 하고, 세번째 커맨드가 이미지를 덮어씌우는
+커맨드입니다.  혹시 모르니 네번째 커맨드에서 &lt;code&gt;sync&lt;/code&gt; 해서 데이터가 확실히
+씌워지게 했습니다.&lt;/p&gt;
+
+&lt;p&gt;이제 라즈베리 파이의 HDMI 단자에 모니터를 연결하고 micro USB 포트에 스마트폰
+충전하듯이 USB 를 연결해 전원을 인가해주면 라즈베리 파이가 라즈비안으로
+부팅됩니다.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Lkml_news_v4.18</title>
       <link>https://sjp38.github.io/post/lkml_news_v4.18/</link>
       <pubDate>Mon, 13 Aug 2018 10:50:27 +0900</pubDate>
@@ -851,31 +921,6 @@ Notebook 서비스 중 하나인 Google Colab 에 대해 알아봤습니다.  �
 
 &lt;p&gt;[1] &lt;a href=&#34;http://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/what_is_jupyter.html&#34; target=&#34;_blank&#34;&gt;http://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/what_is_jupyter.html&lt;/a&gt;&lt;br /&gt;
 [2] &lt;a href=&#34;https://colab.research.google.com/notebooks/welcome.ipynb&#34; target=&#34;_blank&#34;&gt;https://colab.research.google.com/notebooks/welcome.ipynb&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>LKML News after 4.17-rc7</title>
-      <link>https://sjp38.github.io/post/lkml_news_v4.17-rc7/</link>
-      <pubDate>Mon, 28 May 2018 10:41:50 +0900</pubDate>
-      
-      <guid>https://sjp38.github.io/post/lkml_news_v4.17-rc7/</guid>
-      <description>
-
-&lt;h2 id=&#34;linux-4-17-rc7&#34;&gt;Linux 4.17-rc7&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFwUqz9z1Rf4Wwr29W7DeKxQ67qKEW5xty+JPyCY3aNQ=A@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CA+55aFwUqz9z1Rf4Wwr29W7DeKxQ67qKEW5xty+JPyCY3aNQ=A@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;일곱번째 rc 입니다.  지난 몇주보다는 조금 변경사항이 있었지만 그렇다 해도
-그렇게 심한 정도는 아니었기에 아마도 이게 마지막 rc 일 거라는군요.&lt;/p&gt;
-
-&lt;h2 id=&#34;patch-00-13-introdue-io-latency-io-controller-for-cgroups&#34;&gt;[PATCH 00/13] Introdue io.latency io controller for cgroups&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20180529211724.4531-1-josef@toxicpanda.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20180529211724.4531-1-josef@toxicpanda.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Cgroup 에 응답시간 (latency) 기반의 I/O 컨트롤러를 추가하는 패치셋입니다.
-Cgroup 은 용량 기반의 컨트롤러는 많지만 응답시간 기반의 컨트롤러가 부족하다고
-느껴왔는데, 역시 추가되어 가는군요.&lt;/p&gt;
 </description>
     </item>
     
