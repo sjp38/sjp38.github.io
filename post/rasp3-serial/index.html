@@ -11,7 +11,7 @@
   <meta name="description" content="System Programmer">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/lkml_news_v4.15-rc6/">
+  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/rasp3-serial/">
 
   
   
@@ -70,24 +70,24 @@
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://sjp38.github.io/post/lkml_news_v4.15-rc6/">
+  <link rel="canonical" href="https://sjp38.github.io/post/rasp3-serial/">
 
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="Hacklog">
-  <meta property="og:url" content="https://sjp38.github.io/post/lkml_news_v4.15-rc6/">
-  <meta property="og:title" content="LKML News after v4.15-rc6 | Hacklog">
+  <meta property="og:url" content="https://sjp38.github.io/post/rasp3-serial/">
+  <meta property="og:title" content="Raspberry Pi 3 Serial Connection | Hacklog">
   <meta property="og:description" content="">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2018-01-02T13:34:11&#43;09:00">
+  <meta property="article:published_time" content="2018-08-27T17:16:35&#43;09:00">
   
-  <meta property="article:modified_time" content="2018-01-02T13:34:11&#43;09:00">
-  
-
+  <meta property="article:modified_time" content="2018-08-27T17:16:35&#43;09:00">
   
 
-  <title>LKML News after v4.15-rc6 | Hacklog</title>
+  
+
+  <title>Raspberry Pi 3 Serial Connection | Hacklog</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
@@ -252,7 +252,7 @@
 
   <div class="article-container">
     <div class="article-inner">
-      <h1 itemprop="name">LKML News after v4.15-rc6</h1>
+      <h1 itemprop="name">Raspberry Pi 3 Serial Connection</h1>
 
       
 
@@ -260,15 +260,15 @@
 
   <span class="article-date">
     
-    <time datetime="2018-01-02 13:34:11 &#43;0900 KST" itemprop="datePublished">
-      Jan 2, 2018
+    <time datetime="2018-08-27 17:16:35 &#43;0900 KST" itemprop="datePublished">
+      Aug 27, 2018
     </time>
   </span>
 
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -282,7 +282,7 @@
   <span class="article-categories">
     <i class="fa fa-folder"></i>
     
-    <a href="/categories/lkml-news">lkml news</a
+    <a href="/categories/raspberry-pi">Raspberry Pi</a
     >
     
   </span>
@@ -295,35 +295,35 @@
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=LKML%20News%20after%20v4.15-rc6&amp;url=https%3a%2f%2fsjp38.github.io%2fpost%2flkml_news_v4.15-rc6%2f"
+         href="https://twitter.com/intent/tweet?text=Raspberry%20Pi%203%20Serial%20Connection&amp;url=https%3a%2f%2fsjp38.github.io%2fpost%2frasp3-serial%2f"
          target="_blank" rel="noopener">
         <i class="fa fa-twitter"></i>
       </a>
     </li>
     <li>
       <a class="facebook"
-         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fsjp38.github.io%2fpost%2flkml_news_v4.15-rc6%2f"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fsjp38.github.io%2fpost%2frasp3-serial%2f"
          target="_blank" rel="noopener">
         <i class="fa fa-facebook"></i>
       </a>
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fsjp38.github.io%2fpost%2flkml_news_v4.15-rc6%2f&amp;title=LKML%20News%20after%20v4.15-rc6"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fsjp38.github.io%2fpost%2frasp3-serial%2f&amp;title=Raspberry%20Pi%203%20Serial%20Connection"
          target="_blank" rel="noopener">
         <i class="fa fa-linkedin"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fsjp38.github.io%2fpost%2flkml_news_v4.15-rc6%2f&amp;title=LKML%20News%20after%20v4.15-rc6"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fsjp38.github.io%2fpost%2frasp3-serial%2f&amp;title=Raspberry%20Pi%203%20Serial%20Connection"
          target="_blank" rel="noopener">
         <i class="fa fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=LKML%20News%20after%20v4.15-rc6&amp;body=https%3a%2f%2fsjp38.github.io%2fpost%2flkml_news_v4.15-rc6%2f">
+         href="mailto:?subject=Raspberry%20Pi%203%20Serial%20Connection&amp;body=https%3a%2f%2fsjp38.github.io%2fpost%2frasp3-serial%2f">
         <i class="fa fa-envelope"></i>
       </a>
     </li>
@@ -339,17 +339,47 @@
       <div class="article-style" itemprop="articleBody">
         
 
-<h2 id="linux-4-15-rc6">Linux 4.15-rc6</h2>
+<p>라즈베리 파이를 메인 컴퓨터로 사용하려는게 아니라면, 라즈베리 파이에 모니터와
+키보드, 마우스를 연결하고 사용하는게 아무래도 번거롭습니다.  ssh 로 붙어서
+작업하는 것도 한 방법이지만, 그게 여의치 않은 상황도 있습니다.  그저 터미널만
+연결되면 되는 상황이라면, 가장 간단한 건 UART Serial 통신을 사용하는 겁니다.</p>
 
-<p><a href="https://lkml.kernel.org/r/CA+55aFzU_Q04CVEABo50x24yeTaP-yzzrB1wTPeOiOgAbSKiDA@mail.gmail.com" target="_blank">https://lkml.kernel.org/r/CA+55aFzU_Q04CVEABo50x24yeTaP-yzzrB1wTPeOiOgAbSKiDA@mail.gmail.com</a></p>
+<p>라즈베리 파이는 UART 통신을 지원하고 있는데, GPIO 핀 중 14번과 15번이[2] 각각
+TX, RX 입니다.  호스트 컴퓨터와 이 두개의 핀을 연결하면 UART 통신을 할 수
+있어서 라즈베리 파이의 터미널에 바로 접근할 수 있습니다.</p>
 
-<p>한국시간으로는 1월 1일, 토발즈의 현지 시각으로는 2017년의 마지막날, 4.15 의
-여섯번째 rc 버전이 릴리즈 되었습니다.</p>
+<p>호스트 머신에 핀을 연결하는게 번거로울 수 있는데, 시리얼-USB 젠더를 여기저기서
+저렴한 가격에 팝니다[1].  이걸 이용해 TX/RX 핀을 라즈베리 파이의 GPIO 14, 15번에
+각각 연결하고 USB 를 호스트 머신에 연결합니다.</p>
 
-<p>지난주는 크리스마스 등의 연휴 때문인지 참 조용했죠.  덕분에 이번 릴리즈의
-변경사항도 많지 않습니다.
-다만 x86 pti 쪽 업데이트가 있었기 때문에 이번엔 rc8 까지 릴리즈 할수도 있을 것
-같다고 하는군요.</p>
+<p>이제 호스트 머신의 <code>/dev/</code> 디렉토리에 <code>ttyUSB</code> 로 시작하는 파일이 생겼을
+겁니다.  제 경우 <code>ttyUSB0</code> 라는 이름의 파일이 생겼군요.  이제, 시리얼 통신
+프로그램인 <code>minicom</code> 을 사용해서 이 포트로 연결해서 UART 통신을 합시다:</p>
+
+<pre><code>$ sudo minicom -D /dev/ttyUSB0
+</code></pre>
+
+<p>이제 라즈베리 파이를 부팅 시키면 부팅 로그부터 터미널에 나오고, 로그인 화면까지
+뜹니다.</p>
+
+<h1 id="라즈베리파이3-시리얼-문제와-해결법">라즈베리파이3 시리얼 문제와 해결법</h1>
+
+<p>하지만, 라즈베리 파이 3 에서는 내장으로 블루투스와 WiFi 가 들어가면서 GPIO 핀이
+겹치게 되어 앞의 과정만으로는 시리얼 통신을 할 수 없습니다.  블루투스를 끄고
+시리얼을 켜줘야 합니다.</p>
+
+<p>먼저, 다음과 같이 <code>/boot/config.txt</code> 파일에 다음 두줄을 추가합니다:</p>
+
+<pre><code>$ sudo echo &quot;enable_uart=1&quot; &gt;&gt; /boot/config.txt
+$ sudo echo &quot;dtoverlay=pi3-miniuart-bt&quot; &gt;&gt; /boot/config.txt
+</code></pre>
+
+<p>그리고 /boot/cmdline.txt 를 열어서 <code>console=tty1</code> 이라는 내용을 추가해줍니다.</p>
+
+<p>준비가 끝났습니다.  재부팅 하면 <code>minicom</code> 에 라즈비안 콘솔이 연결됩니다.</p>
+
+<p>[1] <a href="https://www.devicemart.co.kr/29565" target="_blank">https://www.devicemart.co.kr/29565</a><br />
+[2] <a href="https://www.raspberrypi.org/documentation/usage/gpio/" target="_blank">https://www.raspberrypi.org/documentation/usage/gpio/</a></p>
 
       </div>
 
@@ -358,13 +388,11 @@
 
 <div class="article-tags">
   
-  <a class="btn btn-primary btn-outline" href="/tags/linux">linux</a>
+  <a class="btn btn-primary btn-outline" href="/tags/raspberry">raspberry</a>
   
-  <a class="btn btn-primary btn-outline" href="/tags/kernel">kernel</a>
+  <a class="btn btn-primary btn-outline" href="/tags/setup">setup</a>
   
-  <a class="btn btn-primary btn-outline" href="/tags/lkml">lkml</a>
-  
-  <a class="btn btn-primary btn-outline" href="/tags/news">news</a>
+  <a class="btn btn-primary btn-outline" href="/tags/serial">serial</a>
   
 </div>
 
@@ -382,15 +410,9 @@
   <h3>Related</h3>
   <ul>
     
-    <li><a href="/post/lkml_news_v4.14-rc4/">LKML News after v4.15-rc5</a></li>
+    <li><a href="/post/rasp3-modelb-setup/">Raspberry Pi 3 Model B Setup</a></li>
     
-    <li><a href="/post/lkml_news_v4.15-rc5/">LKML News after v4.15-rc5</a></li>
-    
-    <li><a href="/post/lkml_news_v4.15-rc4/">LKML News after v4.15-rc4</a></li>
-    
-    <li><a href="/post/lkml_news_v4.15-rc3/">LKML News after v4.15-rc3</a></li>
-    
-    <li><a href="/post/lkml_news_v4.15-rc2/">LKML News after v4.15-rc2</a></li>
+    <li><a href="/post/golang1.9_fedora26/">Golang 1.9 install on Fedora 26</a></li>
     
   </ul>
 </div>
