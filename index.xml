@@ -11,6 +11,112 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Git Origin Story in Korean</title>
+      <link>https://sjp38.github.io/post/git_origin_story_ko/</link>
+      <pubDate>Wed, 29 Aug 2018 21:15:13 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/git_origin_story_ko/</guid>
+      <description>&lt;hr /&gt;
+
+&lt;p&gt;최근 흥미롭게 보았던 &lt;code&gt;Git Origin Story&lt;/code&gt; 라는 제목의 LinuxJournal.com 기사를
+번역해 봅니다.  원본 기사는
+&lt;a href=&#34;https://www.linuxjournal.com/content/git-origin-story&#34; target=&#34;_blank&#34;&gt;https://www.linuxjournal.com/content/git-origin-story&lt;/a&gt; 에서 보실 수 있습니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;em&gt;수년간 리눅스 커널 개발자들이 사용해온 다양한 리비전 컨트롤 방법, 리누스
+토발즈가 Bit keeper 를 사용하기로 한 결정과 그에 뒤따른 논쟁, 그리고 어떻게 Git
+이 만들어졌는가에 대한 글입니다.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;처음에, 리누스 토발즈는 리비전 컨트롤을 아예 사용하지 않았습니다.  커널에
+코드를 기여하고자 하는 사람은 Usenet 그룹에, 나중에는 메일링 리스트에 패치를
+올렸고, 리누스는 자신의 소스 트리에 그걸 적용했습니다.  나중에 리누스는
+릴리즈를 통해 패치들 사이의 구분 없이 전체 소스 트리를 공개하는 식이었습니다.
+토발즈의 작업 이력을 알아낼 수 있는 유일한 방법은 전체 릴리즈 버전 사이의
+거대한 diff 를 통하는 것 뿐이었습니다.&lt;/p&gt;
+
+&lt;p&gt;이는 오픈소스 리비전 컨트롤 시스템이 없기 때문은 아니었습니다.  1980년대부터
+CVS 가 있었고, 그 당시에도 가장 유명한 시스템이었습니다.  그 핵심 기능을
+사용해서 기여자들이 패치를 중앙 저장소에 보낼 수 있었고 그 저장소로 들어가는
+패치의 기록을 조사할 수 있었습니다.&lt;/p&gt;
+
+&lt;p&gt;하지만 CVS 에 대한 많은 불만이 있었습니다.  그 중 하나는 변경 사항을 파일별로
+제공하고 커다란 패치는 하나의 버전으로 인식할 수 없어서, 다른 개발자들로부터의
+과거의 기여를 해석하기가 어려웠습니다.  또한, 두개의 같은 파일을 수정하는
+패치가 동시에 보내졌을 때 발생하는 레이스 컨디션 같은 고치기 어려운 버그들도
+일부 있었습니다.&lt;/p&gt;
+
+&lt;p&gt;리누스는 CVS 를 좋아하지 않았는데, 부분적으로는 다른 사람들의 불만과 같은
+이유였고 또다른 부분적으로는 후에야 명확해진 그만의 이유 때문이었습니다.  그는
+CVS 의 버그와 이상한 기능들을 해결하려는 목표를 가지고 2000년대 초부터
+발전되어온 오픈소스 프로젝트인 SVN 도 좋아하지 않았습니다.&lt;/p&gt;
+
+&lt;p&gt;많은 리눅스 커널 개발자들이 적당한 리비전 컨트롤의 부재에 불만족스러웠으며,
+그로 인해 커뮤니티로부터의 리누스가 뭐든 가능한 리비전 컨트롤 선택지 중에서
+하나를 고르길 바라는 압력이 있어왔습니다.  그리고, 2002년, 리누스는 그렇게
+했습니다.  모두가 충격받고 당황하게도, 리누스는 Larry McVoy 에 의해 운영되는
+BitMover 라는 회사에 의해 개발된, 소스코드가 공개되어있지 않은 상업적 시스템인
+BitKeeper 를 선택했습니다.&lt;/p&gt;
+
+&lt;p&gt;리눅스 커널은 역사상 가장 중요한 오픈소스 프로젝트였고, 리누스 그 스스로도 GNU
+프로젝트를 잘 피했고 그 후 수십년간 다른 오픈소스 프로젝트들에서 흉내내었고
+지금까지도 그렇게 되고 있는 오픈소스 개발 기법을 처음으로 발견한
+사람이었습니다.  리누스가 무슨 생각을 하는 거지?  어떻게 그가 그의 커뮤니티와
+오픈소스 세계를 이렇게 배신할수가 있지?  이게 리누스가 처음 커널 개발에
+BitKeeper 를 사용했을 때 대부분의 반응이었습니다.&lt;/p&gt;
+
+&lt;p&gt;또한, BitMover 는 돈을 받지 않는 라이센스에 대한 대가로 리눅스 커뮤니티에
+제한을 걸었습니다.  첫째, 리눅스 개발자들은 BitKeeper 를 사용하는 동안 다른
+경쟁 리비전 컨트롤 프로젝트들에 참여할 수 없었습니다.  둘째, BitMover 는
+라이센스에 대한 악용을 막기 위해 커널 프로젝트에 관계된 일부 메타데이터를
+제어할 수 있었습니다.  이 메타데이터에 대한 접근이 불가능하면, 커널 개발자들은
+과거의 커널 버전들 사이의 비교 - 다른 리비전 컨트롤 시스템에서의 중요한 표준적
+기능 - 를 할 수 없었습니다.&lt;/p&gt;
+
+&lt;p&gt;리누스가 BitKeeper 를 사용한지 수년이 지나도 논쟁은 줄어들지 않았습니다.  그의
+기본적 주장은 그는 프리 소프트웨어 (Free Software) 광신도가 아니라는
+것이었습니다.  그는 오픈소스 도구들이 같은 일을 하는 상업용 도구들에 비해
+낫다면 그걸 사용할 거라고 했습니다.  하지만 상업용 도구가 더 낫다면, 그는 다른
+도구를 고려하지 않을 거라고요.&lt;/p&gt;
+
+&lt;p&gt;하지만, 많은 커널 개발자들은 실제로 프리 소프트웨어 광신도였습니다.  커뮤니티에
+손상을 입히고 리눅스 커널 프로젝트의 포크 (fork) 를 일으킬 만큼은 아니지만
+리누스와 다른 개발자들간의 분노와 긴장이 심해졌습니다.  Alan Cox, Al Viro,
+David Miller, Andrea Arcangeli, Andrew Morton 과 많은 수의 다른 사람들이 경쟁
+프로젝트를 이끌만한 기술력을 가지고 있음이 분명했고, 심지어 일부는 상당수 커널
+개발자들을 그들 쪽으로 끌어갈 명성을 가지고 있었습니다.  하지만 아무도 그러지
+않았습니다.  이 긴장과 적대는 계속 유지되었습니다.&lt;/p&gt;
+
+&lt;p&gt;What Was So Great about BitKeeper?
+BitKeeper&amp;rsquo;s main claim to fame was that it offered a distributed system, whereby whole repositories could be forked and merged easily. This was the key. With it, sub-groups of kernel developers could collaborate independently with the benefit of revision control and then feed their changes up to Linus when they were ready. This way, a large portion of the work that previously had been piled entirely onto Linus&amp;rsquo; shoulders could be distributed among his trusted lieutenants, or really among any group that chose to work together in that way. Architectures, drivers and subsystems all could be developed somewhat independently, and then each could be merged with the main kernel tree in one big gulp.&lt;/p&gt;
+
+&lt;p&gt;This all may be starting to sound very familiar, but in 2002, it was a new idea. Existing projects like CVS and Subversion could do forks and merges only as major, time-consuming operations that made you yearn for death. With BitKeeper, it became a trivial operation.&lt;/p&gt;
+
+&lt;p&gt;Linus&amp;rsquo; willingness to use a proprietary piece of software at the very heart of the kernel development toolchain inspired a lot of people to try even harder to create an alternative. The CVS and Subversion projects were too far behind and had made too many fundamental design errors. The same was true of other existing projects. But now that everyone knew—or thought they knew—what Linus really wanted, they could start coding in earnest. The result was a number of revision control systems offering distributed development.&lt;/p&gt;
+
+&lt;p&gt;Among these were arch, darcs and monotone. Using BitKeeper as their competing model, they each represented an effort to present Linus with an alternative to BitKeeper.&lt;/p&gt;
+
+&lt;p&gt;Many tried, but none succeeded. This was partly because Linus would not fully articulate what he needed from any of those projects, just as he had not fully articulated what had been missing from CVS and Subversion. And there was also the sense that Linus wasn&amp;rsquo;t bothered by using a closed-source tool—that for any alternative to be acceptable to him, it would have to be a significant technical improvement over BitKeeper. Thus, even though no open-source tool had been good enough before BitKeeper, the arrival of BitKeeper raised the bar yet farther on any open-source tool that might come along.&lt;/p&gt;
+
+&lt;p&gt;After three years of intense effort, none of the open-source alternatives were any closer than CVS or Subversion to meeting Linus&amp;rsquo; needs. And the situation might have continued far longer, if not for Andrew Tridgell, the creator of Samba, co-creator of rsync and all-around good-hearted guy. In 2005, Andrew tried to reverse-engineer the BitKeeper networking protocols in order to create a free software alternative. If it hadn&amp;rsquo;t been him, it would&amp;rsquo;ve been someone else—it was only a matter of time. Larry McVoy had warned the Linux developers that he would pull the plug if anyone tried this, and that&amp;rsquo;s exactly what he did. Suddenly, BitKeeper no longer could be used for kernel development. The entire development toolchain, and all the developer culture that had sprung up around distributed version control, was thrown into uncertainty.&lt;/p&gt;
+
+&lt;p&gt;What did this mean? Would Linus return to his old style of development, vetting all patches himself? If not, would he choose one of the open-source alternatives to BitKeeper? And if he did, which one would it be?&lt;/p&gt;
+
+&lt;p&gt;At this point, something remarkable occurred. For the first time since its inception in 1991, Linus stopped work entirely on the Linux kernel. Since none of the existing tools could do what he needed, he decided to write his own.&lt;/p&gt;
+
+&lt;p&gt;One of Linus&amp;rsquo; primary concerns, in fact, was speed. This was something he had never fully articulated before, or at least not in a way that existing projects could grasp. With thousands of kernel developers across the world submitting patches full-tilt, he needed something that could operate at speeds never before imagined. He couldn&amp;rsquo;t afford to wait longer than a few seconds for even the largest and most complex operation to finish. Neither arch, nor darcs, nor monotone, nor any other project, had ever come close to meeting that requirement.&lt;/p&gt;
+
+&lt;p&gt;Linus coded in seclusion for a brief time, then shared his new conception with the world. Within days of beginning the project in June of 2005, Linus&amp;rsquo; git revision control system had become fully self-hosting. Within weeks, it was ready to host Linux kernel development. Within a couple months, it reached full functionality. At this point, Linus turned the project&amp;rsquo;s maintainership over to its most enthusiastic contributor, Junio C. Hamano, and returned full-time to Linux development once again.&lt;/p&gt;
+
+&lt;p&gt;A stunned community of free software developers struggled to understand this bizarre creation. It did not resemble any other attempts at revision control software. In fact, it seemed more like a bunch of low-level filesystem operations, than a revision control system. And instead of storing patches as other systems did, it stored whole versions of each changed file. How could this possibly be good? On the other hand, it could handle forks and merges with lightning speed and could generate patches rapidly on demand.&lt;/p&gt;
+
+&lt;p&gt;Gradually, Junio drew together a set of higher-level commands that more closely resembled those of tools like CVS and Subversion. If the original set of git commands were the &amp;ldquo;plumbing&amp;rdquo;, this new set of commands were the &amp;ldquo;porcelain&amp;rdquo;. And, so they came to be called.&lt;/p&gt;
+
+&lt;p&gt;As much as there had been controversy and resentment over BitKeeper, there was enthusiasm and participation in the further development of git. Ports, extensions and websites popped up all over the place. Within a few years, pretty much everyone used git. Like Linux, it had taken over the world.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Raspberry Pi 3 Serial Connection</title>
       <link>https://sjp38.github.io/post/rasp3-serial/</link>
       <pubDate>Mon, 27 Aug 2018 17:16:35 +0900</pubDate>
@@ -796,76 +902,6 @@ section 내에서의 sleeping 을 하지 못하게 함으로써 리눅스 커널
 있지만 사실상 &lt;code&gt;-&amp;gt;gpnum&lt;/code&gt; 과 &lt;code&gt;-&amp;gt;completed&lt;/code&gt; 는 수가 똑같거나 하나 차이이니 하나의
 bit 으로도 같은 정보를 처리할 수 있을 뿐더러 로드 횟수를 두번에서 한번으로 줄일
 수 있다는 거죠.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Lkml_news_v4.18 Rc1</title>
-      <link>https://sjp38.github.io/post/lkml_news_v4.18-rc1/</link>
-      <pubDate>Sun, 17 Jun 2018 11:59:59 +0900</pubDate>
-      
-      <guid>https://sjp38.github.io/post/lkml_news_v4.18-rc1/</guid>
-      <description>
-
-&lt;h2 id=&#34;linux-4-18-rc1&#34;&gt;Linux 4.18-rc1&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFw34Dh6p0qAZ_Ja=fjuJ89ojZZTWtmrRPKmB1QuP3C7hw@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CA+55aFw34Dh6p0qAZ_Ja=fjuJ89ojZZTWtmrRPKmB1QuP3C7hw@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;평소보다 많이 빠르게 4.18 머지윈도우가 닫혔습니다.  토발즈가 지금 일본에 있기 때문에 자기는 이미 일요일이고, 오후엔 뱃놀이 하러 갈거라서 일찍 릴리즈 한다네요.&lt;/p&gt;
-
-&lt;p&gt;전체적으로 크기에서도 한 일에 있어서도 평범한 릴리즈입니다.  4.17 에서 더이상 사용되지 않는 과거 코드 삭제를 많이 했던 것처럼 이번에도 미사용 코드 제거가 좀 있군요, 하지만 4.17 때만큼 큰 변화는 아닙니다.&lt;/p&gt;
-
-&lt;p&gt;제거된 컴포넌트들 가운데 특이할만한 점은 Lustre 의 제거군요.  Staging 트리에서 머물던 Lustre 는 계속 out of tree 로 개발이 진행되어왔고, Staging 딱지를 떼지 못한채 커널 소스트리에서 제거되게 되었습니다.&lt;/p&gt;
-
-&lt;h2 id=&#34;patch-v7-rebased-00-17-improve-shrink-slab-scalability-old-complexity-was-o-n-2-new-is-o-n&#34;&gt;[PATCH v7 REBASED 00/17] Improve shrink_slab() scalability (old complexity was O(n^2), new is O(n))&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/152931465724.27697.12828290733260370115.stgit@localhost.localdomain&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/152931465724.27697.12828290733260370115.stgit@localhost.localdomain&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;지난번에도 소개한 패치의 v7 입니다.  시스템에 여러 shrinker 들과 memcg cgroup
-이 등록되어 있는 경우 이 shrinker 의 갯수를 n 이라 할 때 O(n^2) 의 time
-complexity 로 &lt;code&gt;shrink_slab()&lt;/code&gt; 수행시간이 늘어나게 되어있는데 이 문제를 해결한
-패치입니다.  이 문제를 보기 위해 다음과 같은 테스트를 사용했습니다.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$echo 1 &amp;gt; /sys/fs/cgroup/memory/memory.use_hierarchy
-$mkdir /sys/fs/cgroup/memory/ct
-$echo 4000M &amp;gt; /sys/fs/cgroup/memory/ct/memory.kmem.limit_in_bytes
-$for i in `seq 0 4000`;
-        do mkdir /sys/fs/cgroup/memory/ct/$i;
-        echo $$ &amp;gt; /sys/fs/cgroup/memory/ct/$i/cgroup.procs;
-        mkdir -p s/$i; mount -t tmpfs $i s/$i; touch s/$i/file;
-done
-$time echo 3 &amp;gt; /proc/sys/vm/drop_caches
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;ct/0 부터 ct/4000 까지 4001개의 메모리 cgroup 들을 만들어 놓고 tmpfs 를 만든 후
-거기 파일을 만들어 메모리를 소모하게 한 후 &lt;code&gt;drop_caches&lt;/code&gt; 를 통해
-&lt;code&gt;shrink_slab()&lt;/code&gt; 이 발동되게 했군요.  패치 저자의 환경에서의 테스트 결과는
-다음과 같습니다:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;0.00user 13.78system 0:13.78elapsed 99%CPU
-0.00user 5.59system 0:05.60elapsed 99%CPU
-0.00user 5.48system 0:05.48elapsed 99%CPU
-0.00user 8.35system 0:08.35elapsed 99%CPU
-0.00user 8.34system 0:08.35elapsed 99%CPU
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;이 패치셋은 time complexity 가 O(n) 이 되도록 합니다.  패치셋이 적용된 후의
-테스트 결과는 다음과 같이 548배 이상 개선되었습니다!&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;0.00user 1.10system 0:01.10elapsed 99%CPU
-0.00user 0.00system 0:00.01elapsed 64%CPU
-0.00user 0.01system 0:00.01elapsed 82%CPU
-0.00user 0.00system 0:00.01elapsed 64%CPU
-0.00user 0.01system 0:00.01elapsed 82%CPU
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;patch-00-11-docs-mm-add-boot-time-memory-management-docs&#34;&gt;[PATCH 00/11] docs/mm: add boot time memory management docs&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/1529341199-17682-1-git-send-email-rppt@linux.vnet.ibm.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/1529341199-17682-1-git-send-email-rppt@linux.vnet.ibm.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;초기 부팅 시점에서의 메모리 관리에 대한 문서화를 개선하고 이에 대한 문서를
-추가하는 패치입니다.  추가된 문서는 Documentation/core-api/boot-time-mm.rst 에
-있습니다.&lt;/p&gt;
 </description>
     </item>
     

@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme" content="hugo-academic">
+  <meta name="generator" content="Hugo 0.31.1" />
+  <meta name="author" content="SeongJae Park">
+  <meta name="description" content="System Programmer">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/git_origin_story_ko/">
+
+  
+  
+
+
+  
+
+  
+  
+  
+  
+    
+  
+  
+    
+    
+      
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+      
+    
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha512-6MXa8B6uaO18Hid6blRMetEIoPqHf7Ux1tnyIQdpt9qI5OACx7C+O3IVTr98vwGnlcg0LOLa02i9Y1HpVhlfiw==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.1/css/academicons.min.css" integrity="sha512-NThgw3XKQ1absAahW6to7Ey42uycrVvfNfyjqcFNgCmOCQ5AR4AO0SiXrN+8ZtYeappp56lk1WtvjVmEa+VR6A==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous">
+  
+  
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700%7cRoboto:400,400italic,700%7cRoboto&#43;Mono">
+  
+  <link rel="stylesheet" href="/styles.css">
+  
+
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-30621335-1', 'auto');
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+
+  
+  <link rel="alternate" href="https://sjp38.github.io/index.xml" type="application/rss+xml" title="Hacklog">
+  <link rel="feed" href="https://sjp38.github.io/index.xml" type="application/rss+xml" title="Hacklog">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="https://sjp38.github.io/post/git_origin_story_ko/">
+
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="og:site_name" content="Hacklog">
+  <meta property="og:url" content="https://sjp38.github.io/post/git_origin_story_ko/">
+  <meta property="og:title" content="Git Origin Story in Korean | Hacklog">
+  <meta property="og:description" content="">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2018-08-29T21:15:13&#43;09:00">
+  
+  <meta property="article:modified_time" content="2018-08-29T21:15:13&#43;09:00">
+  
+
+  
+
+  <title>Git Origin Story in Korean | Hacklog</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+      <a class="navbar-brand" href="/">Hacklog</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#about">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#publications_selected">
+            
+            <span>Publications</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#posts">
+            
+            <span>Posts</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#projects">
+            
+            <span>Projects</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#contact">
+            
+            <span>Contact</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#tags">
+            
+            <span>Tags</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/post/about/">
+            
+            <span>About</span>
+            
+          </a>
+        </li>
+
+        
+        
+      
+
+      
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+  <div class="article-container">
+    <div class="article-inner">
+      <h1 itemprop="name">Git Origin Story in Korean</h1>
+
+      
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2018-08-29 21:15:13 &#43;0900 KST" itemprop="datePublished">
+      Aug 29, 2018
+    </time>
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    7 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/translations">translations</a
+    >
+    
+  </span>
+  
+  
+
+  
+  
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Git%20Origin%20Story%20in%20Korean&amp;url=https%3a%2f%2fsjp38.github.io%2fpost%2fgit_origin_story_ko%2f"
+         target="_blank" rel="noopener">
+        <i class="fa fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fsjp38.github.io%2fpost%2fgit_origin_story_ko%2f"
+         target="_blank" rel="noopener">
+        <i class="fa fa-facebook"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fsjp38.github.io%2fpost%2fgit_origin_story_ko%2f&amp;title=Git%20Origin%20Story%20in%20Korean"
+         target="_blank" rel="noopener">
+        <i class="fa fa-linkedin"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fsjp38.github.io%2fpost%2fgit_origin_story_ko%2f&amp;title=Git%20Origin%20Story%20in%20Korean"
+         target="_blank" rel="noopener">
+        <i class="fa fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Git%20Origin%20Story%20in%20Korean&amp;body=https%3a%2f%2fsjp38.github.io%2fpost%2fgit_origin_story_ko%2f">
+        <i class="fa fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+
+      <div class="article-style" itemprop="articleBody">
+        <hr />
+
+<p>최근 흥미롭게 보았던 <code>Git Origin Story</code> 라는 제목의 LinuxJournal.com 기사를
+번역해 봅니다.  원본 기사는
+<a href="https://www.linuxjournal.com/content/git-origin-story" target="_blank">https://www.linuxjournal.com/content/git-origin-story</a> 에서 보실 수 있습니다.</p>
+
+<hr />
+
+<p><em>수년간 리눅스 커널 개발자들이 사용해온 다양한 리비전 컨트롤 방법, 리누스
+토발즈가 Bit keeper 를 사용하기로 한 결정과 그에 뒤따른 논쟁, 그리고 어떻게 Git
+이 만들어졌는가에 대한 글입니다.</em></p>
+
+<p>처음에, 리누스 토발즈는 리비전 컨트롤을 아예 사용하지 않았습니다.  커널에
+코드를 기여하고자 하는 사람은 Usenet 그룹에, 나중에는 메일링 리스트에 패치를
+올렸고, 리누스는 자신의 소스 트리에 그걸 적용했습니다.  나중에 리누스는
+릴리즈를 통해 패치들 사이의 구분 없이 전체 소스 트리를 공개하는 식이었습니다.
+토발즈의 작업 이력을 알아낼 수 있는 유일한 방법은 전체 릴리즈 버전 사이의
+거대한 diff 를 통하는 것 뿐이었습니다.</p>
+
+<p>이는 오픈소스 리비전 컨트롤 시스템이 없기 때문은 아니었습니다.  1980년대부터
+CVS 가 있었고, 그 당시에도 가장 유명한 시스템이었습니다.  그 핵심 기능을
+사용해서 기여자들이 패치를 중앙 저장소에 보낼 수 있었고 그 저장소로 들어가는
+패치의 기록을 조사할 수 있었습니다.</p>
+
+<p>하지만 CVS 에 대한 많은 불만이 있었습니다.  그 중 하나는 변경 사항을 파일별로
+제공하고 커다란 패치는 하나의 버전으로 인식할 수 없어서, 다른 개발자들로부터의
+과거의 기여를 해석하기가 어려웠습니다.  또한, 두개의 같은 파일을 수정하는
+패치가 동시에 보내졌을 때 발생하는 레이스 컨디션 같은 고치기 어려운 버그들도
+일부 있었습니다.</p>
+
+<p>리누스는 CVS 를 좋아하지 않았는데, 부분적으로는 다른 사람들의 불만과 같은
+이유였고 또다른 부분적으로는 후에야 명확해진 그만의 이유 때문이었습니다.  그는
+CVS 의 버그와 이상한 기능들을 해결하려는 목표를 가지고 2000년대 초부터
+발전되어온 오픈소스 프로젝트인 SVN 도 좋아하지 않았습니다.</p>
+
+<p>많은 리눅스 커널 개발자들이 적당한 리비전 컨트롤의 부재에 불만족스러웠으며,
+그로 인해 커뮤니티로부터의 리누스가 뭐든 가능한 리비전 컨트롤 선택지 중에서
+하나를 고르길 바라는 압력이 있어왔습니다.  그리고, 2002년, 리누스는 그렇게
+했습니다.  모두가 충격받고 당황하게도, 리누스는 Larry McVoy 에 의해 운영되는
+BitMover 라는 회사에 의해 개발된, 소스코드가 공개되어있지 않은 상업적 시스템인
+BitKeeper 를 선택했습니다.</p>
+
+<p>리눅스 커널은 역사상 가장 중요한 오픈소스 프로젝트였고, 리누스 그 스스로도 GNU
+프로젝트를 잘 피했고 그 후 수십년간 다른 오픈소스 프로젝트들에서 흉내내었고
+지금까지도 그렇게 되고 있는 오픈소스 개발 기법을 처음으로 발견한
+사람이었습니다.  리누스가 무슨 생각을 하는 거지?  어떻게 그가 그의 커뮤니티와
+오픈소스 세계를 이렇게 배신할수가 있지?  이게 리누스가 처음 커널 개발에
+BitKeeper 를 사용했을 때 대부분의 반응이었습니다.</p>
+
+<p>또한, BitMover 는 돈을 받지 않는 라이센스에 대한 대가로 리눅스 커뮤니티에
+제한을 걸었습니다.  첫째, 리눅스 개발자들은 BitKeeper 를 사용하는 동안 다른
+경쟁 리비전 컨트롤 프로젝트들에 참여할 수 없었습니다.  둘째, BitMover 는
+라이센스에 대한 악용을 막기 위해 커널 프로젝트에 관계된 일부 메타데이터를
+제어할 수 있었습니다.  이 메타데이터에 대한 접근이 불가능하면, 커널 개발자들은
+과거의 커널 버전들 사이의 비교 - 다른 리비전 컨트롤 시스템에서의 중요한 표준적
+기능 - 를 할 수 없었습니다.</p>
+
+<p>리누스가 BitKeeper 를 사용한지 수년이 지나도 논쟁은 줄어들지 않았습니다.  그의
+기본적 주장은 그는 프리 소프트웨어 (Free Software) 광신도가 아니라는
+것이었습니다.  그는 오픈소스 도구들이 같은 일을 하는 상업용 도구들에 비해
+낫다면 그걸 사용할 거라고 했습니다.  하지만 상업용 도구가 더 낫다면, 그는 다른
+도구를 고려하지 않을 거라고요.</p>
+
+<p>하지만, 많은 커널 개발자들은 실제로 프리 소프트웨어 광신도였습니다.  커뮤니티에
+손상을 입히고 리눅스 커널 프로젝트의 포크 (fork) 를 일으킬 만큼은 아니지만
+리누스와 다른 개발자들간의 분노와 긴장이 심해졌습니다.  Alan Cox, Al Viro,
+David Miller, Andrea Arcangeli, Andrew Morton 과 많은 수의 다른 사람들이 경쟁
+프로젝트를 이끌만한 기술력을 가지고 있음이 분명했고, 심지어 일부는 상당수 커널
+개발자들을 그들 쪽으로 끌어갈 명성을 가지고 있었습니다.  하지만 아무도 그러지
+않았습니다.  이 긴장과 적대는 계속 유지되었습니다.</p>
+
+<p>What Was So Great about BitKeeper?
+BitKeeper&rsquo;s main claim to fame was that it offered a distributed system, whereby whole repositories could be forked and merged easily. This was the key. With it, sub-groups of kernel developers could collaborate independently with the benefit of revision control and then feed their changes up to Linus when they were ready. This way, a large portion of the work that previously had been piled entirely onto Linus&rsquo; shoulders could be distributed among his trusted lieutenants, or really among any group that chose to work together in that way. Architectures, drivers and subsystems all could be developed somewhat independently, and then each could be merged with the main kernel tree in one big gulp.</p>
+
+<p>This all may be starting to sound very familiar, but in 2002, it was a new idea. Existing projects like CVS and Subversion could do forks and merges only as major, time-consuming operations that made you yearn for death. With BitKeeper, it became a trivial operation.</p>
+
+<p>Linus&rsquo; willingness to use a proprietary piece of software at the very heart of the kernel development toolchain inspired a lot of people to try even harder to create an alternative. The CVS and Subversion projects were too far behind and had made too many fundamental design errors. The same was true of other existing projects. But now that everyone knew—or thought they knew—what Linus really wanted, they could start coding in earnest. The result was a number of revision control systems offering distributed development.</p>
+
+<p>Among these were arch, darcs and monotone. Using BitKeeper as their competing model, they each represented an effort to present Linus with an alternative to BitKeeper.</p>
+
+<p>Many tried, but none succeeded. This was partly because Linus would not fully articulate what he needed from any of those projects, just as he had not fully articulated what had been missing from CVS and Subversion. And there was also the sense that Linus wasn&rsquo;t bothered by using a closed-source tool—that for any alternative to be acceptable to him, it would have to be a significant technical improvement over BitKeeper. Thus, even though no open-source tool had been good enough before BitKeeper, the arrival of BitKeeper raised the bar yet farther on any open-source tool that might come along.</p>
+
+<p>After three years of intense effort, none of the open-source alternatives were any closer than CVS or Subversion to meeting Linus&rsquo; needs. And the situation might have continued far longer, if not for Andrew Tridgell, the creator of Samba, co-creator of rsync and all-around good-hearted guy. In 2005, Andrew tried to reverse-engineer the BitKeeper networking protocols in order to create a free software alternative. If it hadn&rsquo;t been him, it would&rsquo;ve been someone else—it was only a matter of time. Larry McVoy had warned the Linux developers that he would pull the plug if anyone tried this, and that&rsquo;s exactly what he did. Suddenly, BitKeeper no longer could be used for kernel development. The entire development toolchain, and all the developer culture that had sprung up around distributed version control, was thrown into uncertainty.</p>
+
+<p>What did this mean? Would Linus return to his old style of development, vetting all patches himself? If not, would he choose one of the open-source alternatives to BitKeeper? And if he did, which one would it be?</p>
+
+<p>At this point, something remarkable occurred. For the first time since its inception in 1991, Linus stopped work entirely on the Linux kernel. Since none of the existing tools could do what he needed, he decided to write his own.</p>
+
+<p>One of Linus&rsquo; primary concerns, in fact, was speed. This was something he had never fully articulated before, or at least not in a way that existing projects could grasp. With thousands of kernel developers across the world submitting patches full-tilt, he needed something that could operate at speeds never before imagined. He couldn&rsquo;t afford to wait longer than a few seconds for even the largest and most complex operation to finish. Neither arch, nor darcs, nor monotone, nor any other project, had ever come close to meeting that requirement.</p>
+
+<p>Linus coded in seclusion for a brief time, then shared his new conception with the world. Within days of beginning the project in June of 2005, Linus&rsquo; git revision control system had become fully self-hosting. Within weeks, it was ready to host Linux kernel development. Within a couple months, it reached full functionality. At this point, Linus turned the project&rsquo;s maintainership over to its most enthusiastic contributor, Junio C. Hamano, and returned full-time to Linux development once again.</p>
+
+<p>A stunned community of free software developers struggled to understand this bizarre creation. It did not resemble any other attempts at revision control software. In fact, it seemed more like a bunch of low-level filesystem operations, than a revision control system. And instead of storing patches as other systems did, it stored whole versions of each changed file. How could this possibly be good? On the other hand, it could handle forks and merges with lightning speed and could generate patches rapidly on demand.</p>
+
+<p>Gradually, Junio drew together a set of higher-level commands that more closely resembled those of tools like CVS and Subversion. If the original set of git commands were the &ldquo;plumbing&rdquo;, this new set of commands were the &ldquo;porcelain&rdquo;. And, so they came to be called.</p>
+
+<p>As much as there had been controversy and resentment over BitKeeper, there was enthusiasm and participation in the further development of git. Ports, extensions and websites popped up all over the place. Within a few years, pretty much everyone used git. Like Linux, it had taken over the world.</p>
+
+      </div>
+
+      
+
+
+<div class="article-tags">
+  
+  <a class="btn btn-primary btn-outline" href="/tags/git">git</a>
+  
+  <a class="btn btn-primary btn-outline" href="/tags/open-source">open source</a>
+  
+  <a class="btn btn-primary btn-outline" href="/tags/version-control">version control</a>
+  
+</div>
+
+
+
+    </div>
+  </div>
+
+</article>
+
+
+
+<div class="article-container article-widget">
+  <div class="hr-light"></div>
+  <h3>Related</h3>
+  <ul>
+    
+    <li><a href="/post/fetching-linux-source-code/">Fetching linux kernel source code</a></li>
+    
+    <li><a href="/post/beautifulhugo_contribute/">beautifulhugo 테마 tags 기능 구현</a></li>
+    
+  </ul>
+</div>
+
+
+
+
+<div class="article-container">
+  
+
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <p class="powered-by">
+
+      &copy; 2017 Your Name &middot; 
+
+      Powered by the
+      <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+      <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+      <span class="pull-right" aria-hidden="true">
+        <a href="#" id="back_to_top">
+          <span class="button_icon">
+            <i class="fa fa-chevron-up fa-2x"></i>
+          </span>
+        </a>
+      </span>
+
+    </p>
+  </div>
+</footer>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close btn-large" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Cite</h4>
+      </div>
+      <div>
+        <pre><code class="modal-body tex"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-primary btn-outline js-copy-cite" href="#" target="_blank">
+          <i class="fa fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-primary btn-outline js-download-cite" href="#" target="_blank">
+          <i class="fa fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+
+    
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.3/imagesloaded.pkgd.min.js" integrity="sha512-umsR78NN0D23AzgoZ11K7raBD+R6hqKojyBZs1w8WvYlsI+QuKRGBx3LFCwhatzBunCjDuJpDHwxD13sLMbpRA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
+    
+    
+    <script src="/js/hugo-academic.js"></script>
+    
+
+    
+    
+      
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+      
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+
