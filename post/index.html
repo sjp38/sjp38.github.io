@@ -254,6 +254,70 @@
   
   
   <h3 class="article-title" itemprop="name">
+    <a href="https://sjp38.github.io/post/lkml_news_v4.19-rc1/" itemprop="url">LKML News after v4.19-rc1</a>
+  </h3>
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2018-08-29 17:11:28 &#43;0900 KST" itemprop="datePublished">
+      Aug 29, 2018
+    </time>
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/lkml-news">lkml news</a
+    >
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+  <div class="article-style" itemprop="articleBody">
+    
+    Linux 4.19-rc1 https://lkml.kernel.org/r/CA+55aFw9mxNPX6OtOp-aoUMdXSg=gBkQudGGamo__sh_ts_LdQ@mail.gmail.com
+이주일의 머지 윈도우가 끝나고 리눅스 4.19 버전을 향한 안정화 단계가 시작되었습니다.
+토발즈에겐 결코 즐겁지 않은 머지 윈도우였습니다 (frustrating merge window 였다고 표현하는군요). 일단 머지 윈도우 초기부터 L1TF 취약점 이슈가 나왔죠. 하지만 이슈가 처음 발견된 건 아니고 공식 보고된 거다보니 그 전부터 수정은 하고 있었기에 머지만 하면 됐습니다. 토발즈는 -next 트리와 다양한 커널 테스트 시스템들이 잘 갖추어져 있다는 증거라고 이야기 합니다.
+또, TLB 슛다운 버그에 대한 보고가 있었군요.
+    
+  </div>
+  <p class="read-more">
+    <a href="https://sjp38.github.io/post/lkml_news_v4.19-rc1/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
+  
+    
+    
+
+<div class="article-list-item" itemscope itemprop="blogPost">
+  
+  
+  <h3 class="article-title" itemprop="name">
     <a href="https://sjp38.github.io/post/rasp3-serial/" itemprop="url">Raspberry Pi 3 Serial Connection</a>
   </h3>
   
@@ -607,7 +671,7 @@ Linux Kernel Performance (LKP) Tests[2] 는 0-day 서비스에서 기능 / 성�
 
 <p><a href="https://lkml.kernel.org/r/CA+55aFzos7tr=OLju10Oe-z7r=eB2dSaFa7vwz2ApGO13B=z_g@mail.gmail.com" target="_blank">https://lkml.kernel.org/r/CA+55aFzos7tr=OLju10Oe-z7r=eB2dSaFa7vwz2ApGO13B=z_g@mail.gmail.com</a></p>
 
-<p>2018-08-13</p>
+<p>2018-08-12 14:10:49 PDT</p>
 
 <h2 id="linux-4-18-rc8">Linux 4.18-rc8</h2>
 
@@ -833,78 +897,6 @@ gmail imap 정보 입력 S (Settings) -&gt; L (collectionLists) -&gt; A (Add Clt
   </div>
   <p class="read-more">
     <a href="https://sjp38.github.io/post/alpine-for-lkml/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-  
-    
-    
-
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/lkml_news_v4.18-rc5/" itemprop="url">Lkml_news_v4.18 Rc5</a>
-  </h3>
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2018-07-16 06:07:33 &#43;0900 KST" itemprop="datePublished">
-      Jul 16, 2018
-    </time>
-  </span>
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-  
-  
-  
-
-  
-
-</div>
-
-  <div class="article-style" itemprop="articleBody">
-    
-    
-
-<h2 id="linux-4-18-rc5">Linux 4.18-rc5</h2>
-
-<p><a href="https://lkml.kernel.org/r/CA+55aFwfMr2D2A_yesUyt_Lo3XMRk9epzgeBMt2HxMHiXMDYcg@mail.gmail.com" target="_blank">https://lkml.kernel.org/r/CA+55aFwfMr2D2A_yesUyt_Lo3XMRk9epzgeBMt2HxMHiXMDYcg@mail.gmail.com</a></p>
-
-<p>다섯번째 rc 릴리즈입니다.  토발즈 개인적으로는 조금 바쁘단 느낌이 있었지만
-숫자로 보면 평범한 rc 릴리즈 주간이었다는 평입니다.</p>
-
-<p>토발즈를 귀찮게 만들었던 건 VM 쪽 버그로, 단 두줄의 수정으로 고쳐졌다는데,
-아무래도 아래 패치인 것 같군요:
-<a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=bce73e4842390f7b7309c8e253e139db71288ac3" target="_blank">https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=bce73e4842390f7b7309c8e253e139db71288ac3</a></p>
-
-<p>그리고 repeatable sequence 에 대한 cleanup 도 있었군요.</p>
-
-<h2 id="git-pull-rcu-next-rcu-commits-for-4-19">[GIT PULL rcu/next] RCU commits for 4.19</h2>
-
-<p><a href="https://lkml.kernel.org/r/20180716175125.GA4287@linux.vnet.ibm.com" target="_blank">https://lkml.kernel.org/r/20180716175125.GA4287@linux.vnet.ibm.com</a></p>
-
-<p>4.19 리눅스 릴리즈를 위한 RCU 쪽 변경사항들 pull request 입니다.</p>
-
-    
-  </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/lkml_news_v4.18-rc5/" class="btn btn-primary btn-outline">
       CONTINUE READING
     </a>
   </p>

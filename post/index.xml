@@ -11,6 +11,37 @@
     <atom:link href="/post/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>LKML News after v4.19-rc1</title>
+      <link>https://sjp38.github.io/post/lkml_news_v4.19-rc1/</link>
+      <pubDate>Wed, 29 Aug 2018 17:11:28 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/lkml_news_v4.19-rc1/</guid>
+      <description>
+
+&lt;h2 id=&#34;linux-4-19-rc1&#34;&gt;Linux 4.19-rc1&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;https://lkml.kernel.org/r/CA+55aFw9mxNPX6OtOp-aoUMdXSg=gBkQudGGamo__sh_ts_LdQ@mail.gmail.com&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;이주일의 머지 윈도우가 끝나고 리눅스 4.19 버전을 향한 안정화 단계가
+시작되었습니다.&lt;/p&gt;
+
+&lt;p&gt;토발즈에겐 결코 즐겁지 않은 머지 윈도우였습니다 (frustrating merge window
+였다고 표현하는군요).  일단 머지 윈도우 초기부터 L1TF 취약점 이슈가 나왔죠.
+하지만 이슈가 처음 발견된 건 아니고 공식 보고된 거다보니 그 전부터 수정은 하고
+있었기에 머지만 하면 됐습니다.  토발즈는 &lt;code&gt;-next&lt;/code&gt; 트리와 다양한 커널 테스트
+시스템들이 잘 갖추어져 있다는 증거라고 이야기 합니다.&lt;/p&gt;
+
+&lt;p&gt;또, TLB 슛다운 버그에 대한 보고가 있었군요.  결국은 큰 문제는 아니었다고
+결론났음에도 토발즈의 신경을 많이 긁었다고 합니다.  이 과정에서 관련 코드가
+매우 복잡하고 디버깅 하기 어렵다고 이야기 되었기에 차후 정리가 필요할 것
+같다는군요.&lt;/p&gt;
+
+&lt;p&gt;또한, 이번 릴리즈는 꽤 많은 변경이 있는 편이라고 합니다, 물론 커밋 수
+기반으로요.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Raspberry Pi 3 Serial Connection</title>
       <link>https://sjp38.github.io/post/rasp3-serial/</link>
       <pubDate>Mon, 27 Aug 2018 17:16:35 +0900</pubDate>
@@ -452,7 +483,7 @@ distribution name&amp;gt;/&amp;lt;kernel config&amp;gt;/&amp;lt;gcc version&amp;
 
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFzos7tr=OLju10Oe-z7r=eB2dSaFa7vwz2ApGO13B=z_g@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CA+55aFzos7tr=OLju10Oe-z7r=eB2dSaFa7vwz2ApGO13B=z_g@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;2018-08-13&lt;/p&gt;
+&lt;p&gt;2018-08-12 14:10:49 PDT&lt;/p&gt;
 
 &lt;h2 id=&#34;linux-4-18-rc8&#34;&gt;Linux 4.18-rc8&lt;/h2&gt;
 
@@ -835,48 +866,6 @@ $time echo 3 &amp;gt; /proc/sys/vm/drop_caches
 &lt;p&gt;초기 부팅 시점에서의 메모리 관리에 대한 문서화를 개선하고 이에 대한 문서를
 추가하는 패치입니다.  추가된 문서는 Documentation/core-api/boot-time-mm.rst 에
 있습니다.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>LKML News after v4.17</title>
-      <link>https://sjp38.github.io/post/lkml_news_v4.17/</link>
-      <pubDate>Mon, 04 Jun 2018 11:29:16 +0900</pubDate>
-      
-      <guid>https://sjp38.github.io/post/lkml_news_v4.17/</guid>
-      <description>
-
-&lt;h2 id=&#34;linux-4-17&#34;&gt;Linux 4.17&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFxhx_tKGm02UySguvbyfB_7oTF31QfgOHCK0YkBvmfV0g@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CA+55aFxhx_tKGm02UySguvbyfB_7oTF31QfgOHCK0YkBvmfV0g@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;4.17 버전 리눅스 릴리즈입니다.  지난주에 토발즈가 이야기한 것처럼 별다른 지연
-없이 릴리즈 되었군요.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git object&lt;/code&gt; 의 갯수라던지 릴리즈를 위한 스크립트 등이 리눅스 5.x 버전으로의
-메이저 버전 업데이트가 될 준비가 되었다고 하지만 토발즈는 딱히 5.x 로 아직은
-넘어갈 생각이 없군요.  너무 멀지 않은 미래에 넘어가겠지만, 적어도 지금은
-아니라고 합니다.&lt;/p&gt;
-
-&lt;p&gt;항상 그렇듯 이 릴리즈는 4.18을 위한 머지 윈도우의 시작이기도 한데, 토발즈는
-두번째 주에 여행을 갈거라 가능하면 첫째주에 중요한 머지를 마무리 했으면 한다고
-하네요.&lt;/p&gt;
-
-&lt;h2 id=&#34;patch-v13-00-72-convert-page-cache-to-xarray&#34;&gt;[PATCH v13 00/72] Convert page cache to XArray&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20180611140639.17215-1-willy@infradead.org&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20180611140639.17215-1-willy@infradead.org&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Radix tree 를 대체하기위한 목적으로 Matthew Wilcox 가 개발중인 XArray 의 구현과
-Page cache 가 이 자료구조를 사용하도록 변경하는 패치의 13번째 버전입니다.  작년
-OSSummit Europe 에서 처음 XArray 에 대한 발표를 들었는데 계속 발전중인 것
-같군요.&lt;/p&gt;
-
-&lt;h2 id=&#34;re-4-17-regression-performance-drop-on-kernel-4-17-visible-on&#34;&gt;Re: [4.17 regression] Performance drop on kernel-4.17 visible on&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20180607110713.GJ32433@dhcp22.suse.cz&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20180607110713.GJ32433@dhcp22.suse.cz&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;4.16 대비 4.17 의 NUMA 시스템에서 Stream, Linpack, NAS 벤치마크 성능이 크게
-떨어졌다는 레포트입니다.  최대 50% 까지의 성능 하락이 있었군요.&lt;/p&gt;
 </description>
     </item>
     
