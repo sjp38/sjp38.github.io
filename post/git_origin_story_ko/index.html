@@ -268,7 +268,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    7 min read
+    6 min read
   </span>
   
 
@@ -408,32 +408,93 @@ David Miller, Andrea Arcangeli, Andrew Morton 과 많은 수의 다른 사람들
 개발자들을 그들 쪽으로 끌어갈 명성을 가지고 있었습니다.  하지만 아무도 그러지
 않았습니다.  이 긴장과 적대는 계속 유지되었습니다.</p>
 
-<p>What Was So Great about BitKeeper?
-BitKeeper&rsquo;s main claim to fame was that it offered a distributed system, whereby whole repositories could be forked and merged easily. This was the key. With it, sub-groups of kernel developers could collaborate independently with the benefit of revision control and then feed their changes up to Linus when they were ready. This way, a large portion of the work that previously had been piled entirely onto Linus&rsquo; shoulders could be distributed among his trusted lieutenants, or really among any group that chose to work together in that way. Architectures, drivers and subsystems all could be developed somewhat independently, and then each could be merged with the main kernel tree in one big gulp.</p>
+<p>BitKeeper 의 무엇이 그리 대단했을까요?  BitKeeper 에서 자랑한 건 분산시스템을
+제공한다는 것으로, 모든 저장소가 쉽게 fork 되고 merge 될 수 있었습니다.  이게
+핵심이었습니다.  이를 통해, 커널 개발자들의 하위그룹들은 리비전 컨트롤의 이득을
+얻으면서 독자적으로 협업하고, 준비된 다음에 그들의 변경 사항을 리누스에게
+전달할 수 있었습니다.  이를 통해, 전에는 리누스의 어깨에 완전히 매여있던 거대한
+작업이 리누스가 믿는 개발자들, 또는 그렇게 작업하기로 한 그룹들에게 분산될 수
+있었습니다.  아키텍쳐별 코드, 드라이버, 그리고 커널의 하위 시스템들이 모두
+어떻게든 독립적으로 개발될 수 있었고, 이후에 한번에 메인 커널에 병합될 수
+있었습니다.</p>
 
-<p>This all may be starting to sound very familiar, but in 2002, it was a new idea. Existing projects like CVS and Subversion could do forks and merges only as major, time-consuming operations that made you yearn for death. With BitKeeper, it became a trivial operation.</p>
+<p>슬슬 하는 이야기가 익숙하게 들릴 겁니다만, 2002년에 이건 새로운
+아이디어였습니다.  CVS 와 Subversion 같은 당시 존재하던 프로젝트들에서 fork 와
+merge 는 주인만 할 수 있고, 죽고 싶도록 시간이 오래 걸리는 작업이었습니다.
+BitKeeper 를 통해, 이게 사소한 작업이 되었습니다.</p>
 
-<p>Linus&rsquo; willingness to use a proprietary piece of software at the very heart of the kernel development toolchain inspired a lot of people to try even harder to create an alternative. The CVS and Subversion projects were too far behind and had made too many fundamental design errors. The same was true of other existing projects. But now that everyone knew—or thought they knew—what Linus really wanted, they could start coding in earnest. The result was a number of revision control systems offering distributed development.</p>
+<p>커널 개발 도구의 핵심부에 독점 소프트웨어를 사용하려는 리누스의 의지는 많은
+사람들의 대안을 만드는데 더욱 노력하게 만들었습니다.  CVS 와 Subversion
+프로젝트는 이미 너무 많이 개발이 진행되어 변경하기가 쉽지 않았고 너무 많은
+기초적 설계 오류가 있었습니다.  다른 프로젝트들 모두 마찬가지였습니다.  하지만
+이제 그들은 리누스가 정말 원하는걸 알거나 안다고 생각했으므로, 정말로 코딩을
+시작할 수 있었습니다.  그 결과 분산 개발 기능을 제공하는 많은 수의 리비전
+컨트롤 시스템이 나왔습니다.</p>
 
-<p>Among these were arch, darcs and monotone. Using BitKeeper as their competing model, they each represented an effort to present Linus with an alternative to BitKeeper.</p>
+<p>그런 시스템들 중에 arch, darcs, 그리고 monotone 등이 있었습니다.  Bitkeeper 를
+그들의 경쟁 상대로 사용함으로써, 리누스는 Bitkeeper 에 대한 대안으로 그들을
+광고했습니다.</p>
 
-<p>Many tried, but none succeeded. This was partly because Linus would not fully articulate what he needed from any of those projects, just as he had not fully articulated what had been missing from CVS and Subversion. And there was also the sense that Linus wasn&rsquo;t bothered by using a closed-source tool—that for any alternative to be acceptable to him, it would have to be a significant technical improvement over BitKeeper. Thus, even though no open-source tool had been good enough before BitKeeper, the arrival of BitKeeper raised the bar yet farther on any open-source tool that might come along.</p>
+<p>많은 사람들이 시도했지만, 아무도 성공하지 못했습니다.  이는 부분적으로는,
+리누스가 CVS 와 Subversion 에 뭐가 빠져있는지 모두 이야기 하지 않았듯, 그
+프로젝트들에 리누스가 더 필요로 하는 것이 무엇인지 모두 말하지 않았기
+때문입니다.  그리고, 리누스가 소스가 폐쇄된 도구를 사용하는것도 개의치 않는다는
+느낌이 있었으므로, 어떤 대안이 그에게 받아들여질만 하려면 그 대안은 BitKeeper
+보다 훨씬 기술적 진보를 가지고 있어야만 할 것이었습니다.  따라서, BitKeeper
+전에도 오픈소스 툴은 충분히 좋지 않았지만, BitKeeper 가 나타남으로써 오픈소스
+툴이 맞춰야 할 기술력의 목표가 더욱 높아졌습니다.</p>
 
-<p>After three years of intense effort, none of the open-source alternatives were any closer than CVS or Subversion to meeting Linus&rsquo; needs. And the situation might have continued far longer, if not for Andrew Tridgell, the creator of Samba, co-creator of rsync and all-around good-hearted guy. In 2005, Andrew tried to reverse-engineer the BitKeeper networking protocols in order to create a free software alternative. If it hadn&rsquo;t been him, it would&rsquo;ve been someone else—it was only a matter of time. Larry McVoy had warned the Linux developers that he would pull the plug if anyone tried this, and that&rsquo;s exactly what he did. Suddenly, BitKeeper no longer could be used for kernel development. The entire development toolchain, and all the developer culture that had sprung up around distributed version control, was thrown into uncertainty.</p>
+<p>수년간의 많은 노력 후에도, 어떤 오픈소스 대안도 리누스의 필요를 맞추기엔 CVS 나
+Subversion 보다도 가까워 지지 못했습니다.  만약 Samba 를 만들었고 rsync 의 공동
+창시자인 앤드류 트리겔 (Andrew Tridgell) 이 아니었더라면 이 상황은 훨씬 오래
+지속될 수 있었을 겁니다.  2005년, 앤드류는 프리 소프트웨어 대안을 만들기 위해
+BitKeeper 네트워킹 프로토콜을 리버스 엔지니어링 하려 했습니다.  그가
+아니었더라도, 누군가는 시도했을 겁니다 - 그건 그저 시간 문제였습니다.  래리
+맥보이 (Larry McVoy) 는 누구든 이 시도를 했다면 당장 지원을 끊겠다고 리눅스
+개발자들에게 경고했고, 실제로 그렇게 했습니다.  결국, 급작스럽게 BitKeeper 는
+커널 개발에 사용될 수 없게 되었습니다.  전체 개발 도구의 연결과 분산 버전
+컨트롤로부터 생겨난 개발 문화는 알 수 없는 상황에 놓였습니다.</p>
 
-<p>What did this mean? Would Linus return to his old style of development, vetting all patches himself? If not, would he choose one of the open-source alternatives to BitKeeper? And if he did, which one would it be?</p>
+<p>이게 무슨 의미일까요?  리누스는 그의 과거 방식의 개발로 돌아가서 모든 패치를 그
+자신에게 보내라고 했을까요?  그렇지 않다면, BitKeeper 의 오픈소스 대안들 가운데
+하나를 선택했을까요?  만약 그가 그랬다면, 어떤 대안을 골랐을까요?</p>
 
-<p>At this point, something remarkable occurred. For the first time since its inception in 1991, Linus stopped work entirely on the Linux kernel. Since none of the existing tools could do what he needed, he decided to write his own.</p>
+<p>여기서, 놀라운 일이 발생했습니다.  리누스가 리눅스 커널 작업을 1991년 시작된 후
+청므으로 완전히 멈췄습니다.  현존하는 어떤 도구도 그가 원하는 일을 해주지
+못했으므로, 그는 자신의 것을 만들기로 결정했습니다.</p>
 
-<p>One of Linus&rsquo; primary concerns, in fact, was speed. This was something he had never fully articulated before, or at least not in a way that existing projects could grasp. With thousands of kernel developers across the world submitting patches full-tilt, he needed something that could operate at speeds never before imagined. He couldn&rsquo;t afford to wait longer than a few seconds for even the largest and most complex operation to finish. Neither arch, nor darcs, nor monotone, nor any other project, had ever come close to meeting that requirement.</p>
+<p>리누스의 주요 관심은, 사실 속도였습니다.  이것이 그가 기존에는 완전히, 적어도
+현존하는 프로젝트들이 이해할 수 있는 방식으로는 이야기 하지 않은
+부분이었습니다.  전세계에서 전력을 다해 패치를 보내오는 수천명의 커널
+개발자들을 위해, 그는 기존에는 상상할 수 없는 속도로 동작하는 무언가가
+필요했습니다.  그는 가장 거대하고 가장 복잡한 작업이라 해도 완료하는데 몇초
+이상 기다리는 걸 참을 수 없었습니다.  Arch 도, darcs, monotone 도, 그리고 어떤
+다른 프로젝트도 이 요구사항을 맞추지 못했습니다.</p>
 
-<p>Linus coded in seclusion for a brief time, then shared his new conception with the world. Within days of beginning the project in June of 2005, Linus&rsquo; git revision control system had become fully self-hosting. Within weeks, it was ready to host Linux kernel development. Within a couple months, it reached full functionality. At this point, Linus turned the project&rsquo;s maintainership over to its most enthusiastic contributor, Junio C. Hamano, and returned full-time to Linux development once again.</p>
+<p>리누스는 잠시 은둔한 채 코딩을 했고, 그 후에 그의 새로운 계획을 세상에
+알렸습니다.  2005년 6월에 그 프로젝트를 시작한 이래 몇일만에, 리누스의 git
+리비전 컨트롤 시스템의 소스코드의 리비전 컨트롤을 git 으로 완전히 하게
+되었습니다.  몇주 후, git 은 리눅스 커널 개발을 맡을 준비가 되었습니다.  몇달
+후, 완전한 기능을 갖추었습니다.  이 시점에서, 리누스는 이 프로젝트의 관리
+권한을 해당 프로젝트의 가장 열정적인 기여자, 쥬니오 하마노 (Junio C. Hamano)
+에게 넘기고 리눅스 개발에 다시 전념했습니다.</p>
 
-<p>A stunned community of free software developers struggled to understand this bizarre creation. It did not resemble any other attempts at revision control software. In fact, it seemed more like a bunch of low-level filesystem operations, than a revision control system. And instead of storing patches as other systems did, it stored whole versions of each changed file. How could this possibly be good? On the other hand, it could handle forks and merges with lightning speed and could generate patches rapidly on demand.</p>
+<p>여기에 놀란 프리 소프트웨어 개발자 커뮤니티는 이 괴상한 작업물을 이해하려
+노력했습니다.  이것은 리비전 컨트롤 소프트웨어의 어떤 것도 닮지 않았습니다.
+사실, 이것은 리비전 컨트롤 시스템보다는 낮은 단계의 파일시스템 오퍼레이션들의
+집합에 가까워 보였습니다.  그리고 다른 시스템들이 패치를 저장하는 것과 달리,
+이것은 각각의 변경된 파일의 버전을 모두 저장했습니다.  어떻게 이게 괜찮을 수
+있을까요?  반면, 이 도구는 fork 와 merge 를 번개같은 속도로 처리할 수 있고,
+패치를 요청하자마자 만들어낼 수 있었습니다.</p>
 
-<p>Gradually, Junio drew together a set of higher-level commands that more closely resembled those of tools like CVS and Subversion. If the original set of git commands were the &ldquo;plumbing&rdquo;, this new set of commands were the &ldquo;porcelain&rdquo;. And, so they came to be called.</p>
+<p>점진적으로, 쥬니오는 CVS 와 Subversion 의 것들을 닮은 높은 수준의 커맨드 집합을
+만들었습니다.  Git 커맨드들의 원래 것들이 &ldquo;배관&rdquo; 이었다면, 새로운 커맨드들은
+&ldquo;도자기&rdquo; 였습니다.  그리고, 결국 사용되게 되었습니다.</p>
 
-<p>As much as there had been controversy and resentment over BitKeeper, there was enthusiasm and participation in the further development of git. Ports, extensions and websites popped up all over the place. Within a few years, pretty much everyone used git. Like Linux, it had taken over the world.</p>
+<p>BitKeeper 에 대한 논쟁과 분노가 있었던 만큼이나, git 의 계속된 개발을 향한
+열망과 참여 의지가 많았습니다.  포팅된 것들, 확장 기능들, 그리고 웹사이트들이
+모든 것을 현재 상태로 끌어올렸습니다.  몇년만에, 거의 모든 사람들이 git 을
+사용하게 되었습니다.  리눅스처럼, git 이 세상을 집어삼켰습니다.</p>
 
       </div>
 
