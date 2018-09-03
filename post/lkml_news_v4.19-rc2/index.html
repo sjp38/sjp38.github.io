@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
@@ -13,7 +11,7 @@
   <meta name="description" content="System Programmer">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/tags/linux/">
+  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/lkml_news_v4.19-rc2/">
 
   
   
@@ -72,22 +70,24 @@
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://sjp38.github.io/tags/linux/">
+  <link rel="canonical" href="https://sjp38.github.io/post/lkml_news_v4.19-rc2/">
 
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="Hacklog">
-  <meta property="og:url" content="https://sjp38.github.io/tags/linux/">
-  <meta property="og:title" content="Linux | Hacklog">
-  <meta property="og:description" content="System Programmer">
+  <meta property="og:url" content="https://sjp38.github.io/post/lkml_news_v4.19-rc2/">
+  <meta property="og:title" content="LKML News after v4.19-rc2 | Hacklog">
+  <meta property="og:description" content="">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2017-03-04T15:53:08&#43;09:00">
+  <meta property="article:published_time" content="2018-09-03T11:34:35&#43;09:00">
+  
+  <meta property="article:modified_time" content="2018-09-03T11:34:35&#43;09:00">
   
 
   
 
-  <title>Linux | Hacklog</title>
+  <title>LKML News after v4.19-rc2 | Hacklog</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
@@ -245,55 +245,161 @@
 </nav>
 
 
-
-
-
-<div class="universal-wrapper">
-
-  <h1>Linux</h1>
+<article class="article" itemscope itemtype="http://schema.org/Article">
 
   
 
-  
-  
-  <div>
-    <h2><a href="https://sjp38.github.io/post/001_linux_dev_intro/">Starting &#39;Linux Kernel Hack&#39; series</a></h2>
-    <div class="article-style">
-      
-      많은 영역에서 사용되고 있는 리눅스 커널. 그렇기에 만져볼수록 재밌고 뜯어볼수록 신기합니다. 아마도 이게 hack 의 재미가 아닐까요.
-리눅스 커널을 hack 하는데에 필요한 기본적인 내용부터 몇가지 팁들, 소스 코드는 어떻게 가져오고 어떻게 빌드해서 시스템에 설치를 하는지, 패치는 어떻게 보내면 되는지와 같은 것들을 정리해 볼까 합니다.
-So many environments and users are using Linux kernel. That&rsquo;s why it is so fun and mysterious to touch and analyze it. Maybe it is the fun of hack.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="https://sjp38.github.io/post/uninstall-kernel/">uninstall kernel</a></h2>
-    <div class="article-style">
-      
-      테스트 등을 위해 소스코드로부터 커널을 직접 빌드, 설치하기 시작하면 어느새 수많은 커널이 설치되어 있는 것을 확인할 수 있다. 삭제를 위해선 make install 로 만들어진 파일들을 직접 제거하고 grub 을 업데이트 해줘야 한다.
-예를 들어 시스템이 현재 부팅되어 있는 버전의 커널을 언인스톨하고자 한다면 다음의 일련의 커맨드를 입력하면 된다:</p>
 
-<h1 id="rm-boot-vmlinuz-uname-r-rm-boot-initrd-img-uname-r-rm-boot-system-map-uname-r-rm-boot-config-uname-r-rm-fr-lib-modules-uname-r-rm-var-lib-initramfs-tools-uname-r-update-grub2-다른-버전의-설치되어있는-커널을-제거하고-싶다면-위의-uname-r-부분을-제거하고자-하는-커널-버전으로-대체하면-된다">rm /boot/vmlinuz-$(uname -r) # rm /boot/initrd.img-$(uname -r) # rm /boot/System.map-$(uname -r) # rm /boot/config-$(uname -r) # rm -fr /lib/modules/$(uname -r) # rm /var/lib/initramfs-tools/$(uname -r) # update-grub2  다른 버전의 설치되어있는 커널을 제거하고 싶다면 위의 $(uname -r) 부분을 제거하고자 하는 커널 버전으로 대체하면 된다.</h1>
+  <div class="article-container">
+    <div class="article-inner">
+      <h1 itemprop="name">LKML News after v4.19-rc2</h1>
 
       
-    </div>
-  </div>
-  
 
-  
-<nav>
-  <ul class="pager">
+<div class="article-metadata">
+
+  <span class="article-date">
     
-    <li><a href="/tags/linux/page/5/">&lt;</a></li>
+    <time datetime="2018-09-03 11:34:35 &#43;0900 KST" itemprop="datePublished">
+      Sep 3, 2018
+    </time>
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
     
+    <a href="/categories/lkml-news">lkml news</a
+    >
     
+  </span>
+  
+  
+
+  
+  
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=LKML%20News%20after%20v4.19-rc2&amp;url=https%3a%2f%2fsjp38.github.io%2fpost%2flkml_news_v4.19-rc2%2f"
+         target="_blank" rel="noopener">
+        <i class="fa fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fsjp38.github.io%2fpost%2flkml_news_v4.19-rc2%2f"
+         target="_blank" rel="noopener">
+        <i class="fa fa-facebook"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fsjp38.github.io%2fpost%2flkml_news_v4.19-rc2%2f&amp;title=LKML%20News%20after%20v4.19-rc2"
+         target="_blank" rel="noopener">
+        <i class="fa fa-linkedin"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fsjp38.github.io%2fpost%2flkml_news_v4.19-rc2%2f&amp;title=LKML%20News%20after%20v4.19-rc2"
+         target="_blank" rel="noopener">
+        <i class="fa fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=LKML%20News%20after%20v4.19-rc2&amp;body=https%3a%2f%2fsjp38.github.io%2fpost%2flkml_news_v4.19-rc2%2f">
+        <i class="fa fa-envelope"></i>
+      </a>
+    </li>
   </ul>
-</nav>
+</div>
 
 
+  
 
 </div>
+
+
+      <div class="article-style" itemprop="articleBody">
+        
+
+<h2 id="linux-4-19-rc2">Linux 4.19-rc2</h2>
+
+<p><a href="https://lkml.kernel.org/r/CA+55aFyG0GbDfoghEhAmKBPcZCiPu6CCpPRz9GwjCzLuP_Vv5Q@mail.gmail.com" target="_blank">https://lkml.kernel.org/r/CA+55aFyG0GbDfoghEhAmKBPcZCiPu6CCpPRz9GwjCzLuP_Vv5Q@mail.gmail.com</a></p>
+
+<p>리눅스 4.19 두번째 릴리즈 후보 버전의 릴리즈입니다.  첫번째 릴리즈 후보 버전
+릴리즈 후엔 사람들이 좀 쉬게 마련이고 버그를 찾기엔 시간이 많지 않았기에 큰
+변화는 없었습니다.  유럽사람들의 경우 아직 휴가기간인 사람도 많구요.  미국
+OSSummit 이 지난주 진행된 것도 한 영향이겠네요.</p>
+
+      </div>
+
+      
+
+
+<div class="article-tags">
+  
+  <a class="btn btn-primary btn-outline" href="/tags/linux">linux</a>
+  
+  <a class="btn btn-primary btn-outline" href="/tags/kernel">kernel</a>
+  
+  <a class="btn btn-primary btn-outline" href="/tags/lkml">lkml</a>
+  
+  <a class="btn btn-primary btn-outline" href="/tags/news">news</a>
+  
+</div>
+
+
+
+    </div>
+  </div>
+
+</article>
+
+
+
+<div class="article-container article-widget">
+  <div class="hr-light"></div>
+  <h3>Related</h3>
+  <ul>
+    
+    <li><a href="/post/lkml_news_v4.19-rc1/">LKML News after v4.19-rc1</a></li>
+    
+    <li><a href="/post/lkml_news_v4.18/">Lkml_news_v4.18</a></li>
+    
+    <li><a href="/post/lkml_news_v4.18-rc8/">LKML News after v4.18-rc8</a></li>
+    
+    <li><a href="/post/lkml_news_v4.18-rc7/">LKML News after v4.18-rc7</a></li>
+    
+    <li><a href="/post/lkml_news_v4.18-rc6/">LKML News after v4.18-rc6</a></li>
+    
+  </ul>
+</div>
+
+
+
+
+<div class="article-container">
+  
+
+</div>
+
 <footer class="site-footer">
   <div class="container">
     <p class="powered-by">
@@ -376,6 +482,4 @@ So many environments and users are using Linux kernel. That&rsquo;s why it is so
 
   </body>
 </html>
-
-
 
