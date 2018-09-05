@@ -130,6 +130,19 @@ Ubuntu 등의 리눅스 배포판을 설치할 수 있고 Chrome OS 와의 전�
 릴리즈 후엔 사람들이 좀 쉬게 마련이고 버그를 찾기엔 시간이 많지 않았기에 큰
 변화는 없었습니다.  유럽사람들의 경우 아직 휴가기간인 사람도 많구요.  미국
 OSSummit 이 지난주 진행된 것도 한 영향이겠네요.&lt;/p&gt;
+
+&lt;h2 id=&#34;patch-v5-00-21-swap-swapout-swapin-thp-in-one-piece&#34;&gt;[PATCH -V5 00/21] swap: Swapout/swapin THP in one piece&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20180903072214.24602-1-ying.huang@intel.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20180903072214.24602-1-ying.huang@intel.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;관심있게 지켜보고 있는, THP swapout/in 패치입니다.  다음 머지 윈도우에선 들어갈 수 있을까요?&lt;/p&gt;
+
+&lt;h2 id=&#34;plumbers-2018-performance-and-scalability-microconference&#34;&gt;Plumbers 2018 - Performance and Scalability Microconference&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/1dc80ff6-f53f-ae89-be29-3408bf7d69cc@oracle.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/1dc80ff6-f53f-ae89-be29-3408bf7d69cc@oracle.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;올해 Linux Plumbers Conference 에 &amp;lsquo;Performance and Scalability Microconference&amp;rsquo;
+가 열립니다.  Huge page, mmap_sem, cpu 병렬화 등등 재밌는 주제가 많네요.&lt;/p&gt;
 </description>
     </item>
     
@@ -397,6 +410,47 @@ $ sudo echo &amp;quot;dtoverlay=pi3-miniuart-bt&amp;quot; &amp;gt;&amp;gt; /boot
 
 &lt;p&gt;또한, 이번 릴리즈는 꽤 많은 변경이 있는 편이라고 합니다, 물론 커밋 수
 기반으로요.&lt;/p&gt;
+
+&lt;h2 id=&#34;rfc-patch-0-5-introduce-proc-pid-idle-bitmap&#34;&gt;[RFC][PATCH 0/5] introduce /proc/PID/idle_bitmap&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20180901112818.126790961@intel.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20180901112818.126790961@intel.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;/sys/kernel/mm/page_idle/bitmap&lt;/code&gt; 을 사용하면 시스템의 실제 워킹셋 페이지가
+무엇무엇인지 알 수 있는데요, 이걸 &lt;code&gt;/proc/PID/idle_bitmap&lt;/code&gt; 으로 옮겨서 좀 더
+finer-grained 하게 특정 프로세스의 워킹셋을 추적할 수 있게 하려는 RFC
+패치입니다.  기존의 글로벌한 비트맵은 아무래도 사용하기에 오버헤드가 있기
+때문이죠.  특히 NVIDMM 을 고려하면 수 테라바이트도 쉽게 보인다는 이야기를
+하는군요.  저도 해당 bitmap 을 사용해 워킹셋 추적 프로그램을 만들었다가
+오버헤드로 고민이 깊어져서 커널을 좀 고치긴 해야겠다 싶었는데, 잘 머지되면
+좋겠습니다.&lt;/p&gt;
+
+&lt;p&gt;이와 함께 인텔의 Apache Pass NVDIMM 에 대한 이야기도 하는군요.  옵테인 기반의
+NVDIMM 제품인 거 같은데, NVDIMM 도 현물이 나오기 시작하는군요.&lt;/p&gt;
+
+&lt;h2 id=&#34;patch-rfc-lkmm-1-7-tools-memory-model-add-extra-ordering-for-locks-and-remove-it-for-ordinary-release-acquire&#34;&gt;[PATCH RFC LKMM &lt;sup&gt;1&lt;/sup&gt;&amp;frasl;&lt;sub&gt;7&lt;/sub&gt;] tools/memory-model: Add extra ordering for locks and remove it for ordinary release/acquire&lt;/h2&gt;
+
+&lt;p&gt;이 락킹 앞뒤의 액세스 순서를 지켜주는게 LKMM 에는 반영되어 있지 않습니다.
+이걸로 몇명의 커널 프로그래머들이 항의했나 보네요.  이런 부분들을 추가하는
+패치입니다.&lt;/p&gt;
+
+&lt;h2 id=&#34;patch-tip-core-rcu-0-6-documentation-updates-for-v4-20-v5-0&#34;&gt;[PATCH tip/core/rcu 0/6] Documentation updates for v4.20/v5.0&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20180829211637.GA20980@linux.vnet.ibm.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20180829211637.GA20980@linux.vnet.ibm.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;다음 리눅스 머지 윈도우를 겨냥하는 RCU 쪽 문서 업데이트입니다.  다음 버전은
+4.20이 될지 5.0이 될지 Paul 도 모르겠나보군요.&lt;/p&gt;
+
+&lt;h2 id=&#34;patch-tip-core-rcu-0-3-srcu-updates-for-v4-20-v5-0&#34;&gt;[PATCH tip/core/rcu 0/3] SRCU updates for v4.20/v5.0&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20180829212036.GA22033@linux.vnet.ibm.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20180829212036.GA22033@linux.vnet.ibm.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;다음 리눅스 머지 윈도우를 향한 SRCU 업데이트 입니다.  &lt;code&gt;call_srcu()&lt;/code&gt; 를 부팅
+초기부터 사용할 수 있도록 하는군요.  테스트도 작성했습니다.&lt;/p&gt;
+
+&lt;h2 id=&#34;patch-tip-core-rcu-0-24-additional-rcu-consolidation-cleanups-for-v4-20-v5-0&#34;&gt;[PATCH tip/core/rcu 0/24] Additional RCU-consolidation cleanups for v4.20/v5.0&lt;/h2&gt;
+
+&lt;p&gt;RCU 는 여러 변종 (flavor) 들이 있는데, 이것들을 최대한 합치려 하고 있는 듯
+하군요.&lt;/p&gt;
 </description>
     </item>
     
@@ -503,6 +557,18 @@ XArray 풀리퀘스트를 리누스 토발즈에게 던졌군요!&lt;/p&gt;
 
 &lt;p&gt;이 풀리퀘스트는 XArray 의 구현과 &lt;code&gt;pagecache&lt;/code&gt; 가 XArray 를 사용하도록 하는
 변경을 담고 있습니다.&lt;/p&gt;
+
+&lt;p&gt;그러나, 리눅스는 이 패치셋을 받아들이지 않기로 결정했습니다.  XArray 자체에
+문제가 있어서느 아니고, 이 패치셋이 &lt;code&gt;libnvdimm&lt;/code&gt; 소스트리 위에서 만들어졌기
+때문입니다.  &lt;code&gt;-next&lt;/code&gt; 트리 관리자가 그렇게 하자고 조언한 것 같은데, 어쨌든
+Mattew 에겐 안됐지만 다음 버전에서 머지되길 기대해야겠군요.&lt;/p&gt;
+
+&lt;h2 id=&#34;patch-v3-0-3-docs-core-api-add-memory-allocation-guide&#34;&gt;[PATCH v3 0/3] docs/core-api: add memory allocation guide&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/1534517236-16762-1-git-send-email-rppt@linux.vnet.ibm.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/1534517236-16762-1-git-send-email-rppt@linux.vnet.ibm.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;메모리 관리쪽 커널 문서가 지속적으로 업데이트 되고 있습니다.  개인적으로는
+커널을 공부할 때 공식 문서를 선호하는 편이라 반가운 일이군요.&lt;/p&gt;
 </description>
     </item>
     
