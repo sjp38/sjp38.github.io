@@ -13,7 +13,7 @@
   <meta name="description" content="System Programmer">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/tags/linux/">
+  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/tags/development/">
 
   
   
@@ -72,22 +72,22 @@
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://sjp38.github.io/tags/linux/">
+  <link rel="canonical" href="https://sjp38.github.io/tags/development/">
 
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="Hacklog">
-  <meta property="og:url" content="https://sjp38.github.io/tags/linux/">
-  <meta property="og:title" content="Linux | Hacklog">
+  <meta property="og:url" content="https://sjp38.github.io/tags/development/">
+  <meta property="og:title" content="Development | Hacklog">
   <meta property="og:description" content="System Programmer">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2017-03-07T19:41:16&#43;09:00">
+  <meta property="og:updated_time" content="2018-09-07T16:00:23&#43;09:00">
   
 
   
 
-  <title>Linux | Hacklog</title>
+  <title>Development | Hacklog</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
@@ -250,58 +250,24 @@
 
 <div class="universal-wrapper">
 
-  <h1>Linux</h1>
+  <h1>Development</h1>
 
   
 
   
   
   <div>
-    <h2><a href="https://sjp38.github.io/post/arping-howto/">Using arping to know ip-MAC mapping</a></h2>
+    <h2><a href="https://sjp38.github.io/post/linux-kernel-build/">Linux Kernel Build</a></h2>
     <div class="article-style">
       
-      You can use arping to know IP address to MAC address mapping of your local network. Usage is simple:
-arping [-AbDfhqUV] [-c count] [-w deadline] [-s source] -I interface destination  For example, you may use the command as below:
-$ arping -I eth0 10.0.0.1 ARPING 10.0.0.1 from 10.0.0.2 eth0 Unicast reply from 10.0.0.1 [11:22:33:44:55:66] 0.123ms Unicast reply from 10.0.0.1 [11:22:33:44:55:66] 0.251ms &hellip;  Secret of the tool is ARP protocol [1].
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="https://sjp38.github.io/post/001_linux_dev_intro/">Starting &#39;Linux Kernel Hack&#39; series</a></h2>
-    <div class="article-style">
-      
-      많은 영역에서 사용되고 있는 리눅스 커널. 그렇기에 만져볼수록 재밌고 뜯어볼수록 신기합니다. 아마도 이게 hack 의 재미가 아닐까요.
-리눅스 커널을 hack 하는데에 필요한 기본적인 내용부터 몇가지 팁들, 소스 코드는 어떻게 가져오고 어떻게 빌드해서 시스템에 설치를 하는지, 패치는 어떻게 보내면 되는지와 같은 것들을 정리해 볼까 합니다.
-So many environments and users are using Linux kernel. That&rsquo;s why it is so fun and mysterious to touch and analyze it. Maybe it is the fun of hack.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="https://sjp38.github.io/post/uninstall-kernel/">uninstall kernel</a></h2>
-    <div class="article-style">
-      
-      테스트 등을 위해 소스코드로부터 커널을 직접 빌드, 설치하기 시작하면 어느새 수많은 커널이 설치되어 있는 것을 확인할 수 있다. 삭제를 위해선 make install 로 만들어진 파일들을 직접 제거하고 grub 을 업데이트 해줘야 한다.
-예를 들어 시스템이 현재 부팅되어 있는 버전의 커널을 언인스톨하고자 한다면 다음의 일련의 커맨드를 입력하면 된다:</p>
-
-<h1 id="rm-boot-vmlinuz-uname-r-rm-boot-initrd-img-uname-r-rm-boot-system-map-uname-r-rm-boot-config-uname-r-rm-fr-lib-modules-uname-r-rm-var-lib-initramfs-tools-uname-r-update-grub2-다른-버전의-설치되어있는-커널을-제거하고-싶다면-위의-uname-r-부분을-제거하고자-하는-커널-버전으로-대체하면-된다">rm /boot/vmlinuz-$(uname -r) # rm /boot/initrd.img-$(uname -r) # rm /boot/System.map-$(uname -r) # rm /boot/config-$(uname -r) # rm -fr /lib/modules/$(uname -r) # rm /var/lib/initramfs-tools/$(uname -r) # update-grub2  다른 버전의 설치되어있는 커널을 제거하고 싶다면 위의 $(uname -r) 부분을 제거하고자 하는 커널 버전으로 대체하면 된다.</h1>
-
+      제가 새 기계에서 리눅스 커널 빌드 환경을 셋업하고 실제 빌드, 설치하는 과정을 정리해 봅니다. 글 작성 과정에서 실제 커맨드를 수행한 환경은 Ubuntu 16.04.3 Server OS 를 설치한 x86_64 가상머신입니다.
+Install Dependent Packages $ sudo apt install build-essentials libncurses5-dev libssl-dev bc bison flex \ libelf-dev  커널을 빌드하려면 컴파일러와 라이브러리 등이 필요하겠죠. 위 커맨드는 우분투에서 커널 빌드에 필요한 패키지들을 깔아줍니다. 커널 트리의 Documentation/process/changes.rst 에도 커널 빌드에 필요한 패키지들이 나열되어 있으므로, 다른 환경이라면 이를 참고해 필요한 패키지를 설치합시다.
       
     </div>
   </div>
   
 
   
-<nav>
-  <ul class="pager">
-    
-    <li><a href="/tags/linux/page/5/">&lt;</a></li>
-    
-    
-  </ul>
-</nav>
-
 
 
 </div>

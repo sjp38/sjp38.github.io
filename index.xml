@@ -11,6 +11,91 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Linux Kernel Build</title>
+      <link>https://sjp38.github.io/post/linux-kernel-build/</link>
+      <pubDate>Fri, 07 Sep 2018 16:00:23 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/linux-kernel-build/</guid>
+      <description>
+
+&lt;p&gt;제가 새 기계에서 리눅스 커널 빌드 환경을 셋업하고 실제 빌드, 설치하는 과정을
+정리해 봅니다.  글 작성 과정에서 실제 커맨드를 수행한 환경은 Ubuntu 16.04.3
+Server OS 를 설치한 &lt;code&gt;x86_64&lt;/code&gt; 가상머신입니다.&lt;/p&gt;
+
+&lt;h1 id=&#34;install-dependent-packages&#34;&gt;Install Dependent Packages&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo apt install build-essentials libncurses5-dev libssl-dev bc bison flex \
+		libelf-dev
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;커널을 빌드하려면 컴파일러와 라이브러리 등이 필요하겠죠.  위 커맨드는
+우분투에서 커널 빌드에 필요한 패키지들을 깔아줍니다.  커널 트리의
+&lt;code&gt;Documentation/process/changes.rst&lt;/code&gt; 에도 커널 빌드에 필요한 패키지들이 나열되어
+있으므로, 다른 환경이라면 이를 참고해 필요한 패키지를 설치합시다.&lt;/p&gt;
+
+&lt;h1 id=&#34;fetch-linux-kernel-source-code&#34;&gt;Fetch Linux Kernel Source Code&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code&gt;$ git clone git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;빌드를 하려면 소스코드를 가져와야죠.  위 커맨드를 통해 토발즈의 리눅스
+소스코드를 가져올 수 있습니다.  네트워크를 통해 가져오는데, 소스코드는 물론이고
+개발 이력 정보를 모두 담고 있으므로 많은 데이터를 가져와야해 시간이 상당히
+걸립니다.  이 글을 쓰는 2018년 9월 초 기준, 버전정보만 약 1.2 GiB 군요.&lt;/p&gt;
+
+&lt;p&gt;토발즈는 github 에 &lt;a href=&#34;https://github.com/torvalds/linux&#34; target=&#34;_blank&#34;&gt;미러&lt;/a&gt; 를 두고 있으므로,
+여길 이용하는 것도 생각해 볼 수 있고, 굳이 버전 정보는 필요하지 않다면
+&lt;a href=&#34;https://kernel.org&#34; target=&#34;_blank&#34;&gt;&lt;code&gt;kernel.org&lt;/code&gt;&lt;/a&gt; 에서 tarball 로 소스코드만 받는것도 한
+방법입니다.&lt;/p&gt;
+
+&lt;p&gt;저는 아예 &lt;code&gt;.git&lt;/code&gt; 디렉토리를 압축해서 별도 저장소에
+보관하기도 합니다.&lt;/p&gt;
+
+&lt;h1 id=&#34;make-configuration-file&#34;&gt;Make Configuration File&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code&gt;$ cd linux
+$ cp /boot/config-$(uname -r) ./.config
+$ make menuconfig
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;리눅스 빌드 설정 파일을 만들어야 합니다.  앞의 커맨드를 통해 배포판에서 제공한
+커널을 빌드하는데 사용된 설정 파일을 기반으로 gui 환경에서 필요한 설정을
+추가/제거 할 수 있습니다.  별달리 변경할 게 없다면 그냥 저장하고 나오면 됩니다.&lt;/p&gt;
+
+&lt;p&gt;저는 빌드에 많은 시간이 걸리지 않고 저장 공간이 큰 시스템에서는 이 방법을
+사용하고, 작은 가상머신 등의 환경에서는 &lt;code&gt;localmodconfig&lt;/code&gt; 빌드 타겟을 사용해
+가벼운 설정 파일을 만드는 편입니다.&lt;/p&gt;
+
+&lt;h1 id=&#34;build&#34;&gt;Build&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code&gt;$ make -j $(grep &amp;quot;^processor&amp;quot; /proc/cpuinfo | wc -l)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;이 커맨드는 리눅스 커널을 빌드합니다.  이 때 뒤의 &lt;code&gt;-j&lt;/code&gt; 옵션을 통해 빌드 과정
+작업을 한순간에 최대 몇개까지 수행해도 되는지 지정해주는데, 이 커맨드에선
+빌드를 수행하는 시스템에 장착된 논리적 코어의 갯수를 줬습니다.  커널 빌드엔 긴
+시간이 걸립니다.  프로세서 3개를 준 제 가상머신에서는 12분 30초 정도 걸렸군요.
+이것도 &lt;code&gt;localmodconfig&lt;/code&gt; 를 해줬기 때문이고, 이런저런 모듈 다 빌드하라고 했다면
+훨씬 많이 걸렸을 겁니다.&lt;/p&gt;
+
+&lt;h1 id=&#34;install&#34;&gt;Install&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo make modules_install install
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;이 커맨드는 빌드한 모듈들과 커널 자체를 설치합니다.  커널 빌드 시스템은 이
+과정에서 가장 최신의 커널로 grub 의 디폴트 부트 대상도 바꿔줍니다.  이제 기계를
+껐다 켜되, grub 등에서 부트할 커널 버전을 해당 버전으로 선택하면 빌드한 커널로
+부팅됩니다.  현재 시스템이 사용중인 커널의 버전은 &lt;code&gt;uname -r&lt;/code&gt; 로 알 수 있습니다.&lt;/p&gt;
+
+&lt;h1 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h1&gt;
+
+&lt;p&gt;이상으로 Ubuntu 16.04.3 을 기본으로 리눅스 커널을 빌드하고 설치하는 방법을
+알아봤습니다.  총 일곱개의 커맨드 뿐.   쉽죠?&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Chromebook Plus Purchase (크롬북 플러스 구매 결정기)</title>
       <link>https://sjp38.github.io/post/chromebook-plus-purchase/</link>
       <pubDate>Mon, 03 Sep 2018 13:52:00 +0900</pubDate>
@@ -1026,35 +1111,6 @@ E (Exit Setup)&lt;/p&gt;
 &lt;h1 id=&#34;references&#34;&gt;References&lt;/h1&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://harbhag.wordpress.com/2010/07/14/configure-alpine-to-sendreceive-emails-from-gmail/&#34; target=&#34;_blank&#34;&gt;https://harbhag.wordpress.com/2010/07/14/configure-alpine-to-sendreceive-emails-from-gmail/&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Lkml_news_v4.18 Rc5</title>
-      <link>https://sjp38.github.io/post/lkml_news_v4.18-rc5/</link>
-      <pubDate>Mon, 16 Jul 2018 06:07:33 +0900</pubDate>
-      
-      <guid>https://sjp38.github.io/post/lkml_news_v4.18-rc5/</guid>
-      <description>
-
-&lt;h2 id=&#34;linux-4-18-rc5&#34;&gt;Linux 4.18-rc5&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFwfMr2D2A_yesUyt_Lo3XMRk9epzgeBMt2HxMHiXMDYcg@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CA+55aFwfMr2D2A_yesUyt_Lo3XMRk9epzgeBMt2HxMHiXMDYcg@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;다섯번째 rc 릴리즈입니다.  토발즈 개인적으로는 조금 바쁘단 느낌이 있었지만
-숫자로 보면 평범한 rc 릴리즈 주간이었다는 평입니다.&lt;/p&gt;
-
-&lt;p&gt;토발즈를 귀찮게 만들었던 건 VM 쪽 버그로, 단 두줄의 수정으로 고쳐졌다는데,
-아무래도 아래 패치인 것 같군요:
-&lt;a href=&#34;https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=bce73e4842390f7b7309c8e253e139db71288ac3&#34; target=&#34;_blank&#34;&gt;https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=bce73e4842390f7b7309c8e253e139db71288ac3&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;그리고 repeatable sequence 에 대한 cleanup 도 있었군요.&lt;/p&gt;
-
-&lt;h2 id=&#34;git-pull-rcu-next-rcu-commits-for-4-19&#34;&gt;[GIT PULL rcu/next] RCU commits for 4.19&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20180716175125.GA4287@linux.vnet.ibm.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20180716175125.GA4287@linux.vnet.ibm.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;4.19 리눅스 릴리즈를 위한 RCU 쪽 변경사항들 pull request 입니다.&lt;/p&gt;
 </description>
     </item>
     
