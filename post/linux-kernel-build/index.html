@@ -354,6 +354,12 @@ Server OS 를 설치한 <code>x86_64</code> 가상머신입니다.</p>
 <code>Documentation/process/changes.rst</code> 에도 커널 빌드에 필요한 패키지들이 나열되어
 있으므로, 다른 환경이라면 이를 참고해 필요한 패키지를 설치합시다.</p>
 
+<p>페도라라면 아래와 같이 패키지를 깔면 됩니다:</p>
+
+<pre><code>$ sudo dnf install @development-tools ncurses-devel bison-devel flex-devel \
+	flex bison elfutils-libelf-devel openssl-devel
+</code></pre>
+
 <h1 id="fetch-linux-kernel-source-code">Fetch Linux Kernel Source Code</h1>
 
 <pre><code>$ git clone git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
