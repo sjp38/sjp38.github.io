@@ -11,6 +11,46 @@
     <atom:link href="/post/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>LKML News after v4.19-rc3</title>
+      <link>https://sjp38.github.io/post/lkml_news_v4.19-rc3/</link>
+      <pubDate>Tue, 11 Sep 2018 06:01:49 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/lkml_news_v4.19-rc3/</guid>
+      <description>
+
+&lt;h2 id=&#34;linux-4-19-rc3&#34;&gt;Linux 4.19-rc3&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFwSxCt0aKkTxcBstthYXqJ5LtxRbO-CDyqgNwU94Ldq+w@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CA+55aFwSxCt0aKkTxcBstthYXqJ5LtxRbO-CDyqgNwU94Ldq+w@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;세번째 rc 릴리즈입니다.  어느새 이번 안정화 기간도 중반을 향하는군요.  시간 참
+빠릅니다.  전체적으로 평범한 릴리즈입니다.  딱히 언급할 거리가 없군요.&lt;/p&gt;
+
+&lt;h2 id=&#34;rfc-patch-v2-0-8-lru-lock-scalability-and-smp-list-functions&#34;&gt;[RFC PATCH v2 0/8] lru_lock scalability and SMP list functions&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20180911004240.4758-1-daniel.m.jordan@oracle.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20180911004240.4758-1-daniel.m.jordan@oracle.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;올해 LSF/MM 서밋에서도 이야기되었던, &lt;code&gt;lru_lock&lt;/code&gt; 의 확장성을 개선하기 위한
+노력의 정리입니다.  LRU 리스트에 여러 쓰레드가 실제 데이터를 겹쳐 쓰지 않는다면
+동시에 접근할 수 있는 새로운 오퍼레이션 세개 (&lt;code&gt;smp_list_del()&lt;/code&gt;,
+&lt;code&gt;smp_list_splice()&lt;/code&gt;, &lt;code&gt;smp_list_add()&lt;/code&gt;)을 추가했구요.  두번째로, &lt;code&gt;lru_lock&lt;/code&gt; 을
+&lt;code&gt;spinlock&lt;/code&gt; 에서 &lt;code&gt;rwlock&lt;/code&gt; 으로 교체했군요.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;will-it-scale/page_fault1&lt;/code&gt; 이라는 마이크로 벤치마크를 사용해서 성능을
+비교했는데, 44 코어 시스템에서 최대 73.8% 더 초당 페이지 폴트 처리량을 늘릴 수
+있었다고 합니다.&lt;/p&gt;
+
+&lt;h2 id=&#34;rfc-patch-0-9-improve-zone-lock-scalability-using-daniel-jordan-s-list-work&#34;&gt;[RFC PATCH 0/9] Improve zone lock scalability using Daniel Jordan&amp;rsquo;s list work&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20180911053616.6894-1-aaron.lu@intel.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20180911053616.6894-1-aaron.lu@intel.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;바로 앞에서 설명한, 여러 쓰레드가 동시에 리스트에 접근할 수 있도록 새로
+만들어진 메커니즘은 &lt;code&gt;zone lock&lt;/code&gt; 에도 도움이 될 수 있다고 LSF/MM 에서 여럿이
+생각했다고 합니다.  이 패치셋은 실제로 이 기능들을 이용해 &lt;code&gt;zone lock&lt;/code&gt; 의
+확장성을 개선했습니다.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Linux Kernel Build</title>
       <link>https://sjp38.github.io/post/linux-kernel-build/</link>
       <pubDate>Fri, 07 Sep 2018 16:00:23 +0900</pubDate>
@@ -1084,52 +1124,6 @@ SLAB_RECLAIM_ACCOUNT  와 비슷한 특성을 갖는 변종을 kmalloc-rcl-x 라
 &lt;p&gt;메모리 관리 부분 문서화 업데이트입니다.  sphinx 기반 문서화 업데이트를 일부
 메인테이너들은 반기지 않는 것도 사실이지만, 확실히 가독성이 좋아진 덕에 이런
 문서화 노력이 더 활발해 지는 것 아닌가 하는 생각도 드는군요.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Alpine for LKML</title>
-      <link>https://sjp38.github.io/post/alpine-for-lkml/</link>
-      <pubDate>Wed, 18 Jul 2018 21:09:54 +0900</pubDate>
-      
-      <guid>https://sjp38.github.io/post/alpine-for-lkml/</guid>
-      <description>
-
-&lt;p&gt;리눅스 커널 커뮤니티는 버그 레포팅, 패치 업로드, 리뷰, 릴리즈, 토론 등등 모든
-활동은 이메일을 통해 이루어집니다.  이 포스트에서는 리누스 토발즈도 쓰는 이메일
-클라이언트인 Alpine 을 gmail 과 연동하는 방법을 알아봅니다.&lt;/p&gt;
-
-&lt;p&gt;먼저 alpine 설치는 대부분 리눅스 배포판의 패키지 시스템에 등록되어 있으므로
-해당 패키지 시스템을 사용해 쉽게 설치할 수 있습니다.  데비안 계열이면 &lt;code&gt;apt
-install alpine&lt;/code&gt;, 페도라 계열이면 &lt;code&gt;dnf install alpine&lt;/code&gt; 이죠.&lt;/p&gt;
-
-&lt;h1 id=&#34;gmail-imap-정보-입력&#34;&gt;gmail imap 정보 입력&lt;/h1&gt;
-
-&lt;p&gt;S (Settings) -&amp;gt; L (collectionLists) -&amp;gt; A (Add Cltn)&lt;/p&gt;
-
-&lt;p&gt;Nickname: gmail or anything
-Server: imap.gmail.com/ssl/user=sj@gmail.com&lt;/p&gt;
-
-&lt;p&gt;^X (Commit change)
-E (Exit Setup)&lt;/p&gt;
-
-&lt;h1 id=&#34;smtp-서버-설정&#34;&gt;SMTP 서버 설정&lt;/h1&gt;
-
-&lt;p&gt;S (Setup) -&amp;gt; C (config)&lt;/p&gt;
-
-&lt;p&gt;SMTP server: smtp.gmail.com/tls/user=sj@gmail.com&lt;/p&gt;
-
-&lt;h2 id=&#34;쓰레드-기반-소팅&#34;&gt;쓰레드 기반 소팅&lt;/h2&gt;
-
-&lt;p&gt;&lt;code&gt;[Sort key]&lt;/code&gt;: tHread (enter)&lt;/p&gt;
-
-&lt;h2 id=&#34;리눅스-커널-커뮤니티에서-요구하는-설정&#34;&gt;리눅스 커널 커뮤니티에서 요구하는 설정&lt;/h2&gt;
-
-&lt;p&gt;&lt;code&gt;[Sending Preferences]&lt;/code&gt;: Do Not Send Flowed Text, Strip Whitespace Before Sending&lt;/p&gt;
-
-&lt;h1 id=&#34;references&#34;&gt;References&lt;/h1&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://harbhag.wordpress.com/2010/07/14/configure-alpine-to-sendreceive-emails-from-gmail/&#34; target=&#34;_blank&#34;&gt;https://harbhag.wordpress.com/2010/07/14/configure-alpine-to-sendreceive-emails-from-gmail/&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

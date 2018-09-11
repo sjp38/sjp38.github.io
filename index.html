@@ -579,6 +579,91 @@ DevFest W, March 2013.
       
           
       
+
+      
+      
+        
+        
+
+<div class="article-list-item" itemscope itemprop="blogPost">
+  
+  
+  <h3 class="article-title" itemprop="name">
+    <a href="https://sjp38.github.io/post/lkml_news_v4.19-rc3/" itemprop="url">LKML News after v4.19-rc3</a>
+  </h3>
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2018-09-11 06:01:49 &#43;0900 KST" itemprop="datePublished">
+      Sep 11, 2018
+    </time>
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/lkml-news">lkml news</a
+    >
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+  <div class="article-style" itemprop="articleBody">
+    
+    Linux 4.19-rc3 https://lkml.kernel.org/r/CA+55aFwSxCt0aKkTxcBstthYXqJ5LtxRbO-CDyqgNwU94Ldq+w@mail.gmail.com
+세번째 rc 릴리즈입니다. 어느새 이번 안정화 기간도 중반을 향하는군요. 시간 참 빠릅니다. 전체적으로 평범한 릴리즈입니다. 딱히 언급할 거리가 없군요.
+[RFC PATCH v2 0/8] lru_lock scalability and SMP list functions https://lkml.kernel.org/r/20180911004240.4758-1-daniel.m.jordan@oracle.com
+올해 LSF/MM 서밋에서도 이야기되었던, lru_lock 의 확장성을 개선하기 위한 노력의 정리입니다. LRU 리스트에 여러 쓰레드가 실제 데이터를 겹쳐 쓰지 않는다면 동시에 접근할 수 있는 새로운 오퍼레이션 세개 (smp_list_del(), smp_list_splice(), smp_list_add())을 추가했구요. 두번째로, lru_lock 을 spinlock 에서 rwlock 으로 교체했군요.
+    
+  </div>
+  <p class="read-more">
+    <a href="https://sjp38.github.io/post/lkml_news_v4.19-rc3/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
+      
+
+      
+
+        
+
+        
+        
+
+        
+        
+          
+      
+          
+      
+          
+      
+          
+      
           
       
 
@@ -902,88 +987,6 @@ Transactions on Computers[1] 에 Accept 되었습니다.  조만간 이를 통�
       
 
       
-
-        
-
-        
-        
-
-        
-        
-          
-      
-          
-      
-          
-      
-
-      
-      
-        
-        
-
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/git_origin_story_ko/" itemprop="url">Git Origin Story in Korean</a>
-  </h3>
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2018-08-29 21:15:13 &#43;0900 KST" itemprop="datePublished">
-      Aug 29, 2018
-    </time>
-  </span>
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    6 min read
-  </span>
-  
-
-  
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/translations">translations</a
-    >
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-  <div class="article-style" itemprop="articleBody">
-    
-    최근 흥미롭게 보았던 Git Origin Story 라는 제목의 LinuxJournal.com 기사를 번역해 봅니다. 원본 기사는 https://www.linuxjournal.com/content/git-origin-story 에서 보실 수 있습니다.
-수년간 리눅스 커널 개발자들이 사용해온 다양한 리비전 컨트롤 방법, Linus Torvalds가 Bit keeper 를 사용하기로 한 결정과 그에 뒤따른 논쟁, 그리고 어떻게 Git 이 만들어졌는가에 대한 글입니다.
-처음에, Linus Torvalds는 리비전 컨트롤을 아예 사용하지 않았습니다. 커널에 코드를 기여하고자 하는 사람은 Usenet 그룹에, 나중에는 메일링 리스트에 패치를 올렸고, Linus는 자신의 소스 트리에 그걸 적용했습니다.
-    
-  </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/git_origin_story_ko/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-      
-
-      
     
 
   </div>
@@ -1119,7 +1122,7 @@ Transactions on Computers[1] 에 Accept 되었습니다.  조만간 이를 통�
           
           
           
-          <a href="/tags/benchmark" style="font-size:1.4859000736025845rem">benchmark</a>
+          <a href="/tags/benchmark" style="font-size:1.482759412474271rem">benchmark</a>
         
           
           
@@ -1168,7 +1171,7 @@ Transactions on Computers[1] 에 Accept 되었습니다.  조만간 이를 통�
           
           
           
-          <a href="/tags/conference" style="font-size:1.4859000736025845rem">conference</a>
+          <a href="/tags/conference" style="font-size:1.482759412474271rem">conference</a>
         
           
           
@@ -1210,7 +1213,7 @@ Transactions on Computers[1] 에 Accept 되었습니다.  조만간 이를 통�
           
           
           
-          <a href="/tags/english" style="font-size:1.6292956840083792rem">english</a>
+          <a href="/tags/english" style="font-size:1.6254984301242044rem">english</a>
         
           
           
@@ -1224,14 +1227,14 @@ Transactions on Computers[1] 에 Accept 되었습니다.  조만간 이를 통�
           
           
           
-          <a href="/tags/event" style="font-size:1.4859000736025845rem">event</a>
+          <a href="/tags/event" style="font-size:1.482759412474271rem">event</a>
         
           
           
           
           
           
-          <a href="/tags/fedora" style="font-size:1.095401082881448rem">fedora</a>
+          <a href="/tags/fedora" style="font-size:1.0940484737566312rem">fedora</a>
         
           
           
@@ -1252,21 +1255,21 @@ Transactions on Computers[1] 에 Accept 되었습니다.  조만간 이를 통�
           
           
           
-          <a href="/tags/gcma" style="font-size:1.095401082881448rem">gcma</a>
+          <a href="/tags/gcma" style="font-size:1.0940484737566312rem">gcma</a>
         
           
           
           
           
           
-          <a href="/tags/git" style="font-size:1.095401082881448rem">git</a>
+          <a href="/tags/git" style="font-size:1.0940484737566312rem">git</a>
         
           
           
           
           
           
-          <a href="/tags/golang" style="font-size:1.2681996390395174rem">golang</a>
+          <a href="/tags/golang" style="font-size:1.2660558042985492rem">golang</a>
         
           
           
@@ -1315,28 +1318,28 @@ Transactions on Computers[1] 에 Accept 되었습니다.  조만간 이를 통�
           
           
           
-          <a href="/tags/kernel" style="font-size:2.4222993516816187rem">kernel</a>
+          <a href="/tags/kernel" style="font-size:2.4241949628787562rem">kernel</a>
         
           
           
           
           
           
-          <a href="/tags/life" style="font-size:1.095401082881448rem">life</a>
+          <a href="/tags/life" style="font-size:1.0940484737566312rem">life</a>
         
           
           
           
           
           
-          <a href="/tags/linux" style="font-size:2.492033904936765rem">linux</a>
+          <a href="/tags/linux" style="font-size:2.4922158866522786rem">linux</a>
         
           
           
           
           
           
-          <a href="/tags/linux-foundation" style="font-size:1.4859000736025845rem">linux foundation</a>
+          <a href="/tags/linux-foundation" style="font-size:1.482759412474271rem">linux foundation</a>
         
           
           
@@ -1357,14 +1360,14 @@ Transactions on Computers[1] 에 Accept 되었습니다.  조만간 이를 통�
           
           
           
-          <a href="/tags/lkml" style="font-size:2.372103322246928rem">lkml</a>
+          <a href="/tags/lkml" style="font-size:2.3753799900297268rem">lkml</a>
         
           
           
           
           
           
-          <a href="/tags/mariadb" style="font-size:1.095401082881448rem">mariadb</a>
+          <a href="/tags/mariadb" style="font-size:1.0940484737566312rem">mariadb</a>
         
           
           
@@ -1392,21 +1395,21 @@ Transactions on Computers[1] 에 Accept 되었습니다.  조만간 이를 통�
           
           
           
-          <a href="/tags/news" style="font-size:2.372103322246928rem">news</a>
+          <a href="/tags/news" style="font-size:2.3753799900297268rem">news</a>
         
           
           
           
           
           
-          <a href="/tags/open-source" style="font-size:1.095401082881448rem">open source</a>
+          <a href="/tags/open-source" style="font-size:1.0940484737566312rem">open source</a>
         
           
           
           
           
           
-          <a href="/tags/open-source" style="font-size:1.095401082881448rem">open-source</a>
+          <a href="/tags/open-source" style="font-size:1.0940484737566312rem">open-source</a>
         
           
           
@@ -1448,21 +1451,21 @@ Transactions on Computers[1] 에 Accept 되었습니다.  조만간 이를 통�
           
           
           
-          <a href="/tags/prague" style="font-size:1.4859000736025845rem">prague</a>
+          <a href="/tags/prague" style="font-size:1.482759412474271rem">prague</a>
         
           
           
           
           
           
-          <a href="/tags/projects" style="font-size:1.3908021657628962rem">projects</a>
+          <a href="/tags/projects" style="font-size:1.388096947513262rem">projects</a>
         
           
           
           
           
           
-          <a href="/tags/raspberry" style="font-size:1.095401082881448rem">raspberry</a>
+          <a href="/tags/raspberry" style="font-size:1.0940484737566312rem">raspberry</a>
         
           
           
@@ -1476,28 +1479,28 @@ Transactions on Computers[1] 에 Accept 되었습니다.  조만간 이를 통�
           
           
           
-          <a href="/tags/setup" style="font-size:1.3908021657628962rem">setup</a>
+          <a href="/tags/setup" style="font-size:1.388096947513262rem">setup</a>
         
           
           
           
           
           
-          <a href="/tags/spec" style="font-size:1.095401082881448rem">spec</a>
+          <a href="/tags/spec" style="font-size:1.0940484737566312rem">spec</a>
         
           
           
           
           
           
-          <a href="/tags/spec_cpu" style="font-size:1.095401082881448rem">spec_cpu</a>
+          <a href="/tags/spec_cpu" style="font-size:1.0940484737566312rem">spec_cpu</a>
         
           
           
           
           
           
-          <a href="/tags/spec_cpu2006" style="font-size:1.095401082881448rem">spec_cpu2006</a>
+          <a href="/tags/spec_cpu2006" style="font-size:1.0940484737566312rem">spec_cpu2006</a>
         
           
           
@@ -1518,7 +1521,7 @@ Transactions on Computers[1] 에 Accept 되었습니다.  조만간 이를 통�
           
           
           
-          <a href="/tags/tip" style="font-size:1.6292956840083792rem">tip</a>
+          <a href="/tags/tip" style="font-size:1.6254984301242044rem">tip</a>
         
           
           
@@ -1546,7 +1549,7 @@ Transactions on Computers[1] 에 Accept 되었습니다.  조만간 이를 통�
           
           
           
-          <a href="/tags/trip" style="font-size:1.4859000736025845rem">trip</a>
+          <a href="/tags/trip" style="font-size:1.482759412474271rem">trip</a>
         
           
           
