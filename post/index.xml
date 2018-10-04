@@ -11,6 +11,58 @@
     <atom:link href="/post/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>LKML News after v4.19-rc6</title>
+      <link>https://sjp38.github.io/post/lkml_news_v4.19-rc6/</link>
+      <pubDate>Mon, 01 Oct 2018 12:20:27 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/lkml_news_v4.19-rc6/</guid>
+      <description>
+
+&lt;h2 id=&#34;linux-4-19-rc6&#34;&gt;Linux 4.19-rc6&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20180930150308.GA5010@kroah.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20180930150308.GA5010@kroah.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;이번주도 Greg 에 의해 여섯번째 rc 버전이 릴리즈 되었습니다.  평소 일정대로면
+2주일 후 4.19 정식 버전이 릴리즈 될텐데, 아마도 그때까지도 Greg 이 릴리즈 하지
+않을까 싶기도 하군요.
+전체적으로 특이사항은 없고 Greg 의 시스템에서는 잘 동작하고 있으며 별다른
+이슈를 보고받지도 못했다는군요.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>LKML News after v4.19-rc5</title>
+      <link>https://sjp38.github.io/post/lkml_news_v4.19-rc5/</link>
+      <pubDate>Mon, 24 Sep 2018 10:10:40 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/lkml_news_v4.19-rc5/</guid>
+      <description>
+
+&lt;h2 id=&#34;linux-4-19-rc5&#34;&gt;Linux 4.19-rc5&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20180923175547.GA4462@kroah.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20180923175547.GA4462@kroah.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;지난주 토발즈가 휴식을 선언한 이유로 한동안 릴리즈는 Greg 이 맡게 되었죠.  이번
+릴리즈는 그래서 Greg 이 합니다.&lt;/p&gt;
+
+&lt;p&gt;사회적으로야 이런저런 일이 많았지만 (토발즈의 휴가, Code of Conduct 머지에
+관련해 갑론을박이 많군요.) 기술적으로는 별 일 없었던 한주라 평가되는군요.&lt;/p&gt;
+
+&lt;p&gt;사소하지만 재밌는 건 Greg 의 자기 서명.
+&lt;code&gt;greg &amp;quot;keeping the seat warm for a few weeks&amp;quot; k-h&lt;/code&gt; 라고 하는군요.
+토발즈가 휴가 가있는 동안 의자를 뎁혀 두는 역할이라는 겸손함이 눈에 띄네요.&lt;/p&gt;
+
+&lt;h2 id=&#34;patch-v5-resend-00-21-swap-swapout-swapin-thp-in-one-piece&#34;&gt;[PATCH -V5 RESEND 00/21] swap: Swapout/swapin THP in one piece&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20180925071348.31458-1-ying.huang@intel.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20180925071348.31458-1-ying.huang@intel.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;THP 의 Swap in/out 을 regular page 로 쪼개지 않고 한방에 하는 패치의 최신
+버전입니다&amp;hellip; 만, 기존 대비 버전업이 되진 않았고 리뷰를 요청하기 위해 다시 한번
+보냈군요.  그런데 아직 별다른 리뷰가 없네요&amp;hellip;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>LKML News after v4.19-rc4</title>
       <link>https://sjp38.github.io/post/lkml_news_v4.19-rc4/</link>
       <pubDate>Mon, 17 Sep 2018 08:03:05 +0900</pubDate>
@@ -113,6 +165,14 @@ Plumbers Conference 와 함께 열릴 예정이었는데 토발즈가 그걸 깜
 만들어진 메커니즘은 &lt;code&gt;zone lock&lt;/code&gt; 에도 도움이 될 수 있다고 LSF/MM 에서 여럿이
 생각했다고 합니다.  이 패치셋은 실제로 이 기능들을 이용해 &lt;code&gt;zone lock&lt;/code&gt; 의
 확장성을 개선했습니다.&lt;/p&gt;
+
+&lt;h2 id=&#34;patch-v5-resend-00-21-swap-swapout-swapin-thp-in-one-piece&#34;&gt;[PATCH -V5 RESEND 00/21] swap: Swapout/swapin THP in one piece&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20180912004414.22583-1-ying.huang@intel.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20180912004414.22583-1-ying.huang@intel.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;THP 를 덩어리째 스왑아웃 / 스왑인 하기 위한 패치, 다섯번째 버전입니다.
+생각보다 쉽게 머지되지 못하고 있군요.  리뷰가 많지 않은 것도 한 이유 아닐까
+싶습니다.&lt;/p&gt;
 </description>
     </item>
     
@@ -1057,115 +1117,6 @@ distribution name&amp;gt;/&amp;lt;kernel config&amp;gt;/&amp;lt;gcc version&amp;
 [2] &lt;a href=&#34;https://github.com/intel/lkp-tests&#34; target=&#34;_blank&#34;&gt;https://github.com/intel/lkp-tests&lt;/a&gt;&lt;br /&gt;
 [3] &lt;a href=&#34;https://01.org/blogs/jdu1/2017/lkp-tests-linux-kernel-performance-test-and-analysis-tool&#34; target=&#34;_blank&#34;&gt;https://01.org/blogs/jdu1/2017/lkp-tests-linux-kernel-performance-test-and-analysis-tool&lt;/a&gt;&lt;br /&gt;
 [4] &lt;a href=&#34;https://wiki.archlinux.org/index.php/makepkg&#34; target=&#34;_blank&#34;&gt;https://wiki.archlinux.org/index.php/makepkg&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Linux Release History</title>
-      <link>https://sjp38.github.io/post/linux_release_history/</link>
-      <pubDate>Mon, 30 Jul 2018 09:14:08 +0900</pubDate>
-      
-      <guid>https://sjp38.github.io/post/linux_release_history/</guid>
-      <description>
-
-&lt;h2 id=&#34;linux-4-19-rc2&#34;&gt;Linux 4.19-rc2&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFyG0GbDfoghEhAmKBPcZCiPu6CCpPRz9GwjCzLuP_Vv5Q@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CA+55aFyG0GbDfoghEhAmKBPcZCiPu6CCpPRz9GwjCzLuP_Vv5Q@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;2018-09-02 14:45 PDT&lt;/p&gt;
-
-&lt;h2 id=&#34;linux-4-19-rc1&#34;&gt;Linux 4.19-rc1&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFw9mxNPX6OtOp-aoUMdXSg=gBkQudGGamo__sh_ts_LdQ@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CA+55aFw9mxNPX6OtOp-aoUMdXSg=gBkQudGGamo__sh_ts_LdQ@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;2018-08-26 14:49 PDT&lt;/p&gt;
-
-&lt;h2 id=&#34;linux-4-18&#34;&gt;Linux 4.18&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFzos7tr=OLju10Oe-z7r=eB2dSaFa7vwz2ApGO13B=z_g@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CA+55aFzos7tr=OLju10Oe-z7r=eB2dSaFa7vwz2ApGO13B=z_g@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;2018-08-12 14:10:49 PDT&lt;/p&gt;
-
-&lt;h2 id=&#34;linux-4-18-rc8&#34;&gt;Linux 4.18-rc8&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFw49Bh9u3KvGsMbnSLfHvevpWPuqgrWQT0tC0XCajNwzA@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CA+55aFw49Bh9u3KvGsMbnSLfHvevpWPuqgrWQT0tC0XCajNwzA@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;2018-08-05 12:58 PDT&lt;/p&gt;
-
-&lt;h2 id=&#34;linux-4-18-rc7&#34;&gt;Linux 4.18-rc7&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFxpFefwVdTGVML99PSFUqwpJXPx5LVCA3D=g2t2_QLNsA@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CA+55aFxpFefwVdTGVML99PSFUqwpJXPx5LVCA3D=g2t2_QLNsA@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;2018-07-29 22:09 UTC&lt;/p&gt;
-
-&lt;h2 id=&#34;linux-4-18-rc6&#34;&gt;Linux 4.18-rc6&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFzMheDA-2z=MdGgJrz-REcrknb+4OEvRKaJipm+x6xEhw@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CA+55aFzMheDA-2z=MdGgJrz-REcrknb+4OEvRKaJipm+x6xEhw@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;2018-07-23 20:46 UTC&lt;/p&gt;
-
-&lt;h2 id=&#34;linux-4-18-rc5&#34;&gt;Linux 4.18-rc5&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFwfMr2D2A_yesUyt_Lo3XMRk9epzgeBMt2HxMHiXMDYcg@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CA+55aFwfMr2D2A_yesUyt_Lo3XMRk9epzgeBMt2HxMHiXMDYcg@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;2018-07-15 20:28 UTC&lt;/p&gt;
-
-&lt;h2 id=&#34;linux-4-18-rc4&#34;&gt;Linux 4.18-rc4&lt;/h2&gt;
-
-&lt;p&gt;&lt;code&gt;https://lore.kernel.org/lkml/CA+55aFwXGyZ1Yx+Z8a93gpvb596ZRJ5ppiQL_+-k7gjeQLtcsQ@mail.gmail.com/T/#u&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;2018-07-08 23:57 UTC&lt;/p&gt;
-
-&lt;h2 id=&#34;linux-4-18-rc3&#34;&gt;Linux 4.18-rc3&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFwGk-pWKKCtp+kQUN_hov9tW+vUo6Wgob91bewwBL17fA@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CA+55aFwGk-pWKKCtp+kQUN_hov9tW+vUo6Wgob91bewwBL17fA@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;2018-07-01 23:46 UTC&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>LKML News after v4.18-rc7</title>
-      <link>https://sjp38.github.io/post/lkml_news_v4.18-rc7/</link>
-      <pubDate>Mon, 30 Jul 2018 08:49:12 +0900</pubDate>
-      
-      <guid>https://sjp38.github.io/post/lkml_news_v4.18-rc7/</guid>
-      <description>
-
-&lt;h2 id=&#34;linux-4-18-rc7&#34;&gt;Linux 4.18-rc7&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFxpFefwVdTGVML99PSFUqwpJXPx5LVCA3D=g2t2_QLNsA@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CA+55aFxpFefwVdTGVML99PSFUqwpJXPx5LVCA3D=g2t2_QLNsA@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;일곱번째 rc 릴리즈입니다.  별다른 일 없으면 다음주에 4.18이 릴리즈 되겠다고
-토발즈도 이야기 하는군요.&lt;/p&gt;
-
-&lt;h2 id=&#34;patch-v4-0-6-kmalloc-reclaimable-caches&#34;&gt;[PATCH v4 0/6] kmalloc-reclaimable caches&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20180731090649.16028-1-vbabka@suse.cz&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20180731090649.16028-1-vbabka@suse.cz&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;내부적으로 SLAB 할당자를 사용하는 kmem cache 들은 &lt;code&gt;SLAB_RECLAIM_ACCOUNT&lt;/code&gt;
-플래그를 가지고 생성될 경우에 시스템 메모리가 부족한 경우 기존에 할당받은
-오브젝트들을 회수해도 좋다고 알리게 됩니다.&lt;/p&gt;
-
-&lt;p&gt;일반적인 kmem cache 들은 이 플래그 없이 생성되서는 시스템의 메모리가 부족한
-경우에 회수되어도 좋은 오브젝트의 할당에 사용되기도 하는데, 다양한 크기의
-오브젝트들은 &lt;code&gt;SLAB_RECLAIM_ACCOUNT&lt;/code&gt; 플래그를 가진 하나의 kmem cache 에서 처리될
-수 없기 때문이죠.  &lt;code&gt;dcache&lt;/code&gt; 의 &lt;code&gt;external name&lt;/code&gt; 들이 그 예입니다.&lt;/p&gt;
-
-&lt;p&gt;이와 비슷한 경우들을 해결하기 위해 이 패치셋은 kmalloc cache 에
-SLAB_RECLAIM_ACCOUNT  와 비슷한 특성을 갖는 변종을 kmalloc-rcl-x 라는 이름으로
-만들었습니다.  kmalloc() 시에 &lt;code&gt;__GFP_RECLAIMABLE&lt;/code&gt; 플래그를 넣으면 이 캐시에서
-메모리가 할당됩니다.&lt;/p&gt;
-
-&lt;h2 id=&#34;patch-swap-use-try-to-reclaim-swap-in-free-swap-and-cache&#34;&gt;&lt;code&gt;[PATCH] swap: Use __try_to_reclaim_swap() in free_swap_and_cache()&lt;/code&gt;&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20180803123014.15431-1-ying.huang@intel.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20180803123014.15431-1-ying.huang@intel.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;스왑 엔트리를 회수하는 코드 경로는 &lt;code&gt;free_swap_and_cache()&lt;/code&gt; 가 있고
-&lt;code&gt;__try_to_reclaim_swap()&lt;/code&gt; 이 있는데, 코딩 스타일 빼고는 실제 하는 일이 거의
-똑같습니다.  이 패치는 &lt;code&gt;free_swap_and_cache()&lt;/code&gt; 에서 내부적으로
-&lt;code&gt;__try_to_reclaim_cache()&lt;/code&gt; 를 사용하게 함으로써 코드의 가독성을 높이고 잠재적
-버그를 줄였습니다.&lt;/p&gt;
 </description>
     </item>
     
