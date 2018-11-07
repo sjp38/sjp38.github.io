@@ -11,6 +11,84 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>LKML News by v4.20-rc1</title>
+      <link>https://sjp38.github.io/post/lkml_news_v4.20-rc1/</link>
+      <pubDate>Wed, 07 Nov 2018 14:43:56 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/lkml_news_v4.20-rc1/</guid>
+      <description>
+
+&lt;p&gt;리눅스 4.19 버전 릴리즈 후부터 4.20-rc1 버전의 릴리즈까지 LKML 에 오간 메일 중
+흥미로운 메일들을 소개합니다.&lt;/p&gt;
+
+&lt;h2 id=&#34;rfc-patch-v4-00-13-ktask-multithread-cpu-intensive-kernel-work&#34;&gt;[RFC PATCH v4 00/13] ktask: multithread CPU-intensive kernel work&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20181105165558.11698-1-daniel.m.jordan@oracle.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20181105165558.11698-1-daniel.m.jordan@oracle.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;CPU intensive 한 커널의 일을 여러 work queue 를 이용해 병렬화 시키기 위한
+새로운 프레임웍, ktask 구현 및 적용 패치입니다.  이 프레임웍을 이용해 병렬화
+시킬 일은 여러가지가 있을텐데, 이 패치는 ktask 프레임웍의 구현과 함께 VFIO
+페이지 pinning, 부팅 시점에서의 &lt;code&gt;struct page&lt;/code&gt; 초기화, &lt;code&gt;gigantic page&lt;/code&gt; 의
+초기화, 그리고 &lt;code&gt;HugeTLB&lt;/code&gt; 페이지의 할당에 ktask 를 적용하고 있습니다.&lt;/p&gt;
+
+&lt;p&gt;예전에도 올라온 패치인데 이번에 Linux Plumbers Conference 에서 발표할
+예정이기에 기존 피드백을 반영한 버전을 올렸군요.&lt;/p&gt;
+
+&lt;h2 id=&#34;patch-0-9-allow-persistent-memory-to-be-used-like-normal-ram&#34;&gt;[PATCH 0/9] Allow persistent memory to be used like normal RAM&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20181022201317.8558C1D8@viggo.jf.intel.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20181022201317.8558C1D8@viggo.jf.intel.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;기존의 메인 메모리로 쓰이는 DRAM 과 달리 파워가 꺼져도 내용이 날아가지 않는
+메모리를 Non-volatile memory 또는 persistent memory 라 하죠.  최근 들어서는
+정말 상용으로도 나오고 있는데, 현재로썬 이 pmem 을 쓰려면 어플리케이션을 고쳐야
+합니다.&lt;/p&gt;
+
+&lt;p&gt;이 패치는 그러지 않고도 일반 RAM 처럼 pmem 을 사용할 수 있도록 하는 pmem 용
+드라이버를 구현했습니다.&lt;/p&gt;
+
+&lt;h2 id=&#34;git-pull-xarray-for-4-20&#34;&gt;[GIT PULL] XArray for 4.20&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20181023200825.GA25444@bombadil.infradead.org&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20181023200825.GA25444@bombadil.infradead.org&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;이 블로그에서도 여러번 소개한, XArray 의 4.20 버전을 향한 pull request 입니다.
+4.19 때도 시도했지만 들어가지 못했죠.&lt;/p&gt;
+
+&lt;p&gt;이번엔 일단 토발즈에 의해 pull 되었습니다.  그리고 토발즈도 XArray 의
+인터페이스 덕에 코드가 한결 간결하고 깔끔해졌음을 이야기 하네요.  특히, dax 쪽
+수정사항과 conflict 이 있었는데 이는 dax 쪽의 버그 수정에 의한 것으로, XArray
+인터페이스를 쓰면 애초에 그 버그가 발생도 안한다고 합니다.&lt;/p&gt;
+
+&lt;h2 id=&#34;linux-4-20-rc1&#34;&gt;Linux 4.20-rc1&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;https://lkml.kernel.org/r/CAHk-=whDiwASMgw8Q7TNA2MJhf3s=ouK4+_3ioqmobs-yagnkQ@mail.gmail.com&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;오랫만에 토발즈가 하는 릴리즈입니다.  3.19 다음 4.0 버전이 릴리즈 되었으니 이번
+버전은 5.0 이 될 것인지, 4.20 이 될 것인지 흥미진진한 릴리즈였는데요.
+결론적으로 4.20 이 되었습니다.  이제 버전을 셀 손가락도 발가락도 남지
+않았으므로 다음 버전은 5.0 이 될 거라고 하는군요.&lt;/p&gt;
+
+&lt;p&gt;꽤 많은 변경 사항이 있던 머지 윈도우였지만 그렇다고 기록적인 수준은 아닙니다.&lt;/p&gt;
+
+&lt;p&gt;한편 2주일로 예정되는 머지 윈도우에서 첫번째 주에는 일반적인 풀리퀘스트를 받고,
+좀 시간을 두고 들여다봐야 하겠다 싶은 패치들은 두번째 주까지 미뤄뒀다 천천히
+보면서 머지하는게 토발즈의 작업 습관이고 다른 메인테이너들도 이 습관을 알고
+암묵적으로 지켜왔던 모양인데, 이번엔 두번째 주 수요일에 새로운 풀 리퀘스트가
+들어와 토발즈가 조금 불편했던 모양입니다.&lt;/p&gt;
+
+&lt;p&gt;이걸 명시적인 규칙으로 만들어야 할지도 모르겠다 싶기 시작했는데, 빈번하게 있는
+일도 아니므로 아직은 그래야 할 필요성이 있을지도 모르겠다 하는 수준의
+이야기군요.&lt;/p&gt;
+
+&lt;p&gt;그리고 이번 머지 윈도우에서는 Greg 이 그랬던 것처럼 토발즈도 풀리퀘스트에 ack
+메일을 보냈었죠.  이런 작업 방식에 대해서 고민을 하는 이야기도 있었구요.
+하지만 아무래도 몇개는 빼먹은 것 같다고 하는군요.  이런 경우 결론은 자동화.
+다음 머지 윈도우까지는 이 ack 메일을 자동화 되길 바란다고 하네요.  물론,
+토발즈의 바람대로 자동화가 잘 마무리 되지 않으면 운좋게도 토발즈로부터의 ack
+메일을 받을 수 있겠습니다.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>LKML News after v4.19</title>
       <link>https://sjp38.github.io/post/lkml_news_v4.19/</link>
       <pubDate>Mon, 22 Oct 2018 17:45:08 +0900</pubDate>
@@ -853,76 +931,6 @@ NVDIMM 제품인 거 같은데, NVDIMM 도 현물이 나오기 시작하는군�
 
 &lt;p&gt;RCU 는 여러 변종 (flavor) 들이 있는데, 이것들을 최대한 합치려 하고 있는 듯
 하군요.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Raspberry Pi 3 Model B Setup</title>
-      <link>https://sjp38.github.io/post/rasp3-modelb-setup/</link>
-      <pubDate>Mon, 27 Aug 2018 16:03:42 +0900</pubDate>
-      
-      <guid>https://sjp38.github.io/post/rasp3-modelb-setup/</guid>
-      <description>&lt;p&gt;OSSE 2016 에서 받아온 라즈베리 파이3 셋업을 해봅니다.
-셋업에 사용된 호스트 환경은 Ubuntu 16.04 데스크탑입니다.&lt;/p&gt;
-
-&lt;p&gt;라즈베리 파이는 SD 카드를 저장소로 사용합니다.  따라서 여기에 운영체제를 깔아야
-합니다.  다만, 라즈베리 파이를 구매하면 SD 카드는 따라오지 않습니다.  각자
-알아서 사야 합니다.  전 예전에 사둔 16 GiB 짜리 SD 카드를 사용하겠습니다.&lt;/p&gt;
-
-&lt;p&gt;라즈베리 파이를 지원하는 운영체제는 여러가지 있는데, 데비안 계열의 Raspbian 이
-공식 운영체제입니다.  &lt;a href=&#34;https://www.raspberrypi.org/downloads/&#34; target=&#34;_blank&#34;&gt;다운로드 페이지&lt;/a&gt;
-에서 Raspbian stretch lite 를 다운받고 압축을 풀어줍니다.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ ls
-2018-06-27-raspbian-stretch-lite.zip
-$ unzip 2018-06-27-raspbian-stretch-lite.zip 
-Archive:  2018-06-27-raspbian-stretch-lite.zip
-  inflating: 2018-06-27-raspbian-stretch-lite.img  
-
-$ ls
-2018-06-27-raspbian-stretch-lite.img  2018-06-27-raspbian-stretch-lite.zip
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;압축 파일이 350 MiB, 압축 푼 이미지는 1.8 GiB 나 하는군요.&lt;/p&gt;
-
-&lt;p&gt;이제 요걸 SD 카드에 써야하는데요, 일단 SD 카드를 데스크탑에 연결하고, &lt;code&gt;df&lt;/code&gt; 명령을 이용해 이게 어떤 디바이스 파일로 인식되었는지 봅시다:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ df -h
-Filesystem      Size  Used Avail Use% Mounted on
-udev            7.8G     0  7.8G   0% /dev
-tmpfs           1.6G  174M  1.4G  11% /run
-/dev/sda1       222G  127G   84G  61% /
-tmpfs           7.8G  161M  7.7G   3% /dev/shm
-tmpfs           5.0M  4.0K  5.0M   1% /run/lock
-tmpfs           7.8G     0  7.8G   0% /sys/fs/cgroup
-tmpfs           1.6G   68K  1.6G   1% /run/user/1000
-/dev/sdb        917G  541G  330G  63% /media/sjpark/47f422d0-445f-4dfc-86ca-559b801eb9d3
-/dev/sdc2        15G  4.7G  9.3G  34% /media/sjpark/f24a4949-f4b2-4cad-a780-a138695079ec
-/dev/sdc1        56M   24M   33M  42% /media/sjpark/boot
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;제가 사용한 SD 카드는 기존에 라즈베리파이2 모델 B+ 운영체제가 설치되어
-있었습니다.  /&lt;code&gt;dev/sdc&lt;/code&gt; 로 SD 카드가 잡혔고, &lt;code&gt;/dev/sdc1&lt;/code&gt; 으로 부팅 파티션이,
-&lt;code&gt;/dev/sdc2&lt;/code&gt; 로 데이터 파티션이 잡힌 것 같군요.&lt;/p&gt;
-
-&lt;p&gt;이제 마운트된 파티션들을 언마운트하고, &lt;code&gt;dd&lt;/code&gt; 명령으로 이미지를 덮어씌웁시다:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo umount /media/sjpark/f24a4949-f4b2-4cad-a780-a138695079ec
-$ sudo umount /media/sjpark/boot
-$ sudo dd bs=4M if=./2018-06-27-raspbian-stretch-lite.img of=/dev/sdc
-444+0 records in
-444+0 records out
-1862270976 bytes (1.9 GB, 1.7 GiB) copied, 199.44 s, 9.3 MB/s
-$ sync
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;처음 두개 커맨드가 언마운트를 하고, 세번째 커맨드가 이미지를 덮어씌우는
-커맨드입니다.  혹시 모르니 네번째 커맨드에서 &lt;code&gt;sync&lt;/code&gt; 해서 데이터가 확실히
-씌워지게 했습니다.&lt;/p&gt;
-
-&lt;p&gt;이제 라즈베리 파이의 HDMI 단자에 모니터를 연결하고 micro USB 포트에 스마트폰
-충전하듯이 USB 를 연결해 전원을 인가해주면 라즈베리 파이가 라즈비안으로
-부팅됩니다.&lt;/p&gt;
 </description>
     </item>
     
