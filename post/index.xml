@@ -11,6 +11,21 @@
     <atom:link href="/post/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>I will have a talk at the kernel summit</title>
+      <link>https://sjp38.github.io/post/ksummit2018_talk/</link>
+      <pubDate>Thu, 08 Nov 2018 06:11:48 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/ksummit2018_talk/</guid>
+      <description>&lt;p&gt;지난 토요일, Theodore Ts&amp;rsquo;o 로부터 올해 Linux Plumbers Conference 의 한 트랙으로
+열리는 커널 서밋에서 GCMA 발표를 해줄 수 있겠냐는 제의를 받았고 물론
+그러겠노라고 했습니다.  발표 일정의 [첫번째 드래프트][1]가 올라왔군요.  화요일
+아침에 발표하게 됐습니다.&lt;/p&gt;
+
+&lt;p&gt;[1] &lt;a href=&#34;https://lists.linuxfoundation.org/pipermail/ksummit-discuss/2018-November/006238.html&#34; target=&#34;_blank&#34;&gt;https://lists.linuxfoundation.org/pipermail/ksummit-discuss/2018-November/006238.html&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>LKMM Setup and Usage</title>
       <link>https://sjp38.github.io/post/lkmm-install/</link>
       <pubDate>Thu, 08 Nov 2018 04:30:42 +0900</pubDate>
@@ -922,58 +937,6 @@ Subversion 보다도 크게 나아지지 못했습니다.  만약 Samba 를 만�
 열망과 참여 의지가 많았습니다.  포팅, 확장 기능, 그리고 웹사이트들이 모든 것을
 현재 상태로 끌어올렸습니다.  몇년만에, 거의 모든 사람들이 git 을 사용하게
 되었습니다.  리눅스처럼, git 이 세상을 집어삼켰습니다.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Raspberry Pi 3 Serial Connection</title>
-      <link>https://sjp38.github.io/post/rasp3-serial/</link>
-      <pubDate>Mon, 27 Aug 2018 17:16:35 +0900</pubDate>
-      
-      <guid>https://sjp38.github.io/post/rasp3-serial/</guid>
-      <description>
-
-&lt;p&gt;라즈베리 파이를 메인 컴퓨터로 사용하려는게 아니라면, 라즈베리 파이에 모니터와
-키보드, 마우스를 연결하고 사용하는게 아무래도 번거롭습니다.  ssh 로 붙어서
-작업하는 것도 한 방법이지만, 그게 여의치 않은 상황도 있습니다.  그저 터미널만
-연결되면 되는 상황이라면, 가장 간단한 건 UART Serial 통신을 사용하는 겁니다.&lt;/p&gt;
-
-&lt;p&gt;라즈베리 파이는 UART 통신을 지원하고 있는데, GPIO 핀 중 14번과 15번이[2] 각각
-TX, RX 입니다.  호스트 컴퓨터와 이 두개의 핀을 연결하면 UART 통신을 할 수
-있어서 라즈베리 파이의 터미널에 바로 접근할 수 있습니다.&lt;/p&gt;
-
-&lt;p&gt;호스트 머신에 핀을 연결하는게 번거로울 수 있는데, 시리얼-USB 젠더를 여기저기서
-저렴한 가격에 팝니다[1].  이걸 이용해 TX/RX 핀을 라즈베리 파이의 GPIO 14, 15번에
-각각 연결하고 USB 를 호스트 머신에 연결합니다.&lt;/p&gt;
-
-&lt;p&gt;이제 호스트 머신의 &lt;code&gt;/dev/&lt;/code&gt; 디렉토리에 &lt;code&gt;ttyUSB&lt;/code&gt; 로 시작하는 파일이 생겼을
-겁니다.  제 경우 &lt;code&gt;ttyUSB0&lt;/code&gt; 라는 이름의 파일이 생겼군요.  이제, 시리얼 통신
-프로그램인 &lt;code&gt;minicom&lt;/code&gt; 을 사용해서 이 포트로 연결해서 UART 통신을 합시다:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo minicom -D /dev/ttyUSB0
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;이제 라즈베리 파이를 부팅 시키면 부팅 로그부터 터미널에 나오고, 로그인 화면까지
-뜹니다.&lt;/p&gt;
-
-&lt;h1 id=&#34;라즈베리파이3-시리얼-문제와-해결법&#34;&gt;라즈베리파이3 시리얼 문제와 해결법&lt;/h1&gt;
-
-&lt;p&gt;하지만, 라즈베리 파이 3 에서는 내장으로 블루투스와 WiFi 가 들어가면서 GPIO 핀이
-겹치게 되어 앞의 과정만으로는 시리얼 통신을 할 수 없습니다.  블루투스를 끄고
-시리얼을 켜줘야 합니다.&lt;/p&gt;
-
-&lt;p&gt;먼저, 다음과 같이 &lt;code&gt;/boot/config.txt&lt;/code&gt; 파일에 다음 두줄을 추가합니다:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo echo &amp;quot;enable_uart=1&amp;quot; &amp;gt;&amp;gt; /boot/config.txt
-$ sudo echo &amp;quot;dtoverlay=pi3-miniuart-bt&amp;quot; &amp;gt;&amp;gt; /boot/config.txt
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;그리고 /boot/cmdline.txt 를 열어서 &lt;code&gt;console=tty1&lt;/code&gt; 이라는 내용을 추가해줍니다.&lt;/p&gt;
-
-&lt;p&gt;준비가 끝났습니다.  재부팅 하면 &lt;code&gt;minicom&lt;/code&gt; 에 라즈비안 콘솔이 연결됩니다.&lt;/p&gt;
-
-&lt;p&gt;[1] &lt;a href=&#34;https://www.devicemart.co.kr/29565&#34; target=&#34;_blank&#34;&gt;https://www.devicemart.co.kr/29565&lt;/a&gt;&lt;br /&gt;
-[2] &lt;a href=&#34;https://www.raspberrypi.org/documentation/usage/gpio/&#34; target=&#34;_blank&#34;&gt;https://www.raspberrypi.org/documentation/usage/gpio/&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
