@@ -11,7 +11,7 @@
   <meta name="description" content="System Programmer">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/lkml_news_v4.15-rc6/">
+  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/lkmm-install/">
 
   
   
@@ -70,24 +70,24 @@
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://sjp38.github.io/post/lkml_news_v4.15-rc6/">
+  <link rel="canonical" href="https://sjp38.github.io/post/lkmm-install/">
 
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="Hacklog">
-  <meta property="og:url" content="https://sjp38.github.io/post/lkml_news_v4.15-rc6/">
-  <meta property="og:title" content="LKML News after v4.15-rc6 | Hacklog">
+  <meta property="og:url" content="https://sjp38.github.io/post/lkmm-install/">
+  <meta property="og:title" content="LKMM Setup and Usage | Hacklog">
   <meta property="og:description" content="">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2018-01-02T13:34:11&#43;09:00">
+  <meta property="article:published_time" content="2018-11-08T04:30:42&#43;09:00">
   
-  <meta property="article:modified_time" content="2018-01-02T13:34:11&#43;09:00">
-  
-
+  <meta property="article:modified_time" content="2018-11-08T04:30:42&#43;09:00">
   
 
-  <title>LKML News after v4.15-rc6 | Hacklog</title>
+  
+
+  <title>LKMM Setup and Usage | Hacklog</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
@@ -252,7 +252,7 @@
 
   <div class="article-container">
     <div class="article-inner">
-      <h1 itemprop="name">LKML News after v4.15-rc6</h1>
+      <h1 itemprop="name">LKMM Setup and Usage</h1>
 
       
 
@@ -260,15 +260,15 @@
 
   <span class="article-date">
     
-    <time datetime="2018-01-02 13:34:11 &#43;0900 KST" itemprop="datePublished">
-      Jan 2, 2018
+    <time datetime="2018-11-08 04:30:42 &#43;0900 KST" itemprop="datePublished">
+      Nov 8, 2018
     </time>
   </span>
 
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -282,7 +282,7 @@
   <span class="article-categories">
     <i class="fa fa-folder"></i>
     
-    <a href="/categories/lkml-news">lkml news</a
+    <a href="/categories/linux-kernel">linux kernel</a
     >
     
   </span>
@@ -295,35 +295,35 @@
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=LKML%20News%20after%20v4.15-rc6&amp;url=https%3a%2f%2fsjp38.github.io%2fpost%2flkml_news_v4.15-rc6%2f"
+         href="https://twitter.com/intent/tweet?text=LKMM%20Setup%20and%20Usage&amp;url=https%3a%2f%2fsjp38.github.io%2fpost%2flkmm-install%2f"
          target="_blank" rel="noopener">
         <i class="fa fa-twitter"></i>
       </a>
     </li>
     <li>
       <a class="facebook"
-         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fsjp38.github.io%2fpost%2flkml_news_v4.15-rc6%2f"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fsjp38.github.io%2fpost%2flkmm-install%2f"
          target="_blank" rel="noopener">
         <i class="fa fa-facebook"></i>
       </a>
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fsjp38.github.io%2fpost%2flkml_news_v4.15-rc6%2f&amp;title=LKML%20News%20after%20v4.15-rc6"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fsjp38.github.io%2fpost%2flkmm-install%2f&amp;title=LKMM%20Setup%20and%20Usage"
          target="_blank" rel="noopener">
         <i class="fa fa-linkedin"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fsjp38.github.io%2fpost%2flkml_news_v4.15-rc6%2f&amp;title=LKML%20News%20after%20v4.15-rc6"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fsjp38.github.io%2fpost%2flkmm-install%2f&amp;title=LKMM%20Setup%20and%20Usage"
          target="_blank" rel="noopener">
         <i class="fa fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=LKML%20News%20after%20v4.15-rc6&amp;body=https%3a%2f%2fsjp38.github.io%2fpost%2flkml_news_v4.15-rc6%2f">
+         href="mailto:?subject=LKMM%20Setup%20and%20Usage&amp;body=https%3a%2f%2fsjp38.github.io%2fpost%2flkmm-install%2f">
         <i class="fa fa-envelope"></i>
       </a>
     </li>
@@ -339,17 +339,110 @@
       <div class="article-style" itemprop="articleBody">
         
 
-<h2 id="linux-4-15-rc6">Linux 4.15-rc6</h2>
+<p>리눅스 커널은 Formalised and executable memory consistent model 을 제공합니다.
+줄여서 linux kernel memory model (LKMM) 이라고 하죠.  이 글은 4.19 버전을
+기준으로 LKMM 을 실제로 수행해 보기 위한 환경 셋업 과정과 간단한 실행 방법을
+정리해 봅니다.  글 작성을 위한 테스트는 Ubuntu 16.04 서버가 설치된 가상머신에서
+진행되었습니다.</p>
 
-<p><a href="https://lkml.kernel.org/r/CA+55aFzU_Q04CVEABo50x24yeTaP-yzzrB1wTPeOiOgAbSKiDA@mail.gmail.com" target="_blank">https://lkml.kernel.org/r/CA+55aFzU_Q04CVEABo50x24yeTaP-yzzrB1wTPeOiOgAbSKiDA@mail.gmail.com</a></p>
+<h1 id="herd7-install">herd7 install</h1>
 
-<p>한국시간으로는 1월 1일, 토발즈의 현지 시각으로는 2017년의 마지막날, 4.15 의
-여섯번째 rc 버전이 릴리즈 되었습니다.</p>
+<p>LKMM 은 버전 7.49 의 &ldquo;herd7&rdquo; 과 &ldquo;klitmus7&rdquo; 을 필요로 합니다.  하지만 herd7 은
+또 Ocaml 을 위한 패키지 매니저인 OPAM 을 설치할 것을 필요로 하죠.  우분투에선
+패키지 시스템이 OPAM 을 지원하므로 아래와 같이 쉽게 설치할 수 있습니다:</p>
 
-<p>지난주는 크리스마스 등의 연휴 때문인지 참 조용했죠.  덕분에 이번 릴리즈의
-변경사항도 많지 않습니다.
-다만 x86 pti 쪽 업데이트가 있었기 때문에 이번엔 rc8 까지 릴리즈 할수도 있을 것
-같다고 하는군요.</p>
+<pre><code>$ sudo apt install opam
+$ opam init
+$ sudo opam update
+$ sudo opam upgrade
+</code></pre>
+
+<p>두번째 커맨드 수행 중 다음과 같은 질문이 나오는데, 디폴트 선택을 주기 위해 그냥
+엔터를 칩니다:</p>
+
+<pre><code>Do you want OPAM to modify ~/.profile and ~/.ocamlinit?
+(default is 'no', use 'f' to name a file other than ~/.profile)
+    [N/y/f]
+</code></pre>
+
+<p>또한 <code>update</code> 와 <code>upgrade</code> 명령 시에 root 권한으로 이 커맨드를 수행하는 걸
+권장하지 않는다고 하지만 정작 <code>sudo</code> 없이 하면 권한 없어서 실패합니다.</p>
+
+<p>이제 다음 명령을 통해 herdtools 의 빌드와 설치를 진행합니다.</p>
+
+<pre><code>$ git clone https://github.com/herd/herdtools7 &amp;&amp; cd herdtools7
+$ git checkout 7.49
+$ make all
+$ make install
+</code></pre>
+
+<p>빌드에 약 3분 10여초가 소요됐습니다.  설치가 잘 되었는지 아래와 같이 확인해
+봅니다:</p>
+
+<pre><code>$ herd7 -version
+7.49, Rev: 93dcbdd89086d5f3e981b280d437309fdeb8b427
+</code></pre>
+
+<h1 id="lkmm-download">LKMM Download</h1>
+
+<p>LKMM 은 리눅스 소스 트리의 <code>tools/memory-model/</code> 디렉토리에 있습니다.
+<code>https://kernel.org</code> 에서 다운받거나 해서 사용하면 됩니다.</p>
+
+<pre><code>$ ls ~/linux/tools/memory-model/
+Documentation      linux-kernel.cat  linux-kernel.def  lock.cat  scripts
+linux-kernel.bell  linux-kernel.cfg  litmus-tests      README
+</code></pre>
+
+<h1 id="herd7-based-litmus-tests-execution">Herd7 Based Litmus Tests Execution</h1>
+
+<pre><code>$ herd7 -conf linux-kernel.cfg litmus-tests/SB+fencembonceonces.litmus
+Test SB+fencembonceonces Allowed
+States 3
+0:r0=0; 1:r0=1;
+0:r0=1; 1:r0=0;
+0:r0=1; 1:r0=1;
+No
+Witnesses
+Positive: 0 Negative: 3
+Condition exists (0:r0=0 /\ 1:r0=0)
+Observation SB+fencembonceonces Never 0 3
+Time SB+fencembonceonces 0.01
+Hash=d66d99523e2cac6b06e66f4c995ebb48
+</code></pre>
+
+<h1 id="klistmus7-based-litmus-tests-execution">Klistmus7 Based Litmus Tests Execution</h1>
+
+<pre><code>$ mkdir klitmus_test
+$ klitmus7 -o klitmus_test/ litmus-tests/SB+fencembonceonces.litmus
+$ cd klitmus_test/
+$ ls
+</code></pre>
+
+<pre><code>$ make
+$ sudo sh run.sh
+$ sudo sh ./run.sh
+[sudo] password for sjpark:
+Thu Nov  8 04:55:44 KST 2018
+Compilation command: klitmus7 -o klitmus_test/ litmus-tests/SB+fencembonceonces.litmus
+OPT=
+uname -r=4.19.0
+
+Test SB+fencembonceonces Allowed
+Histogram (3 states)
+16580117:&gt;0:r0=1; 1:r0=0;
+16402936:&gt;0:r0=0; 1:r0=1;
+3016947 :&gt;0:r0=1; 1:r0=1;
+No
+
+Witnesses
+Positive: 0, Negative: 36000000
+Condition exists (0:r0=0 /\ 1:r0=0) is NOT validated
+Hash=d66d99523e2cac6b06e66f4c995ebb48
+Observation SB+fencembonceonces Never 0 36000000
+Time SB+fencembonceonces 1.40
+
+Thu Nov  8 04:55:45 KST 2018
+</code></pre>
 
       </div>
 
@@ -362,9 +455,9 @@
   
   <a class="btn btn-primary btn-outline" href="/tags/kernel">kernel</a>
   
-  <a class="btn btn-primary btn-outline" href="/tags/lkml">lkml</a>
+  <a class="btn btn-primary btn-outline" href="/tags/parallel-programming">parallel programming</a>
   
-  <a class="btn btn-primary btn-outline" href="/tags/news">news</a>
+  <a class="btn btn-primary btn-outline" href="/tags/memory-model">memory model</a>
   
 </div>
 
@@ -382,15 +475,15 @@
   <h3>Related</h3>
   <ul>
     
-    <li><a href="/post/lkml_news_v4.14-rc4/">LKML News after v4.15-rc5</a></li>
+    <li><a href="/post/lkml_news_v4.20-rc1/">LKML News by v4.20-rc1</a></li>
     
-    <li><a href="/post/lkml_news_v4.15-rc5/">LKML News after v4.15-rc5</a></li>
+    <li><a href="/post/lkml_news_v4.19/">LKML News after v4.19</a></li>
     
-    <li><a href="/post/lkml_news_v4.15-rc4/">LKML News after v4.15-rc4</a></li>
+    <li><a href="/post/lkml_news_v4.19-rc7/">LKML News after v4.19-rc7</a></li>
     
-    <li><a href="/post/lkml_news_v4.15-rc3/">LKML News after v4.15-rc3</a></li>
+    <li><a href="/post/lkml_news_v4.19-rc6/">LKML News after v4.19-rc6</a></li>
     
-    <li><a href="/post/lkml_news_v4.15-rc2/">LKML News after v4.15-rc2</a></li>
+    <li><a href="/post/lkml_news_v4.19-rc5/">LKML News after v4.19-rc5</a></li>
     
   </ul>
 </div>
