@@ -11,6 +11,81 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>LKML News by v4.20-rc2</title>
+      <link>https://sjp38.github.io/post/lkml_news_v4.20-rc2/</link>
+      <pubDate>Mon, 12 Nov 2018 08:30:21 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/lkml_news_v4.20-rc2/</guid>
+      <description>
+
+&lt;h2 id=&#34;patch-0-5-fragmentation-avoidance-improvements-v2&#34;&gt;[PATCH 0/5] Fragmentation avoidance improvements v2&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20181107183822.15567-1-mgorman@techsingularity.net&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20181107183822.15567-1-mgorman@techsingularity.net&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;장시간 운영되는 시스템은 결국 메모리가 단편화 (fragmentation) 되게 되어
+있습니다.  페이징을 사용하면 단일 페이지 단위 할당은 문제가 없지만, 물리적으로
+연속적인 페이지를 할당받기가 어려워지죠.  Mel Gorman 의 이 패치는 이런 메모리
+분절화를 좀 더 잘 막을 수 있는 방법을 포함하고 있습니다.&lt;/p&gt;
+
+&lt;p&gt;첫번째 패치는 단일 페이지 또는 적은 물리적 연속 페이지들의 할당 시에 불필요하게
+higher order free page zone 을 사용하지 않게 하고, 두번째와 세번째 패치는
+kswapd 와 kcompactd 를 사용한 defragmentation 을 좀 더 적극적으로 하게 합니다.
+네번째 패치는 movable allocation request 시에 kswapd 를 또 깨우고, kswapd 가
+일을 마칠 때까지 멈춰서 기다려 줍니다.
+마지막으로 다섯번째 패치는 분절화가 발생해야만 하는 경우, kcompactd 가 처리할
+블록들로 해당 분절된 영역을 마크해 둡니다.&lt;/p&gt;
+
+&lt;p&gt;물론 분절화를 막는 대신 오버헤드를 가져올 수 있겠고, Mel 은 이 기능들을 tuning
+하거나 꺼버릴 수 있게 했군요.&lt;/p&gt;
+
+&lt;h2 id=&#34;patch-0-4-fragmentation-avoidance-improvements-v3&#34;&gt;[PATCH 0/4] Fragmentation avoidance improvements v3&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20181108091218.32715-1-mgorman@techsingularity.net&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20181108091218.32715-1-mgorman@techsingularity.net&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Mel 의 분절화 방지 패치셋은 오버헤드를 가질 수밖에 없었죠.  결국 얼마 되지 않아
+세번째 버전의 패치셋[1]을 내놓았는데, 여기선 다섯번째 패치를 걍 없애버렸고,
+네번째 패치도 그 오버헤드가 덜하게끔 만들었습니다.&lt;/p&gt;
+
+&lt;h2 id=&#34;rfc-patch-mm-thp-implement-thp-reservations-for-anonymous-memory&#34;&gt;[RFC PATCH] mm: thp: implement THP reservations for anonymous memory&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/1541746138-6706-1-git-send-email-anthony.yznaga@oracle.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/1541746138-6706-1-git-send-email-anthony.yznaga@oracle.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Transparent huge page (THP) 가 켜져 있는 경우, promotion 이 꽤나 급하게
+이루어지기 때문에 huge page 를 할당받고는 정작 그 영역을 모두 접근하지 않는
+경우엔 메모리 소모가 큽니다.  기존에 이 문제를 해결하기 위한 패치가 있었는데,
+그에 대해 Mel Gorman 의 피드백이 있었고, 이 패치는 그 피드백을 받아들여 새로
+작성된 패치셋입니다.&lt;/p&gt;
+
+&lt;p&gt;Page fault 가 날 경우 huge page 를 할당할 수 있는 양의 페이지를 할당받되 페이지
+한개만 map 해두고 나머지는 reserve 를 해두고, 이후 주변 영역에 fault 가 날
+때마다 나머지 페이지들을 계속 map 해주다가 충분히 많은 영역이 fault 났을 경우에
+huge page 로 promote 를 해주고, 그 전에 memory pressure 가 발생하면 reserve
+해둔 페이지들을 reclaim 하는 형태입니다.&lt;/p&gt;
+
+&lt;h2 id=&#34;patch-tip-core-rcu-0-20-documentation-updates-for-v4-21-v5-0&#34;&gt;[PATCH tip/core/rcu 0/20] Documentation updates for v4.21/v5.0&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20181111195619.GA6958@linux.ibm.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20181111195619.GA6958@linux.ibm.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;RCU 문서 업데이트 패치셋입니다.  생각해 보면 리눅스 커널만큼 문서화 잘 된
+프로젝트도 드물죠.&lt;/p&gt;
+
+&lt;h2 id=&#34;patch-tip-core-rcu-0-8-automate-initrd-generation-for-v4-21-v5-0&#34;&gt;[PATCH tip/core/rcu 0/8] Automate initrd generation for v4.21/v5.0&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20181111200127.GA9511@linux.ibm.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20181111200127.GA9511@linux.ibm.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;RCU 테스트 프레임웍인 rcutorture 는 가상머신 환경을 사용하는데, 이를 위한
+initrd 생성을 자동화 하는 패치셋입니다.&lt;/p&gt;
+
+&lt;h2 id=&#34;linux-v4-20-rc2&#34;&gt;Linux v4.20-rc2&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/R7SW0SuwOMMMyRgTFGA@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/R7SW0SuwOMMMyRgTFGA@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;토발즈가 여행 중이란 걸 제외하고는 별 특이사항 없는 두번째 rc 버전
+릴리즈입니다.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>I will have a talk at the kernel summit</title>
       <link>https://sjp38.github.io/post/ksummit2018_talk/</link>
       <pubDate>Thu, 08 Nov 2018 06:11:48 +0900</pubDate>
@@ -769,174 +844,6 @@ Transactions on Computers[1] 에 Accept 되었습니다.  조만간 이를 통�
 예정입니다.&lt;/p&gt;
 
 &lt;p&gt;[1] &lt;a href=&#34;https://www.computer.org/web/tc&#34; target=&#34;_blank&#34;&gt;https://www.computer.org/web/tc&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Git Origin Story in Korean</title>
-      <link>https://sjp38.github.io/post/git_origin_story_ko/</link>
-      <pubDate>Wed, 29 Aug 2018 21:15:13 +0900</pubDate>
-      
-      <guid>https://sjp38.github.io/post/git_origin_story_ko/</guid>
-      <description>&lt;hr /&gt;
-
-&lt;p&gt;최근 흥미롭게 보았던 &lt;code&gt;Git Origin Story&lt;/code&gt; 라는 제목의 LinuxJournal.com 기사를
-번역해 봅니다.  원본 기사는
-&lt;a href=&#34;https://www.linuxjournal.com/content/git-origin-story&#34; target=&#34;_blank&#34;&gt;https://www.linuxjournal.com/content/git-origin-story&lt;/a&gt; 에서 보실 수 있습니다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;em&gt;수년간 리눅스 커널 개발자들이 사용해온 다양한 리비전 컨트롤 방법, Linus
-Torvalds가 Bit keeper 를 사용하기로 한 결정과 그에 뒤따른 논쟁, 그리고 어떻게 Git
-이 만들어졌는가에 대한 글입니다.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;처음에, Linus Torvalds는 리비전 컨트롤을 아예 사용하지 않았습니다.  커널에
-코드를 기여하고자 하는 사람은 Usenet 그룹에, 나중에는 메일링 리스트에 패치를
-올렸고, Linus는 자신의 소스 트리에 그걸 적용했습니다.  나중에 Linus는
-릴리즈를 통해 패치들 사이의 구분 없이 전체 소스 트리를 공개하는 식이었습니다.
-Torvalds의 작업 이력을 알아낼 수 있는 유일한 방법은 전체 릴리즈 버전 사이의
-거대한 diff 를 통하는 것 뿐이었습니다.&lt;/p&gt;
-
-&lt;p&gt;이는 오픈소스 리비전 컨트롤 시스템이 없기 때문은 아니었습니다.  1980년대부터
-CVS 가 있었고, 그 당시에도 가장 유명한 시스템이었습니다.  그 핵심 기능을
-사용해서 기여자들이 패치를 중앙 저장소에 보낼 수 있었고 그 저장소로 들어가는
-패치의 기록을 조사할 수 있었습니다.&lt;/p&gt;
-
-&lt;p&gt;하지만 CVS 에 대한 많은 불만이 있었습니다.  그 중 하나는 변경 사항을 파일별로
-제공하고 커다란 패치는 하나의 버전으로 인식할 수 없어서, 다른 개발자들로부터의
-과거의 기여를 해석하기가 어려웠습니다.  또한, 두개의 같은 파일을 수정하는
-패치가 동시에 보내졌을 때 발생하는 레이스 컨디션 같은 고치기 어려운 버그들도
-일부 있었습니다.&lt;/p&gt;
-
-&lt;p&gt;Linus는 CVS 를 좋아하지 않았는데, 부분적으로는 다른 사람들의 불만과 같은 이유
-때문이었고 부분적으로는 후에야 명확해진 그만의 이유 때문이었습니다.  그는 CVS
-의 버그와 이상한 기능들을 해결하려는 목표를 가지고 2000년대 초부터 발전되어온
-오픈소스 프로젝트인 SVN 도 좋아하지 않았습니다.&lt;/p&gt;
-
-&lt;p&gt;많은 리눅스 커널 개발자들이 적당한 리비전 컨트롤의 부재에 불만족스러 했으며,
-따라서 Linus가 사용 가능한 리비전 컨트롤 중에서 뭐든 하나를 고르길 바라는
-커뮤니티로부터의 압력이 항상 있었습니다.  그리고, 2002년, Linus는 그렇게
-했습니다.  충격적이고 당황스럽게도, Linus는 Larry McVoy 에 의해 운영되는
-BitMover 라는 회사에 의해 개발된, 소스코드가 공개되어있지 않은 상업용 시스템인
-BitKeeper 를 선택했습니다.&lt;/p&gt;
-
-&lt;p&gt;리눅스 커널은 역사상 가장 중요한 오픈소스 프로젝트였고, Linus 그 스스로가
-수십년간 다른 오픈소스 프로젝트들이 따라하게 되었고 지금까지도 그렇게 하고 있는
-오픈소스 개발 방법을 처음으로 발견한 사람이었습니다.  Linus가 무슨 생각을 하는
-거지?  어떻게 그가 그의 커뮤니티와 오픈소스 세계를 이렇게 배신할수가 있지?
-이게 Linus가 처음 커널 개발에 BitKeeper 를 사용했을 때 대부분의
-반응이었습니다.&lt;/p&gt;
-
-&lt;p&gt;또한, BitMover 는 돈을 받지 않고 BitKeeper 를 사용할 수 있는 라이센스를
-제공하는데 대한 대가로 리눅스 커뮤니티에 제한을 걸었습니다.  첫째, 리눅스
-개발자들은 BitKeeper 를 사용하는 동안 다른 경쟁 리비전 컨트롤 시스템 개발
-프로젝트에 참여할 수 없었습니다.  둘째, BitMover 는 라이센스에 대한 악용을 막기
-위해 커널 프로젝트에 관계된 일부 메타데이터를 제어할 수 있었습니다.  이
-메타데이터에 대한 접근이 불가능하면, 커널 개발자들은 다른 리비전 컨트롤
-시스템에서의 중요한 표준적 기능인, 과거의 커널 버전들 사이의 비교를 할 수
-없었습니다.&lt;/p&gt;
-
-&lt;p&gt;Linus가 BitKeeper 를 사용한지 수년이 지나도 논쟁은 줄어들지 않았습니다.  그의
-기본적 주장은, 그는 프리 소프트웨어 (Free Software) 광신도가 아니라는
-것이었습니다.  그는 오픈소스 도구들이 같은 일을 하는 상업용 도구들에 비해
-낫다면 그걸 사용할 거라고 했습니다.  하지만 상업용 도구가 더 낫다면, 그는 다른
-도구를 고려하지 않을 거라고요.&lt;/p&gt;
-
-&lt;p&gt;하지만, 많은 커널 개발자들이 실제로 프리 소프트웨어 광신도였습니다.  커뮤니티에
-손상을 입히고 리눅스 커널 프로젝트의 fork 를 일으킬 만큼은 아니지만 Linus와
-다른 개발자들간의 분노와 긴장이 심해졌습니다.  Alan Cox, Al Viro, David Miller,
-Andrea Arcangeli, Andrew Morton 과 많은 수의 다른 사람들이 경쟁 프로젝트를
-이끌만한 기술력을 가지고 있음이 분명했고, 심지어 일부는 상당수 커널 개발자들을
-그들 쪽으로 끌어갈 명성을 가지고 있었습니다.  하지만 아무도 그러지 않았습니다.
-이 긴장과 적대는 계속 유지되었습니다.&lt;/p&gt;
-
-&lt;p&gt;BitKeeper 의 무엇이 그리 대단했을까요?  BitKeeper 에서 자랑한 건 분산시스템을
-제공한다는 것으로, 모든 저장소가 쉽게 fork 되고 merge 될 수 있었습니다.  이게
-핵심이었습니다.  이를 통해, 특정 하위 그룹의 커널 개발자들은 리비전 컨트롤의
-이득을 얻으면서 그룹끼리 독자적으로 협업하고, 준비된 다음에 그들의 변경 사항을
-Linus에게 전달할 수 있었습니다.  이를 통해, 전에는 Linus 한명의 어깨에 완전히
-매여있던 수많은 작업이 Linus가 믿는 개발자들, 또는 그렇게 작업하기로 한
-그룹들에게 분산될 수 있었습니다.  아키텍쳐별 코드, 드라이버, 그리고 커널의 하위
-시스템들이 모두 어떻게든 독립적으로 개발되고, 이후 적절한 시점에 한번에 메인
-커널에 병합될 수 있었습니다.&lt;/p&gt;
-
-&lt;p&gt;슬슬 하는 이야기가 익숙하게 들릴 겁니다만, 2002년에 이건 새로운
-아이디어였습니다.  CVS 와 Subversion 같은 당시 존재하던 프로젝트들에서 fork 와
-merge 는 주인만 할 수 있고, 죽고 싶도록 시간이 오래 걸리는 작업이었습니다.
-BitKeeper 를 통해, 이게 사소한 작업이 되었습니다.&lt;/p&gt;
-
-&lt;p&gt;커널 개발 도구의 핵심부에 독점 소프트웨어를 사용하려는 Linus의 의지는 많은
-사람들이 대안을 만드는데 더욱 노력하게 만들었습니다.  CVS 와 Subversion
-프로젝트는 너무 많은 기초적 설계 오류가 있었고, 이미 너무 많이 개발이 진행되어
-변경하기가 쉽지 않았습니다.  다른 프로젝트들 모두 마찬가지였습니다.  하지만
-이제 그들은 Linus가 정말 원하는걸 알거나 안다고 생각했으므로, 정말로 코딩을
-시작할 수 있었습니다.  그 결과 분산 개발 기능을 제공하는 많은 수의 리비전
-컨트롤 시스템이 나왔습니다.&lt;/p&gt;
-
-&lt;p&gt;그런 시스템들 중에 arch, darcs, 그리고 monotone 등이 있었습니다.  그들은
-Bitkeeper 를 경쟁 상대라고 함으로써, Linus가 Bitkeeper 에 대한 대안으로 그들을
-선택하라고 설득했습니다.&lt;/p&gt;
-
-&lt;p&gt;많은 사람들이 시도했지만, 아무도 성공하지 못했습니다.  이는 부분적으로는
-Linus가 CVS 와 Subversion 에 뭐가 빠져있는지 모두 이야기 하지 않았듯, 그
-프로젝트들에 Linus가 더 필요로 하는 것이 무엇인지 모두 말하지 않았기
-때문입니다.  그리고, Linus가 소스가 폐쇄된 도구를 사용하는것도 개의치 않는 것
-같았으므로, 어떤 대안이 그에게 받아들여질만 하려면 그 대안은 BitKeeper 보다
-훨씬 기술적으로 향상되어 있어야만 할 것이었습니다.  따라서, BitKeeper 전에도
-오픈소스 툴의 기능은 충분하지 않았지만, BitKeeper 가 나타남으로써 오픈소스 툴이
-맞춰야 할 기능의 목표가 더욱 높아진 셈입니다.&lt;/p&gt;
-
-&lt;p&gt;수년간의 많은 노력 후에도, 어떤 오픈소스 대안도 Linus의 필요를 맞추기엔 CVS 나
-Subversion 보다도 크게 나아지지 못했습니다.  만약 Samba 를 만들었고 rsync 의
-공동 창시자인 Andrew Tridgell 이 아니었더라면 이 상황은 훨씬 오래 지속될 수
-있었을 겁니다.  2005년, Andrew는 프리 소프트웨어인 대안을 만들기 위해 BitKeeper
-네트워킹 프로토콜을 리버스 엔지니어링 하려 했습니다.  그가 아니었더라도,
-누군가는 시도했을 겁니다 - 그건 그저 시간 문제였습니다.  Larry McVoy 는 누구든
-이 시도를 했다면 당장 지원을 끊겠다고 리눅스 개발자들에게 경고했고, 실제로
-그렇게 했습니다.  결국, 급작스럽게 BitKeeper 를 커널 개발에 사용될 수 없게
-되었습니다.  전체 개발 도구와 분산 버전 컨트롤로부터 생겨난 개발 문화는 앞날을
-알 수 없는 상황에 놓였습니다.&lt;/p&gt;
-
-&lt;p&gt;이게 무슨 의미일까요?  Linus는 그의 과거 방식의 개발로 돌아가서 모든 패치를 그
-자신에게 보내라고 했을까요?  그렇지 않다면, BitKeeper 의 오픈소스 대안들 가운데
-하나를 선택했을까요?  만약 그가 그랬다면, 어떤 대안을 골랐을까요?&lt;/p&gt;
-
-&lt;p&gt;이 시점에서, 놀라운 일이 발생했습니다.  Linus가 리눅스 커널 개발을 1991년
-시작한 후 처음으로 작업을 완전히 멈췄습니다.  현존하는 어떤 도구도 그가 원하는
-일을 해주지 못했으므로, 그는 자신의 것을 만들기로 결정했습니다.&lt;/p&gt;
-
-&lt;p&gt;Linus의 주요 관심은, 사실 속도였습니다.  이것이 그가 기존에는 완전히, 적어도
-현존하는 프로젝트들이 이해할 수 있는 방식으로는 이야기하지 않은 부분이었습니다.
-전세계에서 전력을 다해 패치를 보내오는 수천명의 커널 개발자들을 위해, 그는
-기존에는 상상할 수 없는 속도로 동작하는 무언가가 필요했습니다.  그는 가장
-거대하고 가장 복잡한 작업이라 해도 완료하는데 몇초 이상 기다리는 걸 참을 수
-없었습니다.  Arch 도, darcs, monotone 도, 그리고 어떤 다른 프로젝트도 이
-요구사항을 맞추지 못했습니다.&lt;/p&gt;
-
-&lt;p&gt;Linus는 잠시 은둔한 채 코딩을 했고, 그 후에 그의 새로운 계획을 세상에
-알렸습니다.  2005년 6월에 그 프로젝트를 시작한 이래 몇일만에, Linus의 git
-리비전 컨트롤 시스템은 git 소스코드의 리비전 컨트롤을 완전히 할 수 있게
-되었습니다.  몇주 후, git 은 리눅스 커널 개발의 리비전 컨트롤을 맡을 준비가
-되었습니다.  몇달 후, 완전한 기능을 갖추었습니다.  이 시점에서, Linus는 이
-프로젝트의 관리 권한을 해당 프로젝트의 가장 열정적인 기여자, Junio C. Hamano
-에게 넘기고 리눅스 개발에 다시 전념했습니다.&lt;/p&gt;
-
-&lt;p&gt;이 도구에 놀란 프리 소프트웨어 개발자 커뮤니티는 이 괴상한 작업물을 이해하려
-노력했습니다.  이것은 리비전 컨트롤 소프트웨어의 어떤 것도 닮지 않았습니다.
-사실, 이것은 리비전 컨트롤 시스템보다는 낮은 단계의 파일시스템 오퍼레이션들의
-집합에 가까워 보였습니다.  그리고 다른 시스템들이 패치를 저장하는 것과 달리,
-이것은 각각의 변경된 파일의 버전을 모두 저장했습니다.  어떻게 이런 방식이
-괜찮을 수 있을까요?  하지만, 이 도구는 fork 와 merge 를 번개같은 속도로 처리할
-수 있고, 패치를 요청하자마자 만들어낼 수 있었습니다.&lt;/p&gt;
-
-&lt;p&gt;점진적으로, Junio는 CVS 와 Subversion 의 것들을 닮은 높은 수준의 커맨드 집합을
-만들었습니다.  Git 의 원래 커맨드들이 &amp;ldquo;배관&amp;rdquo; 이었다면, 새로운 커맨드들은
-&amp;ldquo;도자기 제품&amp;rdquo; 이었습니다.  그리고, 결국 사용되게 되었습니다.&lt;/p&gt;
-
-&lt;p&gt;BitKeeper 에 대한 논쟁과 분노가 있었던 만큼이나, git 의 계속된 개발을 향한
-열망과 참여 의지가 많았습니다.  포팅, 확장 기능, 그리고 웹사이트들이 모든 것을
-현재 상태로 끌어올렸습니다.  몇년만에, 거의 모든 사람들이 git 을 사용하게
-되었습니다.  리눅스처럼, git 이 세상을 집어삼켰습니다.&lt;/p&gt;
 </description>
     </item>
     

@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme" content="hugo-academic">
-  <meta name="generator" content="Hugo 0.51" />
+  <meta name="generator" content="Hugo 0.31.1" />
   <meta name="author" content="SeongJae Park">
   <meta name="description" content="System Programmer">
 
@@ -64,8 +64,8 @@
   
 
   
-  <link rel="alternate" href="https://sjp38.github.io/tags/linux/index.xml" type="application/rss+xml" title="Hacklog">
-  <link rel="feed" href="https://sjp38.github.io/tags/linux/index.xml" type="application/rss+xml" title="Hacklog">
+  <link rel="alternate" href="https://sjp38.github.io/index.xml" type="application/rss+xml" title="Hacklog">
+  <link rel="feed" href="https://sjp38.github.io/index.xml" type="application/rss+xml" title="Hacklog">
   
 
   <link rel="manifest" href="/site.webmanifest">
@@ -78,16 +78,16 @@
   
   <meta property="og:site_name" content="Hacklog">
   <meta property="og:url" content="https://sjp38.github.io/tags/linux/">
-  <meta property="og:title" content="linux | Hacklog">
+  <meta property="og:title" content="Linux | Hacklog">
   <meta property="og:description" content="System Programmer">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2018-09-03T11:34:35&#43;09:00">
+  <meta property="og:updated_time" content="2018-09-07T16:00:23&#43;09:00">
   
 
   
 
-  <title>linux | Hacklog</title>
+  <title>Linux | Hacklog</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
@@ -250,11 +250,21 @@
 
 <div class="universal-wrapper">
 
-  <h1>linux</h1>
+  <h1>Linux</h1>
 
   
 
   
+  
+  <div>
+    <h2><a href="https://sjp38.github.io/post/linux-kernel-build/">Linux Kernel Build</a></h2>
+    <div class="article-style">
+      
+      제가 새 기계에서 리눅스 커널 빌드 환경을 셋업하고 실제 빌드, 설치하는 과정을 정리해 봅니다. 글 작성 과정에서 실제 커맨드를 수행한 환경은 Ubuntu 16.04.3 Server OS 를 설치한 x86_64 가상머신입니다.
+Install Dependent Packages $ sudo apt install build-essential libncurses5-dev libssl-dev bc bison flex \ libelf-dev  커널을 빌드하려면 컴파일러와 라이브러리 등이 필요하겠죠. 위 커맨드는 우분투에서 커널 빌드에 필요한 패키지들을 깔아줍니다. 커널 트리의 Documentation/process/changes.rst 에도 커널 빌드에 필요한 패키지들이 나열되어 있으므로, 다른 환경이라면 이를 참고해 필요한 패키지를 설치합시다.
+      
+    </div>
+  </div>
   
   <div>
     <h2><a href="https://sjp38.github.io/post/lkml_news_v4.19-rc2/">LKML News after v4.19-rc2</a></h2>
@@ -353,18 +363,6 @@ git object 의 갯수라던지 릴리즈를 위한 스크립트 등이 리눅스
   <div>
     <h2><a href="https://sjp38.github.io/post/lkml_news_v4.17-rc7/">LKML News after 4.17-rc7</a></h2>
     <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="https://sjp38.github.io/post/lkml_news_v4.17-rc6/">LKML News after v4.17-rc6</a></h2>
-    <div class="article-style">
-      
-      Linux v4.17-rc6 <a href="https://lkml.kernel.org/r/CA+55aFxxYQFL3mwsQcC+__R23ZmO8c3F0SThi6r44TdK0ePNDQ@mail.gmail.com" target="_blank">https://lkml.kernel.org/r/CA+55aFxxYQFL3mwsQcC+__R23ZmO8c3F0SThi6r44TdK0ePNDQ@mail.gmail.com</a>
-여섯번째 release candidate 버전입니다. 이번 릴리즈에도 특기할 만한 일은 없었습니다. 이제 충분히 안정화 되었을 거라고 하는군요.
-[PATCH -mm -V3 00/21] mm, THP, swap: Swapout/swapin THP in one piece <a href="https://lkml.kernel.org/r/20180523082625.6897-1-ying.huang@intel.com" target="_blank">https://lkml.kernel.org/r/20180523082625.6897-1-ying.huang@intel.com</a>
-이전에도 이 시리즈로 소개했던, THP 의 swap out 과 swap in 최적화 마지막 단계 패치의 세번째 버전입니다. 마지막 단계 이야기 하니 문득 인피니티워의 오역 논란이 떠오르는군요 ;) 두번째 버전 이후 특정 컨피규레이션에서의 빌드 버그를 수정했고, mmotm/master 브랜치의 5월 18일자 버전으로 rebase 한게 차이점의 전부군요.
       
     </div>
   </div>
