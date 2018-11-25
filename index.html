@@ -594,6 +594,91 @@ DevFest W, March 2013.
   
   
   <h3 class="article-title" itemprop="name">
+    <a href="https://sjp38.github.io/post/lkml_news_v4.20-rc4/" itemprop="url">LKML News by v4.20-rc4</a>
+  </h3>
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2018-11-26 08:06:40 &#43;0900 KST" itemprop="datePublished">
+      Nov 26, 2018
+    </time>
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/lkml-news">lkml news</a
+    >
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+  <div class="article-style" itemprop="articleBody">
+    
+    [PATCH -V7 00/21] swap: Swapout/swapin THP in one piece https://lkml.kernel.org/r/20181120085449.5542-1-ying.huang@intel.com
+Transparent Huge Page 를 쪼개지 않고 swap out / swap in 함으로써 스왑 성능을 최적화 하는 패치의 일곱번째 버전입니다. 이 블로그에서도 소개한 바 있죠. 크게 바뀐 부분은 없지만 최신 버전에 맞춰 리베이스 되었고, Daniel 에 의해 발견된 주소 정렬 관련 문제를 해결했군요.
+[PATCH 0/5] Fragmentation avoidance improvements v5 https://lkml.kernel.org/r/20181123114528.28802-1-mgorman@techsingularity.net
+시스템이 충분히 오래 운영되거나 특정한 패턴의 워크로드가 동작하게 되면 시스템의 메모리는 fragment 되게 마련이어서, 장기적으로 물리적 연속 페이지 할당이 실패하게 됩니다.
+    
+  </div>
+  <p class="read-more">
+    <a href="https://sjp38.github.io/post/lkml_news_v4.20-rc4/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
+      
+
+      
+
+        
+
+        
+        
+
+        
+        
+          
+      
+          
+      
+          
+      
+          
+      
+
+      
+      
+        
+        
+
+<div class="article-list-item" itemscope itemprop="blogPost">
+  
+  
+  <h3 class="article-title" itemprop="name">
     <a href="https://sjp38.github.io/post/lkml_news_v4.20-rc3/" itemprop="url">LKML News by v4.20-rc3</a>
   </h3>
   
@@ -919,90 +1004,6 @@ herd7 install LKMM 은 버전 7.49 의 &ldquo;herd7&rdquo; 과 &ldquo;klitmus7&r
       
 
       
-
-        
-
-        
-        
-
-        
-        
-          
-      
-          
-      
-          
-      
-          
-      
-
-      
-      
-        
-        
-
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/lkml_news_v4.20-rc1/" itemprop="url">LKML News by v4.20-rc1</a>
-  </h3>
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2018-11-07 14:43:56 &#43;0900 KST" itemprop="datePublished">
-      Nov 7, 2018
-    </time>
-  </span>
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/lkml-news">lkml news</a
-    >
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-  <div class="article-style" itemprop="articleBody">
-    
-    리눅스 4.19 버전 릴리즈 후부터 4.20-rc1 버전의 릴리즈까지 LKML 에 오간 메일 중 흥미로운 메일들을 소개합니다.
-[RFC PATCH v4 00/13] ktask: multithread CPU-intensive kernel work https://lkml.kernel.org/r/20181105165558.11698-1-daniel.m.jordan@oracle.com
-CPU intensive 한 커널의 일을 여러 work queue 를 이용해 병렬화 시키기 위한 새로운 프레임웍, ktask 구현 및 적용 패치입니다. 이 프레임웍을 이용해 병렬화 시킬 일은 여러가지가 있을텐데, 이 패치는 ktask 프레임웍의 구현과 함께 VFIO 페이지 pinning, 부팅 시점에서의 struct page 초기화, gigantic page 의 초기화, 그리고 HugeTLB 페이지의 할당에 ktask 를 적용하고 있습니다.
-    
-  </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/lkml_news_v4.20-rc1/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-      
-
-      
     
 
   </div>
@@ -1138,7 +1139,7 @@ CPU intensive 한 커널의 일을 여러 work queue 를 이용해 병렬화 시
           
           
           
-          <a href="/tags/benchmark" style="font-size:1.4530477138587838rem">benchmark</a>
+          <a href="/tags/benchmark" style="font-size:1.4507121206720401rem">benchmark</a>
         
           
           
@@ -1187,7 +1188,7 @@ CPU intensive 한 커널의 일을 여러 work queue 를 이용해 병렬화 시
           
           
           
-          <a href="/tags/conference" style="font-size:1.5270267564373166rem">conference</a>
+          <a href="/tags/conference" style="font-size:1.5244265808255193rem">conference</a>
         
           
           
@@ -1229,7 +1230,7 @@ CPU intensive 한 커널의 일을 여러 work queue 를 이용해 병렬화 시
           
           
           
-          <a href="/tags/english" style="font-size:1.5895751457061633rem">english</a>
+          <a href="/tags/english" style="font-size:1.5867512688414287rem">english</a>
         
           
           
@@ -1243,14 +1244,14 @@ CPU intensive 한 커널의 일을 여러 work queue 를 이용해 병렬화 시
           
           
           
-          <a href="/tags/event" style="font-size:1.4530477138587838rem">event</a>
+          <a href="/tags/event" style="font-size:1.4507121206720401rem">event</a>
         
           
           
           
           
           
-          <a href="/tags/fedora" style="font-size:1.0812523416623991rem">fedora</a>
+          <a href="/tags/fedora" style="font-size:1.0802464564276728rem">fedora</a>
         
           
           
@@ -1271,21 +1272,21 @@ CPU intensive 한 커널의 일을 여러 work queue 를 이용해 병렬화 시
           
           
           
-          <a href="/tags/gcma" style="font-size:1.0812523416623991rem">gcma</a>
+          <a href="/tags/gcma" style="font-size:1.0802464564276728rem">gcma</a>
         
           
           
           
           
           
-          <a href="/tags/git" style="font-size:1.0812523416623991rem">git</a>
+          <a href="/tags/git" style="font-size:1.0802464564276728rem">git</a>
         
           
           
           
           
           
-          <a href="/tags/golang" style="font-size:1.2457744147749172rem">golang</a>
+          <a href="/tags/golang" style="font-size:1.2441801243978465rem">golang</a>
         
           
           
@@ -1334,7 +1335,7 @@ CPU intensive 한 커널의 일을 여러 work queue 를 이용해 병렬화 시
           
           
           
-          <a href="/tags/kernel" style="font-size:2.440513975143058rem">kernel</a>
+          <a href="/tags/kernel" style="font-size:2.4416784157051534rem">kernel</a>
         
           
           
@@ -1355,21 +1356,21 @@ CPU intensive 한 커널의 일을 여러 work queue 를 이용해 병렬화 시
           
           
           
-          <a href="/tags/life" style="font-size:1.0812523416623991rem">life</a>
+          <a href="/tags/life" style="font-size:1.0802464564276728rem">life</a>
         
           
           
           
           
           
-          <a href="/tags/linux" style="font-size:2.4938050497665145rem">linux</a>
+          <a href="/tags/linux" style="font-size:2.4939200332024694rem">linux</a>
         
           
           
           
           
           
-          <a href="/tags/linux-foundation" style="font-size:1.4530477138587838rem">linux foundation</a>
+          <a href="/tags/linux-foundation" style="font-size:1.4507121206720401rem">linux foundation</a>
         
           
           
@@ -1390,7 +1391,7 @@ CPU intensive 한 커널의 일을 여러 work queue 를 이용해 병렬화 시
           
           
           
-          <a href="/tags/lkml" style="font-size:2.387347769379967rem">lkml</a>
+          <a href="/tags/lkml" style="font-size:2.389677101438041rem">lkml</a>
         
           
           
@@ -1411,7 +1412,7 @@ CPU intensive 한 커널의 일을 여러 work queue 를 이용해 병렬화 시
           
           
           
-          <a href="/tags/mariadb" style="font-size:1.0812523416623991rem">mariadb</a>
+          <a href="/tags/mariadb" style="font-size:1.0802464564276728rem">mariadb</a>
         
           
           
@@ -1446,21 +1447,21 @@ CPU intensive 한 커널의 일을 여러 work queue 를 이용해 병렬화 시
           
           
           
-          <a href="/tags/news" style="font-size:2.387347769379967rem">news</a>
+          <a href="/tags/news" style="font-size:2.389677101438041rem">news</a>
         
           
           
           
           
           
-          <a href="/tags/open-source" style="font-size:1.0812523416623991rem">open source</a>
+          <a href="/tags/open-source" style="font-size:1.0802464564276728rem">open source</a>
         
           
           
           
           
           
-          <a href="/tags/open-source" style="font-size:1.0812523416623991rem">open-source</a>
+          <a href="/tags/open-source" style="font-size:1.0802464564276728rem">open-source</a>
         
           
           
@@ -1509,21 +1510,21 @@ CPU intensive 한 커널의 일을 여러 work queue 를 이용해 병렬화 시
           
           
           
-          <a href="/tags/prague" style="font-size:1.4530477138587838rem">prague</a>
+          <a href="/tags/prague" style="font-size:1.4507121206720401rem">prague</a>
         
           
           
           
           
           
-          <a href="/tags/projects" style="font-size:1.3625046833247985rem">projects</a>
+          <a href="/tags/projects" style="font-size:1.3604929128553453rem">projects</a>
         
           
           
           
           
           
-          <a href="/tags/raspberry" style="font-size:1.0812523416623991rem">raspberry</a>
+          <a href="/tags/raspberry" style="font-size:1.0802464564276728rem">raspberry</a>
         
           
           
@@ -1537,28 +1538,28 @@ CPU intensive 한 커널의 일을 여러 work queue 를 이용해 병렬화 시
           
           
           
-          <a href="/tags/setup" style="font-size:1.3625046833247985rem">setup</a>
+          <a href="/tags/setup" style="font-size:1.3604929128553453rem">setup</a>
         
           
           
           
           
           
-          <a href="/tags/spec" style="font-size:1.0812523416623991rem">spec</a>
+          <a href="/tags/spec" style="font-size:1.0802464564276728rem">spec</a>
         
           
           
           
           
           
-          <a href="/tags/spec_cpu" style="font-size:1.0812523416623991rem">spec_cpu</a>
+          <a href="/tags/spec_cpu" style="font-size:1.0802464564276728rem">spec_cpu</a>
         
           
           
           
           
           
-          <a href="/tags/spec_cpu2006" style="font-size:1.0812523416623991rem">spec_cpu2006</a>
+          <a href="/tags/spec_cpu2006" style="font-size:1.0802464564276728rem">spec_cpu2006</a>
         
           
           
@@ -1579,7 +1580,7 @@ CPU intensive 한 커널의 일을 여러 work queue 를 이용해 병렬화 시
           
           
           
-          <a href="/tags/tip" style="font-size:1.5895751457061633rem">tip</a>
+          <a href="/tags/tip" style="font-size:1.5867512688414287rem">tip</a>
         
           
           
@@ -1607,7 +1608,7 @@ CPU intensive 한 커널의 일을 여러 work queue 를 이용해 병렬화 시
           
           
           
-          <a href="/tags/trip" style="font-size:1.4530477138587838rem">trip</a>
+          <a href="/tags/trip" style="font-size:1.4507121206720401rem">trip</a>
         
           
           
