@@ -594,6 +594,104 @@ DevFest W, March 2013.
   
   
   <h3 class="article-title" itemprop="name">
+    <a href="https://sjp38.github.io/post/lkml_news_v4.20-rc5/" itemprop="url">LKML News by 4.20-rc5</a>
+  </h3>
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2018-11-29 08:14:01 &#43;0900 KST" itemprop="datePublished">
+      Nov 29, 2018
+    </time>
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/lkml-news">lkml news</a
+    >
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+  <div class="article-style" itemprop="articleBody">
+    
+    
+
+<h2 id="patch-v12-00-20-block-support-multi-page-bvec">[PATCH V12 00/20] block: support multi-page bvec</h2>
+
+<p><a href="https://lkml.kernel.org/r/20181126021720.19471-1-ming.lei@redhat.com" target="_blank">https://lkml.kernel.org/r/20181126021720.19471-1-ming.lei@redhat.com</a></p>
+
+<p><code>struct bio_bvec</code> 하나가 물리적으로 연속적인 여러개의 페이지를 담을 수 있게
+해서 block layer 의 효율성을 높이기 위한 시도입니다.</p>
+
+<h2 id="patch-aio-convert-ioctx-table-to-xarray">[PATCH] aio: Convert ioctx_table to XArray</h2>
+
+<p><a href="https://lkml.kernel.org/r/20181128183531.5139-1-willy@infradead.org" target="_blank">https://lkml.kernel.org/r/20181128183531.5139-1-willy@infradead.org</a></p>
+
+<p>aio 쪽의 <code>ioctx_table</code> 이라는 자료구조가 스펙터에 취약한 자료구조인데, 인덱스
+오버플로 문제가 없는 XArray 로 교체하는 패치입니다.  정말 코드가
+깔끔해지는군요.</p>
+
+    
+  </div>
+  <p class="read-more">
+    <a href="https://sjp38.github.io/post/lkml_news_v4.20-rc5/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
+      
+
+      
+
+        
+
+        
+        
+
+        
+        
+          
+      
+          
+      
+          
+      
+          
+      
+
+      
+      
+        
+        
+
+<div class="article-list-item" itemscope itemprop="blogPost">
+  
+  
+  <h3 class="article-title" itemprop="name">
     <a href="https://sjp38.github.io/post/lkml_news_v4.20-rc4/" itemprop="url">LKML News by v4.20-rc4</a>
   </h3>
   
@@ -921,89 +1019,6 @@ Transparent Huge Page 를 쪼개지 않고 swap out / swap in 함으로써 스�
       
 
       
-
-        
-
-        
-        
-
-        
-        
-          
-      
-          
-      
-          
-      
-          
-      
-
-      
-      
-        
-        
-
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/lkmm-install/" itemprop="url">LKMM Setup and Usage</a>
-  </h3>
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2018-11-08 04:30:42 &#43;0900 KST" itemprop="datePublished">
-      Nov 8, 2018
-    </time>
-  </span>
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/linux-kernel">linux kernel</a
-    >
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-  <div class="article-style" itemprop="articleBody">
-    
-    리눅스 커널은 Formalised and executable memory consistent model 을 제공합니다. 줄여서 linux kernel memory model (LKMM) 이라고 하죠. 이 글은 4.19 버전을 기준으로 LKMM 을 실제로 수행해 보기 위한 환경 셋업 과정과 간단한 실행 방법을 정리해 봅니다. 글 작성을 위한 테스트는 Ubuntu 16.04 서버가 설치된 가상머신에서 진행되었습니다.
-herd7 install LKMM 은 버전 7.49 의 &ldquo;herd7&rdquo; 과 &ldquo;klitmus7&rdquo; 을 필요로 합니다. 하지만 herd7 은 또 Ocaml 을 위한 패키지 매니저인 OPAM 을 설치할 것을 필요로 하죠.
-    
-  </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/lkmm-install/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-      
-
-      
     
 
   </div>
@@ -1139,7 +1154,7 @@ herd7 install LKMM 은 버전 7.49 의 &ldquo;herd7&rdquo; 과 &ldquo;klitmus7&r
           
           
           
-          <a href="/tags/benchmark" style="font-size:1.4507121206720401rem">benchmark</a>
+          <a href="/tags/benchmark" style="font-size:1.4484274096197622rem">benchmark</a>
         
           
           
@@ -1188,7 +1203,7 @@ herd7 install LKMM 은 버전 7.49 의 &ldquo;herd7&rdquo; 과 &ldquo;klitmus7&r
           
           
           
-          <a href="/tags/conference" style="font-size:1.5244265808255193rem">conference</a>
+          <a href="/tags/conference" style="font-size:1.5218830514164363rem">conference</a>
         
           
           
@@ -1230,7 +1245,7 @@ herd7 install LKMM 은 버전 7.49 의 &ldquo;herd7&rdquo; 과 &ldquo;klitmus7&r
           
           
           
-          <a href="/tags/english" style="font-size:1.5867512688414287rem">english</a>
+          <a href="/tags/english" style="font-size:1.5839889116296724rem">english</a>
         
           
           
@@ -1244,14 +1259,14 @@ herd7 install LKMM 은 버전 7.49 의 &ldquo;herd7&rdquo; 과 &ldquo;klitmus7&r
           
           
           
-          <a href="/tags/event" style="font-size:1.4507121206720401rem">event</a>
+          <a href="/tags/event" style="font-size:1.4484274096197622rem">event</a>
         
           
           
           
           
           
-          <a href="/tags/fedora" style="font-size:1.0802464564276728rem">fedora</a>
+          <a href="/tags/fedora" style="font-size:1.0792624849354855rem">fedora</a>
         
           
           
@@ -1272,21 +1287,21 @@ herd7 install LKMM 은 버전 7.49 의 &ldquo;herd7&rdquo; 과 &ldquo;klitmus7&r
           
           
           
-          <a href="/tags/gcma" style="font-size:1.0802464564276728rem">gcma</a>
+          <a href="/tags/gcma" style="font-size:1.0792624849354855rem">gcma</a>
         
           
           
           
           
           
-          <a href="/tags/git" style="font-size:1.0802464564276728rem">git</a>
+          <a href="/tags/git" style="font-size:1.0792624849354855rem">git</a>
         
           
           
           
           
           
-          <a href="/tags/golang" style="font-size:1.2441801243978465rem">golang</a>
+          <a href="/tags/golang" style="font-size:1.242620566480951rem">golang</a>
         
           
           
@@ -1335,7 +1350,7 @@ herd7 install LKMM 은 버전 7.49 의 &ldquo;herd7&rdquo; 과 &ldquo;klitmus7&r
           
           
           
-          <a href="/tags/kernel" style="font-size:2.4416784157051534rem">kernel</a>
+          <a href="/tags/kernel" style="font-size:2.4428015159532492rem">kernel</a>
         
           
           
@@ -1356,21 +1371,21 @@ herd7 install LKMM 은 버전 7.49 의 &ldquo;herd7&rdquo; 과 &ldquo;klitmus7&r
           
           
           
-          <a href="/tags/life" style="font-size:1.0802464564276728rem">life</a>
+          <a href="/tags/life" style="font-size:1.0792624849354855rem">life</a>
         
           
           
           
           
           
-          <a href="/tags/linux" style="font-size:2.4939200332024694rem">linux</a>
+          <a href="/tags/linux" style="font-size:2.4940311411675244rem">linux</a>
         
           
           
           
           
           
-          <a href="/tags/linux-foundation" style="font-size:1.4507121206720401rem">linux foundation</a>
+          <a href="/tags/linux-foundation" style="font-size:1.4484274096197622rem">linux foundation</a>
         
           
           
@@ -1391,7 +1406,7 @@ herd7 install LKMM 은 버전 7.49 의 &ldquo;herd7&rdquo; 과 &ldquo;klitmus7&r
           
           
           
-          <a href="/tags/lkml" style="font-size:2.389677101438041rem">lkml</a>
+          <a href="/tags/lkml" style="font-size:2.3919189609130194rem">lkml</a>
         
           
           
@@ -1412,7 +1427,7 @@ herd7 install LKMM 은 버전 7.49 의 &ldquo;herd7&rdquo; 과 &ldquo;klitmus7&r
           
           
           
-          <a href="/tags/mariadb" style="font-size:1.0802464564276728rem">mariadb</a>
+          <a href="/tags/mariadb" style="font-size:1.0792624849354855rem">mariadb</a>
         
           
           
@@ -1447,21 +1462,21 @@ herd7 install LKMM 은 버전 7.49 의 &ldquo;herd7&rdquo; 과 &ldquo;klitmus7&r
           
           
           
-          <a href="/tags/news" style="font-size:2.389677101438041rem">news</a>
+          <a href="/tags/news" style="font-size:2.3919189609130194rem">news</a>
         
           
           
           
           
           
-          <a href="/tags/open-source" style="font-size:1.0802464564276728rem">open source</a>
+          <a href="/tags/open-source" style="font-size:1.0792624849354855rem">open source</a>
         
           
           
           
           
           
-          <a href="/tags/open-source" style="font-size:1.0802464564276728rem">open-source</a>
+          <a href="/tags/open-source" style="font-size:1.0792624849354855rem">open-source</a>
         
           
           
@@ -1510,21 +1525,21 @@ herd7 install LKMM 은 버전 7.49 의 &ldquo;herd7&rdquo; 과 &ldquo;klitmus7&r
           
           
           
-          <a href="/tags/prague" style="font-size:1.4507121206720401rem">prague</a>
+          <a href="/tags/prague" style="font-size:1.4484274096197622rem">prague</a>
         
           
           
           
           
           
-          <a href="/tags/projects" style="font-size:1.3604929128553453rem">projects</a>
+          <a href="/tags/projects" style="font-size:1.3585249698709707rem">projects</a>
         
           
           
           
           
           
-          <a href="/tags/raspberry" style="font-size:1.0802464564276728rem">raspberry</a>
+          <a href="/tags/raspberry" style="font-size:1.0792624849354855rem">raspberry</a>
         
           
           
@@ -1538,28 +1553,28 @@ herd7 install LKMM 은 버전 7.49 의 &ldquo;herd7&rdquo; 과 &ldquo;klitmus7&r
           
           
           
-          <a href="/tags/setup" style="font-size:1.3604929128553453rem">setup</a>
+          <a href="/tags/setup" style="font-size:1.3585249698709707rem">setup</a>
         
           
           
           
           
           
-          <a href="/tags/spec" style="font-size:1.0802464564276728rem">spec</a>
+          <a href="/tags/spec" style="font-size:1.0792624849354855rem">spec</a>
         
           
           
           
           
           
-          <a href="/tags/spec_cpu" style="font-size:1.0802464564276728rem">spec_cpu</a>
+          <a href="/tags/spec_cpu" style="font-size:1.0792624849354855rem">spec_cpu</a>
         
           
           
           
           
           
-          <a href="/tags/spec_cpu2006" style="font-size:1.0802464564276728rem">spec_cpu2006</a>
+          <a href="/tags/spec_cpu2006" style="font-size:1.0792624849354855rem">spec_cpu2006</a>
         
           
           
@@ -1580,7 +1595,7 @@ herd7 install LKMM 은 버전 7.49 의 &ldquo;herd7&rdquo; 과 &ldquo;klitmus7&r
           
           
           
-          <a href="/tags/tip" style="font-size:1.5867512688414287rem">tip</a>
+          <a href="/tags/tip" style="font-size:1.5839889116296724rem">tip</a>
         
           
           
@@ -1608,7 +1623,7 @@ herd7 install LKMM 은 버전 7.49 의 &ldquo;herd7&rdquo; 과 &ldquo;klitmus7&r
           
           
           
-          <a href="/tags/trip" style="font-size:1.4507121206720401rem">trip</a>
+          <a href="/tags/trip" style="font-size:1.4484274096197622rem">trip</a>
         
           
           
