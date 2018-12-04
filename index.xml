@@ -11,6 +11,34 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Lkml_news_v4.20 Rc6</title>
+      <link>https://sjp38.github.io/post/lkml_news_v4.20-rc6/</link>
+      <pubDate>Wed, 05 Dec 2018 08:20:36 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/lkml_news_v4.20-rc6/</guid>
+      <description>
+
+&lt;h2 id=&#34;patch-memory-model-0-3-updates-to-the-formal-memory-model&#34;&gt;[PATCH memory-model 0/3] Updates to the formal memory model&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20181203230411.GA27476@linux.ibm.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20181203230411.GA27476@linux.ibm.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;리눅스 커널 메모리 모델의 업데이트 입니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;smp_mb__after_unlock_lock()&lt;/code&gt; 을 추가로 모델링했고, github 리트머스 테스트를
+체크하기 위한 스크립트가 추가되었으며, &lt;code&gt;-j&lt;/code&gt; 옵션을 서포트 하게 되었습니다.&lt;/p&gt;
+
+&lt;h2 id=&#34;tip-core-rcu-tracing-replace-synchronize-sched-and-call-rcu-sched&#34;&gt;[tip:core/rcu] tracing: Replace synchronize_sched() and call_rcu_sched()&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/tip-7440172974e85b1828bdd84ac6b23b5bcad9c5eb@git.kernel.org&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/tip-7440172974e85b1828bdd84ac6b23b5bcad9c5eb@git.kernel.org&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;synchronize_rcu()&lt;/code&gt; 가 이제는 RCU read-side 크리티컬 섹션 만이 아니라
+preempt-disable 코드 영역도 기다리므로, &lt;code&gt;synchronize_sched()&lt;/code&gt; 를 대체할 수
+있고, &lt;code&gt;call_rcu_sched()&lt;/code&gt; 도 &lt;code&gt;call_rcu()&lt;/code&gt; 로 대체될 수 있습니다.  이 패치는 이
+대체를 진행하고 있습니다.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>LKML News by 4.20-rc5</title>
       <link>https://sjp38.github.io/post/lkml_news_v4.20-rc5/</link>
       <pubDate>Thu, 29 Nov 2018 08:14:01 +0900</pubDate>
@@ -32,6 +60,42 @@
 &lt;p&gt;aio 쪽의 &lt;code&gt;ioctx_table&lt;/code&gt; 이라는 자료구조가 스펙터에 취약한 자료구조인데, 인덱스
 오버플로 문제가 없는 XArray 로 교체하는 패치입니다.  정말 코드가
 깔끔해지는군요.&lt;/p&gt;
+
+&lt;h2 id=&#34;patch-0-4-v4-drop-the-mmap-sem-when-doing-io-in-the-fault-path&#34;&gt;&lt;code&gt;[PATCH 0/4][V4] drop the mmap_sem when doing IO in the fault path&lt;/code&gt;&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20181130195812.19536-1-josef@toxicpanda.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20181130195812.19536-1-josef@toxicpanda.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;ps&lt;/code&gt; 등의 도구를 사용해 시스템 상황을 모니터링하는 커다란 어플리케이션을 사용
+중인데, 이 과정에서 다른 &lt;code&gt;task&lt;/code&gt; 의 &lt;code&gt;mmap_sem&lt;/code&gt; 을 &lt;code&gt;down_read()&lt;/code&gt; 해야 하는 경우가
+종종 생긴다는군요.  문제는 이 &lt;code&gt;mmap_sem&lt;/code&gt; 의 쓰기 권한을 얻어오는 과정이 사실상
+mutex 와 동일하니 레이턴시가 크게 늘어날 때가 종종 생긴다고 합니다.  이 문제를
+해결하기 위해 &lt;code&gt;retry&lt;/code&gt; 메커니즘을 적용하는 패치셋입니다.&lt;/p&gt;
+
+&lt;h2 id=&#34;patch-v2-0-9-use-vm-insert-range&#34;&gt;[PATCH v2 0/9] Use vm_insert_range&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20181202061707.GA3070@jordon-HP-15-Notebook-PC&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20181202061707.GA3070@jordon-HP-15-Notebook-PC&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;드라이버가 자신의 커널 메모리를 사용자 vma 로 매핑하는 방법은
+&lt;code&gt;vm_insert_page()&lt;/code&gt; 를 사용하는 방식이었고, 여러 페이지를 매핑하려면 이 함수를
+루프를 돌면서 수행해야 했는데요, 이게 좀 귀찮으므로 아예 &lt;code&gt;vm_insert_range()&lt;/code&gt;
+라는 함수를 추가한 패치입니다.&lt;/p&gt;
+
+&lt;h2 id=&#34;linux-4-20-rc5&#34;&gt;Linux 4.20-rc5&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wizcNrsoyCM1EXQqoswMCYsJaby2iAkZb9wBAzDEhvxNg@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CAHk-=wizcNrsoyCM1EXQqoswMCYsJaby2iAkZb9wBAzDEhvxNg@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;벌써 다섯번째 rc 릴리즈이므로 변경내용이 줄어들어야 할 타이밍이지만, 이상하게도
+이번 릴리즈는 -rc1 을 제외하고는 가장 변경이 큰 릴리즈라는군요.  게다가 arch 쪽
+변경사항이 꽤 많은데, 아마도 STIPB 쪽 성능 리그레션 때문인 것으로 보인다고
+합니다.  아무튼 일반적인 모습은 아니다보니 릴리즈 일정이 변경될 가능성이
+생겼는데요, 너무 미루면 연말연초 휴일에 머지 윈도우가 겹치게 되는데 토발즈는
+휴일 동안 머지 윈도우 관리하기 싫고, 그렇다고 더 미루면 토발즈도 1월 후반에
+여행 갈거고, 남들도 휴일에 머지 윈도우를 준비하기가 싫을 거라 고민이라
+하는군요.&lt;/p&gt;
+
+&lt;p&gt;결국 일단은 크리스마스 직전 쯤 4.20 을 릴리즈 하고, 남들도 머지 윈도우 준비를
+그 전까지 마치는 걸 제안하고 있습니다.  물론, rc6 에서도 변경사항이 충분히
+줄어들지 않는다면 릴리즈 일정은 더 늦춰질 수 있겠죠.&lt;/p&gt;
 </description>
     </item>
     
@@ -687,110 +751,6 @@ Plumbers Conference 와 함께 열릴 예정이었는데 토발즈가 그걸 깜
 &lt;p&gt;THP 를 덩어리째 스왑아웃 / 스왑인 하기 위한 패치, 다섯번째 버전입니다.
 생각보다 쉽게 머지되지 못하고 있군요.  리뷰가 많지 않은 것도 한 이유 아닐까
 싶습니다.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Linux Kernel Build</title>
-      <link>https://sjp38.github.io/post/linux-kernel-build/</link>
-      <pubDate>Fri, 07 Sep 2018 16:00:23 +0900</pubDate>
-      
-      <guid>https://sjp38.github.io/post/linux-kernel-build/</guid>
-      <description>
-
-&lt;p&gt;제가 새 기계에서 리눅스 커널 빌드 환경을 셋업하고 실제 빌드, 설치하는 과정을
-정리해 봅니다.  글 작성 과정에서 실제 커맨드를 수행한 환경은 Ubuntu 16.04.3
-Server OS 를 설치한 &lt;code&gt;x86_64&lt;/code&gt; 가상머신입니다.&lt;/p&gt;
-
-&lt;h1 id=&#34;install-dependent-packages&#34;&gt;Install Dependent Packages&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo apt install build-essential libncurses5-dev libssl-dev bc bison flex \
-		libelf-dev
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;커널을 빌드하려면 컴파일러와 라이브러리 등이 필요하겠죠.  위 커맨드는
-우분투에서 커널 빌드에 필요한 패키지들을 깔아줍니다.  커널 트리의
-&lt;code&gt;Documentation/process/changes.rst&lt;/code&gt; 에도 커널 빌드에 필요한 패키지들이 나열되어
-있으므로, 다른 환경이라면 이를 참고해 필요한 패키지를 설치합시다.&lt;/p&gt;
-
-&lt;p&gt;페도라라면 아래와 같이 패키지를 깔면 됩니다:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo dnf install ncurses-devel bison-devel bison flex-devel flex \
-		elfutils-libelf-devel openssl-devel
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;fetch-linux-kernel-source-code&#34;&gt;Fetch Linux Kernel Source Code&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;$ git clone git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;빌드를 하려면 소스코드를 가져와야죠.  위 커맨드를 통해 토발즈의 리눅스
-소스코드를 가져올 수 있습니다.  네트워크를 통해 가져오는데, 소스코드는 물론이고
-개발 이력 정보를 모두 담고 있으므로 많은 데이터를 가져와야해 시간이 상당히
-걸립니다.  이 글을 쓰는 2018년 9월 초 기준, 버전정보만 약 1.2 GiB 군요.&lt;/p&gt;
-
-&lt;p&gt;토발즈는 github 에 &lt;a href=&#34;https://github.com/torvalds/linux&#34; target=&#34;_blank&#34;&gt;미러&lt;/a&gt; 를 두고 있으므로,
-여길 이용하는 것도 생각해 볼 수 있고, 굳이 버전 정보는 필요하지 않다면
-&lt;a href=&#34;https://kernel.org&#34; target=&#34;_blank&#34;&gt;&lt;code&gt;kernel.org&lt;/code&gt;&lt;/a&gt; 에서 tarball 로 소스코드만 받는것도 한
-방법입니다.&lt;/p&gt;
-
-&lt;p&gt;저는 아예 &lt;code&gt;.git&lt;/code&gt; 디렉토리를 압축해서 별도 저장소에
-보관하기도 합니다.&lt;/p&gt;
-
-&lt;h1 id=&#34;make-configuration-file&#34;&gt;Make Configuration File&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;$ cd linux
-$ cp /boot/config-$(uname -r) ./.config
-$ make menuconfig
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;리눅스 빌드 설정 파일을 만들어야 합니다.  앞의 커맨드를 통해 배포판에서 제공한
-커널을 빌드하는데 사용된 설정 파일을 기반으로 gui 환경에서 필요한 설정을
-추가/제거 할 수 있습니다.  별달리 변경할 게 없다면 그냥 저장하고 나오면 됩니다.&lt;/p&gt;
-
-&lt;p&gt;저는 빌드에 많은 시간이 걸리지 않고 저장 공간이 큰 시스템에서는 이 방법을
-사용하고, 작은 가상머신 등의 환경에서는 &lt;code&gt;localmodconfig&lt;/code&gt; 빌드 타겟을 사용해
-가벼운 설정 파일을 만드는 편입니다.&lt;/p&gt;
-
-&lt;h2 id=&#34;seperated-build-directory&#34;&gt;Seperated Build Directory&lt;/h2&gt;
-
-&lt;p&gt;이렇게 빌드를 하면 컴파일된 파일들이 소스코드와 같은 디렉토리에 위치하게
-되는데, &lt;code&gt;grep&lt;/code&gt; 등을 할때 성가시고, 실수로 git 에 이렇게 만들어진 파일들을
-추가하는 실수도 흔합니다.  리눅스 커널 빌드 시스템은 &lt;code&gt;make&lt;/code&gt; 커맨드에 &lt;code&gt;O&lt;/code&gt; 옵션을
-제공하는데, 이 옵션의 인자로 빌드 디렉토리를 지정할 수 있습니다.  빌드 과정에서
-만들어진 파일들은 이 디렉토리로 저장되므로, 소스코드 디렉토리를 깨끗하게 유지할
-수 있습니다.  예를 들어 &lt;code&gt;/foo&lt;/code&gt; 라는 디렉토리에 빌드 과정에서 만들어진 파일을
-저장하고 싶다면 다음과 같습니다.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ make O=/foo menuconfig
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;build&#34;&gt;Build&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;$ make -j $(grep &amp;quot;^processor&amp;quot; /proc/cpuinfo | wc -l)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;이 커맨드는 리눅스 커널을 빌드합니다.  이 때 뒤의 &lt;code&gt;-j&lt;/code&gt; 옵션을 통해 빌드 과정
-작업을 한순간에 최대 몇개까지 수행해도 되는지 지정해주는데, 이 커맨드에선
-빌드를 수행하는 시스템에 장착된 논리적 코어의 갯수를 줬습니다.  커널 빌드엔 긴
-시간이 걸립니다.  프로세서 3개를 준 제 가상머신에서는 12분 30초 정도 걸렸군요.
-이것도 &lt;code&gt;localmodconfig&lt;/code&gt; 를 해줬기 때문이고, 이런저런 모듈 다 빌드하라고 했다면
-훨씬 많이 걸렸을 겁니다.&lt;/p&gt;
-
-&lt;h1 id=&#34;install&#34;&gt;Install&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo make modules_install install
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;이 커맨드는 빌드한 모듈들과 커널 자체를 설치합니다.  커널 빌드 시스템은 이
-과정에서 가장 최신의 커널로 grub 의 디폴트 부트 대상도 바꿔줍니다.  이제 기계를
-껐다 켜되, grub 등에서 부트할 커널 버전을 해당 버전으로 선택하면 빌드한 커널로
-부팅됩니다.  현재 시스템이 사용중인 커널의 버전은 &lt;code&gt;uname -r&lt;/code&gt; 로 알 수 있습니다.&lt;/p&gt;
-
-&lt;h1 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h1&gt;
-
-&lt;p&gt;이상으로 Ubuntu 16.04.3 을 기본으로 리눅스 커널을 빌드하고 설치하는 방법을
-알아봤습니다.  총 일곱개의 커맨드 뿐.   쉽죠?&lt;/p&gt;
 </description>
     </item>
     

@@ -82,7 +82,7 @@
   <meta property="og:description" content="System Programmer">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2018-11-29T08:14:01&#43;09:00">
+  <meta property="og:updated_time" content="2018-12-05T08:20:36&#43;09:00">
   
 
   
@@ -257,8 +257,28 @@
   
   
   <div>
+    <h2><a href="https://sjp38.github.io/post/lkml_news_v4.20-rc6/">Lkml_news_v4.20 Rc6</a></h2>
+    <div class="article-style">
+      
+      [PATCH memory-model 0/3] Updates to the formal memory model <a href="https://lkml.kernel.org/r/20181203230411.GA27476@linux.ibm.com" target="_blank">https://lkml.kernel.org/r/20181203230411.GA27476@linux.ibm.com</a>
+리눅스 커널 메모리 모델의 업데이트 입니다.
+smp_mb__after_unlock_lock() 을 추가로 모델링했고, github 리트머스 테스트를 체크하기 위한 스크립트가 추가되었으며, -j 옵션을 서포트 하게 되었습니다.
+[tip:core/rcu] tracing: Replace synchronize_sched() and call_rcu_sched() <a href="https://lkml.kernel.org/r/tip-7440172974e85b1828bdd84ac6b23b5bcad9c5eb@git.kernel.org" target="_blank">https://lkml.kernel.org/r/tip-7440172974e85b1828bdd84ac6b23b5bcad9c5eb@git.kernel.org</a>
+synchronize_rcu() 가 이제는 RCU read-side 크리티컬 섹션 만이 아니라 preempt-disable 코드 영역도 기다리므로, synchronize_sched() 를 대체할 수 있고, call_rcu_sched() 도 call_rcu() 로 대체될 수 있습니다. 이 패치는 이 대체를 진행하고 있습니다.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="https://sjp38.github.io/post/lkml_news_v4.20-rc5/">LKML News by 4.20-rc5</a></h2>
     <div class="article-style">
+      
+      [PATCH V12 00/20] block: support multi-page bvec <a href="https://lkml.kernel.org/r/20181126021720.19471-1-ming.lei@redhat.com" target="_blank">https://lkml.kernel.org/r/20181126021720.19471-1-ming.lei@redhat.com</a>
+struct bio_bvec 하나가 물리적으로 연속적인 여러개의 페이지를 담을 수 있게 해서 block layer 의 효율성을 높이기 위한 시도입니다.
+[PATCH] aio: Convert ioctx_table to XArray <a href="https://lkml.kernel.org/r/20181128183531.5139-1-willy@infradead.org" target="_blank">https://lkml.kernel.org/r/20181128183531.5139-1-willy@infradead.org</a>
+aio 쪽의 ioctx_table 이라는 자료구조가 스펙터에 취약한 자료구조인데, 인덱스 오버플로 문제가 없는 XArray 로 교체하는 패치입니다. 정말 코드가 깔끔해지는군요.
+[PATCH 0/4][V4] drop the mmap_sem when doing IO in the fault path <a href="https://lkml.kernel.org/r/20181130195812.19536-1-josef@toxicpanda.com" target="_blank">https://lkml.kernel.org/r/20181130195812.19536-1-josef@toxicpanda.com</a>
+ps 등의 도구를 사용해 시스템 상황을 모니터링하는 커다란 어플리케이션을 사용 중인데, 이 과정에서 다른 task 의 mmap_sem 을 down_read() 해야 하는 경우가 종종 생긴다는군요.
       
     </div>
   </div>
@@ -341,13 +361,6 @@ CPU intensive 한 커널의 일을 여러 work queue 를 이용해 병렬화 시
 일반적이라면 다음 릴리즈가 4.19 정식 릴리즈일텐데, 10월에 컨퍼런스가 많이 있다보니 rc 릴리즈를 한번 더 할 생각이라는군요. 간만에 rc8 을 보겠습니다.
 [PATCH -V6 00/21] swap: Swapout/swapin THP in one piece <a href="https://lkml.kernel.org/r/20181010071924.18767-1-ying.huang@intel.com" target="_blank">https://lkml.kernel.org/r/20181010071924.18767-1-ying.huang@intel.com</a>
 THP 를 한방에 swap out / swap in 하는 Huang Ying 의 패치, 여섯번째 버전입니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="https://sjp38.github.io/post/lkml_news_v4.19-rc6/">LKML News after v4.19-rc6</a></h2>
-    <div class="article-style">
       
     </div>
   </div>

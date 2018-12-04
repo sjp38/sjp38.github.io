@@ -254,7 +254,7 @@
   
   
   <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/lkml_news_v4.20-rc5/" itemprop="url">LKML News by 4.20-rc5</a>
+    <a href="https://sjp38.github.io/post/lkml_news_v4.20-rc6/" itemprop="url">Lkml_news_v4.20 Rc6</a>
   </h3>
   
 
@@ -262,8 +262,8 @@
 
   <span class="article-date">
     
-    <time datetime="2018-11-29 08:14:01 &#43;0900 KST" itemprop="datePublished">
-      Nov 29, 2018
+    <time datetime="2018-12-05 08:20:36 &#43;0900 KST" itemprop="datePublished">
+      Dec 5, 2018
     </time>
   </span>
 
@@ -297,23 +297,77 @@
 
   <div class="article-style" itemprop="articleBody">
     
+    [PATCH memory-model 0/3] Updates to the formal memory model https://lkml.kernel.org/r/20181203230411.GA27476@linux.ibm.com
+리눅스 커널 메모리 모델의 업데이트 입니다.
+smp_mb__after_unlock_lock() 을 추가로 모델링했고, github 리트머스 테스트를 체크하기 위한 스크립트가 추가되었으며, -j 옵션을 서포트 하게 되었습니다.
+[tip:core/rcu] tracing: Replace synchronize_sched() and call_rcu_sched() https://lkml.kernel.org/r/tip-7440172974e85b1828bdd84ac6b23b5bcad9c5eb@git.kernel.org
+synchronize_rcu() 가 이제는 RCU read-side 크리티컬 섹션 만이 아니라 preempt-disable 코드 영역도 기다리므로, synchronize_sched() 를 대체할 수 있고, call_rcu_sched() 도 call_rcu() 로 대체될 수 있습니다. 이 패치는 이 대체를 진행하고 있습니다.
+    
+  </div>
+  <p class="read-more">
+    <a href="https://sjp38.github.io/post/lkml_news_v4.20-rc6/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
+  
+    
     
 
-<h2 id="patch-v12-00-20-block-support-multi-page-bvec">[PATCH V12 00/20] block: support multi-page bvec</h2>
+<div class="article-list-item" itemscope itemprop="blogPost">
+  
+  
+  <h3 class="article-title" itemprop="name">
+    <a href="https://sjp38.github.io/post/lkml_news_v4.20-rc5/" itemprop="url">LKML News by 4.20-rc5</a>
+  </h3>
+  
 
-<p><a href="https://lkml.kernel.org/r/20181126021720.19471-1-ming.lei@redhat.com" target="_blank">https://lkml.kernel.org/r/20181126021720.19471-1-ming.lei@redhat.com</a></p>
+<div class="article-metadata">
 
-<p><code>struct bio_bvec</code> 하나가 물리적으로 연속적인 여러개의 페이지를 담을 수 있게
-해서 block layer 의 효율성을 높이기 위한 시도입니다.</p>
+  <span class="article-date">
+    
+    <time datetime="2018-11-29 08:14:01 &#43;0900 KST" itemprop="datePublished">
+      Nov 29, 2018
+    </time>
+  </span>
 
-<h2 id="patch-aio-convert-ioctx-table-to-xarray">[PATCH] aio: Convert ioctx_table to XArray</h2>
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
 
-<p><a href="https://lkml.kernel.org/r/20181128183531.5139-1-willy@infradead.org" target="_blank">https://lkml.kernel.org/r/20181128183531.5139-1-willy@infradead.org</a></p>
+  
+  
 
-<p>aio 쪽의 <code>ioctx_table</code> 이라는 자료구조가 스펙터에 취약한 자료구조인데, 인덱스
-오버플로 문제가 없는 XArray 로 교체하는 패치입니다.  정말 코드가
-깔끔해지는군요.</p>
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/lkml-news">lkml news</a
+    >
+    
+  </span>
+  
+  
 
+  
+
+</div>
+
+  <div class="article-style" itemprop="articleBody">
+    
+    [PATCH V12 00/20] block: support multi-page bvec https://lkml.kernel.org/r/20181126021720.19471-1-ming.lei@redhat.com
+struct bio_bvec 하나가 물리적으로 연속적인 여러개의 페이지를 담을 수 있게 해서 block layer 의 효율성을 높이기 위한 시도입니다.
+[PATCH] aio: Convert ioctx_table to XArray https://lkml.kernel.org/r/20181128183531.5139-1-willy@infradead.org
+aio 쪽의 ioctx_table 이라는 자료구조가 스펙터에 취약한 자료구조인데, 인덱스 오버플로 문제가 없는 XArray 로 교체하는 패치입니다. 정말 코드가 깔끔해지는군요.
+[PATCH 0/4][V4] drop the mmap_sem when doing IO in the fault path https://lkml.kernel.org/r/20181130195812.19536-1-josef@toxicpanda.com
+ps 등의 도구를 사용해 시스템 상황을 모니터링하는 커다란 어플리케이션을 사용 중인데, 이 과정에서 다른 task 의 mmap_sem 을 down_read() 해야 하는 경우가 종종 생긴다는군요.
     
   </div>
   <p class="read-more">
@@ -824,71 +878,6 @@ CPU intensive 한 커널의 일을 여러 work queue 를 이용해 병렬화 시
   </div>
   <p class="read-more">
     <a href="https://sjp38.github.io/post/lkml_news_v4.19-rc8/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-  
-    
-    
-
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/lkml_news_v4.19-rc7/" itemprop="url">LKML News after v4.19-rc7</a>
-  </h3>
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2018-10-08 07:54:09 &#43;0900 KST" itemprop="datePublished">
-      Oct 8, 2018
-    </time>
-  </span>
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/lkml-news">lkml news</a
-    >
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-  <div class="article-style" itemprop="articleBody">
-    
-    Linux 4.19-rc7 https://lkml.kernel.org/r/20181007154529.GA4493@kroah.com
-토발즈 없이 진행되는 4.19를 위한 일곱번째 rc 릴리즈입니다. 이번에도 그렉이 대신 하는군요. 이번 릴리즈는 후반부임에도 rc6 보다 조금 더 커졌습니다. 하지만 그렇게까지 큰 차이는 아니라고 하는군요.
-일반적이라면 다음 릴리즈가 4.19 정식 릴리즈일텐데, 10월에 컨퍼런스가 많이 있다보니 rc 릴리즈를 한번 더 할 생각이라는군요. 간만에 rc8 을 보겠습니다.
-[PATCH -V6 00/21] swap: Swapout/swapin THP in one piece https://lkml.kernel.org/r/20181010071924.18767-1-ying.huang@intel.com
-THP 를 한방에 swap out / swap in 하는 Huang Ying 의 패치, 여섯번째 버전입니다.
-    
-  </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/lkml_news_v4.19-rc7/" class="btn btn-primary btn-outline">
       CONTINUE READING
     </a>
   </p>
