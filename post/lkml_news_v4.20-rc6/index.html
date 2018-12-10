@@ -357,6 +357,24 @@ preempt-disable 코드 영역도 기다리므로, <code>synchronize_sched()</cod
 있고, <code>call_rcu_sched()</code> 도 <code>call_rcu()</code> 로 대체될 수 있습니다.  이 패치는 이
 대체를 진행하고 있습니다.</p>
 
+<h2 id="patch-v8-00-21-swap-swapout-swapin-thp-in-one-piece">[PATCH -V8 00/21] swap: Swapout/swapin THP in one piece</h2>
+
+<p><a href="https://lkml.kernel.org/r/20181207054122.27822-1-ying.huang@intel.com" target="_blank">https://lkml.kernel.org/r/20181207054122.27822-1-ying.huang@intel.com</a></p>
+
+<p>이 블로그를 통해 여러번 공유한 THP 를 통째로 스왑아웃 / 스왑인 하는 패치입니다.
+Daniel 에 의해 레포트된 버그 하나를 고쳐서 여덟번째 버전이 올라왔습니다.</p>
+
+<h2 id="linux-4-20-rc6">Linux 4.20-rc6</h2>
+
+<p><a href="https://lkml.kernel.org/r/wgHSX8x6mOB0xZibbg-xc3veqsQEnHZ1+3H2DbO5MU5Rw@mail.gmail.com" target="_blank">https://lkml.kernel.org/r/wgHSX8x6mOB0xZibbg-xc3veqsQEnHZ1+3H2DbO5MU5Rw@mail.gmail.com</a></p>
+
+<p>지난 rc5 릴리즈는 평소와 달리 굉장히 규모가 컸기에 걱정이 있었죠.  이번
+릴리즈에는 확연히 변경의 양이 줄어들었다고 합니다.  뭔가 다시 정상적으로 간다는
+거죠.  토발즈는 어쨌건 4.20 릴리즈 전에 최소한 하나의 rc 릴리즈는 더 있을
+거라고 하는군요.  하지만 여전히 크리스마스 휴일 시즌을 위해 크리스마스 전에
+릴리즈를 마치고, 이후 일주일은 푹 쉴테니 그전에 풀리퀘스트도 준비해 두라고
+하네요.</p>
+
       </div>
 
       
