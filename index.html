@@ -583,6 +583,87 @@ DevFest W, March 2013.
       
           
       
+
+      
+      
+        
+        
+
+<div class="article-list-item" itemscope itemprop="blogPost">
+  
+  
+  <h3 class="article-title" itemprop="name">
+    <a href="https://sjp38.github.io/post/perf_symbol_problem_4.19/" itemprop="url">Perf symbol problem on Linux 4.19</a>
+  </h3>
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2018-12-21 17:00:22 &#43;0900 KST" itemprop="datePublished">
+      Dec 21, 2018
+    </time>
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/linux-kernel">linux kernel</a
+    >
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+  <div class="article-style" itemprop="articleBody">
+    
+    4.19 커널에서 오랫만에 perf 를 다시 빌드하고 써보려고 하니, perf report 가 아래와 같이 제대로 된 symbol name 을 찾질 못합니다.
+$ sudo perf record -g ls arch builtin-ftrace.c builtin-report.c Documentation perf.data.old bench builtin.h builtin-sched.c examples perf.h Build builtin-help.c builtin-script.c include perf-read-vdso.c builtin-annotate.c builtin-inject.c builtin-stat.c jvmti perf-sys.h builtin-bench.c builtin-kallsyms.c builtin-timechart.c Makefile perf-with-kcore.sh builtin-buildid-cache.c builtin-kmem.c builtin-top.c Makefile.config pmu-events builtin-buildid-list.c builtin-kvm.c builtin-trace.c Makefile.perf python builtin-c2c.c builtin-list.c builtin-version.c MANIFEST scripts builtin-config.c builtin-lock.c check-headers.sh perf-archive.
+    
+  </div>
+  <p class="read-more">
+    <a href="https://sjp38.github.io/post/perf_symbol_problem_4.19/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
+      
+
+      
+
+        
+
+        
+        
+
+        
+        
+          
+      
+          
+      
+          
+      
           
       
 
@@ -914,91 +995,6 @@ ps 등의 도구를 사용해 시스템 상황을 모니터링하는 커다란 �
       
 
       
-
-        
-
-        
-        
-
-        
-        
-          
-      
-          
-      
-          
-      
-          
-      
-
-      
-      
-        
-        
-
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/lkml_news_v4.20-rc4/" itemprop="url">LKML News by v4.20-rc4</a>
-  </h3>
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2018-11-26 08:06:40 &#43;0900 KST" itemprop="datePublished">
-      Nov 26, 2018
-    </time>
-  </span>
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/lkml-news">lkml news</a
-    >
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-  <div class="article-style" itemprop="articleBody">
-    
-    [PATCH -V7 00/21] swap: Swapout/swapin THP in one piece https://lkml.kernel.org/r/20181120085449.5542-1-ying.huang@intel.com
-Transparent Huge Page 를 쪼개지 않고 swap out / swap in 함으로써 스왑 성능을 최적화 하는 패치의 일곱번째 버전입니다. 이 블로그에서도 소개한 바 있죠. 크게 바뀐 부분은 없지만 최신 버전에 맞춰 리베이스 되었고, Daniel 에 의해 발견된 주소 정렬 관련 문제를 해결했군요.
-[PATCH 0/5] Fragmentation avoidance improvements v5 https://lkml.kernel.org/r/20181123114528.28802-1-mgorman@techsingularity.net
-시스템이 충분히 오래 운영되거나 특정한 패턴의 워크로드가 동작하게 되면 시스템의 메모리는 fragment 되게 마련이어서, 장기적으로 물리적 연속 페이지 할당이 실패하게 됩니다.
-    
-  </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/lkml_news_v4.20-rc4/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-      
-
-      
     
 
   </div>
@@ -1134,7 +1130,7 @@ Transparent Huge Page 를 쪼개지 않고 swap out / swap in 함으로써 스�
           
           
           
-          <a href="/tags/benchmark" style="font-size:1.441860174833732rem">benchmark</a>
+          <a href="/tags/benchmark" style="font-size:1.439761060367149rem">benchmark</a>
         
           
           
@@ -1183,7 +1179,7 @@ Transparent Huge Page 를 쪼개지 않고 swap out / swap in 함으로써 스�
           
           
           
-          <a href="/tags/conference" style="font-size:1.5145718621971411rem">conference</a>
+          <a href="/tags/conference" style="font-size:1.5122349542658462rem">conference</a>
         
           
           
@@ -1225,7 +1221,7 @@ Transparent Huge Page 를 쪼개지 않고 swap out / swap in 함으로써 스�
           
           
           
-          <a href="/tags/english" style="font-size:1.5760487178995284rem">english</a>
+          <a href="/tags/english" style="font-size:1.573510758458536rem">english</a>
         
           
           
@@ -1239,14 +1235,14 @@ Transparent Huge Page 를 쪼개지 않고 swap out / swap in 함으로써 스�
           
           
           
-          <a href="/tags/event" style="font-size:1.441860174833732rem">event</a>
+          <a href="/tags/event" style="font-size:1.439761060367149rem">event</a>
         
           
           
           
           
           
-          <a href="/tags/fedora" style="font-size:1.0764341308617782rem">fedora</a>
+          <a href="/tags/fedora" style="font-size:1.075530091468308rem">fedora</a>
         
           
           
@@ -1267,21 +1263,21 @@ Transparent Huge Page 를 쪼개지 않고 swap out / swap in 함으로써 스�
           
           
           
-          <a href="/tags/gcma" style="font-size:1.0764341308617782rem">gcma</a>
+          <a href="/tags/gcma" style="font-size:1.075530091468308rem">gcma</a>
         
           
           
           
           
           
-          <a href="/tags/git" style="font-size:1.0764341308617782rem">git</a>
+          <a href="/tags/git" style="font-size:1.075530091468308rem">git</a>
         
           
           
           
           
           
-          <a href="/tags/golang" style="font-size:1.238137731335363rem">golang</a>
+          <a href="/tags/golang" style="font-size:1.236704862797538rem">golang</a>
         
           
           
@@ -1330,7 +1326,7 @@ Transparent Huge Page 를 쪼개지 않고 swap out / swap in 함으로써 스�
           
           
           
-          <a href="/tags/kernel" style="font-size:2.4459430820422017rem">kernel</a>
+          <a href="/tags/kernel" style="font-size:2.4469204840536123rem">kernel</a>
         
           
           
@@ -1351,21 +1347,21 @@ Transparent Huge Page 를 쪼개지 않고 swap out / swap in 함으로써 스�
           
           
           
-          <a href="/tags/life" style="font-size:1.0764341308617782rem">life</a>
+          <a href="/tags/life" style="font-size:1.075530091468308rem">life</a>
         
           
           
           
           
           
-          <a href="/tags/linux" style="font-size:2.4943430235950386rem">linux</a>
+          <a href="/tags/linux" style="font-size:2.4944403863440883rem">linux</a>
         
           
           
           
           
           
-          <a href="/tags/linux-foundation" style="font-size:1.441860174833732rem">linux foundation</a>
+          <a href="/tags/linux-foundation" style="font-size:1.439761060367149rem">linux foundation</a>
         
           
           
@@ -1386,7 +1382,7 @@ Transparent Huge Page 를 쪼개지 않고 swap out / swap in 함으로써 스�
           
           
           
-          <a href="/tags/lkml" style="font-size:2.3981651476074877rem">lkml</a>
+          <a href="/tags/lkml" style="font-size:2.39293857067864rem">lkml</a>
         
           
           
@@ -1407,7 +1403,7 @@ Transparent Huge Page 를 쪼개지 않고 swap out / swap in 함으로써 스�
           
           
           
-          <a href="/tags/mariadb" style="font-size:1.0764341308617782rem">mariadb</a>
+          <a href="/tags/mariadb" style="font-size:1.075530091468308rem">mariadb</a>
         
           
           
@@ -1442,21 +1438,21 @@ Transparent Huge Page 를 쪼개지 않고 swap out / swap in 함으로써 스�
           
           
           
-          <a href="/tags/news" style="font-size:2.3981651476074877rem">news</a>
+          <a href="/tags/news" style="font-size:2.39293857067864rem">news</a>
         
           
           
           
           
           
-          <a href="/tags/open-source" style="font-size:1.0764341308617782rem">open source</a>
+          <a href="/tags/open-source" style="font-size:1.075530091468308rem">open source</a>
         
           
           
           
           
           
-          <a href="/tags/open-source" style="font-size:1.0764341308617782rem">open-source</a>
+          <a href="/tags/open-source" style="font-size:1.075530091468308rem">open-source</a>
         
           
           
@@ -1498,6 +1494,13 @@ Transparent Huge Page 를 쪼개지 않고 swap out / swap in 함으로써 스�
           
           
           
+          <a href="/tags/perf" style="font-size:0.8rem">perf</a>
+        
+          
+          
+          
+          
+          
           <a href="/tags/perfbook" style="font-size:0.8rem">perfbook</a>
         
           
@@ -1505,21 +1508,21 @@ Transparent Huge Page 를 쪼개지 않고 swap out / swap in 함으로써 스�
           
           
           
-          <a href="/tags/prague" style="font-size:1.441860174833732rem">prague</a>
+          <a href="/tags/prague" style="font-size:1.439761060367149rem">prague</a>
         
           
           
           
           
           
-          <a href="/tags/projects" style="font-size:1.3528682617235561rem">projects</a>
+          <a href="/tags/projects" style="font-size:1.3510601829366158rem">projects</a>
         
           
           
           
           
           
-          <a href="/tags/raspberry" style="font-size:1.0764341308617782rem">raspberry</a>
+          <a href="/tags/raspberry" style="font-size:1.075530091468308rem">raspberry</a>
         
           
           
@@ -1533,28 +1536,28 @@ Transparent Huge Page 를 쪼개지 않고 swap out / swap in 함으로써 스�
           
           
           
-          <a href="/tags/setup" style="font-size:1.3528682617235561rem">setup</a>
+          <a href="/tags/setup" style="font-size:1.3510601829366158rem">setup</a>
         
           
           
           
           
           
-          <a href="/tags/spec" style="font-size:1.0764341308617782rem">spec</a>
+          <a href="/tags/spec" style="font-size:1.075530091468308rem">spec</a>
         
           
           
           
           
           
-          <a href="/tags/spec_cpu" style="font-size:1.0764341308617782rem">spec_cpu</a>
+          <a href="/tags/spec_cpu" style="font-size:1.075530091468308rem">spec_cpu</a>
         
           
           
           
           
           
-          <a href="/tags/spec_cpu2006" style="font-size:1.0764341308617782rem">spec_cpu2006</a>
+          <a href="/tags/spec_cpu2006" style="font-size:1.075530091468308rem">spec_cpu2006</a>
         
           
           
@@ -1575,7 +1578,7 @@ Transparent Huge Page 를 쪼개지 않고 swap out / swap in 함으로써 스�
           
           
           
-          <a href="/tags/tip" style="font-size:1.5760487178995284rem">tip</a>
+          <a href="/tags/tip" style="font-size:1.573510758458536rem">tip</a>
         
           
           
@@ -1603,7 +1606,7 @@ Transparent Huge Page 를 쪼개지 않고 swap out / swap in 함으로써 스�
           
           
           
-          <a href="/tags/trip" style="font-size:1.441860174833732rem">trip</a>
+          <a href="/tags/trip" style="font-size:1.439761060367149rem">trip</a>
         
           
           

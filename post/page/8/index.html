@@ -73,7 +73,7 @@
   <meta property="og:description" content="System Programmer">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2017-11-08T04:19:47&#43;09:00">
+  <meta property="og:updated_time" content="2017-11-13T17:07:44&#43;09:00">
   
 
   
@@ -246,6 +246,71 @@
   
 
   
+  
+    
+    
+
+<div class="article-list-item" itemscope itemprop="blogPost">
+  
+  
+  <h3 class="article-title" itemprop="name">
+    <a href="https://sjp38.github.io/post/lkml_news_v4.14/" itemprop="url">LKML News after v4.14</a>
+  </h3>
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2017-11-13 17:07:44 &#43;0900 KST" itemprop="datePublished">
+      Nov 13, 2017
+    </time>
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/lkml-news">lkml news</a
+    >
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+  <div class="article-style" itemprop="articleBody">
+    
+    Linux 4.14 htpps://lkml.kernel.org/r/CA+55aFwqXh4rgJJ3T98k8wa-JYF7t8mWuwUjdxkbZyOyDEcGzQ@mail.gmail.com
+드디어 v4.14 의 릴리즈입니다. 이번 버전은 또하나의 LTS 커널이 될 예정이군요.
+동시에, v4.15 를 위한 머지 윈도우가 열렸습니다. 이번 머지 윈도우는 thanks giving 이랑 겹치게 되었는데, 이때문에 머지 윈도우를 연장할지 아니면 아예 1주일 줄일지 토발즈는 고민중인 것 같네요.
+[RFC PATCH v11 for 4.15 01/24] Restartable sequences system call https://lkml.kernel.org/r/20171114200414.2188-2-mathieu.desnoyers@efficios.com
+몇년전부터 올라오고 있으나 아직 머지되지 못한, restartable sequence 패치의 최신 버전이 또 올라왔습니다. 유저스페이스의 크리티컬 섹션을 커널에게 제어할 수 있도록 도와주는 기능입니다.
+    
+  </div>
+  <p class="read-more">
+    <a href="https://sjp38.github.io/post/lkml_news_v4.14/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
   
     
     
@@ -818,69 +883,6 @@ userprog userprog is a sample synthetic workload for test of other tools. It int
   </div>
   <p class="read-more">
     <a href="https://sjp38.github.io/post/idle_page_tracking/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-  
-    
-    
-
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/tpch-on-mariadb/" itemprop="url">TPC-H on MariaDB (MySQL)</a>
-  </h3>
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2017-09-10 10:54:24 &#43;0900 KST" itemprop="datePublished">
-      Sep 10, 2017
-    </time>
-  </span>
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    6 min read
-  </span>
-  
-
-  
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/tip">tip</a
-    >
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-  <div class="article-style" itemprop="articleBody">
-    
-    Database 를 위해 사용되는 벤치마크는 크게 OLTP vs OLAP 로 나뉩니다[1]. OLTP 계열의 대표주자는 TPC-C 이고, OLAP 계열의 대표주자 중 하나로 TPC-H[2] 가 있습니다. 이 글에서는 TPC-H 를 MariaDB 에서 돌리는 방법에 대해 설명합니다.
-Environment Setup 이 글을 작성하면서 사용한 운영체제와 소프트웨어들의 버전은 다음과 같습니다. - Ubuntu 16.04.2 Server - MariaDB 10.2.8 - TPC-H toolkit 2.17.2
-Automated Scripts 아래 설명할 모든 내용을 자동화 해서 손쉽게 TPC-H 를 돌릴 수 있도록 소스코드 변경부터 빌드, 수행까지 정리한 스크립트들을 github 에 올려 두었습니다: https://github.
-    
-  </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/tpch-on-mariadb/" class="btn btn-primary btn-outline">
       CONTINUE READING
     </a>
   </p>
