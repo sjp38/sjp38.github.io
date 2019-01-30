@@ -73,7 +73,7 @@
   <meta property="og:description" content="System Programmer">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2018-05-28T19:51:49&#43;09:00">
+  <meta property="og:updated_time" content="2018-06-25T08:45:22&#43;09:00">
   
 
   
@@ -246,6 +246,181 @@
   
 
   
+  
+    
+    
+
+<div class="article-list-item" itemscope itemprop="blogPost">
+  
+  
+  <h3 class="article-title" itemprop="name">
+    <a href="https://sjp38.github.io/post/lkml_news_v4.18-rc2/" itemprop="url">Lkml_news_v4.18 Rc2</a>
+  </h3>
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2018-06-25 08:45:22 &#43;0900 KST" itemprop="datePublished">
+      Jun 25, 2018
+    </time>
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  
+
+  
+
+</div>
+
+  <div class="article-style" itemprop="articleBody">
+    
+    Linux 4.18-rc2 https://lkml.kernel.org/r/alpine.LFD.2.21.999.1806242116240.20621@xps13.linux-foundation.org
+이번주도 지난주처럼 평소보단 빠른 릴리즈입니다. 토발즈가 여전히 여행중이라는군요. 지난주엔 일본이었고, 이번주는 중국이라는군요. 그런고로 중국 시간으로 일요일 저녁의 rc 릴리즈입니다.
+이번 rc 에서도 큰 변경은 없고 평범한 rc 입니다.
+[PATCH tip/core/rcu 0/40] RCU -&gt;gp_seq conversion for v4.19 https://lkml.kernel.org/r/20180626000841.GA15696@linux.vnet.ibm.com
+RCU 의 -&gt;gpnum 과 -&gt;completed 필드를 하나의 -&gt;gp_seq 로 대체하는 패치입니다. 그동안 -&gt;gpnum 과 -&gt;completed 로 grace period 를 관리해오고 있지만 사실상 -&gt;gpnum 과 -&gt;completed 는 수가 똑같거나 하나 차이이니 하나의 bit 으로도 같은 정보를 처리할 수 있을 뿐더러 로드 횟수를 두번에서 한번으로 줄일 수 있다는 거죠.
+    
+  </div>
+  <p class="read-more">
+    <a href="https://sjp38.github.io/post/lkml_news_v4.18-rc2/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
+  
+    
+    
+
+<div class="article-list-item" itemscope itemprop="blogPost">
+  
+  
+  <h3 class="article-title" itemprop="name">
+    <a href="https://sjp38.github.io/post/lkml_news_v4.18-rc1/" itemprop="url">Lkml_news_v4.18 Rc1</a>
+  </h3>
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2018-06-17 11:59:59 &#43;0900 KST" itemprop="datePublished">
+      Jun 17, 2018
+    </time>
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  
+
+  
+
+</div>
+
+  <div class="article-style" itemprop="articleBody">
+    
+    Linux 4.18-rc1 https://lkml.kernel.org/r/CA+55aFw34Dh6p0qAZ_Ja=fjuJ89ojZZTWtmrRPKmB1QuP3C7hw@mail.gmail.com
+평소보다 많이 빠르게 4.18 머지윈도우가 닫혔습니다. 토발즈가 지금 일본에 있기 때문에 자기는 이미 일요일이고, 오후엔 뱃놀이 하러 갈거라서 일찍 릴리즈 한다네요.
+전체적으로 크기에서도 한 일에 있어서도 평범한 릴리즈입니다. 4.17 에서 더이상 사용되지 않는 과거 코드 삭제를 많이 했던 것처럼 이번에도 미사용 코드 제거가 좀 있군요, 하지만 4.17 때만큼 큰 변화는 아닙니다.
+제거된 컴포넌트들 가운데 특이할만한 점은 Lustre 의 제거군요. Staging 트리에서 머물던 Lustre 는 계속 out of tree 로 개발이 진행되어왔고, Staging 딱지를 떼지 못한채 커널 소스트리에서 제거되게 되었습니다.
+    
+  </div>
+  <p class="read-more">
+    <a href="https://sjp38.github.io/post/lkml_news_v4.18-rc1/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
+  
+    
+    
+
+<div class="article-list-item" itemscope itemprop="blogPost">
+  
+  
+  <h3 class="article-title" itemprop="name">
+    <a href="https://sjp38.github.io/post/lkml_news_v4.17/" itemprop="url">LKML News after v4.17</a>
+  </h3>
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2018-06-04 11:29:16 &#43;0900 KST" itemprop="datePublished">
+      Jun 4, 2018
+    </time>
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/lkml-news">lkml news</a
+    >
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+  <div class="article-style" itemprop="articleBody">
+    
+    Linux 4.17 https://lkml.kernel.org/r/CA+55aFxhx_tKGm02UySguvbyfB_7oTF31QfgOHCK0YkBvmfV0g@mail.gmail.com
+4.17 버전 리눅스 릴리즈입니다. 지난주에 토발즈가 이야기한 것처럼 별다른 지연 없이 릴리즈 되었군요.
+git object 의 갯수라던지 릴리즈를 위한 스크립트 등이 리눅스 5.x 버전으로의 메이저 버전 업데이트가 될 준비가 되었다고 하지만 토발즈는 딱히 5.x 로 아직은 넘어갈 생각이 없군요. 너무 멀지 않은 미래에 넘어가겠지만, 적어도 지금은 아니라고 합니다.
+항상 그렇듯 이 릴리즈는 4.18을 위한 머지 윈도우의 시작이기도 한데, 토발즈는 두번째 주에 여행을 갈거라 가능하면 첫째주에 중요한 머지를 마무리 했으면 한다고 하네요.
+    
+  </div>
+  <p class="read-more">
+    <a href="https://sjp38.github.io/post/lkml_news_v4.17/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
   
     
     
@@ -705,203 +880,6 @@ Cgroup 은 용량 기반의 컨트롤러는 많지만 응답시간 기반의 컨
   </div>
   <p class="read-more">
     <a href="https://sjp38.github.io/post/lkml_news_v4.17-rc3/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-  
-    
-    
-
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/lkml_news_v4.17-rc2/" itemprop="url">LKML News after v4.17-rc2</a>
-  </h3>
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2018-04-23 12:03:23 &#43;0900 KST" itemprop="datePublished">
-      Apr 23, 2018
-    </time>
-  </span>
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/lkml-news">lkml news</a
-    >
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-  <div class="article-style" itemprop="articleBody">
-    
-    
-
-<h2 id="linux-v4-17-rc2">Linux v4.17-rc2</h2>
-
-<p><a href="https://lkml.kernel.org/r/CA+55aFwzkGuq5ASF-vhYj7mEX26V0K+uZCLWi1BLYq+9F1n-Rw@mail.gmail.com" target="_blank">https://lkml.kernel.org/r/CA+55aFwzkGuq5ASF-vhYj7mEX26V0K+uZCLWi1BLYq+9F1n-Rw@mail.gmail.com</a></p>
-
-<p>두번째 rc 버전의 릴리즈입니다.  <code>perf</code> 와 테스트 스크립트 쪽에 변경사항이 좀
-많긴 하지만 평소와 크게 다르지 않은 추이라는군요.</p>
-
-    
-  </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/lkml_news_v4.17-rc2/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-  
-    
-    
-
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/lkml_news_v4.17-rc1/" itemprop="url">LKML News after v4.17-rc1</a>
-  </h3>
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2018-04-16 10:59:58 &#43;0900 KST" itemprop="datePublished">
-      Apr 16, 2018
-    </time>
-  </span>
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/lkml-news">lkml news</a
-    >
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-  <div class="article-style" itemprop="articleBody">
-    
-    Linux v4.17-rc1 https://lkml.kernel.org/r/CA+55aFx62iBkj+hOmhLksUtvjwTcm_o1dwcyvaNnVpJ-AmvzVQ@mail.gmail.com
-2주간의 머지 윈도우가 지나고, v4.17-rc1 이 릴리즈 되었습니다. 크게 특별할 것 없이 평범한 머지 윈도우였다고 토발즈는 평하는군요. 그리고 이번에 git objects mark 가 4백만을 넘겼습니다. 따라서 다음 커널이 v5.0 이어도 될 것 같은데, 꼭 다음 버전에서 그렇게 할지는 모르겠다는군요. 리눅스 커널에서 버전은 그저 시간이 흘렀음을 의미할 뿐, 큰 변화가 있어서 메이저 버전 넘버가 바뀌는게 아니기 때문이죠. 참고로 v3.0 과 v4.0 은 각각 git objects mark 2백만과 4백만에서 이루어졌군요.
-    
-  </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/lkml_news_v4.17-rc1/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-  
-    
-    
-
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/lkml_news_v4.16/" itemprop="url">LKML News after v4.16</a>
-  </h3>
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2018-04-02 07:13:40 &#43;0900 KST" itemprop="datePublished">
-      Apr 2, 2018
-    </time>
-  </span>
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/lkml-news">lkml news</a
-    >
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-  <div class="article-style" itemprop="articleBody">
-    
-    Linux 4.16 https://lkml.kernel.org/r/CA+55aFyxn0bu5jOAJvO_63GHaGMkJ0uA=bVBm2T3HVX9SimZzw@mail.gmail.com
-릴리즈 마지막 주 치고는 네트워킹 쪽에 조금 변경사항이 있었습니다만, 큰 문제가 될 정도는 아니었습니다. 결과, 4.16이 드디어 릴리즈 되었습니다! 동시에 4.17 머지 윈도우가 시작되는군요.
-[PATCH 0/2] Move kfree_rcu out of rcu code and use kfree_bulk https://lkml.kernel.org/r/1522647064-27167-1-git-send-email-rao.shoaib@oracle.com
-kfree_rcu() 대신 kfree_bulk() 라는 새로 만들어진, 더 효율적인 기능을 사용하도록 하는 패치입니다.
-[RFC PATCH 0/1] mm: Support multiple kswapd threads per node https://lkml.kernel.org/r/1522661062-39745-1-git-send-email-buddy.lumpkin@oracle.com
-NUMA 아키텍쳐에서 리눅스 커널은 NUMA 노드당 하나의 kswapd 쓰레드를 띄웁니다.
-    
-  </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/lkml_news_v4.16/" class="btn btn-primary btn-outline">
       CONTINUE READING
     </a>
   </p>
