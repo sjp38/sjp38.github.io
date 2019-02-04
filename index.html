@@ -587,6 +587,91 @@ DevFest W, March 2013.
       
           
       
+          
+      
+
+      
+      
+        
+        
+
+<div class="article-list-item" itemscope itemprop="blogPost">
+  
+  
+  <h3 class="article-title" itemprop="name">
+    <a href="https://sjp38.github.io/post/lkml_news_v5.0-rc5/" itemprop="url">LKML News v5.0-rc5</a>
+  </h3>
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2019-02-04 09:18:08 &#43;0900 KST" itemprop="datePublished">
+      Feb 4, 2019
+    </time>
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/lkml-news">lkml news</a
+    >
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+  <div class="article-style" itemprop="articleBody">
+    
+    [LSF/MM TOPIC] Page flags, can we free up space ? https://lkml.kernel.org/r/20190122201744.GA3939@redhat.com
+리눅스 커널의 page 정보는 PG_ 로 시작하는 플래그를 사용해 현재 상태를 알리는데요, 이걸 저장하는데 사용되는 공간을 더 줄일 수 있을지에 대한 논의를 해보고 싶다는 LSF/MM 제안입니다.
+[LSF/MM TOPIC] Use NVDIMM as NUMA node and NUMA API https://lkml.kernel.org/r/f0d66b0c-c9b6-a040-c485-1606041a70a2@linux.alibaba.com
+알리바바에서는 NVDIMM 을 클라우드 고객들에게 싼 비용의 메모리로 제공하려 한다는군요. 이를 위해 여러 필요성이 있고, 현재 NUMA API 로는 모든 경우를 커퍼하기가 어렵다고 합니다.
+    
+  </div>
+  <p class="read-more">
+    <a href="https://sjp38.github.io/post/lkml_news_v5.0-rc5/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
+      
+
+      
+
+        
+
+        
+        
+
+        
+        
+          
+      
+          
+      
+          
+      
 
       
       
@@ -891,91 +976,6 @@ SPF 패치에서 발견된 버그 레포트입니다. ARM 위에서 데드락 �
       
 
       
-
-        
-
-        
-        
-
-        
-        
-          
-      
-          
-      
-          
-      
-          
-      
-
-      
-      
-        
-        
-
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.0-rc1/" itemprop="url">LKML News v5.0-rc1</a>
-  </h3>
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2019-01-07 11:18:50 &#43;0900 KST" itemprop="datePublished">
-      Jan 7, 2019
-    </time>
-  </span>
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/lkml-news">lkml news</a
-    >
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-  <div class="article-style" itemprop="articleBody">
-    
-    [RFC v3 0/3] test driver to analyse vmalloc allocator https://lkml.kernel.org/r/20190102085924.14145-1-urezki@gmail.com
-vmalloc 의 성능과 스트레스 테스트를 위한 모듈을 구현한 패치입니다. Selftests 에도 테스트 스크립트를 추가했군요.
-[RFC PATCH 0/1] mm: add a warning about high order allocations https://lkml.kernel.org/r/20181225153927.2873-1-khorenko@virtuozzo.com
-특정 노드의 메모리에 접근이 많이 되고 있는 상황에서 해당 메모리가 fragment 되어 있고 이 시점에서 high order allocation 이 요청되면 이걸 위해 compaction 등이 작동하니까 다른 태스크의 latency 가 떨어질 수 있습니다. 이런 상황을 모니터링 할 수 있게끔, 이 패치는 vm.
-    
-  </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.0-rc1/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-      
-
-      
     
 
   </div>
@@ -1111,7 +1111,7 @@ vmalloc 의 성능과 스트레스 테스트를 위한 모듈을 구현한 패�
           
           
           
-          <a href="/tags/benchmark" style="font-size:1.4337120981433271rem">benchmark</a>
+          <a href="/tags/benchmark" style="font-size:1.431773936687839rem">benchmark</a>
         
           
           
@@ -1160,7 +1160,7 @@ vmalloc 의 성능과 스트레스 테스트를 위한 모듈을 구현한 패�
           
           
           
-          <a href="/tags/conference" style="font-size:1.505500748951182rem">conference</a>
+          <a href="/tags/conference" style="font-size:1.5033430272311121rem">conference</a>
         
           
           
@@ -1202,7 +1202,7 @@ vmalloc 의 성능과 스트레스 테스트를 위한 모듈을 구현한 패�
           
           
           
-          <a href="/tags/english" style="font-size:1.566197188365742rem">english</a>
+          <a href="/tags/english" style="font-size:1.5638538310870271rem">english</a>
         
           
           
@@ -1216,7 +1216,7 @@ vmalloc 의 성능과 스트레스 테스트를 위한 모듈을 구현한 패�
           
           
           
-          <a href="/tags/event" style="font-size:1.4337120981433271rem">event</a>
+          <a href="/tags/event" style="font-size:1.431773936687839rem">event</a>
         
           
           
@@ -1237,7 +1237,7 @@ vmalloc 의 성능과 스트레스 테스트를 위한 모듈을 구현한 패�
           
           
           
-          <a href="/tags/fedora" style="font-size:1.0729249452378364rem">fedora</a>
+          <a href="/tags/fedora" style="font-size:1.0720902245331962rem">fedora</a>
         
           
           
@@ -1258,21 +1258,21 @@ vmalloc 의 성능과 스트레스 테스트를 위한 모듈을 구현한 패�
           
           
           
-          <a href="/tags/gcma" style="font-size:1.0729249452378364rem">gcma</a>
+          <a href="/tags/gcma" style="font-size:1.0720902245331962rem">gcma</a>
         
           
           
           
           
           
-          <a href="/tags/git" style="font-size:1.0729249452378364rem">git</a>
+          <a href="/tags/git" style="font-size:1.0720902245331962rem">git</a>
         
           
           
           
           
           
-          <a href="/tags/golang" style="font-size:1.2325758037133459rem">golang</a>
+          <a href="/tags/golang" style="font-size:1.2312528026979157rem">golang</a>
         
           
           
@@ -1321,7 +1321,7 @@ vmalloc 의 성능과 스트레스 테스트를 위한 모듈을 구현한 패�
           
           
           
-          <a href="/tags/kernel" style="font-size:2.449665934021806rem">kernel</a>
+          <a href="/tags/kernel" style="font-size:2.4505235698700503rem">kernel</a>
         
           
           
@@ -1342,21 +1342,21 @@ vmalloc 의 성능과 스트레스 테스트를 위한 모듈을 구현한 패�
           
           
           
-          <a href="/tags/life" style="font-size:1.0729249452378364rem">life</a>
+          <a href="/tags/life" style="font-size:1.0720902245331962rem">life</a>
         
           
           
           
           
           
-          <a href="/tags/linux" style="font-size:2.4947147197711796rem">linux</a>
+          <a href="/tags/linux" style="font-size:2.494800676073594rem">linux</a>
         
           
           
           
           
           
-          <a href="/tags/linux-foundation" style="font-size:1.4337120981433271rem">linux foundation</a>
+          <a href="/tags/linux-foundation" style="font-size:1.431773936687839rem">linux foundation</a>
         
           
           
@@ -1377,7 +1377,7 @@ vmalloc 의 성능과 스트레스 테스트를 위한 모듈을 구현한 패�
           
           
           
-          <a href="/tags/lkml" style="font-size:2.3987891422994787rem">lkml</a>
+          <a href="/tags/lkml" style="font-size:2.40060966814951rem">lkml</a>
         
           
           
@@ -1398,7 +1398,7 @@ vmalloc 의 성능과 스트레스 테스트를 위한 모듈을 구현한 패�
           
           
           
-          <a href="/tags/mariadb" style="font-size:1.0729249452378364rem">mariadb</a>
+          <a href="/tags/mariadb" style="font-size:1.0720902245331962rem">mariadb</a>
         
           
           
@@ -1433,21 +1433,21 @@ vmalloc 의 성능과 스트레스 테스트를 위한 모듈을 구현한 패�
           
           
           
-          <a href="/tags/news" style="font-size:2.3987891422994787rem">news</a>
+          <a href="/tags/news" style="font-size:2.40060966814951rem">news</a>
         
           
           
           
           
           
-          <a href="/tags/open-source" style="font-size:1.0729249452378364rem">open source</a>
+          <a href="/tags/open-source" style="font-size:1.0720902245331962rem">open source</a>
         
           
           
           
           
           
-          <a href="/tags/open-source" style="font-size:1.0729249452378364rem">open-source</a>
+          <a href="/tags/open-source" style="font-size:1.0720902245331962rem">open-source</a>
         
           
           
@@ -1503,21 +1503,21 @@ vmalloc 의 성능과 스트레스 테스트를 위한 모듈을 구현한 패�
           
           
           
-          <a href="/tags/prague" style="font-size:1.4337120981433271rem">prague</a>
+          <a href="/tags/prague" style="font-size:1.431773936687839rem">prague</a>
         
           
           
           
           
           
-          <a href="/tags/projects" style="font-size:1.3458498904756728rem">projects</a>
+          <a href="/tags/projects" style="font-size:1.3441804490663927rem">projects</a>
         
           
           
           
           
           
-          <a href="/tags/raspberry" style="font-size:1.0729249452378364rem">raspberry</a>
+          <a href="/tags/raspberry" style="font-size:1.0720902245331962rem">raspberry</a>
         
           
           
@@ -1531,28 +1531,28 @@ vmalloc 의 성능과 스트레스 테스트를 위한 모듈을 구현한 패�
           
           
           
-          <a href="/tags/setup" style="font-size:1.3458498904756728rem">setup</a>
+          <a href="/tags/setup" style="font-size:1.3441804490663927rem">setup</a>
         
           
           
           
           
           
-          <a href="/tags/spec" style="font-size:1.0729249452378364rem">spec</a>
+          <a href="/tags/spec" style="font-size:1.0720902245331962rem">spec</a>
         
           
           
           
           
           
-          <a href="/tags/spec_cpu" style="font-size:1.0729249452378364rem">spec_cpu</a>
+          <a href="/tags/spec_cpu" style="font-size:1.0720902245331962rem">spec_cpu</a>
         
           
           
           
           
           
-          <a href="/tags/spec_cpu2006" style="font-size:1.0729249452378364rem">spec_cpu2006</a>
+          <a href="/tags/spec_cpu2006" style="font-size:1.0720902245331962rem">spec_cpu2006</a>
         
           
           
@@ -1580,7 +1580,7 @@ vmalloc 의 성능과 스트레스 테스트를 위한 모듈을 구현한 패�
           
           
           
-          <a href="/tags/tip" style="font-size:1.566197188365742rem">tip</a>
+          <a href="/tags/tip" style="font-size:1.5638538310870271rem">tip</a>
         
           
           
@@ -1608,7 +1608,7 @@ vmalloc 의 성능과 스트레스 테스트를 위한 모듈을 구현한 패�
           
           
           
-          <a href="/tags/trip" style="font-size:1.4337120981433271rem">trip</a>
+          <a href="/tags/trip" style="font-size:1.431773936687839rem">trip</a>
         
           
           
