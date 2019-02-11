@@ -7,10 +7,160 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2017 Your Name</copyright>
-    <lastBuildDate>Thu, 08 Nov 2018 06:11:48 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 04 Feb 2019 09:18:08 +0900</lastBuildDate>
     
 	<atom:link href="https://sjp38.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>LKML News v5.0-rc5</title>
+      <link>https://sjp38.github.io/post/lkml_news_v5.0-rc5/</link>
+      <pubDate>Mon, 04 Feb 2019 09:18:08 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/lkml_news_v5.0-rc5/</guid>
+      <description>[LSF/MM TOPIC] Page flags, can we free up space ? https://lkml.kernel.org/r/20190122201744.GA3939@redhat.com
+리눅스 커널의 page 정보는 PG_ 로 시작하는 플래그를 사용해 현재 상태를 알리는데요, 이걸 저장하는데 사용되는 공간을 더 줄일 수 있을지에 대한 논의를 해보고 싶다는 LSF/MM 제안입니다.
+[LSF/MM TOPIC] Use NVDIMM as NUMA node and NUMA API https://lkml.kernel.org/r/f0d66b0c-c9b6-a040-c485-1606041a70a2@linux.alibaba.com
+알리바바에서는 NVDIMM 을 클라우드 고객들에게 싼 비용의 메모리로 제공하려 한다는군요. 이를 위해 여러 필요성이 있고, 현재 NUMA API 로는 모든 경우를 커퍼하기가 어렵다고 합니다.</description>
+    </item>
+    
+    <item>
+      <title>LKML News v5.0-rc3</title>
+      <link>https://sjp38.github.io/post/lkml_news_v5.0-rc3/</link>
+      <pubDate>Mon, 21 Jan 2019 09:21:14 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/lkml_news_v5.0-rc3/</guid>
+      <description>LSF/MM 2019: Call for Proposals https://lkml.kernel.org/r/51b4b263-a0f2-113d-7bdc-f7960b540929@kernel.dk
+올해의 LSF/MM 을 위한 발표 모집입니다. 올해는 푸에르토리코에서 4월 30일부터 5월 2일까지 열리는군요.
+[LSF/MM TOPIC] NUMA, memory hierarchy and device memory https://lkml.kernel.org/r/20190118174512.GA3060@redhat.com
+LSF/MM 을 위한 발표 지원입니다. NUMA API 가 다계층 메모리에 적용될 때의 단점에 대해서 이야기 해보겠다는군요.
+[PATCH 00/22] Increase success rates and reduce latency of compaction v3 https://lkml.kernel.org/r/20190118175136.31341-1-mgorman@techsingularity.net
+Mel Gorman 의 compaction 개선 패치셋 세번째 버전입니다.
+Linux 5.0-rc3 https://lkml.kernel.org/r/CAHk-=whS=6Z_UxzoMjLANupOk3u-8ycERLPnaZxShMTviW0jkQ@mail.gmail.com
+5.0 세번째 릴리즈입니다.</description>
+    </item>
+    
+    <item>
+      <title>LKML News v5.0-rc2</title>
+      <link>https://sjp38.github.io/post/lkml_news_v5.0-rc2/</link>
+      <pubDate>Tue, 15 Jan 2019 09:06:44 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/lkml_news_v5.0-rc2/</guid>
+      <description>[PATCH v11 00/26] Speculative page faults https://lkml.kernel.org/r/8b0b2c05-89f8-8002-2dce-fa7004907e78@codeaurora.org
+SPF 패치에서 발견된 버그 레포트입니다. ARM 위에서 데드락 문제가 발견되었군요. 버그 발견자가 패치도 같이 내놓았는데, 이에 대한 토론은 아직도 계속되고 있네요.
+[RFC PATCH v7 00/16] Add support for eXclusive Page Frame Ownership https://lkml.kernel.org/r/cover.1547153058.git.khalid.aziz@oracle.com
+&amp;lsquo;ret2dir&amp;rsquo; 보안 공격[1]에 대비하기 위한 패치입니다. 하지만 이로 인해 tlb 를 좀 많이 flush 해야 하는 문제가 있었고, 이 패치셋은 그에 대한 해결책도 의논하고 있습니다.
+[1] http://www.cs.columbia.edu/~vpk/papers/ret2dir.sec14.pdf
+[PATCH 0/4] Allow persistent memory to be used like normal RAM https://lkml.</description>
+    </item>
+    
+    <item>
+      <title>LKML News v5.0-rc1</title>
+      <link>https://sjp38.github.io/post/lkml_news_v5.0-rc1/</link>
+      <pubDate>Mon, 07 Jan 2019 11:18:50 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/lkml_news_v5.0-rc1/</guid>
+      <description>[RFC v3 0/3] test driver to analyse vmalloc allocator https://lkml.kernel.org/r/20190102085924.14145-1-urezki@gmail.com
+vmalloc 의 성능과 스트레스 테스트를 위한 모듈을 구현한 패치입니다. Selftests 에도 테스트 스크립트를 추가했군요.
+[RFC PATCH 0/1] mm: add a warning about high order allocations https://lkml.kernel.org/r/20181225153927.2873-1-khorenko@virtuozzo.com
+특정 노드의 메모리에 접근이 많이 되고 있는 상황에서 해당 메모리가 fragment 되어 있고 이 시점에서 high order allocation 이 요청되면 이걸 위해 compaction 등이 작동하니까 다른 태스크의 latency 가 떨어질 수 있습니다. 이런 상황을 모니터링 할 수 있게끔, 이 패치는 vm.</description>
+    </item>
+    
+    <item>
+      <title>Perf symbol problem on Linux 4.19</title>
+      <link>https://sjp38.github.io/post/perf_symbol_problem_4.19/</link>
+      <pubDate>Fri, 21 Dec 2018 17:00:22 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/perf_symbol_problem_4.19/</guid>
+      <description>4.19 커널에서 오랫만에 perf 를 다시 빌드하고 써보려고 하니, perf report 가 아래와 같이 제대로 된 symbol name 을 찾질 못합니다.
+$ sudo perf record -g ls arch builtin-ftrace.c builtin-report.c Documentation perf.data.old bench builtin.h builtin-sched.c examples perf.h Build builtin-help.c builtin-script.c include perf-read-vdso.c builtin-annotate.c builtin-inject.c builtin-stat.c jvmti perf-sys.h builtin-bench.c builtin-kallsyms.c builtin-timechart.c Makefile perf-with-kcore.sh builtin-buildid-cache.c builtin-kmem.c builtin-top.c Makefile.config pmu-events builtin-buildid-list.c builtin-kvm.c builtin-trace.c Makefile.perf python builtin-c2c.c builtin-list.c builtin-version.c MANIFEST scripts builtin-config.c builtin-lock.c check-headers.sh perf-archive.</description>
+    </item>
+    
+    <item>
+      <title>LKML News for v4.20</title>
+      <link>https://sjp38.github.io/post/lkml_news_v4.20/</link>
+      <pubDate>Fri, 21 Dec 2018 08:35:03 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/lkml_news_v4.20/</guid>
+      <description>[PATCH V5 0/3] mm/kvm/vfio/ppc64: Migrate compound pages out of CMA https://lkml.kernel.org/r/20181219034047.16305-1-aneesh.kumar@linux.ibm.com
+ppc64 에서는 guest os page table 을 CMA area 내에 할당하는데, VFIO 를 쓰는 경우 이게 pinning 되어 있다 보니 CMA area 밖으로 migrate 하는데 실패해, guest os page table 할당에 실패하고, 이로 인해 guest 시작조차 불가능하게 되는 문제가 있었습니다.
+이 패치는 compound page 에 대해서도 CMA area 밖으로의 migration 이 가능하게 합니다.
+[RESEND PATCH V3 0/5] arm64/mm: Enable HugeTLB migration https://lkml.</description>
+    </item>
+    
+    <item>
+      <title>LKML News by v4.20-rc7</title>
+      <link>https://sjp38.github.io/post/lkml_news_v4.20-rc7/</link>
+      <pubDate>Mon, 17 Dec 2018 09:16:11 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/lkml_news_v4.20-rc7/</guid>
+      <description>[PATCH -V9 00/21] swap: Swapout/swapin THP in one piece https://lkml.kernel.org/r/20181214062754.13723-1-ying.huang@intel.com
+아직 머지되지 못한 THP swap in 패치셋의 아홉번째 버전입니다.
+[RFC 0/3] reduce THP fault thrashing https://lkml.kernel.org/r/20181211142941.20500-1-vbabka@suse.cz
+THP fault 로 인한 로컬 노드 thrashing 을 해결하기 위한 패치의 RFC 입니다. THP fault 성공률을 낮추는 부작용도 있긴 하군요. 아직 테스트도 안된 첫번째 RFC 이니, 이대로 머지되진 않겠지 싶긴 합니다만 재밌네요.
+Linux 4.20-rc76 https://lkml.kernel.org/r/CAHk-=whv9u9aTEPoCz8h83JJbVK4fmHELJF=GG01ht9=1_MaCQ@mail.gmail.com
+일곱번째 rc 버전의 릴리즈입니다&amp;hellip; 만, 이번엔 릴리즈 메일 제목에 오타가 있었군요.</description>
+    </item>
+    
+    <item>
+      <title>LKML News by v4.20-rc6</title>
+      <link>https://sjp38.github.io/post/lkml_news_v4.20-rc6/</link>
+      <pubDate>Wed, 05 Dec 2018 08:20:36 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/lkml_news_v4.20-rc6/</guid>
+      <description>[PATCH memory-model 0/3] Updates to the formal memory model https://lkml.kernel.org/r/20181203230411.GA27476@linux.ibm.com
+리눅스 커널 메모리 모델의 업데이트 입니다.
+smp_mb__after_unlock_lock() 을 추가로 모델링했고, github 리트머스 테스트를 체크하기 위한 스크립트가 추가되었으며, -j 옵션을 서포트 하게 되었습니다.
+[tip:core/rcu] tracing: Replace synchronize_sched() and call_rcu_sched() https://lkml.kernel.org/r/tip-7440172974e85b1828bdd84ac6b23b5bcad9c5eb@git.kernel.org
+synchronize_rcu() 가 이제는 RCU read-side 크리티컬 섹션 만이 아니라 preempt-disable 코드 영역도 기다리므로, synchronize_sched() 를 대체할 수 있고, call_rcu_sched() 도 call_rcu() 로 대체될 수 있습니다. 이 패치는 이 대체를 진행하고 있습니다.</description>
+    </item>
+    
+    <item>
+      <title>LKML News by 4.20-rc5</title>
+      <link>https://sjp38.github.io/post/lkml_news_v4.20-rc5/</link>
+      <pubDate>Thu, 29 Nov 2018 08:14:01 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/lkml_news_v4.20-rc5/</guid>
+      <description>[PATCH V12 00/20] block: support multi-page bvec https://lkml.kernel.org/r/20181126021720.19471-1-ming.lei@redhat.com
+struct bio_bvec 하나가 물리적으로 연속적인 여러개의 페이지를 담을 수 있게 해서 block layer 의 효율성을 높이기 위한 시도입니다.
+[PATCH] aio: Convert ioctx_table to XArray https://lkml.kernel.org/r/20181128183531.5139-1-willy@infradead.org
+aio 쪽의 ioctx_table 이라는 자료구조가 스펙터에 취약한 자료구조인데, 인덱스 오버플로 문제가 없는 XArray 로 교체하는 패치입니다. 정말 코드가 깔끔해지는군요.
+[PATCH 0/4][V4] drop the mmap_sem when doing IO in the fault path https://lkml.kernel.org/r/20181130195812.19536-1-josef@toxicpanda.com
+ps 등의 도구를 사용해 시스템 상황을 모니터링하는 커다란 어플리케이션을 사용 중인데, 이 과정에서 다른 task 의 mmap_sem 을 down_read() 해야 하는 경우가 종종 생긴다는군요.</description>
+    </item>
+    
+    <item>
+      <title>LKML News by v4.20-rc4</title>
+      <link>https://sjp38.github.io/post/lkml_news_v4.20-rc4/</link>
+      <pubDate>Mon, 26 Nov 2018 08:06:40 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/lkml_news_v4.20-rc4/</guid>
+      <description>[PATCH -V7 00/21] swap: Swapout/swapin THP in one piece https://lkml.kernel.org/r/20181120085449.5542-1-ying.huang@intel.com
+Transparent Huge Page 를 쪼개지 않고 swap out / swap in 함으로써 스왑 성능을 최적화 하는 패치의 일곱번째 버전입니다. 이 블로그에서도 소개한 바 있죠. 크게 바뀐 부분은 없지만 최신 버전에 맞춰 리베이스 되었고, Daniel 에 의해 발견된 주소 정렬 관련 문제를 해결했군요.
+[PATCH 0/5] Fragmentation avoidance improvements v5 https://lkml.kernel.org/r/20181123114528.28802-1-mgorman@techsingularity.net
+시스템이 충분히 오래 운영되거나 특정한 패턴의 워크로드가 동작하게 되면 시스템의 메모리는 fragment 되게 마련이어서, 장기적으로 물리적 연속 페이지 할당이 실패하게 됩니다.</description>
+    </item>
+    
+    <item>
+      <title>LKML News by v4.20-rc3</title>
+      <link>https://sjp38.github.io/post/lkml_news_v4.20-rc3/</link>
+      <pubDate>Mon, 19 Nov 2018 16:53:04 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/lkml_news_v4.20-rc3/</guid>
+      <description>Linux 4.20-rc3 https://lkml.kernel.org/r/CAHk-=wiZmPvR64hDy-pcVJqcxoAwMRd4GrRhRjK04Mhng4nL4g@mail.gmail.com
+리누스 토발즈의 개인적 여행이 있었다는 점을 제외하고는 이상할 것 없는 한주였습니다만, 이번 릴리즈의 변경 사항은 rc3 치고는 상당히 적었다고 하는군요.</description>
+    </item>
+    
+    <item>
+      <title>LKML News by v4.20-rc2</title>
+      <link>https://sjp38.github.io/post/lkml_news_v4.20-rc2/</link>
+      <pubDate>Mon, 12 Nov 2018 08:30:21 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/lkml_news_v4.20-rc2/</guid>
+      <description>[PATCH 0/5] Fragmentation avoidance improvements v2 https://lkml.kernel.org/r/20181107183822.15567-1-mgorman@techsingularity.net
+장시간 운영되는 시스템은 결국 메모리가 단편화 (fragmentation) 되게 되어 있습니다. 페이징을 사용하면 단일 페이지 단위 할당은 문제가 없지만, 물리적으로 연속적인 페이지를 할당받기가 어려워지죠. Mel Gorman 의 이 패치는 이런 메모리 분절화를 좀 더 잘 막을 수 있는 방법을 포함하고 있습니다.
+첫번째 패치는 단일 페이지 또는 적은 물리적 연속 페이지들의 할당 시에 불필요하게 higher order free page zone 을 사용하지 않게 하고, 두번째와 세번째 패치는 kswapd 와 kcompactd 를 사용한 defragmentation 을 좀 더 적극적으로 하게 합니다.</description>
+    </item>
     
     <item>
       <title>I will have a talk at the kernel summit</title>
@@ -203,6 +353,20 @@ Linux Kernel Performance (LKP) Tests[2] 는 0-day 서비스에서 기능 / 성�
 지난 rc5 작업 주간을 귀찮게 했던 VM 버그에 대한 두줄의 수정이 rc5 에 들어갔었지만 32비트 환경에 대한 고려가 없었기에 이번에 그 수정이 들어갔다는군요.
 [PATCH 0/7] memory management documentation updates https://lkml.kernel.org/r/1532517970-16409-1-git-send-email-rppt@linux.vnet.ibm.com
 메모리 관리 부분 문서화 업데이트입니다. sphinx 기반 문서화 업데이트를 일부 메인테이너들은 반기지 않는 것도 사실이지만, 확실히 가독성이 좋아진 덕에 이런 문서화 노력이 더 활발해 지는 것 아닌가 하는 생각도 드는군요.</description>
+    </item>
+    
+    <item>
+      <title>Lkml_news_v4.18 Rc4</title>
+      <link>https://sjp38.github.io/post/lkml_news_v4.18-rc4/</link>
+      <pubDate>Mon, 09 Jul 2018 10:01:05 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/lkml_news_v4.18-rc4/</guid>
+      <description>Linux 4.18-rc4 https://lkml.kernel.org/r/CA+55aFwXGyZ1Yx+Z8a93gpvb596ZRJ5ppiQL_+-k7gjeQLtcsQ@mail.gmail.com
+어느덧 네번째 RC 버전 릴리즈입니다. 지루할 정도로 평범한 릴리즈라는군요. 대부분 드라이버쪽 업데이트이고, bpf, cifs, ext4, 스케쥴러, 그리고 일부 arch 업데이트가 대부분입니다.
+[PATCH v9 00/17] Improve shrink_slab() scalability (old complexity was O(n^2), new is O(n)) https://lkml.kernel.org/r/153112469064.4097.2581798353485457328.stgit@localhost.localdomain
+shrink_slab() 의 compexity 를 O(n^2) 에서 O(n) 으로 낮춰 확장성을 높인 패치의 아홉번째 버전입니다.
+[PATCH 0/2] CMA: remove unsupported gfp mask parameter https://lkml.kernel.org/r/20180709122018eucas1p277147b1e6385d552b5a8930d0a8ba91c~-sqSan6292733527335eucas1p2-@eucas1p2.samsung.com
+cma_alloc() 과 dma_alloc_from_contiguous() 함수는 gfp mask 패러미터를 받지만 실질적으론 __GFP_NORARN 플래그만을 지원하고 있습니다.</description>
     </item>
     
     <item>
