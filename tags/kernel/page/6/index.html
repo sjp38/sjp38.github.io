@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme" content="hugo-academic">
-  <meta name="generator" content="Hugo 0.51" />
+  <meta name="generator" content="Hugo 0.31.1" />
   <meta name="author" content="SeongJae Park">
   <meta name="description" content="System Programmer">
 
@@ -64,8 +64,8 @@
   
 
   
-  <link rel="alternate" href="https://sjp38.github.io/tags/kernel/index.xml" type="application/rss+xml" title="Hacklog">
-  <link rel="feed" href="https://sjp38.github.io/tags/kernel/index.xml" type="application/rss+xml" title="Hacklog">
+  <link rel="alternate" href="https://sjp38.github.io/index.xml" type="application/rss+xml" title="Hacklog">
+  <link rel="feed" href="https://sjp38.github.io/index.xml" type="application/rss+xml" title="Hacklog">
   
 
   <link rel="manifest" href="/site.webmanifest">
@@ -78,16 +78,16 @@
   
   <meta property="og:site_name" content="Hacklog">
   <meta property="og:url" content="https://sjp38.github.io/tags/kernel/">
-  <meta property="og:title" content="kernel | Hacklog">
+  <meta property="og:title" content="Kernel | Hacklog">
   <meta property="og:description" content="System Programmer">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2018-01-02T13:34:11&#43;09:00">
+  <meta property="og:updated_time" content="2018-01-23T12:16:07&#43;09:00">
   
 
   
 
-  <title>kernel | Hacklog</title>
+  <title>Kernel | Hacklog</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
@@ -250,11 +250,42 @@
 
 <div class="universal-wrapper">
 
-  <h1>kernel</h1>
+  <h1>Kernel</h1>
 
   
 
   
+  
+  <div>
+    <h2><a href="https://sjp38.github.io/post/lkml_news_v4.15-rc9/">LKML News after v4.15-rc9</a></h2>
+    <div class="article-style">
+      
+      Not final 4.15 this weekend <a href="https://lkml.kernel.org/r/CA+55aFxzQBH5gnG92ah-PREfOqb5_rjWriLH3fWHMWS1=BSQFw@mail.gmail.com" target="_blank">https://lkml.kernel.org/r/CA+55aFxzQBH5gnG92ah-PREfOqb5_rjWriLH3fWHMWS1=BSQFw@mail.gmail.com</a>
+원래대로라면 4.15 정식 버전의 릴리즈가 될 타이밍이었습니다만&hellip; 아직 충분히 안정화 되지 않은 것 같다는 토발즈의 판단 아래 이번주에도 rc 버전이 나왔습니다. rc9 입니다. 2011년의 3.1-rc9 이후 처음 나온 rc9 이네요.
+이번 릴리즈는 x86, arm powerpc, mips 쪽의 arch 업데이트, 드라이버, 그리고 네트워킹 핵심부 업데이트가 주된 변경이군요.
+다음주에는 꼭 4.15를 릴리즈 하고 싶다고 하는데, 아마도 다음주에는 4.15 정식 버전이 릴리즈되길 빕니다.
+[LSF/MM TOPIC] CMA and larger page sizes <a href="https://lkml" target="_blank">https://lkml</a>.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="https://sjp38.github.io/post/lkml_news_v4.15-rc8/">LKML News after v4.15-rc8</a></h2>
+    <div class="article-style">
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="https://sjp38.github.io/post/lkml_news_v4.15-rc7/">LKML News after v4.15-rc7</a></h2>
+    <div class="article-style">
+      
+      Linux 4.15-rc7 <a href="https://lkml.kernel.org/r/CA+55aFwbmKznuQZe_VemxXJPSmB-9yy8uyWsMZcrkA4T=m8xkw@mail.gmail.com" target="_blank">https://lkml.kernel.org/r/CA+55aFwbmKznuQZe_VemxXJPSmB-9yy8uyWsMZcrkA4T=m8xkw@mail.gmail.com</a>
+Meltdown 과 Spectre 로 떠들썩했던 시간을 지나 4.15 의 일곱번째 rc 버전이 릴리즈 되었습니다. 지난 여섯번째 릴리즈 때도 상당히 안정화에 신경써야 할 시점임에도 x86 pti (page table isolation) 업데이트 패치가 많이 머지되어 의아했는데, 이게 Meltdown 과 Spectre 버그 때문이었음도 밝혀졌죠. 그렇다곤 해도 그 외의 부분은 예상대로 상당히 안정화 되어가고 있다고 합니다.
+더불어, Thomas Geixner 등의 인텔쪽 커널 개발자들의 노력 덕에 pti 등 Meltdown 과 Spectre 버그를 위한 패치가 잘 관리되어 비교적 쉽게 머지될 수 있었음에 리누스가 감사를 표하네요.
+      
+    </div>
+  </div>
   
   <div>
     <h2><a href="https://sjp38.github.io/post/lkml_news_v4.15-rc6/">LKML News after v4.15-rc6</a></h2>
@@ -334,44 +365,6 @@ Lockdep 의 cross release 기능은 너무 느렸고, false positive 가 많다�
 예정대로 2주만에 4.15 의 첫번째 rc 버전이 나왔습니다.
 지난주는 추수감사절이라 다들 휴가인 사람이 많았기에 첫번째 주에 최대한 많이 풀리퀘스트를 받았고 지난주는 좀 더 까다롭게 풀리퀘스트를 검사했군요. 토발즈는 두번째 주 동안 랩톱 들고 여행중이었고, 랩톱에서는 전체 모듈 빌드를 하지 않기 때문이라 합니다. 메인테이너들도 가능한 첫번째 주에 중요 플리퀘스트를 보내는 식으로 협조를 해줬다고 합니다. 그네들도 두번째주는 휴가가고 싶었을테니&hellip; ;)
 4.14 가 LTS 였기에 이번 머지윈도우에는 변화가 크지 않을 것으로 예상했는데 생각보다 많은 풀리퀘스트가 있었다고 합니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="https://sjp38.github.io/post/lkml_news_v4.14/">LKML News after v4.14</a></h2>
-    <div class="article-style">
-      
-      Linux 4.14 htpps://lkml.kernel.org/r/CA+55aFwqXh4rgJJ3T98k8wa-JYF7t8mWuwUjdxkbZyOyDEcGzQ@mail.gmail.com
-드디어 v4.14 의 릴리즈입니다. 이번 버전은 또하나의 LTS 커널이 될 예정이군요.
-동시에, v4.15 를 위한 머지 윈도우가 열렸습니다. 이번 머지 윈도우는 thanks giving 이랑 겹치게 되었는데, 이때문에 머지 윈도우를 연장할지 아니면 아예 1주일 줄일지 토발즈는 고민중인 것 같네요.
-[RFC PATCH v11 for 4.15 01/24] Restartable sequences system call <a href="https://lkml.kernel.org/r/20171114200414.2188-2-mathieu.desnoyers@efficios.com" target="_blank">https://lkml.kernel.org/r/20171114200414.2188-2-mathieu.desnoyers@efficios.com</a>
-몇년전부터 올라오고 있으나 아직 머지되지 못한, restartable sequence 패치의 최신 버전이 또 올라왔습니다. 유저스페이스의 크리티컬 섹션을 커널에게 제어할 수 있도록 도와주는 기능입니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="https://sjp38.github.io/post/lkml_news_v4.14-rc8/">LKML News after v4.14-rc8</a></h2>
-    <div class="article-style">
-      
-      Linux 4.14-rc8 <a href="https://lwn.net/Articles/738207/" target="_blank">https://lwn.net/Articles/738207/</a>
-v4.14 를 향한 (아마도) 마지막 rc 버전의 릴리즈입니다.
-정말로 별다른 일 없었다면 그냥 이번에 v4.14 릴리즈를 할 계획이었지만 그정도는 아니었다고 하는군요. 어쨌든 rc8 덕분에 v4.15 merge window 는 thanksgiving week 를 포함하게 되었는데 토발즈는 이때 가족과 휴가를 갈 계획이라 랩톱 가지고 휴가다니는 동안에도 머지를 잘 할 수 있길 바라지만 문제가 생기면 merge window 를 연장할 수도 있겠다고 하네요. 일단 어떻게 될지 두고보자는군요.
-이번 릴리즈에 포함된 변경은 대부분 드라이버 쪽 변경이고, SPDK 관련 소스코드에 라이센스 추가 등을 한 사소하지만 커다란 양의 변경이 있습니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="https://sjp38.github.io/post/lkml_news_v4.14-rc7/">LKML News after v4.14-rc7</a></h2>
-    <div class="article-style">
-      
-      Linux 4.14-rc7 <a href="https://lkml.kernel.org/r/CA+55aFwhgxivTE3k88nshbrH9nd-4nhmhXGzw-MxRVGxf-R8Eg@mail.gmail.com" target="_blank">https://lkml.kernel.org/r/CA+55aFwhgxivTE3k88nshbrH9nd-4nhmhXGzw-MxRVGxf-R8Eg@mail.gmail.com</a>
-일곱번째 rc 버전의 릴리즈입니다.
-OSSE 와 kernel summit 으로 프라하를 방문했던 토발즈인데, 집에 잘 돌아왔다는군요. 이번 rc 버전은 기존의 rc7 보다도 작은 편에 가깝다고 합니다만, 다음 한주간이 정말 조용하지 않는한은 rc8 릴리즈를 할 생각이라는군요.
-Re: Page allocator bottleneck <a href="https://lkml.kernel.org/r/1c218381-067e-7757-ccc2-4e5befd2bfc3@mellanox.com" target="_blank">https://lkml.kernel.org/r/1c218381-067e-7757-ccc2-4e5befd2bfc3@mellanox.com</a>
-멜라녹스의 빠른 네트워크 카드를 사용하는 환경에서는 page allocator 의 속도가 bottleneck 이 된다는 이야기에 대한 업데이트입니다. 여전히 해당 부분이 bottleneck 이며, queued_spin_lock_slowpath() 가 85 % 가까이 CPU 를 차지하고 있군요.
       
     </div>
   </div>

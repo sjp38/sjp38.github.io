@@ -11,6 +11,122 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>LKML News v5.0-rc8</title>
+      <link>https://sjp38.github.io/post/lkml_news_v5.0-rc8/</link>
+      <pubDate>Tue, 19 Feb 2019 08:33:37 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/lkml_news_v5.0-rc8/</guid>
+      <description>
+
+&lt;h2 id=&#34;lsf-mm-attend-mm-track-numa-thp-locality-reclaim&#34;&gt;[LSF/MM ATTEND] MM track: NUMA, THP locality, reclaim&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190218143203.GW9565@techsingularity.net&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20190218143203.GW9565@techsingularity.net&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Mel Gorman 의 LSF/MM 참여 메일입니다.  NUMA remote THP vs NUMA local non-THP,
+NUMA, 메모리 계층 그리고 디바이스 메모리, NUMA rebalancing 과 메모리 reclaim 에
+참여하고 싶다고 이야기 하는군요.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>LKML News v5.0-rc7</title>
+      <link>https://sjp38.github.io/post/lkml_news_v5.0-rc7/</link>
+      <pubDate>Mon, 18 Feb 2019 12:30:24 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/lkml_news_v5.0-rc7/</guid>
+      <description>
+
+&lt;h2 id=&#34;patch-v15-00-18-block-support-multi-page-bvec&#34;&gt;[PATCH V15 00/18] block: support multi-page bvec&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190215111324.30129-1-ming.lei@redhat.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20190215111324.30129-1-ming.lei@redhat.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;시스템의 RAM 이 커지고 huge page 가 널리 사용되면서 물리적으로 연속된
+페이지들의 I/O 가 흔해지고 있습니다.  이를 위해 &lt;code&gt;struct bio_bvec&lt;/code&gt; 이 물리적으로
+연속된 여러 페이지를 다룰 수 있게 해주는 패치의 15번째 버전입니다.&lt;/p&gt;
+
+&lt;h2 id=&#34;memory-management-facing-a-400gpbs-network-link&#34;&gt;Memory management facing a 400Gpbs network link&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/01000168e2f54113-485312aa-7e08-4963-af92-803f8c7d21e6-000000@email.amazonses.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/01000168e2f54113-485312aa-7e08-4963-af92-803f8c7d21e6-000000@email.amazonses.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;올해 내로 400Gbps 인피니밴드가 가능해질 거라고 합니다!  이건 프로세서-메모리
+사이의 밴드위쓰를 넘길 수 있는 스피드죠!  단일 하드웨어 쓰레드는 20GB/s 이기
+때문입니다.  이 재미있는 트렌드를 커널은 어떻게 대처해야 할 것인가 하는
+메일입니다.&lt;/p&gt;
+
+&lt;h2 id=&#34;lsf-mm-topic-generating-physically-contiguous-memory&#34;&gt;[LSF/MM TOPIC] Generating physically contiguous memory&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CEDBC792-DE5A-42CB-AA31-40C039470BD0@nvidia.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CEDBC792-DE5A-42CB-AA31-40C039470BD0@nvidia.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;GPU, FPGA, NIC, RDMA 같은 고성능 디바이스들에게 있어 물리적 연속 메모리는 매우
+중요합니다.  이 디바이스들은 내부적으로 고밀도의 computation 을 하는데 tlb miss
+와 이어지는 page table walk 로 인한 성능 문제가 CPU 에 비해서도 매우 크기
+때문이라는군요.&lt;/p&gt;
+
+&lt;p&gt;Boot time reservation 도, THP 도 유연성이 부족하기 때문에 새로운 패치도 만들고,
+관련해서 LSF/MM 에서 논의해 보자는군요.&lt;/p&gt;
+
+&lt;h2 id=&#34;linux-5-0-rc7&#34;&gt;Linux 5.0-rc7&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wgvF18PqBch4=56DFwCamYpy+owngTZXGnjVbFgKq467g@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CAHk-=wgvF18PqBch4=56DFwCamYpy+owngTZXGnjVbFgKq467g@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;휴일을 끼고 시작된 머지 윈도우로 이래저래 걱정도 있던 5.0 릴리즈들이었습니다만
+이번 rc 릴리즈는 정말 별다른 게 없네요.  매우 고요한 릴리즈였다고 합니다.
+아마도 다음주에 5.0 정식 릴리즈가 될 걸로 보이네요!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>LKML News v5.0-rc6</title>
+      <link>https://sjp38.github.io/post/lkml_news_v5.0-rc6/</link>
+      <pubDate>Mon, 11 Feb 2019 12:40:20 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/lkml_news_v5.0-rc6/</guid>
+      <description>
+
+&lt;h2 id=&#34;patch-v4-1-1-psi-introduce-psi-monitor&#34;&gt;[PATCH v4 &lt;sup&gt;1&lt;/sup&gt;&amp;frasl;&lt;sub&gt;1&lt;/sub&gt;] psi: introduce psi monitor&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190206023446.177362-1-surenb@google.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20190206023446.177362-1-surenb@google.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;시스템의 메모리 부족 등의 현상이 어떻게 일어나고 있는지 쉽게 파악할 수 있는
+장치를 추가하는 패치입니다.&lt;/p&gt;
+
+&lt;h2 id=&#34;lsf-mm-topic-address-space-isolation-inside-the-kernel&#34;&gt;[LSF/MM TOPIC] Address space isolation inside the kernel&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190207072421.GA9120@rapoport-lnx&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20190207072421.GA9120@rapoport-lnx&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;리눅스의 어드레스 스페이스 기능은 유저스페이스 프로그램들이 서로에게 영향을
+끼치지 못하게 해줘서 컨테이너 등에 쓰이고 있죠.  하지만 커널은 공유하기 때문에
+커널 버그는 여전히 영향을 끼칠 수 있습니다.  커널 코드도 어드레스 스페이스를
+어느정도 인식하고 코드 분류를 시킴으로써 그 문제를 줄여보자는 LSF/MM 토론 주제
+제안입니다.&lt;/p&gt;
+
+&lt;h2 id=&#34;lsf-mm-2019-call-for-proposals-updated&#34;&gt;LSF/MM 2019: Call for Proposals (UPDATED!)&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/4f5a15c1-4f9e-acae-5094-2f38c8eebd96@kernel.dk&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/4f5a15c1-4f9e-acae-5094-2f38c8eebd96@kernel.dk&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;올해 LSF/MM 에는 BPF 트랙이 있을 거라는군요.  이에 따른 공지 업데이트입니다.
+BPF 의 상승세가 올해도 계속될 것 같군요!&lt;/p&gt;
+
+&lt;h2 id=&#34;lsf-mm-topic-bpf-for-block-devices&#34;&gt;[LSF/MM TOPIC] BPF for Block Devices&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/40D2EB06-6BF2-4233-9196-7A26AC43C64E@raithlin.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/40D2EB06-6BF2-4233-9196-7A26AC43C64E@raithlin.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;LSF/MM 에 BPF 라면 당연히 block device 와 BPF 의 결합을 이야기 해야하지
+않겠냐는 LSF/MM 토론 제안입니다.  Computational Storage 개념을 이야기 하는데요,
+I/O 레이어에서 간단한 연산을 처리해 줌으로써 성능을 높이자는 거죠.  그러기 위한
+연산 요청에 BPF 를 쓰자는 것 같습니다.  말 되네요!&lt;/p&gt;
+
+&lt;h2 id=&#34;linux-5-0-rc6&#34;&gt;Linux 5.0-rc6&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=whuSY_-hAU8ugVR7a=xz3uZeRrAPdhsoMZHmZ_7Qc49YQ@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CAHk-=whuSY_-hAU8ugVR7a=xz3uZeRrAPdhsoMZHmZ_7Qc49YQ@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;이제 리눅스 5.0 정식 릴리즈가 얼마 남지 않았네요, 여섯번째 rc 가 나왔습니다.
+그런데 이번 rc 는 토발즈가 바랬던 것보다는 조금 변경사항이 많았군요.  대부분
+네트워킹 쪽 변경이었다고 합니다만, 그래도 나머지는 큰 문제 없어 보인다는군요.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>LKML News v5.0-rc5</title>
       <link>https://sjp38.github.io/post/lkml_news_v5.0-rc5/</link>
       <pubDate>Mon, 04 Feb 2019 09:18:08 +0900</pubDate>
@@ -570,113 +686,6 @@ XArray 를 사용하도록 수정한 후 DAX 의 버그가 발견되었고, 그�
 답장을 보내지 않는다는 겁니다.  그리고 이 자동화의 구성상 LKML 의 &lt;code&gt;linux-*&lt;/code&gt;
 그룹을 cc 하지 않으면 ack 을 주지 않는데, 그걸로 인해 혼동이 있을 수 있었겠다고
 하는군요.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>LKML News by v4.20-rc3</title>
-      <link>https://sjp38.github.io/post/lkml_news_v4.20-rc3/</link>
-      <pubDate>Mon, 19 Nov 2018 16:53:04 +0900</pubDate>
-      
-      <guid>https://sjp38.github.io/post/lkml_news_v4.20-rc3/</guid>
-      <description>
-
-&lt;h2 id=&#34;linux-4-20-rc3&#34;&gt;Linux 4.20-rc3&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wiZmPvR64hDy-pcVJqcxoAwMRd4GrRhRjK04Mhng4nL4g@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CAHk-=wiZmPvR64hDy-pcVJqcxoAwMRd4GrRhRjK04Mhng4nL4g@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;리누스 토발즈의 개인적 여행이 있었다는 점을 제외하고는 이상할 것 없는
-한주였습니다만, 이번 릴리즈의 변경 사항은 rc3 치고는 상당히 적었다고 하는군요.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>LKML News by v4.20-rc2</title>
-      <link>https://sjp38.github.io/post/lkml_news_v4.20-rc2/</link>
-      <pubDate>Mon, 12 Nov 2018 08:30:21 +0900</pubDate>
-      
-      <guid>https://sjp38.github.io/post/lkml_news_v4.20-rc2/</guid>
-      <description>
-
-&lt;h2 id=&#34;patch-0-5-fragmentation-avoidance-improvements-v2&#34;&gt;[PATCH 0/5] Fragmentation avoidance improvements v2&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20181107183822.15567-1-mgorman@techsingularity.net&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20181107183822.15567-1-mgorman@techsingularity.net&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;장시간 운영되는 시스템은 결국 메모리가 단편화 (fragmentation) 되게 되어
-있습니다.  페이징을 사용하면 단일 페이지 단위 할당은 문제가 없지만, 물리적으로
-연속적인 페이지를 할당받기가 어려워지죠.  Mel Gorman 의 이 패치는 이런 메모리
-분절화를 좀 더 잘 막을 수 있는 방법을 포함하고 있습니다.&lt;/p&gt;
-
-&lt;p&gt;첫번째 패치는 단일 페이지 또는 적은 물리적 연속 페이지들의 할당 시에 불필요하게
-higher order free page zone 을 사용하지 않게 하고, 두번째와 세번째 패치는
-kswapd 와 kcompactd 를 사용한 defragmentation 을 좀 더 적극적으로 하게 합니다.
-네번째 패치는 movable allocation request 시에 kswapd 를 또 깨우고, kswapd 가
-일을 마칠 때까지 멈춰서 기다려 줍니다.
-마지막으로 다섯번째 패치는 분절화가 발생해야만 하는 경우, kcompactd 가 처리할
-블록들로 해당 분절된 영역을 마크해 둡니다.&lt;/p&gt;
-
-&lt;p&gt;물론 분절화를 막는 대신 오버헤드를 가져올 수 있겠고, Mel 은 이 기능들을 tuning
-하거나 꺼버릴 수 있게 했군요.&lt;/p&gt;
-
-&lt;h2 id=&#34;patch-0-4-fragmentation-avoidance-improvements-v3&#34;&gt;[PATCH 0/4] Fragmentation avoidance improvements v3&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20181108091218.32715-1-mgorman@techsingularity.net&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20181108091218.32715-1-mgorman@techsingularity.net&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Mel 의 분절화 방지 패치셋은 오버헤드를 가질 수밖에 없었죠.  결국 얼마 되지 않아
-세번째 버전의 패치셋[1]을 내놓았는데, 여기선 다섯번째 패치를 걍 없애버렸고,
-네번째 패치도 그 오버헤드가 덜하게끔 만들었습니다.&lt;/p&gt;
-
-&lt;h2 id=&#34;rfc-patch-mm-thp-implement-thp-reservations-for-anonymous-memory&#34;&gt;[RFC PATCH] mm: thp: implement THP reservations for anonymous memory&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/1541746138-6706-1-git-send-email-anthony.yznaga@oracle.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/1541746138-6706-1-git-send-email-anthony.yznaga@oracle.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Transparent huge page (THP) 가 켜져 있는 경우, promotion 이 꽤나 급하게
-이루어지기 때문에 huge page 를 할당받고는 정작 그 영역을 모두 접근하지 않는
-경우엔 메모리 소모가 큽니다.  기존에 이 문제를 해결하기 위한 패치가 있었는데,
-그에 대해 Mel Gorman 의 피드백이 있었고, 이 패치는 그 피드백을 받아들여 새로
-작성된 패치셋입니다.&lt;/p&gt;
-
-&lt;p&gt;Page fault 가 날 경우 huge page 를 할당할 수 있는 양의 페이지를 할당받되 페이지
-한개만 map 해두고 나머지는 reserve 를 해두고, 이후 주변 영역에 fault 가 날
-때마다 나머지 페이지들을 계속 map 해주다가 충분히 많은 영역이 fault 났을 경우에
-huge page 로 promote 를 해주고, 그 전에 memory pressure 가 발생하면 reserve
-해둔 페이지들을 reclaim 하는 형태입니다.&lt;/p&gt;
-
-&lt;h2 id=&#34;patch-tip-core-rcu-0-20-documentation-updates-for-v4-21-v5-0&#34;&gt;[PATCH tip/core/rcu 0/20] Documentation updates for v4.21/v5.0&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20181111195619.GA6958@linux.ibm.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20181111195619.GA6958@linux.ibm.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;RCU 문서 업데이트 패치셋입니다.  생각해 보면 리눅스 커널만큼 문서화 잘 된
-프로젝트도 드물죠.&lt;/p&gt;
-
-&lt;h2 id=&#34;patch-tip-core-rcu-0-8-automate-initrd-generation-for-v4-21-v5-0&#34;&gt;[PATCH tip/core/rcu 0/8] Automate initrd generation for v4.21/v5.0&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20181111200127.GA9511@linux.ibm.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20181111200127.GA9511@linux.ibm.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;RCU 테스트 프레임웍인 rcutorture 는 가상머신 환경을 사용하는데, 이를 위한
-initrd 생성을 자동화 하는 패치셋입니다.&lt;/p&gt;
-
-&lt;h2 id=&#34;linux-v4-20-rc2&#34;&gt;Linux v4.20-rc2&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/R7SW0SuwOMMMyRgTFGA@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/R7SW0SuwOMMMyRgTFGA@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;토발즈가 여행 중이란 걸 제외하고는 별 특이사항 없는 두번째 rc 버전
-릴리즈입니다.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>I will have a talk at the kernel summit</title>
-      <link>https://sjp38.github.io/post/ksummit2018_talk/</link>
-      <pubDate>Thu, 08 Nov 2018 06:11:48 +0900</pubDate>
-      
-      <guid>https://sjp38.github.io/post/ksummit2018_talk/</guid>
-      <description>&lt;p&gt;지난 토요일, Theodore Ts&amp;rsquo;o 로부터 올해 Linux Plumbers Conference 의 한 트랙으로
-열리는 커널 서밋에서 GCMA 발표를 해줄 수 있겠냐는 제의를 받았고 물론
-그러겠노라고 했습니다.  발표 일정의 [첫번째 드래프트][1]가 올라왔군요.  화요일
-아침에 발표하게 됐습니다.&lt;/p&gt;
-
-&lt;p&gt;[1] &lt;a href=&#34;https://lists.linuxfoundation.org/pipermail/ksummit-discuss/2018-November/006238.html&#34; target=&#34;_blank&#34;&gt;https://lists.linuxfoundation.org/pipermail/ksummit-discuss/2018-November/006238.html&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

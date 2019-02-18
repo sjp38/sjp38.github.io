@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme" content="hugo-academic">
-  <meta name="generator" content="Hugo 0.51" />
+  <meta name="generator" content="Hugo 0.31.1" />
   <meta name="author" content="SeongJae Park">
   <meta name="description" content="System Programmer">
 
@@ -64,8 +64,8 @@
   
 
   
-  <link rel="alternate" href="https://sjp38.github.io/tags/news/index.xml" type="application/rss+xml" title="Hacklog">
-  <link rel="feed" href="https://sjp38.github.io/tags/news/index.xml" type="application/rss+xml" title="Hacklog">
+  <link rel="alternate" href="https://sjp38.github.io/index.xml" type="application/rss+xml" title="Hacklog">
+  <link rel="feed" href="https://sjp38.github.io/index.xml" type="application/rss+xml" title="Hacklog">
   
 
   <link rel="manifest" href="/site.webmanifest">
@@ -78,16 +78,16 @@
   
   <meta property="og:site_name" content="Hacklog">
   <meta property="og:url" content="https://sjp38.github.io/tags/news/">
-  <meta property="og:title" content="news | Hacklog">
+  <meta property="og:title" content="News | Hacklog">
   <meta property="og:description" content="System Programmer">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2018-08-13T10:50:27&#43;09:00">
+  <meta property="og:updated_time" content="2018-09-11T06:01:49&#43;09:00">
   
 
   
 
-  <title>news | Hacklog</title>
+  <title>News | Hacklog</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
@@ -250,11 +250,48 @@
 
 <div class="universal-wrapper">
 
-  <h1>news</h1>
+  <h1>News</h1>
 
   
 
   
+  
+  <div>
+    <h2><a href="https://sjp38.github.io/post/lkml_news_v4.19-rc3/">LKML News after v4.19-rc3</a></h2>
+    <div class="article-style">
+      
+      Linux 4.19-rc3 <a href="https://lkml.kernel.org/r/CA+55aFwSxCt0aKkTxcBstthYXqJ5LtxRbO-CDyqgNwU94Ldq+w@mail.gmail.com" target="_blank">https://lkml.kernel.org/r/CA+55aFwSxCt0aKkTxcBstthYXqJ5LtxRbO-CDyqgNwU94Ldq+w@mail.gmail.com</a>
+세번째 rc 릴리즈입니다. 어느새 이번 안정화 기간도 중반을 향하는군요. 시간 참 빠릅니다. 전체적으로 평범한 릴리즈입니다. 딱히 언급할 거리가 없군요.
+[RFC PATCH v2 0/8] lru_lock scalability and SMP list functions <a href="https://lkml.kernel.org/r/20180911004240.4758-1-daniel.m.jordan@oracle.com" target="_blank">https://lkml.kernel.org/r/20180911004240.4758-1-daniel.m.jordan@oracle.com</a>
+올해 LSF/MM 서밋에서도 이야기되었던, lru_lock 의 확장성을 개선하기 위한 노력의 정리입니다. LRU 리스트에 여러 쓰레드가 실제 데이터를 겹쳐 쓰지 않는다면 동시에 접근할 수 있는 새로운 오퍼레이션 세개 (smp_list_del(), smp_list_splice(), smp_list_add())을 추가했구요. 두번째로, lru_lock 을 spinlock 에서 rwlock 으로 교체했군요.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="https://sjp38.github.io/post/lkml_news_v4.19-rc2/">LKML News after v4.19-rc2</a></h2>
+    <div class="article-style">
+      
+      Linux 4.19-rc2 <a href="https://lkml.kernel.org/r/CA+55aFyG0GbDfoghEhAmKBPcZCiPu6CCpPRz9GwjCzLuP_Vv5Q@mail.gmail.com" target="_blank">https://lkml.kernel.org/r/CA+55aFyG0GbDfoghEhAmKBPcZCiPu6CCpPRz9GwjCzLuP_Vv5Q@mail.gmail.com</a>
+리눅스 4.19 두번째 릴리즈 후보 버전의 릴리즈입니다. 첫번째 릴리즈 후보 버전 릴리즈 후엔 사람들이 좀 쉬게 마련이고 버그를 찾기엔 시간이 많지 않았기에 큰 변화는 없었습니다. 유럽사람들의 경우 아직 휴가기간인 사람도 많구요. 미국 OSSummit 이 지난주 진행된 것도 한 영향이겠네요.
+[PATCH -V5 00/21] swap: Swapout/swapin THP in one piece <a href="https://lkml.kernel.org/r/20180903072214.24602-1-ying.huang@intel.com" target="_blank">https://lkml.kernel.org/r/20180903072214.24602-1-ying.huang@intel.com</a>
+관심있게 지켜보고 있는, THP swapout/in 패치입니다. 다음 머지 윈도우에선 들어갈 수 있을까요?
+Plumbers 2018 - Performance and Scalability Microconference <a href="https://lkml" target="_blank">https://lkml</a>.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="https://sjp38.github.io/post/lkml_news_v4.19-rc1/">LKML News after v4.19-rc1</a></h2>
+    <div class="article-style">
+      
+      Linux 4.19-rc1 <a href="https://lkml.kernel.org/r/CA+55aFw9mxNPX6OtOp-aoUMdXSg=gBkQudGGamo__sh_ts_LdQ@mail.gmail.com" target="_blank">https://lkml.kernel.org/r/CA+55aFw9mxNPX6OtOp-aoUMdXSg=gBkQudGGamo__sh_ts_LdQ@mail.gmail.com</a>
+이주일의 머지 윈도우가 끝나고 리눅스 4.19 버전을 향한 안정화 단계가 시작되었습니다.
+토발즈에겐 결코 즐겁지 않은 머지 윈도우였습니다 (frustrating merge window 였다고 표현하는군요). 일단 머지 윈도우 초기부터 L1TF 취약점 이슈가 나왔죠. 하지만 이슈가 처음 발견된 건 아니고 공식 보고된 거다보니 그 전부터 수정은 하고 있었기에 머지만 하면 됐습니다. 토발즈는 -next 트리와 다양한 커널 테스트 시스템들이 잘 갖추어져 있다는 증거라고 이야기 합니다.
+또, TLB 슛다운 버그에 대한 보고가 있었군요.
+      
+    </div>
+  </div>
   
   <div>
     <h2><a href="https://sjp38.github.io/post/lkml_news_v4.18/">Lkml_news_v4.18</a></h2>
@@ -331,37 +368,6 @@ git object 의 갯수라던지 릴리즈를 위한 스크립트 등이 리눅스
   
   <div>
     <h2><a href="https://sjp38.github.io/post/lkml_news_v4.17-rc7/">LKML News after 4.17-rc7</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="https://sjp38.github.io/post/lkml_news_v4.17-rc6/">LKML News after v4.17-rc6</a></h2>
-    <div class="article-style">
-      
-      Linux v4.17-rc6 <a href="https://lkml.kernel.org/r/CA+55aFxxYQFL3mwsQcC+__R23ZmO8c3F0SThi6r44TdK0ePNDQ@mail.gmail.com" target="_blank">https://lkml.kernel.org/r/CA+55aFxxYQFL3mwsQcC+__R23ZmO8c3F0SThi6r44TdK0ePNDQ@mail.gmail.com</a>
-여섯번째 release candidate 버전입니다. 이번 릴리즈에도 특기할 만한 일은 없었습니다. 이제 충분히 안정화 되었을 거라고 하는군요.
-[PATCH -mm -V3 00/21] mm, THP, swap: Swapout/swapin THP in one piece <a href="https://lkml.kernel.org/r/20180523082625.6897-1-ying.huang@intel.com" target="_blank">https://lkml.kernel.org/r/20180523082625.6897-1-ying.huang@intel.com</a>
-이전에도 이 시리즈로 소개했던, THP 의 swap out 과 swap in 최적화 마지막 단계 패치의 세번째 버전입니다. 마지막 단계 이야기 하니 문득 인피니티워의 오역 논란이 떠오르는군요 ;) 두번째 버전 이후 특정 컨피규레이션에서의 빌드 버그를 수정했고, mmotm/master 브랜치의 5월 18일자 버전으로 rebase 한게 차이점의 전부군요.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="https://sjp38.github.io/post/lkml_news_v4.17-rc5/">LKML News after v4.17-rc5</a></h2>
-    <div class="article-style">
-      
-      Linux 4.17-rc5 <a href="https://lkml.kernel.org/r/CA+55aFxi-Q6hvdHn+JwYSQ9b3feNGoFM3eeAuKNhpkfxVNAGpA@mail.gmail.com" target="_blank">https://lkml.kernel.org/r/CA+55aFxi-Q6hvdHn+JwYSQ9b3feNGoFM3eeAuKNhpkfxVNAGpA@mail.gmail.com</a>
-4.17을 향한 다섯번째 rc 릴리즈입니다. 이번 릴리즈도 여느 때와 다름없이 평범하군요. 대부분 드라이버 변경들이고, amd gpu 쪽 변경이 있지만 나머지 부분들은 그렇게 많지 않고 대부분 한두줄 짜리 변경들입니다. 이대로라면 이번 4.17 릴리즈는 꽤 무난무난하게 끝나겠군요.
-[PATCH v11 00/26] Speculative page faults <a href="https://lkml.kernel.org/r/1526555193-7242-1-git-send-email-ldufour@linux.vnet.ibm.com" target="_blank">https://lkml.kernel.org/r/1526555193-7242-1-git-send-email-ldufour@linux.vnet.ibm.com</a>
-이 블로그에서도 몇차례 소개한, speculative page fault 의 11번째 버전입니다. 지난 LSFMM 에서도 관련해 논의를 한 것 같던데, 아주 긍정적 반응은 아니었던 것 같습니다만, 어쨌든 오랫만에 올라온 새로운 버전의 패치셋이군요.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="https://sjp38.github.io/post/lkml_news_v4.17-rc4/">LKML News after v4.17-rc4</a></h2>
     <div class="article-style">
       
     </div>

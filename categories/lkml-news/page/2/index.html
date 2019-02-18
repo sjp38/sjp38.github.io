@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme" content="hugo-academic">
-  <meta name="generator" content="Hugo 0.51" />
+  <meta name="generator" content="Hugo 0.31.1" />
   <meta name="author" content="SeongJae Park">
   <meta name="description" content="System Programmer">
 
@@ -64,8 +64,8 @@
   
 
   
-  <link rel="alternate" href="https://sjp38.github.io/categories/lkml-news/index.xml" type="application/rss+xml" title="Hacklog">
-  <link rel="feed" href="https://sjp38.github.io/categories/lkml-news/index.xml" type="application/rss+xml" title="Hacklog">
+  <link rel="alternate" href="https://sjp38.github.io/index.xml" type="application/rss+xml" title="Hacklog">
+  <link rel="feed" href="https://sjp38.github.io/index.xml" type="application/rss+xml" title="Hacklog">
   
 
   <link rel="manifest" href="/site.webmanifest">
@@ -78,16 +78,16 @@
   
   <meta property="og:site_name" content="Hacklog">
   <meta property="og:url" content="https://sjp38.github.io/categories/lkml-news/">
-  <meta property="og:title" content="lkml news | Hacklog">
+  <meta property="og:title" content="Lkml news | Hacklog">
   <meta property="og:description" content="System Programmer">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2018-11-12T08:30:21&#43;09:00">
+  <meta property="og:updated_time" content="2018-11-29T08:14:01&#43;09:00">
   
 
   
 
-  <title>lkml news | Hacklog</title>
+  <title>Lkml news | Hacklog</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
@@ -250,11 +250,44 @@
 
 <div class="universal-wrapper">
 
-  <h1>lkml news</h1>
+  <h1>Lkml news</h1>
 
   
 
   
+  
+  <div>
+    <h2><a href="https://sjp38.github.io/post/lkml_news_v4.20-rc5/">LKML News by 4.20-rc5</a></h2>
+    <div class="article-style">
+      
+      [PATCH V12 00/20] block: support multi-page bvec <a href="https://lkml.kernel.org/r/20181126021720.19471-1-ming.lei@redhat.com" target="_blank">https://lkml.kernel.org/r/20181126021720.19471-1-ming.lei@redhat.com</a>
+struct bio_bvec 하나가 물리적으로 연속적인 여러개의 페이지를 담을 수 있게 해서 block layer 의 효율성을 높이기 위한 시도입니다.
+[PATCH] aio: Convert ioctx_table to XArray <a href="https://lkml.kernel.org/r/20181128183531.5139-1-willy@infradead.org" target="_blank">https://lkml.kernel.org/r/20181128183531.5139-1-willy@infradead.org</a>
+aio 쪽의 ioctx_table 이라는 자료구조가 스펙터에 취약한 자료구조인데, 인덱스 오버플로 문제가 없는 XArray 로 교체하는 패치입니다. 정말 코드가 깔끔해지는군요.
+[PATCH 0/4][V4] drop the mmap_sem when doing IO in the fault path <a href="https://lkml.kernel.org/r/20181130195812.19536-1-josef@toxicpanda.com" target="_blank">https://lkml.kernel.org/r/20181130195812.19536-1-josef@toxicpanda.com</a>
+ps 등의 도구를 사용해 시스템 상황을 모니터링하는 커다란 어플리케이션을 사용 중인데, 이 과정에서 다른 task 의 mmap_sem 을 down_read() 해야 하는 경우가 종종 생긴다는군요.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="https://sjp38.github.io/post/lkml_news_v4.20-rc4/">LKML News by v4.20-rc4</a></h2>
+    <div class="article-style">
+      
+      [PATCH -V7 00/21] swap: Swapout/swapin THP in one piece <a href="https://lkml.kernel.org/r/20181120085449.5542-1-ying.huang@intel.com" target="_blank">https://lkml.kernel.org/r/20181120085449.5542-1-ying.huang@intel.com</a>
+Transparent Huge Page 를 쪼개지 않고 swap out / swap in 함으로써 스왑 성능을 최적화 하는 패치의 일곱번째 버전입니다. 이 블로그에서도 소개한 바 있죠. 크게 바뀐 부분은 없지만 최신 버전에 맞춰 리베이스 되었고, Daniel 에 의해 발견된 주소 정렬 관련 문제를 해결했군요.
+[PATCH 0/5] Fragmentation avoidance improvements v5 <a href="https://lkml.kernel.org/r/20181123114528.28802-1-mgorman@techsingularity.net" target="_blank">https://lkml.kernel.org/r/20181123114528.28802-1-mgorman@techsingularity.net</a>
+시스템이 충분히 오래 운영되거나 특정한 패턴의 워크로드가 동작하게 되면 시스템의 메모리는 fragment 되게 마련이어서, 장기적으로 물리적 연속 페이지 할당이 실패하게 됩니다.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="https://sjp38.github.io/post/lkml_news_v4.20-rc3/">LKML News by v4.20-rc3</a></h2>
+    <div class="article-style">
+      
+    </div>
+  </div>
   
   <div>
     <h2><a href="https://sjp38.github.io/post/lkml_news_v4.20-rc2/">LKML News by v4.20-rc2</a></h2>
@@ -329,43 +362,6 @@ THP 를 한방에 swap out / swap in 하는 Huang Ying 의 패치, 여섯번째 
 한국시간 새벽 네시 좀 넘어 이 메일을 받았습니다. 평범한 릴리즈 메일이겠거니 했는데 제목이 뭔가 심상치 않군요.
 일단 4.19를 위한 네번째 release candidate 릴리즈가 되었습니다. 약 3주 후 정식 4.19 버전이 릴리즈 되겠군요. 하지만 이 메일은 그보다 많은 내용을 담고 있습니다.
 자유분방하고 형식에 구애되지 않는 해커 문화에 기원을 두고 있는 리눅스 커뮤니티는 조금 거친 언어 문화로 유명했습니다. 예를 들어 이상한 코드를 보내면 리누스 토발즈와 커뮤니티의 일부 사람들이 이 코드를 꾸짖을 수 있는데 그 과정에서 욕설도 있을 수 있다는 거죠.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="https://sjp38.github.io/post/lkml_news_v4.19-rc3/">LKML News after v4.19-rc3</a></h2>
-    <div class="article-style">
-      
-      Linux 4.19-rc3 <a href="https://lkml.kernel.org/r/CA+55aFwSxCt0aKkTxcBstthYXqJ5LtxRbO-CDyqgNwU94Ldq+w@mail.gmail.com" target="_blank">https://lkml.kernel.org/r/CA+55aFwSxCt0aKkTxcBstthYXqJ5LtxRbO-CDyqgNwU94Ldq+w@mail.gmail.com</a>
-세번째 rc 릴리즈입니다. 어느새 이번 안정화 기간도 중반을 향하는군요. 시간 참 빠릅니다. 전체적으로 평범한 릴리즈입니다. 딱히 언급할 거리가 없군요.
-[RFC PATCH v2 0/8] lru_lock scalability and SMP list functions <a href="https://lkml.kernel.org/r/20180911004240.4758-1-daniel.m.jordan@oracle.com" target="_blank">https://lkml.kernel.org/r/20180911004240.4758-1-daniel.m.jordan@oracle.com</a>
-올해 LSF/MM 서밋에서도 이야기되었던, lru_lock 의 확장성을 개선하기 위한 노력의 정리입니다. LRU 리스트에 여러 쓰레드가 실제 데이터를 겹쳐 쓰지 않는다면 동시에 접근할 수 있는 새로운 오퍼레이션 세개 (smp_list_del(), smp_list_splice(), smp_list_add())을 추가했구요. 두번째로, lru_lock 을 spinlock 에서 rwlock 으로 교체했군요.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="https://sjp38.github.io/post/lkml_news_v4.19-rc2/">LKML News after v4.19-rc2</a></h2>
-    <div class="article-style">
-      
-      Linux 4.19-rc2 <a href="https://lkml.kernel.org/r/CA+55aFyG0GbDfoghEhAmKBPcZCiPu6CCpPRz9GwjCzLuP_Vv5Q@mail.gmail.com" target="_blank">https://lkml.kernel.org/r/CA+55aFyG0GbDfoghEhAmKBPcZCiPu6CCpPRz9GwjCzLuP_Vv5Q@mail.gmail.com</a>
-리눅스 4.19 두번째 릴리즈 후보 버전의 릴리즈입니다. 첫번째 릴리즈 후보 버전 릴리즈 후엔 사람들이 좀 쉬게 마련이고 버그를 찾기엔 시간이 많지 않았기에 큰 변화는 없었습니다. 유럽사람들의 경우 아직 휴가기간인 사람도 많구요. 미국 OSSummit 이 지난주 진행된 것도 한 영향이겠네요.
-[PATCH -V5 00/21] swap: Swapout/swapin THP in one piece <a href="https://lkml.kernel.org/r/20180903072214.24602-1-ying.huang@intel.com" target="_blank">https://lkml.kernel.org/r/20180903072214.24602-1-ying.huang@intel.com</a>
-관심있게 지켜보고 있는, THP swapout/in 패치입니다. 다음 머지 윈도우에선 들어갈 수 있을까요?
-Plumbers 2018 - Performance and Scalability Microconference <a href="https://lkml" target="_blank">https://lkml</a>.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="https://sjp38.github.io/post/lkml_news_v4.19-rc1/">LKML News after v4.19-rc1</a></h2>
-    <div class="article-style">
-      
-      Linux 4.19-rc1 <a href="https://lkml.kernel.org/r/CA+55aFw9mxNPX6OtOp-aoUMdXSg=gBkQudGGamo__sh_ts_LdQ@mail.gmail.com" target="_blank">https://lkml.kernel.org/r/CA+55aFw9mxNPX6OtOp-aoUMdXSg=gBkQudGGamo__sh_ts_LdQ@mail.gmail.com</a>
-이주일의 머지 윈도우가 끝나고 리눅스 4.19 버전을 향한 안정화 단계가 시작되었습니다.
-토발즈에겐 결코 즐겁지 않은 머지 윈도우였습니다 (frustrating merge window 였다고 표현하는군요). 일단 머지 윈도우 초기부터 L1TF 취약점 이슈가 나왔죠. 하지만 이슈가 처음 발견된 건 아니고 공식 보고된 거다보니 그 전부터 수정은 하고 있었기에 머지만 하면 됐습니다. 토발즈는 -next 트리와 다양한 커널 테스트 시스템들이 잘 갖추어져 있다는 증거라고 이야기 합니다.
-또, TLB 슛다운 버그에 대한 보고가 있었군요.
       
     </div>
   </div>
