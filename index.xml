@@ -85,6 +85,8 @@ For more examples and ideas, visit:
 
 &lt;h1 id=&#34;gitlab-설치&#34;&gt;Gitlab 설치&lt;/h1&gt;
 
+&lt;h2 id=&#34;일단-시작&#34;&gt;일단 시작&lt;/h2&gt;
+
 &lt;p&gt;이제 Gitlab docker image 를 가져오고 돌려보죠.  Gitlab 쪽 문서[1]를 참고합니다.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;$ cd $HOME; mkdir data
@@ -106,6 +108,8 @@ $ sudo docker run --detach --hostname gitlab.example.com \
 최초 로그인 시에는 관리자 패스워드를 바로 설정할 수 있습니다.
 이후 root 계정에 지금 설정한 패스워드를 입력해 접속할 수 있습니다.&lt;/p&gt;
 
+&lt;h2 id=&#34;설정-변경&#34;&gt;설정 변경&lt;/h2&gt;
+
 &lt;p&gt;몇가지 설정을 추가해야 합니다.  설정은 아래 명령으로 지금 띄운 컨테이너에
 들어가 설정 파일을 수정하는 것으로 가능합니다:&lt;/p&gt;
 
@@ -121,6 +125,8 @@ $ sudo docker run --detach --hostname gitlab.example.com \
 &lt;pre&gt;&lt;code&gt;$ sudo docker restart gitlab
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;h2 id=&#34;포트-변경-적용&#34;&gt;포트 변경 적용&lt;/h2&gt;
+
 &lt;p&gt;호스트의 80 포트, 22 포트, 443 포트를 점유할 수 없는 상황이므로 우린 30480,
 30422, 30443 포트를 대신 사용하도록 했습니다.
 이 경우 추가적인 설정이 필요합니다.
@@ -133,6 +139,8 @@ gitlab_rails[&#39;gitlab_shell_ssh_port&#39;] = 30422
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;두번째, 세번째 줄을 추가 안해주면 동작 안합니다[3].&lt;/p&gt;
+
+&lt;h2 id=&#34;gmail-smtp-설정&#34;&gt;gmail smtp 설정&lt;/h2&gt;
 
 &lt;p&gt;이어서 smtp 설정을 해야 합니다.&lt;/p&gt;
 
@@ -154,6 +162,8 @@ gitlab_rails[&#39;smtp_openssl_verify_mode&#39;] = &#39;peer&#39; # Can be: &#39
 &lt;p&gt;여기서 &lt;code&gt;my.email&lt;/code&gt; 과 &lt;code&gt;my-gmail-password&lt;/code&gt; 는 당연히 실제 gmail 계정으로
 바꿔야겠죠?  해당 gmail 계정도 gmail 설정에서 smtp 를 사용할 수 있게 설정해
 줘야 합니다.&lt;/p&gt;
+
+&lt;h2 id=&#34;가입-기능-제거&#34;&gt;가입 기능 제거&lt;/h2&gt;
 
 &lt;p&gt;gitlab 첫페이지는 &lt;code&gt;sign in&lt;/code&gt; 과 &lt;code&gt;register&lt;/code&gt; 기능이 있습니다.  처음 사용하는
 유저는 &lt;code&gt;register&lt;/code&gt; 를 사용하면 되는거죠.&lt;/p&gt;
