@@ -11,12 +11,102 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>LKML News v5.1-rc1</title>
+      <link>https://sjp38.github.io/post/lkml_news_v5.1-rc1/</link>
+      <pubDate>Mon, 04 Mar 2019 13:07:30 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/lkml_news_v5.1-rc1/</guid>
+      <description>
+
+&lt;p&gt;Linux v5.0 릴리즈 (2019-03-03) 부터 v5.1-rc1 릴리즈 (2019-03-17) 사이의 머지
+윈도우 기간 LKML 에 올라온 흥미로운 메일들을 소개합니다.&lt;/p&gt;
+
+&lt;h2 id=&#34;cma-allocation-failure&#34;&gt;CMA allocation failure&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/57e0bc63-0be9-498b-8ffc-3b073e01e299@email.android.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/57e0bc63-0be9-498b-8ffc-3b073e01e299@email.android.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;제게도 GCMA 레이턴시 관련 문의를 보냈던 분인데, LKML 에도 관련 도움을 요청하는
+메일을 보냈군요.&lt;/p&gt;
+
+&lt;p&gt;왜 CMA 가 할당에 실패하는지 이유를 묻는 메일인데요, 답은 없습니다.&lt;/p&gt;
+
+&lt;h2 id=&#34;lsf-mm-topic-using-xarray-to-manage-the-vma&#34;&gt;[LSF/MM TOPIC] Using XArray to manage the VMA&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/7da20892-f92a-68d8-4804-c72c1cb0d090@linux.ibm.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/7da20892-f92a-68d8-4804-c72c1cb0d090@linux.ibm.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;MM 의 오랜 숙원 중 하나는 &lt;code&gt;mmap_sem&lt;/code&gt; 으로 인한 확장성 문제 해결이죠.  기존의 RB
+tree 대신 XArray 를 사용하는 것으로 새로운 시도를 시작해 보는건 어떨지 LSFMM
+에서 토의해보자는, speculative page fault 의 최근 메인테이너인 Laurent 의
+메일입니다.
+곧바로 XArray 메인테이너인 Matthew 의 답장이 오는군요.
+꼭 해보려는 의지가 강력해 보입니다.&lt;/p&gt;
+
+&lt;h2 id=&#34;mm-cma-c-high-latency-for-cma-allocation&#34;&gt;mm/cma.c: High latency for cma allocation&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/SG2PR02MB3098E44824F5AA69BC04F935E8470@SG2PR02MB3098.apcprd02.prod.outlook.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/SG2PR02MB3098E44824F5AA69BC04F935E8470@SG2PR02MB3098.apcprd02.prod.outlook.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;이어지는 CMA 레이턴시에 대한 문의입니다.  제게 GCMA 레이턴시에 대해 온 문의에
+대해서는 제 실험 환경을 보내주고 그쪽 환경에서 돌려본 후 결과를 알려달라
+했는데, 아직 답이 없군요.
+좀 더 자세한 분석 결과를 달라는 Michal 의 답변이 있습니다.&lt;/p&gt;
+
+&lt;h2 id=&#34;linux-5-1-rc1&#34;&gt;Linux 5.1-rc1&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wj1c_Tb-wwM6qaPLdggXtW3rOh1JzYUOs+O7PsHt-=+jg@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CAHk-=wj1c_Tb-wwM6qaPLdggXtW3rOh1JzYUOs+O7PsHt-=+jg@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;v5.1 머지 윈도우가 종료되고 v5.1-rc1 이 릴리즈 되었습니다.  이번 릴리즈도 크게
+다른 건 없고 매우 평범했다고 합니다.  좋은 징조인데요, 변경사항의 60%를 차지한
+드라이버 가운데 habanalab 의 AI 가속기 칩 드라이버를 조금 특별한 변경사항으로
+토발즈는 꼽네요.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>LKML News v5.0</title>
+      <link>https://sjp38.github.io/post/lkml_news_v5.0/</link>
+      <pubDate>Mon, 25 Feb 2019 13:16:39 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/lkml_news_v5.0/</guid>
+      <description>
+
+&lt;p&gt;Linux v5.0-rc8 릴리즈 (2019-02-24) 부터 Linux v5.0 릴리즈 (2019-03-03) 사이
+기간에 LKML 에 올라온 흥미로운 메일들을 소개합니다.&lt;/p&gt;
+
+&lt;h2 id=&#34;patch-0-5-v5-allow-persistent-memory-to-be-used-like-normal-ram&#34;&gt;&lt;code&gt;[PATCH 0/5] [v5] Allow persistent memory to be used like normal RAM&lt;/code&gt;&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190225185727.BCBD768C@viggo.jf.intel.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20190225185727.BCBD768C@viggo.jf.intel.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;앞서 몇번 소개했던, persistent memory 를 좀 많이 느린 numa node 인 것처럼 해서
+시스템이 사용할 수 있게 하는 접근법의 패치 다섯번째 버전입니다.
+이제 개선은 어느정도 된 것 같으니 슬슬 머지되야하지 않겠냐고 주장하는군요.&lt;/p&gt;
+
+&lt;h2 id=&#34;linux-v5-0&#34;&gt;Linux v5.0&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wjuG6HiGbD7DCGfvDvhr_1WZUR-eYF2qWGbYyn9k6unvg@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CAHk-=wjuG6HiGbD7DCGfvDvhr_1WZUR-eYF2qWGbYyn9k6unvg@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;마침내 5.0 릴리즈입니다!  제 랩톱에도 바로 받아다가 설치했습니다! ;)  물론 5.0
+릴리즈에 특별한 기능 추가라던지 하는건 없고 그저 시간이 꽤 지나서 이렇게
+된거라곤 하지만 어쨌든 느낌은 새롭군요.&lt;/p&gt;
+
+&lt;p&gt;rc8 릴리즈 후에도 양은 크게 줄었지만 패치가 좀 있었습니다.  그렇게 고쳐진 버그
+중 하나로는 uninitialized variable 문제가 있었는데, gcc 가 알아서 초기화를
+시켜주다보니 워닝이 안떴었군요.  물론 다른 컴파일러를 사용하면 문제가 생기게
+되니 무쓸모한 변경은 아니었다 자평합니다.&lt;/p&gt;
+
+&lt;p&gt;어쨌든, 이렇게 v5.0 커널이 정식으로 나왔고, v5.1 을 향한 여정이 시작되었습니다!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>LKML News v5.0-rc8</title>
       <link>https://sjp38.github.io/post/lkml_news_v5.0-rc8/</link>
       <pubDate>Tue, 19 Feb 2019 08:33:37 +0900</pubDate>
       
       <guid>https://sjp38.github.io/post/lkml_news_v5.0-rc8/</guid>
       <description>
+
+&lt;p&gt;Linux v5.0-rc7 릴리즈 (2019년 2월 17일) 부터 v5.0-rc8 릴리즈 (2019년 2월 24일)
+사이의 기간에 LKML 에 올라온 흥미로운 메일들을 소개합니다.&lt;/p&gt;
 
 &lt;h2 id=&#34;lsf-mm-attend-mm-track-numa-thp-locality-reclaim&#34;&gt;[LSF/MM ATTEND] MM track: NUMA, THP locality, reclaim&lt;/h2&gt;
 
@@ -25,6 +115,28 @@
 &lt;p&gt;Mel Gorman 의 LSF/MM 참여 메일입니다.  NUMA remote THP vs NUMA local non-THP,
 NUMA, 메모리 계층 그리고 디바이스 메모리, NUMA rebalancing 과 메모리 reclaim 에
 참여하고 싶다고 이야기 하는군요.&lt;/p&gt;
+
+&lt;h2 id=&#34;lsf-mm-topic-lsf-mm-attend-read-only-mapping-of-program-text&#34;&gt;&lt;code&gt;[LSF/MM TOPIC ][LSF/MM ATTEND] Read-only Mapping of Program Text&lt;/code&gt;&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/379F21DD-006F-4E33-9BD5-F81F9BA75C10@oracle.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/379F21DD-006F-4E33-9BD5-F81F9BA75C10@oracle.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;THP 를 활용해 read-only text 를 매핑함으로써 성능을 높이려는 시도를 해오고
+있는데, 하나의 base page 를 먼저 읽고 이어서 추가적인 page 를 읽는게 진짜로
+사용될지 모르는 readahead 때문에 의논을 해보고 싶다고 하네요.
+또, 파일시스템에게 컨텐츠가 큰 청크를 필요로 할지 알려주는 인터페이스가 있으면
+좋겠다는군요.&lt;/p&gt;
+
+&lt;h2 id=&#34;linux-v5-0-rc8&#34;&gt;Linux v5.0-rc8&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wgtNhecfn_nOi0Yuy7XQSswfozz0CvRMn0WsQhk0YZfyw@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CAHk-=wgtNhecfn_nOi0Yuy7XQSswfozz0CvRMn0WsQhk0YZfyw@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;rc8 이 나올지 바로 v5.0 이 나올지 궁금했는데, 결국 v5.0 릴리즈는 한주 더
+미뤄지게 되었습니다.  rc7 때보다도 많은 패치가 이번 기간에 들어왔다는군요.&lt;/p&gt;
+
+&lt;p&gt;그렇다고 아주 특별한 변경이 있었던 건 아니지만 그렇다고 서두를 것도 없으므로
+그냥 rc8 을 릴리즈하기로 결정했다고 하네요.&lt;/p&gt;
+
+&lt;p&gt;어쨌건 다음주에는 분명 v5.0 이 나오겠죠!&lt;/p&gt;
 </description>
     </item>
     
@@ -562,130 +674,6 @@ Daniel 에 의해 레포트된 버그 하나를 고쳐서 여덟번째 버전이
 거라고 하는군요.  하지만 여전히 크리스마스 휴일 시즌을 위해 크리스마스 전에
 릴리즈를 마치고, 이후 일주일은 푹 쉴테니 그전에 풀리퀘스트도 준비해 두라고
 하네요.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>LKML News by 4.20-rc5</title>
-      <link>https://sjp38.github.io/post/lkml_news_v4.20-rc5/</link>
-      <pubDate>Thu, 29 Nov 2018 08:14:01 +0900</pubDate>
-      
-      <guid>https://sjp38.github.io/post/lkml_news_v4.20-rc5/</guid>
-      <description>
-
-&lt;h2 id=&#34;patch-v12-00-20-block-support-multi-page-bvec&#34;&gt;[PATCH V12 00/20] block: support multi-page bvec&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20181126021720.19471-1-ming.lei@redhat.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20181126021720.19471-1-ming.lei@redhat.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;struct bio_bvec&lt;/code&gt; 하나가 물리적으로 연속적인 여러개의 페이지를 담을 수 있게
-해서 block layer 의 효율성을 높이기 위한 시도입니다.&lt;/p&gt;
-
-&lt;h2 id=&#34;patch-aio-convert-ioctx-table-to-xarray&#34;&gt;[PATCH] aio: Convert ioctx_table to XArray&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20181128183531.5139-1-willy@infradead.org&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20181128183531.5139-1-willy@infradead.org&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;aio 쪽의 &lt;code&gt;ioctx_table&lt;/code&gt; 이라는 자료구조가 스펙터에 취약한 자료구조인데, 인덱스
-오버플로 문제가 없는 XArray 로 교체하는 패치입니다.  정말 코드가
-깔끔해지는군요.&lt;/p&gt;
-
-&lt;h2 id=&#34;patch-0-4-v4-drop-the-mmap-sem-when-doing-io-in-the-fault-path&#34;&gt;&lt;code&gt;[PATCH 0/4][V4] drop the mmap_sem when doing IO in the fault path&lt;/code&gt;&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20181130195812.19536-1-josef@toxicpanda.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20181130195812.19536-1-josef@toxicpanda.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;ps&lt;/code&gt; 등의 도구를 사용해 시스템 상황을 모니터링하는 커다란 어플리케이션을 사용
-중인데, 이 과정에서 다른 &lt;code&gt;task&lt;/code&gt; 의 &lt;code&gt;mmap_sem&lt;/code&gt; 을 &lt;code&gt;down_read()&lt;/code&gt; 해야 하는 경우가
-종종 생긴다는군요.  문제는 이 &lt;code&gt;mmap_sem&lt;/code&gt; 의 쓰기 권한을 얻어오는 과정이 사실상
-mutex 와 동일하니 레이턴시가 크게 늘어날 때가 종종 생긴다고 합니다.  이 문제를
-해결하기 위해 &lt;code&gt;retry&lt;/code&gt; 메커니즘을 적용하는 패치셋입니다.&lt;/p&gt;
-
-&lt;h2 id=&#34;patch-v2-0-9-use-vm-insert-range&#34;&gt;[PATCH v2 0/9] Use vm_insert_range&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20181202061707.GA3070@jordon-HP-15-Notebook-PC&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20181202061707.GA3070@jordon-HP-15-Notebook-PC&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;드라이버가 자신의 커널 메모리를 사용자 vma 로 매핑하는 방법은
-&lt;code&gt;vm_insert_page()&lt;/code&gt; 를 사용하는 방식이었고, 여러 페이지를 매핑하려면 이 함수를
-루프를 돌면서 수행해야 했는데요, 이게 좀 귀찮으므로 아예 &lt;code&gt;vm_insert_range()&lt;/code&gt;
-라는 함수를 추가한 패치입니다.&lt;/p&gt;
-
-&lt;h2 id=&#34;linux-4-20-rc5&#34;&gt;Linux 4.20-rc5&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wizcNrsoyCM1EXQqoswMCYsJaby2iAkZb9wBAzDEhvxNg@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CAHk-=wizcNrsoyCM1EXQqoswMCYsJaby2iAkZb9wBAzDEhvxNg@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;벌써 다섯번째 rc 릴리즈이므로 변경내용이 줄어들어야 할 타이밍이지만, 이상하게도
-이번 릴리즈는 -rc1 을 제외하고는 가장 변경이 큰 릴리즈라는군요.  게다가 arch 쪽
-변경사항이 꽤 많은데, 아마도 STIPB 쪽 성능 리그레션 때문인 것으로 보인다고
-합니다.  아무튼 일반적인 모습은 아니다보니 릴리즈 일정이 변경될 가능성이
-생겼는데요, 너무 미루면 연말연초 휴일에 머지 윈도우가 겹치게 되는데 토발즈는
-휴일 동안 머지 윈도우 관리하기 싫고, 그렇다고 더 미루면 토발즈도 1월 후반에
-여행 갈거고, 남들도 휴일에 머지 윈도우를 준비하기가 싫을 거라 고민이라
-하는군요.&lt;/p&gt;
-
-&lt;p&gt;결국 일단은 크리스마스 직전 쯤 4.20 을 릴리즈 하고, 남들도 머지 윈도우 준비를
-그 전까지 마치는 걸 제안하고 있습니다.  물론, rc6 에서도 변경사항이 충분히
-줄어들지 않는다면 릴리즈 일정은 더 늦춰질 수 있겠죠.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>LKML News by v4.20-rc4</title>
-      <link>https://sjp38.github.io/post/lkml_news_v4.20-rc4/</link>
-      <pubDate>Mon, 26 Nov 2018 08:06:40 +0900</pubDate>
-      
-      <guid>https://sjp38.github.io/post/lkml_news_v4.20-rc4/</guid>
-      <description>
-
-&lt;h2 id=&#34;patch-v7-00-21-swap-swapout-swapin-thp-in-one-piece&#34;&gt;[PATCH -V7 00/21] swap: Swapout/swapin THP in one piece&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20181120085449.5542-1-ying.huang@intel.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20181120085449.5542-1-ying.huang@intel.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Transparent Huge Page 를 쪼개지 않고 swap out / swap in 함으로써 스왑 성능을
-최적화 하는 패치의 일곱번째 버전입니다.  이 블로그에서도 소개한 바 있죠.  크게
-바뀐 부분은 없지만 최신 버전에 맞춰 리베이스 되었고, Daniel 에 의해 발견된 주소
-정렬 관련 문제를 해결했군요.&lt;/p&gt;
-
-&lt;h2 id=&#34;patch-0-5-fragmentation-avoidance-improvements-v5&#34;&gt;[PATCH 0/5] Fragmentation avoidance improvements v5&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20181123114528.28802-1-mgorman@techsingularity.net&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20181123114528.28802-1-mgorman@techsingularity.net&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;시스템이 충분히 오래 운영되거나 특정한 패턴의 워크로드가 동작하게 되면 시스템의
-메모리는 fragment 되게 마련이어서, 장기적으로 물리적 연속 페이지 할당이
-실패하게 됩니다.  이 패치셋은 메모리 분절화를 야기하는 워크로드 (이벤트)를
-정의하고 그런 이벤트의 발생을 줄이는 내용을 담고 있습니다.&lt;/p&gt;
-
-&lt;p&gt;최적화 방법은 다음과 같습니다.  먼저, lower id free list 가 사용 가능하면 high
-order free list 를 쪼개기보다 그걸 먼저 사용합니다.  메모리 분절화 이벤트가
-발생하면 임시적으로 워터마크를 높입니다.  kswapd 가 일어나서 적은양의 오래된
-메모리를 리클레임하고, 이어서 kcompactd 가 일어나서 시스템 메모리 연속성을
-복구시킵니다.  물론 이는 오버헤드를 추가합니다.  마지막으로, kswapd 가 진전을
-일으킬 수 있도록 일부 movable 페이지 할당을 기다리게 합니다.  이 기다리는 시간
-역시 오버헤드와 연관되므로 적절히 맞춰질 필요가 있겠죠.&lt;/p&gt;
-
-&lt;p&gt;이 패치셋을 적용한 결과 94% 이상 메모리 분절화를 줄일 수 있었다고 합니다.&lt;/p&gt;
-
-&lt;h2 id=&#34;git-pull-xarray-updates&#34;&gt;[GIT PULL] XArray updates&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20181124173209.GZ3065@bombadil.infradead.org&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20181124173209.GZ3065@bombadil.infradead.org&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;XArray 는 작년 OSSummit 에서 처음 발표를 들은 후 주의 깊게 보고 있었는데 이번에
-머지되었고 커널 서밋에서도 발표를 들었는데 매우 인상적이었습니다.  DAX 가
-XArray 를 사용하도록 수정한 후 DAX 의 버그가 발견되었고, 그에 대한 수정을
-포함한 수정사항들을 담은 풀 리퀘스트입니다.&lt;/p&gt;
-
-&lt;h2 id=&#34;linux-4-20-rc4&#34;&gt;Linux 4.20-rc4&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wgdsXyCaLsFEpyUpAeRqVS69u=xo4rzEN+cS=xwz2gajg@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CAHk-=wgdsXyCaLsFEpyUpAeRqVS69u=xo4rzEN+cS=xwz2gajg@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;4.x 의 마지막이 될 예정인 4.20을 향한 네번째 rc 버전 릴리즈입니다.  변경의 60
-퍼센트가 드라이버고, 나머진 네트워킹, 파일시스템쪽 수정과 arch, 문서화
-업데이트고 xarray 쪽 수정도 있었군요.  평소와 다를바 없어서 평이한 릴리즈라 할
-수 있지만, STIBP 수정이라던지 mm 쪽 수정에 대한 논의가 안끝났다던지 하는 부분은
-남아있다는군요.&lt;/p&gt;
-
-&lt;p&gt;한가지 지난 릴리즈 때 이야기 할 것을 빼먹은 것도 이야기 하는데, 풀 리퀘스트에
-대한 응답 메일을 Konstantin 이 자동화 했기 때문에 더이상 토발즈 자신이 하나하나
-답장을 보내지 않는다는 겁니다.  그리고 이 자동화의 구성상 LKML 의 &lt;code&gt;linux-*&lt;/code&gt;
-그룹을 cc 하지 않으면 ack 을 주지 않는데, 그걸로 인해 혼동이 있을 수 있었겠다고
-하는군요.&lt;/p&gt;
 </description>
     </item>
     

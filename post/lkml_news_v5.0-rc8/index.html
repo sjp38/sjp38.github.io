@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme" content="hugo-academic">
-  <meta name="generator" content="Hugo 0.51" />
+  <meta name="generator" content="Hugo 0.31.1" />
   <meta name="author" content="SeongJae Park">
   <meta name="description" content="System Programmer">
 
@@ -339,6 +339,9 @@
       <div class="article-style" itemprop="articleBody">
         
 
+<p>Linux v5.0-rc7 릴리즈 (2019년 2월 17일) 부터 v5.0-rc8 릴리즈 (2019년 2월 24일)
+사이의 기간에 LKML 에 올라온 흥미로운 메일들을 소개합니다.</p>
+
 <h2 id="lsf-mm-attend-mm-track-numa-thp-locality-reclaim">[LSF/MM ATTEND] MM track: NUMA, THP locality, reclaim</h2>
 
 <p><a href="https://lkml.kernel.org/r/20190218143203.GW9565@techsingularity.net" target="_blank">https://lkml.kernel.org/r/20190218143203.GW9565@techsingularity.net</a></p>
@@ -346,6 +349,28 @@
 <p>Mel Gorman 의 LSF/MM 참여 메일입니다.  NUMA remote THP vs NUMA local non-THP,
 NUMA, 메모리 계층 그리고 디바이스 메모리, NUMA rebalancing 과 메모리 reclaim 에
 참여하고 싶다고 이야기 하는군요.</p>
+
+<h2 id="lsf-mm-topic-lsf-mm-attend-read-only-mapping-of-program-text"><code>[LSF/MM TOPIC ][LSF/MM ATTEND] Read-only Mapping of Program Text</code></h2>
+
+<p><a href="https://lkml.kernel.org/r/379F21DD-006F-4E33-9BD5-F81F9BA75C10@oracle.com" target="_blank">https://lkml.kernel.org/r/379F21DD-006F-4E33-9BD5-F81F9BA75C10@oracle.com</a></p>
+
+<p>THP 를 활용해 read-only text 를 매핑함으로써 성능을 높이려는 시도를 해오고
+있는데, 하나의 base page 를 먼저 읽고 이어서 추가적인 page 를 읽는게 진짜로
+사용될지 모르는 readahead 때문에 의논을 해보고 싶다고 하네요.
+또, 파일시스템에게 컨텐츠가 큰 청크를 필요로 할지 알려주는 인터페이스가 있으면
+좋겠다는군요.</p>
+
+<h2 id="linux-v5-0-rc8">Linux v5.0-rc8</h2>
+
+<p><a href="https://lkml.kernel.org/r/CAHk-=wgtNhecfn_nOi0Yuy7XQSswfozz0CvRMn0WsQhk0YZfyw@mail.gmail.com" target="_blank">https://lkml.kernel.org/r/CAHk-=wgtNhecfn_nOi0Yuy7XQSswfozz0CvRMn0WsQhk0YZfyw@mail.gmail.com</a></p>
+
+<p>rc8 이 나올지 바로 v5.0 이 나올지 궁금했는데, 결국 v5.0 릴리즈는 한주 더
+미뤄지게 되었습니다.  rc7 때보다도 많은 패치가 이번 기간에 들어왔다는군요.</p>
+
+<p>그렇다고 아주 특별한 변경이 있었던 건 아니지만 그렇다고 서두를 것도 없으므로
+그냥 rc8 을 릴리즈하기로 결정했다고 하네요.</p>
+
+<p>어쨌건 다음주에는 분명 v5.0 이 나오겠죠!</p>
 
       </div>
 

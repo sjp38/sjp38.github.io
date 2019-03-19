@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme" content="hugo-academic">
-  <meta name="generator" content="Hugo 0.51" />
+  <meta name="generator" content="Hugo 0.31.1" />
   <meta name="author" content="SeongJae Park">
   <meta name="description" content="System Programmer">
 
@@ -73,7 +73,7 @@
   <meta property="og:description" content="System Programmer">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2018-10-22T17:45:08&#43;09:00">
+  <meta property="og:updated_time" content="2018-11-08T04:30:42&#43;09:00">
   
 
   
@@ -246,6 +246,131 @@
   
 
   
+  
+    
+    
+
+<div class="article-list-item" itemscope itemprop="blogPost">
+  
+  
+  <h3 class="article-title" itemprop="name">
+    <a href="https://sjp38.github.io/post/lkmm-install/" itemprop="url">LKMM Setup and Usage</a>
+  </h3>
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2018-11-08 04:30:42 &#43;0900 KST" itemprop="datePublished">
+      Nov 8, 2018
+    </time>
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/linux-kernel">linux kernel</a
+    >
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+  <div class="article-style" itemprop="articleBody">
+    
+    리눅스 커널은 Formalised and executable memory consistent model 을 제공합니다. 줄여서 linux kernel memory model (LKMM) 이라고 하죠. 이 글은 4.19 버전을 기준으로 LKMM 을 실제로 수행해 보기 위한 환경 셋업 과정과 간단한 실행 방법을 정리해 봅니다. 글 작성을 위한 테스트는 Ubuntu 16.04 서버가 설치된 가상머신에서 진행되었습니다.
+herd7 install LKMM 은 버전 7.49 의 &ldquo;herd7&rdquo; 과 &ldquo;klitmus7&rdquo; 을 필요로 합니다. 하지만 herd7 은 또 Ocaml 을 위한 패키지 매니저인 OPAM 을 설치할 것을 필요로 하죠.
+    
+  </div>
+  <p class="read-more">
+    <a href="https://sjp38.github.io/post/lkmm-install/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
+  
+    
+    
+
+<div class="article-list-item" itemscope itemprop="blogPost">
+  
+  
+  <h3 class="article-title" itemprop="name">
+    <a href="https://sjp38.github.io/post/lkml_news_v4.20-rc1/" itemprop="url">LKML News by v4.20-rc1</a>
+  </h3>
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2018-11-07 14:43:56 &#43;0900 KST" itemprop="datePublished">
+      Nov 7, 2018
+    </time>
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/lkml-news">lkml news</a
+    >
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+  <div class="article-style" itemprop="articleBody">
+    
+    리눅스 4.19 버전 릴리즈 후부터 4.20-rc1 버전의 릴리즈까지 LKML 에 오간 메일 중 흥미로운 메일들을 소개합니다.
+[RFC PATCH v4 00/13] ktask: multithread CPU-intensive kernel work https://lkml.kernel.org/r/20181105165558.11698-1-daniel.m.jordan@oracle.com
+CPU intensive 한 커널의 일을 여러 work queue 를 이용해 병렬화 시키기 위한 새로운 프레임웍, ktask 구현 및 적용 패치입니다. 이 프레임웍을 이용해 병렬화 시킬 일은 여러가지가 있을텐데, 이 패치는 ktask 프레임웍의 구현과 함께 VFIO 페이지 pinning, 부팅 시점에서의 struct page 초기화, gigantic page 의 초기화, 그리고 HugeTLB 페이지의 할당에 ktask 를 적용하고 있습니다.
+    
+  </div>
+  <p class="read-more">
+    <a href="https://sjp38.github.io/post/lkml_news_v4.20-rc1/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
   
     
     
@@ -750,133 +875,6 @@ Install Dependent Packages $ sudo apt install build-essential libncurses5-dev li
   </div>
   <p class="read-more">
     <a href="https://sjp38.github.io/post/linux-kernel-build/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-  
-    
-    
-
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/chromebook-plus-purchase/" itemprop="url">Chromebook Plus Purchase (크롬북 플러스 구매 결정기)</a>
-  </h3>
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2018-09-03 13:52:00 &#43;0900 KST" itemprop="datePublished">
-      Sep 3, 2018
-    </time>
-  </span>
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    3 min read
-  </span>
-  
-
-  
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/chrome-os">chrome os</a
-    >
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-  <div class="article-style" itemprop="articleBody">
-    
-    크롬북을 구매했습니다. 구매 결정 과정부터 사용기까지 내용을 정리해볼까 합니다. 이번 글에서는 크롬북을 구매하기까지의 고민과 과정을 정리합니다.
-기본적으로 저는 글을 읽는걸 좋아하기도 하고 읽어야만 하기도 합니다. 그러다보니 여행을 가더라도 항상 어떤 책을 들고갈까 고르는게 설레기도 하지만 짜증나기도 하고, 마음만 앞서서 캐리어 무게를 책으로 꽉 채우기도 합니다. 그래서 예전부터 이북을 고려해 봤지만 너무 반응속도가 느리기도 하고 인쇄된 것에 비해선 가독성도 떨어지고 그 특유의 책을 넘겨가며 보는 반응은 아닌 것 같아 구매하지 않고 있었습니다.
-    
-  </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/chromebook-plus-purchase/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-  
-    
-    
-
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/lkml_news_v4.19-rc2/" itemprop="url">LKML News after v4.19-rc2</a>
-  </h3>
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2018-09-03 11:34:35 &#43;0900 KST" itemprop="datePublished">
-      Sep 3, 2018
-    </time>
-  </span>
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/lkml-news">lkml news</a
-    >
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-  <div class="article-style" itemprop="articleBody">
-    
-    Linux 4.19-rc2 https://lkml.kernel.org/r/CA+55aFyG0GbDfoghEhAmKBPcZCiPu6CCpPRz9GwjCzLuP_Vv5Q@mail.gmail.com
-리눅스 4.19 두번째 릴리즈 후보 버전의 릴리즈입니다. 첫번째 릴리즈 후보 버전 릴리즈 후엔 사람들이 좀 쉬게 마련이고 버그를 찾기엔 시간이 많지 않았기에 큰 변화는 없었습니다. 유럽사람들의 경우 아직 휴가기간인 사람도 많구요. 미국 OSSummit 이 지난주 진행된 것도 한 영향이겠네요.
-[PATCH -V5 00/21] swap: Swapout/swapin THP in one piece https://lkml.kernel.org/r/20180903072214.24602-1-ying.huang@intel.com
-관심있게 지켜보고 있는, THP swapout/in 패치입니다. 다음 머지 윈도우에선 들어갈 수 있을까요?
-Plumbers 2018 - Performance and Scalability Microconference https://lkml.
-    
-  </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/lkml_news_v4.19-rc2/" class="btn btn-primary btn-outline">
       CONTINUE READING
     </a>
   </p>

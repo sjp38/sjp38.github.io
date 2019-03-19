@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme" content="hugo-academic">
-  <meta name="generator" content="Hugo 0.51" />
+  <meta name="generator" content="Hugo 0.31.1" />
   <meta name="author" content="SeongJae Park">
   <meta name="description" content="System Programmer">
 
@@ -254,6 +254,119 @@
   
   
   <h3 class="article-title" itemprop="name">
+    <a href="https://sjp38.github.io/post/lkml_news_v5.1-rc1/" itemprop="url">LKML News v5.1-rc1</a>
+  </h3>
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2019-03-04 13:07:30 &#43;0900 KST" itemprop="datePublished">
+      Mar 4, 2019
+    </time>
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  
+
+  
+
+</div>
+
+  <div class="article-style" itemprop="articleBody">
+    
+    Linux v5.0 릴리즈 (2019-03-03) 부터 v5.1-rc1 릴리즈 (2019-03-17) 사이의 머지 윈도우 기간 LKML 에 올라온 흥미로운 메일들을 소개합니다.
+CMA allocation failure https://lkml.kernel.org/r/57e0bc63-0be9-498b-8ffc-3b073e01e299@email.android.com
+제게도 GCMA 레이턴시 관련 문의를 보냈던 분인데, LKML 에도 관련 도움을 요청하는 메일을 보냈군요.
+왜 CMA 가 할당에 실패하는지 이유를 묻는 메일인데요, 답은 없습니다.
+[LSF/MM TOPIC] Using XArray to manage the VMA https://lkml.kernel.org/r/7da20892-f92a-68d8-4804-c72c1cb0d090@linux.ibm.com
+MM 의 오랜 숙원 중 하나는 mmap_sem 으로 인한 확장성 문제 해결이죠. 기존의 RB tree 대신 XArray 를 사용하는 것으로 새로운 시도를 시작해 보는건 어떨지 LSFMM 에서 토의해보자는, speculative page fault 의 최근 메인테이너인 Laurent 의 메일입니다.
+    
+  </div>
+  <p class="read-more">
+    <a href="https://sjp38.github.io/post/lkml_news_v5.1-rc1/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
+  
+    
+    
+
+<div class="article-list-item" itemscope itemprop="blogPost">
+  
+  
+  <h3 class="article-title" itemprop="name">
+    <a href="https://sjp38.github.io/post/lkml_news_v5.0/" itemprop="url">LKML News v5.0</a>
+  </h3>
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2019-02-25 13:16:39 &#43;0900 KST" itemprop="datePublished">
+      Feb 25, 2019
+    </time>
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  
+
+  
+
+</div>
+
+  <div class="article-style" itemprop="articleBody">
+    
+    Linux v5.0-rc8 릴리즈 (2019-02-24) 부터 Linux v5.0 릴리즈 (2019-03-03) 사이 기간에 LKML 에 올라온 흥미로운 메일들을 소개합니다.
+[PATCH 0/5] [v5] Allow persistent memory to be used like normal RAM https://lkml.kernel.org/r/20190225185727.BCBD768C@viggo.jf.intel.com
+앞서 몇번 소개했던, persistent memory 를 좀 많이 느린 numa node 인 것처럼 해서 시스템이 사용할 수 있게 하는 접근법의 패치 다섯번째 버전입니다. 이제 개선은 어느정도 된 것 같으니 슬슬 머지되야하지 않겠냐고 주장하는군요.
+Linux v5.0 https://lkml.kernel.org/r/CAHk-=wjuG6HiGbD7DCGfvDvhr_1WZUR-eYF2qWGbYyn9k6unvg@mail.gmail.com
+마침내 5.0 릴리즈입니다! 제 랩톱에도 바로 받아다가 설치했습니다!
+    
+  </div>
+  <p class="read-more">
+    <a href="https://sjp38.github.io/post/lkml_news_v5.0/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
+  
+    
+    
+
+<div class="article-list-item" itemscope itemprop="blogPost">
+  
+  
+  <h3 class="article-title" itemprop="name">
     <a href="https://sjp38.github.io/post/lkml_news_v5.0-rc8/" itemprop="url">LKML News v5.0-rc8</a>
   </h3>
   
@@ -297,16 +410,11 @@
 
   <div class="article-style" itemprop="articleBody">
     
-    
-
-<h2 id="lsf-mm-attend-mm-track-numa-thp-locality-reclaim">[LSF/MM ATTEND] MM track: NUMA, THP locality, reclaim</h2>
-
-<p><a href="https://lkml.kernel.org/r/20190218143203.GW9565@techsingularity.net" target="_blank">https://lkml.kernel.org/r/20190218143203.GW9565@techsingularity.net</a></p>
-
-<p>Mel Gorman 의 LSF/MM 참여 메일입니다.  NUMA remote THP vs NUMA local non-THP,
-NUMA, 메모리 계층 그리고 디바이스 메모리, NUMA rebalancing 과 메모리 reclaim 에
-참여하고 싶다고 이야기 하는군요.</p>
-
+    Linux v5.0-rc7 릴리즈 (2019년 2월 17일) 부터 v5.0-rc8 릴리즈 (2019년 2월 24일) 사이의 기간에 LKML 에 올라온 흥미로운 메일들을 소개합니다.
+[LSF/MM ATTEND] MM track: NUMA, THP locality, reclaim https://lkml.kernel.org/r/20190218143203.GW9565@techsingularity.net
+Mel Gorman 의 LSF/MM 참여 메일입니다. NUMA remote THP vs NUMA local non-THP, NUMA, 메모리 계층 그리고 디바이스 메모리, NUMA rebalancing 과 메모리 reclaim 에 참여하고 싶다고 이야기 하는군요.
+[LSF/MM TOPIC ][LSF/MM ATTEND] Read-only Mapping of Program Text https://lkml.kernel.org/r/379F21DD-006F-4E33-9BD5-F81F9BA75C10@oracle.com
+THP 를 활용해 read-only text 를 매핑함으로써 성능을 높이려는 시도를 해오고 있는데, 하나의 base page 를 먼저 읽고 이어서 추가적인 page 를 읽는게 진짜로 사용될지 모르는 readahead 때문에 의논을 해보고 싶다고 하네요.
     
   </div>
   <p class="read-more">
@@ -748,132 +856,6 @@ SPF 패치에서 발견된 버그 레포트입니다. ARM 위에서 데드락 �
   </div>
   <p class="read-more">
     <a href="https://sjp38.github.io/post/lkml_news_v5.0-rc2/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-  
-    
-    
-
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.0-rc1/" itemprop="url">LKML News v5.0-rc1</a>
-  </h3>
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2019-01-07 11:18:50 &#43;0900 KST" itemprop="datePublished">
-      Jan 7, 2019
-    </time>
-  </span>
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/lkml-news">lkml news</a
-    >
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-  <div class="article-style" itemprop="articleBody">
-    
-    [RFC v3 0/3] test driver to analyse vmalloc allocator https://lkml.kernel.org/r/20190102085924.14145-1-urezki@gmail.com
-vmalloc 의 성능과 스트레스 테스트를 위한 모듈을 구현한 패치입니다. Selftests 에도 테스트 스크립트를 추가했군요.
-[RFC PATCH 0/1] mm: add a warning about high order allocations https://lkml.kernel.org/r/20181225153927.2873-1-khorenko@virtuozzo.com
-특정 노드의 메모리에 접근이 많이 되고 있는 상황에서 해당 메모리가 fragment 되어 있고 이 시점에서 high order allocation 이 요청되면 이걸 위해 compaction 등이 작동하니까 다른 태스크의 latency 가 떨어질 수 있습니다. 이런 상황을 모니터링 할 수 있게끔, 이 패치는 vm.
-    
-  </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.0-rc1/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-  
-    
-    
-
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/perf_symbol_problem_4.19/" itemprop="url">Perf symbol problem on Linux 4.19</a>
-  </h3>
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2018-12-21 17:00:22 &#43;0900 KST" itemprop="datePublished">
-      Dec 21, 2018
-    </time>
-  </span>
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/linux-kernel">linux kernel</a
-    >
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-  <div class="article-style" itemprop="articleBody">
-    
-    4.19 커널에서 오랫만에 perf 를 다시 빌드하고 써보려고 하니, perf report 가 아래와 같이 제대로 된 symbol name 을 찾질 못합니다.
-$ sudo perf record -g ls arch builtin-ftrace.c builtin-report.c Documentation perf.data.old bench builtin.h builtin-sched.c examples perf.h Build builtin-help.c builtin-script.c include perf-read-vdso.c builtin-annotate.c builtin-inject.c builtin-stat.c jvmti perf-sys.h builtin-bench.c builtin-kallsyms.c builtin-timechart.c Makefile perf-with-kcore.sh builtin-buildid-cache.c builtin-kmem.c builtin-top.c Makefile.config pmu-events builtin-buildid-list.c builtin-kvm.c builtin-trace.c Makefile.perf python builtin-c2c.c builtin-list.c builtin-version.c MANIFEST scripts builtin-config.c builtin-lock.c check-headers.sh perf-archive.
-    
-  </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/perf_symbol_problem_4.19/" class="btn btn-primary btn-outline">
       CONTINUE READING
     </a>
   </p>

@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme" content="hugo-academic">
-  <meta name="generator" content="Hugo 0.51" />
+  <meta name="generator" content="Hugo 0.31.1" />
   <meta name="author" content="SeongJae Park">
   <meta name="description" content="System Programmer">
 
@@ -73,7 +73,7 @@
   <meta property="og:description" content="System Programmer">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2018-12-21T08:35:03&#43;09:00">
+  <meta property="og:updated_time" content="2019-01-07T11:18:50&#43;09:00">
   
 
   
@@ -246,6 +246,132 @@
   
 
   
+  
+    
+    
+
+<div class="article-list-item" itemscope itemprop="blogPost">
+  
+  
+  <h3 class="article-title" itemprop="name">
+    <a href="https://sjp38.github.io/post/lkml_news_v5.0-rc1/" itemprop="url">LKML News v5.0-rc1</a>
+  </h3>
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2019-01-07 11:18:50 &#43;0900 KST" itemprop="datePublished">
+      Jan 7, 2019
+    </time>
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/lkml-news">lkml news</a
+    >
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+  <div class="article-style" itemprop="articleBody">
+    
+    [RFC v3 0/3] test driver to analyse vmalloc allocator https://lkml.kernel.org/r/20190102085924.14145-1-urezki@gmail.com
+vmalloc 의 성능과 스트레스 테스트를 위한 모듈을 구현한 패치입니다. Selftests 에도 테스트 스크립트를 추가했군요.
+[RFC PATCH 0/1] mm: add a warning about high order allocations https://lkml.kernel.org/r/20181225153927.2873-1-khorenko@virtuozzo.com
+특정 노드의 메모리에 접근이 많이 되고 있는 상황에서 해당 메모리가 fragment 되어 있고 이 시점에서 high order allocation 이 요청되면 이걸 위해 compaction 등이 작동하니까 다른 태스크의 latency 가 떨어질 수 있습니다. 이런 상황을 모니터링 할 수 있게끔, 이 패치는 vm.
+    
+  </div>
+  <p class="read-more">
+    <a href="https://sjp38.github.io/post/lkml_news_v5.0-rc1/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
+  
+    
+    
+
+<div class="article-list-item" itemscope itemprop="blogPost">
+  
+  
+  <h3 class="article-title" itemprop="name">
+    <a href="https://sjp38.github.io/post/perf_symbol_problem_4.19/" itemprop="url">Perf symbol problem on Linux 4.19</a>
+  </h3>
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2018-12-21 17:00:22 &#43;0900 KST" itemprop="datePublished">
+      Dec 21, 2018
+    </time>
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/linux-kernel">linux kernel</a
+    >
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+  <div class="article-style" itemprop="articleBody">
+    
+    4.19 커널에서 오랫만에 perf 를 다시 빌드하고 써보려고 하니, perf report 가 아래와 같이 제대로 된 symbol name 을 찾질 못합니다.
+$ sudo perf record -g ls arch builtin-ftrace.c builtin-report.c Documentation perf.data.old bench builtin.h builtin-sched.c examples perf.h Build builtin-help.c builtin-script.c include perf-read-vdso.c builtin-annotate.c builtin-inject.c builtin-stat.c jvmti perf-sys.h builtin-bench.c builtin-kallsyms.c builtin-timechart.c Makefile perf-with-kcore.sh builtin-buildid-cache.c builtin-kmem.c builtin-top.c Makefile.config pmu-events builtin-buildid-list.c builtin-kvm.c builtin-trace.c Makefile.perf python builtin-c2c.c builtin-list.c builtin-version.c MANIFEST scripts builtin-config.c builtin-lock.c check-headers.sh perf-archive.
+    
+  </div>
+  <p class="read-more">
+    <a href="https://sjp38.github.io/post/perf_symbol_problem_4.19/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
   
     
     
@@ -765,131 +891,6 @@ Transparent Huge Page 를 쪼개지 않고 swap out / swap in 함으로써 스�
   </div>
   <p class="read-more">
     <a href="https://sjp38.github.io/post/ksummit2018_talk/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-  
-    
-    
-
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/lkmm-install/" itemprop="url">LKMM Setup and Usage</a>
-  </h3>
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2018-11-08 04:30:42 &#43;0900 KST" itemprop="datePublished">
-      Nov 8, 2018
-    </time>
-  </span>
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/linux-kernel">linux kernel</a
-    >
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-  <div class="article-style" itemprop="articleBody">
-    
-    리눅스 커널은 Formalised and executable memory consistent model 을 제공합니다. 줄여서 linux kernel memory model (LKMM) 이라고 하죠. 이 글은 4.19 버전을 기준으로 LKMM 을 실제로 수행해 보기 위한 환경 셋업 과정과 간단한 실행 방법을 정리해 봅니다. 글 작성을 위한 테스트는 Ubuntu 16.04 서버가 설치된 가상머신에서 진행되었습니다.
-herd7 install LKMM 은 버전 7.49 의 &ldquo;herd7&rdquo; 과 &ldquo;klitmus7&rdquo; 을 필요로 합니다. 하지만 herd7 은 또 Ocaml 을 위한 패키지 매니저인 OPAM 을 설치할 것을 필요로 하죠.
-    
-  </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/lkmm-install/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-  
-    
-    
-
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/lkml_news_v4.20-rc1/" itemprop="url">LKML News by v4.20-rc1</a>
-  </h3>
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2018-11-07 14:43:56 &#43;0900 KST" itemprop="datePublished">
-      Nov 7, 2018
-    </time>
-  </span>
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/lkml-news">lkml news</a
-    >
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-  <div class="article-style" itemprop="articleBody">
-    
-    리눅스 4.19 버전 릴리즈 후부터 4.20-rc1 버전의 릴리즈까지 LKML 에 오간 메일 중 흥미로운 메일들을 소개합니다.
-[RFC PATCH v4 00/13] ktask: multithread CPU-intensive kernel work https://lkml.kernel.org/r/20181105165558.11698-1-daniel.m.jordan@oracle.com
-CPU intensive 한 커널의 일을 여러 work queue 를 이용해 병렬화 시키기 위한 새로운 프레임웍, ktask 구현 및 적용 패치입니다. 이 프레임웍을 이용해 병렬화 시킬 일은 여러가지가 있을텐데, 이 패치는 ktask 프레임웍의 구현과 함께 VFIO 페이지 pinning, 부팅 시점에서의 struct page 초기화, gigantic page 의 초기화, 그리고 HugeTLB 페이지의 할당에 ktask 를 적용하고 있습니다.
-    
-  </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/lkml_news_v4.20-rc1/" class="btn btn-primary btn-outline">
       CONTINUE READING
     </a>
   </p>
