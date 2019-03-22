@@ -380,6 +380,71 @@ Docker 설치 먼저 Docker 를 설치해야죠. 문서[1]를 참고해서 설�
   
   
   <h3 class="article-title" itemprop="name">
+    <a href="https://sjp38.github.io/post/lkml_news_v5.1-rc2/" itemprop="url">LKML News v5.1-rc2</a>
+  </h3>
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2019-03-19 12:11:11 &#43;0900 KST" itemprop="datePublished">
+      Mar 19, 2019
+    </time>
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/lkml-news">lkml news</a
+    >
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+  <div class="article-style" itemprop="articleBody">
+    
+    [PATCH v5 00/19] Convert x86 &amp; arm64 to use generic page walk https://lkml.kernel.org/r/20190321141953.31960-1-steven.price@arm.com
+커널이 walk_page_range() 함수를 제공하긴 하지만 이 함수는 커널에 의해 사용되는 페이지 테이블은 볼수가 없기 때문에 각 아키텍쳐별로 페이지 테이블 순회를 위한 기능을 별도로 만들어 사용하고 있습니다.
+이 패치셋은 walk_page_range() 가 커널의 페이지 테이블을 만질 수 있도록 확장함으로써 그런 불필요한 아키텍쳐별 파편화를 줄이려 합니다.
+[PATCH v6 0/7] psi: pressure stall monitors v6 https://lkml.kernel.org/r/20190319235619.260832-1-surenb@google.com
+시스템이 어떤 부분의 pressure 를 받는지 쉽게 확인하기 위한 pressure stall monitor 구현 패치의 여섯 번째 버전입니다.
+    
+  </div>
+  <p class="read-more">
+    <a href="https://sjp38.github.io/post/lkml_news_v5.1-rc2/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
+  
+    
+    
+
+<div class="article-list-item" itemscope itemprop="blogPost">
+  
+  
+  <h3 class="article-title" itemprop="name">
     <a href="https://sjp38.github.io/post/lkml_news_v5.1-rc1/" itemprop="url">LKML News v5.1-rc1</a>
   </h3>
   
@@ -811,61 +876,6 @@ of Swap Storage&rdquo; 입니다.</p>
   </div>
   <p class="read-more">
     <a href="https://sjp38.github.io/post/fast2019_talk/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-  
-    
-    
-
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.0-rc4/" itemprop="url">LKML News v5.0-rc4</a>
-  </h3>
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2019-01-28 09:21:25 &#43;0900 KST" itemprop="datePublished">
-      Jan 28, 2019
-    </time>
-  </span>
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-  
-  
-  
-
-  
-
-</div>
-
-  <div class="article-style" itemprop="articleBody">
-    
-    [PATCH 0/5] [v4] Allow persistent memory to be used like normal RAM https://lkml.kernel.org/r/20190124231441.37A4A305@viggo.jf.intel.com
-PMEM 을 평범한 RAM 처럼 접근할 수 있게 해주는 드라이버를 소개하는 패치셋의 네번째 버전입니다. 인터페이스적 측면에서 개선이 많이 됐고, 패치에 대한 소개도 많이 좋아졌네요.
-이 패치셋이 의도하는 PMEM 은 Intel Optane DC persistent memory 와 같은 NVDIMM 입니다. 휘발성이 없고, flash 보다 빠르고, RAM 에 비해 가격 경쟁력이 좋죠.
-RAM-based NVDIMM 은 의도한 대상이 아닙니다. 그것들은 RAM 대비 가격 경쟁력이 없기 때문이라는군요.
-    
-  </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.0-rc4/" class="btn btn-primary btn-outline">
       CONTINUE READING
     </a>
   </p>

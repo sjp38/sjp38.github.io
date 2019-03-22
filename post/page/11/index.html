@@ -73,7 +73,7 @@
   <meta property="og:description" content="System Programmer">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2017-03-29T05:10:55&#43;09:00">
+  <meta property="og:updated_time" content="2017-03-31T13:53:54&#43;09:00">
   
 
   
@@ -246,6 +246,77 @@
   
 
   
+  
+    
+    
+
+<div class="article-list-item" itemscope itemprop="blogPost">
+  
+  
+  <h3 class="article-title" itemprop="name">
+    <a href="https://sjp38.github.io/post/xclip_copy_remote_clipboard/" itemprop="url">원격 데스크탑의 clipboard 를 ssh 와 xclip 으로 복사해오기</a>
+  </h3>
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2017-03-31 13:53:54 &#43;0900 KST" itemprop="datePublished">
+      Mar 31, 2017
+    </time>
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/tip">tip</a
+    >
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+  <div class="article-style" itemprop="articleBody">
+    
+    <p>여러개의 리눅스 데스크탑 PC 를 한 책상 위에서 사용하는 경우가 있다.  이 때, 한
+PC 에서 Ctrl-C 해서 clipboard 에 복사한 내용을 다른쪽 PC 에서 Ctrl-V 로
+붙여넣고 싶은 경우가 있다.  여러가지 해결책이 있겠으나, 다음과 같이 ssh 와
+xclip 을 사용해서 해결할 수도 있다:</p>
+
+<pre><code>$ ssh &lt;username&gt;@&lt;remote host&gt; 'DISPLAY=:0 xclip -o -selection clipboard' | \
+	xclip -i -selection clipboard
+</code></pre>
+
+<p>참고: <a href="http://askubuntu.com/questions/513442/can-two-pcs-with-ubuntu-share-the-clipboard-buffer" target="_blank">http://askubuntu.com/questions/513442/can-two-pcs-with-ubuntu-share-the-clipboard-buffer</a></p>
+
+    
+  </div>
+  <p class="read-more">
+    <a href="https://sjp38.github.io/post/xclip_copy_remote_clipboard/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
   
     
     
@@ -811,68 +882,6 @@ So many environments and users are using Linux kernel. That&rsquo;s why it is so
   </div>
   <p class="read-more">
     <a href="https://sjp38.github.io/post/uninstall-kernel/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-  
-    
-    
-
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/donate-mozilla/" itemprop="url">donate mozilla</a>
-  </h3>
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2017-01-19 18:06:54 &#43;0900 KST" itemprop="datePublished">
-      Jan 19, 2017
-    </time>
-  </span>
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/life">life</a
-    >
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-  <div class="article-style" itemprop="articleBody">
-    
-    나는 보통의 경우 크롬으로 웹브라우징을 한다. 하지만 몇달 전부터 몇가지 예외에 대해서는 파이어폭스를 함께 쓰고 있다.
-부족한 하드웨어 스펙 나의 데스크탑 환경은 모니터 세대를 연결한 PC 하나로 구성되어 있었는데, FHD 모니터 세대를 돌리기는 벅찼는지 간헐적 입력 랙이 자주 발생했다. 또, 모니터를 한대 정도 더 늘리고 싶었다. 해서 집에서 놀고있던 5년된 HP 랩탑에 모니터 하나를 연결시키고 이 랩탑과 PC 를 키보드/마우스 하나로 제어하는 환경을 구축했다. PC 에 연결되는 모니터는 두대로 줄어드니까 입력 랙도 줄어들 것이라 생각한것.
-    
-  </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/donate-mozilla/" class="btn btn-primary btn-outline">
       CONTINUE READING
     </a>
   </p>
