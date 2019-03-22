@@ -11,6 +11,113 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Unit test for the Linux kernel using Kunit</title>
+      <link>https://sjp38.github.io/post/kunit_intro/</link>
+      <pubDate>Wed, 20 Mar 2019 15:32:29 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/kunit_intro/</guid>
+      <description>
+
+&lt;p&gt;지난 2월 말에 FAST&amp;rsquo;19 학회를 다녀왔는데요, &lt;a href=&#34;https://thunk.org/tytso/&#34; target=&#34;_blank&#34;&gt;Ted Tso&lt;/a&gt;
+도 왔더군요.  심지어 구글 부스를 지키고 계시더라구요.  어쩌다보니
+식사자리에서 합석하고 잡담 나눈 레드햇 개발자 분들이랑 이야기를 하고 있길래
+껴서 좀 이야기를 했는데, 이야기 중 테스트에 대한 이야기가 나왔고, 이에 Ted 가
+KUnit 이라는 도구를 소개해 줬습니다.  잠깐 사용해 보니 매우 매력적인 것 같아서
+이 블로그에서도 소개해 볼까 합니다.&lt;/p&gt;
+
+&lt;p&gt;KUnit 은 이름에서 짐작했겠지만 리눅스 커널을 위한 유닛 테스트 프레임웍입니다.
+구글의 Brendan Higgins 라는 분이 개발하고 있고, 커널 내에 머지되는 걸 목표로
+해서 LKML 에도 &lt;a href=&#34;https://lkml.org/lkml/2019/2/14/1144&#34; target=&#34;_blank&#34;&gt;RFC 패치&lt;/a&gt;를 보내고
+있습니다.
+구글러다 보니 구글에서 호스팅 되는
+&lt;a href=&#34;https://kunit.googlesource.com/linux/&#34; target=&#34;_blank&#34;&gt;소스트리&lt;/a&gt; 위에서 개발을 하고 있고,
+&lt;a href=&#34;https://google.github.io/kunit-docs/third_party/kernel/docs/&#34; target=&#34;_blank&#34;&gt;문서화&lt;/a&gt; 도 잘
+해뒀군요.&lt;/p&gt;
+
+&lt;p&gt;이 글은 이런 KUnit 을 사용하는 법을 간단히 정리해 봅니다.  글 내의 테스트에
+사용된 환경은 Ubuntu 16.04 서버 버전입니다.&lt;/p&gt;
+
+&lt;h1 id=&#34;install&#34;&gt;Install&lt;/h1&gt;
+
+&lt;p&gt;Kunit 개발 커널은 &lt;a href=&#34;https://kunit.googlesource.com&#34; target=&#34;_blank&#34;&gt;https://kunit.googlesource.com&lt;/a&gt; 에서 받을 수 있습니다.  간단히
+아래 명령으로 커널 코드를 땡겨옵시다.  여기선 가장 최근에 RFC 패치를 보냈던
+5.0-rc5 위의 버전으로 가져오겠습니다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ git clone -b kunit/rfc/5.0-rc5/v4 https://kunit.googlesource.com/linux
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;물론, &lt;a href=&#34;https://lore.kernel.org/patchwork/project/lkml/list/?series=383391&#34; target=&#34;_blank&#34;&gt;Patchwork&lt;/a&gt; 을 통해
+KUnit 패치만 직접 받아와 사용중인 커널에 적용하실 수도 있습니다.  전 v5.0 버전
+위에도 적용해 봤는데 문제 없이 잘 적용되더군요.&lt;/p&gt;
+
+&lt;p&gt;이어서 KUnit 을 위한 패키지를 깔아야 할텐데요, 커널 빌드에 필요한 패키지만 깔면
+됩니다.  커널 빌드에 필요한 패키지에 대한 정보는 이 블로그의 커널 빌드 및
+설치에 대한 &lt;a href=&#34;https://sjp38.github.io/post/linux-kernel-build/&#34; target=&#34;_blank&#34;&gt;포스트&lt;/a&gt; 를 참고해 주세요.&lt;/p&gt;
+
+&lt;h1 id=&#34;test&#34;&gt;Test&lt;/h1&gt;
+
+&lt;p&gt;커널 빌드 종속성 패키지까지 다 설치했다면 준비가 거의 끝났습니다.  잘 돌아가는지 확인해 보기 위해 kunit 에서 제공하는 예제 테스트들을 돌려봅시다.&lt;/p&gt;
+
+&lt;p&gt;KUnit 을 돌리기 위해선 configuration 을 커널 트리 루트에 &lt;code&gt;kunitconfig&lt;/code&gt; 라는
+이름의 파일로 써줘야 합니다.  이 설정은 어떤 테스트를 돌릴지 등을 지정합니다.
+일단 아래 내용으로 해당 파일을 써줍시다:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ cd linux
+$ echo CONFIG_KUNIT=y &amp;gt; kunitconfig
+$ echo CONFIG_KUNIT_TEST=y &amp;gt;&amp;gt; kunitconfig
+$ echo CONFIG_KUNIT_EXAMPLE_TEST=y &amp;gt;&amp;gt; kunitconfig
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;이제 다음의 간단한 명령만으로 KUnit 예제 테스트를 돌릴 수 있습니다:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ./tools/testing/kunit/kunit.py
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;아래와 같은 결과가 터미널에 뜰겁니다:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[11:31:47] Building KUnit Kernel ...
+[11:32:12] Starting KUnit Kernel ...
+[11:32:12] ==============================
+[11:32:13] [PASSED] kunit-resource-test:kunit_resource_test_init_resources
+[11:32:13] [PASSED] kunit-resource-test:kunit_resource_test_alloc_resource
+[11:32:13] [PASSED] kunit-resource-test:kunit_resource_test_free_resource
+[11:32:13] [PASSED] kunit-resource-test:kunit_resource_test_cleanup_resources
+[11:32:13] ==============================
+[11:32:13] [PASSED] kunit-try-catch-test:kunit_test_try_catch_successful_try_no_catch
+[11:32:13] [PASSED] kunit-try-catch-test:kunit_test_try_catch_unsuccessful_try_does_catch
+[11:32:13] [PASSED] kunit-try-catch-test:kunit_test_generic_try_catch_successful_try_no_catch
+[11:32:13] [PASSED] kunit-try-catch-test:kunit_test_generic_try_catch_unsuccessful_try_does_catch
+[11:32:13] ==============================
+[11:32:13] [PASSED] string-stream-test:string_stream_test_get_string
+[11:32:13] [PASSED] string-stream-test:string_stream_test_add_and_clear
+[11:32:13] ==============================
+[11:32:13] [PASSED] example:example_simple_test
+[11:32:13] ==============================
+[11:32:13] Testing complete. 11 tests run. 0 failed. 0 crashed.
+[11:32:13] Elapsed time: 26.005s total, 0.000s configuring, 25.736s building, 0.268s running.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;kunit-resource-test, kunit-try-catch-test, string-stream-tets, example&lt;/code&gt; 등의
+예제 테스트가 돌아갔고, 모두 테스트를 통과해서 문제가 없음을 보여줍니다.&lt;/p&gt;
+
+&lt;p&gt;KUnit 은 테스트를 위해 커널도 빌드하기 때문에 빌드 시간이 조금 길긴 합니다.  이
+경우엔 26초 정도 걸렸네요.  하지만 이건 처음 빌드라 그렇고, 기존에 빌드를
+해두고 파일 하나만 수정하는 경우엔 약 10초 정도 걸리는 것 같습니다.  하지만
+이후 실제 테스트를 돌리는건 매우 짧은 시간을 필요로 합니다.  이 경우 0.27초
+가량 걸렸군요!  따라서 테스트가 늘어나도 많은 시간을 요하지 않습니다.&lt;/p&gt;
+
+&lt;p&gt;스스로를 위한 유닛 테스트를 추가하는 법은 Kunit 공식 문서를 참고하시기
+바랍니다.  어렵지 않습니다 :)&lt;/p&gt;
+
+&lt;h1 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h1&gt;
+
+&lt;p&gt;리눅스 커널을 위한 Unit test framework 인 KUnit 에 대한 간단한 소개와 사용법을
+설명했습니다.  저도 최근 개발에 활용하고 있는데, TDD 의 장점을 오랫만에 느낄 수
+있었습니다.  하루 빨리 업스트림에도 머지되었으면 좋겠네요!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Gitlab docker install</title>
       <link>https://sjp38.github.io/post/gitlab_docker_install/</link>
       <pubDate>Tue, 19 Mar 2019 16:39:48 +0900</pubDate>
@@ -768,42 +875,6 @@ page table 할당에 실패하고, 이로 인해 guest 시작조차 불가능하
 
 &lt;p&gt;이번 정식 릴리즈에서 개인적으로 눈길 가는건 XArray 입니다.  앞으로도 많은
 영역에 쓰이고자 하는 것 같던데, 향후 행보도 궁금합니다.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>LKML News by v4.20-rc7</title>
-      <link>https://sjp38.github.io/post/lkml_news_v4.20-rc7/</link>
-      <pubDate>Mon, 17 Dec 2018 09:16:11 +0900</pubDate>
-      
-      <guid>https://sjp38.github.io/post/lkml_news_v4.20-rc7/</guid>
-      <description>
-
-&lt;h2 id=&#34;patch-v9-00-21-swap-swapout-swapin-thp-in-one-piece&#34;&gt;[PATCH -V9 00/21] swap: Swapout/swapin THP in one piece&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20181214062754.13723-1-ying.huang@intel.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20181214062754.13723-1-ying.huang@intel.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;아직 머지되지 못한 THP swap in 패치셋의 아홉번째 버전입니다.&lt;/p&gt;
-
-&lt;h2 id=&#34;rfc-0-3-reduce-thp-fault-thrashing&#34;&gt;[RFC 0/3] reduce THP fault thrashing&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20181211142941.20500-1-vbabka@suse.cz&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20181211142941.20500-1-vbabka@suse.cz&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;THP fault 로 인한 로컬 노드 thrashing 을 해결하기 위한 패치의 RFC 입니다.  THP
-fault 성공률을 낮추는 부작용도 있긴 하군요.  아직 테스트도 안된 첫번째 RFC
-이니, 이대로 머지되진 않겠지 싶긴 합니다만 재밌네요.&lt;/p&gt;
-
-&lt;h2 id=&#34;linux-4-20-rc76&#34;&gt;Linux 4.20-rc76&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=whv9u9aTEPoCz8h83JJbVK4fmHELJF=GG01ht9=1_MaCQ@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CAHk-=whv9u9aTEPoCz8h83JJbVK4fmHELJF=GG01ht9=1_MaCQ@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;일곱번째 rc 버전의 릴리즈입니다&amp;hellip; 만, 이번엔 릴리즈 메일 제목에 오타가
-있었군요.  전체적으로 일곱번째인만큼 변경사항이 적습니다.  릴리즈 하는 토발즈
-입장에선 반가운 일이군요.  특히나 연휴가 다가오니까요.&lt;/p&gt;
-
-&lt;p&gt;릴리즈 계획은 기존과 같이, 크리스마스 전에 4.20 버전을 릴리즈하고, 이후에 머지
-윈도우를 가질텐데, 가급적이면 연휴 전에 미리미리 풀리퀘스트를 보내달라고
-하는군요.&lt;/p&gt;
 </description>
     </item>
     

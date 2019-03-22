@@ -82,7 +82,7 @@
   <meta property="og:description" content="System Programmer">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2017-10-17T20:54:24&#43;09:00">
+  <meta property="og:updated_time" content="2017-11-03T14:51:35&#43;09:00">
   
 
   
@@ -257,6 +257,44 @@
   
   
   <div>
+    <h2><a href="https://sjp38.github.io/post/lkml_news_v4.14-rc7/">LKML News after v4.14-rc7</a></h2>
+    <div class="article-style">
+      
+      Linux 4.14-rc7 <a href="https://lkml.kernel.org/r/CA+55aFwhgxivTE3k88nshbrH9nd-4nhmhXGzw-MxRVGxf-R8Eg@mail.gmail.com" target="_blank">https://lkml.kernel.org/r/CA+55aFwhgxivTE3k88nshbrH9nd-4nhmhXGzw-MxRVGxf-R8Eg@mail.gmail.com</a>
+일곱번째 rc 버전의 릴리즈입니다.
+OSSE 와 kernel summit 으로 프라하를 방문했던 토발즈인데, 집에 잘 돌아왔다는군요. 이번 rc 버전은 기존의 rc7 보다도 작은 편에 가깝다고 합니다만, 다음 한주간이 정말 조용하지 않는한은 rc8 릴리즈를 할 생각이라는군요.
+Re: Page allocator bottleneck <a href="https://lkml.kernel.org/r/1c218381-067e-7757-ccc2-4e5befd2bfc3@mellanox.com" target="_blank">https://lkml.kernel.org/r/1c218381-067e-7757-ccc2-4e5befd2bfc3@mellanox.com</a>
+멜라녹스의 빠른 네트워크 카드를 사용하는 환경에서는 page allocator 의 속도가 bottleneck 이 된다는 이야기에 대한 업데이트입니다. 여전히 해당 부분이 bottleneck 이며, queued_spin_lock_slowpath() 가 85 % 가까이 CPU 를 차지하고 있군요.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="https://sjp38.github.io/post/osse2017_01/">OSSummit 2017 Attendence - 01</a></h2>
+    <div class="article-style">
+      
+      Open Source Summit Europe 과 Embedded Linux Conference Europe, 그리고 Annual Kernel Summit 이 합동으로 열린 프라하에 다녀왔습니다. 이에 대한 기록을 남겨봅니다.
+The Event 리눅스 재단에서는 다양한 컨퍼런스를 개최합니다. 2015년까지는 한국에서도 Korea Linux Forum 이라는 행사를 매년 열었죠. 특히 2015년에는 커널 서밋도 함께해서 특히 특별했던 기억입니다. 이런 이벤트들 중에서도 가장 큰 이벤트는 오픈소스 서밋이 아닐까 싶습니다. 이 이벤트는 기존의 리눅스콘 등 행사들이 합쳐진 행사입니다. 가장 큰 이벤트가 오픈소스 서밋이라면 가장 중요한 행사는 커널 서밋이라 할 수 있지 않을까 싶습니다.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="https://sjp38.github.io/post/lkml_news_v4.14-rc6/">LKML News after v4.14-rc6</a></h2>
+    <div class="article-style">
+      
+      Linux 4.14-rc6 <a href="https://lkml.kernel.org/r/CA+55aFxSJGeN=2X-uX-on1Uq2Nb8+v1aiMDz5H1+tKW_N5Q+6g@mail.gmail.com" target="_blank">https://lkml.kernel.org/r/CA+55aFxSJGeN=2X-uX-on1Uq2Nb8+v1aiMDz5H1+tKW_N5Q+6g@mail.gmail.com</a>
+여섯번째 rc 버전의 릴리즈입니다.
+토발즈 집 인터넷 문제로 평소보다 늦은 릴리즈였군요. 이번 rc 버전은 기대보다는 좀 많은 내용이 추가되었는데, 때문에 어쩌면 rc8 까지 나올지도 모르겠다고 하는군요. 물론 확정되거나 한건 아니라고 합니다.
+Re: [GIT PULL rcu/next] RCU commits for 4.15 <a href="https://lkml.kernel.org/r/20171023204502.GA2776@linux.vnet.ibm.com" target="_blank">https://lkml.kernel.org/r/20171023204502.GA2776@linux.vnet.ibm.com</a>
+4.15 에 들어가야 할 RCU 쪽 커밋들의 풀리퀘스트 입니다.
+문서, RCU CPU Stall warning 업데이트, rcutorture 쪽 업데이트가 포함되었네요.
+[GIT PULL de-alpha] Make core code not need to know about Alpha for v4.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="https://sjp38.github.io/post/lkml_news_v4.14-rc5/">LKML News after v4.14-rc5</a></h2>
     <div class="article-style">
       
@@ -329,19 +367,6 @@ So many environments and users are using Linux kernel. That&rsquo;s why it is so
     </div>
   </div>
   
-  <div>
-    <h2><a href="https://sjp38.github.io/post/uninstall-kernel/">uninstall kernel</a></h2>
-    <div class="article-style">
-      
-      테스트 등을 위해 소스코드로부터 커널을 직접 빌드, 설치하기 시작하면 어느새 수많은 커널이 설치되어 있는 것을 확인할 수 있다. 삭제를 위해선 make install 로 만들어진 파일들을 직접 제거하고 grub 을 업데이트 해줘야 한다.
-예를 들어 시스템이 현재 부팅되어 있는 버전의 커널을 언인스톨하고자 한다면 다음의 일련의 커맨드를 입력하면 된다:</p>
-
-<h1 id="rm-boot-vmlinuz-uname-r-rm-boot-initrd-img-uname-r-rm-boot-system-map-uname-r-rm-boot-config-uname-r-rm-fr-lib-modules-uname-r-rm-var-lib-initramfs-tools-uname-r-update-grub2-다른-버전의-설치되어있는-커널을-제거하고-싶다면-위의-uname-r-부분을-제거하고자-하는-커널-버전으로-대체하면-된다">rm /boot/vmlinuz-$(uname -r) # rm /boot/initrd.img-$(uname -r) # rm /boot/System.map-$(uname -r) # rm /boot/config-$(uname -r) # rm -fr /lib/modules/$(uname -r) # rm /var/lib/initramfs-tools/$(uname -r) # update-grub2  다른 버전의 설치되어있는 커널을 제거하고 싶다면 위의 $(uname -r) 부분을 제거하고자 하는 커널 버전으로 대체하면 된다.</h1>
-
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -349,6 +374,8 @@ So many environments and users are using Linux kernel. That&rsquo;s why it is so
     
     <li><a href="/tags/linux/page/7/">&lt;</a></li>
     
+    
+    <li><a href="/tags/linux/page/9/">&gt;</a></li>
     
   </ul>
 </nav>
