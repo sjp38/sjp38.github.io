@@ -321,6 +321,39 @@ monitor 구현 패치의 여섯 번째 버전입니다.  안드로이드는 이�
 &lt;p&gt;이 패치 기반으로 안드로이드의 low memory killer daemon 을 개선했고, 결과 false
 positive memory pressure 를 vmpressure signal 대비 약 10배까지 줄일 수 있었다고
 합니다.&lt;/p&gt;
+
+&lt;h2 id=&#34;patch-0-2-remove-support-for-deprecated-pf-and-pf-in-vsprintf&#34;&gt;[PATCH 0/2] Remove support for deprecated %pf and %pF in vsprintf&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190322132108.25501-1-sakari.ailus@linux.intel.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20190322132108.25501-1-sakari.ailus@linux.intel.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;함수 포인터의 프린트를 위해 사용되는 프린트 포맷 지시어인 %pf 와 %pF 를 거의
+같은 일을 하면서 ia64, ppc64, parisc64 아키텍쳐에선 좀 더 많은 일을 해주는 $ps
+와 %pS 로 대체하는 패치입니다.&lt;/p&gt;
+
+&lt;h2 id=&#34;rfc-patch-0-10-another-approach-to-use-pmem-as-numa-node&#34;&gt;[RFC PATCH 0/10] Another Approach to Use PMEM as NUMA Node&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/1553316275-21985-1-git-send-email-yang.shi@linux.alibaba.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/1553316275-21985-1-git-send-email-yang.shi@linux.alibaba.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;앞서 이 블로그에서도 소개한 바 있는 PMEM 을 매우 느린 NUMA node 로 쓰는 패치가
+머지되었습니다.
+&lt;a href=&#34;https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=c221c0b0308fd01d9fb33a16f64d2fd95f8830a4&#34; target=&#34;_blank&#34;&gt;https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=c221c0b0308fd01d9fb33a16f64d2fd95f8830a4&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;그럼 이렇게 평범한 NUMA node 로 인식되는 PMEM 을 어떻게 잘 쓸 것인가? 하는
+문제가 남아있는데, 이 패치셋은 이를 위한 패치입니다.&lt;/p&gt;
+
+&lt;p&gt;기본적으로 DRAM 을 먼저 쓰게 만들고, 사용자가 기존의 방식대로 명시적으로 NUMA
+인터페이스를 사용해 PMEM 을 요청하면 할당해 줍니다.  그리고, 자주 접근되는
+페이지는 vma 단위로 조사해서 DRAM 으로 migrate 시킵니다.&lt;/p&gt;
+
+&lt;h2 id=&#34;linux-5-1-rc2&#34;&gt;Linux 5.1-rc2&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wgg_PRWs3a6u2gnFLQjhxOJcrFkqqWVnLw60eQAwD-DNw@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CAHk-=wgg_PRWs3a6u2gnFLQjhxOJcrFkqqWVnLw60eQAwD-DNw@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;두번째 rc 입니다.  아직 rc 라고 하기엔 고칠 문제도 찾지 못한 상태라고 할 수
+있겠지만요.  따라서 토발즈는 열심히 테스트 해달라고 하네요.&lt;/p&gt;
+
+&lt;p&gt;어쨌건 이번 릴리즈도 크게 특이한 사항은 없다고 합니다, 다만 이번 수정사항 중
+&lt;sup&gt;2&lt;/sup&gt;&amp;frasl;&lt;sub&gt;3&lt;/sub&gt; 가량이 tools/ 쪽에 집중되었다고 하네요.  perf 쪽의 변경 때문이라고 합니다.&lt;/p&gt;
 </description>
     </item>
     
