@@ -11,6 +11,101 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Backtrace on C language program</title>
+      <link>https://sjp38.github.io/post/backtrace_c_language/</link>
+      <pubDate>Tue, 09 Apr 2019 17:33:50 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/backtrace_c_language/</guid>
+      <description>&lt;p&gt;디버깅 과정에선 현재 어떤 코드가 어떤 함수를 거쳐 수행됐는지를 통한 컨텍스트
+파악이 중요합니다.  Java, Python, Go 등 대부분의 언어가 이를 위해 콜스택을 뽑을
+수 있는 기능을 제공하죠.  C 언어의 경우 gdb 등을 사용하면 쉽게 이를 볼 수
+있지만 경우에 따라선 gdb 를 포기하고 &lt;code&gt;printf()&lt;/code&gt; 등에만 의존해야 하기도 합니다.
+이를 위한 기능이 c 라이브러리에도 있습니다, &lt;code&gt;backtrace()&lt;/code&gt; 함수입니다.
+&lt;a href=&#34;http://man7.org/linux/man-pages/man3/backtrace.3.html&#34; target=&#34;_blank&#34;&gt;&lt;code&gt;man&lt;/code&gt;&lt;/a&gt; 에도 이에 대한
+설명이 있습니다만, 여기서도 간단히 소개해 봅니다.&lt;/p&gt;
+
+&lt;p&gt;예제로 설명하는게 가장 쉽죠.  간단한 사용법은 아래와 같습니다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#include &amp;lt;stdio.h&amp;gt;
+#include &amp;lt;execinfo.h&amp;gt;
+
+void baz(void)
+{
+	void *callstack[128];
+	int i, frames;
+	char **strs;
+
+	frames = backtrace(callstack, 128);
+	strs = backtrace_symbols(callstack, frames);
+	for (i = 0; i &amp;lt; frames; i++)
+		printf(&amp;quot;%s\n&amp;quot;, strs[i]);
+	free(strs);
+}
+
+void bar(void)
+{
+	baz();
+}
+
+void foo(void)
+{
+	bar();
+}
+
+int main(void)
+{
+	foo();
+	return 0;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;아래와 같이 컴파일 합니다:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ gcc -rdynamic -g -o hello ./hello.c
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;-rdynamic&lt;/code&gt; 과 &lt;code&gt;-g&lt;/code&gt; 옵션을 잊지 맙시다.&lt;/p&gt;
+
+&lt;p&gt;이제 프로그램을 실행해 보면:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ./hello
+
+./hello(baz+0x2e) [0x400964]
+./hello(bar+0x9) [0x4009fd]
+./hello(foo+0x9) [0x400a09]
+./hello(main+0x9) [0x400a15]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf0) [0x7f87c51e6830]
+./hello(_start+0x29) [0x400869]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;main()&lt;/code&gt;, &lt;code&gt;foo()&lt;/code&gt;, &lt;code&gt;bar()&lt;/code&gt;, 를 거쳐 &lt;code&gt;baz()&lt;/code&gt; 가 수행되었음을 보입니다.  더
+나아가서 어떤 소스파일의 몇번 라인인지를 보고 싶다면 &lt;code&gt;addr2line&lt;/code&gt; 커맨드를
+사용할 수 있습니다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ addr2line -e hello 0x400964
+./hello.c:10
+$ addr2line -e hello 0x4009fd
+./hello.c:20
+$ addr2line -e hello 0x400a09
+./hello.c:25
+$ addr2line -e hello 0x400a15
+./hello.c:30
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;쉽죠? ;)&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>LKML News v5.1-rc5</title>
+      <link>https://sjp38.github.io/post/lkml_news_v5.1-rc5/</link>
+      <pubDate>Tue, 09 Apr 2019 17:33:01 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/lkml_news_v5.1-rc5/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>LKML News v5.1-rc4</title>
       <link>https://sjp38.github.io/post/lkml_news_v5.1-rc4/</link>
       <pubDate>Sun, 07 Apr 2019 23:17:55 +0900</pubDate>
@@ -786,98 +881,6 @@ local regular page 를 쓰는게 나을까요?  이에 대해서 LSF/MM 에서 �
 
 &lt;p&gt;어느새 네번째 rc.  이제 5.0 이 그리 멀지 않았네요.  주말 쯤에 갑자기 많은
 패치가 밀려왔다고 하지만 큰 문제는 없었다고 합니다.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>LKML News v5.0-rc3</title>
-      <link>https://sjp38.github.io/post/lkml_news_v5.0-rc3/</link>
-      <pubDate>Mon, 21 Jan 2019 09:21:14 +0900</pubDate>
-      
-      <guid>https://sjp38.github.io/post/lkml_news_v5.0-rc3/</guid>
-      <description>
-
-&lt;h2 id=&#34;lsf-mm-2019-call-for-proposals&#34;&gt;LSF/MM 2019: Call for Proposals&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/51b4b263-a0f2-113d-7bdc-f7960b540929@kernel.dk&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/51b4b263-a0f2-113d-7bdc-f7960b540929@kernel.dk&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;올해의 LSF/MM 을 위한 발표 모집입니다.  올해는 푸에르토리코에서 4월 30일부터
-5월 2일까지 열리는군요.&lt;/p&gt;
-
-&lt;h2 id=&#34;lsf-mm-topic-numa-memory-hierarchy-and-device-memory&#34;&gt;[LSF/MM TOPIC] NUMA, memory hierarchy and device memory&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190118174512.GA3060@redhat.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20190118174512.GA3060@redhat.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;LSF/MM 을 위한 발표 지원입니다.
-NUMA API 가 다계층 메모리에 적용될 때의 단점에 대해서 이야기 해보겠다는군요.&lt;/p&gt;
-
-&lt;h2 id=&#34;patch-00-22-increase-success-rates-and-reduce-latency-of-compaction-v3&#34;&gt;[PATCH 00/22] Increase success rates and reduce latency of compaction v3&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190118175136.31341-1-mgorman@techsingularity.net&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20190118175136.31341-1-mgorman@techsingularity.net&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Mel Gorman 의 compaction 개선 패치셋 세번째 버전입니다.&lt;/p&gt;
-
-&lt;h2 id=&#34;linux-5-0-rc3&#34;&gt;Linux 5.0-rc3&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=whS=6Z_UxzoMjLANupOk3u-8ycERLPnaZxShMTviW0jkQ@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CAHk-=whS=6Z_UxzoMjLANupOk3u-8ycERLPnaZxShMTviW0jkQ@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;5.0 세번째 릴리즈입니다.  지난 릴리즈에서 여행 중이지만 항상 그렇듯 일요일
-릴리즈를 하려 한다고 했는데, 이번에도 성공적이군요.  더불어 어디 여행 중인지도
-나왔습니다, LCA 2019 여행 중이었군요.  여담이지만 올해 LCA 도 재밌는 발표가
-많은 것 같습니다.&lt;/p&gt;
-
-&lt;p&gt;지난 rc2 에서 머지하는 걸 빼먹은 네트워킹 쪽 풀리퀘스트를 이번에 머지했기
-때문에 이번 rc3 는 조금 크다는군요.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>LKML News v5.0-rc2</title>
-      <link>https://sjp38.github.io/post/lkml_news_v5.0-rc2/</link>
-      <pubDate>Tue, 15 Jan 2019 09:06:44 +0900</pubDate>
-      
-      <guid>https://sjp38.github.io/post/lkml_news_v5.0-rc2/</guid>
-      <description>
-
-&lt;h2 id=&#34;patch-v11-00-26-speculative-page-faults&#34;&gt;[PATCH v11 00/26] Speculative page faults&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/8b0b2c05-89f8-8002-2dce-fa7004907e78@codeaurora.org&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/8b0b2c05-89f8-8002-2dce-fa7004907e78@codeaurora.org&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;SPF 패치에서 발견된 버그 레포트입니다.  ARM 위에서 데드락 문제가 발견되었군요.
-버그 발견자가 패치도 같이 내놓았는데, 이에 대한 토론은 아직도 계속되고 있네요.&lt;/p&gt;
-
-&lt;h2 id=&#34;rfc-patch-v7-00-16-add-support-for-exclusive-page-frame-ownership&#34;&gt;[RFC PATCH v7 00/16] Add support for eXclusive Page Frame Ownership&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/cover.1547153058.git.khalid.aziz@oracle.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/cover.1547153058.git.khalid.aziz@oracle.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&amp;lsquo;ret2dir&amp;rsquo; 보안 공격[1]에 대비하기 위한 패치입니다.  하지만 이로 인해 tlb 를 좀
-많이 flush 해야 하는 문제가 있었고, 이 패치셋은 그에 대한 해결책도 의논하고
-있습니다.&lt;/p&gt;
-
-&lt;p&gt;[1] &lt;a href=&#34;http://www.cs.columbia.edu/~vpk/papers/ret2dir.sec14.pdf&#34; target=&#34;_blank&#34;&gt;http://www.cs.columbia.edu/~vpk/papers/ret2dir.sec14.pdf&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;patch-0-4-allow-persistent-memory-to-be-used-like-normal-ram&#34;&gt;[PATCH 0/4] Allow persistent memory to be used like normal RAM&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190116181859.D1504459@viggo.jf.intel.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20190116181859.D1504459@viggo.jf.intel.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;PMEM 을 사용하기 위해선 현재로썬 어플리케이션 코드를 수정해야 합니다.  그냥
-평범한, 조금 느린 RAM 처럼 어플리케이션이 기존에 RAM 접근하듯 접근할 수 있게
-하면 안될까요?  이 패치셋은 그런 경우를 위한 드라이버를 소개합니다.&lt;/p&gt;
-
-&lt;h2 id=&#34;patch-v2-0-5-psi-pressure-stall-monitors-v2&#34;&gt;[PATCH v2 0/5] psi: pressure stall monitors v2&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190110220718.261134-1-surenb@google.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20190110220718.261134-1-surenb@google.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;LWN 에서도 소개된 pressure stall monitor 의 두번째 버전입니다.&lt;/p&gt;
-
-&lt;h2 id=&#34;linux-5-0-rc2&#34;&gt;Linux 5.0-rc2&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wicCXd7nALwEz+022iNesJV3DUmejS+dzVRE0D3UGzs_g@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CAHk-=wicCXd7nALwEz+022iNesJV3DUmejS+dzVRE0D3UGzs_g@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;5.x 로 나아가는 두번째 릴리즈 후보가 나왔습니다.  이번 머지 윈도우가 휴일이
-섞여 있었기 때문에 두번째 rc 를 위한 과정에 문제가 있지 않을까 싶었지만 별 문제
-없었다는군요.  그리고 지금 토발즈는 여행중이라 현지시간으로는 항상 하는 일요일
-릴리즈가 아니라 월요일 릴리즈라 합니다만, 뭐&amp;hellip; 큰 이슈는 아니죠 ;)&lt;/p&gt;
 </description>
     </item>
     

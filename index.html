@@ -591,6 +591,160 @@ DevFest W, March 2013.
       
           
       
+
+      
+      
+        
+        
+
+<div class="article-list-item" itemscope itemprop="blogPost">
+  
+  
+  <h3 class="article-title" itemprop="name">
+    <a href="https://sjp38.github.io/post/backtrace_c_language/" itemprop="url">Backtrace on C language program</a>
+  </h3>
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2019-04-09 17:33:50 &#43;0900 KST" itemprop="datePublished">
+      Apr 9, 2019
+    </time>
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  
+
+  
+
+</div>
+
+  <div class="article-style" itemprop="articleBody">
+    
+    디버깅 과정에선 현재 어떤 코드가 어떤 함수를 거쳐 수행됐는지를 통한 컨텍스트 파악이 중요합니다. Java, Python, Go 등 대부분의 언어가 이를 위해 콜스택을 뽑을 수 있는 기능을 제공하죠. C 언어의 경우 gdb 등을 사용하면 쉽게 이를 볼 수 있지만 경우에 따라선 gdb 를 포기하고 printf() 등에만 의존해야 하기도 합니다. 이를 위한 기능이 c 라이브러리에도 있습니다, backtrace() 함수입니다. man 에도 이에 대한 설명이 있습니다만, 여기서도 간단히 소개해 봅니다.
+예제로 설명하는게 가장 쉽죠. 간단한 사용법은 아래와 같습니다.
+    
+  </div>
+  <p class="read-more">
+    <a href="https://sjp38.github.io/post/backtrace_c_language/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
+      
+
+      
+
+        
+
+        
+        
+
+        
+        
+          
+      
+          
+      
+          
+      
+          
+      
+
+      
+      
+        
+        
+
+<div class="article-list-item" itemscope itemprop="blogPost">
+  
+  
+  <h3 class="article-title" itemprop="name">
+    <a href="https://sjp38.github.io/post/lkml_news_v5.1-rc5/" itemprop="url">LKML News v5.1-rc5</a>
+  </h3>
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2019-04-09 17:33:01 &#43;0900 KST" itemprop="datePublished">
+      Apr 9, 2019
+    </time>
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    0 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/lkml-news">lkml news</a
+    >
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+  <div class="article-style" itemprop="articleBody">
+    
+    
+    
+  </div>
+  <p class="read-more">
+    <a href="https://sjp38.github.io/post/lkml_news_v5.1-rc5/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
+      
+
+      
+
+        
+
+        
+        
+
+        
+        
+          
+      
+          
+      
+          
+      
           
       
 
@@ -835,175 +989,6 @@ KUnit 은 이름에서 짐작했겠지만 리눅스 커널을 위한 유닛 테�
       
 
       
-
-        
-
-        
-        
-
-        
-        
-          
-      
-          
-      
-          
-      
-
-      
-      
-        
-        
-
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/gitlab_docker_install/" itemprop="url">Gitlab docker install</a>
-  </h3>
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2019-03-19 16:39:48 &#43;0900 KST" itemprop="datePublished">
-      Mar 19, 2019
-    </time>
-  </span>
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    4 min read
-  </span>
-  
-
-  
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/installations">installations</a
-    >
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-  <div class="article-style" itemprop="articleBody">
-    
-    연구실 내부 사용을 위한 Gitlab 을 Docker 를 사용해서 구축하고 사용하고 있습니다만, 하도 예전이라 Gitlab official docker image 가 아니었고, docker 버전도 2.x 대라서 최신 버전으로 바로 업그레이드가 불가능하군요.
-지금은 gitlab 에서 자체적으로 정식 docker 이미지를 제공합니다. 이 포스트에서는 Ubuntu 18.04 서버 위에 gitlab 정식 docker 이미지를 사용해 설치하는 방법을 기록합니다.
-Docker 설치 먼저 Docker 를 설치해야죠. 문서[1]를 참고해서 설치를 진행해 봅니다.
-먼저 apt 업데이트 후 종속 패키지들을 깔아줍니다:
-    
-  </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/gitlab_docker_install/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-      
-
-      
-
-        
-
-        
-        
-
-        
-        
-          
-      
-          
-      
-          
-      
-          
-      
-
-      
-      
-        
-        
-
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.1-rc2/" itemprop="url">LKML News v5.1-rc2</a>
-  </h3>
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2019-03-19 12:11:11 &#43;0900 KST" itemprop="datePublished">
-      Mar 19, 2019
-    </time>
-  </span>
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/lkml-news">lkml news</a
-    >
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-  <div class="article-style" itemprop="articleBody">
-    
-    [PATCH v5 00/19] Convert x86 &amp; arm64 to use generic page walk https://lkml.kernel.org/r/20190321141953.31960-1-steven.price@arm.com
-커널이 walk_page_range() 함수를 제공하긴 하지만 이 함수는 커널에 의해 사용되는 페이지 테이블은 볼수가 없기 때문에 각 아키텍쳐별로 페이지 테이블 순회를 위한 기능을 별도로 만들어 사용하고 있습니다.
-이 패치셋은 walk_page_range() 가 커널의 페이지 테이블을 만질 수 있도록 확장함으로써 그런 불필요한 아키텍쳐별 파편화를 줄이려 합니다.
-[PATCH v6 0/7] psi: pressure stall monitors v6 https://lkml.kernel.org/r/20190319235619.260832-1-surenb@google.com
-시스템이 어떤 부분의 pressure 를 받는지 쉽게 확인하기 위한 pressure stall monitor 구현 패치의 여섯 번째 버전입니다.
-    
-  </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.1-rc2/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-      
-
-      
     
 
   </div>
@@ -1139,7 +1124,14 @@ Docker 설치 먼저 Docker 를 설치해야죠. 문서[1]를 참고해서 설�
           
           
           
-          <a href="/tags/benchmark" style="font-size:1.4158584802578988rem">benchmark</a>
+          <a href="/tags/backtrace" style="font-size:0.8rem">backtrace</a>
+        
+          
+          
+          
+          
+          
+          <a href="/tags/benchmark" style="font-size:1.4142413846893396rem">benchmark</a>
         
           
           
@@ -1147,6 +1139,20 @@ Docker 설치 먼저 Docker 를 설치해야죠. 문서[1]를 참고해서 설�
           
           
           <a href="/tags/bot" style="font-size:0.8rem">bot</a>
+        
+          
+          
+          
+          
+          
+          <a href="/tags/c" style="font-size:0.8rem">c</a>
+        
+          
+          
+          
+          
+          
+          <a href="/tags/c-language" style="font-size:0.8rem">c language</a>
         
           
           
@@ -1188,7 +1194,7 @@ Docker 설치 먼저 Docker 를 설치해야죠. 문서[1]를 참고해서 설�
           
           
           
-          <a href="/tags/conference" style="font-size:1.4856246240885491rem">conference</a>
+          <a href="/tags/conference" style="font-size:1.483824339482832rem">conference</a>
         
           
           
@@ -1237,7 +1243,7 @@ Docker 설치 먼저 Docker 를 설치해야죠. 문서[1]를 참고해서 설�
           
           
           
-          <a href="/tags/english" style="font-size:1.5446110582191819rem">english</a>
+          <a href="/tags/english" style="font-size:1.5426558894894404rem">english</a>
         
           
           
@@ -1251,7 +1257,7 @@ Docker 설치 먼저 Docker 를 설치해야죠. 문서[1]를 참고해서 설�
           
           
           
-          <a href="/tags/event" style="font-size:1.4158584802578988rem">event</a>
+          <a href="/tags/event" style="font-size:1.4142413846893396rem">event</a>
         
           
           
@@ -1272,7 +1278,7 @@ Docker 설치 먼저 Docker 를 설치해야죠. 문서[1]를 참고해서 설�
           
           
           
-          <a href="/tags/fedora" style="font-size:1.0652358105377826rem">fedora</a>
+          <a href="/tags/fedora" style="font-size:1.0645393653842397rem">fedora</a>
         
           
           
@@ -1293,14 +1299,14 @@ Docker 설치 먼저 Docker 를 설치해야죠. 문서[1]를 참고해서 설�
           
           
           
-          <a href="/tags/gcma" style="font-size:1.0652358105377826rem">gcma</a>
+          <a href="/tags/gcma" style="font-size:1.0645393653842397rem">gcma</a>
         
           
           
           
           
           
-          <a href="/tags/git" style="font-size:1.0652358105377826rem">git</a>
+          <a href="/tags/git" style="font-size:1.0645393653842397rem">git</a>
         
           
           
@@ -1314,7 +1320,7 @@ Docker 설치 먼저 Docker 를 설치해야죠. 문서[1]를 참고해서 설�
           
           
           
-          <a href="/tags/golang" style="font-size:1.2203888135507666rem">golang</a>
+          <a href="/tags/golang" style="font-size:1.2192849740985923rem">golang</a>
         
           
           
@@ -1370,7 +1376,7 @@ Docker 설치 먼저 Docker 를 설치해야죠. 문서[1]를 참고해서 설�
           
           
           
-          <a href="/tags/kernel" style="font-size:2.4571741182095215rem">kernel</a>
+          <a href="/tags/kernel" style="font-size:2.4578117344739248rem">kernel</a>
         
           
           
@@ -1398,21 +1404,21 @@ Docker 설치 먼저 Docker 를 설치해야죠. 문서[1]를 참고해서 설�
           
           
           
-          <a href="/tags/life" style="font-size:1.0652358105377826rem">life</a>
+          <a href="/tags/life" style="font-size:1.0645393653842397rem">life</a>
         
           
           
           
           
           
-          <a href="/tags/linux" style="font-size:2.495471492845513rem">linux</a>
+          <a href="/tags/linux" style="font-size:2.495536210745366rem">linux</a>
         
           
           
           
           
           
-          <a href="/tags/linux-foundation" style="font-size:1.4158584802578988rem">linux foundation</a>
+          <a href="/tags/linux-foundation" style="font-size:1.4142413846893396rem">linux foundation</a>
         
           
           
@@ -1433,7 +1439,7 @@ Docker 설치 먼저 Docker 를 설치해야죠. 문서[1]를 참고해서 설�
           
           
           
-          <a href="/tags/lkml" style="font-size:2.408944083225548rem">lkml</a>
+          <a href="/tags/lkml" style="font-size:2.410373556824506rem">lkml</a>
         
           
           
@@ -1454,7 +1460,7 @@ Docker 설치 먼저 Docker 를 설치해야죠. 문서[1]를 참고해서 설�
           
           
           
-          <a href="/tags/mariadb" style="font-size:1.0652358105377826rem">mariadb</a>
+          <a href="/tags/mariadb" style="font-size:1.0645393653842397rem">mariadb</a>
         
           
           
@@ -1489,21 +1495,21 @@ Docker 설치 먼저 Docker 를 설치해야죠. 문서[1]를 참고해서 설�
           
           
           
-          <a href="/tags/news" style="font-size:2.408944083225548rem">news</a>
+          <a href="/tags/news" style="font-size:2.410373556824506rem">news</a>
         
           
           
           
           
           
-          <a href="/tags/open-source" style="font-size:1.0652358105377826rem">open source</a>
+          <a href="/tags/open-source" style="font-size:1.0645393653842397rem">open source</a>
         
           
           
           
           
           
-          <a href="/tags/open-source" style="font-size:1.0652358105377826rem">open-source</a>
+          <a href="/tags/open-source" style="font-size:1.0645393653842397rem">open-source</a>
         
           
           
@@ -1559,21 +1565,21 @@ Docker 설치 먼저 Docker 를 설치해야죠. 문서[1]를 참고해서 설�
           
           
           
-          <a href="/tags/prague" style="font-size:1.4158584802578988rem">prague</a>
+          <a href="/tags/prague" style="font-size:1.4142413846893396rem">prague</a>
         
           
           
           
           
           
-          <a href="/tags/projects" style="font-size:1.330471621075565rem">projects</a>
+          <a href="/tags/projects" style="font-size:1.3290787307684795rem">projects</a>
         
           
           
           
           
           
-          <a href="/tags/raspberry" style="font-size:1.0652358105377826rem">raspberry</a>
+          <a href="/tags/raspberry" style="font-size:1.0645393653842397rem">raspberry</a>
         
           
           
@@ -1587,28 +1593,28 @@ Docker 설치 먼저 Docker 를 설치해야죠. 문서[1]를 참고해서 설�
           
           
           
-          <a href="/tags/setup" style="font-size:1.330471621075565rem">setup</a>
+          <a href="/tags/setup" style="font-size:1.3290787307684795rem">setup</a>
         
           
           
           
           
           
-          <a href="/tags/spec" style="font-size:1.0652358105377826rem">spec</a>
+          <a href="/tags/spec" style="font-size:1.0645393653842397rem">spec</a>
         
           
           
           
           
           
-          <a href="/tags/spec_cpu" style="font-size:1.0652358105377826rem">spec_cpu</a>
+          <a href="/tags/spec_cpu" style="font-size:1.0645393653842397rem">spec_cpu</a>
         
           
           
           
           
           
-          <a href="/tags/spec_cpu2006" style="font-size:1.0652358105377826rem">spec_cpu2006</a>
+          <a href="/tags/spec_cpu2006" style="font-size:1.0645393653842397rem">spec_cpu2006</a>
         
           
           
@@ -1622,7 +1628,7 @@ Docker 설치 먼저 Docker 를 설치해야죠. 문서[1]를 참고해서 설�
           
           
           
-          <a href="/tags/test" style="font-size:1.0652358105377826rem">test</a>
+          <a href="/tags/test" style="font-size:1.0645393653842397rem">test</a>
         
           
           
@@ -1636,7 +1642,7 @@ Docker 설치 먼저 Docker 를 설치해야죠. 문서[1]를 참고해서 설�
           
           
           
-          <a href="/tags/tip" style="font-size:1.5446110582191819rem">tip</a>
+          <a href="/tags/tip" style="font-size:1.5426558894894404rem">tip</a>
         
           
           
@@ -1664,7 +1670,7 @@ Docker 설치 먼저 Docker 를 설치해야죠. 문서[1]를 참고해서 설�
           
           
           
-          <a href="/tags/trip" style="font-size:1.4158584802578988rem">trip</a>
+          <a href="/tags/trip" style="font-size:1.4142413846893396rem">trip</a>
         
           
           
