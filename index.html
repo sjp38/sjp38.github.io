@@ -601,6 +601,88 @@ DevFest W, March 2013.
   
   
   <h3 class="article-title" itemprop="name">
+    <a href="https://sjp38.github.io/post/hooking_library_calls/" itemprop="url">Hooking Library Function Calls</a>
+  </h3>
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2019-04-10 11:39:06 &#43;0900 KST" itemprop="datePublished">
+      Apr 10, 2019
+    </time>
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/programming">programming</a
+    >
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+  <div class="article-style" itemprop="articleBody">
+    
+    LD_PRELOAD 환경변수를 사용하면 로더가 프로그램을 로드할 때 동적 로드해야 할 바이너리 코드를 해당 변수의 값의 디렉토리에서부터 뒤지도록 합니다. 따라서 이를 이용해 malloc(), free() 등의 일반적으로 사용하는 라이브러리 함수를 우리의 구현으로 대체하거나 후킹할 수 있습니다. 이 글은 이런 방법으로 malloc() 을 후킹하는 방법을 예제를 통해 간단히 설명합니다.
+Original Program 먼저 다음과 같은 프로그램이 있을 수 있을 겁니다:
+#include &lt;stdio.h&gt; #include &lt;stdlib.h&gt; int main(void) { char *abc; abc = (char *)malloc(8); printf(&quot;malloced address: %p\n&quot;, abc); sprintf(abc, &quot;hello\n&quot;); printf(&quot;%s\n&quot;, abc); free(abc); return 0; }  단순히 malloc() 을 통해 8바이트 메모리를 할당받아 그 영역을 표시하고 종료하는 프로그램입니다.
+    
+  </div>
+  <p class="read-more">
+    <a href="https://sjp38.github.io/post/hooking_library_calls/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
+      
+
+      
+
+        
+
+        
+        
+
+        
+        
+          
+      
+          
+      
+          
+      
+
+      
+      
+        
+        
+
+<div class="article-list-item" itemscope itemprop="blogPost">
+  
+  
+  <h3 class="article-title" itemprop="name">
     <a href="https://sjp38.github.io/post/backtrace_c_language/" itemprop="url">Backtrace on C language program</a>
   </h3>
   
@@ -904,91 +986,6 @@ v5.2 를 위한 torture test 의 업데이트 패치셋입니다. LKMM 이라던
       
 
       
-
-        
-
-        
-        
-
-        
-        
-          
-      
-          
-      
-          
-      
-          
-      
-          
-      
-
-      
-      
-        
-        
-
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/kunit_intro/" itemprop="url">Unit test for the Linux kernel using Kunit</a>
-  </h3>
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2019-03-20 15:32:29 &#43;0900 KST" itemprop="datePublished">
-      Mar 20, 2019
-    </time>
-  </span>
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    3 min read
-  </span>
-  
-
-  
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/kernel">kernel</a
-    >
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-  <div class="article-style" itemprop="articleBody">
-    
-    지난 2월 말에 FAST&rsquo;19 학회를 다녀왔는데요, Ted Tso 도 왔더군요. 심지어 구글 부스를 지키고 계시더라구요. 어쩌다보니 식사자리에서 합석하고 잡담 나눈 레드햇 개발자 분들이랑 이야기를 하고 있길래 껴서 좀 이야기를 했는데, 이야기 중 테스트에 대한 이야기가 나왔고, 이에 Ted 가 KUnit 이라는 도구를 소개해 줬습니다. 잠깐 사용해 보니 매우 매력적인 것 같아서 이 블로그에서도 소개해 볼까 합니다.
-KUnit 은 이름에서 짐작했겠지만 리눅스 커널을 위한 유닛 테스트 프레임웍입니다. 구글의 Brendan Higgins 라는 분이 개발하고 있고, 커널 내에 머지되는 걸 목표로 해서 LKML 에도 RFC 패치를 보내고 있습니다.
-    
-  </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/kunit_intro/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-      
-
-      
     
 
   </div>
@@ -1132,6 +1129,13 @@ KUnit 은 이름에서 짐작했겠지만 리눅스 커널을 위한 유닛 테�
           
           
           <a href="/tags/benchmark" style="font-size:1.4142413846893396rem">benchmark</a>
+        
+          
+          
+          
+          
+          
+          <a href="/tags/binary" style="font-size:0.8rem">binary</a>
         
           
           
@@ -1335,6 +1339,13 @@ KUnit 은 이름에서 짐작했겠지만 리눅스 커널을 위한 유닛 테�
           
           
           <a href="/tags/hack" style="font-size:0.8rem">hack</a>
+        
+          
+          
+          
+          
+          
+          <a href="/tags/hooking" style="font-size:0.8rem">hooking</a>
         
           
           
@@ -1566,6 +1577,13 @@ KUnit 은 이름에서 짐작했겠지만 리눅스 커널을 위한 유닛 테�
           
           
           <a href="/tags/prague" style="font-size:1.4142413846893396rem">prague</a>
+        
+          
+          
+          
+          
+          
+          <a href="/tags/programming" style="font-size:0.8rem">programming</a>
         
           
           

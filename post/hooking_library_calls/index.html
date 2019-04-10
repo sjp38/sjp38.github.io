@@ -11,7 +11,7 @@
   <meta name="description" content="System Programmer">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/lkml_news_v4.15/">
+  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/hooking_library_calls/">
 
   
   
@@ -70,24 +70,24 @@
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://sjp38.github.io/post/lkml_news_v4.15/">
+  <link rel="canonical" href="https://sjp38.github.io/post/hooking_library_calls/">
 
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="Hacklog">
-  <meta property="og:url" content="https://sjp38.github.io/post/lkml_news_v4.15/">
-  <meta property="og:title" content="LKML News after v4.15 | Hacklog">
+  <meta property="og:url" content="https://sjp38.github.io/post/hooking_library_calls/">
+  <meta property="og:title" content="Hooking Library Function Calls | Hacklog">
   <meta property="og:description" content="">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2018-01-29T09:20:38&#43;09:00">
+  <meta property="article:published_time" content="2019-04-10T11:39:06&#43;09:00">
   
-  <meta property="article:modified_time" content="2018-01-29T09:20:38&#43;09:00">
-  
-
+  <meta property="article:modified_time" content="2019-04-10T11:39:06&#43;09:00">
   
 
-  <title>LKML News after v4.15 | Hacklog</title>
+  
+
+  <title>Hooking Library Function Calls | Hacklog</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
@@ -252,7 +252,7 @@
 
   <div class="article-container">
     <div class="article-inner">
-      <h1 itemprop="name">LKML News after v4.15</h1>
+      <h1 itemprop="name">Hooking Library Function Calls</h1>
 
       
 
@@ -260,15 +260,15 @@
 
   <span class="article-date">
     
-    <time datetime="2018-01-29 09:20:38 &#43;0900 KST" itemprop="datePublished">
-      Jan 29, 2018
+    <time datetime="2019-04-10 11:39:06 &#43;0900 KST" itemprop="datePublished">
+      Apr 10, 2019
     </time>
   </span>
 
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    3 min read
+    2 min read
   </span>
   
 
@@ -282,7 +282,7 @@
   <span class="article-categories">
     <i class="fa fa-folder"></i>
     
-    <a href="/categories/lkml-news">lkml news</a
+    <a href="/categories/programming">programming</a
     >
     
   </span>
@@ -295,35 +295,35 @@
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=LKML%20News%20after%20v4.15&amp;url=https%3a%2f%2fsjp38.github.io%2fpost%2flkml_news_v4.15%2f"
+         href="https://twitter.com/intent/tweet?text=Hooking%20Library%20Function%20Calls&amp;url=https%3a%2f%2fsjp38.github.io%2fpost%2fhooking_library_calls%2f"
          target="_blank" rel="noopener">
         <i class="fa fa-twitter"></i>
       </a>
     </li>
     <li>
       <a class="facebook"
-         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fsjp38.github.io%2fpost%2flkml_news_v4.15%2f"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fsjp38.github.io%2fpost%2fhooking_library_calls%2f"
          target="_blank" rel="noopener">
         <i class="fa fa-facebook"></i>
       </a>
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fsjp38.github.io%2fpost%2flkml_news_v4.15%2f&amp;title=LKML%20News%20after%20v4.15"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fsjp38.github.io%2fpost%2fhooking_library_calls%2f&amp;title=Hooking%20Library%20Function%20Calls"
          target="_blank" rel="noopener">
         <i class="fa fa-linkedin"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fsjp38.github.io%2fpost%2flkml_news_v4.15%2f&amp;title=LKML%20News%20after%20v4.15"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fsjp38.github.io%2fpost%2fhooking_library_calls%2f&amp;title=Hooking%20Library%20Function%20Calls"
          target="_blank" rel="noopener">
         <i class="fa fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=LKML%20News%20after%20v4.15&amp;body=https%3a%2f%2fsjp38.github.io%2fpost%2flkml_news_v4.15%2f">
+         href="mailto:?subject=Hooking%20Library%20Function%20Calls&amp;body=https%3a%2f%2fsjp38.github.io%2fpost%2fhooking_library_calls%2f">
         <i class="fa fa-envelope"></i>
       </a>
     </li>
@@ -339,102 +339,102 @@
       <div class="article-style" itemprop="articleBody">
         
 
-<h2 id="linux-4-15">Linux 4.15</h2>
+<p><code>LD_PRELOAD</code> 환경변수를 사용하면 로더가 프로그램을 로드할 때 동적 로드해야 할
+바이너리 코드를 해당 변수의 값의 디렉토리에서부터 뒤지도록 합니다.
+따라서 이를 이용해 <code>malloc()</code>, <code>free()</code> 등의 일반적으로 사용하는 라이브러리
+함수를 우리의 구현으로 대체하거나 후킹할 수 있습니다.
+이 글은 이런 방법으로 <code>malloc()</code> 을 후킹하는 방법을 예제를 통해 간단히
+설명합니다.</p>
 
-<p><a href="https://lkml.kernel.org/r/CA+55aFzARtx-nA=d1j7vLOLf4FHMJLyRiQ-PKkoexJuTUHogdw@mail.gmail.com" target="_blank">https://lkml.kernel.org/r/CA+55aFzARtx-nA=d1j7vLOLf4FHMJLyRiQ-PKkoexJuTUHogdw@mail.gmail.com</a></p>
+<h2 id="original-program">Original Program</h2>
 
-<p>드디어 4.15 버전이 릴리즈 되었습니다.  지난 한주는 매우 조용하고 변경된 사항이
-거의 없었다는군요.</p>
+<p>먼저 다음과 같은 프로그램이 있을 수 있을 겁니다:</p>
 
-<p>이렇게 meltdown/spectre 로 시끄럽고 길었던, 평범하지 않았던 릴리즈 사이클이
-끝났습니다.
-하지만, meltdown/spectre 관련한 일이 아주 끝난 건 아니라고 이야기 하는군요.
-특히, indirect bracnh mitigation 을 위한 가장 큰 수정사항을 반영받기 위해선
-커널만 업데이트 해선 안되고 컴파일러의 &ldquo;retpoline&rdquo; 지원이 있어야 합니다.</p>
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
 
-<pre><code>cat /sys/devices/system/cpu/vulnerabilities/spectre_v2
+int main(void)
+{
+	char *abc;
+
+	abc = (char *)malloc(8);
+	printf(&quot;malloced address: %p\n&quot;, abc);
+	sprintf(abc, &quot;hello\n&quot;);
+	printf(&quot;%s\n&quot;, abc);
+	free(abc);
+
+	return 0;
+}
 </code></pre>
 
-<p>로 컴파일러 지원이 있는지 알 수 있는데, 컴파일러 지원이 없다면</p>
+<p>단순히 <code>malloc()</code> 을 통해 8바이트 메모리를 할당받아 그 영역을 표시하고 종료하는
+프로그램입니다.  위 코드를 <code>program.c</code> 라는 파일로 저장하고, 아래와 같이
+컴파일하고 수행해 보면 우리가 익히 아는, 예상대로의 결과가 나옵니다.</p>
 
-<pre><code>Vulnerable: Minimal generic ASM retpoline
+<pre><code>$ gcc -o program program.c
+$ ./program
+malloced address: 0x1cc5010
+hello
 </code></pre>
 
-<p>이란 출력이 뜰겁니다.</p>
+<h2 id="malloc-hooking-code">malloc Hooking Code</h2>
 
-<p>한가지 더 이야기 해둬야 할건, 이번 릴리즈에 meltdown/spectre 가 많은 영향을
-끼치긴 했지만 그래도 다른 부분들은 평범하게 업데이트가 진행되었다는 겁니다.
-즉, 이번 릴리즈는 좀 평범하지 않기 했지만 그렇다고 아주 이상하기만 한 릴리즈도
-아니었다는 거죠.</p>
+<p>이제 <code>malloc()</code> 함수를 후킹하는 코드를 만들어 봅시다:</p>
 
-<p>어쨌든 4.15 버전이 드디어 나왔습니다!</p>
+<pre><code>#define _GNU_SOURCE
 
-<h2 id="lsf-mm-topic-addressing-mmap-sem-contention">[LSF/MM TOPIC] Addressing mmap_sem contention</h2>
+#include &lt;dlfcn.h&gt;
+#include &lt;stdio.h&gt;
 
-<p><a href="https://lkml.kernel.org/r/4c20d397-1268-ca0f-4986-af59bb31022c@linux.vnet.ibm.com" target="_blank">https://lkml.kernel.org/r/4c20d397-1268-ca0f-4986-af59bb31022c@linux.vnet.ibm.com</a></p>
+typedef void *(*malloc_t)(size_t size);
 
-<p>리눅스 커널에서 메모리 매핑은 mmap_sem 이라는 reader-writer semaphor 를 이용해
-race condition 으로부터 보호되고 있습니다.  당연하게도, 쓰레드가 많은 환경에선
-여기 부하가 심하게 걸리고 성능 확장을 저해하게 됩니다.  Peter Zijlstra 의
-Speculative Page Fault 패치는 페이지 폴트 시에 메모리 매핑을 할 때 mmap_sem 을
-잡지 않고 매핑하려 시도해보고 중간에 동시에 같은 영역을 매핑하려 한 쓰레드가
-존재하면 abort &amp; retry 를 하는식으로 이 문제를 완화시킵니다.
-해당 패치셋은 최근 Laurent 에 의해 다시 포팅되어 커뮤니티에 올라오기도 했죠.
-실제로 ebizzy[1] 와 같이 쓰레드를 많이 쓰는 벤치마크에서는 두배가까이 성능
-향상이 있었다고 하구요.</p>
+void *malloc(size_t size)
+{
+	malloc_t malloc_fn;
 
-<p>하지만 Speculative Page Fault 만으로는 모든 문제가 해결되지 않기에 mmap_sem
-자체에 대한 논의를 LSFMM 에서 하고 싶다는 메일입니다.</p>
+	fprintf(stderr, &quot;malloc(%zu) hooked\n&quot;, size);
+	malloc_fn = (malloc_t)dlsym(RTLD_NEXT, &quot;malloc&quot;);
+	return malloc_fn(size);
+}
+</code></pre>
 
-<p>병렬 프로그래밍에 관심있는 제게도 흥미로운 주제네요.</p>
+<p>이 코드는 우리가 아는 <code>malloc()</code> 함수와 동일한 함수명, signature 의 함수를
+구현하고 있습니다.
+단순히 우리가 후킹했음을 알리고, 동적 라이브러리 구조를 통해 이 다음으로
+검색되는 <code>malloc</code> 이름의 라이브러리 함수 (이게 우리가 익히 아는 그 <code>malloc()</code>
+구현이겠죠) 를 찾아, 같은 인자로 수행하고 그 결과를 리턴합니다.
+즉, 우리가 아는 <code>malloc()</code> 과 같은 일을 하긴 하지만 <code>malloc()</code> 이 호출되었음을
+알리는 것이죠.</p>
 
-<p>[1] <a href="http://ebizzy.sourceforge.net/" target="_blank">http://ebizzy.sourceforge.net/</a></p>
+<p>이 코드를 <code>mallochook.c</code> 라는 이름으로 저장 후, 다음과 같이 라이브러리로
+빌드합니다:</p>
 
-<h2 id="lsf-mm-topic-lru-lock-scalability">[LSF/MM TOPIC] lru_lock scalability</h2>
+<pre><code>$ gcc -shared -fPIC mallochook.c -o mallochook.so -ldl
+</code></pre>
 
-<p><a href="https://lkml.kernel.org/r/2a16be43-0757-d342-abfb-d4d043922da9@oracle.com" target="_blank">https://lkml.kernel.org/r/2a16be43-0757-d342-abfb-d4d043922da9@oracle.com</a></p>
+<h2 id="install-the-hook">Install The Hook</h2>
 
-<p>최근에 덜 사용된 (Least Recently Used) 페이지를 가려내기 위해 사용되는
-<code>lru_lock</code> 은 메모리 집중적 벤치마크를 돌릴 때 커널에서 가장 뜨거워지는 락들
-가운데 하나입니다.
-당연히 확장성 문제가 있죠.</p>
+<p>프로그램이 기존 <code>malloc()</code> 대신 우리가 구현한 <code>malloc()</code> 을 수행하게 하는 건
+<code>LD_PRELOAD</code> 를 활용하면 간단합니다.</p>
 
-<p>이걸 배칭 또는 페이지 개별적 락킹을 통해 해결해 보자는 안을 내놓고 이에 대해
-LSFMM 에서 이야기 해보자는 메일입니다.</p>
+<pre><code>$ LD_PRELOAD=./mallochook.so ./program
+malloc(8) hooked
+malloc(1024) hooked
+malloced address: 0x20a5010
+hello
+</code></pre>
 
-<p>RFC 패치가 벌써 올라왔네요:
-<a href="https://lkml.kernel.org/r/20180131230413.27653-1-daniel.m.jordan@oracle.com" target="_blank">https://lkml.kernel.org/r/20180131230413.27653-1-daniel.m.jordan@oracle.com</a></p>
+<p>두번째, 세번째 줄을 보면 <code>malloc()</code> 이 후킹되어 우리의 메세지가 나오는 걸 볼 수
+있습니다.  앞의 <code>program.c</code> 에서는 8 바이트 <code>malloc()</code> 호출만 있었는데 세번째
+줄의 1024 바이트 malloc()<code>은 어디서 나온 걸까요?  아마도 뒤의</code>sprintf()` 등의
+라이브러리 함수가 호출한 거 아닐까 싶은데 그걸 분석하는 건 여러분의 몫으로
+두겠습니다.</p>
 
-<h2 id="git-pull-rcu-changes-for-v4-16">[GIT PULL] RCU changes for v4.16</h2>
+<h2 id="conclusion">Conclusion</h2>
 
-<p><a href="https://lkml.kernel.org/r/20180129100051.ndq4osy45fz3g26a@gmail.com" target="_blank">https://lkml.kernel.org/r/20180129100051.ndq4osy45fz3g26a@gmail.com</a></p>
-
-<p>From: Ingo Molnar <a href="mailto:mingo@kernel.org" target="_blank">mingo@kernel.org</a></p>
-
-<p>4.16 머지 윈도우가 열렸으니 Ingo 가 4.16 을 위한 rcu 쪽 변경사항을 리누스에게
-풀리퀘스트 보냈습니다.
-사실 이건 별로 흥미로운 메일은 아닐 수 있지만, 4.16 에서 RCU 가 어떻게 변경될지
-알 수 있겠죠.
-그리고, 제가 작년 프라하와 상해에서 만들어 올렸던, 패치 9개가 있습니다 ;)</p>
-
-<h2 id="rfc-patch-00-64-mm-towards-parallel-address-space-operations">[RFC PATCH 00/64] mm: towards parallel address space operations</h2>
-
-<p><a href="https://lkml.kernel.org/r/20180205012754.23615-1-dbueso@wotan.suse.de" target="_blank">https://lkml.kernel.org/r/20180205012754.23615-1-dbueso@wotan.suse.de</a></p>
-
-<p>&lsquo;mmap_sem&rsquo; 은 커널의 메모리 관리에서 자주 사용되는 락으로, 많은 scalability
-문제의 중심에 있습니다.  이 패치셋은 mmap_sem 을 range locking 기법을 활용해서
-바꿔냄으로써 병렬성을 확보하는 패치입니다.</p>
-
-<h2 id="patch-mm-v2-mm-swap-frontswap-fix-thp-swap-if-frontswap-enabled">[PATCH -mm -v2] mm, swap, frontswap: Fix THP swap if frontswap enabled</h2>
-
-<p><a href="https://lkml.kernel.org/r/20180207070035.30302-1-ying.huang@intel.com" target="_blank">https://lkml.kernel.org/r/20180207070035.30302-1-ying.huang@intel.com</a></p>
-
-<p>zswap 은 THP 를 고려하지 않기 때문에 THP 가 켜진 상태에서 zswap 이 frontswap
-으로 동작할 경우 일부 어플리케이션은 segfault 와 memory corruption 을 낼 수
-있는 문제가 있었습니다.  커밋 bd4c82c22c367e068 (&ldquo;mm, THP, swap: delay
-splitting THP after swapped&rdquo;) 때문에 발생한 문제였구요.  이를 고치기 위한
-패치입니다.
-out&rdquo;)</p>
+<p>자세한 원리는 생략했습니다만, 간단히 주요 라이브러리 함수를 후킹하는 방법을
+알아봤습니다.
+여기서 사용된 예제 코드와 명령어는 제 <a href="https://github.com/sjp38/mallochook" target="_blank">Github repo</a> 에 올려뒀으니 필요하면 참고 바랍니다.</p>
 
       </div>
 
@@ -443,13 +443,11 @@ out&rdquo;)</p>
 
 <div class="article-tags">
   
-  <a class="btn btn-primary btn-outline" href="/tags/linux">linux</a>
+  <a class="btn btn-primary btn-outline" href="/tags/hooking">hooking</a>
   
-  <a class="btn btn-primary btn-outline" href="/tags/kernel">kernel</a>
+  <a class="btn btn-primary btn-outline" href="/tags/programming">programming</a>
   
-  <a class="btn btn-primary btn-outline" href="/tags/lkml">lkml</a>
-  
-  <a class="btn btn-primary btn-outline" href="/tags/news">news</a>
+  <a class="btn btn-primary btn-outline" href="/tags/binary">binary</a>
   
 </div>
 
@@ -461,24 +459,6 @@ out&rdquo;)</p>
 </article>
 
 
-
-<div class="article-container article-widget">
-  <div class="hr-light"></div>
-  <h3>Related</h3>
-  <ul>
-    
-    <li><a href="/post/lkml_news_v4.15-rc9/">LKML News after v4.15-rc9</a></li>
-    
-    <li><a href="/post/lkml_news_v4.15-rc8/">LKML News after v4.15-rc8</a></li>
-    
-    <li><a href="/post/lkml_news_v4.15-rc7/">LKML News after v4.15-rc7</a></li>
-    
-    <li><a href="/post/lkml_news_v4.15-rc6/">LKML News after v4.15-rc6</a></li>
-    
-    <li><a href="/post/lkml_news_v4.15-rc5/">LKML News after v4.15-rc5</a></li>
-    
-  </ul>
-</div>
 
 
 
