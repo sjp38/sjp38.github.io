@@ -268,7 +268,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -328,13 +328,17 @@
 
 
       <div class="article-style" itemprop="articleBody">
-        <p>디버깅 과정에선 현재 어떤 코드가 어떤 함수를 거쳐 수행됐는지를 통한 컨텍스트
+        
+
+<p>디버깅 과정에선 현재 어떤 코드가 어떤 함수를 거쳐 수행됐는지를 통한 컨텍스트
 파악이 중요합니다.  Java, Python, Go 등 대부분의 언어가 이를 위해 콜스택을 뽑을
 수 있는 기능을 제공하죠.  C 언어의 경우 gdb 등을 사용하면 쉽게 이를 볼 수
 있지만 경우에 따라선 gdb 를 포기하고 <code>printf()</code> 등에만 의존해야 하기도 합니다.
 이를 위한 기능이 c 라이브러리에도 있습니다, <code>backtrace()</code> 함수입니다.
 <a href="http://man7.org/linux/man-pages/man3/backtrace.3.html" target="_blank"><code>man</code></a> 에도 이에 대한
 설명이 있습니다만, 여기서도 간단히 소개해 봅니다.</p>
+
+<h2 id="example-source-code">Example Source Code</h2>
 
 <p>예제로 설명하는게 가장 쉽죠.  간단한 사용법은 아래와 같습니다.</p>
 
@@ -371,6 +375,8 @@ int main(void)
 }
 </code></pre>
 
+<h2 id="compile">Compile</h2>
+
 <p>아래와 같이 컴파일 합니다:</p>
 
 <pre><code>$ gcc -rdynamic -g -o hello ./hello.c
@@ -405,6 +411,12 @@ $ addr2line -e hello 0x400a15
 </code></pre>
 
 <p>쉽죠? ;)</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>C 프로그램에서 backtrace 를 떠보는 방법을 알아보았습니다.
+위의 내용을 여러분의 환경에서도 쉽게 테스트 해 볼 수 있게끔 제 <a href="https://github.com/sjp38/backtrace_example" target="_blank">Github repo</a> 에도 정리해 두었습니다.
+클론하고, <code>$ make run</code> 해주시면 예제가 자동으로 빌드되고 돌아갈 겁니다.</p>
 
       </div>
 

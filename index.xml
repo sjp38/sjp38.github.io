@@ -123,13 +123,17 @@ hello
       <pubDate>Tue, 09 Apr 2019 17:33:50 +0900</pubDate>
       
       <guid>https://sjp38.github.io/post/backtrace_c_language/</guid>
-      <description>&lt;p&gt;디버깅 과정에선 현재 어떤 코드가 어떤 함수를 거쳐 수행됐는지를 통한 컨텍스트
+      <description>
+
+&lt;p&gt;디버깅 과정에선 현재 어떤 코드가 어떤 함수를 거쳐 수행됐는지를 통한 컨텍스트
 파악이 중요합니다.  Java, Python, Go 등 대부분의 언어가 이를 위해 콜스택을 뽑을
 수 있는 기능을 제공하죠.  C 언어의 경우 gdb 등을 사용하면 쉽게 이를 볼 수
 있지만 경우에 따라선 gdb 를 포기하고 &lt;code&gt;printf()&lt;/code&gt; 등에만 의존해야 하기도 합니다.
 이를 위한 기능이 c 라이브러리에도 있습니다, &lt;code&gt;backtrace()&lt;/code&gt; 함수입니다.
 &lt;a href=&#34;http://man7.org/linux/man-pages/man3/backtrace.3.html&#34; target=&#34;_blank&#34;&gt;&lt;code&gt;man&lt;/code&gt;&lt;/a&gt; 에도 이에 대한
 설명이 있습니다만, 여기서도 간단히 소개해 봅니다.&lt;/p&gt;
+
+&lt;h2 id=&#34;example-source-code&#34;&gt;Example Source Code&lt;/h2&gt;
 
 &lt;p&gt;예제로 설명하는게 가장 쉽죠.  간단한 사용법은 아래와 같습니다.&lt;/p&gt;
 
@@ -166,6 +170,8 @@ int main(void)
 }
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;h2 id=&#34;compile&#34;&gt;Compile&lt;/h2&gt;
+
 &lt;p&gt;아래와 같이 컴파일 합니다:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;$ gcc -rdynamic -g -o hello ./hello.c
@@ -200,6 +206,12 @@ $ addr2line -e hello 0x400a15
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;쉽죠? ;)&lt;/p&gt;
+
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;C 프로그램에서 backtrace 를 떠보는 방법을 알아보았습니다.
+위의 내용을 여러분의 환경에서도 쉽게 테스트 해 볼 수 있게끔 제 &lt;a href=&#34;https://github.com/sjp38/backtrace_example&#34; target=&#34;_blank&#34;&gt;Github repo&lt;/a&gt; 에도 정리해 두었습니다.
+클론하고, &lt;code&gt;$ make run&lt;/code&gt; 해주시면 예제가 자동으로 빌드되고 돌아갈 겁니다.&lt;/p&gt;
 </description>
     </item>
     
