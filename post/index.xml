@@ -11,6 +11,19 @@
     <atom:link href="/post/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>I will have a talk at the Hotstorage&#39;19</title>
+      <link>https://sjp38.github.io/post/hotstorage2019_talk/</link>
+      <pubDate>Thu, 18 Apr 2019 09:37:04 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/hotstorage2019_talk/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://www.usenix.org/conference//hotstorage19&#34; target=&#34;_blank&#34;&gt;HotStorage&amp;rsquo;19&lt;/a&gt; 에 제출한 제
+최근 연구에 대한 논문이 accept 되어 7월에 해당 워크샵에서 이에 대한 내용을
+발표하게 되었습니다.  논문 제목은 &amp;ldquo;Automating Context Based Access Pattern Hint
+Injection for System Performance and Swap Storage Durability&amp;rdquo; 입니다.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>LKML News v5.1-rc6</title>
       <link>https://sjp38.github.io/post/lkml_news_v5.1-rc6/</link>
       <pubDate>Tue, 16 Apr 2019 23:02:17 +0900</pubDate>
@@ -961,51 +974,6 @@ I/O 레이어에서 간단한 연산을 처리해 줌으로써 성능을 높이�
 &lt;p&gt;이제 리눅스 5.0 정식 릴리즈가 얼마 남지 않았네요, 여섯번째 rc 가 나왔습니다.
 그런데 이번 rc 는 토발즈가 바랬던 것보다는 조금 변경사항이 많았군요.  대부분
 네트워킹 쪽 변경이었다고 합니다만, 그래도 나머지는 큰 문제 없어 보인다는군요.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>LKML News v5.0-rc5</title>
-      <link>https://sjp38.github.io/post/lkml_news_v5.0-rc5/</link>
-      <pubDate>Mon, 04 Feb 2019 09:18:08 +0900</pubDate>
-      
-      <guid>https://sjp38.github.io/post/lkml_news_v5.0-rc5/</guid>
-      <description>
-
-&lt;h2 id=&#34;lsf-mm-topic-page-flags-can-we-free-up-space&#34;&gt;[LSF/MM TOPIC] Page flags, can we free up space ?&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190122201744.GA3939@redhat.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20190122201744.GA3939@redhat.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;리눅스 커널의 page 정보는 &lt;code&gt;PG_&lt;/code&gt; 로 시작하는 플래그를 사용해 현재 상태를
-알리는데요, 이걸 저장하는데 사용되는 공간을 더 줄일 수 있을지에 대한 논의를
-해보고 싶다는 LSF/MM 제안입니다.&lt;/p&gt;
-
-&lt;h2 id=&#34;lsf-mm-topic-use-nvdimm-as-numa-node-and-numa-api&#34;&gt;[LSF/MM TOPIC] Use NVDIMM as NUMA node and NUMA API&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/f0d66b0c-c9b6-a040-c485-1606041a70a2@linux.alibaba.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/f0d66b0c-c9b6-a040-c485-1606041a70a2@linux.alibaba.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;알리바바에서는 NVDIMM 을 클라우드 고객들에게 싼 비용의 메모리로 제공하려
-한다는군요.  이를 위해 여러 필요성이 있고, 현재 NUMA API 로는 모든 경우를
-커퍼하기가 어렵다고 합니다.  때문에, LSFMM 에서 어떤 use-case 와 needs 가
-있는지 공유하고 더 나은 NUMA API 에 대해 논의하고자 하는군요.&lt;/p&gt;
-
-&lt;h2 id=&#34;lsf-mm-topic-memory-reclaim-with-numa-rebalancing&#34;&gt;[LSF/MM TOPIC] memory reclaim with NUMA rebalancing&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190130174847.GD18811@dhcp22.suse.cz&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20190130174847.GD18811@dhcp22.suse.cz&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;NVDIMM 을 싸고 무척 느린 NUMA 노드로 인식되고 사용되게끔 하고자 하는 노력들이
-있습니다.  이게 완벽하게 동작하려면 hot page 는 가깝고 빠른 NUMA node 에, cold
-page 는 멀고 느린 NUMA node 에 위치되도록 커널이 조정해줄 필요가 있겠죠.  NUMA
-balancing 기능이 있긴 하지만 cold page 를 멀고 느린 NUMA node 로 보내는 기능은
-현재까지는 없습니다.  이에 대한 논의를 LSF/MM 에서 시작해 보자고 하네요.&lt;/p&gt;
-
-&lt;h2 id=&#34;linux-5-0-rc5&#34;&gt;Linux 5.0-rc5&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wjoGOgYFCbpazT2Fyv=zHaiagU5PhmiAfrZ5DOmE-y0rg@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CAHk-=wjoGOgYFCbpazT2Fyv=zHaiagU5PhmiAfrZ5DOmE-y0rg@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;아무래도 이번 릴리즈들은 머지 윈도우가 길고 연휴와 함께 있었던 탓인지
-전체적으로 뭔가 변경사항이 줄지 않는듯 보였는데, 드디어 변경사항이 줄어들고
-있다고 합니다.  좋은 신호죠.&lt;/p&gt;
 </description>
     </item>
     

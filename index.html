@@ -441,10 +441,17 @@ Dec 2013 - Dec 2014</li>
   </div>
   <div class="col-xs-12 col-md-8">
     <p><ul>
-<li>SeongJae Park, Yunjae Lee, Moonsub Kim Heon Y. Yeom, <strong>Automating Context
+<li>SeongJae Park, Yunjae Lee, Moonsub Kim, Heon Y. Yeom, <strong>Automating Context
 Based Access Pattern Hint Injection for System Performance and Swap Storage
 Durability.</strong> In 11th USENIX Workshop on Hot Topinc in Storage and File
 Systems (HotStorage), July 2019. (accepted)</li>
+<li>SeongJae Park, Yunjae Lee, Yunhee Kim, Heon Y. Yeom, <strong>Profiling Dynamic Data
+Access Patterns with Bounded Overhead and Accuracy.</strong> In IEEE International
+Workshops on Foundations and Applications of Self-* Systems (FAS* 2019), June
+
+<ol>
+<li>(accepted)</li>
+</ol></li>
 <li>SeongJae Park, Minchan Kim, Heon Y. Yeom, <strong>GCMA: Guaranteed Contiguous
 Memory Allocator.</strong> In <em>Transactions on Computers</em>, March 2019.
 <a href="https://ieeexplore.ieee.org/document/8456561" target="_blank">Link</a></li>
@@ -580,6 +587,92 @@ DevFest W, March 2013.
       
 
       
+      
+
+        
+
+        
+        
+
+        
+        
+          
+      
+          
+      
+          
+      
+          
+      
+
+      
+      
+        
+        
+
+<div class="article-list-item" itemscope itemprop="blogPost">
+  
+  
+  <h3 class="article-title" itemprop="name">
+    <a href="https://sjp38.github.io/post/hotstorage2019_talk/" itemprop="url">I will have a talk at the Hotstorage&#39;19</a>
+  </h3>
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2019-04-18 09:37:04 &#43;0900 KST" itemprop="datePublished">
+      Apr 18, 2019
+    </time>
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/publications">publications</a
+    >
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+  <div class="article-style" itemprop="articleBody">
+    
+    <p><a href="https://www.usenix.org/conference//hotstorage19" target="_blank">HotStorage&rsquo;19</a> 에 제출한 제
+최근 연구에 대한 논문이 accept 되어 7월에 해당 워크샵에서 이에 대한 내용을
+발표하게 되었습니다.  논문 제목은 &ldquo;Automating Context Based Access Pattern Hint
+Injection for System Performance and Swap Storage Durability&rdquo; 입니다.</p>
+
+    
+  </div>
+  <p class="read-more">
+    <a href="https://sjp38.github.io/post/hotstorage2019_talk/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
+      
+
       
 
         
@@ -905,92 +998,6 @@ Example Source Code 예제로 설명하는게 가장 쉽죠.
   </div>
   <p class="read-more">
     <a href="https://sjp38.github.io/post/lkml_news_v5.1-rc5/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-      
-
-      
-
-        
-
-        
-        
-
-        
-        
-          
-      
-          
-      
-          
-      
-          
-      
-
-      
-      
-        
-        
-
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.1-rc4/" itemprop="url">LKML News v5.1-rc4</a>
-  </h3>
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2019-04-07 23:17:55 &#43;0900 KST" itemprop="datePublished">
-      Apr 7, 2019
-    </time>
-  </span>
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/lkml-news">lkml news</a
-    >
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-  <div class="article-style" itemprop="articleBody">
-    
-    Linux v5.1-rc3 릴리즈 후 Linux v.5.1-rc4 릴리즈 사이 기간에 LKML 에 올라온 흥미로운 메일들을 소개합니다.
-[PATCH v8 00/20] Convert x86 &amp; arm64 to use generic page walk https://lkml.kernel.org/r/20190403141627.11664-1-steven.price@arm.com
-전에 이 블로그에도 공유했던, walk_page_range() 함수가 커널에서 사용하는 페이지 테이블은 지원하지 않아서 아키텍쳐별로 page table walk 기능을 구현한 걸 walk_page_range() 의 개선을 통해 가능하게 하고자 하는 패치의 여덟번째 버전입니다.
-[PATCH] mm: add vm event for page cache miss https://lkml.kernel.org/r/1554185720-26404-1-git-send-email-laoar.shao@gmail.com
-Page cache miss 로 인해 사용중인 데이터베이스에 레이턴시가 증가하는 문제가 있는데, 기존 커널에는 페이지 캐시 미스 카운트를 세는 기능이 없기 때문에 만들어 봤다고 합니다.
-    
-  </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.1-rc4/" class="btn btn-primary btn-outline">
       CONTINUE READING
     </a>
   </p>
@@ -1365,6 +1372,20 @@ Page cache miss 로 인해 사용중인 데이터베이스에 레이턴시가 �
           
           
           
+          <a href="/tags/hotstorage" style="font-size:0.8rem">hotstorage</a>
+        
+          
+          
+          
+          
+          
+          <a href="/tags/hotstorage19" style="font-size:0.8rem">hotstorage19</a>
+        
+          
+          
+          
+          
+          
           <a href="/tags/hugo" style="font-size:0.8rem">hugo</a>
         
           
@@ -1652,7 +1673,7 @@ Page cache miss 로 인해 사용중인 데이터베이스에 레이턴시가 �
           
           
           
-          <a href="/tags/talk" style="font-size:0.8rem">talk</a>
+          <a href="/tags/talk" style="font-size:1.0638545567092637rem">talk</a>
         
           
           
@@ -1709,6 +1730,13 @@ Page cache miss 로 인해 사용중인 데이터베이스에 레이턴시가 �
           
           
           <a href="/tags/unit-test" style="font-size:0.8rem">unit test</a>
+        
+          
+          
+          
+          
+          
+          <a href="/tags/usenix" style="font-size:1.0638545567092637rem">usenix</a>
         
           
           
