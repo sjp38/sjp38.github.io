@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme" content="hugo-academic">
-  <meta name="generator" content="Hugo 0.51" />
+  <meta name="generator" content="Hugo 0.31.1" />
   <meta name="author" content="SeongJae Park">
   <meta name="description" content="System Programmer">
 
@@ -64,8 +64,8 @@
   
 
   
-  <link rel="alternate" href="https://sjp38.github.io/tags/news/index.xml" type="application/rss+xml" title="Hacklog">
-  <link rel="feed" href="https://sjp38.github.io/tags/news/index.xml" type="application/rss+xml" title="Hacklog">
+  <link rel="alternate" href="https://sjp38.github.io/index.xml" type="application/rss+xml" title="Hacklog">
+  <link rel="feed" href="https://sjp38.github.io/index.xml" type="application/rss+xml" title="Hacklog">
   
 
   <link rel="manifest" href="/site.webmanifest">
@@ -78,16 +78,16 @@
   
   <meta property="og:site_name" content="Hacklog">
   <meta property="og:url" content="https://sjp38.github.io/tags/news/">
-  <meta property="og:title" content="news | Hacklog">
+  <meta property="og:title" content="News | Hacklog">
   <meta property="og:description" content="System Programmer">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2019-02-04T09:18:08&#43;09:00">
+  <meta property="og:updated_time" content="2019-02-11T12:40:20&#43;09:00">
   
 
   
 
-  <title>news | Hacklog</title>
+  <title>News | Hacklog</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
@@ -250,11 +250,23 @@
 
 <div class="universal-wrapper">
 
-  <h1>news</h1>
+  <h1>News</h1>
 
   
 
   
+  
+  <div>
+    <h2><a href="https://sjp38.github.io/post/lkml_news_v5.0-rc6/">LKML News v5.0-rc6</a></h2>
+    <div class="article-style">
+      
+      [PATCH v4 1&frasl;1] psi: introduce psi monitor <a href="https://lkml.kernel.org/r/20190206023446.177362-1-surenb@google.com" target="_blank">https://lkml.kernel.org/r/20190206023446.177362-1-surenb@google.com</a>
+시스템의 메모리 부족 등의 현상이 어떻게 일어나고 있는지 쉽게 파악할 수 있는 장치를 추가하는 패치입니다.
+[LSF/MM TOPIC] Address space isolation inside the kernel <a href="https://lkml.kernel.org/r/20190207072421.GA9120@rapoport-lnx" target="_blank">https://lkml.kernel.org/r/20190207072421.GA9120@rapoport-lnx</a>
+리눅스의 어드레스 스페이스 기능은 유저스페이스 프로그램들이 서로에게 영향을 끼치지 못하게 해줘서 컨테이너 등에 쓰이고 있죠. 하지만 커널은 공유하기 때문에 커널 버그는 여전히 영향을 끼칠 수 있습니다. 커널 코드도 어드레스 스페이스를 어느정도 인식하고 코드 분류를 시킴으로써 그 문제를 줄여보자는 LSF/MM 토론 주제 제안입니다.
+      
+    </div>
+  </div>
   
   <div>
     <h2><a href="https://sjp38.github.io/post/lkml_news_v5.0-rc5/">LKML News v5.0-rc5</a></h2>
@@ -371,13 +383,6 @@ ps 등의 도구를 사용해 시스템 상황을 모니터링하는 커다란 �
 Transparent Huge Page 를 쪼개지 않고 swap out / swap in 함으로써 스왑 성능을 최적화 하는 패치의 일곱번째 버전입니다. 이 블로그에서도 소개한 바 있죠. 크게 바뀐 부분은 없지만 최신 버전에 맞춰 리베이스 되었고, Daniel 에 의해 발견된 주소 정렬 관련 문제를 해결했군요.
 [PATCH 0/5] Fragmentation avoidance improvements v5 <a href="https://lkml.kernel.org/r/20181123114528.28802-1-mgorman@techsingularity.net" target="_blank">https://lkml.kernel.org/r/20181123114528.28802-1-mgorman@techsingularity.net</a>
 시스템이 충분히 오래 운영되거나 특정한 패턴의 워크로드가 동작하게 되면 시스템의 메모리는 fragment 되게 마련이어서, 장기적으로 물리적 연속 페이지 할당이 실패하게 됩니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="https://sjp38.github.io/post/lkml_news_v4.20-rc3/">LKML News by v4.20-rc3</a></h2>
-    <div class="article-style">
       
     </div>
   </div>

@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme" content="hugo-academic">
-  <meta name="generator" content="Hugo 0.51" />
+  <meta name="generator" content="Hugo 0.31.1" />
   <meta name="author" content="SeongJae Park">
   <meta name="description" content="System Programmer">
 
@@ -76,7 +76,7 @@
   
   <meta property="og:site_name" content="Hacklog">
   <meta property="og:url" content="https://sjp38.github.io/post/lkml_news_v5.1-rc7/">
-  <meta property="og:title" content="Lkml_news_v5 | Hacklog">
+  <meta property="og:title" content="LKML News v5.1-rc7 | Hacklog">
   <meta property="og:description" content="">
   <meta property="og:locale" content="en-us">
   
@@ -87,7 +87,7 @@
 
   
 
-  <title>Lkml_news_v5 | Hacklog</title>
+  <title>LKML News v5.1-rc7 | Hacklog</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
@@ -252,7 +252,7 @@
 
   <div class="article-container">
     <div class="article-inner">
-      <h1 itemprop="name">Lkml_news_v5</h1>
+      <h1 itemprop="name">LKML News v5.1-rc7</h1>
 
       
 
@@ -268,7 +268,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    0 min read
+    1 min read
   </span>
   
 
@@ -278,6 +278,15 @@
   
   
   
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/lkml-news">lkml news</a
+    >
+    
+  </span>
+  
   
 
   
@@ -286,7 +295,7 @@
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=Lkml_news_v5&amp;url=https%3a%2f%2fsjp38.github.io%2fpost%2flkml_news_v5.1-rc7%2f"
+         href="https://twitter.com/intent/tweet?text=LKML%20News%20v5.1-rc7&amp;url=https%3a%2f%2fsjp38.github.io%2fpost%2flkml_news_v5.1-rc7%2f"
          target="_blank" rel="noopener">
         <i class="fa fa-twitter"></i>
       </a>
@@ -300,21 +309,21 @@
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fsjp38.github.io%2fpost%2flkml_news_v5.1-rc7%2f&amp;title=Lkml_news_v5"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fsjp38.github.io%2fpost%2flkml_news_v5.1-rc7%2f&amp;title=LKML%20News%20v5.1-rc7"
          target="_blank" rel="noopener">
         <i class="fa fa-linkedin"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fsjp38.github.io%2fpost%2flkml_news_v5.1-rc7%2f&amp;title=Lkml_news_v5"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fsjp38.github.io%2fpost%2flkml_news_v5.1-rc7%2f&amp;title=LKML%20News%20v5.1-rc7"
          target="_blank" rel="noopener">
         <i class="fa fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=Lkml_news_v5&amp;body=https%3a%2f%2fsjp38.github.io%2fpost%2flkml_news_v5.1-rc7%2f">
+         href="mailto:?subject=LKML%20News%20v5.1-rc7&amp;body=https%3a%2f%2fsjp38.github.io%2fpost%2flkml_news_v5.1-rc7%2f">
         <i class="fa fa-envelope"></i>
       </a>
     </li>
@@ -329,10 +338,68 @@
 
       <div class="article-style" itemprop="articleBody">
         
+
+<h2 id="re-lsf-mm-preliminary-agenda-anyone-anyone-bueller">Re: [LSF/MM] Preliminary agenda ? Anyone &hellip; anyone ? Bueller ?</h2>
+
+<p><a href="https://lkml.kernel.org/r/83fda245-849a-70cc-dde0-5c451938ee97@kernel.dk" target="_blank">https://lkml.kernel.org/r/83fda245-849a-70cc-dde0-5c451938ee97@kernel.dk</a></p>
+
+<p>올해의 LSFMM 스케쥴이 구글 문서로 공유되고 있었군요:
+<a href="https://docs.google.com/spreadsheets/d/1Z1pDL-XeUT1ZwMWrBL8T8q3vtSqZpLPgF3Bzu_jejfk/edit#gid=0" target="_blank">https://docs.google.com/spreadsheets/d/1Z1pDL-XeUT1ZwMWrBL8T8q3vtSqZpLPgF3Bzu_jejfk/edit#gid=0</a></p>
+
+<h2 id="lsf-mm-topic-proactive-memory-reclaim">[LSF/MM TOPIC] Proactive Memory Reclaim</h2>
+
+<p><code>https://lkml.kernel.org/r/CALvZod4V+56pZbPkFDYO3+60Xr0_ZjiSgrfJKs_=Bd4AjdvFzA@mail.gmail.com</code></p>
+
+<p>이제 LSFMM 이 얼마 안남았습니다만, 또하나의 주제 제안이 올라왔습니다.</p>
+
+<p>메모리 오버커밋으로 인해 direct reclaim 이 발생하고, 이는 latency sensitive
+어플리케이션의 latency 를 크게 저하시키니, 시스템이 좀 더 적극적으로 memory
+reclaim 을 해서 direct reclaim 을 최소화 시켜보자는 건데요.  잘 접근되지 않는
+cold memory 를 추적해서 미리미리 reclaim 시키자는 겁니다.  챌린지는 물론 cold
+memory 를 어떻게 잘 추적하냐는 거지요.  이와 함께 커널의 <code>idle_page_tracking</code>
+의 비효율성도 이야기 했습니다.</p>
+
+<p>이 주제로 올해 ASPLOS 에 논문도 냈군요: <a href="https://youtu.be/aKddds6jn1s" target="_blank">https://youtu.be/aKddds6jn1s</a>
+개인적으로 최근 연구하고 있는 주제와도 관계 있을 수 있어서 흥미롭습니다.</p>
+
+<h2 id="patch-docs-vm-add-documentation-of-memory-models">[PATCH] docs/vm: add documentation of memory models</h2>
+
+<p><a href="https://lkml.kernel.org/r/1556101715-31966-1-git-send-email-rppt@linux.ibm.com" target="_blank">https://lkml.kernel.org/r/1556101715-31966-1-git-send-email-rppt@linux.ibm.com</a></p>
+
+<p>FLAT, DISCONTIG, SPARSE 등의 다양한 메모리 모델에 대한 문서화 추가 패치입니다.
+처음 코드 들여다 볼 때 조금 헷갈리던 부분인데 잘 설명되었군요.</p>
+
+<h2 id="lsf-mm-topic-lightning-round">[LSF/MM TOPIC] Lightning round?</h2>
+
+<p><a href="https://lkml.kernel.org/r/20190425211906.GH4739@mit.edu" target="_blank">https://lkml.kernel.org/r/20190425211906.GH4739@mit.edu</a></p>
+
+<p>이번 LSFMM 에는 라이트닝 토크 세션이 있는데요, 거기서 block layer 에 암호화
+레이어를 추가하는 방안에 대해 이야기 해보자는 Ted 의 의견입니다.  안드로이드
+쪽에서 이걸 열심히 해보고 있나보군요.</p>
+
+<h2 id="patch-0-4-tools-vm-slabinfo-add-fragmentation-output">[PATCH 0/4] tools/vm/slabinfo: Add fragmentation output</h2>
+
+<p><a href="https://lkml.kernel.org/r/20190426022622.4089-1-tobin@kernel.org" target="_blank">https://lkml.kernel.org/r/20190426022622.4089-1-tobin@kernel.org</a></p>
+
+<p>SLAB vs SLUB 토론 중 현재 slab allocator 의 fragmentation 정도를 알려주는
+도구가 있으면 좋겠다는 이야기가 있었는데, 이를 위한 기능을 추가한 패치입니다.</p>
+
       </div>
 
       
 
+
+<div class="article-tags">
+  
+  <a class="btn btn-primary btn-outline" href="/tags/linux">linux</a>
+  
+  <a class="btn btn-primary btn-outline" href="/tags/kernel">kernel</a>
+  
+  <a class="btn btn-primary btn-outline" href="/tags/lkml">lkml</a>
+  
+  <a class="btn btn-primary btn-outline" href="/tags/news">news</a>
+  
+</div>
 
 
 
@@ -342,6 +409,24 @@
 </article>
 
 
+
+<div class="article-container article-widget">
+  <div class="hr-light"></div>
+  <h3>Related</h3>
+  <ul>
+    
+    <li><a href="/post/lkml_news_v5.1-rc6/">LKML News v5.1-rc6</a></li>
+    
+    <li><a href="/post/lkml_news_v5.1-rc5/">LKML News v5.1-rc5</a></li>
+    
+    <li><a href="/post/lkml_news_v5.1-rc4/">LKML News v5.1-rc4</a></li>
+    
+    <li><a href="/post/lkml_news_v5.1-rc3/">LKML News v5.1-rc3</a></li>
+    
+    <li><a href="/post/lkml_news_v5.1-rc2/">LKML News v5.1-rc2</a></li>
+    
+  </ul>
+</div>
 
 
 

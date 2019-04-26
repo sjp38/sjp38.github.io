@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme" content="hugo-academic">
-  <meta name="generator" content="Hugo 0.51" />
+  <meta name="generator" content="Hugo 0.31.1" />
   <meta name="author" content="SeongJae Park">
   <meta name="description" content="System Programmer">
 
@@ -64,8 +64,8 @@
   
 
   
-  <link rel="alternate" href="https://sjp38.github.io/tags/linux/index.xml" type="application/rss+xml" title="Hacklog">
-  <link rel="feed" href="https://sjp38.github.io/tags/linux/index.xml" type="application/rss+xml" title="Hacklog">
+  <link rel="alternate" href="https://sjp38.github.io/index.xml" type="application/rss+xml" title="Hacklog">
+  <link rel="feed" href="https://sjp38.github.io/index.xml" type="application/rss+xml" title="Hacklog">
   
 
   <link rel="manifest" href="/site.webmanifest">
@@ -78,16 +78,16 @@
   
   <meta property="og:site_name" content="Hacklog">
   <meta property="og:url" content="https://sjp38.github.io/tags/linux/">
-  <meta property="og:title" content="linux | Hacklog">
+  <meta property="og:title" content="Linux | Hacklog">
   <meta property="og:description" content="System Programmer">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2018-01-16T13:26:26&#43;09:00">
+  <meta property="og:updated_time" content="2018-01-23T12:16:07&#43;09:00">
   
 
   
 
-  <title>linux | Hacklog</title>
+  <title>Linux | Hacklog</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
@@ -250,11 +250,24 @@
 
 <div class="universal-wrapper">
 
-  <h1>linux</h1>
+  <h1>Linux</h1>
 
   
 
   
+  
+  <div>
+    <h2><a href="https://sjp38.github.io/post/lkml_news_v4.15-rc9/">LKML News after v4.15-rc9</a></h2>
+    <div class="article-style">
+      
+      Not final 4.15 this weekend <a href="https://lkml.kernel.org/r/CA+55aFxzQBH5gnG92ah-PREfOqb5_rjWriLH3fWHMWS1=BSQFw@mail.gmail.com" target="_blank">https://lkml.kernel.org/r/CA+55aFxzQBH5gnG92ah-PREfOqb5_rjWriLH3fWHMWS1=BSQFw@mail.gmail.com</a>
+원래대로라면 4.15 정식 버전의 릴리즈가 될 타이밍이었습니다만&hellip; 아직 충분히 안정화 되지 않은 것 같다는 토발즈의 판단 아래 이번주에도 rc 버전이 나왔습니다. rc9 입니다. 2011년의 3.1-rc9 이후 처음 나온 rc9 이네요.
+이번 릴리즈는 x86, arm powerpc, mips 쪽의 arch 업데이트, 드라이버, 그리고 네트워킹 핵심부 업데이트가 주된 변경이군요.
+다음주에는 꼭 4.15를 릴리즈 하고 싶다고 하는데, 아마도 다음주에는 4.15 정식 버전이 릴리즈되길 빕니다.
+[LSF/MM TOPIC] CMA and larger page sizes <a href="https://lkml" target="_blank">https://lkml</a>.
+      
+    </div>
+  </div>
   
   <div>
     <h2><a href="https://sjp38.github.io/post/lkml_news_v4.15-rc8/">LKML News after v4.15-rc8</a></h2>
@@ -352,17 +365,6 @@ Lockdep 의 cross release 기능은 너무 느렸고, false positive 가 많다�
 예정대로 2주만에 4.15 의 첫번째 rc 버전이 나왔습니다.
 지난주는 추수감사절이라 다들 휴가인 사람이 많았기에 첫번째 주에 최대한 많이 풀리퀘스트를 받았고 지난주는 좀 더 까다롭게 풀리퀘스트를 검사했군요. 토발즈는 두번째 주 동안 랩톱 들고 여행중이었고, 랩톱에서는 전체 모듈 빌드를 하지 않기 때문이라 합니다. 메인테이너들도 가능한 첫번째 주에 중요 플리퀘스트를 보내는 식으로 협조를 해줬다고 합니다. 그네들도 두번째주는 휴가가고 싶었을테니&hellip; ;)
 4.14 가 LTS 였기에 이번 머지윈도우에는 변화가 크지 않을 것으로 예상했는데 생각보다 많은 풀리퀘스트가 있었다고 합니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="https://sjp38.github.io/post/osse2017_05/">OSSummit 2017 Attendence - 05</a></h2>
-    <div class="article-style">
-      
-      컨퍼런스 둘째날부터는 kernel summit track 이 시작됩니다. 이번 컨퍼런스 참가는 아무래도 kernel summit 에서의 시끄럽고 정신없는 토론에 참여하고 싶기 때문이었기에 오늘부터가 제게는 가장 재밌는 시간입니다.
-아침 일찍 일어나 컨퍼런스 장소로 출발합니다. 10명이 함께 묵는 방을 사용하고 있기에 일찍 일어나지 않으면 샤워를 제시간에 하기 어려우므로 조금 일찍 일어났습니다.
-일찍 출발한 만큼 일찍 도착. 아직 부스에 사람도 없고 조용하네요. 한동안 부스 한켠에 준비된 휴식 공간에 앉아 커널 메일링 리스트도 읽고 코드도 보고 했습니다.
       
     </div>
   </div>

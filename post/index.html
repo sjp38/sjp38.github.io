@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme" content="hugo-academic">
-  <meta name="generator" content="Hugo 0.51" />
+  <meta name="generator" content="Hugo 0.31.1" />
   <meta name="author" content="SeongJae Park">
   <meta name="description" content="System Programmer">
 
@@ -312,6 +312,71 @@ ibus-hangul 을 문제 없던 버전으로 다운그레이드 시키고 세션�
   </div>
   <p class="read-more">
     <a href="https://sjp38.github.io/post/fedora28_hangul_problem/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
+  
+    
+    
+
+<div class="article-list-item" itemscope itemprop="blogPost">
+  
+  
+  <h3 class="article-title" itemprop="name">
+    <a href="https://sjp38.github.io/post/lkml_news_v5.1-rc7/" itemprop="url">LKML News v5.1-rc7</a>
+  </h3>
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2019-04-26 11:02:24 &#43;0900 KST" itemprop="datePublished">
+      Apr 26, 2019
+    </time>
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/lkml-news">lkml news</a
+    >
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+  <div class="article-style" itemprop="articleBody">
+    
+    Re: [LSF/MM] Preliminary agenda ? Anyone &hellip; anyone ? Bueller ? https://lkml.kernel.org/r/83fda245-849a-70cc-dde0-5c451938ee97@kernel.dk
+올해의 LSFMM 스케쥴이 구글 문서로 공유되고 있었군요: https://docs.google.com/spreadsheets/d/1Z1pDL-XeUT1ZwMWrBL8T8q3vtSqZpLPgF3Bzu_jejfk/edit#gid=0
+[LSF/MM TOPIC] Proactive Memory Reclaim https://lkml.kernel.org/r/CALvZod4V+56pZbPkFDYO3+60Xr0_ZjiSgrfJKs_=Bd4AjdvFzA@mail.gmail.com
+이제 LSFMM 이 얼마 안남았습니다만, 또하나의 주제 제안이 올라왔습니다.
+메모리 오버커밋으로 인해 direct reclaim 이 발생하고, 이는 latency sensitive 어플리케이션의 latency 를 크게 저하시키니, 시스템이 좀 더 적극적으로 memory reclaim 을 해서 direct reclaim 을 최소화 시켜보자는 건데요. 잘 접근되지 않는 cold memory 를 추적해서 미리미리 reclaim 시키자는 겁니다.
+    
+  </div>
+  <p class="read-more">
+    <a href="https://sjp38.github.io/post/lkml_news_v5.1-rc7/" class="btn btn-primary btn-outline">
       CONTINUE READING
     </a>
   </p>
@@ -814,70 +879,6 @@ KUnit 은 이름에서 짐작했겠지만 리눅스 커널을 위한 유닛 테�
   </div>
   <p class="read-more">
     <a href="https://sjp38.github.io/post/kunit_intro/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-  
-    
-    
-
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/gitlab_docker_install/" itemprop="url">Gitlab docker install</a>
-  </h3>
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2019-03-19 16:39:48 &#43;0900 KST" itemprop="datePublished">
-      Mar 19, 2019
-    </time>
-  </span>
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    4 min read
-  </span>
-  
-
-  
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/installations">installations</a
-    >
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-  <div class="article-style" itemprop="articleBody">
-    
-    연구실 내부 사용을 위한 Gitlab 을 Docker 를 사용해서 구축하고 사용하고 있습니다만, 하도 예전이라 Gitlab official docker image 가 아니었고, docker 버전도 2.x 대라서 최신 버전으로 바로 업그레이드가 불가능하군요.
-지금은 gitlab 에서 자체적으로 정식 docker 이미지를 제공합니다. 이 포스트에서는 Ubuntu 18.04 서버 위에 gitlab 정식 docker 이미지를 사용해 설치하는 방법을 기록합니다.
-Docker 설치 먼저 Docker 를 설치해야죠. 문서[1]를 참고해서 설치를 진행해 봅니다.
-먼저 apt 업데이트 후 종속 패키지들을 깔아줍니다:
-    
-  </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/gitlab_docker_install/" class="btn btn-primary btn-outline">
       CONTINUE READING
     </a>
   </p>
