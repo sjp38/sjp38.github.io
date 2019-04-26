@@ -11,6 +11,34 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Fedora28 ibus-hangul input problem</title>
+      <link>https://sjp38.github.io/post/fedora28_hangul_problem/</link>
+      <pubDate>Fri, 26 Apr 2019 11:05:59 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/fedora28_hangul_problem/</guid>
+      <description>&lt;p&gt;어느날부터 Fedora 터미널에서 한글 입력이 매우 불편해졌습니다.  한글 모드에서는
+backspace, enter, esc 등의 특수키가 하나도 안먹힙니다.  Vim 을 쓰는 입장에선
+매우 불편하죠.  알고보니 ibus-hangul 버그인 것 같습니다[1].  아래 커맨드로
+ibus-hangul 을 문제 없던 버전으로 다운그레이드 시키고 세션을 재시작 하면 문제가
+사라집니다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo dnf downgrade ibus-hangul-1.5.0-12.fc28.x86_64
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;[1] &lt;a href=&#34;http://www.fedoralinux.or.kr/board-read.do?boardId=bbs3&amp;amp;boardNo=153170459823549&amp;amp;command=READ&amp;amp;page=1&amp;amp;categoryId=-1&#34; target=&#34;_blank&#34;&gt;http://www.fedoralinux.or.kr/board-read.do?boardId=bbs3&amp;amp;boardNo=153170459823549&amp;amp;command=READ&amp;amp;page=1&amp;amp;categoryId=-1&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Lkml_news_v5</title>
+      <link>https://sjp38.github.io/post/lkml_news_v5.1-rc7/</link>
+      <pubDate>Fri, 26 Apr 2019 11:02:24 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/lkml_news_v5.1-rc7/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>I will have a talk at the Hotstorage&#39;19</title>
       <link>https://sjp38.github.io/post/hotstorage2019_talk/</link>
       <pubDate>Thu, 18 Apr 2019 09:37:04 +0900</pubDate>
@@ -894,111 +922,6 @@ NUMA, 메모리 계층 그리고 디바이스 메모리, NUMA rebalancing 과 �
 그냥 rc8 을 릴리즈하기로 결정했다고 하네요.&lt;/p&gt;
 
 &lt;p&gt;어쨌건 다음주에는 분명 v5.0 이 나오겠죠!&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>LKML News v5.0-rc7</title>
-      <link>https://sjp38.github.io/post/lkml_news_v5.0-rc7/</link>
-      <pubDate>Mon, 18 Feb 2019 12:30:24 +0900</pubDate>
-      
-      <guid>https://sjp38.github.io/post/lkml_news_v5.0-rc7/</guid>
-      <description>
-
-&lt;h2 id=&#34;patch-v15-00-18-block-support-multi-page-bvec&#34;&gt;[PATCH V15 00/18] block: support multi-page bvec&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190215111324.30129-1-ming.lei@redhat.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20190215111324.30129-1-ming.lei@redhat.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;시스템의 RAM 이 커지고 huge page 가 널리 사용되면서 물리적으로 연속된
-페이지들의 I/O 가 흔해지고 있습니다.  이를 위해 &lt;code&gt;struct bio_bvec&lt;/code&gt; 이 물리적으로
-연속된 여러 페이지를 다룰 수 있게 해주는 패치의 15번째 버전입니다.&lt;/p&gt;
-
-&lt;h2 id=&#34;memory-management-facing-a-400gpbs-network-link&#34;&gt;Memory management facing a 400Gpbs network link&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/01000168e2f54113-485312aa-7e08-4963-af92-803f8c7d21e6-000000@email.amazonses.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/01000168e2f54113-485312aa-7e08-4963-af92-803f8c7d21e6-000000@email.amazonses.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;올해 내로 400Gbps 인피니밴드가 가능해질 거라고 합니다!  이건 프로세서-메모리
-사이의 밴드위쓰를 넘길 수 있는 스피드죠!  단일 하드웨어 쓰레드는 20GB/s 이기
-때문입니다.  이 재미있는 트렌드를 커널은 어떻게 대처해야 할 것인가 하는
-메일입니다.&lt;/p&gt;
-
-&lt;h2 id=&#34;lsf-mm-topic-generating-physically-contiguous-memory&#34;&gt;[LSF/MM TOPIC] Generating physically contiguous memory&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CEDBC792-DE5A-42CB-AA31-40C039470BD0@nvidia.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CEDBC792-DE5A-42CB-AA31-40C039470BD0@nvidia.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;GPU, FPGA, NIC, RDMA 같은 고성능 디바이스들에게 있어 물리적 연속 메모리는 매우
-중요합니다.  이 디바이스들은 내부적으로 고밀도의 computation 을 하는데 tlb miss
-와 이어지는 page table walk 로 인한 성능 문제가 CPU 에 비해서도 매우 크기
-때문이라는군요.&lt;/p&gt;
-
-&lt;p&gt;Boot time reservation 도, THP 도 유연성이 부족하기 때문에 새로운 패치도 만들고,
-관련해서 LSF/MM 에서 논의해 보자는군요.&lt;/p&gt;
-
-&lt;h2 id=&#34;rfc-v4-00-17-kunit-introduce-kunit-the-linux-kernel-unit-testing-framework&#34;&gt;[RFC v4 00/17] kunit: introduce KUnit, the Linux kernel unit testing framework&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190214213729.21702-1-brendanhiggins@google.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20190214213729.21702-1-brendanhiggins@google.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;리눅스 커널은 다양한 테스트를 가지고 있지만 unit test framework 은 아직 없었죠.
-그걸 만든 패치입니다!&lt;/p&gt;
-
-&lt;h2 id=&#34;linux-5-0-rc7&#34;&gt;Linux 5.0-rc7&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wgvF18PqBch4=56DFwCamYpy+owngTZXGnjVbFgKq467g@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CAHk-=wgvF18PqBch4=56DFwCamYpy+owngTZXGnjVbFgKq467g@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;휴일을 끼고 시작된 머지 윈도우로 이래저래 걱정도 있던 5.0 릴리즈들이었습니다만
-이번 rc 릴리즈는 정말 별다른 게 없네요.  매우 고요한 릴리즈였다고 합니다.
-아마도 다음주에 5.0 정식 릴리즈가 될 걸로 보이네요!&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>LKML News v5.0-rc6</title>
-      <link>https://sjp38.github.io/post/lkml_news_v5.0-rc6/</link>
-      <pubDate>Mon, 11 Feb 2019 12:40:20 +0900</pubDate>
-      
-      <guid>https://sjp38.github.io/post/lkml_news_v5.0-rc6/</guid>
-      <description>
-
-&lt;h2 id=&#34;patch-v4-1-1-psi-introduce-psi-monitor&#34;&gt;[PATCH v4 &lt;sup&gt;1&lt;/sup&gt;&amp;frasl;&lt;sub&gt;1&lt;/sub&gt;] psi: introduce psi monitor&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190206023446.177362-1-surenb@google.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20190206023446.177362-1-surenb@google.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;시스템의 메모리 부족 등의 현상이 어떻게 일어나고 있는지 쉽게 파악할 수 있는
-장치를 추가하는 패치입니다.&lt;/p&gt;
-
-&lt;h2 id=&#34;lsf-mm-topic-address-space-isolation-inside-the-kernel&#34;&gt;[LSF/MM TOPIC] Address space isolation inside the kernel&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190207072421.GA9120@rapoport-lnx&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20190207072421.GA9120@rapoport-lnx&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;리눅스의 어드레스 스페이스 기능은 유저스페이스 프로그램들이 서로에게 영향을
-끼치지 못하게 해줘서 컨테이너 등에 쓰이고 있죠.  하지만 커널은 공유하기 때문에
-커널 버그는 여전히 영향을 끼칠 수 있습니다.  커널 코드도 어드레스 스페이스를
-어느정도 인식하고 코드 분류를 시킴으로써 그 문제를 줄여보자는 LSF/MM 토론 주제
-제안입니다.&lt;/p&gt;
-
-&lt;h2 id=&#34;lsf-mm-2019-call-for-proposals-updated&#34;&gt;LSF/MM 2019: Call for Proposals (UPDATED!)&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/4f5a15c1-4f9e-acae-5094-2f38c8eebd96@kernel.dk&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/4f5a15c1-4f9e-acae-5094-2f38c8eebd96@kernel.dk&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;올해 LSF/MM 에는 BPF 트랙이 있을 거라는군요.  이에 따른 공지 업데이트입니다.
-BPF 의 상승세가 올해도 계속될 것 같군요!&lt;/p&gt;
-
-&lt;h2 id=&#34;lsf-mm-topic-bpf-for-block-devices&#34;&gt;[LSF/MM TOPIC] BPF for Block Devices&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/40D2EB06-6BF2-4233-9196-7A26AC43C64E@raithlin.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/40D2EB06-6BF2-4233-9196-7A26AC43C64E@raithlin.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;LSF/MM 에 BPF 라면 당연히 block device 와 BPF 의 결합을 이야기 해야하지
-않겠냐는 LSF/MM 토론 제안입니다.  Computational Storage 개념을 이야기 하는데요,
-I/O 레이어에서 간단한 연산을 처리해 줌으로써 성능을 높이자는 거죠.  그러기 위한
-연산 요청에 BPF 를 쓰자는 것 같습니다.  말 되네요!&lt;/p&gt;
-
-&lt;h2 id=&#34;linux-5-0-rc6&#34;&gt;Linux 5.0-rc6&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=whuSY_-hAU8ugVR7a=xz3uZeRrAPdhsoMZHmZ_7Qc49YQ@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CAHk-=whuSY_-hAU8ugVR7a=xz3uZeRrAPdhsoMZHmZ_7Qc49YQ@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;이제 리눅스 5.0 정식 릴리즈가 얼마 남지 않았네요, 여섯번째 rc 가 나왔습니다.
-그런데 이번 rc 는 토발즈가 바랬던 것보다는 조금 변경사항이 많았군요.  대부분
-네트워킹 쪽 변경이었다고 합니다만, 그래도 나머지는 큰 문제 없어 보인다는군요.&lt;/p&gt;
 </description>
     </item>
     

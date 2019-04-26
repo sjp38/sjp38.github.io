@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme" content="hugo-academic">
-  <meta name="generator" content="Hugo 0.31.1" />
+  <meta name="generator" content="Hugo 0.51" />
   <meta name="author" content="SeongJae Park">
   <meta name="description" content="System Programmer">
 
@@ -599,6 +599,161 @@ DevFest W, March 2013.
       
           
       
+
+      
+      
+        
+        
+
+<div class="article-list-item" itemscope itemprop="blogPost">
+  
+  
+  <h3 class="article-title" itemprop="name">
+    <a href="https://sjp38.github.io/post/fedora28_hangul_problem/" itemprop="url">Fedora28 ibus-hangul input problem</a>
+  </h3>
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2019-04-26 11:05:59 &#43;0900 KST" itemprop="datePublished">
+      Apr 26, 2019
+    </time>
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/tips">tips</a
+    >
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+  <div class="article-style" itemprop="articleBody">
+    
+    <p>어느날부터 Fedora 터미널에서 한글 입력이 매우 불편해졌습니다.  한글 모드에서는
+backspace, enter, esc 등의 특수키가 하나도 안먹힙니다.  Vim 을 쓰는 입장에선
+매우 불편하죠.  알고보니 ibus-hangul 버그인 것 같습니다[1].  아래 커맨드로
+ibus-hangul 을 문제 없던 버전으로 다운그레이드 시키고 세션을 재시작 하면 문제가
+사라집니다.</p>
+
+<pre><code>sudo dnf downgrade ibus-hangul-1.5.0-12.fc28.x86_64
+</code></pre>
+
+<p>[1] <a href="http://www.fedoralinux.or.kr/board-read.do?boardId=bbs3&amp;boardNo=153170459823549&amp;command=READ&amp;page=1&amp;categoryId=-1" target="_blank">http://www.fedoralinux.or.kr/board-read.do?boardId=bbs3&amp;boardNo=153170459823549&amp;command=READ&amp;page=1&amp;categoryId=-1</a></p>
+
+    
+  </div>
+  <p class="read-more">
+    <a href="https://sjp38.github.io/post/fedora28_hangul_problem/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
+      
+
+      
+
+        
+
+        
+        
+
+        
+        
+
+      
+      
+        
+        
+
+<div class="article-list-item" itemscope itemprop="blogPost">
+  
+  
+  <h3 class="article-title" itemprop="name">
+    <a href="https://sjp38.github.io/post/lkml_news_v5.1-rc7/" itemprop="url">Lkml_news_v5</a>
+  </h3>
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2019-04-26 11:02:24 &#43;0900 KST" itemprop="datePublished">
+      Apr 26, 2019
+    </time>
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    0 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  
+
+  
+
+</div>
+
+  <div class="article-style" itemprop="articleBody">
+    
+    
+    
+  </div>
+  <p class="read-more">
+    <a href="https://sjp38.github.io/post/lkml_news_v5.1-rc7/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
+      
+
+      
+
+        
+
+        
+        
+
+        
+        
+          
+      
+          
+      
+          
+      
           
       
 
@@ -830,163 +985,6 @@ Original Program 먼저 다음과 같은 프로그램이 있을 수 있을 겁�
   </div>
   <p class="read-more">
     <a href="https://sjp38.github.io/post/hooking_library_calls/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-      
-
-      
-
-        
-
-        
-        
-
-        
-        
-          
-      
-          
-      
-          
-      
-
-      
-      
-        
-        
-
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/backtrace_c_language/" itemprop="url">Backtrace on C language program</a>
-  </h3>
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2019-04-09 17:33:50 &#43;0900 KST" itemprop="datePublished">
-      Apr 9, 2019
-    </time>
-  </span>
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-
-  
-  
-  
-  
-
-  
-
-</div>
-
-  <div class="article-style" itemprop="articleBody">
-    
-    디버깅 과정에선 현재 어떤 코드가 어떤 함수를 거쳐 수행됐는지를 통한 컨텍스트 파악이 중요합니다. Java, Python, Go 등 대부분의 언어가 이를 위해 콜스택을 뽑을 수 있는 기능을 제공하죠. C 언어의 경우 gdb 등을 사용하면 쉽게 이를 볼 수 있지만 경우에 따라선 gdb 를 포기하고 printf() 등에만 의존해야 하기도 합니다. 이를 위한 기능이 c 라이브러리에도 있습니다, backtrace() 함수입니다. man 에도 이에 대한 설명이 있습니다만, 여기서도 간단히 소개해 봅니다.
-Example Source Code 예제로 설명하는게 가장 쉽죠.
-    
-  </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/backtrace_c_language/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-      
-
-      
-
-        
-
-        
-        
-
-        
-        
-          
-      
-          
-      
-          
-      
-          
-      
-
-      
-      
-        
-        
-
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.1-rc5/" itemprop="url">LKML News v5.1-rc5</a>
-  </h3>
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2019-04-09 17:33:01 &#43;0900 KST" itemprop="datePublished">
-      Apr 9, 2019
-    </time>
-  </span>
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/lkml-news">lkml news</a
-    >
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-  <div class="article-style" itemprop="articleBody">
-    
-    [v2 RFC PATCH 0/9] Another Approach to Use PMEM as NUMA Node https://lkml.kernel.org/r/1554955019-29472-1-git-send-email-yang.shi@linux.alibaba.com
-본 블로그를 통해 지속적으로 소개하고 있는, PMEM as NUMA node 를 위한, 보다 나은 hotness 기반 page location 을 위한 패치셋입니다. 기존 코멘트에 기반해서 두번째 버전을 내놓았군요.
-[RFC PATCH v3 00/15] Slab Movable Objects (SMO) https://lkml.kernel.org/r/20190411013441.5415-1-tobin@kernel.org
-최근 LWN 에서도 소개된 (https://lwn.net/Articles/784964/) 패치입니다. Slab allocator 에서 할당된 object 가 free page 가운데에 박혀 있어 page 를 회수할 수 없는 fragmentation 이 발생합니다.
-    
-  </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.1-rc5/" class="btn btn-primary btn-outline">
       CONTINUE READING
     </a>
   </p>
@@ -1291,7 +1289,7 @@ Example Source Code 예제로 설명하는게 가장 쉽죠.
           
           
           
-          <a href="/tags/fedora" style="font-size:1.0638545567092637rem">fedora</a>
+          <a href="/tags/fedora" style="font-size:1.2181995780285866rem">fedora</a>
         
           
           
@@ -1354,6 +1352,13 @@ Example Source Code 예제로 설명하는게 가장 쉽죠.
           
           
           
+          <a href="/tags/hangul" style="font-size:0.8rem">hangul</a>
+        
+          
+          
+          
+          
+          
           <a href="/tags/hooking" style="font-size:0.8rem">hooking</a>
         
           
@@ -1383,6 +1388,13 @@ Example Source Code 예제로 설명하는게 가장 쉽죠.
           
           
           <a href="/tags/idle_page_tracking" style="font-size:0.8rem">idle_page_tracking</a>
+        
+          
+          
+          
+          
+          
+          <a href="/tags/ime" style="font-size:0.8rem">ime</a>
         
           
           

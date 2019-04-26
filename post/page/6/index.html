@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme" content="hugo-academic">
-  <meta name="generator" content="Hugo 0.31.1" />
+  <meta name="generator" content="Hugo 0.51" />
   <meta name="author" content="SeongJae Park">
   <meta name="description" content="System Programmer">
 
@@ -73,7 +73,7 @@
   <meta property="og:description" content="System Programmer">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2018-07-30T09:14:08&#43;09:00">
+  <meta property="og:updated_time" content="2018-08-06T17:53:02&#43;09:00">
   
 
   
@@ -246,6 +246,131 @@
   
 
   
+  
+    
+    
+
+<div class="article-list-item" itemscope itemprop="blogPost">
+  
+  
+  <h3 class="article-title" itemprop="name">
+    <a href="https://sjp38.github.io/post/lkml_news_v4.18-rc8/" itemprop="url">LKML News after v4.18-rc8</a>
+  </h3>
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2018-08-06 17:53:02 &#43;0900 KST" itemprop="datePublished">
+      Aug 6, 2018
+    </time>
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/lkml-news">lkml news</a
+    >
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+  <div class="article-style" itemprop="articleBody">
+    
+    Linux 4.18-rc8 https://lkml.kernel.org/r/CA+55aFw49Bh9u3KvGsMbnSLfHvevpWPuqgrWQT0tC0XCajNwzA@mail.gmail.com
+원래대로라면 오늘 4.18 정식 릴리즈가 있어야 했지만, 지난주 동안 여러 일이 있었고, 결국 여덟번째 rc 버전이 나오고 말았습니다. VM 쪽 이슈가 큰 이유였고, 그것만 문제였으면 그냥 정식 릴리즈를 하려 했지만 네트워킹 쪽에서도 뒤늦은 문제가 터지고 VFS 쪽에도 이슈가 있었던 관계로 정식 릴리즈를 미루기로 결심했다고 합니다.
+8월에 휴가를 많이 떠나는 유럽 개발자들을 고려해서 토발즈는 휴가가 예정되어 있다면 그냥 원래 예상된 스케쥴대로 이번주부터 머지 윈도우 열렸다고 생각하고 풀리퀘스트 보내고 휴가 가라고 대인배라면 대인배 같은 면모를 보이는군요.
+    
+  </div>
+  <p class="read-more">
+    <a href="https://sjp38.github.io/post/lkml_news_v4.18-rc8/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
+  
+    
+    
+
+<div class="article-list-item" itemscope itemprop="blogPost">
+  
+  
+  <h3 class="article-title" itemprop="name">
+    <a href="https://sjp38.github.io/post/lkp-tests/" itemprop="url">Linux Kernel Performance (LKP) Tests</a>
+  </h3>
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2018-08-02 17:20:10 &#43;0900 KST" itemprop="datePublished">
+      Aug 2, 2018
+    </time>
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    4 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/linux-kernel-hack">linux-kernel-hack</a
+    >
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+  <div class="article-style" itemprop="articleBody">
+    
+    리눅스 커널의 개발은 커뮤니티 주도입니다. 개발의 한 부분인 테스트 역시 커뮤니티 주도적입니다. 여러 개인 또는 단체가 커널을 각자의 방식으로 테스트 하고 그 결과를 공유합니다. 인텔에서는 0-day 서비스[1] 라는 서비스를 자체적으로 돌리는데, 이 서비스는 최신 리눅스 커널을 가져다가 빌드하고 다양한 기능 / 성능 테스트를 돌리고 그 결과 발견된 regression 을 LKML 에 메일로 보내주는 일을 합니다. 말하자면 Continuous Integration (CI) 이죠.
+Linux Kernel Performance (LKP) Tests[2] 는 0-day 서비스에서 기능 / 성능 테스트를 수행하는데 사용되는 도구입니다.
+    
+  </div>
+  <p class="read-more">
+    <a href="https://sjp38.github.io/post/lkp-tests/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
   
     
     
@@ -783,125 +908,6 @@ RCU 의 -&gt;gpnum 과 -&gt;completed 필드를 하나의 -&gt;gp_seq 로 대체
   </div>
   <p class="read-more">
     <a href="https://sjp38.github.io/post/lkml_news_v4.18-rc2/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-  
-    
-    
-
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/lkml_news_v4.18-rc1/" itemprop="url">Lkml_news_v4.18 Rc1</a>
-  </h3>
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2018-06-17 11:59:59 &#43;0900 KST" itemprop="datePublished">
-      Jun 17, 2018
-    </time>
-  </span>
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-
-  
-  
-  
-  
-
-  
-
-</div>
-
-  <div class="article-style" itemprop="articleBody">
-    
-    Linux 4.18-rc1 https://lkml.kernel.org/r/CA+55aFw34Dh6p0qAZ_Ja=fjuJ89ojZZTWtmrRPKmB1QuP3C7hw@mail.gmail.com
-평소보다 많이 빠르게 4.18 머지윈도우가 닫혔습니다. 토발즈가 지금 일본에 있기 때문에 자기는 이미 일요일이고, 오후엔 뱃놀이 하러 갈거라서 일찍 릴리즈 한다네요.
-전체적으로 크기에서도 한 일에 있어서도 평범한 릴리즈입니다. 4.17 에서 더이상 사용되지 않는 과거 코드 삭제를 많이 했던 것처럼 이번에도 미사용 코드 제거가 좀 있군요, 하지만 4.17 때만큼 큰 변화는 아닙니다.
-제거된 컴포넌트들 가운데 특이할만한 점은 Lustre 의 제거군요. Staging 트리에서 머물던 Lustre 는 계속 out of tree 로 개발이 진행되어왔고, Staging 딱지를 떼지 못한채 커널 소스트리에서 제거되게 되었습니다.
-    
-  </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/lkml_news_v4.18-rc1/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-  
-    
-    
-
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/lkml_news_v4.17/" itemprop="url">LKML News after v4.17</a>
-  </h3>
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2018-06-04 11:29:16 &#43;0900 KST" itemprop="datePublished">
-      Jun 4, 2018
-    </time>
-  </span>
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/lkml-news">lkml news</a
-    >
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-  <div class="article-style" itemprop="articleBody">
-    
-    Linux 4.17 https://lkml.kernel.org/r/CA+55aFxhx_tKGm02UySguvbyfB_7oTF31QfgOHCK0YkBvmfV0g@mail.gmail.com
-4.17 버전 리눅스 릴리즈입니다. 지난주에 토발즈가 이야기한 것처럼 별다른 지연 없이 릴리즈 되었군요.
-git object 의 갯수라던지 릴리즈를 위한 스크립트 등이 리눅스 5.x 버전으로의 메이저 버전 업데이트가 될 준비가 되었다고 하지만 토발즈는 딱히 5.x 로 아직은 넘어갈 생각이 없군요. 너무 멀지 않은 미래에 넘어가겠지만, 적어도 지금은 아니라고 합니다.
-항상 그렇듯 이 릴리즈는 4.18을 위한 머지 윈도우의 시작이기도 한데, 토발즈는 두번째 주에 여행을 갈거라 가능하면 첫째주에 중요한 머지를 마무리 했으면 한다고 하네요.
-    
-  </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/lkml_news_v4.17/" class="btn btn-primary btn-outline">
       CONTINUE READING
     </a>
   </p>
