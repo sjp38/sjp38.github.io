@@ -599,6 +599,96 @@ DevFest W, March 2013.
       
           
       
+          
+      
+
+      
+      
+        
+        
+
+<div class="article-list-item" itemscope itemprop="blogPost">
+  
+  
+  <h3 class="article-title" itemprop="name">
+    <a href="https://sjp38.github.io/post/lkml_news_v5.1/" itemprop="url">LKML News v5.1</a>
+  </h3>
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2019-04-30 14:16:49 &#43;0900 KST" itemprop="datePublished">
+      Apr 30, 2019
+    </time>
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/lkml-news">lkml news</a
+    >
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+  <div class="article-style" itemprop="articleBody">
+    
+    
+
+<h2 id="rfc-patch-v4-00-15-slab-movable-objects-smo">[RFC PATCH v4 00/15] Slab Movable Objects (SMO)</h2>
+
+<p><a href="https://lkml.kernel.org/r/20190430030746.26102-1-tobin@kernel.org" target="_blank">https://lkml.kernel.org/r/20190430030746.26102-1-tobin@kernel.org</a></p>
+
+<p>앞서 이 블로그에서도 공유한 SMO 패치의 새 버전입니다.  이번 버전은 dcache 쪽
+코드를 많이 수정했군요.</p>
+
+    
+  </div>
+  <p class="read-more">
+    <a href="https://sjp38.github.io/post/lkml_news_v5.1/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
+      
+
+      
+
+        
+
+        
+        
+
+        
+        
+          
+      
+          
+      
+          
+      
 
       
       
@@ -717,7 +807,7 @@ ibus-hangul 을 문제 없던 버전으로 다운그레이드 시키고 세션�
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -932,88 +1022,6 @@ Injection for System Performance and Swap Storage Durability&rdquo; 입니다.</
       
 
       
-
-        
-
-        
-        
-
-        
-        
-          
-      
-          
-      
-          
-      
-
-      
-      
-        
-        
-
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/hooking_library_calls/" itemprop="url">Hooking Library Function Calls</a>
-  </h3>
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2019-04-10 11:39:06 &#43;0900 KST" itemprop="datePublished">
-      Apr 10, 2019
-    </time>
-  </span>
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/programming">programming</a
-    >
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-  <div class="article-style" itemprop="articleBody">
-    
-    LD_PRELOAD 환경변수를 사용하면 로더가 프로그램을 로드할 때 동적 로드해야 할 바이너리 코드를 해당 변수의 값의 디렉토리에서부터 뒤지도록 합니다. 따라서 이를 이용해 malloc(), free() 등의 일반적으로 사용하는 라이브러리 함수를 우리의 구현으로 대체하거나 후킹할 수 있습니다. 이 글은 이런 방법으로 malloc() 을 후킹하는 방법을 예제를 통해 간단히 설명합니다.
-Original Program 먼저 다음과 같은 프로그램이 있을 수 있을 겁니다:
-#include &lt;stdio.h&gt; #include &lt;stdlib.h&gt; int main(void) { char *abc; abc = (char *)malloc(8); printf(&quot;malloced address: %p\n&quot;, abc); sprintf(abc, &quot;hello\n&quot;); printf(&quot;%s\n&quot;, abc); free(abc); return 0; }  단순히 malloc() 을 통해 8바이트 메모리를 할당받아 그 영역을 표시하고 종료하는 프로그램입니다.
-    
-  </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/hooking_library_calls/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-      
-
-      
     
 
   </div>
@@ -1156,7 +1164,7 @@ Original Program 먼저 다음과 같은 프로그램이 있을 수 있을 겁�
           
           
           
-          <a href="/tags/benchmark" style="font-size:1.4110874755480802rem">benchmark</a>
+          <a href="/tags/benchmark" style="font-size:1.4095491427168658rem">benchmark</a>
         
           
           
@@ -1226,7 +1234,7 @@ Original Program 먼저 다음과 같은 프로그램이 있을 수 있을 겁�
           
           
           
-          <a href="/tags/conference" style="font-size:1.4803131468327284rem">conference</a>
+          <a href="/tags/conference" style="font-size:1.4786005474240418rem">conference</a>
         
           
           
@@ -1275,7 +1283,7 @@ Original Program 먼저 다음과 같은 프로그램이 있을 수 있을 겁�
           
           
           
-          <a href="/tags/english" style="font-size:1.5388426179368317rem">english</a>
+          <a href="/tags/english" style="font-size:1.536982678236295rem">english</a>
         
           
           
@@ -1289,7 +1297,7 @@ Original Program 먼저 다음과 같은 프로그램이 있을 수 있을 겁�
           
           
           
-          <a href="/tags/event" style="font-size:1.4110874755480802rem">event</a>
+          <a href="/tags/event" style="font-size:1.4095491427168658rem">event</a>
         
           
           
@@ -1310,7 +1318,7 @@ Original Program 먼저 다음과 같은 프로그램이 있을 수 있을 겁�
           
           
           
-          <a href="/tags/fedora" style="font-size:1.2171320961819225rem">fedora</a>
+          <a href="/tags/fedora" style="font-size:1.2160820206621545rem">fedora</a>
         
           
           
@@ -1331,14 +1339,14 @@ Original Program 먼저 다음과 같은 프로그램이 있을 수 있을 겁�
           
           
           
-          <a href="/tags/gcma" style="font-size:1.063181050650806rem">gcma</a>
+          <a href="/tags/gcma" style="font-size:1.0625185267618873rem">gcma</a>
         
           
           
           
           
           
-          <a href="/tags/git" style="font-size:1.063181050650806rem">git</a>
+          <a href="/tags/git" style="font-size:1.0625185267618873rem">git</a>
         
           
           
@@ -1352,7 +1360,7 @@ Original Program 먼저 다음과 같은 프로그램이 있을 수 있을 겁�
           
           
           
-          <a href="/tags/golang" style="font-size:1.2171320961819225rem">golang</a>
+          <a href="/tags/golang" style="font-size:1.2160820206621545rem">golang</a>
         
           
           
@@ -1443,7 +1451,7 @@ Original Program 먼저 다음과 같은 프로그램이 있을 수 있을 겁�
           
           
           
-          <a href="/tags/kernel" style="font-size:2.4590356403775733rem">kernel</a>
+          <a href="/tags/kernel" style="font-size:2.4596232497644146rem">kernel</a>
         
           
           
@@ -1471,21 +1479,21 @@ Original Program 먼저 다음과 같은 프로그램이 있을 수 있을 겁�
           
           
           
-          <a href="/tags/life" style="font-size:1.063181050650806rem">life</a>
+          <a href="/tags/life" style="font-size:1.0625185267618873rem">life</a>
         
           
           
           
           
           
-          <a href="/tags/linux" style="font-size:2.4956606385212448rem">linux</a>
+          <a href="/tags/linux" style="font-size:2.495720472243816rem">linux</a>
         
           
           
           
           
           
-          <a href="/tags/linux-foundation" style="font-size:1.4110874755480802rem">linux foundation</a>
+          <a href="/tags/linux-foundation" style="font-size:1.4095491427168658rem">linux foundation</a>
         
           
           
@@ -1506,7 +1514,7 @@ Original Program 먼저 다음과 같은 프로그램이 있을 수 있을 겁�
           
           
           
-          <a href="/tags/lkml" style="font-size:2.413111144135718rem">lkml</a>
+          <a href="/tags/lkml" style="font-size:2.414422553770529rem">lkml</a>
         
           
           
@@ -1527,7 +1535,7 @@ Original Program 먼저 다음과 같은 프로그램이 있을 수 있을 겁�
           
           
           
-          <a href="/tags/mariadb" style="font-size:1.063181050650806rem">mariadb</a>
+          <a href="/tags/mariadb" style="font-size:1.0625185267618873rem">mariadb</a>
         
           
           
@@ -1562,21 +1570,21 @@ Original Program 먼저 다음과 같은 프로그램이 있을 수 있을 겁�
           
           
           
-          <a href="/tags/news" style="font-size:2.413111144135718rem">news</a>
+          <a href="/tags/news" style="font-size:2.414422553770529rem">news</a>
         
           
           
           
           
           
-          <a href="/tags/open-source" style="font-size:1.063181050650806rem">open source</a>
+          <a href="/tags/open-source" style="font-size:1.0625185267618873rem">open source</a>
         
           
           
           
           
           
-          <a href="/tags/open-source" style="font-size:1.063181050650806rem">open-source</a>
+          <a href="/tags/open-source" style="font-size:1.0625185267618873rem">open-source</a>
         
           
           
@@ -1632,7 +1640,7 @@ Original Program 먼저 다음과 같은 프로그램이 있을 수 있을 겁�
           
           
           
-          <a href="/tags/prague" style="font-size:1.4110874755480802rem">prague</a>
+          <a href="/tags/prague" style="font-size:1.4095491427168658rem">prague</a>
         
           
           
@@ -1646,14 +1654,14 @@ Original Program 먼저 다음과 같은 프로그램이 있을 수 있을 겁�
           
           
           
-          <a href="/tags/projects" style="font-size:1.326362101301612rem">projects</a>
+          <a href="/tags/projects" style="font-size:1.3250370535237745rem">projects</a>
         
           
           
           
           
           
-          <a href="/tags/raspberry" style="font-size:1.063181050650806rem">raspberry</a>
+          <a href="/tags/raspberry" style="font-size:1.0625185267618873rem">raspberry</a>
         
           
           
@@ -1667,42 +1675,42 @@ Original Program 먼저 다음과 같은 프로그램이 있을 수 있을 겁�
           
           
           
-          <a href="/tags/setup" style="font-size:1.326362101301612rem">setup</a>
+          <a href="/tags/setup" style="font-size:1.3250370535237745rem">setup</a>
         
           
           
           
           
           
-          <a href="/tags/spec" style="font-size:1.063181050650806rem">spec</a>
+          <a href="/tags/spec" style="font-size:1.0625185267618873rem">spec</a>
         
           
           
           
           
           
-          <a href="/tags/spec_cpu" style="font-size:1.063181050650806rem">spec_cpu</a>
+          <a href="/tags/spec_cpu" style="font-size:1.0625185267618873rem">spec_cpu</a>
         
           
           
           
           
           
-          <a href="/tags/spec_cpu2006" style="font-size:1.063181050650806rem">spec_cpu2006</a>
+          <a href="/tags/spec_cpu2006" style="font-size:1.0625185267618873rem">spec_cpu2006</a>
         
           
           
           
           
           
-          <a href="/tags/talk" style="font-size:1.063181050650806rem">talk</a>
+          <a href="/tags/talk" style="font-size:1.0625185267618873rem">talk</a>
         
           
           
           
           
           
-          <a href="/tags/test" style="font-size:1.063181050650806rem">test</a>
+          <a href="/tags/test" style="font-size:1.0625185267618873rem">test</a>
         
           
           
@@ -1716,7 +1724,7 @@ Original Program 먼저 다음과 같은 프로그램이 있을 수 있을 겁�
           
           
           
-          <a href="/tags/tip" style="font-size:1.5388426179368317rem">tip</a>
+          <a href="/tags/tip" style="font-size:1.536982678236295rem">tip</a>
         
           
           
@@ -1744,7 +1752,7 @@ Original Program 먼저 다음과 같은 프로그램이 있을 수 있을 겁�
           
           
           
-          <a href="/tags/trip" style="font-size:1.4110874755480802rem">trip</a>
+          <a href="/tags/trip" style="font-size:1.4095491427168658rem">trip</a>
         
           
           
@@ -1758,7 +1766,7 @@ Original Program 먼저 다음과 같은 프로그램이 있을 수 있을 겁�
           
           
           
-          <a href="/tags/usenix" style="font-size:1.063181050650806rem">usenix</a>
+          <a href="/tags/usenix" style="font-size:1.0625185267618873rem">usenix</a>
         
           
           

@@ -73,7 +73,7 @@
   <meta property="og:description" content="System Programmer">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2019-03-19T16:39:48&#43;09:00">
+  <meta property="og:updated_time" content="2019-03-20T15:32:29&#43;09:00">
   
 
   
@@ -246,6 +246,68 @@
   
 
   
+  
+    
+    
+
+<div class="article-list-item" itemscope itemprop="blogPost">
+  
+  
+  <h3 class="article-title" itemprop="name">
+    <a href="https://sjp38.github.io/post/kunit_intro/" itemprop="url">Unit test for the Linux kernel using Kunit</a>
+  </h3>
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2019-03-20 15:32:29 &#43;0900 KST" itemprop="datePublished">
+      Mar 20, 2019
+    </time>
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    3 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/kernel">kernel</a
+    >
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+  <div class="article-style" itemprop="articleBody">
+    
+    지난 2월 말에 FAST&rsquo;19 학회를 다녀왔는데요, Ted Tso 도 왔더군요. 심지어 구글 부스를 지키고 계시더라구요. 어쩌다보니 식사자리에서 합석하고 잡담 나눈 레드햇 개발자 분들이랑 이야기를 하고 있길래 껴서 좀 이야기를 했는데, 이야기 중 테스트에 대한 이야기가 나왔고, 이에 Ted 가 KUnit 이라는 도구를 소개해 줬습니다. 잠깐 사용해 보니 매우 매력적인 것 같아서 이 블로그에서도 소개해 볼까 합니다.
+KUnit 은 이름에서 짐작했겠지만 리눅스 커널을 위한 유닛 테스트 프레임웍입니다. 구글의 Brendan Higgins 라는 분이 개발하고 있고, 커널 내에 머지되는 걸 목표로 해서 LKML 에도 RFC 패치를 보내고 있습니다.
+    
+  </div>
+  <p class="read-more">
+    <a href="https://sjp38.github.io/post/kunit_intro/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
   
     
     
@@ -823,61 +885,6 @@ of Swap Storage&rdquo; 입니다.</p>
   </div>
   <p class="read-more">
     <a href="https://sjp38.github.io/post/fast2019_talk/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-  
-    
-    
-
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.0-rc4/" itemprop="url">LKML News v5.0-rc4</a>
-  </h3>
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2019-01-28 09:21:25 &#43;0900 KST" itemprop="datePublished">
-      Jan 28, 2019
-    </time>
-  </span>
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-  
-  
-  
-
-  
-
-</div>
-
-  <div class="article-style" itemprop="articleBody">
-    
-    [PATCH 0/5] [v4] Allow persistent memory to be used like normal RAM https://lkml.kernel.org/r/20190124231441.37A4A305@viggo.jf.intel.com
-PMEM 을 평범한 RAM 처럼 접근할 수 있게 해주는 드라이버를 소개하는 패치셋의 네번째 버전입니다. 인터페이스적 측면에서 개선이 많이 됐고, 패치에 대한 소개도 많이 좋아졌네요.
-이 패치셋이 의도하는 PMEM 은 Intel Optane DC persistent memory 와 같은 NVDIMM 입니다. 휘발성이 없고, flash 보다 빠르고, RAM 에 비해 가격 경쟁력이 좋죠.
-RAM-based NVDIMM 은 의도한 대상이 아닙니다. 그것들은 RAM 대비 가격 경쟁력이 없기 때문이라는군요.
-    
-  </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.0-rc4/" class="btn btn-primary btn-outline">
       CONTINUE READING
     </a>
   </p>
