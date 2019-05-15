@@ -11,6 +11,45 @@
     <atom:link href="/post/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>LKML News v5.2-rc1</title>
+      <link>https://sjp38.github.io/post/lkml_news_v5.2-rc1/</link>
+      <pubDate>Wed, 08 May 2019 10:22:05 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/lkml_news_v5.2-rc1/</guid>
+      <description>
+
+&lt;h2 id=&#34;patch-mm-introduce-page-size&#34;&gt;[PATCH] mm: Introduce page_size()&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190510181242.24580-1-willy@infradead.org&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20190510181242.24580-1-willy@infradead.org&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Huge page 등의 경우를 위해 페이지의 실제 크기를 구하려면 &lt;code&gt;PAGE_SIZE &amp;lt;&amp;lt;
+compound_order(page)&lt;/code&gt; 를 해야 하는게 짜증난 Matthew Wilcox 가 별도의 함수를
+만들고 기존 코드들을 이 함수를 사용하도록 변경한 패치입니다.&lt;/p&gt;
+
+&lt;h2 id=&#34;patch-v2-00-15-remove-order-argument-from-many-mm-functions&#34;&gt;[PATCH v2 00/15] Remove &amp;lsquo;order&amp;rsquo; argument from many mm functions&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190510135038.17129-1-willy@infradead.org&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20190510135038.17129-1-willy@infradead.org&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;mm 쪽 함수들은 order 를 인자로 많이 받죠.  어차피 gfp_t 는 무조건 받으니까 이
+타입의 상위 bit 을 order 목적으로 사용하자는 패치입니다.  이 패치의 장점은?
+커널 텍스트 사이즈를 줄인다는 것입니다 :)&lt;/p&gt;
+
+&lt;h2 id=&#34;maintainer-s-kernel-summit-2019-planning-kick-off&#34;&gt;Maintainer&amp;rsquo;s / Kernel Summit 2019 planning kick-off&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190513230643.GA4347@mit.edu&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20190513230643.GA4347@mit.edu&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;올해의 커널 서밋 / 메인테이너 서밋을 위한 안내 메일입니다.  작년엔 커널 서밋은
+LPC 와, 메인테이너 서밋은 OSSEU 와 함께 열렸었죠.  올해는 둘 다 LPC 와 함께
+합니다.&lt;/p&gt;
+
+&lt;p&gt;메인테이너 서밋은 올해는 아예 30명으로 더욱 작게 모이는군요.&lt;/p&gt;
+
+&lt;p&gt;커널 서밋 발표 주제는 5월 31일까지 받습니다.  발표주제 선정되면 LPC 티켓도
+준다는군요!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>LKML News v5.1</title>
       <link>https://sjp38.github.io/post/lkml_news_v5.1/</link>
       <pubDate>Tue, 30 Apr 2019 14:16:49 +0900</pubDate>
@@ -928,42 +967,6 @@ tree 대신 XArray 를 사용하는 것으로 새로운 시도를 시작해 보�
 다른 건 없고 매우 평범했다고 합니다.  좋은 징조인데요, 변경사항의 60%를 차지한
 드라이버 가운데 habanalab 의 AI 가속기 칩 드라이버를 조금 특별한 변경사항으로
 토발즈는 꼽네요.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>LKML News v5.0</title>
-      <link>https://sjp38.github.io/post/lkml_news_v5.0/</link>
-      <pubDate>Mon, 25 Feb 2019 13:16:39 +0900</pubDate>
-      
-      <guid>https://sjp38.github.io/post/lkml_news_v5.0/</guid>
-      <description>
-
-&lt;p&gt;Linux v5.0-rc8 릴리즈 (2019-02-24) 부터 Linux v5.0 릴리즈 (2019-03-03) 사이
-기간에 LKML 에 올라온 흥미로운 메일들을 소개합니다.&lt;/p&gt;
-
-&lt;h2 id=&#34;patch-0-5-v5-allow-persistent-memory-to-be-used-like-normal-ram&#34;&gt;&lt;code&gt;[PATCH 0/5] [v5] Allow persistent memory to be used like normal RAM&lt;/code&gt;&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190225185727.BCBD768C@viggo.jf.intel.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20190225185727.BCBD768C@viggo.jf.intel.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;앞서 몇번 소개했던, persistent memory 를 좀 많이 느린 numa node 인 것처럼 해서
-시스템이 사용할 수 있게 하는 접근법의 패치 다섯번째 버전입니다.
-이제 개선은 어느정도 된 것 같으니 슬슬 머지되야하지 않겠냐고 주장하는군요.&lt;/p&gt;
-
-&lt;h2 id=&#34;linux-v5-0&#34;&gt;Linux v5.0&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wjuG6HiGbD7DCGfvDvhr_1WZUR-eYF2qWGbYyn9k6unvg@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CAHk-=wjuG6HiGbD7DCGfvDvhr_1WZUR-eYF2qWGbYyn9k6unvg@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;마침내 5.0 릴리즈입니다!  제 랩톱에도 바로 받아다가 설치했습니다! ;)  물론 5.0
-릴리즈에 특별한 기능 추가라던지 하는건 없고 그저 시간이 꽤 지나서 이렇게
-된거라곤 하지만 어쨌든 느낌은 새롭군요.&lt;/p&gt;
-
-&lt;p&gt;rc8 릴리즈 후에도 양은 크게 줄었지만 패치가 좀 있었습니다.  그렇게 고쳐진 버그
-중 하나로는 uninitialized variable 문제가 있었는데, gcc 가 알아서 초기화를
-시켜주다보니 워닝이 안떴었군요.  물론 다른 컴파일러를 사용하면 문제가 생기게
-되니 무쓸모한 변경은 아니었다 자평합니다.&lt;/p&gt;
-
-&lt;p&gt;어쨌든, 이렇게 v5.0 커널이 정식으로 나왔고, v5.1 을 향한 여정이 시작되었습니다!&lt;/p&gt;
 </description>
     </item>
     

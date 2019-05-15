@@ -254,6 +254,70 @@
   
   
   <h3 class="article-title" itemprop="name">
+    <a href="https://sjp38.github.io/post/lkml_news_v5.2-rc1/" itemprop="url">LKML News v5.2-rc1</a>
+  </h3>
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2019-05-08 10:22:05 &#43;0900 KST" itemprop="datePublished">
+      May 8, 2019
+    </time>
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/lkml-news">lkml news</a
+    >
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+  <div class="article-style" itemprop="articleBody">
+    
+    [PATCH] mm: Introduce page_size() https://lkml.kernel.org/r/20190510181242.24580-1-willy@infradead.org
+Huge page 등의 경우를 위해 페이지의 실제 크기를 구하려면 PAGE_SIZE &lt;&lt; compound_order(page) 를 해야 하는게 짜증난 Matthew Wilcox 가 별도의 함수를 만들고 기존 코드들을 이 함수를 사용하도록 변경한 패치입니다.
+[PATCH v2 00/15] Remove &lsquo;order&rsquo; argument from many mm functions https://lkml.kernel.org/r/20190510135038.17129-1-willy@infradead.org
+mm 쪽 함수들은 order 를 인자로 많이 받죠. 어차피 gfp_t 는 무조건 받으니까 이 타입의 상위 bit 을 order 목적으로 사용하자는 패치입니다. 이 패치의 장점은?
+    
+  </div>
+  <p class="read-more">
+    <a href="https://sjp38.github.io/post/lkml_news_v5.2-rc1/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
+  
+    
+    
+
+<div class="article-list-item" itemscope itemprop="blogPost">
+  
+  
+  <h3 class="article-title" itemprop="name">
     <a href="https://sjp38.github.io/post/lkml_news_v5.1/" itemprop="url">LKML News v5.1</a>
   </h3>
   
@@ -816,72 +880,6 @@ Page cache miss 로 인해 사용중인 데이터베이스에 레이턴시가 �
   </div>
   <p class="read-more">
     <a href="https://sjp38.github.io/post/lkml_news_v5.1-rc4/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-  
-    
-    
-
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.1-rc3/" itemprop="url">LKML News v5.1-rc3</a>
-  </h3>
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2019-03-26 08:53:41 &#43;0900 KST" itemprop="datePublished">
-      Mar 26, 2019
-    </time>
-  </span>
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/lkml-news">lkml news</a
-    >
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-  <div class="article-style" itemprop="articleBody">
-    
-    [PATCH tip/core/rcu 0/4] Documentation updates for v5.2 https://lkml.kernel.org/r/20190326230408.GA17069@linux.ibm.com
-v5.2 에 머지될 목적의 RCU 문서화 업데이트 패치셋입니다.
-[PATCH tip/core/rcu 0/18] Miscellaneous fixes for v5.2 https://lkml.kernel.org/r/20190326231253.GA18343@linux.ibm.com
-v5.2 를 위한 RCU 의 다양한 업데이트 패치셋입니다. rcu 를 위한 메일링 리스트도 추가되었군요. rcu@vger.kernel.org 입니다.
-[PATCH tip/core/rcu 0/9] Torture-test updates for v5.2 https://lkml.kernel.org/r/20190326233054.GA21523@linux.ibm.com
-v5.2 를 위한 torture test 의 업데이트 패치셋입니다. LKMM 이라던지 formal verification 도 많은 발전이 있었지만, torture test 도 없어질 순 없겠죠.
-    
-  </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.1-rc3/" class="btn btn-primary btn-outline">
       CONTINUE READING
     </a>
   </p>

@@ -613,6 +613,91 @@ DevFest W, March 2013.
   
   
   <h3 class="article-title" itemprop="name">
+    <a href="https://sjp38.github.io/post/lkml_news_v5.2-rc1/" itemprop="url">LKML News v5.2-rc1</a>
+  </h3>
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2019-05-08 10:22:05 &#43;0900 KST" itemprop="datePublished">
+      May 8, 2019
+    </time>
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/lkml-news">lkml news</a
+    >
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+  <div class="article-style" itemprop="articleBody">
+    
+    [PATCH] mm: Introduce page_size() https://lkml.kernel.org/r/20190510181242.24580-1-willy@infradead.org
+Huge page 등의 경우를 위해 페이지의 실제 크기를 구하려면 PAGE_SIZE &lt;&lt; compound_order(page) 를 해야 하는게 짜증난 Matthew Wilcox 가 별도의 함수를 만들고 기존 코드들을 이 함수를 사용하도록 변경한 패치입니다.
+[PATCH v2 00/15] Remove &lsquo;order&rsquo; argument from many mm functions https://lkml.kernel.org/r/20190510135038.17129-1-willy@infradead.org
+mm 쪽 함수들은 order 를 인자로 많이 받죠. 어차피 gfp_t 는 무조건 받으니까 이 타입의 상위 bit 을 order 목적으로 사용하자는 패치입니다. 이 패치의 장점은?
+    
+  </div>
+  <p class="read-more">
+    <a href="https://sjp38.github.io/post/lkml_news_v5.2-rc1/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
+      
+
+      
+
+        
+
+        
+        
+
+        
+        
+          
+      
+          
+      
+          
+      
+          
+      
+
+      
+      
+        
+        
+
+<div class="article-list-item" itemscope itemprop="blogPost">
+  
+  
+  <h3 class="article-title" itemprop="name">
     <a href="https://sjp38.github.io/post/lkml_news_v5.1/" itemprop="url">LKML News v5.1</a>
   </h3>
   
@@ -935,91 +1020,6 @@ Injection for System Performance and Swap Storage Durability&rdquo; 입니다.</
       
 
       
-
-        
-
-        
-        
-
-        
-        
-          
-      
-          
-      
-          
-      
-          
-      
-
-      
-      
-        
-        
-
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.1-rc6/" itemprop="url">LKML News v5.1-rc6</a>
-  </h3>
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2019-04-16 23:02:17 &#43;0900 KST" itemprop="datePublished">
-      Apr 16, 2019
-    </time>
-  </span>
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/lkml-news">lkml news</a
-    >
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-  <div class="article-style" itemprop="articleBody">
-    
-    [PATCH v12 00/31] Speculative page faults https://lkml.kernl.org/r/20190416134522.17540-1-ldufour@linux.ibm.com
-오랫만에 업데이트 된 SPF 패치셋으로, 이번 패치셋은 v5.1 위로 리베이스 되었습니다. RCU 에서 Fine-grained reader-writer locking 으로 옮겼던 vma 보호를 다시 RCU 로 되돌린 게 눈에 띄는군요. 기존엔 패치셋만 공개했는데, 이젠 패치셋이 적용된 코드 트리를 github 으로도 제공합니다: https://github.com/ldu4/linux/tree/spf-v12
-[PATCH v3 00/11] Provide generic top-down mmap layout functions https://lkml.kernel.org/r/20190417052247.17809-1-alex@ghiti.fr
-아키텍쳐별로 별도 구현을 하지 않고도 전체 mmap 레이아웃을 접근할 수 있게 해주는 범용 함수들을 구현하는 패치셋입니다.
-    
-  </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.1-rc6/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-      
-
-      
     
 
   </div>
@@ -1162,7 +1162,7 @@ Injection for System Performance and Swap Storage Durability&rdquo; 입니다.</
           
           
           
-          <a href="/tags/benchmark" style="font-size:1.4095491427168658rem">benchmark</a>
+          <a href="/tags/benchmark" style="font-size:1.408035595189331rem">benchmark</a>
         
           
           
@@ -1232,7 +1232,7 @@ Injection for System Performance and Swap Storage Durability&rdquo; 입니다.</
           
           
           
-          <a href="/tags/conference" style="font-size:1.4786005474240418rem">conference</a>
+          <a href="/tags/conference" style="font-size:1.4769155410664585rem">conference</a>
         
           
           
@@ -1281,7 +1281,7 @@ Injection for System Performance and Swap Storage Durability&rdquo; 입니다.</
           
           
           
-          <a href="/tags/english" style="font-size:1.536982678236295rem">english</a>
+          <a href="/tags/english" style="font-size:1.5351527055034837rem">english</a>
         
           
           
@@ -1295,7 +1295,7 @@ Injection for System Performance and Swap Storage Durability&rdquo; 입니다.</
           
           
           
-          <a href="/tags/event" style="font-size:1.4095491427168658rem">event</a>
+          <a href="/tags/event" style="font-size:1.408035595189331rem">event</a>
         
           
           
@@ -1316,7 +1316,7 @@ Injection for System Performance and Swap Storage Durability&rdquo; 입니다.</
           
           
           
-          <a href="/tags/fedora" style="font-size:1.2160820206621545rem">fedora</a>
+          <a href="/tags/fedora" style="font-size:1.2150488637442103rem">fedora</a>
         
           
           
@@ -1337,14 +1337,14 @@ Injection for System Performance and Swap Storage Durability&rdquo; 입니다.</
           
           
           
-          <a href="/tags/gcma" style="font-size:1.0625185267618873rem">gcma</a>
+          <a href="/tags/gcma" style="font-size:1.061866677322248rem">gcma</a>
         
           
           
           
           
           
-          <a href="/tags/git" style="font-size:1.0625185267618873rem">git</a>
+          <a href="/tags/git" style="font-size:1.061866677322248rem">git</a>
         
           
           
@@ -1358,7 +1358,7 @@ Injection for System Performance and Swap Storage Durability&rdquo; 입니다.</
           
           
           
-          <a href="/tags/golang" style="font-size:1.2160820206621545rem">golang</a>
+          <a href="/tags/golang" style="font-size:1.2150488637442103rem">golang</a>
         
           
           
@@ -1449,7 +1449,7 @@ Injection for System Performance and Swap Storage Durability&rdquo; 입니다.</
           
           
           
-          <a href="/tags/kernel" style="font-size:2.4596232497644146rem">kernel</a>
+          <a href="/tags/kernel" style="font-size:2.4601954549768417rem">kernel</a>
         
           
           
@@ -1477,21 +1477,21 @@ Injection for System Performance and Swap Storage Durability&rdquo; 입니다.</
           
           
           
-          <a href="/tags/life" style="font-size:1.0625185267618873rem">life</a>
+          <a href="/tags/life" style="font-size:1.061866677322248rem">life</a>
         
           
           
           
           
           
-          <a href="/tags/linux" style="font-size:2.495720472243816rem">linux</a>
+          <a href="/tags/linux" style="font-size:2.4957787967917717rem">linux</a>
         
           
           
           
           
           
-          <a href="/tags/linux-foundation" style="font-size:1.4095491427168658rem">linux foundation</a>
+          <a href="/tags/linux-foundation" style="font-size:1.408035595189331rem">linux foundation</a>
         
           
           
@@ -1512,7 +1512,7 @@ Injection for System Performance and Swap Storage Durability&rdquo; 입니다.</
           
           
           
-          <a href="/tags/lkml" style="font-size:2.414422553770529rem">lkml</a>
+          <a href="/tags/lkml" style="font-size:2.415697759455165rem">lkml</a>
         
           
           
@@ -1533,7 +1533,7 @@ Injection for System Performance and Swap Storage Durability&rdquo; 입니다.</
           
           
           
-          <a href="/tags/mariadb" style="font-size:1.0625185267618873rem">mariadb</a>
+          <a href="/tags/mariadb" style="font-size:1.061866677322248rem">mariadb</a>
         
           
           
@@ -1568,21 +1568,21 @@ Injection for System Performance and Swap Storage Durability&rdquo; 입니다.</
           
           
           
-          <a href="/tags/news" style="font-size:2.414422553770529rem">news</a>
+          <a href="/tags/news" style="font-size:2.415697759455165rem">news</a>
         
           
           
           
           
           
-          <a href="/tags/open-source" style="font-size:1.0625185267618873rem">open source</a>
+          <a href="/tags/open-source" style="font-size:1.061866677322248rem">open source</a>
         
           
           
           
           
           
-          <a href="/tags/open-source" style="font-size:1.0625185267618873rem">open-source</a>
+          <a href="/tags/open-source" style="font-size:1.061866677322248rem">open-source</a>
         
           
           
@@ -1638,7 +1638,7 @@ Injection for System Performance and Swap Storage Durability&rdquo; 입니다.</
           
           
           
-          <a href="/tags/prague" style="font-size:1.4095491427168658rem">prague</a>
+          <a href="/tags/prague" style="font-size:1.408035595189331rem">prague</a>
         
           
           
@@ -1652,14 +1652,14 @@ Injection for System Performance and Swap Storage Durability&rdquo; 입니다.</
           
           
           
-          <a href="/tags/projects" style="font-size:1.3250370535237745rem">projects</a>
+          <a href="/tags/projects" style="font-size:1.3237333546444963rem">projects</a>
         
           
           
           
           
           
-          <a href="/tags/raspberry" style="font-size:1.0625185267618873rem">raspberry</a>
+          <a href="/tags/raspberry" style="font-size:1.061866677322248rem">raspberry</a>
         
           
           
@@ -1673,42 +1673,42 @@ Injection for System Performance and Swap Storage Durability&rdquo; 입니다.</
           
           
           
-          <a href="/tags/setup" style="font-size:1.3250370535237745rem">setup</a>
+          <a href="/tags/setup" style="font-size:1.3237333546444963rem">setup</a>
         
           
           
           
           
           
-          <a href="/tags/spec" style="font-size:1.0625185267618873rem">spec</a>
+          <a href="/tags/spec" style="font-size:1.061866677322248rem">spec</a>
         
           
           
           
           
           
-          <a href="/tags/spec_cpu" style="font-size:1.0625185267618873rem">spec_cpu</a>
+          <a href="/tags/spec_cpu" style="font-size:1.061866677322248rem">spec_cpu</a>
         
           
           
           
           
           
-          <a href="/tags/spec_cpu2006" style="font-size:1.0625185267618873rem">spec_cpu2006</a>
+          <a href="/tags/spec_cpu2006" style="font-size:1.061866677322248rem">spec_cpu2006</a>
         
           
           
           
           
           
-          <a href="/tags/talk" style="font-size:1.0625185267618873rem">talk</a>
+          <a href="/tags/talk" style="font-size:1.061866677322248rem">talk</a>
         
           
           
           
           
           
-          <a href="/tags/test" style="font-size:1.0625185267618873rem">test</a>
+          <a href="/tags/test" style="font-size:1.061866677322248rem">test</a>
         
           
           
@@ -1722,7 +1722,7 @@ Injection for System Performance and Swap Storage Durability&rdquo; 입니다.</
           
           
           
-          <a href="/tags/tip" style="font-size:1.536982678236295rem">tip</a>
+          <a href="/tags/tip" style="font-size:1.5351527055034837rem">tip</a>
         
           
           
@@ -1750,7 +1750,7 @@ Injection for System Performance and Swap Storage Durability&rdquo; 입니다.</
           
           
           
-          <a href="/tags/trip" style="font-size:1.4095491427168658rem">trip</a>
+          <a href="/tags/trip" style="font-size:1.408035595189331rem">trip</a>
         
           
           
@@ -1764,7 +1764,7 @@ Injection for System Performance and Swap Storage Durability&rdquo; 입니다.</
           
           
           
-          <a href="/tags/usenix" style="font-size:1.0625185267618873rem">usenix</a>
+          <a href="/tags/usenix" style="font-size:1.061866677322248rem">usenix</a>
         
           
           
