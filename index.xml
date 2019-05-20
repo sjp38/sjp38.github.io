@@ -11,6 +11,23 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>LKML News v5.2-rc2</title>
+      <link>https://sjp38.github.io/post/lkml_news_v5.2-rc2/</link>
+      <pubDate>Tue, 21 May 2019 01:27:47 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/lkml_news_v5.2-rc2/</guid>
+      <description>
+
+&lt;h2 id=&#34;rfc-patch-v5-00-16-slab-movable-objects-smo&#34;&gt;[RFC PATCH v5 00/16] Slab Movable Objects (SMO)&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190520054017.32299-1-tobin@kernel.org&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20190520054017.32299-1-tobin@kernel.org&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;이 블로그에서도 소개한 Slab movable objects 패치셋의 다섯번째 버전입니다.  RFC
+로는 아마도 마지막 버전이 될거라는군요.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>LKML News v5.2-rc1</title>
       <link>https://sjp38.github.io/post/lkml_news_v5.2-rc1/</link>
       <pubDate>Wed, 08 May 2019 10:22:05 +0900</pubDate>
@@ -46,6 +63,14 @@ LPC 와, 메인테이너 서밋은 OSSEU 와 함께 열렸었죠.  올해는 둘
 
 &lt;p&gt;커널 서밋 발표 주제는 5월 31일까지 받습니다.  발표주제 선정되면 LPC 티켓도
 준다는군요!&lt;/p&gt;
+
+&lt;h2 id=&#34;linux-5-2-rc1&#34;&gt;Linux 5.2-rc1&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wgxi6fnxZ+p5Zdqr-i4s=xhOCBJL6s_RauYkjxM2CpXeA@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CAHk-=wgxi6fnxZ+p5Zdqr-i4s=xhOCBJL6s_RauYkjxM2CpXeA@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;5.2 릴리즈를 위한 머지윈도우가 끝나고 rc1 버전이 릴리즈 되었습니다.  이번 머지
+윈도우 중간에 토발즈의 개인적 여행이 있다고 했지만 다행히 잘 정리되었나보군요.
+별다른 건은 없었다고 합니다.&lt;/p&gt;
 </description>
     </item>
     
@@ -916,57 +941,6 @@ positive memory pressure 를 vmpressure signal 대비 약 10배까지 줄일 수
 
 &lt;p&gt;어쨌건 이번 릴리즈도 크게 특이한 사항은 없다고 합니다, 다만 이번 수정사항 중
 &lt;sup&gt;2&lt;/sup&gt;&amp;frasl;&lt;sub&gt;3&lt;/sub&gt; 가량이 tools/ 쪽에 집중되었다고 하네요.  perf 쪽의 변경 때문이라고 합니다.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>LKML News v5.1-rc1</title>
-      <link>https://sjp38.github.io/post/lkml_news_v5.1-rc1/</link>
-      <pubDate>Mon, 04 Mar 2019 13:07:30 +0900</pubDate>
-      
-      <guid>https://sjp38.github.io/post/lkml_news_v5.1-rc1/</guid>
-      <description>
-
-&lt;p&gt;Linux v5.0 릴리즈 (2019-03-03) 부터 v5.1-rc1 릴리즈 (2019-03-17) 사이의 머지
-윈도우 기간 LKML 에 올라온 흥미로운 메일들을 소개합니다.&lt;/p&gt;
-
-&lt;h2 id=&#34;cma-allocation-failure&#34;&gt;CMA allocation failure&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/57e0bc63-0be9-498b-8ffc-3b073e01e299@email.android.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/57e0bc63-0be9-498b-8ffc-3b073e01e299@email.android.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;제게도 GCMA 레이턴시 관련 문의를 보냈던 분인데, LKML 에도 관련 도움을 요청하는
-메일을 보냈군요.&lt;/p&gt;
-
-&lt;p&gt;왜 CMA 가 할당에 실패하는지 이유를 묻는 메일인데요, 답은 없습니다.&lt;/p&gt;
-
-&lt;h2 id=&#34;lsf-mm-topic-using-xarray-to-manage-the-vma&#34;&gt;[LSF/MM TOPIC] Using XArray to manage the VMA&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/7da20892-f92a-68d8-4804-c72c1cb0d090@linux.ibm.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/7da20892-f92a-68d8-4804-c72c1cb0d090@linux.ibm.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;MM 의 오랜 숙원 중 하나는 &lt;code&gt;mmap_sem&lt;/code&gt; 으로 인한 확장성 문제 해결이죠.  기존의 RB
-tree 대신 XArray 를 사용하는 것으로 새로운 시도를 시작해 보는건 어떨지 LSFMM
-에서 토의해보자는, speculative page fault 의 최근 메인테이너인 Laurent 의
-메일입니다.
-곧바로 XArray 메인테이너인 Matthew 의 답장이 오는군요.
-꼭 해보려는 의지가 강력해 보입니다.&lt;/p&gt;
-
-&lt;h2 id=&#34;mm-cma-c-high-latency-for-cma-allocation&#34;&gt;mm/cma.c: High latency for cma allocation&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/SG2PR02MB3098E44824F5AA69BC04F935E8470@SG2PR02MB3098.apcprd02.prod.outlook.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/SG2PR02MB3098E44824F5AA69BC04F935E8470@SG2PR02MB3098.apcprd02.prod.outlook.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;이어지는 CMA 레이턴시에 대한 문의입니다.  제게 GCMA 레이턴시에 대해 온 문의에
-대해서는 제 실험 환경을 보내주고 그쪽 환경에서 돌려본 후 결과를 알려달라
-했는데, 아직 답이 없군요.
-좀 더 자세한 분석 결과를 달라는 Michal 의 답변이 있습니다.&lt;/p&gt;
-
-&lt;h2 id=&#34;linux-5-1-rc1&#34;&gt;Linux 5.1-rc1&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wj1c_Tb-wwM6qaPLdggXtW3rOh1JzYUOs+O7PsHt-=+jg@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CAHk-=wj1c_Tb-wwM6qaPLdggXtW3rOh1JzYUOs+O7PsHt-=+jg@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;v5.1 머지 윈도우가 종료되고 v5.1-rc1 이 릴리즈 되었습니다.  이번 릴리즈도 크게
-다른 건 없고 매우 평범했다고 합니다.  좋은 징조인데요, 변경사항의 60%를 차지한
-드라이버 가운데 habanalab 의 AI 가속기 칩 드라이버를 조금 특별한 변경사항으로
-토발즈는 꼽네요.&lt;/p&gt;
 </description>
     </item>
     
