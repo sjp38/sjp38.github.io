@@ -7,10 +7,60 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2017 Your Name</copyright>
-    <lastBuildDate>Tue, 16 Apr 2019 23:02:17 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 21 May 2019 01:27:47 +0900</lastBuildDate>
     
 	<atom:link href="https://sjp38.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>LKML News v5.2-rc2</title>
+      <link>https://sjp38.github.io/post/lkml_news_v5.2-rc2/</link>
+      <pubDate>Tue, 21 May 2019 01:27:47 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/lkml_news_v5.2-rc2/</guid>
+      <description>[RFC PATCH v5 00/16] Slab Movable Objects (SMO) https://lkml.kernel.org/r/20190520054017.32299-1-tobin@kernel.org
+이 블로그에서도 소개한 Slab movable objects 패치셋의 다섯번째 버전입니다. RFC 로는 아마도 마지막 버전이 될거라는군요.
+[RFC PATCH 00/14] mmap_sem range locking https://lkml.kernel.org/r/20190521045242.24378-1-dave@stgolabs.net
+이번 LSFMM 에서 개인적으로 가장 기대했던 세션이 mmap_sem 해결에 대한 세션이었습니다. 해당 세션에서는 예전부터 이야기가 나온 range locking 에 대해서도 이야기가 있었는데요, 이 패치셋은 이 range locking 을 사용한 mmap_sem 문제 해결 시도를 다시 정리해 RFC 의 형태로 올린 것입니다.</description>
+    </item>
+    
+    <item>
+      <title>LKML News v5.2-rc1</title>
+      <link>https://sjp38.github.io/post/lkml_news_v5.2-rc1/</link>
+      <pubDate>Wed, 08 May 2019 10:22:05 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/lkml_news_v5.2-rc1/</guid>
+      <description>[PATCH] mm: Introduce page_size() https://lkml.kernel.org/r/20190510181242.24580-1-willy@infradead.org
+Huge page 등의 경우를 위해 페이지의 실제 크기를 구하려면 PAGE_SIZE &amp;lt;&amp;lt; compound_order(page) 를 해야 하는게 짜증난 Matthew Wilcox 가 별도의 함수를 만들고 기존 코드들을 이 함수를 사용하도록 변경한 패치입니다.
+[PATCH v2 00/15] Remove &amp;lsquo;order&amp;rsquo; argument from many mm functions https://lkml.kernel.org/r/20190510135038.17129-1-willy@infradead.org
+mm 쪽 함수들은 order 를 인자로 많이 받죠. 어차피 gfp_t 는 무조건 받으니까 이 타입의 상위 bit 을 order 목적으로 사용하자는 패치입니다. 이 패치의 장점은?</description>
+    </item>
+    
+    <item>
+      <title>LKML News v5.1</title>
+      <link>https://sjp38.github.io/post/lkml_news_v5.1/</link>
+      <pubDate>Tue, 30 Apr 2019 14:16:49 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/lkml_news_v5.1/</guid>
+      <description>[RFC PATCH v4 00/15] Slab Movable Objects (SMO) https://lkml.kernel.org/r/20190430030746.26102-1-tobin@kernel.org
+앞서 이 블로그에서도 공유한 SMO 패치의 새 버전입니다. 이번 버전은 dcache 쪽 코드를 많이 수정했군요.
+Linux 5.1 https://lkml.kernel.org/r/CAHk-=whsbDxdapMJGvy9OkVSrKMsKRJBTrH-Qj-qTbkMUGnWUw@mail.gmail.com
+5.1 릴리즈입니다. 일요일 오후 릴리즈란 점은 평소와 같지만 평소보다 조금 늦은 시간이긴 했는데요, 오늘 갑자기 받은 풀 리퀘스트도 있었고, 이번 머지윈도우 기간에 졸업식에 참석해야 해서 조금 망설였다는군요.
+하지만 풀리퀘스트도 그렇게 크진 않고, 몇일 머지윈도우에 자리 비우는 정도는 어떻게든 할 수 있을거라 생각해서 5.</description>
+    </item>
+    
+    <item>
+      <title>LKML News v5.1-rc7</title>
+      <link>https://sjp38.github.io/post/lkml_news_v5.1-rc7/</link>
+      <pubDate>Fri, 26 Apr 2019 11:02:24 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/lkml_news_v5.1-rc7/</guid>
+      <description>Re: [LSF/MM] Preliminary agenda ? Anyone &amp;hellip; anyone ? Bueller ? https://lkml.kernel.org/r/83fda245-849a-70cc-dde0-5c451938ee97@kernel.dk
+올해의 LSFMM 스케쥴이 구글 문서로 공유되고 있었군요: https://docs.google.com/spreadsheets/d/1Z1pDL-XeUT1ZwMWrBL8T8q3vtSqZpLPgF3Bzu_jejfk/edit#gid=0
+[LSF/MM TOPIC] Proactive Memory Reclaim https://lkml.kernel.org/r/CALvZod4V+56pZbPkFDYO3+60Xr0_ZjiSgrfJKs_=Bd4AjdvFzA@mail.gmail.com
+이제 LSFMM 이 얼마 안남았습니다만, 또하나의 주제 제안이 올라왔습니다.
+메모리 오버커밋으로 인해 direct reclaim 이 발생하고, 이는 latency sensitive 어플리케이션의 latency 를 크게 저하시키니, 시스템이 좀 더 적극적으로 memory reclaim 을 해서 direct reclaim 을 최소화 시켜보자는 건데요. 잘 접근되지 않는 cold memory 를 추적해서 미리미리 reclaim 시키자는 겁니다.</description>
+    </item>
     
     <item>
       <title>LKML News v5.1-rc6</title>
