@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme" content="hugo-academic">
-  <meta name="generator" content="Hugo 0.51" />
+  <meta name="generator" content="Hugo 0.31.1" />
   <meta name="author" content="SeongJae Park">
   <meta name="description" content="System Programmer">
 
@@ -73,7 +73,7 @@
   <meta property="og:description" content="System Programmer">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2019-04-07T23:17:55&#43;09:00">
+  <meta property="og:updated_time" content="2019-04-09T17:33:01&#43;09:00">
   
 
   
@@ -246,6 +246,70 @@
   
 
   
+  
+    
+    
+
+<div class="article-list-item" itemscope itemprop="blogPost">
+  
+  
+  <h3 class="article-title" itemprop="name">
+    <a href="https://sjp38.github.io/post/lkml_news_v5.1-rc5/" itemprop="url">LKML News v5.1-rc5</a>
+  </h3>
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2019-04-09 17:33:01 &#43;0900 KST" itemprop="datePublished">
+      Apr 9, 2019
+    </time>
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/lkml-news">lkml news</a
+    >
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+  <div class="article-style" itemprop="articleBody">
+    
+    [v2 RFC PATCH 0/9] Another Approach to Use PMEM as NUMA Node https://lkml.kernel.org/r/1554955019-29472-1-git-send-email-yang.shi@linux.alibaba.com
+본 블로그를 통해 지속적으로 소개하고 있는, PMEM as NUMA node 를 위한, 보다 나은 hotness 기반 page location 을 위한 패치셋입니다. 기존 코멘트에 기반해서 두번째 버전을 내놓았군요.
+[RFC PATCH v3 00/15] Slab Movable Objects (SMO) https://lkml.kernel.org/r/20190411013441.5415-1-tobin@kernel.org
+최근 LWN 에서도 소개된 (https://lwn.net/Articles/784964/) 패치입니다. Slab allocator 에서 할당된 object 가 free page 가운데에 박혀 있어 page 를 회수할 수 없는 fragmentation 이 발생합니다.
+    
+  </div>
+  <p class="read-more">
+    <a href="https://sjp38.github.io/post/lkml_news_v5.1-rc5/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
   
     
     
@@ -823,70 +887,6 @@ Memory management facing a 400Gpbs network link https://lkml.kernel.org/r/010001
   </div>
   <p class="read-more">
     <a href="https://sjp38.github.io/post/lkml_news_v5.0-rc7/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-  
-    
-    
-
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.0-rc6/" itemprop="url">LKML News v5.0-rc6</a>
-  </h3>
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2019-02-11 12:40:20 &#43;0900 KST" itemprop="datePublished">
-      Feb 11, 2019
-    </time>
-  </span>
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/lkml-news">lkml news</a
-    >
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-  <div class="article-style" itemprop="articleBody">
-    
-    [PATCH v4 1&frasl;1] psi: introduce psi monitor https://lkml.kernel.org/r/20190206023446.177362-1-surenb@google.com
-시스템의 메모리 부족 등의 현상이 어떻게 일어나고 있는지 쉽게 파악할 수 있는 장치를 추가하는 패치입니다.
-[LSF/MM TOPIC] Address space isolation inside the kernel https://lkml.kernel.org/r/20190207072421.GA9120@rapoport-lnx
-리눅스의 어드레스 스페이스 기능은 유저스페이스 프로그램들이 서로에게 영향을 끼치지 못하게 해줘서 컨테이너 등에 쓰이고 있죠. 하지만 커널은 공유하기 때문에 커널 버그는 여전히 영향을 끼칠 수 있습니다. 커널 코드도 어드레스 스페이스를 어느정도 인식하고 코드 분류를 시킴으로써 그 문제를 줄여보자는 LSF/MM 토론 주제 제안입니다.
-    
-  </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.0-rc6/" class="btn btn-primary btn-outline">
       CONTINUE READING
     </a>
   </p>

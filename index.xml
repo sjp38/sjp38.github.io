@@ -11,6 +11,15 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Biscuit_os_install</title>
+      <link>https://sjp38.github.io/post/biscuit_os_install/</link>
+      <pubDate>Sun, 26 May 2019 23:27:44 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/biscuit_os_install/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>LKML News v5.2-rc2</title>
       <link>https://sjp38.github.io/post/lkml_news_v5.2-rc2/</link>
       <pubDate>Tue, 21 May 2019 01:27:47 +0900</pubDate>
@@ -51,6 +60,28 @@ range locking 이라는 아이디어가 갖는 한계와 그에 대한 대책 �
 
 &lt;p&gt;인공적 벤치마크가 아니라 수백명의 진짜 사용자를 통해 성능 실험을 했다고
 하는데요, 구글에서 고용한 테스트 집단일까요?&lt;/p&gt;
+
+&lt;h2 id=&#34;patch-v4-00-14-provide-generic-top-down-mmap-layout-functions&#34;&gt;[PATCH v4 00/14] Provide generic top-down mmap layout functions&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190526134746.9315-1-alex@ghiti.fr&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20190526134746.9315-1-alex@ghiti.fr&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;각 아키텍쳐별로 존재하는 중복 코드를 제거하기 위해 만들어진 범용 top-down mmap
+을 위한 패치의 네번째 버전입니다.&lt;/p&gt;
+
+&lt;h2 id=&#34;patch-0-3-remove-tmem-and-code-depending-on-it&#34;&gt;[PATCH 0/3] remove tmem and code depending on it&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190527103207.13287-1-jgross@suse.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20190527103207.13287-1-jgross@suse.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Xen 의 tmem 기능이 제거되었군요.  관련 코드를 리눅스 커널에서도 제거하는
+패치셋입니다.  덕분에 cleancache 가 아예 사라질 모양입니다.  Cleancache 에
+의존하는 GCMA 를 만들고 있는 제 입장에선 쇼킹한 일입니다.&lt;/p&gt;
+
+&lt;h2 id=&#34;linux-5-2-rc2&#34;&gt;Linux 5.2-rc2&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wgob1t2g9iQZCuZ8My39CY26xGb6nqjVhCtb1nTirsR2Q@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CAHk-=wgob1t2g9iQZCuZ8My39CY26xGb6nqjVhCtb1nTirsR2Q@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;일정대로 두번째 rc2 가 릴리즈 되었습니다.  이번엔 그야말로 특기할 만한 점이
+없다는군요.  그나마 큰 변화는 SPDX 관련 변경들 뿐이었다고 합니다.&lt;/p&gt;
 </description>
     </item>
     
@@ -899,75 +930,6 @@ Sign-up enabled 를 비활성화 시키고 변경사항 저장 버튼을 누릅�
 &lt;p&gt;[1] &lt;a href=&#34;https://docs.gitlab.com/omnibus/docker/&#34; target=&#34;_blank&#34;&gt;https://docs.gitlab.com/omnibus/docker/&lt;/a&gt;
 [2] &lt;a href=&#34;https://docs.gitlab.com/omnibus/settings/smtp.html&#34; target=&#34;_blank&#34;&gt;https://docs.gitlab.com/omnibus/settings/smtp.html&lt;/a&gt;
 [3] &lt;a href=&#34;https://gitlab.com/gitlab-org/omnibus-gitlab/issues/3535&#34; target=&#34;_blank&#34;&gt;https://gitlab.com/gitlab-org/omnibus-gitlab/issues/3535&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>LKML News v5.1-rc2</title>
-      <link>https://sjp38.github.io/post/lkml_news_v5.1-rc2/</link>
-      <pubDate>Tue, 19 Mar 2019 12:11:11 +0900</pubDate>
-      
-      <guid>https://sjp38.github.io/post/lkml_news_v5.1-rc2/</guid>
-      <description>
-
-&lt;h2 id=&#34;patch-v5-00-19-convert-x86-arm64-to-use-generic-page-walk&#34;&gt;[PATCH v5 00/19] Convert x86 &amp;amp; arm64 to use generic page walk&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190321141953.31960-1-steven.price@arm.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20190321141953.31960-1-steven.price@arm.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;커널이 &lt;code&gt;walk_page_range()&lt;/code&gt; 함수를 제공하긴 하지만 이 함수는 커널에 의해
-사용되는 페이지 테이블은 볼수가 없기 때문에 각 아키텍쳐별로 페이지 테이블
-순회를 위한 기능을 별도로 만들어 사용하고 있습니다.&lt;/p&gt;
-
-&lt;p&gt;이 패치셋은 &lt;code&gt;walk_page_range()&lt;/code&gt; 가 커널의 페이지 테이블을 만질 수 있도록
-확장함으로써 그런 불필요한 아키텍쳐별 파편화를 줄이려 합니다.&lt;/p&gt;
-
-&lt;h2 id=&#34;patch-v6-0-7-psi-pressure-stall-monitors-v6&#34;&gt;[PATCH v6 0/7] psi: pressure stall monitors v6&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190319235619.260832-1-surenb@google.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20190319235619.260832-1-surenb@google.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;시스템이 어떤 부분의 pressure 를 받는지 쉽게 확인하기 위한 pressure stall
-monitor 구현 패치의 여섯 번째 버전입니다.  안드로이드는 이미 이 기능을 적용해서
-모바일 기기의 메모리 부족 문제를 해결하고 있다는군요.&lt;/p&gt;
-
-&lt;p&gt;파일 기반의 기존 인터페이스는 자주 들여다보면 오버헤드가 있기 때문에 유저가
-&lt;code&gt;poll()&lt;/code&gt; 할 수 있는 형태로 인터페이스를 개선한 것 같습니다.&lt;/p&gt;
-
-&lt;p&gt;이 패치 기반으로 안드로이드의 low memory killer daemon 을 개선했고, 결과 false
-positive memory pressure 를 vmpressure signal 대비 약 10배까지 줄일 수 있었다고
-합니다.&lt;/p&gt;
-
-&lt;h2 id=&#34;patch-0-2-remove-support-for-deprecated-pf-and-pf-in-vsprintf&#34;&gt;[PATCH 0/2] Remove support for deprecated %pf and %pF in vsprintf&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190322132108.25501-1-sakari.ailus@linux.intel.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20190322132108.25501-1-sakari.ailus@linux.intel.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;함수 포인터의 프린트를 위해 사용되는 프린트 포맷 지시어인 %pf 와 %pF 를 거의
-같은 일을 하면서 ia64, ppc64, parisc64 아키텍쳐에선 좀 더 많은 일을 해주는 $ps
-와 %pS 로 대체하는 패치입니다.&lt;/p&gt;
-
-&lt;h2 id=&#34;rfc-patch-0-10-another-approach-to-use-pmem-as-numa-node&#34;&gt;[RFC PATCH 0/10] Another Approach to Use PMEM as NUMA Node&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/1553316275-21985-1-git-send-email-yang.shi@linux.alibaba.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/1553316275-21985-1-git-send-email-yang.shi@linux.alibaba.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;앞서 이 블로그에서도 소개한 바 있는 PMEM 을 매우 느린 NUMA node 로 쓰는 패치가
-머지되었습니다.
-&lt;a href=&#34;https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=c221c0b0308fd01d9fb33a16f64d2fd95f8830a4&#34; target=&#34;_blank&#34;&gt;https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=c221c0b0308fd01d9fb33a16f64d2fd95f8830a4&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;그럼 이렇게 평범한 NUMA node 로 인식되는 PMEM 을 어떻게 잘 쓸 것인가? 하는
-문제가 남아있는데, 이 패치셋은 이를 위한 패치입니다.&lt;/p&gt;
-
-&lt;p&gt;기본적으로 DRAM 을 먼저 쓰게 만들고, 사용자가 기존의 방식대로 명시적으로 NUMA
-인터페이스를 사용해 PMEM 을 요청하면 할당해 줍니다.  그리고, 자주 접근되는
-페이지는 vma 단위로 조사해서 DRAM 으로 migrate 시킵니다.&lt;/p&gt;
-
-&lt;h2 id=&#34;linux-5-1-rc2&#34;&gt;Linux 5.1-rc2&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wgg_PRWs3a6u2gnFLQjhxOJcrFkqqWVnLw60eQAwD-DNw@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CAHk-=wgg_PRWs3a6u2gnFLQjhxOJcrFkqqWVnLw60eQAwD-DNw@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;두번째 rc 입니다.  아직 rc 라고 하기엔 고칠 문제도 찾지 못한 상태라고 할 수
-있겠지만요.  따라서 토발즈는 열심히 테스트 해달라고 하네요.&lt;/p&gt;
-
-&lt;p&gt;어쨌건 이번 릴리즈도 크게 특이한 사항은 없다고 합니다, 다만 이번 수정사항 중
-&lt;sup&gt;2&lt;/sup&gt;&amp;frasl;&lt;sub&gt;3&lt;/sub&gt; 가량이 tools/ 쪽에 집중되었다고 하네요.  perf 쪽의 변경 때문이라고 합니다.&lt;/p&gt;
 </description>
     </item>
     
