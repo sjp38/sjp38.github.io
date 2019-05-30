@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme" content="hugo-academic">
-  <meta name="generator" content="Hugo 0.31.1" />
+  <meta name="generator" content="Hugo 0.51" />
   <meta name="author" content="SeongJae Park">
   <meta name="description" content="System Programmer">
 
@@ -73,7 +73,7 @@
   <meta property="og:description" content="System Programmer">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2018-07-18T21:09:54&#43;09:00">
+  <meta property="og:updated_time" content="2018-07-24T06:19:53&#43;09:00">
   
 
   
@@ -246,6 +246,71 @@
   
 
   
+  
+    
+    
+
+<div class="article-list-item" itemscope itemprop="blogPost">
+  
+  
+  <h3 class="article-title" itemprop="name">
+    <a href="https://sjp38.github.io/post/lkml_news_v4.18-rc6/" itemprop="url">LKML News after v4.18-rc6</a>
+  </h3>
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2018-07-24 06:19:53 &#43;0900 KST" itemprop="datePublished">
+      Jul 24, 2018
+    </time>
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/lkml-news">lkml news</a
+    >
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+  <div class="article-style" itemprop="articleBody">
+    
+    Linux 4.18-rc6 https://lkml.kernel.org/r/CA+55aFzMheDA-2z=MdGgJrz-REcrknb+4OEvRKaJipm+x6xEhw@mail.gmail.com
+이번 rc는 평소보다 조금 크게 되었는데, 네트워킹 쪽 메인테이너인 David 가 많은 수정사항을 아직 보내지 않았다가 이번에 모아서 보냈기 때문이라는군요. 그렇다 해도 그렇게 큰 양까진 아니라는 토발즈의 설명입니다.
+지난 rc5 작업 주간을 귀찮게 했던 VM 버그에 대한 두줄의 수정이 rc5 에 들어갔었지만 32비트 환경에 대한 고려가 없었기에 이번에 그 수정이 들어갔다는군요.
+[PATCH 0/7] memory management documentation updates https://lkml.kernel.org/r/1532517970-16409-1-git-send-email-rppt@linux.vnet.ibm.com
+메모리 관리 부분 문서화 업데이트입니다. sphinx 기반 문서화 업데이트를 일부 메인테이너들은 반기지 않는 것도 사실이지만, 확실히 가독성이 좋아진 덕에 이런 문서화 노력이 더 활발해 지는 것 아닌가 하는 생각도 드는군요.
+    
+  </div>
+  <p class="read-more">
+    <a href="https://sjp38.github.io/post/lkml_news_v4.18-rc6/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
   
     
     
@@ -805,70 +870,6 @@ Cgroup 은 용량 기반의 컨트롤러는 많지만 응답시간 기반의 컨
   </div>
   <p class="read-more">
     <a href="https://sjp38.github.io/post/lkml_news_v4.17-rc7/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-  
-    
-    
-
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/lkml_news_v4.17-rc6/" itemprop="url">LKML News after v4.17-rc6</a>
-  </h3>
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2018-05-21 10:19:16 &#43;0900 KST" itemprop="datePublished">
-      May 21, 2018
-    </time>
-  </span>
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/lkml-news">lkml news</a
-    >
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-  <div class="article-style" itemprop="articleBody">
-    
-    Linux v4.17-rc6 https://lkml.kernel.org/r/CA+55aFxxYQFL3mwsQcC+__R23ZmO8c3F0SThi6r44TdK0ePNDQ@mail.gmail.com
-여섯번째 release candidate 버전입니다. 이번 릴리즈에도 특기할 만한 일은 없었습니다. 이제 충분히 안정화 되었을 거라고 하는군요.
-[PATCH -mm -V3 00/21] mm, THP, swap: Swapout/swapin THP in one piece https://lkml.kernel.org/r/20180523082625.6897-1-ying.huang@intel.com
-이전에도 이 시리즈로 소개했던, THP 의 swap out 과 swap in 최적화 마지막 단계 패치의 세번째 버전입니다. 마지막 단계 이야기 하니 문득 인피니티워의 오역 논란이 떠오르는군요 ;) 두번째 버전 이후 특정 컨피규레이션에서의 빌드 버그를 수정했고, mmotm/master 브랜치의 5월 18일자 버전으로 rebase 한게 차이점의 전부군요.
-    
-  </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/lkml_news_v4.17-rc6/" class="btn btn-primary btn-outline">
       CONTINUE READING
     </a>
   </p>
