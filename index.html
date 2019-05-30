@@ -595,6 +595,14 @@ DevFest W, March 2013.
 
         
         
+          
+      
+          
+      
+          
+      
+          
+      
 
       
       
@@ -605,7 +613,81 @@ DevFest W, March 2013.
   
   
   <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/biscuit_os_install/" itemprop="url">Biscuit_os_install</a>
+    <a href="https://sjp38.github.io/post/lkml_news_v5.2-rc3/" itemprop="url">LKML News v5.2-rc3</a>
+  </h3>
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2019-05-28 23:28:37 &#43;0900 KST" itemprop="datePublished">
+      May 28, 2019
+    </time>
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    0 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/lkml-news">lkml news</a
+    >
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+  <div class="article-style" itemprop="articleBody">
+    
+    
+    
+  </div>
+  <p class="read-more">
+    <a href="https://sjp38.github.io/post/lkml_news_v5.2-rc3/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
+      
+
+      
+
+        
+
+        
+        
+
+        
+        
+
+      
+      
+        
+        
+
+<div class="article-list-item" itemscope itemprop="blogPost">
+  
+  
+  <h3 class="article-title" itemprop="name">
+    <a href="https://sjp38.github.io/post/biscuit_os_install/" itemprop="url">Biscuit (OS Written in Go) Install</a>
   </h3>
   
 
@@ -621,7 +703,7 @@ DevFest W, March 2013.
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    0 min read
+    1 min read
   </span>
   
 
@@ -639,7 +721,15 @@ DevFest W, March 2013.
 
   <div class="article-style" itemprop="articleBody">
     
-    
+    <pre><code>$ git clone https://go.googlesource.com/go go1.4; cd go1.4
+$ git checkout release-branch.go1.4; cd src
+$ ./make.bash
+$ cd ../../
+$ git clone https://github.com/mit-pdos/biscuit.git; cd biscuit/src
+$ ./make.bash
+$ 
+</code></pre>
+
     
   </div>
   <p class="read-more">
@@ -908,96 +998,6 @@ Linux 5.1 https://lkml.kernel.org/r/CAHk-=whsbDxdapMJGvy9OkVSrKMsKRJBTrH-Qj-qTbk
       
 
       
-
-        
-
-        
-        
-
-        
-        
-          
-      
-          
-      
-          
-      
-
-      
-      
-        
-        
-
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/fedora28_hangul_problem/" itemprop="url">Fedora28 ibus-hangul input problem</a>
-  </h3>
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2019-04-26 11:05:59 &#43;0900 KST" itemprop="datePublished">
-      Apr 26, 2019
-    </time>
-  </span>
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/tips">tips</a
-    >
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-  <div class="article-style" itemprop="articleBody">
-    
-    <p>어느날부터 Fedora 터미널에서 한글 입력이 매우 불편해졌습니다.  한글 모드에서는
-backspace, enter, esc 등의 특수키가 하나도 안먹힙니다.  Vim 을 쓰는 입장에선
-매우 불편하죠.  알고보니 ibus-hangul 버그인 것 같습니다[1].  아래 커맨드로
-ibus-hangul 을 문제 없던 버전으로 다운그레이드 시키고 세션을 재시작 하면 문제가
-사라집니다.</p>
-
-<pre><code>sudo dnf downgrade ibus-hangul-1.5.0-12.fc28.x86_64
-</code></pre>
-
-<p>[1] <a href="http://www.fedoralinux.or.kr/board-read.do?boardId=bbs3&amp;boardNo=153170459823549&amp;command=READ&amp;page=1&amp;categoryId=-1" target="_blank">http://www.fedoralinux.or.kr/board-read.do?boardId=bbs3&amp;boardNo=153170459823549&amp;command=READ&amp;page=1&amp;categoryId=-1</a></p>
-
-    
-  </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/fedora28_hangul_problem/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-      
-
-      
     
 
   </div>
@@ -1140,7 +1140,7 @@ ibus-hangul 을 문제 없던 버전으로 다운그레이드 시키고 세션�
           
           
           
-          <a href="/tags/benchmark" style="font-size:1.406546146512699rem">benchmark</a>
+          <a href="/tags/benchmark" style="font-size:1.4050801368788317rem">benchmark</a>
         
           
           
@@ -1210,7 +1210,7 @@ ibus-hangul 을 문제 없던 버전으로 다운그레이드 시키고 세션�
           
           
           
-          <a href="/tags/conference" style="font-size:1.4752573635439417rem">conference</a>
+          <a href="/tags/conference" style="font-size:1.473625280303471rem">conference</a>
         
           
           
@@ -1259,7 +1259,7 @@ ibus-hangul 을 문제 없던 버전으로 다운그레이드 시키고 세션�
           
           
           
-          <a href="/tags/english" style="font-size:1.5333518697744606rem">english</a>
+          <a href="/tags/english" style="font-size:1.531579373300309rem">english</a>
         
           
           
@@ -1273,7 +1273,7 @@ ibus-hangul 을 문제 없던 버전으로 다운그레이드 시키고 세션�
           
           
           
-          <a href="/tags/event" style="font-size:1.406546146512699rem">event</a>
+          <a href="/tags/event" style="font-size:1.4050801368788317rem">event</a>
         
           
           
@@ -1294,7 +1294,7 @@ ibus-hangul 을 문제 없던 버전으로 다운그레이드 시키고 세션�
           
           
           
-          <a href="/tags/fedora" style="font-size:1.2140321568511725rem">fedora</a>
+          <a href="/tags/fedora" style="font-size:1.2130314495939183rem">fedora</a>
         
           
           
@@ -1315,14 +1315,14 @@ ibus-hangul 을 문제 없던 버전으로 다운그레이드 시키고 세션�
           
           
           
-          <a href="/tags/gcma" style="font-size:1.0612252066927692rem">gcma</a>
+          <a href="/tags/gcma" style="font-size:1.0605938307095528rem">gcma</a>
         
           
           
           
           
           
-          <a href="/tags/git" style="font-size:1.0612252066927692rem">git</a>
+          <a href="/tags/git" style="font-size:1.0605938307095528rem">git</a>
         
           
           
@@ -1336,7 +1336,7 @@ ibus-hangul 을 문제 없던 버전으로 다운그레이드 시키고 세션�
           
           
           
-          <a href="/tags/golang" style="font-size:1.2140321568511725rem">golang</a>
+          <a href="/tags/golang" style="font-size:1.2130314495939183rem">golang</a>
         
           
           
@@ -1427,7 +1427,7 @@ ibus-hangul 을 문제 없던 버전으로 다운그레이드 시키고 세션�
           
           
           
-          <a href="/tags/kernel" style="font-size:2.460752836466388rem">kernel</a>
+          <a href="/tags/kernel" style="font-size:2.4612959463391437rem">kernel</a>
         
           
           
@@ -1455,21 +1455,21 @@ ibus-hangul 을 문제 없던 버전으로 다운그레이드 시키고 세션�
           
           
           
-          <a href="/tags/life" style="font-size:1.0612252066927692rem">life</a>
+          <a href="/tags/life" style="font-size:1.0605938307095528rem">life</a>
         
           
           
           
           
           
-          <a href="/tags/linux" style="font-size:2.495835666907813rem">linux</a>
+          <a href="/tags/linux" style="font-size:2.4958911347604733rem">linux</a>
         
           
           
           
           
           
-          <a href="/tags/linux-foundation" style="font-size:1.406546146512699rem">linux foundation</a>
+          <a href="/tags/linux-foundation" style="font-size:1.4050801368788317rem">linux foundation</a>
         
           
           
@@ -1490,7 +1490,7 @@ ibus-hangul 을 문제 없던 버전으로 다운그레이드 시키고 세션�
           
           
           
-          <a href="/tags/lkml" style="font-size:2.4169381997854114rem">lkml</a>
+          <a href="/tags/lkml" style="font-size:2.4181452391615728rem">lkml</a>
         
           
           
@@ -1511,7 +1511,7 @@ ibus-hangul 을 문제 없던 버전으로 다운그레이드 시키고 세션�
           
           
           
-          <a href="/tags/mariadb" style="font-size:1.0612252066927692rem">mariadb</a>
+          <a href="/tags/mariadb" style="font-size:1.0605938307095528rem">mariadb</a>
         
           
           
@@ -1546,21 +1546,21 @@ ibus-hangul 을 문제 없던 버전으로 다운그레이드 시키고 세션�
           
           
           
-          <a href="/tags/news" style="font-size:2.4169381997854114rem">news</a>
+          <a href="/tags/news" style="font-size:2.4181452391615728rem">news</a>
         
           
           
           
           
           
-          <a href="/tags/open-source" style="font-size:1.0612252066927692rem">open source</a>
+          <a href="/tags/open-source" style="font-size:1.0605938307095528rem">open source</a>
         
           
           
           
           
           
-          <a href="/tags/open-source" style="font-size:1.0612252066927692rem">open-source</a>
+          <a href="/tags/open-source" style="font-size:1.0605938307095528rem">open-source</a>
         
           
           
@@ -1616,7 +1616,7 @@ ibus-hangul 을 문제 없던 버전으로 다운그레이드 시키고 세션�
           
           
           
-          <a href="/tags/prague" style="font-size:1.406546146512699rem">prague</a>
+          <a href="/tags/prague" style="font-size:1.4050801368788317rem">prague</a>
         
           
           
@@ -1630,14 +1630,14 @@ ibus-hangul 을 문제 없던 버전으로 다운그레이드 시키고 세션�
           
           
           
-          <a href="/tags/projects" style="font-size:1.3224504133855386rem">projects</a>
+          <a href="/tags/projects" style="font-size:1.3211876614191054rem">projects</a>
         
           
           
           
           
           
-          <a href="/tags/raspberry" style="font-size:1.0612252066927692rem">raspberry</a>
+          <a href="/tags/raspberry" style="font-size:1.0605938307095528rem">raspberry</a>
         
           
           
@@ -1651,42 +1651,42 @@ ibus-hangul 을 문제 없던 버전으로 다운그레이드 시키고 세션�
           
           
           
-          <a href="/tags/setup" style="font-size:1.3224504133855386rem">setup</a>
+          <a href="/tags/setup" style="font-size:1.3211876614191054rem">setup</a>
         
           
           
           
           
           
-          <a href="/tags/spec" style="font-size:1.0612252066927692rem">spec</a>
+          <a href="/tags/spec" style="font-size:1.0605938307095528rem">spec</a>
         
           
           
           
           
           
-          <a href="/tags/spec_cpu" style="font-size:1.0612252066927692rem">spec_cpu</a>
+          <a href="/tags/spec_cpu" style="font-size:1.0605938307095528rem">spec_cpu</a>
         
           
           
           
           
           
-          <a href="/tags/spec_cpu2006" style="font-size:1.0612252066927692rem">spec_cpu2006</a>
+          <a href="/tags/spec_cpu2006" style="font-size:1.0605938307095528rem">spec_cpu2006</a>
         
           
           
           
           
           
-          <a href="/tags/talk" style="font-size:1.0612252066927692rem">talk</a>
+          <a href="/tags/talk" style="font-size:1.0605938307095528rem">talk</a>
         
           
           
           
           
           
-          <a href="/tags/test" style="font-size:1.0612252066927692rem">test</a>
+          <a href="/tags/test" style="font-size:1.0605938307095528rem">test</a>
         
           
           
@@ -1700,7 +1700,7 @@ ibus-hangul 을 문제 없던 버전으로 다운그레이드 시키고 세션�
           
           
           
-          <a href="/tags/tip" style="font-size:1.5333518697744606rem">tip</a>
+          <a href="/tags/tip" style="font-size:1.531579373300309rem">tip</a>
         
           
           
@@ -1728,7 +1728,7 @@ ibus-hangul 을 문제 없던 버전으로 다운그레이드 시키고 세션�
           
           
           
-          <a href="/tags/trip" style="font-size:1.406546146512699rem">trip</a>
+          <a href="/tags/trip" style="font-size:1.4050801368788317rem">trip</a>
         
           
           
@@ -1742,7 +1742,7 @@ ibus-hangul 을 문제 없던 버전으로 다운그레이드 시키고 세션�
           
           
           
-          <a href="/tags/usenix" style="font-size:1.0612252066927692rem">usenix</a>
+          <a href="/tags/usenix" style="font-size:1.0605938307095528rem">usenix</a>
         
           
           

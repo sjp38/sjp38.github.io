@@ -13,7 +13,7 @@
   <meta name="description" content="System Programmer">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/categories/lkml-news/">
+  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/tags/linux/">
 
   
   
@@ -72,22 +72,22 @@
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://sjp38.github.io/categories/lkml-news/">
+  <link rel="canonical" href="https://sjp38.github.io/tags/linux/">
 
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="Hacklog">
-  <meta property="og:url" content="https://sjp38.github.io/categories/lkml-news/">
-  <meta property="og:title" content="Lkml news | Hacklog">
+  <meta property="og:url" content="https://sjp38.github.io/tags/linux/">
+  <meta property="og:title" content="Linux | Hacklog">
   <meta property="og:description" content="System Programmer">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2017-10-25T12:56:27&#43;02:00">
+  <meta property="og:updated_time" content="2017-01-20T13:18:56&#43;09:00">
   
 
   
 
-  <title>Lkml news | Hacklog</title>
+  <title>Linux | Hacklog</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
@@ -250,44 +250,21 @@
 
 <div class="universal-wrapper">
 
-  <h1>Lkml news</h1>
+  <h1>Linux</h1>
 
   
 
   
   
   <div>
-    <h2><a href="https://sjp38.github.io/post/lkml_news_v4.14-rc6/">LKML News after v4.14-rc6</a></h2>
+    <h2><a href="https://sjp38.github.io/post/uninstall-kernel/">uninstall kernel</a></h2>
     <div class="article-style">
       
-      Linux 4.14-rc6 <a href="https://lkml.kernel.org/r/CA+55aFxSJGeN=2X-uX-on1Uq2Nb8+v1aiMDz5H1+tKW_N5Q+6g@mail.gmail.com" target="_blank">https://lkml.kernel.org/r/CA+55aFxSJGeN=2X-uX-on1Uq2Nb8+v1aiMDz5H1+tKW_N5Q+6g@mail.gmail.com</a>
-여섯번째 rc 버전의 릴리즈입니다.
-토발즈 집 인터넷 문제로 평소보다 늦은 릴리즈였군요. 이번 rc 버전은 기대보다는 좀 많은 내용이 추가되었는데, 때문에 어쩌면 rc8 까지 나올지도 모르겠다고 하는군요. 물론 확정되거나 한건 아니라고 합니다.
-Re: [GIT PULL rcu/next] RCU commits for 4.15 <a href="https://lkml.kernel.org/r/20171023204502.GA2776@linux.vnet.ibm.com" target="_blank">https://lkml.kernel.org/r/20171023204502.GA2776@linux.vnet.ibm.com</a>
-4.15 에 들어가야 할 RCU 쪽 커밋들의 풀리퀘스트 입니다.
-문서, RCU CPU Stall warning 업데이트, rcutorture 쪽 업데이트가 포함되었네요.
-[GIT PULL de-alpha] Make core code not need to know about Alpha for v4.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="https://sjp38.github.io/post/lkml_news_v4.14-rc5/">LKML News after v4.14-rc5</a></h2>
-    <div class="article-style">
-      
-      Linux 4.14-rc5 <a href="https://lkml.kernel.org/r/CA+55aFyKgEL3dj7XGYsPQd8y_z0GWx91TLZPSQAxjrua1aWOLw@mail.gmail.com" target="_blank">https://lkml.kernel.org/r/CA+55aFyKgEL3dj7XGYsPQd8y_z0GWx91TLZPSQAxjrua1aWOLw@mail.gmail.com</a>
-다섯번째 rc 버전의 릴리즈입니다.
-Lazy TLB flushing 변경은 지나치게 게으르게 TLB flushing 을 해서 AMD 칩 일부에서 문제를 일으키기도 했었다는군요.
-일부 서브시스템에서 fuzzing 을 통한 문제 발견과 수정이 있었는데 좋은 현상이라고도 언급합니다.
-전체적으로 x86, powerpc, mips 에의 arch 업데이트, gpu, networking, usb, sound, misc 드라이버 업데이트, lockdep, networking, mm 쪽 코어 커널 업데이트, 그리고 perf 와 selftest 에의 업데이트가 있었다고 이번 릴리즈를 정리하는군요.
-[PATCH 0/2] mm, thp: introduce dedicated transparent huge page <a href="https://lkml" target="_blank">https://lkml</a>.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="https://sjp38.github.io/post/lkml_news_0000/">LKML News - Intro</a></h2>
-    <div class="article-style">
+      테스트 등을 위해 소스코드로부터 커널을 직접 빌드, 설치하기 시작하면 어느새 수많은 커널이 설치되어 있는 것을 확인할 수 있다. 삭제를 위해선 make install 로 만들어진 파일들을 직접 제거하고 grub 을 업데이트 해줘야 한다.
+예를 들어 시스템이 현재 부팅되어 있는 버전의 커널을 언인스톨하고자 한다면 다음의 일련의 커맨드를 입력하면 된다:</p>
+
+<h1 id="rm-boot-vmlinuz-uname-r-rm-boot-initrd-img-uname-r-rm-boot-system-map-uname-r-rm-boot-config-uname-r-rm-fr-lib-modules-uname-r-rm-var-lib-initramfs-tools-uname-r-update-grub2-다른-버전의-설치되어있는-커널을-제거하고-싶다면-위의-uname-r-부분을-제거하고자-하는-커널-버전으로-대체하면-된다">rm /boot/vmlinuz-$(uname -r) # rm /boot/initrd.img-$(uname -r) # rm /boot/System.map-$(uname -r) # rm /boot/config-$(uname -r) # rm -fr /lib/modules/$(uname -r) # rm /var/lib/initramfs-tools/$(uname -r) # update-grub2  다른 버전의 설치되어있는 커널을 제거하고 싶다면 위의 $(uname -r) 부분을 제거하고자 하는 커널 버전으로 대체하면 된다.</h1>
+
       
     </div>
   </div>
@@ -297,7 +274,7 @@ Lazy TLB flushing 변경은 지나치게 게으르게 TLB flushing 을 해서 AM
 <nav>
   <ul class="pager">
     
-    <li><a href="/categories/lkml-news/page/7/">&lt;</a></li>
+    <li><a href="/tags/linux/page/9/">&lt;</a></li>
     
     
   </ul>
