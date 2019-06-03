@@ -360,6 +360,24 @@
 <p>RCU 와 spinlock 등을 위해 사용되는 torture 테스트 업데이트를 담은 패치셋입니다.
 무려 21개 패치네요!</p>
 
+<h2 id="rfcv2-0-6-introduce-memory-hinting-api-for-external-process">[RFCv2 0/6] introduce memory hinting API for external process</h2>
+
+<p><a href="https://lkml.kernel.org/r/20190531064313.193437-1-minchan@kernel.org" target="_blank">https://lkml.kernel.org/r/20190531064313.193437-1-minchan@kernel.org</a></p>
+
+<p>다른 어플리케이션의 virtual memory 에 대해 madvise() 를 할 수 있게 하고
+<code>MADV_COLD</code> 등의 힌트를 추가한 패치셋의 두번째 RFC 버전입니다.  LWN 에서도
+소개되었고 관련 반응이 매우 뜨겁네요.  저도 매우 흥미롭게 보고 있습니다.
+두번째 버전에서는 <code>MADV_COOL</code> 은 빠졌습니다.  <code>MADV_COLD</code> 와 <code>MADV_PAGEOUT</code> 만
+남았군요.</p>
+
+<h2 id="linux-5-2-rc3">Linux 5.2-rc3</h2>
+
+<p><code>https://lkml.kernel.org/r/CAHk-=wg1evGTxx-aSNHO+m5xSa1sc6fQe7Y8fH=_ruGcwMyfyA@mail.gmail.com</code></p>
+
+<p>상당히 고요한 한 주였고, 그로 인해 rc3 는 rc2 와 사이즈가 비슷했습니다.  이는
+조금 이상한 일인데, 보통 rc2 이후로는 사람들이 드디어 문제를 파악하기 시작하고
+rc3 주간에 수정을 하느라 조금은 떠들썩해 왔기 때문이랍니다.</p>
+
       </div>
 
       
