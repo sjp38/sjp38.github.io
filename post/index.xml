@@ -11,6 +11,15 @@
     <atom:link href="/post/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>LKML News v5.2-rc4</title>
+      <link>https://sjp38.github.io/post/lkml_news_v5.2-rc4/</link>
+      <pubDate>Tue, 04 Jun 2019 10:49:00 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/lkml_news_v5.2-rc4/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Linux Development History Visualization Youtube Channel</title>
       <link>https://sjp38.github.io/post/linux_develop_visualization_youtube/</link>
       <pubDate>Tue, 04 Jun 2019 10:44:33 +0900</pubDate>
@@ -27,8 +36,11 @@ visualization for now. The scripts I use for these videos are available[3]
 under GPL v3. If you want, you may use the scripts for your own video
 generation.&lt;/p&gt;
 
-&lt;p&gt;[1] &lt;a href=&#34;https://www.youtube.com/channel/UCI7qoGt1hOfCsI8hFqriYCg&#34; target=&#34;_blank&#34;&gt;https://www.youtube.com/channel/UCI7qoGt1hOfCsI8hFqriYCg&lt;/a&gt;
-[2] &lt;a href=&#34;https://gource.io/&#34; target=&#34;_blank&#34;&gt;https://gource.io/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;[1] &lt;a href=&#34;https://www.youtube.com/channel/UCI7qoGt1hOfCsI8hFqriYCg&#34; target=&#34;_blank&#34;&gt;https://www.youtube.com/channel/UCI7qoGt1hOfCsI8hFqriYCg&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;[2] &lt;a href=&#34;https://gource.io/&#34; target=&#34;_blank&#34;&gt;https://gource.io/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;[3] &lt;a href=&#34;https://github.com/sjp38/linux_development_visualization&#34; target=&#34;_blank&#34;&gt;https://github.com/sjp38/linux_development_visualization&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -665,66 +677,6 @@ kmalloc() 이 2의 승수 크기 얼라인먼트를 지키도록 하는 패치�
 &lt;p&gt;다섯번째 rc 커널입니다.  v5.1이 얼마 남지 않았군요.
 이번 릴리즈에선 대부분 드라이버 쪽 변경이 있었으며, 딱히 이상하거나 수상한
 움직임은 없다고 합니다.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>LKML News v5.1-rc4</title>
-      <link>https://sjp38.github.io/post/lkml_news_v5.1-rc4/</link>
-      <pubDate>Sun, 07 Apr 2019 23:17:55 +0900</pubDate>
-      
-      <guid>https://sjp38.github.io/post/lkml_news_v5.1-rc4/</guid>
-      <description>
-
-&lt;p&gt;Linux v5.1-rc3 릴리즈 후 Linux v.5.1-rc4 릴리즈 사이 기간에 LKML 에 올라온
-흥미로운 메일들을 소개합니다.&lt;/p&gt;
-
-&lt;h2 id=&#34;patch-v8-00-20-convert-x86-arm64-to-use-generic-page-walk&#34;&gt;[PATCH v8 00/20] Convert x86 &amp;amp; arm64 to use generic page walk&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190403141627.11664-1-steven.price@arm.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20190403141627.11664-1-steven.price@arm.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;전에 이 블로그에도 공유했던, &lt;code&gt;walk_page_range()&lt;/code&gt; 함수가 커널에서 사용하는
-페이지 테이블은 지원하지 않아서 아키텍쳐별로 page table walk 기능을 구현한 걸
-&lt;code&gt;walk_page_range()&lt;/code&gt; 의 개선을 통해 가능하게 하고자 하는 패치의 여덟번째
-버전입니다.&lt;/p&gt;
-
-&lt;h2 id=&#34;patch-mm-add-vm-event-for-page-cache-miss&#34;&gt;[PATCH] mm: add vm event for page cache miss&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/1554185720-26404-1-git-send-email-laoar.shao@gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/1554185720-26404-1-git-send-email-laoar.shao@gmail.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Page cache miss 로 인해 사용중인 데이터베이스에 레이턴시가 증가하는 문제가
-있는데, 기존 커널에는 페이지 캐시 미스 카운트를 세는 기능이 없기 때문에 만들어
-봤다고 합니다.  반응은&amp;hellip; 별로 좋지 않군요.&lt;/p&gt;
-
-&lt;h2 id=&#34;rfc-patch-00-25-accelerate-page-migration-and-use-memcg-for-pmem-management&#34;&gt;[RFC PATCH 00/25] Accelerate page migration and use memcg for PMEM management&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190404020046.32741-1-zi.yan@sent.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20190404020046.32741-1-zi.yan@sent.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;앞서 이 블로그에서도 소개한대로 PMEM 을 좀 많이 느린 NUMA node 로 다룰 수 있게
-되었습니다.  따라서 적절한 페이지 마이그레이션이 중요해지죠.  리눅스 자체 page
-replacement policy 를 이용해 page migration 을 하는 방법이 제기되었지만 그
-방법은 충분한 쓰루풋을 제공하지 않고 너무 가끔 replacement 가 일어나 hot / cold
-를 제대로 구분하기 어려운 문제가 있다고 이 메일은 주장하고, 자신이 생각하는
-해결책을 RFC 의 형태로 제시하고 있습니다.&lt;/p&gt;
-
-&lt;p&gt;실제 기존 방식의 마이그레이션 쓰루풋과 자신이 제안한 방식의 쓰루풋을 비교하면서
-설명하는데, 재밌네요.&lt;/p&gt;
-
-&lt;h2 id=&#34;patch-rfc-tip-core-rcu-0-4-forbid-static-srcu-use-in-modules&#34;&gt;[PATCH RFC tip/core/rcu 0/4] Forbid static SRCU use in modules&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190402142816.GA13084@linux.ibm.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20190402142816.GA13084@linux.ibm.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;로드될 수 있는 모듈 내에서의 &lt;code&gt;DEFINE_SRCU()&lt;/code&gt; 와 &lt;code&gt;DEFINE_STATIC_SRCU()&lt;/code&gt; 사용을
-급지하는 패치셋입니다.  로드 되는 모듈에서 이걸 사용하면 메모리 회수가 안될
-것이기 때문이죠.  대신 동적으로 메모리 할당받고 초기화 해서 쓰고, 모듈 exit 될
-때 제대로 메모리 해제 시키라고 합니다.&lt;/p&gt;
-
-&lt;h2 id=&#34;linux-5-1-rc4&#34;&gt;Linux 5.1-rc4&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=widsb0vN7kqt8ATfNuNW6a54JpKjc6W0XPjt5=LW7UeGQ@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CAHk-=widsb0vN7kqt8ATfNuNW6a54JpKjc6W0XPjt5=LW7UeGQ@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;이번 릴리즈는 초반 rc 들이 좀 커서 걱정을 끼쳤었는데, rc4 는 다행히도
-작아졌다고 합니다.  딱히 별다른 게 없다는군요.&lt;/p&gt;
 </description>
     </item>
     
