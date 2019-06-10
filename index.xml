@@ -11,6 +11,15 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>LKML News v5.2-rc5</title>
+      <link>https://sjp38.github.io/post/lkml_news_v5.2-rc5/</link>
+      <pubDate>Mon, 10 Jun 2019 10:17:29 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/lkml_news_v5.2-rc5/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>LKML News v5.2-rc4</title>
       <link>https://sjp38.github.io/post/lkml_news_v5.2-rc4/</link>
       <pubDate>Tue, 04 Jun 2019 10:49:00 +0900</pubDate>
@@ -49,6 +58,9 @@
 보기 귀찮게 하는게 조금은 짜증도 나는 것 같네요.&lt;/p&gt;
 
 &lt;p&gt;어쨌든 이렇게 네번째 rc 가 릴리즈 되었습니다.  정식 버전도 많이 남지 않았네요!&lt;/p&gt;
+
+&lt;p&gt;이번 릴리즈의 개발 과정을 시각화 한 비디오를 아래 URL 에서 볼 수 있습니다:
+&lt;a href=&#34;https://youtu.be/OooOmr4Z8dw&#34; target=&#34;_blank&#34;&gt;https://youtu.be/OooOmr4Z8dw&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -663,53 +675,6 @@ $ addr2line -e hello 0x400a15
 &lt;p&gt;C 프로그램에서 backtrace 를 떠보는 방법을 알아보았습니다.
 위의 내용을 여러분의 환경에서도 쉽게 테스트 해 볼 수 있게끔 제 &lt;a href=&#34;https://github.com/sjp38/backtrace_example&#34; target=&#34;_blank&#34;&gt;Github repo&lt;/a&gt; 에도 정리해 두었습니다.
 클론하고, &lt;code&gt;$ make run&lt;/code&gt; 해주시면 예제가 자동으로 빌드되고 돌아갈 겁니다.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>LKML News v5.1-rc5</title>
-      <link>https://sjp38.github.io/post/lkml_news_v5.1-rc5/</link>
-      <pubDate>Tue, 09 Apr 2019 17:33:01 +0900</pubDate>
-      
-      <guid>https://sjp38.github.io/post/lkml_news_v5.1-rc5/</guid>
-      <description>
-
-&lt;h2 id=&#34;v2-rfc-patch-0-9-another-approach-to-use-pmem-as-numa-node&#34;&gt;[v2 RFC PATCH 0/9] Another Approach to Use PMEM as NUMA Node&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/1554955019-29472-1-git-send-email-yang.shi@linux.alibaba.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/1554955019-29472-1-git-send-email-yang.shi@linux.alibaba.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;본 블로그를 통해 지속적으로 소개하고 있는, PMEM as NUMA node 를 위한, 보다 나은
-hotness 기반 page location 을 위한 패치셋입니다.
-기존 코멘트에 기반해서 두번째 버전을 내놓았군요.&lt;/p&gt;
-
-&lt;h2 id=&#34;rfc-patch-v3-00-15-slab-movable-objects-smo&#34;&gt;[RFC PATCH v3 00/15] Slab Movable Objects (SMO)&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190411013441.5415-1-tobin@kernel.org&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20190411013441.5415-1-tobin@kernel.org&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;최근 LWN 에서도 소개된 (&lt;a href=&#34;https://lwn.net/Articles/784964/&#34; target=&#34;_blank&#34;&gt;https://lwn.net/Articles/784964/&lt;/a&gt;) 패치입니다.
-Slab allocator 에서 할당된 object 가 free page 가운데에 박혀 있어 page 를
-회수할 수 없는 fragmentation 이 발생합니다.
-이 패치셋은 slab allocator 로 할당된 object 의 사용자에게 가능하면 해당 object
-들을 움직여 달라고 callback 할 수 있게 함으로써 이 fragmentation 을 해결하려
-합니다.&lt;/p&gt;
-
-&lt;p&gt;앞의 버전에 비해서 변경된 건 LWN 기사에 달린 코멘트를 기반으로 한 개선들이군요.&lt;/p&gt;
-
-&lt;h2 id=&#34;lsf-mm-topic-guarantee-natural-alignment-for-kmalloc&#34;&gt;[LSF/MM TOPIC] guarantee natural alignment for kmalloc()?&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/790b68b7-3689-0ff6-08ae-936728bc6458@suse.cz&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/790b68b7-3689-0ff6-08ae-936728bc6458@suse.cz&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;LSFMM 을 위한 늦은 주제네요.
-kmalloc() 이 2의 승수 크기 얼라인먼트를 지키도록 하는 패치에 대해서 논의하고
-싶어합니다.&lt;/p&gt;
-
-&lt;h2 id=&#34;linux-5-1-rc5&#34;&gt;Linux 5.1-rc5&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wjvcuyCQGnfOhooaL1H4H63qXO=xgo+9yncSOG=eK+kbA@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CAHk-=wjvcuyCQGnfOhooaL1H4H63qXO=xgo+9yncSOG=eK+kbA@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;다섯번째 rc 커널입니다.  v5.1이 얼마 남지 않았군요.
-이번 릴리즈에선 대부분 드라이버 쪽 변경이 있었으며, 딱히 이상하거나 수상한
-움직임은 없다고 합니다.&lt;/p&gt;
 </description>
     </item>
     
