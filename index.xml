@@ -16,7 +16,33 @@
       <pubDate>Mon, 10 Jun 2019 10:17:29 +0900</pubDate>
       
       <guid>https://sjp38.github.io/post/lkml_news_v5.2-rc5/</guid>
-      <description></description>
+      <description>
+
+&lt;h2 id=&#34;patch-v3-0-5-thp-aware-uprobe&#34;&gt;[PATCH v3 0/5] THP aware uprobe&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190612220320.2223898-1-songliubraving@fb.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20190612220320.2223898-1-songliubraving@fb.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;uprobe 는 THP 로 되어있는 페이지를 쪼갭니다.  이로 인해 성능 향상 효과가
+사라지죠.  이 패치셋은 uprobe 가 THP 를 인식하게 해서 이런 문제를 제거합니다.&lt;/p&gt;
+
+&lt;h2 id=&#34;patch-v2-0-5-introduce-madv-cold-and-madv-pageout&#34;&gt;[PATCH v2 0/5] Introduce MADV_COLD and MADV_PAGEOUT&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190610111252.239156-1-minchan@kernel.org&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20190610111252.239156-1-minchan@kernel.org&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;기존에도 소개한 MADV_COLD 와 MADV_PAGEOUT 을 madvise() 에 추가하는 패치셋의
+두번째 버전입니다.  이 패치셋을 ChromeOS 팀의 Brian Geffon 은 가져다가 탭이
+백그라운드로 들어가고 45초 이상 그 상태를 유지하면 이 기능을 사용해서 페이지를
+proactively swap out 시켰는데, 그 결과 tab 전환 속도가 25% 나 빨라졌다고
+합니다.&lt;/p&gt;
+
+&lt;h2 id=&#34;v3-rfc-patch-0-9-migrate-mode-for-node-reclaim-with-heterogeneous-memory-hierarchy&#34;&gt;[v3 RFC PATCH 0/9] Migrate mode for node reclaim with heterogeneous memory hierarchy&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/1560468577-101178-1-git-send-email-yang.shi@linux.alibaba.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/1560468577-101178-1-git-send-email-yang.shi@linux.alibaba.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;NUMA node 로 pmem 을 취급할 수 있게 된 이후, 노드간 migration 을 보다
+효율적으로 하기 위한 패치셋의 세번째 버전입니다.  LSFMM 에서 이에 대해 토의가
+있었는데, 이번 버전은 그에 기반해 수정되었다고 하네요.&lt;/p&gt;
+</description>
     </item>
     
     <item>

@@ -260,6 +260,11 @@
     <h2><a href="https://sjp38.github.io/post/lkml_news_v5.2-rc5/">LKML News v5.2-rc5</a></h2>
     <div class="article-style">
       
+      [PATCH v3 0/5] THP aware uprobe <a href="https://lkml.kernel.org/r/20190612220320.2223898-1-songliubraving@fb.com" target="_blank">https://lkml.kernel.org/r/20190612220320.2223898-1-songliubraving@fb.com</a>
+uprobe 는 THP 로 되어있는 페이지를 쪼갭니다. 이로 인해 성능 향상 효과가 사라지죠. 이 패치셋은 uprobe 가 THP 를 인식하게 해서 이런 문제를 제거합니다.
+[PATCH v2 0/5] Introduce MADV_COLD and MADV_PAGEOUT <a href="https://lkml.kernel.org/r/20190610111252.239156-1-minchan@kernel.org" target="_blank">https://lkml.kernel.org/r/20190610111252.239156-1-minchan@kernel.org</a>
+기존에도 소개한 MADV_COLD 와 MADV_PAGEOUT 을 madvise() 에 추가하는 패치셋의 두번째 버전입니다. 이 패치셋을 ChromeOS 팀의 Brian Geffon 은 가져다가 탭이 백그라운드로 들어가고 45초 이상 그 상태를 유지하면 이 기능을 사용해서 페이지를 proactively swap out 시켰는데, 그 결과 tab 전환 속도가 25% 나 빨라졌다고 합니다.
+      
     </div>
   </div>
   
