@@ -11,6 +11,25 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>LKML News v5.2-rc6</title>
+      <link>https://sjp38.github.io/post/lkml_news_v5.2-rc6/</link>
+      <pubDate>Mon, 17 Jun 2019 19:22:48 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/lkml_news_v5.2-rc6/</guid>
+      <description>
+
+&lt;h2 id=&#34;patch-notformerge-0-5-extend-remote-madvise-api-to-ksm-hints&#34;&gt;[PATCH NOTFORMERGE 0/5] Extend remote madvise API to KSM hints&lt;/h2&gt;
+
+&lt;p&gt;이 블로그에서도 여러번 소개한 remote &lt;code&gt;madvise()&lt;/code&gt; 에 대한 관심이 많이 있는 것
+같네요.
+이 패치셋은 &lt;code&gt;MADV_MERGEABLE&lt;/code&gt;, &lt;code&gt;MADV_UNMERGEABLE&lt;/code&gt; 을 추가해서 KSM 힌트도
+&lt;code&gt;madvise()&lt;/code&gt; 를 통해 줄 수 있게 합니다.&lt;/p&gt;
+
+&lt;p&gt;논의를 위한 패치라 이대로 머지되진 않겠지만, 사용처가 많이 늘어날 것 같네요.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>My Job Interview Record (2019 summer)</title>
       <link>https://sjp38.github.io/post/my_job_interview/</link>
       <pubDate>Mon, 17 Jun 2019 18:16:05 +0900</pubDate>
@@ -680,113 +699,6 @@ Injection for System Performance and Swap Storage Durability&amp;rdquo; 입니�
 
 &lt;p&gt;어쨌건 그다지 이상한 건 없다고 합니다.  적어도 아직까진 5.1 을 향한 여정엔
 문제가 없어 보이네요!&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Hooking Library Function Calls</title>
-      <link>https://sjp38.github.io/post/hooking_library_calls/</link>
-      <pubDate>Wed, 10 Apr 2019 11:39:06 +0900</pubDate>
-      
-      <guid>https://sjp38.github.io/post/hooking_library_calls/</guid>
-      <description>
-
-&lt;p&gt;&lt;code&gt;LD_PRELOAD&lt;/code&gt; 환경변수를 사용하면 로더가 프로그램을 로드할 때 동적 로드해야 할
-바이너리 코드를 해당 변수의 값의 디렉토리에서부터 뒤지도록 합니다.
-따라서 이를 이용해 &lt;code&gt;malloc()&lt;/code&gt;, &lt;code&gt;free()&lt;/code&gt; 등의 일반적으로 사용하는 라이브러리
-함수를 우리의 구현으로 대체하거나 후킹할 수 있습니다.
-이 글은 이런 방법으로 &lt;code&gt;malloc()&lt;/code&gt; 을 후킹하는 방법을 예제를 통해 간단히
-설명합니다.&lt;/p&gt;
-
-&lt;h2 id=&#34;original-program&#34;&gt;Original Program&lt;/h2&gt;
-
-&lt;p&gt;먼저 다음과 같은 프로그램이 있을 수 있을 겁니다:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;#include &amp;lt;stdio.h&amp;gt;
-#include &amp;lt;stdlib.h&amp;gt;
-
-int main(void)
-{
-	char *abc;
-
-	abc = (char *)malloc(8);
-	printf(&amp;quot;malloced address: %p\n&amp;quot;, abc);
-	sprintf(abc, &amp;quot;hello\n&amp;quot;);
-	printf(&amp;quot;%s\n&amp;quot;, abc);
-	free(abc);
-
-	return 0;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;단순히 &lt;code&gt;malloc()&lt;/code&gt; 을 통해 8바이트 메모리를 할당받아 그 영역을 표시하고 종료하는
-프로그램입니다.  위 코드를 &lt;code&gt;program.c&lt;/code&gt; 라는 파일로 저장하고, 아래와 같이
-컴파일하고 수행해 보면 우리가 익히 아는, 예상대로의 결과가 나옵니다.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ gcc -o program program.c
-$ ./program
-malloced address: 0x1cc5010
-hello
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;malloc-hooking-code&#34;&gt;malloc Hooking Code&lt;/h2&gt;
-
-&lt;p&gt;이제 &lt;code&gt;malloc()&lt;/code&gt; 함수를 후킹하는 코드를 만들어 봅시다:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;#define _GNU_SOURCE
-
-#include &amp;lt;dlfcn.h&amp;gt;
-#include &amp;lt;stdio.h&amp;gt;
-
-typedef void *(*malloc_t)(size_t size);
-
-void *malloc(size_t size)
-{
-	malloc_t malloc_fn;
-
-	fprintf(stderr, &amp;quot;malloc(%zu) hooked\n&amp;quot;, size);
-	malloc_fn = (malloc_t)dlsym(RTLD_NEXT, &amp;quot;malloc&amp;quot;);
-	return malloc_fn(size);
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;이 코드는 우리가 아는 &lt;code&gt;malloc()&lt;/code&gt; 함수와 동일한 함수명, signature 의 함수를
-구현하고 있습니다.
-단순히 우리가 후킹했음을 알리고, 동적 라이브러리 구조를 통해 이 다음으로
-검색되는 &lt;code&gt;malloc&lt;/code&gt; 이름의 라이브러리 함수 (이게 우리가 익히 아는 그 &lt;code&gt;malloc()&lt;/code&gt;
-구현이겠죠) 를 찾아, 같은 인자로 수행하고 그 결과를 리턴합니다.
-즉, 우리가 아는 &lt;code&gt;malloc()&lt;/code&gt; 과 같은 일을 하긴 하지만 &lt;code&gt;malloc()&lt;/code&gt; 이 호출되었음을
-알리는 것이죠.&lt;/p&gt;
-
-&lt;p&gt;이 코드를 &lt;code&gt;mallochook.c&lt;/code&gt; 라는 이름으로 저장 후, 다음과 같이 라이브러리로
-빌드합니다:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ gcc -shared -fPIC mallochook.c -o mallochook.so -ldl
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;install-the-hook&#34;&gt;Install The Hook&lt;/h2&gt;
-
-&lt;p&gt;프로그램이 기존 &lt;code&gt;malloc()&lt;/code&gt; 대신 우리가 구현한 &lt;code&gt;malloc()&lt;/code&gt; 을 수행하게 하는 건
-&lt;code&gt;LD_PRELOAD&lt;/code&gt; 를 활용하면 간단합니다.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ LD_PRELOAD=./mallochook.so ./program
-malloc(8) hooked
-malloc(1024) hooked
-malloced address: 0x20a5010
-hello
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;두번째, 세번째 줄을 보면 &lt;code&gt;malloc()&lt;/code&gt; 이 후킹되어 우리의 메세지가 나오는 걸 볼 수
-있습니다.  앞의 &lt;code&gt;program.c&lt;/code&gt; 에서는 8 바이트 &lt;code&gt;malloc()&lt;/code&gt; 호출만 있었는데 세번째
-줄의 1024 바이트 malloc()&lt;code&gt;은 어디서 나온 걸까요?  아마도 뒤의&lt;/code&gt;sprintf()` 등의
-라이브러리 함수가 호출한 거 아닐까 싶은데 그걸 분석하는 건 여러분의 몫으로
-두겠습니다.&lt;/p&gt;
-
-&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
-
-&lt;p&gt;자세한 원리는 생략했습니다만, 간단히 주요 라이브러리 함수를 후킹하는 방법을
-알아봤습니다.
-여기서 사용된 예제 코드와 명령어는 제 &lt;a href=&#34;https://github.com/sjp38/mallochook&#34; target=&#34;_blank&#34;&gt;Github repo&lt;/a&gt; 에 올려뒀으니 필요하면 참고 바랍니다.&lt;/p&gt;
 </description>
     </item>
     
