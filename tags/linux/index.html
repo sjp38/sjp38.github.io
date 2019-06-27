@@ -82,7 +82,7 @@
   <meta property="og:description" content="System Programmer">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2019-06-17T19:22:48&#43;09:00">
+  <meta property="og:updated_time" content="2019-06-27T15:35:12&#43;09:00">
   
 
   
@@ -257,6 +257,13 @@
   
   
   <div>
+    <h2><a href="https://sjp38.github.io/post/lkml_news_v5.2-rc7/">LKML News v5.2-rc7</a></h2>
+    <div class="article-style">
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="https://sjp38.github.io/post/lkml_news_v5.2-rc6/">LKML News v5.2-rc6</a></h2>
     <div class="article-style">
       
@@ -366,18 +373,6 @@ Linux 5.1 <a href="https://lkml.kernel.org/r/CAHk-=whsbDxdapMJGvy9OkVSrKMsKRJBTr
 [LSF/MM TOPIC] Proactive Memory Reclaim <a href="https://lkml.kernel.org/r/CALvZod4V+56pZbPkFDYO3+60Xr0_ZjiSgrfJKs_=Bd4AjdvFzA@mail.gmail.com" target="_blank">https://lkml.kernel.org/r/CALvZod4V+56pZbPkFDYO3+60Xr0_ZjiSgrfJKs_=Bd4AjdvFzA@mail.gmail.com</a>
 이제 LSFMM 이 얼마 안남았습니다만, 또하나의 주제 제안이 올라왔습니다.
 메모리 오버커밋으로 인해 direct reclaim 이 발생하고, 이는 latency sensitive 어플리케이션의 latency 를 크게 저하시키니, 시스템이 좀 더 적극적으로 memory reclaim 을 해서 direct reclaim 을 최소화 시켜보자는 건데요. 잘 접근되지 않는 cold memory 를 추적해서 미리미리 reclaim 시키자는 겁니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="https://sjp38.github.io/post/lkml_news_v5.1-rc6/">LKML News v5.1-rc6</a></h2>
-    <div class="article-style">
-      
-      [PATCH v12 00/31] Speculative page faults <a href="https://lkml.kernl.org/r/20190416134522.17540-1-ldufour@linux.ibm.com" target="_blank">https://lkml.kernl.org/r/20190416134522.17540-1-ldufour@linux.ibm.com</a>
-오랫만에 업데이트 된 SPF 패치셋으로, 이번 패치셋은 v5.1 위로 리베이스 되었습니다. RCU 에서 Fine-grained reader-writer locking 으로 옮겼던 vma 보호를 다시 RCU 로 되돌린 게 눈에 띄는군요. 기존엔 패치셋만 공개했는데, 이젠 패치셋이 적용된 코드 트리를 github 으로도 제공합니다: <a href="https://github.com/ldu4/linux/tree/spf-v12" target="_blank">https://github.com/ldu4/linux/tree/spf-v12</a>
-[PATCH v3 00/11] Provide generic top-down mmap layout functions <a href="https://lkml.kernel.org/r/20190417052247.17809-1-alex@ghiti.fr" target="_blank">https://lkml.kernel.org/r/20190417052247.17809-1-alex@ghiti.fr</a>
-아키텍쳐별로 별도 구현을 하지 않고도 전체 mmap 레이아웃을 접근할 수 있게 해주는 범용 함수들을 구현하는 패치셋입니다.
       
     </div>
   </div>
