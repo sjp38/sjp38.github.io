@@ -11,6 +11,84 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Integrate external git repository with its history</title>
+      <link>https://sjp38.github.io/post/integrate_external_git_repository_with_history/</link>
+      <pubDate>Thu, 27 Jun 2019 17:02:49 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/integrate_external_git_repository_with_history/</guid>
+      <description>
+
+&lt;p&gt;프로젝트 a 와 프로젝트 b 를 병렬로 진행하고 있었는데, 두개의 리포지토리를
+합치고 싶어지는 경우가 있습니다.  예컨대 프로젝트 a 의 성격이 보다 범용이
+되었고 프로젝트 b 는 프로젝트 a 를 위한 도구적 성격이 되는 경우가 있겠죠.
+a 프로젝트에 &amp;lsquo;b&amp;rsquo; 디렉토리를 만들고 그 아래 기존 프로젝트 b 의 파일들을 위치하고
+싶습니다.
+하지만 기존 b 프로젝트의 git 히스토리들도 유지하고 싶습니다.
+비슷한 사례로 리눅스 커널 메모리 모델 프로젝트는 별도의 리포지토리[1] 로
+개발되었지만 리눅스 업스트림 리포지토리의 tools/ 디렉토리 아래로 머지[2]
+되었는데, 이 때 기존 개발 히스토리를 유지했죠.&lt;/p&gt;
+
+&lt;p&gt;이 포스트는 이렇게 특정 git 리포지토리를 그 히스토리를 유지한 채 다른 git
+리포지토리의 하위 디렉토리로 옮기는 법을 설명합니다.&lt;/p&gt;
+
+&lt;p&gt;[1] &lt;a href=&#34;https://github.com/aparri/memory-model&#34; target=&#34;_blank&#34;&gt;https://github.com/aparri/memory-model&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;[2] &lt;a href=&#34;https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/tools/memory-model&#34; target=&#34;_blank&#34;&gt;https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/tools/memory-model&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;초기-상황과-목표&#34;&gt;초기 상황과 목표&lt;/h2&gt;
+
+&lt;p&gt;먼저 현재 디렉토리 아래에 a 리포지토리와 b 리포지토리가 있다고 가정합니다:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ls
+a   b
+$
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;우리는 a 리포지토리 아래 b/ 디렉토리를 만들고 그 아래 b 리포지토리를 넣고
+싶습니다.&lt;/p&gt;
+
+&lt;h2 id=&#34;전략&#34;&gt;전략&lt;/h2&gt;
+
+&lt;p&gt;b 리포지토리가 b/ 디렉토리 아래 모든 파일을 위치하도록 변경한 후, 이
+리포지토리를 a 리포지토리에서 &lt;code&gt;--allow-unrelated-histories&lt;/code&gt; 옵션을 사용해
+머지하도록 하겠습니다.&lt;/p&gt;
+
+&lt;h2 id=&#34;합쳐질-리포지토리-파일-구조-변경&#34;&gt;합쳐질 리포지토리 파일 구조 변경&lt;/h2&gt;
+
+&lt;p&gt;먼저 b 리포지토리의 파일들이 b/ 디렉토리 아래 위치하도록 만듭니다:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ cd b
+$ mkdir b
+$ git mv !(b) b
+$ git commit -a -m &amp;quot;Relocate files for inclusion&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;리포지토리-병합&#34;&gt;리포지토리 병합&lt;/h2&gt;
+
+&lt;p&gt;이제 b 리포지토리를 임시 remote 리포지토리로 등록하고 머지합니다:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ cd ../a
+$ git remote add temp ../b
+$ git fetch temp
+$ git merge --allow-unrelated-histories temp/master
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;--allow-unrelated-histories&lt;/code&gt; 는 경로가 다른 파일에 대한 커밋들도 머지가 될 수
+있게 해줍니다.&lt;/p&gt;
+
+&lt;p&gt;임시로 등록한 remote 리포지토리는 지워줍시다:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ git remote rm temp
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;정리&#34;&gt;정리&lt;/h2&gt;
+
+&lt;p&gt;이상과 같이 기존의 개발 히스토리를 유지하면서 특정 git 리포지토리를 다른 git
+리포지토리의 하위 디렉토리로 병합하는 방법을 알아보았습니다.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>LKML News v5.2-rc7</title>
       <link>https://sjp38.github.io/post/lkml_news_v5.2-rc7/</link>
       <pubDate>Thu, 27 Jun 2019 15:35:12 +0900</pubDate>
@@ -685,19 +763,6 @@ memory 를 어떻게 잘 추적하냐는 거지요.  이와 함께 커널의 &lt
 다행히도 크기가 작은 편이라고 합니다.  네트워킹 쪽 변경이 좀 있고, 나머진
 평소같이 아키텍쳐, 파일 시스템, 그외 드라이버 등의 변경이 내용을 차지했네요.
 따라서 다음주엔 5.1이 예정대로 나올 것 같다고 합니다!&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>I will have a talk at the Hotstorage&#39;19</title>
-      <link>https://sjp38.github.io/post/hotstorage2019_talk/</link>
-      <pubDate>Thu, 18 Apr 2019 09:37:04 +0900</pubDate>
-      
-      <guid>https://sjp38.github.io/post/hotstorage2019_talk/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://www.usenix.org/conference//hotstorage19&#34; target=&#34;_blank&#34;&gt;HotStorage&amp;rsquo;19&lt;/a&gt; 에 제출한 제
-최근 연구에 대한 논문이 accept 되어 7월에 해당 워크샵에서 이에 대한 내용을
-발표하게 되었습니다.  논문 제목은 &amp;ldquo;Automating Context Based Access Pattern Hint
-Injection for System Performance and Swap Storage Durability&amp;rdquo; 입니다.&lt;/p&gt;
 </description>
     </item>
     
