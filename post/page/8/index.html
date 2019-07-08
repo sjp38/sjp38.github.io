@@ -73,7 +73,7 @@
   <meta property="og:description" content="System Programmer">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2018-07-09T10:01:05&#43;09:00">
+  <meta property="og:updated_time" content="2018-07-16T06:07:33&#43;09:00">
   
 
   
@@ -246,6 +246,78 @@
   
 
   
+  
+    
+    
+
+<div class="article-list-item" itemscope itemprop="blogPost">
+  
+  
+  <h3 class="article-title" itemprop="name">
+    <a href="https://sjp38.github.io/post/lkml_news_v4.18-rc5/" itemprop="url">Lkml_news_v4.18 Rc5</a>
+  </h3>
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2018-07-16 06:07:33 &#43;0900 KST" itemprop="datePublished">
+      Jul 16, 2018
+    </time>
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  
+
+  
+
+</div>
+
+  <div class="article-style" itemprop="articleBody">
+    
+    
+
+<h2 id="linux-4-18-rc5">Linux 4.18-rc5</h2>
+
+<p><a href="https://lkml.kernel.org/r/CA+55aFwfMr2D2A_yesUyt_Lo3XMRk9epzgeBMt2HxMHiXMDYcg@mail.gmail.com" target="_blank">https://lkml.kernel.org/r/CA+55aFwfMr2D2A_yesUyt_Lo3XMRk9epzgeBMt2HxMHiXMDYcg@mail.gmail.com</a></p>
+
+<p>다섯번째 rc 릴리즈입니다.  토발즈 개인적으로는 조금 바쁘단 느낌이 있었지만
+숫자로 보면 평범한 rc 릴리즈 주간이었다는 평입니다.</p>
+
+<p>토발즈를 귀찮게 만들었던 건 VM 쪽 버그로, 단 두줄의 수정으로 고쳐졌다는데,
+아무래도 아래 패치인 것 같군요:
+<a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=bce73e4842390f7b7309c8e253e139db71288ac3" target="_blank">https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=bce73e4842390f7b7309c8e253e139db71288ac3</a></p>
+
+<p>그리고 repeatable sequence 에 대한 cleanup 도 있었군요.</p>
+
+<h2 id="git-pull-rcu-next-rcu-commits-for-4-19">[GIT PULL rcu/next] RCU commits for 4.19</h2>
+
+<p><a href="https://lkml.kernel.org/r/20180716175125.GA4287@linux.vnet.ibm.com" target="_blank">https://lkml.kernel.org/r/20180716175125.GA4287@linux.vnet.ibm.com</a></p>
+
+<p>4.19 리눅스 릴리즈를 위한 RCU 쪽 변경사항들 pull request 입니다.</p>
+
+    
+  </div>
+  <p class="read-more">
+    <a href="https://sjp38.github.io/post/lkml_news_v4.18-rc5/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
   
     
     
@@ -807,69 +879,6 @@ Cgroup 은 용량 기반의 컨트롤러는 많지만 응답시간 기반의 컨
   </div>
   <p class="read-more">
     <a href="https://sjp38.github.io/post/lkml_news_v4.17-rc5/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-  
-    
-    
-
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/qemu_kernel_debugging/" itemprop="url">QEMU 를 사용한 리눅스 커널 디버깅</a>
-  </h3>
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2018-05-07 18:21:01 &#43;0900 KST" itemprop="datePublished">
-      May 7, 2018
-    </time>
-  </span>
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    4 min read
-  </span>
-  
-
-  
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/linux-kernel-hack">linux-kernel-hack</a
-    >
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-  <div class="article-style" itemprop="articleBody">
-    
-    토발즈는 좋아하지 않지만, 리눅스 커널 프로그래밍에도 디버거를 사용할 수 있습니다. 저도 디버거 사용을 좋아하지는 않는 편이지만, 경우에 따라선 디버거를 사용하는게 좋을 때도 있고 취향은 존중되어야죠. ;)
-커널 디버깅 방법은 여러가지가 있는데, 그 중 하나는 QEMU 등을 이용한 리눅스 가상 머신을 띄워 두고, 호스트 머신에서 해당 가상 머신의 리눅스 커널을 디버깅 하는 방법입니다. 이 글에선 이렇게 디버깅 하는 방법을 간단히 정리해 봅니다.
-테스트 환경 글 작성 과정에서 테스트에 사용한 주요 소프트웨어들과 버전은 다음과 같습니다.
-    
-  </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/qemu_kernel_debugging/" class="btn btn-primary btn-outline">
       CONTINUE READING
     </a>
   </p>
