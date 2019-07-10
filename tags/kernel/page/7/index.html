@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme" content="hugo-academic">
-  <meta name="generator" content="Hugo 0.31.1" />
+  <meta name="generator" content="Hugo 0.51" />
   <meta name="author" content="SeongJae Park">
   <meta name="description" content="System Programmer">
 
@@ -64,8 +64,8 @@
   
 
   
-  <link rel="alternate" href="https://sjp38.github.io/index.xml" type="application/rss+xml" title="Hacklog">
-  <link rel="feed" href="https://sjp38.github.io/index.xml" type="application/rss+xml" title="Hacklog">
+  <link rel="alternate" href="https://sjp38.github.io/tags/kernel/index.xml" type="application/rss+xml" title="Hacklog">
+  <link rel="feed" href="https://sjp38.github.io/tags/kernel/index.xml" type="application/rss+xml" title="Hacklog">
   
 
   <link rel="manifest" href="/site.webmanifest">
@@ -78,16 +78,16 @@
   
   <meta property="og:site_name" content="Hacklog">
   <meta property="og:url" content="https://sjp38.github.io/tags/kernel/">
-  <meta property="og:title" content="Kernel | Hacklog">
+  <meta property="og:title" content="kernel | Hacklog">
   <meta property="og:description" content="System Programmer">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2018-03-26T08:45:19&#43;09:00">
+  <meta property="og:updated_time" content="2018-04-02T07:13:40&#43;09:00">
   
 
   
 
-  <title>Kernel | Hacklog</title>
+  <title>kernel | Hacklog</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
@@ -250,11 +250,25 @@
 
 <div class="universal-wrapper">
 
-  <h1>Kernel</h1>
+  <h1>kernel</h1>
 
   
 
   
+  
+  <div>
+    <h2><a href="https://sjp38.github.io/post/lkml_news_v4.16/">LKML News after v4.16</a></h2>
+    <div class="article-style">
+      
+      Linux 4.16 <a href="https://lkml.kernel.org/r/CA+55aFyxn0bu5jOAJvO_63GHaGMkJ0uA=bVBm2T3HVX9SimZzw@mail.gmail.com" target="_blank">https://lkml.kernel.org/r/CA+55aFyxn0bu5jOAJvO_63GHaGMkJ0uA=bVBm2T3HVX9SimZzw@mail.gmail.com</a>
+릴리즈 마지막 주 치고는 네트워킹 쪽에 조금 변경사항이 있었습니다만, 큰 문제가 될 정도는 아니었습니다. 결과, 4.16이 드디어 릴리즈 되었습니다! 동시에 4.17 머지 윈도우가 시작되는군요.
+[PATCH 0/2] Move kfree_rcu out of rcu code and use kfree_bulk <a href="https://lkml.kernel.org/r/1522647064-27167-1-git-send-email-rao.shoaib@oracle.com" target="_blank">https://lkml.kernel.org/r/1522647064-27167-1-git-send-email-rao.shoaib@oracle.com</a>
+kfree_rcu() 대신 kfree_bulk() 라는 새로 만들어진, 더 효율적인 기능을 사용하도록 하는 패치입니다.
+[RFC PATCH 0/1] mm: Support multiple kswapd threads per node <a href="https://lkml.kernel.org/r/1522661062-39745-1-git-send-email-buddy.lumpkin@oracle.com" target="_blank">https://lkml.kernel.org/r/1522661062-39745-1-git-send-email-buddy.lumpkin@oracle.com</a>
+NUMA 아키텍쳐에서 리눅스 커널은 NUMA 노드당 하나의 kswapd 쓰레드를 띄웁니다.
+      
+    </div>
+  </div>
   
   <div>
     <h2><a href="https://sjp38.github.io/post/lkml_news_v4.16-rc7/">LKML News after v4.16-rc7</a></h2>
@@ -348,13 +362,6 @@ cat /sys/devices/system/cpu/vulnerabilities/spectre_v2  로 컴파일러 지원�
 이번 릴리즈는 x86, arm powerpc, mips 쪽의 arch 업데이트, 드라이버, 그리고 네트워킹 핵심부 업데이트가 주된 변경이군요.
 다음주에는 꼭 4.15를 릴리즈 하고 싶다고 하는데, 아마도 다음주에는 4.15 정식 버전이 릴리즈되길 빕니다.
 [LSF/MM TOPIC] CMA and larger page sizes <a href="https://lkml" target="_blank">https://lkml</a>.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="https://sjp38.github.io/post/lkml_news_v4.15-rc8/">LKML News after v4.15-rc8</a></h2>
-    <div class="article-style">
       
     </div>
   </div>

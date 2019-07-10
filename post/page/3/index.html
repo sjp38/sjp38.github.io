@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme" content="hugo-academic">
-  <meta name="generator" content="Hugo 0.31.1" />
+  <meta name="generator" content="Hugo 0.51" />
   <meta name="author" content="SeongJae Park">
   <meta name="description" content="System Programmer">
 
@@ -73,7 +73,7 @@
   <meta property="og:description" content="System Programmer">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2019-04-09T17:33:01&#43;09:00">
+  <meta property="og:updated_time" content="2019-04-09T17:33:50&#43;09:00">
   
 
   
@@ -246,6 +246,59 @@
   
 
   
+  
+    
+    
+
+<div class="article-list-item" itemscope itemprop="blogPost">
+  
+  
+  <h3 class="article-title" itemprop="name">
+    <a href="https://sjp38.github.io/post/backtrace_c_language/" itemprop="url">Backtrace on C language program</a>
+  </h3>
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2019-04-09 17:33:50 &#43;0900 KST" itemprop="datePublished">
+      Apr 9, 2019
+    </time>
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  
+
+  
+
+</div>
+
+  <div class="article-style" itemprop="articleBody">
+    
+    디버깅 과정에선 현재 어떤 코드가 어떤 함수를 거쳐 수행됐는지를 통한 컨텍스트 파악이 중요합니다. Java, Python, Go 등 대부분의 언어가 이를 위해 콜스택을 뽑을 수 있는 기능을 제공하죠. C 언어의 경우 gdb 등을 사용하면 쉽게 이를 볼 수 있지만 경우에 따라선 gdb 를 포기하고 printf() 등에만 의존해야 하기도 합니다. 이를 위한 기능이 c 라이브러리에도 있습니다, backtrace() 함수입니다. man 에도 이에 대한 설명이 있습니다만, 여기서도 간단히 소개해 봅니다.
+Example Source Code 예제로 설명하는게 가장 쉽죠.
+    
+  </div>
+  <p class="read-more">
+    <a href="https://sjp38.github.io/post/backtrace_c_language/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
   
     
     
@@ -823,70 +876,6 @@ THP 를 활용해 read-only text 를 매핑함으로써 성능을 높이려는 �
   </div>
   <p class="read-more">
     <a href="https://sjp38.github.io/post/lkml_news_v5.0-rc8/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-  
-    
-    
-
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.0-rc7/" itemprop="url">LKML News v5.0-rc7</a>
-  </h3>
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2019-02-18 12:30:24 &#43;0900 KST" itemprop="datePublished">
-      Feb 18, 2019
-    </time>
-  </span>
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/lkml-news">lkml news</a
-    >
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-  <div class="article-style" itemprop="articleBody">
-    
-    [PATCH V15 00/18] block: support multi-page bvec https://lkml.kernel.org/r/20190215111324.30129-1-ming.lei@redhat.com
-시스템의 RAM 이 커지고 huge page 가 널리 사용되면서 물리적으로 연속된 페이지들의 I/O 가 흔해지고 있습니다. 이를 위해 struct bio_bvec 이 물리적으로 연속된 여러 페이지를 다룰 수 있게 해주는 패치의 15번째 버전입니다.
-Memory management facing a 400Gpbs network link https://lkml.kernel.org/r/01000168e2f54113-485312aa-7e08-4963-af92-803f8c7d21e6-000000@email.amazonses.com
-올해 내로 400Gbps 인피니밴드가 가능해질 거라고 합니다! 이건 프로세서-메모리 사이의 밴드위쓰를 넘길 수 있는 스피드죠! 단일 하드웨어 쓰레드는 20GB/s 이기 때문입니다. 이 재미있는 트렌드를 커널은 어떻게 대처해야 할 것인가 하는 메일입니다.
-    
-  </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.0-rc7/" class="btn btn-primary btn-outline">
       CONTINUE READING
     </a>
   </p>
