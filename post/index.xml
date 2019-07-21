@@ -251,6 +251,39 @@ Accuracy&amp;rdquo;.&lt;/p&gt;
 
 &lt;p&gt;&lt;code&gt;MADV_COLD&lt;/code&gt; 와 &lt;code&gt;MADV_PAGEOUT&lt;/code&gt; 을 구현하는 패치, 어느새 다섯번째 버전입니다.  큰
 변경은 없는 것 같군요.&lt;/p&gt;
+
+&lt;h2 id=&#34;patch-v2-0-3-make-working-with-compound-pages-easier&#34;&gt;[PATCH v2 0/3] Make working with compound pages easier&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190721104612.19120-1-willy@infradead.org&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20190721104612.19120-1-willy@infradead.org&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Huge page 를 다루기 쉽게끔 &lt;code&gt;page_size()&lt;/code&gt;, &lt;code&gt;page_shift()&lt;/code&gt;, 그리고
+&lt;code&gt;compound_nr()&lt;/code&gt; 이라는 세개의 helper 함수를 추가하고 이 함수들을 사용하게끔
+기존 코드를 다듬는 패치셋입니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;PAGE_SIZE &amp;lt;&amp;lt; compound_order(page)&lt;/code&gt; 는 &lt;code&gt;page_size(page)&lt;/code&gt; 가,
+&lt;code&gt;PAGE_SHIFT + compound_order(page)&lt;/code&gt; 는 &lt;code&gt;page_shift(page)&lt;/code&gt; 가, 그리고
+&lt;code&gt;1 &amp;lt;&amp;lt; compound_order(page)&lt;/code&gt; 는 &lt;code&gt;compound_nr(page)&lt;/code&gt; 가 되는 것이죠.&lt;/p&gt;
+
+&lt;h2 id=&#34;linux-5-3-rc1&#34;&gt;Linux 5.3-rc1&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/wiVjkTqzP6OppBuLQZ+t1mpRQC4T+Ho4Wg2sBAapKd--Q@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/wiVjkTqzP6OppBuLQZ+t1mpRQC4T+Ho4Wg2sBAapKd--Q@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;2주일이 지나고 5.3 을 향한 첫번째 rc 릴리즈가 이루어졌습니다.&lt;/p&gt;
+
+&lt;p&gt;이번 rc 릴리즈는 커밋 갯수로 볼 때 꽤 큰 릴리즈입니다.  4.12, 4.15, 4.19 때의
+머지 윈도우와 비슷한 정도라는군요.  참고로 가장 큰 머지윈도우는 아직 4.9 의
+것이었습니다.&lt;/p&gt;
+
+&lt;p&gt;이번 머지 윈도우는 초기에 두개의 버그가 나와서 토발즈를 괴롭게 했다고 하는데요.
+하나는 토발즈의 커널 컨피규레이션이 너무 간단하게 되어 있어 어떤 코드가 테스트
+되지 않아 토발즈가 만들어낸 버그였고, 다른 하나는 패치 자체에 존재하는
+버그였다고 합니다.  토발즈가 유발한 버그는 토발즈가 고쳤고, 두번째 버그를
+일으킨 패치는 그냥 리버트 시켰다고 하는군요.&lt;/p&gt;
+
+&lt;p&gt;그렇다고는 해도 이번 머지 윈도우의 후반부는 충분히 스무스하게 이뤄졌다고
+합니다.&lt;/p&gt;
+
+&lt;p&gt;그리고 이번 머지 윈도우에 이름을 올린 개발자는 총 1600명이었다는군요.&lt;/p&gt;
 </description>
     </item>
     
