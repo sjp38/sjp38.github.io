@@ -11,6 +11,209 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>NASA&#39;s Power of 10 Coding Rules (Korean)</title>
+      <link>https://sjp38.github.io/post/nasa_coding_rules/</link>
+      <pubDate>Sun, 21 Jul 2019 10:22:56 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/nasa_coding_rules/</guid>
+      <description>&lt;p&gt;우연히 발견한
+&lt;a href=&#34;https://dev.to/xowap/10-rules-to-code-like-nasa-applied-to-interpreted-languages-40dd?fbclid=IwAR1OA1FluREjWhd_1s93WBLtix8wrJZU6tOa5YLC-G9YxVu3iPeOOu09dzQ&#34; target=&#34;_blank&#34;&gt;글&lt;/a&gt;
+을 통해 &lt;a href=&#34;http://spinroot.com/gerard/pdf/P10.pdf&#34; target=&#34;_blank&#34;&gt;NASA 의 코딩 규칙 10가지&lt;/a&gt; 를
+알게 되었습니다.
+너무 깐깐한 규칙 아닌가 싶기도 하지만 &lt;code&gt;ping&lt;/code&gt; 하나 날리는데 40분이 걸리고
+물리적으로는 접근할 수 없는 화성에 로봇을 보내야 한다면 이런 규칙은 합리적이라
+볼 수 있겠죠.
+제가 참고한 저 글은 이걸 파이썬이나 자바스크립트와 같은 곳에서도 어떻게 적용해
+볼 수 있을지를 고찰해 보고 있습니다.
+이 포스트에선 단순히 이 10개의 규칙을 번역해 봅니다.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;goto&lt;/code&gt; 또는 재귀호출과 같은 복잡한 수행 흐름을 피하라.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;원문: 모든 코드를 매우 간단한 수행 흐름으로 제한하라 - &lt;code&gt;goto&lt;/code&gt; 문, &lt;code&gt;setjmp`
+또는&lt;/code&gt;longjmp`` 명령, 그리고 직/간접적 재귀 호출을 사용하지 말라.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Avoid complex flow constructs, such as goto and recursion.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Restrict all code to very simple control flow constructs – do not use goto
+statements, setjmp or longjmp constructs, and direct or indirect recursion.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;모든 루프 (반복문) 은 고정된 최대 반복 횟수를 가져야 한다.  이는 무한반복
+코드를 방지한다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;모든 루프는 고정된 최대 반복 횟수를 가져야 한다.  코드 체크 도구가 정적으로
+어떤 루프의 반복 횟수가 미리 설정된 최대 횟수를 넘는지를 쉽게 검사할 수 있어야
+한다.  이 반복 한계가 정적으로 검증될 수 없다면, 이 규칙이 깨어진 것으로
+간주한다.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;All loops must have fixed bounds. This prevents runaway code.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;All loops must have a fixed upper-bound. It must be trivially possible for a
+checking tool to prove statically that a preset upper-bound on the number of
+iterations of a loop cannot be exceeded. If the loop-bound cannot be proven
+statically, the rule is considered violated.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;힙 메모리 할당을 피하라.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;초기화 단계 후에는 동적 메모리 할당을 사용하지 말라.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Avoid heap memory allocation.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Do not use dynamic memory allocation after initialization.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;함수의 크기를 한장의 종이에 적힐 수 있게 제한하라.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;어떤 함수도 명령문당 한줄, 선언당 한줄을 갖는 표준 레퍼런스 포맷을 지킨 채로
+한장의 종이에 프린트 될 수 있는 길이 이상을 가져선 안된다.  보통, 이는 함수당
+60줄 이상의 코드를 가져선 안된다는 것을 의미한다.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Restrict functions to a single printed page.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;No function should be longer than what can be printed on a single sheet of
+paper in a standard reference format with one line per statement and one line
+per declaration. Typically, this means no more than about 60 lines of code per
+function.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;최소 함수당 두개의 런타임 단정문을 사용하라.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;평균적으로 함수당 최소 두개의 단정문이 있어야 한다.  단정문은 실제 수행 중에
+일어나선 안되는 문제가 있는 조건을 검사하는데 사용되어야 한다.  단정문은 항상
+사이드 이펙트로부터 자유로워야 하고 Boolean 테스트로 정의되어야 한다.  단정문이
+실패한다면 명시적인 복구 동작이 행해져야 하는데, 예를 들면 이 실패한 단정문을
+수행한 함수를 호출한 측에 에러 정보를 리턴하는 것이다.  정적 검사 도구가 절대
+실패할 수 없거나 항상 성공한다고 증명해내는 단정문은 모두 이 규칙을 어기는
+것이다. (예를 들어, 전혀 도움 되지 않을 &lt;code&gt;assert(true)&lt;/code&gt; 문을 추가함으로써 이
+규칙을 만족시킬 순 없다.)&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Use a minimum of two runtime assertions per function.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;The assertion density of the code should average to a minimum of two assertions
+per function. Assertions are used to check for anomalous conditions that should
+never happen in real-life executions. Assertions must always be side-effect
+free and should be defined as Boolean tests. When an assertion fails, an
+explicit recovery action must be taken, e.g., by returning an error condition
+to the caller of the function that executes the failing assertion. Any
+assertion for which a static checking tool can prove that it can never fail or
+never hold violates this rule. (I.e., it is not possible to satisfy the rule by
+adding unhelpful &amp;ldquo;assert(true)&amp;rdquo; statements.)&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;데이터의 사용 영역을 가능한 작게 잡아라.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;데이터 객체는 가능한 가장 작은 단계의 영역에서 선언되어야만 한다.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Restrict the scope of data to the smallest possible.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Data objects must be declared at the smallest possible level of scope.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;리턴 타입이 &lt;code&gt;void&lt;/code&gt; 가 아닌 (non-void) 모든 함수의 리턴값은 검사되거나
+리턴값이 무의미하다는 걸 알리기 위해 &lt;code&gt;void&lt;/code&gt; 로 캐스팅 되어야 한다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;code&gt;non-void&lt;/code&gt; 함수의 리턴값은 각 호출 함수에 의해 체크되어야 하며, 패러미터의
+유효성은 각 함수 안에서 검사되어야 한다.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Check the return value of all non-void functions, or cast to void to
+indicate the return value is useless.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;The return value of non-void functions must be checked by each calling
+function, and the validity of parameters must be checked inside each function.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;전처리기를 아껴 사용하라.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;전처리기의 사용은 헤더 파일을 포함하는 용도와 간단한 매그로 정의로 국한되어야만
+한다.  토큰 붙이기, 유동적 갯수의 인자 리스트, 그리고 재귀적 매크로 호출은
+허용되지 않는다.  모든 매크로는 완전한 구문적 단위로 확장되어야만 한다.  조건적
+컴파일 지시어의 사용은 많은 경우 모호하지만, 항상 금지될 수는 없다.  이는
+거대한 소프트웨어 개발 노력이 든다 하더라도 동일한 헤더 파일의 중복 포함을
+방지하는 상용문 외의 한두개의 조건적 컴파일 지시어를 위한 정당화가 필요하다는
+것을 의미한다.  그런 모든 경우에는 도구 기반의 검사를 통한 플래그가 붙어있거나
+코드 안에 사용의 정당성에 대한 설명이 있어야 한다.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Use the preprocessor sparingly.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;The use of the preprocessor must be limited to the inclusion of header files
+and simple macro definitions. Token pasting, variable argument lists
+(ellipses), and recursive macro calls are not allowed. All macros must expand
+into complete syntactic units. The use of conditional compilation directives is
+often also dubious, but cannot always be avoided. This means that there should
+rarely be justification for more than one or two conditional compilation
+directives even in large software development efforts, beyond the standard
+boilerplate that avoids multiple inclusion of the same header file. Each such
+use should be flagged by a tool-based checker and
+justified in the code.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;포인터의 사용을 한단계 디레퍼런스로 제한하고, 함수 포인터는 사용하지 말라.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;포인터의 사용은 제한되어야 한다.  구체적으로, 두단계 이상의 디레퍼런스는
+허용되지 않는다.  포인터 디레퍼런스 오퍼레이션이 매크로 정의나 &lt;code&gt;typedef&lt;/code&gt; 선언
+안에 숨겨져선 안된다.  함수 포인터는 허용되지 않는다.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Limit pointer use to a single dereference, and do not use function pointers.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;The use of pointers should be restricted. Specifically, no more than one level
+of dereferencing is allowed. Pointer dereference operations may not be hidden
+in macro definitions or inside typedef declarations. Function pointers are not
+permitted.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;모든 가능한 경고를 활성화 한 채 컴파일 하라; 그리고 모든 경고는 해당
+소프트웨어의 배포 전에 해결되어야 한다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;모든 코드는 개발을 시작한 첫날부터 모든 컴파일러 경고가 가장 엄중한 설정으로
+활성화 된 채 컴파일 되어야만 한다.  모든 코드는 이 설정 아래 아무런 경고 없이
+컴파일 되어야 한다.  모든 코드는 최소 하루에 한번, 그러나 가급적 한번 넘게,
+최신의 정적 소스 코드 분석도구를 통해 검사되어야 하며 이 검사를 어떤 경고도
+없이 통과해야만 한다.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Compile with all possible warnings active; all warnings should then be
+addressed before release of the software.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;All code must be compiled, from the first day of development, with allcompiler
+warnings enabled at the compiler’s most pedantic setting. All code must compile
+with these setting without any warnings. All code must be checked daily with at
+least one, but preferably more than one, state-of-the-art static source code
+analyzer and should pass the analyses with zero warnings.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>I will have a talk at the Linux Kernel Summit 2019</title>
       <link>https://sjp38.github.io/post/kernelsummit2019_talk/</link>
       <pubDate>Sat, 20 Jul 2019 02:41:46 +0900</pubDate>
@@ -687,53 +890,6 @@ range locking 이라는 아이디어가 갖는 한계와 그에 대한 대책 �
 
 &lt;p&gt;일정대로 두번째 rc2 가 릴리즈 되었습니다.  이번엔 그야말로 특기할 만한 점이
 없다는군요.  그나마 큰 변화는 SPDX 관련 변경들 뿐이었다고 합니다.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>LKML News v5.2-rc1</title>
-      <link>https://sjp38.github.io/post/lkml_news_v5.2-rc1/</link>
-      <pubDate>Wed, 08 May 2019 10:22:05 +0900</pubDate>
-      
-      <guid>https://sjp38.github.io/post/lkml_news_v5.2-rc1/</guid>
-      <description>
-
-&lt;h2 id=&#34;patch-mm-introduce-page-size&#34;&gt;[PATCH] mm: Introduce page_size()&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190510181242.24580-1-willy@infradead.org&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20190510181242.24580-1-willy@infradead.org&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Huge page 등의 경우를 위해 페이지의 실제 크기를 구하려면 &lt;code&gt;PAGE_SIZE &amp;lt;&amp;lt;
-compound_order(page)&lt;/code&gt; 를 해야 하는게 짜증난 Matthew Wilcox 가 별도의 함수를
-만들고 기존 코드들을 이 함수를 사용하도록 변경한 패치입니다.&lt;/p&gt;
-
-&lt;h2 id=&#34;patch-v2-00-15-remove-order-argument-from-many-mm-functions&#34;&gt;[PATCH v2 00/15] Remove &amp;lsquo;order&amp;rsquo; argument from many mm functions&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190510135038.17129-1-willy@infradead.org&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20190510135038.17129-1-willy@infradead.org&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;mm 쪽 함수들은 order 를 인자로 많이 받죠.  어차피 gfp_t 는 무조건 받으니까 이
-타입의 상위 bit 을 order 목적으로 사용하자는 패치입니다.  이 패치의 장점은?
-커널 텍스트 사이즈를 줄인다는 것입니다 :)&lt;/p&gt;
-
-&lt;h2 id=&#34;maintainer-s-kernel-summit-2019-planning-kick-off&#34;&gt;Maintainer&amp;rsquo;s / Kernel Summit 2019 planning kick-off&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190513230643.GA4347@mit.edu&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20190513230643.GA4347@mit.edu&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;올해의 커널 서밋 / 메인테이너 서밋을 위한 안내 메일입니다.  작년엔 커널 서밋은
-LPC 와, 메인테이너 서밋은 OSSEU 와 함께 열렸었죠.  올해는 둘 다 LPC 와 함께
-합니다.&lt;/p&gt;
-
-&lt;p&gt;메인테이너 서밋은 올해는 아예 30명으로 더욱 작게 모이는군요.&lt;/p&gt;
-
-&lt;p&gt;커널 서밋 발표 주제는 5월 31일까지 받습니다.  발표주제 선정되면 LPC 티켓도
-준다는군요!&lt;/p&gt;
-
-&lt;h2 id=&#34;linux-5-2-rc1&#34;&gt;Linux 5.2-rc1&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wgxi6fnxZ+p5Zdqr-i4s=xhOCBJL6s_RauYkjxM2CpXeA@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CAHk-=wgxi6fnxZ+p5Zdqr-i4s=xhOCBJL6s_RauYkjxM2CpXeA@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;5.2 릴리즈를 위한 머지윈도우가 끝나고 rc1 버전이 릴리즈 되었습니다.  이번 머지
-윈도우 중간에 토발즈의 개인적 여행이 있다고 했지만 다행히 잘 정리되었나보군요.
-별다른 건은 없었다고 합니다.&lt;/p&gt;
 </description>
     </item>
     

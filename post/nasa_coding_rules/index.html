@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme" content="hugo-academic">
+  <meta name="generator" content="Hugo 0.31.1" />
+  <meta name="author" content="SeongJae Park">
+  <meta name="description" content="System Programmer">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/nasa_coding_rules/">
+
+  
+  
+
+
+  
+
+  
+  
+  
+  
+    
+  
+  
+    
+    
+      
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+      
+    
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha512-6MXa8B6uaO18Hid6blRMetEIoPqHf7Ux1tnyIQdpt9qI5OACx7C+O3IVTr98vwGnlcg0LOLa02i9Y1HpVhlfiw==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.1/css/academicons.min.css" integrity="sha512-NThgw3XKQ1absAahW6to7Ey42uycrVvfNfyjqcFNgCmOCQ5AR4AO0SiXrN+8ZtYeappp56lk1WtvjVmEa+VR6A==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous">
+  
+  
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700%7cRoboto:400,400italic,700%7cRoboto&#43;Mono">
+  
+  <link rel="stylesheet" href="/styles.css">
+  
+
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-30621335-1', 'auto');
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+
+  
+  <link rel="alternate" href="https://sjp38.github.io/index.xml" type="application/rss+xml" title="Hacklog">
+  <link rel="feed" href="https://sjp38.github.io/index.xml" type="application/rss+xml" title="Hacklog">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="https://sjp38.github.io/post/nasa_coding_rules/">
+
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="og:site_name" content="Hacklog">
+  <meta property="og:url" content="https://sjp38.github.io/post/nasa_coding_rules/">
+  <meta property="og:title" content="NASA&#39;s Power of 10 Coding Rules (Korean) | Hacklog">
+  <meta property="og:description" content="">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2019-07-21T10:22:56&#43;09:00">
+  
+  <meta property="article:modified_time" content="2019-07-21T10:22:56&#43;09:00">
+  
+
+  
+
+  <title>NASA&#39;s Power of 10 Coding Rules (Korean) | Hacklog</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+      <a class="navbar-brand" href="/">Hacklog</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#about">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#publications_selected">
+            
+            <span>Publications</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#posts">
+            
+            <span>Posts</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#projects">
+            
+            <span>Projects</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#contact">
+            
+            <span>Contact</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#tags">
+            
+            <span>Tags</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/post/about/">
+            
+            <span>About</span>
+            
+          </a>
+        </li>
+
+        
+        
+      
+
+      
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+  <div class="article-container">
+    <div class="article-inner">
+      <h1 itemprop="name">NASA&#39;s Power of 10 Coding Rules (Korean)</h1>
+
+      
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2019-07-21 10:22:56 &#43;0900 KST" itemprop="datePublished">
+      Jul 21, 2019
+    </time>
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    6 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/misc">misc</a
+    >
+    
+  </span>
+  
+  
+
+  
+  
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=NASA%27s%20Power%20of%2010%20Coding%20Rules%20%28Korean%29&amp;url=https%3a%2f%2fsjp38.github.io%2fpost%2fnasa_coding_rules%2f"
+         target="_blank" rel="noopener">
+        <i class="fa fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fsjp38.github.io%2fpost%2fnasa_coding_rules%2f"
+         target="_blank" rel="noopener">
+        <i class="fa fa-facebook"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fsjp38.github.io%2fpost%2fnasa_coding_rules%2f&amp;title=NASA%27s%20Power%20of%2010%20Coding%20Rules%20%28Korean%29"
+         target="_blank" rel="noopener">
+        <i class="fa fa-linkedin"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fsjp38.github.io%2fpost%2fnasa_coding_rules%2f&amp;title=NASA%27s%20Power%20of%2010%20Coding%20Rules%20%28Korean%29"
+         target="_blank" rel="noopener">
+        <i class="fa fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=NASA%27s%20Power%20of%2010%20Coding%20Rules%20%28Korean%29&amp;body=https%3a%2f%2fsjp38.github.io%2fpost%2fnasa_coding_rules%2f">
+        <i class="fa fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+
+      <div class="article-style" itemprop="articleBody">
+        <p>우연히 발견한
+<a href="https://dev.to/xowap/10-rules-to-code-like-nasa-applied-to-interpreted-languages-40dd?fbclid=IwAR1OA1FluREjWhd_1s93WBLtix8wrJZU6tOa5YLC-G9YxVu3iPeOOu09dzQ" target="_blank">글</a>
+을 통해 <a href="http://spinroot.com/gerard/pdf/P10.pdf" target="_blank">NASA 의 코딩 규칙 10가지</a> 를
+알게 되었습니다.
+너무 깐깐한 규칙 아닌가 싶기도 하지만 <code>ping</code> 하나 날리는데 40분이 걸리고
+물리적으로는 접근할 수 없는 화성에 로봇을 보내야 한다면 이런 규칙은 합리적이라
+볼 수 있겠죠.
+제가 참고한 저 글은 이걸 파이썬이나 자바스크립트와 같은 곳에서도 어떻게 적용해
+볼 수 있을지를 고찰해 보고 있습니다.
+이 포스트에선 단순히 이 10개의 규칙을 번역해 봅니다.</p>
+
+<ol>
+<li><code>goto</code> 또는 재귀호출과 같은 복잡한 수행 흐름을 피하라.</li>
+</ol>
+
+<p>원문: 모든 코드를 매우 간단한 수행 흐름으로 제한하라 - <code>goto</code> 문, <code>setjmp`
+또는</code>longjmp`` 명령, 그리고 직/간접적 재귀 호출을 사용하지 말라.</p>
+
+<ol>
+<li>Avoid complex flow constructs, such as goto and recursion.</li>
+</ol>
+
+<p>Restrict all code to very simple control flow constructs – do not use goto
+statements, setjmp or longjmp constructs, and direct or indirect recursion.</p>
+
+<ol>
+<li>모든 루프 (반복문) 은 고정된 최대 반복 횟수를 가져야 한다.  이는 무한반복
+코드를 방지한다.</li>
+</ol>
+
+<p>모든 루프는 고정된 최대 반복 횟수를 가져야 한다.  코드 체크 도구가 정적으로
+어떤 루프의 반복 횟수가 미리 설정된 최대 횟수를 넘는지를 쉽게 검사할 수 있어야
+한다.  이 반복 한계가 정적으로 검증될 수 없다면, 이 규칙이 깨어진 것으로
+간주한다.</p>
+
+<ol>
+<li>All loops must have fixed bounds. This prevents runaway code.</li>
+</ol>
+
+<p>All loops must have a fixed upper-bound. It must be trivially possible for a
+checking tool to prove statically that a preset upper-bound on the number of
+iterations of a loop cannot be exceeded. If the loop-bound cannot be proven
+statically, the rule is considered violated.</p>
+
+<ol>
+<li>힙 메모리 할당을 피하라.</li>
+</ol>
+
+<p>초기화 단계 후에는 동적 메모리 할당을 사용하지 말라.</p>
+
+<ol>
+<li>Avoid heap memory allocation.</li>
+</ol>
+
+<p>Do not use dynamic memory allocation after initialization.</p>
+
+<ol>
+<li>함수의 크기를 한장의 종이에 적힐 수 있게 제한하라.</li>
+</ol>
+
+<p>어떤 함수도 명령문당 한줄, 선언당 한줄을 갖는 표준 레퍼런스 포맷을 지킨 채로
+한장의 종이에 프린트 될 수 있는 길이 이상을 가져선 안된다.  보통, 이는 함수당
+60줄 이상의 코드를 가져선 안된다는 것을 의미한다.</p>
+
+<ol>
+<li>Restrict functions to a single printed page.</li>
+</ol>
+
+<p>No function should be longer than what can be printed on a single sheet of
+paper in a standard reference format with one line per statement and one line
+per declaration. Typically, this means no more than about 60 lines of code per
+function.</p>
+
+<ol>
+<li>최소 함수당 두개의 런타임 단정문을 사용하라.</li>
+</ol>
+
+<p>평균적으로 함수당 최소 두개의 단정문이 있어야 한다.  단정문은 실제 수행 중에
+일어나선 안되는 문제가 있는 조건을 검사하는데 사용되어야 한다.  단정문은 항상
+사이드 이펙트로부터 자유로워야 하고 Boolean 테스트로 정의되어야 한다.  단정문이
+실패한다면 명시적인 복구 동작이 행해져야 하는데, 예를 들면 이 실패한 단정문을
+수행한 함수를 호출한 측에 에러 정보를 리턴하는 것이다.  정적 검사 도구가 절대
+실패할 수 없거나 항상 성공한다고 증명해내는 단정문은 모두 이 규칙을 어기는
+것이다. (예를 들어, 전혀 도움 되지 않을 <code>assert(true)</code> 문을 추가함으로써 이
+규칙을 만족시킬 순 없다.)</p>
+
+<ol>
+<li>Use a minimum of two runtime assertions per function.</li>
+</ol>
+
+<p>The assertion density of the code should average to a minimum of two assertions
+per function. Assertions are used to check for anomalous conditions that should
+never happen in real-life executions. Assertions must always be side-effect
+free and should be defined as Boolean tests. When an assertion fails, an
+explicit recovery action must be taken, e.g., by returning an error condition
+to the caller of the function that executes the failing assertion. Any
+assertion for which a static checking tool can prove that it can never fail or
+never hold violates this rule. (I.e., it is not possible to satisfy the rule by
+adding unhelpful &ldquo;assert(true)&rdquo; statements.)</p>
+
+<ol>
+<li>데이터의 사용 영역을 가능한 작게 잡아라.</li>
+</ol>
+
+<p>데이터 객체는 가능한 가장 작은 단계의 영역에서 선언되어야만 한다.</p>
+
+<ol>
+<li>Restrict the scope of data to the smallest possible.</li>
+</ol>
+
+<p>Data objects must be declared at the smallest possible level of scope.</p>
+
+<ol>
+<li>리턴 타입이 <code>void</code> 가 아닌 (non-void) 모든 함수의 리턴값은 검사되거나
+리턴값이 무의미하다는 걸 알리기 위해 <code>void</code> 로 캐스팅 되어야 한다.</li>
+</ol>
+
+<p><code>non-void</code> 함수의 리턴값은 각 호출 함수에 의해 체크되어야 하며, 패러미터의
+유효성은 각 함수 안에서 검사되어야 한다.</p>
+
+<ol>
+<li>Check the return value of all non-void functions, or cast to void to
+indicate the return value is useless.</li>
+</ol>
+
+<p>The return value of non-void functions must be checked by each calling
+function, and the validity of parameters must be checked inside each function.</p>
+
+<ol>
+<li>전처리기를 아껴 사용하라.</li>
+</ol>
+
+<p>전처리기의 사용은 헤더 파일을 포함하는 용도와 간단한 매그로 정의로 국한되어야만
+한다.  토큰 붙이기, 유동적 갯수의 인자 리스트, 그리고 재귀적 매크로 호출은
+허용되지 않는다.  모든 매크로는 완전한 구문적 단위로 확장되어야만 한다.  조건적
+컴파일 지시어의 사용은 많은 경우 모호하지만, 항상 금지될 수는 없다.  이는
+거대한 소프트웨어 개발 노력이 든다 하더라도 동일한 헤더 파일의 중복 포함을
+방지하는 상용문 외의 한두개의 조건적 컴파일 지시어를 위한 정당화가 필요하다는
+것을 의미한다.  그런 모든 경우에는 도구 기반의 검사를 통한 플래그가 붙어있거나
+코드 안에 사용의 정당성에 대한 설명이 있어야 한다.</p>
+
+<ol>
+<li>Use the preprocessor sparingly.</li>
+</ol>
+
+<p>The use of the preprocessor must be limited to the inclusion of header files
+and simple macro definitions. Token pasting, variable argument lists
+(ellipses), and recursive macro calls are not allowed. All macros must expand
+into complete syntactic units. The use of conditional compilation directives is
+often also dubious, but cannot always be avoided. This means that there should
+rarely be justification for more than one or two conditional compilation
+directives even in large software development efforts, beyond the standard
+boilerplate that avoids multiple inclusion of the same header file. Each such
+use should be flagged by a tool-based checker and
+justified in the code.</p>
+
+<ol>
+<li>포인터의 사용을 한단계 디레퍼런스로 제한하고, 함수 포인터는 사용하지 말라.</li>
+</ol>
+
+<p>포인터의 사용은 제한되어야 한다.  구체적으로, 두단계 이상의 디레퍼런스는
+허용되지 않는다.  포인터 디레퍼런스 오퍼레이션이 매크로 정의나 <code>typedef</code> 선언
+안에 숨겨져선 안된다.  함수 포인터는 허용되지 않는다.</p>
+
+<ol>
+<li>Limit pointer use to a single dereference, and do not use function pointers.</li>
+</ol>
+
+<p>The use of pointers should be restricted. Specifically, no more than one level
+of dereferencing is allowed. Pointer dereference operations may not be hidden
+in macro definitions or inside typedef declarations. Function pointers are not
+permitted.</p>
+
+<ol>
+<li>모든 가능한 경고를 활성화 한 채 컴파일 하라; 그리고 모든 경고는 해당
+소프트웨어의 배포 전에 해결되어야 한다.</li>
+</ol>
+
+<p>모든 코드는 개발을 시작한 첫날부터 모든 컴파일러 경고가 가장 엄중한 설정으로
+활성화 된 채 컴파일 되어야만 한다.  모든 코드는 이 설정 아래 아무런 경고 없이
+컴파일 되어야 한다.  모든 코드는 최소 하루에 한번, 그러나 가급적 한번 넘게,
+최신의 정적 소스 코드 분석도구를 통해 검사되어야 하며 이 검사를 어떤 경고도
+없이 통과해야만 한다.</p>
+
+<ol>
+<li>Compile with all possible warnings active; all warnings should then be
+addressed before release of the software.</li>
+</ol>
+
+<p>All code must be compiled, from the first day of development, with allcompiler
+warnings enabled at the compiler’s most pedantic setting. All code must compile
+with these setting without any warnings. All code must be checked daily with at
+least one, but preferably more than one, state-of-the-art static source code
+analyzer and should pass the analyses with zero warnings.</p>
+
+      </div>
+
+      
+
+
+<div class="article-tags">
+  
+  <a class="btn btn-primary btn-outline" href="/tags/coding">coding</a>
+  
+  <a class="btn btn-primary btn-outline" href="/tags/coding-rule">coding rule</a>
+  
+  <a class="btn btn-primary btn-outline" href="/tags/coding-style">coding style</a>
+  
+</div>
+
+
+
+    </div>
+  </div>
+
+</article>
+
+
+
+
+
+
+<div class="article-container">
+  
+
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <p class="powered-by">
+
+      &copy; 2017 Your Name &middot; 
+
+      Powered by the
+      <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+      <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+      <span class="pull-right" aria-hidden="true">
+        <a href="#" id="back_to_top">
+          <span class="button_icon">
+            <i class="fa fa-chevron-up fa-2x"></i>
+          </span>
+        </a>
+      </span>
+
+    </p>
+  </div>
+</footer>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close btn-large" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Cite</h4>
+      </div>
+      <div>
+        <pre><code class="modal-body tex"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-primary btn-outline js-copy-cite" href="#" target="_blank">
+          <i class="fa fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-primary btn-outline js-download-cite" href="#" target="_blank">
+          <i class="fa fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+
+    
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.3/imagesloaded.pkgd.min.js" integrity="sha512-umsR78NN0D23AzgoZ11K7raBD+R6hqKojyBZs1w8WvYlsI+QuKRGBx3LFCwhatzBunCjDuJpDHwxD13sLMbpRA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
+    
+    
+    <script src="/js/hugo-academic.js"></script>
+    
+
+    
+    
+      
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+      
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+
