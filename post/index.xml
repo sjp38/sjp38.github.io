@@ -11,6 +11,61 @@
     <atom:link href="/post/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>LKML News v5.3-rc2</title>
+      <link>https://sjp38.github.io/post/lkml_news_v5.3-rc2/</link>
+      <pubDate>Fri, 26 Jul 2019 08:41:19 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/lkml_news_v5.3-rc2/</guid>
+      <description>
+
+&lt;h2 id=&#34;patch-v6-0-5-introduce-madv-cold-and-madv-pageout&#34;&gt;[PATCH v6 0/5] Introduce MADV_COLD and MADV_PAGEOUT&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190723062539.198697-1-minchan@kernel.org&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20190723062539.198697-1-minchan@kernel.org&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;어플리케이션의 메모리를 좀 더 적극적으로 reclaim 시킴으로써 반응성을 높이기
+위한 패치셋의 일부를 따로 떼어낸, &lt;code&gt;MADV_COLD&lt;/code&gt; 와 &lt;code&gt;MADV_PAGEOUT&lt;/code&gt; 힌트를
+&lt;code&gt;madvise()&lt;/code&gt; 에 추가하는 패치의 여섯번째 버전입니다.&lt;/p&gt;
+
+&lt;h2 id=&#34;patch-v9-00-21-generic-page-walk-and-ptdump&#34;&gt;[PATCH v9 00/21] Generic page walk and ptdump&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190722154210.42799-1-steven.price@arm.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20190722154210.42799-1-steven.price@arm.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;x86 과 arm64 가 범용적 페이지 테이블 워킹을 하도록 했던 해치셋을 조금 더 확장한
+버전입니다.  기존 대비 페이지 테이블 덤프 기능도 일반화 시킨게 차이군요.&lt;/p&gt;
+
+&lt;h2 id=&#34;patch-v1-1-2-mm-page-idle-add-support-for-per-pid-page-idle-using-virtual-indexing&#34;&gt;[PATCH v1 &lt;sup&gt;1&lt;/sup&gt;&amp;frasl;&lt;sub&gt;2&lt;/sub&gt;] mm/page_idle: Add support for per-pid page_idle using virtual indexing&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190722213205.140845-1-joel@joelfernandes.org&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20190722213205.140845-1-joel@joelfernandes.org&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;리눅스 커널은 &lt;code&gt;page_idle&lt;/code&gt; 이라는 인터페이스를 통해 특정 페이지의 액세스 여부를
+파악할 수 있게 합니다.  저도 이걸 통해서 wss 를 재거나 하는데 쓸 수 있는
+&lt;a href=&#34;https://github.com/sjp38/idle_page_tracking&#34; target=&#34;_blank&#34;&gt;도구&lt;/a&gt;를 만들었었죠.&lt;/p&gt;
+
+&lt;p&gt;문제는 이 인터페이스는 쓰기가 조금 복잡합니다.  PFN 을 가지고 페이지를 지목할
+수 있게 되어 있기 때문에 특정 프로세스의 데이터 액세스를 추적하려면 해당
+프로세스가 사용하고 있는 가상 메모리가 어떤 PFN 으로 매핑되어 있는지 알아야
+하기 때문이죠.  달리 말하면 &lt;code&gt;page_idle&lt;/code&gt; 인터페이스가 글로벌하기 때문에 생기는
+문제입니다.&lt;/p&gt;
+
+&lt;p&gt;이 패치셋은 &lt;code&gt;/proc/&amp;lt;pid&amp;gt;/page_idle&lt;/code&gt; 파일을 생성하고 이를 통해 프로세스 단위로
+virtual page frame number (VFN) 을 통해 페이지 트랙킹을 할 수 있게 합니다.
+이로써 이 인터페이스를 사용하는 유저스페이스 도구의 코드가 간단해질 뿐더러 보안
+이슈도 좀 더 편리해지죠.  구글에선 내부적으로 이를 통해 heap profiler
+(heapprofd) 를 좀 더 쉽게 만들었나보군요.&lt;/p&gt;
+
+&lt;h2 id=&#34;patch-rfc-mm-page-idle-simple-idle-page-tracking-for-virtual-memory&#34;&gt;[PATCH RFC] mm/page_idle: simple idle page tracking for virtual memory&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/156388286599.2859.5353604441686895041.stgit@buzz&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/156388286599.2859.5353604441686895041.stgit@buzz&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;앞에서 소개한 패치와 비슷하게 &lt;code&gt;page_idle&lt;/code&gt; 을 간편화 시키는 패치셋입니다.  특정
+pid 의 모든 mapped page frame 의 access bit 을 한번에 clear 할 수 있게 합니다.
+인터페이스는 &lt;code&gt;echo 6 &amp;gt; /proc/&amp;lt;pid&amp;gt;/clear_refs&lt;/code&gt; 같은 형태군요.  이후,
+&lt;code&gt;/proc/&amp;lt;pid&amp;gt;/smaps&lt;/code&gt; 파일을 이용해 현재 idle 한 페이지들의 갯수를 알 수
+있습니다.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>NASA&#39;s Power of 10 Coding Rules (Korean)</title>
       <link>https://sjp38.github.io/post/nasa_coding_rules/</link>
       <pubDate>Sun, 21 Jul 2019 10:22:56 +0900</pubDate>
@@ -860,72 +915,6 @@ $ ./make.bash
 $ cd ../biscuit/
 $ make qemu CPUS=2
 &lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>LKML News v5.2-rc2</title>
-      <link>https://sjp38.github.io/post/lkml_news_v5.2-rc2/</link>
-      <pubDate>Tue, 21 May 2019 01:27:47 +0900</pubDate>
-      
-      <guid>https://sjp38.github.io/post/lkml_news_v5.2-rc2/</guid>
-      <description>
-
-&lt;h2 id=&#34;rfc-patch-v5-00-16-slab-movable-objects-smo&#34;&gt;[RFC PATCH v5 00/16] Slab Movable Objects (SMO)&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190520054017.32299-1-tobin@kernel.org&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20190520054017.32299-1-tobin@kernel.org&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;이 블로그에서도 소개한 Slab movable objects 패치셋의 다섯번째 버전입니다.  RFC
-로는 아마도 마지막 버전이 될거라는군요.&lt;/p&gt;
-
-&lt;h2 id=&#34;rfc-patch-00-14-mmap-sem-range-locking&#34;&gt;[RFC PATCH 00/14] mmap_sem range locking&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190521045242.24378-1-dave@stgolabs.net&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20190521045242.24378-1-dave@stgolabs.net&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;이번 LSFMM 에서 개인적으로 가장 기대했던 세션이 &lt;code&gt;mmap_sem&lt;/code&gt; 해결에 대한
-세션이었습니다.  해당 세션에서는 예전부터 이야기가 나온 range locking 에
-대해서도 이야기가 있었는데요, 이 패치셋은 이 range locking 을 사용한 &lt;code&gt;mmap_sem&lt;/code&gt;
-문제 해결 시도를 다시 정리해 RFC 의 형태로 올린 것입니다.&lt;/p&gt;
-
-&lt;p&gt;RFC 라는 데서 알 수 있겠지만 이 패치 자체에도 문제가 많지만, 코드 자체보다는 이
-range locking 이라는 아이디어가 갖는 한계와 그에 대한 대책 등을 논의해 보고자
-올린 것이라고 합니다.&lt;/p&gt;
-
-&lt;h2 id=&#34;rfc-0-7-introduce-memory-hinting-api-for-external-process&#34;&gt;[RFC 0/7] introduce memory hinting API for external process&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190520035254.57579-1-minchan@kernel.org&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20190520035254.57579-1-minchan@kernel.org&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;앞서 여기서도 다룬 구글의 proactive swap 의 안드로이드 버전과 비슷한 일을 위한
-패치셋입니다.  안쓰는 데이터 잔뜩 쥐고서는 스왑도 안당하고 있는 앱이 문제죠.
-이런 데이터를 &lt;code&gt;madvise()&lt;/code&gt; 에 &lt;code&gt;MADVISE_COLD&lt;/code&gt; 와 &lt;code&gt;MADVISE_COOL&lt;/code&gt; 이라는 추가
-힌트를 줘서 어플리케이션 레벨에서 이런 스왑하는게 좋을 데이터를 알려주는
-형태입니다.  기존의 &lt;code&gt;MADVISE_WONTNEED&lt;/code&gt; 는 스왑을 하는게 아니라 걍 데이터를
-버려버리기 때문에 이런 두개의 힌트를 추가한거죠.&lt;/p&gt;
-
-&lt;p&gt;인공적 벤치마크가 아니라 수백명의 진짜 사용자를 통해 성능 실험을 했다고
-하는데요, 구글에서 고용한 테스트 집단일까요?&lt;/p&gt;
-
-&lt;h2 id=&#34;patch-v4-00-14-provide-generic-top-down-mmap-layout-functions&#34;&gt;[PATCH v4 00/14] Provide generic top-down mmap layout functions&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190526134746.9315-1-alex@ghiti.fr&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20190526134746.9315-1-alex@ghiti.fr&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;각 아키텍쳐별로 존재하는 중복 코드를 제거하기 위해 만들어진 범용 top-down mmap
-을 위한 패치의 네번째 버전입니다.&lt;/p&gt;
-
-&lt;h2 id=&#34;patch-0-3-remove-tmem-and-code-depending-on-it&#34;&gt;[PATCH 0/3] remove tmem and code depending on it&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190527103207.13287-1-jgross@suse.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20190527103207.13287-1-jgross@suse.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Xen 의 tmem 기능이 제거되었군요.  관련 코드를 리눅스 커널에서도 제거하는
-패치셋입니다.  덕분에 cleancache 가 아예 사라질 모양입니다.  Cleancache 에
-의존하는 GCMA 를 만들고 있는 제 입장에선 쇼킹한 일입니다.&lt;/p&gt;
-
-&lt;h2 id=&#34;linux-5-2-rc2&#34;&gt;Linux 5.2-rc2&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wgob1t2g9iQZCuZ8My39CY26xGb6nqjVhCtb1nTirsR2Q@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CAHk-=wgob1t2g9iQZCuZ8My39CY26xGb6nqjVhCtb1nTirsR2Q@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;일정대로 두번째 rc2 가 릴리즈 되었습니다.  이번엔 그야말로 특기할 만한 점이
-없다는군요.  그나마 큰 변화는 SPDX 관련 변경들 뿐이었다고 합니다.&lt;/p&gt;
 </description>
     </item>
     

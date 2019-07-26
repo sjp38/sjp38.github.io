@@ -608,6 +608,92 @@ DevFest W, March 2013.
       
           
       
+          
+      
+
+      
+      
+        
+        
+
+<div class="article-list-item" itemscope itemprop="blogPost">
+  
+  
+  <h3 class="article-title" itemprop="name">
+    <a href="https://sjp38.github.io/post/lkml_news_v5.3-rc2/" itemprop="url">LKML News v5.3-rc2</a>
+  </h3>
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2019-07-26 08:41:19 &#43;0900 KST" itemprop="datePublished">
+      Jul 26, 2019
+    </time>
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/lkml-news">lkml news</a
+    >
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+  <div class="article-style" itemprop="articleBody">
+    
+    [PATCH v6 0/5] Introduce MADV_COLD and MADV_PAGEOUT https://lkml.kernel.org/r/20190723062539.198697-1-minchan@kernel.org
+어플리케이션의 메모리를 좀 더 적극적으로 reclaim 시킴으로써 반응성을 높이기 위한 패치셋의 일부를 따로 떼어낸, MADV_COLD 와 MADV_PAGEOUT 힌트를 madvise() 에 추가하는 패치의 여섯번째 버전입니다.
+[PATCH v9 00/21] Generic page walk and ptdump https://lkml.kernel.org/r/20190722154210.42799-1-steven.price@arm.com
+x86 과 arm64 가 범용적 페이지 테이블 워킹을 하도록 했던 해치셋을 조금 더 확장한 버전입니다. 기존 대비 페이지 테이블 덤프 기능도 일반화 시킨게 차이군요.
+[PATCH v1 1&frasl;2] mm/page_idle: Add support for per-pid page_idle using virtual indexing https://lkml.
+    
+  </div>
+  <p class="read-more">
+    <a href="https://sjp38.github.io/post/lkml_news_v5.3-rc2/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
+      
+
+      
+
+        
+
+        
+        
+
+        
+        
+          
+      
+          
+      
+          
+      
 
       
       
@@ -934,86 +1020,6 @@ Linux 5.2 https://lkml.kernel.org/r/CAHk-=whtW3FdruS-q2zehJPSan1SKtHoFHKX28A3J_1
       
 
       
-
-        
-
-        
-        
-
-        
-        
-          
-      
-          
-      
-          
-      
-
-      
-      
-        
-        
-
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/integrate_external_git_repository_with_history/" itemprop="url">Integrate external git repository with its history</a>
-  </h3>
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2019-06-27 17:02:49 &#43;0900 KST" itemprop="datePublished">
-      Jun 27, 2019
-    </time>
-  </span>
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/tip">tip</a
-    >
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-  <div class="article-style" itemprop="articleBody">
-    
-    프로젝트 a 와 프로젝트 b 를 병렬로 진행하고 있었는데, 두개의 리포지토리를 합치고 싶어지는 경우가 있습니다. 예컨대 프로젝트 a 의 성격이 보다 범용이 되었고 프로젝트 b 는 프로젝트 a 를 위한 도구적 성격이 되는 경우가 있겠죠. a 프로젝트에 &lsquo;b&rsquo; 디렉토리를 만들고 그 아래 기존 프로젝트 b 의 파일들을 위치하고 싶습니다. 하지만 기존 b 프로젝트의 git 히스토리들도 유지하고 싶습니다. 비슷한 사례로 리눅스 커널 메모리 모델 프로젝트는 별도의 리포지토리[1] 로 개발되었지만 리눅스 업스트림 리포지토리의 tools/ 디렉토리 아래로 머지[2] 되었는데, 이 때 기존 개발 히스토리를 유지했죠.
-    
-  </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/integrate_external_git_repository_with_history/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-      
-
-      
     
 
   </div>
@@ -1157,7 +1163,7 @@ Linux 5.2 https://lkml.kernel.org/r/CAHk-=whtW3FdruS-q2zehJPSan1SKtHoFHKX28A3J_1
           
           
           
-          <a href="/tags/benchmark" style="font-size:1.394124503685616rem">benchmark</a>
+          <a href="/tags/benchmark" style="font-size:1.3928435543890432rem">benchmark</a>
         
           
           
@@ -1255,7 +1261,7 @@ Linux 5.2 https://lkml.kernel.org/r/CAHk-=whtW3FdruS-q2zehJPSan1SKtHoFHKX28A3J_1
           
           
           
-          <a href="/tags/conference" style="font-size:1.461428562826097rem">conference</a>
+          <a href="/tags/conference" style="font-size:1.4600025040673197rem">conference</a>
         
           
           
@@ -1297,7 +1303,7 @@ Linux 5.2 https://lkml.kernel.org/r/CAHk-=whtW3FdruS-q2zehJPSan1SKtHoFHKX28A3J_1
           
           
           
-          <a href="/tags/development" style="font-size:1.055875496314384rem">development</a>
+          <a href="/tags/development" style="font-size:1.0553238214802696rem">development</a>
         
           
           
@@ -1311,7 +1317,7 @@ Linux 5.2 https://lkml.kernel.org/r/CAHk-=whtW3FdruS-q2zehJPSan1SKtHoFHKX28A3J_1
           
           
           
-          <a href="/tags/english" style="font-size:1.567626488943152rem">english</a>
+          <a href="/tags/english" style="font-size:1.5659714644408085rem">english</a>
         
           
           
@@ -1325,7 +1331,7 @@ Linux 5.2 https://lkml.kernel.org/r/CAHk-=whtW3FdruS-q2zehJPSan1SKtHoFHKX28A3J_1
           
           
           
-          <a href="/tags/event" style="font-size:1.394124503685616rem">event</a>
+          <a href="/tags/event" style="font-size:1.3928435543890432rem">event</a>
         
           
           
@@ -1346,7 +1352,7 @@ Linux 5.2 https://lkml.kernel.org/r/CAHk-=whtW3FdruS-q2zehJPSan1SKtHoFHKX28A3J_1
           
           
           
-          <a href="/tags/fedora" style="font-size:1.2055530665117131rem">fedora</a>
+          <a href="/tags/fedora" style="font-size:1.20467868258705rem">fedora</a>
         
           
           
@@ -1367,14 +1373,14 @@ Linux 5.2 https://lkml.kernel.org/r/CAHk-=whtW3FdruS-q2zehJPSan1SKtHoFHKX28A3J_1
           
           
           
-          <a href="/tags/gcma" style="font-size:1.055875496314384rem">gcma</a>
+          <a href="/tags/gcma" style="font-size:1.0553238214802696rem">gcma</a>
         
           
           
           
           
           
-          <a href="/tags/git" style="font-size:1.2055530665117131rem">git</a>
+          <a href="/tags/git" style="font-size:1.20467868258705rem">git</a>
         
           
           
@@ -1388,7 +1394,7 @@ Linux 5.2 https://lkml.kernel.org/r/CAHk-=whtW3FdruS-q2zehJPSan1SKtHoFHKX28A3J_1
           
           
           
-          <a href="/tags/golang" style="font-size:1.2055530665117131rem">golang</a>
+          <a href="/tags/golang" style="font-size:1.20467868258705rem">golang</a>
         
           
           
@@ -1486,14 +1492,14 @@ Linux 5.2 https://lkml.kernel.org/r/CAHk-=whtW3FdruS-q2zehJPSan1SKtHoFHKX28A3J_1
           
           
           
-          <a href="/tags/kernel" style="font-size:2.4569815056481756rem">kernel</a>
+          <a href="/tags/kernel" style="font-size:2.4575247410434127rem">kernel</a>
         
           
           
           
           
           
-          <a href="/tags/kernel-summit" style="font-size:1.055875496314384rem">kernel summit</a>
+          <a href="/tags/kernel-summit" style="font-size:1.0553238214802696rem">kernel summit</a>
         
           
           
@@ -1514,21 +1520,21 @@ Linux 5.2 https://lkml.kernel.org/r/CAHk-=whtW3FdruS-q2zehJPSan1SKtHoFHKX28A3J_1
           
           
           
-          <a href="/tags/life" style="font-size:1.055875496314384rem">life</a>
+          <a href="/tags/life" style="font-size:1.0553238214802696rem">life</a>
         
           
           
           
           
           
-          <a href="/tags/linux" style="font-size:2.4962899154079174rem">linux</a>
+          <a href="/tags/linux" style="font-size:2.4963347517386256rem">linux</a>
         
           
           
           
           
           
-          <a href="/tags/linux-foundation" style="font-size:1.394124503685616rem">linux foundation</a>
+          <a href="/tags/linux-foundation" style="font-size:1.3928435543890432rem">linux foundation</a>
         
           
           
@@ -1563,7 +1569,7 @@ Linux 5.2 https://lkml.kernel.org/r/CAHk-=whtW3FdruS-q2zehJPSan1SKtHoFHKX28A3J_1
           
           
           
-          <a href="/tags/lkml" style="font-size:2.417626488943152rem">lkml</a>
+          <a href="/tags/lkml" style="font-size:2.4187147303482rem">lkml</a>
         
           
           
@@ -1591,7 +1597,7 @@ Linux 5.2 https://lkml.kernel.org/r/CAHk-=whtW3FdruS-q2zehJPSan1SKtHoFHKX28A3J_1
           
           
           
-          <a href="/tags/mariadb" style="font-size:1.055875496314384rem">mariadb</a>
+          <a href="/tags/mariadb" style="font-size:1.0553238214802696rem">mariadb</a>
         
           
           
@@ -1626,21 +1632,21 @@ Linux 5.2 https://lkml.kernel.org/r/CAHk-=whtW3FdruS-q2zehJPSan1SKtHoFHKX28A3J_1
           
           
           
-          <a href="/tags/news" style="font-size:2.417626488943152rem">news</a>
+          <a href="/tags/news" style="font-size:2.4187147303482rem">news</a>
         
           
           
           
           
           
-          <a href="/tags/open-source" style="font-size:1.055875496314384rem">open source</a>
+          <a href="/tags/open-source" style="font-size:1.0553238214802696rem">open source</a>
         
           
           
           
           
           
-          <a href="/tags/open-source" style="font-size:1.055875496314384rem">open-source</a>
+          <a href="/tags/open-source" style="font-size:1.0553238214802696rem">open-source</a>
         
           
           
@@ -1696,7 +1702,7 @@ Linux 5.2 https://lkml.kernel.org/r/CAHk-=whtW3FdruS-q2zehJPSan1SKtHoFHKX28A3J_1
           
           
           
-          <a href="/tags/prague" style="font-size:1.394124503685616rem">prague</a>
+          <a href="/tags/prague" style="font-size:1.3928435543890432rem">prague</a>
         
           
           
@@ -1710,14 +1716,14 @@ Linux 5.2 https://lkml.kernel.org/r/CAHk-=whtW3FdruS-q2zehJPSan1SKtHoFHKX28A3J_1
           
           
           
-          <a href="/tags/projects" style="font-size:1.394124503685616rem">projects</a>
+          <a href="/tags/projects" style="font-size:1.3928435543890432rem">projects</a>
         
           
           
           
           
           
-          <a href="/tags/raspberry" style="font-size:1.055875496314384rem">raspberry</a>
+          <a href="/tags/raspberry" style="font-size:1.0553238214802696rem">raspberry</a>
         
           
           
@@ -1738,42 +1744,42 @@ Linux 5.2 https://lkml.kernel.org/r/CAHk-=whtW3FdruS-q2zehJPSan1SKtHoFHKX28A3J_1
           
           
           
-          <a href="/tags/setup" style="font-size:1.311750992628768rem">setup</a>
+          <a href="/tags/setup" style="font-size:1.310647642960539rem">setup</a>
         
           
           
           
           
           
-          <a href="/tags/spec" style="font-size:1.055875496314384rem">spec</a>
+          <a href="/tags/spec" style="font-size:1.0553238214802696rem">spec</a>
         
           
           
           
           
           
-          <a href="/tags/spec_cpu" style="font-size:1.055875496314384rem">spec_cpu</a>
+          <a href="/tags/spec_cpu" style="font-size:1.0553238214802696rem">spec_cpu</a>
         
           
           
           
           
           
-          <a href="/tags/spec_cpu2006" style="font-size:1.055875496314384rem">spec_cpu2006</a>
+          <a href="/tags/spec_cpu2006" style="font-size:1.0553238214802696rem">spec_cpu2006</a>
         
           
           
           
           
           
-          <a href="/tags/talk" style="font-size:1.2055530665117131rem">talk</a>
+          <a href="/tags/talk" style="font-size:1.20467868258705rem">talk</a>
         
           
           
           
           
           
-          <a href="/tags/test" style="font-size:1.055875496314384rem">test</a>
+          <a href="/tags/test" style="font-size:1.0553238214802696rem">test</a>
         
           
           
@@ -1787,7 +1793,7 @@ Linux 5.2 https://lkml.kernel.org/r/CAHk-=whtW3FdruS-q2zehJPSan1SKtHoFHKX28A3J_1
           
           
           
-          <a href="/tags/tip" style="font-size:1.567626488943152rem">tip</a>
+          <a href="/tags/tip" style="font-size:1.5659714644408085rem">tip</a>
         
           
           
@@ -1815,7 +1821,7 @@ Linux 5.2 https://lkml.kernel.org/r/CAHk-=whtW3FdruS-q2zehJPSan1SKtHoFHKX28A3J_1
           
           
           
-          <a href="/tags/trip" style="font-size:1.394124503685616rem">trip</a>
+          <a href="/tags/trip" style="font-size:1.3928435543890432rem">trip</a>
         
           
           
@@ -1829,14 +1835,14 @@ Linux 5.2 https://lkml.kernel.org/r/CAHk-=whtW3FdruS-q2zehJPSan1SKtHoFHKX28A3J_1
           
           
           
-          <a href="/tags/usenix" style="font-size:1.055875496314384rem">usenix</a>
+          <a href="/tags/usenix" style="font-size:1.0553238214802696rem">usenix</a>
         
           
           
           
           
           
-          <a href="/tags/version-control" style="font-size:1.055875496314384rem">version control</a>
+          <a href="/tags/version-control" style="font-size:1.0553238214802696rem">version control</a>
         
           
           
