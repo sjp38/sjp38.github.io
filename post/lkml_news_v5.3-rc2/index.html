@@ -347,6 +347,10 @@
 위한 패치셋의 일부를 따로 떼어낸, <code>MADV_COLD</code> 와 <code>MADV_PAGEOUT</code> 힌트를
 <code>madvise()</code> 에 추가하는 패치의 여섯번째 버전입니다.</p>
 
+<p>일곱번째 버전도 빠르게 올라왔군요:
+<a href="https://lkml.kernel.org/r/20190726023435.214162-1-minchan@kernel.org" target="_blank">https://lkml.kernel.org/r/20190726023435.214162-1-minchan@kernel.org</a>
+단순히 mmotm 최신 버전 위로 리베이스 한 것 같네요.</p>
+
 <h2 id="patch-v9-00-21-generic-page-walk-and-ptdump">[PATCH v9 00/21] Generic page walk and ptdump</h2>
 
 <p><a href="https://lkml.kernel.org/r/20190722154210.42799-1-steven.price@arm.com" target="_blank">https://lkml.kernel.org/r/20190722154210.42799-1-steven.price@arm.com</a></p>
@@ -383,6 +387,14 @@ pid 의 모든 mapped page frame 의 access bit 을 한번에 clear 할 수 있�
 인터페이스는 <code>echo 6 &gt; /proc/&lt;pid&gt;/clear_refs</code> 같은 형태군요.  이후,
 <code>/proc/&lt;pid&gt;/smaps</code> 파일을 이용해 현재 idle 한 페이지들의 갯수를 알 수
 있습니다.</p>
+
+<h2 id="linux-5-3-rc2">Linux 5.3-rc2</h2>
+
+<p><a href="https://lkml.kernel.org/r/CAHk-=wiiKRJprQDJqJzdcjdaGs73UtVPTM2+jOHWdMgu5Sp2HQ@mail.gmail.com" target="_blank">https://lkml.kernel.org/r/CAHk-=wiiKRJprQDJqJzdcjdaGs73UtVPTM2+jOHWdMgu5Sp2HQ@mail.gmail.com</a></p>
+
+<p>두번째 rc 버전이 예정대로 나왔습니다.  변경사항이 많은 머지윈도우였던 만큼 rc2
+도 꽤 수정사항이 많은 것 같습니다.  전체적으로 문서, arch 코드, 그리고 드라이버
+쪽 수정사항이 대부분인 듯 하군요.</p>
 
       </div>
 
