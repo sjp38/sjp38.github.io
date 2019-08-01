@@ -416,58 +416,57 @@ page</code> 배열을 갖는 것은 평평한 메모리 매핑 안의 거대한 
 
 <h2 id="sparsemem">SPARSEMEM</h2>
 
-<p>This limitation was resolved with the introduction of SPARSEMEM. This model
-abstracted the memory map as a collection of sections of arbitrary size defined
-by the architectures. Each section, represented by struct mem_section, is (as
-described in the code): &ldquo;logically, a pointer to an array of struct pages.
-However, it is stored with some other magic&rdquo;. The array of these sections is a
-meta-memory map which can be efficiently chopped at SECTION_SIZE granularity.
-For efficient conversion between a PFN and struct page, several high bits of
-the PFN are used to index into the sections array. For the other direction, the
-section number was encoded in the page flags.</p>
+<p>이 한계는 SPARSEMEM 을 통해 해결되었습니다.  이 모델은 메모리 매핑을
+아키텍쳐별로 정의된 임의의 크기의 섹션들의 집합으로 추상화 했습니다.
+각 섹션은 <code>struct mem_section</code> 으로 표현되며, (코드에 설명된 바에 따르면):
+&ldquo;논리적으로, <code>struct page</code> 의 배열로의 포인터입니다.  하지만, 다른 마술을 통해
+저장됩니다&rdquo;.
+이 섹션들의 배열은 <code>SECTION_SIZE</code> 크기로 효율적으로 쪼개질 수 있는 메타 메모리
+매핑입니다.
+PFN 과 <code>struct page</code> 사이의 효율적인 변환을 위해, PFN 의 상위 비트 몇개는 이
+섹션 배열로의 인덱스로 사용됩니다.
+반대 방향 변환을 위해선, 이 섹션 넘버가 page 의 flag 로 인코딩 됩니다.</p>
 
-<p>A few months after its introduction into the Linux kernel, SPARSEMEM was
-extended with SPARSEMEM_EXTREME, which is suitable for systems with an
-especially sparse physical address space. SPARSEMEM_EXTREME added a second
-dimension to the sections array and made this array, well, sparse. With
-SPARSEMEM_EXTREME, the first level became pointers to mem_section structures,
-and the actual mem_section objects were dynamically allocated based on the
-actually populated physical memory.</p>
+<p>이 모델이 리눅스 커널에 소개되고 몇달 후, SPARSEMEM 은 <code>SPARSEMEM_EXTREME</code> 으로
+확장되었는데, 이 모델은 산재하는 물리 주소 공간을 갖는 시스템에 적합합니다.
+<code>SPARSEMEM_EXTREME</code> 에서는, 첫번째 레벨은 <code>mem_section</code> 구조체들로의 포인터가
+되고, 실제 <code>mem_section</code> 객체는 실제로 꽂힌 물리 메모리에 기반해서 동적으로
+할당됩니다.</p>
 
-<p>Another enhancement to SPARSEMEM was added in 2007; it was called generic
-virtual memmap support for SPARSEMEM, or SPARSEMEM_VMEMMAP. The idea behind
-SPARSEMEM_VMEMMAP is that the entire memory map is mapped into a virtually
-contiguous area, but only the active sections are backed with physical pages.
-This model wouldn&rsquo;t work well with 32-bit systems, where the physical memory
-size might approach or even exceed the virtual address space. However, for
-64-bit systems SPARSEMEM_VMEMMAP is a clear win. At the cost of additional page
-table entries, page_to_pfn(), and pfn_to_page() became as simple as with the
-flat model.</p>
+<p>2007년에 SPARSEMEM 의 또다른 개선이 이루어졌습니다; 이는 SPARSEMEM 의 일반적인
+가상 메모리 매핑 지원 또는 <code>SPARSEMEM_VMEMMAP</code> 이라고 불렸습니다.
+<code>SPARSEMEM_VMEMMAP</code> 의 아이디어는 전체 메모리 매핑이 가상 연속 공간에 매핑되어
+있지만, 활성화된 섹션들만이 물리 페이지로 연결되어 있도록 하자는 것입니다.
+이 모델은 32-bit 시스템에서는 물리 메모리의 크기가 가상 주소 공간을 넘을 수
+있기 때문에 잘 동작하지 못할 수 있습니다.
+하지만, 64-bit 시스템에서 <code>SPARSEMEM_VMEMMAP</code> 은 확실히 우수합니다.
+추가적인 페이지 테이블 엔트리 사용이라는 비용 아래, <code>page_to_pfn()</code> 과
+<code>pfn_to_page()</code> 는 평평한 모델만큼이나 간단해 졌습니다.</p>
 
-<p>The last extension of the SPARSEMEM memory model is more recent (2016); it was
-driven by the increased use of persistent-memory devices. To support storing
-the memory map directly on those devices rather than in main memory, the
-virtual memory map can use struct vmem_altmap, which will provide page
-structures in persistent memory.</p>
+<p>SPARSEMEM 메모리 모델의 마지막 확장은 꽤 최근 (2016) 이었습니다; 이는
+persistent 메모리 디바이스의 사용 증가로 인해 이루어졌습니다.
+메모리 매핑을 메인 메모리가 아니라 그런 디바이스들 내에 직접 저장하는 걸
+지원하기 위해, 이 가상 메모리 매핑은 <code>struct vmem_altmap</code> 을 사용할 수 있게
+되었는데, 이 구조체는 persistent 메모리 안의 페이지 구조체를 제공합니다.</p>
 
-<p>Back in 2005, SPARSEMEM was described as a &ldquo;newer, and more experimental
-alternative to &lsquo;discontiguous memory&rsquo;&ldquo;. The commit that added SPARSEMEM_VMEMMAP
-noted that it &ldquo;has the potential to allow us to make SPARSEMEM the default (and
-even the only) option for most systems&rdquo;. And indeed, several architectures have
-switched over from DISCONTIGMEM to SPARSEMEM. In 2008, SPARSEMEM_VMEMMAP became
-the only supported memory model for x86-64, as it was only slightly more
-expensive than FLATMEM but more efficient than DISCONTIGMEM.</p>
+<p>2005년으로 돌아가보면, SPARSEMEM 은 &ldquo;새로운, 그리고 실험적인 <code>discontiguous
+memory</code> 의 대체재&rdquo; 로 설명되었습니다.
+<code>SPARSEMEM_VMEMMAP</code> 을 추가한 커밋은 그것을 &ldquo;우리가 SPARSEMEM 을 대부분의
+시스템에 기본 (그리고 유일한) 옵션이 되게 할 가능성이 있다&rdquo; 고 했습니다.
+그리고 실제로, 일부 아키텍쳐는 DISCONTIGMEM 에서 SPARSEMEM 으로 옮겨탔습니다.
+2008년, <code>SPARSEMEM_VMEMMAP</code> 은 x86-64 를 위한 유일한 메모리 모델이 되었는데,
+FLATMEM 보단 조금 비싸지만 DISCONTIGMEM 보다는 효율적이기 때문입니다.</p>
 
-<p>Recent memory-management developments, such as memory hotplug,
-persistent-memory support, and various performance optimizations, all target
-the SPARSEMEM model. But the older models still exist, which comes with the
-cost of numerous #ifdef blocks in the architecture and memory-management code,
-and a peculiar maze of related configuration options. There is an ongoing work
-to completely switch the remaining users of DISCONTIGMEM to SPARSEMEM, but
-making the change for such architectures as ia64 and mips64 won&rsquo;t be an easy
-task. And the ARC architecture&rsquo;s use of DISCONTIGMEM to represent a &ldquo;high
-memory&rdquo; area that resides below the &ldquo;normal&rdquo; memory will definitely be
-challenging to change.</p>
+<p>메모리 핫플러그, persistent 메모리 지원, 다양한 성능 최적화와 같은 최근의
+메모리 관리 분야 개발은 모두 SPARSEMEM 모델을 타겟으로 하고 있습니다.
+하지만 과거의 모델들은 여전히 존재해서, 아키텍쳐와 메모리 관리 코드 상의 많은
+<code>#ifdef</code> 블록의 존재와, 관련된 구성 옵션의 특별한 미로의 존재라는 추가비용을
+유발하고 있습니다.
+남아있는 <code>DISCONTIGMEM</code> 사용자들을 <code>SPARSEMEM</code> 으로 완전히 바꿔타게 하려는
+노력들이 있습니다만, ia64 나 mips64 와 같은 아키텍쳐들을 그렇게 변화시키기는
+쉬운 작업이 아닐 겁니다.
+그리고 ARC 아키텍쳐의 DISCONTIGMEM 사용은 &ldquo;normal&rdquo; 메모리 아래 &ldquo;high memory&rdquo;
+영역의 존재를 갖는데, 이는 분명 변경하기 어려울 겁니다.</p>
 
       </div>
 
