@@ -31,6 +31,14 @@
 
 &lt;p&gt;역시 아키텍쳐별로 다르게 구현되어 있던 page table walk 과 page table dump
 기능을 범용화 시키는 패치입니다.  벌써 10번째 버전이군요.&lt;/p&gt;
+
+&lt;h2 id=&#34;patch-0-3-address-hugetlb-page-allocation-stalls&#34;&gt;[PATCH 0/3] address hugetlb page allocation stalls&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190802223930.30971-1-mike.kravetz@oracle.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20190802223930.30971-1-mike.kravetz@oracle.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;sysctl&lt;/code&gt; 이나 &lt;code&gt;procfs&lt;/code&gt; 를 통한 hugetlb 페이지 할당은 수분이나 수시간까지도 오래
+걸릴 수 있습니다.  이 패치셋은 이렇게 느린 할당시간 문제를 유발하는 reclaim 과
+compaction 쪽 문제를 해결할 수 있는 수정사항들을 담고 있습니다.&lt;/p&gt;
 </description>
     </item>
     
