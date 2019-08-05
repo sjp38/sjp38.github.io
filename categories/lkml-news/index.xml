@@ -7,10 +7,37 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2017 Your Name</copyright>
-    <lastBuildDate>Thu, 11 Jul 2019 02:42:22 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 31 Jul 2019 08:40:48 +0900</lastBuildDate>
     
 	<atom:link href="https://sjp38.github.io/categories/lkml-news/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>LKML News v5.3-rc3</title>
+      <link>https://sjp38.github.io/post/lkml_news_v5.3-rc3/</link>
+      <pubDate>Wed, 31 Jul 2019 08:40:48 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/lkml_news_v5.3-rc3/</guid>
+      <description>[PATCH v5 00/14] Provide generic top-down mmap layout functions https://lkml.kernel.org/r/20190730055113.23635-1-alex@ghiti.fr
+아키텍쳐별로 다르게 구현되어 있던 mmap 레이아웃 함수들을 범용화 시키는 패치셋, 다섯번째 버전입니다.
+[PATCH v10 00/22] Generic page walk and ptdump https://lkml.kernel.org/r/20190731154603.41797-1-steven.price@arm.com
+역시 아키텍쳐별로 다르게 구현되어 있던 page table walk 과 page table dump 기능을 범용화 시키는 패치입니다. 벌써 10번째 버전이군요.
+[PATCH 0/3] address hugetlb page allocation stalls https://lkml.kernel.org/r/20190802223930.30971-1-mike.kravetz@oracle.com
+sysctl 이나 procfs 를 통한 hugetlb 페이지 할당은 수분이나 수시간까지도 오래 걸릴 수 있습니다.</description>
+    </item>
+    
+    <item>
+      <title>LKML News v5.3-rc2</title>
+      <link>https://sjp38.github.io/post/lkml_news_v5.3-rc2/</link>
+      <pubDate>Fri, 26 Jul 2019 08:41:19 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/lkml_news_v5.3-rc2/</guid>
+      <description>[PATCH v6 0/5] Introduce MADV_COLD and MADV_PAGEOUT https://lkml.kernel.org/r/20190723062539.198697-1-minchan@kernel.org
+어플리케이션의 메모리를 좀 더 적극적으로 reclaim 시킴으로써 반응성을 높이기 위한 패치셋의 일부를 따로 떼어낸, MADV_COLD 와 MADV_PAGEOUT 힌트를 madvise() 에 추가하는 패치의 여섯번째 버전입니다.
+일곱번째 버전도 빠르게 올라왔군요: https://lkml.kernel.org/r/20190726023435.214162-1-minchan@kernel.org 단순히 mmotm 최신 버전 위로 리베이스 한 것 같네요.
+[PATCH v9 00/21] Generic page walk and ptdump https://lkml.kernel.org/r/20190722154210.42799-1-steven.price@arm.com
+x86 과 arm64 가 범용적 페이지 테이블 워킹을 하도록 했던 해치셋을 조금 더 확장한 버전입니다.</description>
+    </item>
     
     <item>
       <title>LKML News v5.3-rc1</title>
@@ -18,8 +45,11 @@
       <pubDate>Thu, 11 Jul 2019 02:42:22 +0900</pubDate>
       
       <guid>https://sjp38.github.io/post/lkml_news_v5.3-rc1/</guid>
-      <description>[PATCH v4 0/4] Introduce MADV_COLD and MADV_PAGEOUT https://lkml.kernel.org/r/20190711012528.176050-1-minchan@kernel.org
-MADV_COLD 와 MADV_PAGEOUT 을 구현하는 패치, 어느새 네번째 버전입니다. 큰 변경은 없는 것 같군요.</description>
+      <description>[PATCH v5 0/5] Introduce MADV_COLD and MADV_PAGEOUT https://lkml.kernel.org/r/20190714233401.36909-1-minchan@kernel.org
+MADV_COLD 와 MADV_PAGEOUT 을 구현하는 패치, 어느새 다섯번째 버전입니다. 큰 변경은 없는 것 같군요.
+[PATCH v2 0/3] Make working with compound pages easier https://lkml.kernel.org/r/20190721104612.19120-1-willy@infradead.org
+Huge page 를 다루기 쉽게끔 page_size(), page_shift(), 그리고 compound_nr() 이라는 세개의 helper 함수를 추가하고 이 함수들을 사용하게끔 기존 코드를 다듬는 패치셋입니다.
+PAGE_SIZE &amp;lt;&amp;lt; compound_order(page) 는 page_size(page) 가, PAGE_SHIFT + compound_order(page) 는 page_shift(page) 가, 그리고 1 &amp;lt;&amp;lt; compound_order(page) 는 compound_nr(page) 가 되는 것이죠.</description>
     </item>
     
     <item>
