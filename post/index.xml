@@ -11,6 +11,37 @@
     <atom:link href="/post/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>LKML News v5.3-rc4</title>
+      <link>https://sjp38.github.io/post/lkml_news_v5.3-rc4/</link>
+      <pubDate>Mon, 12 Aug 2019 01:40:13 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/lkml_news_v5.3-rc4/</guid>
+      <description>
+
+&lt;h2 id=&#34;rfc-patch-v6-00-92-vm-introspection&#34;&gt;[RFC PATCH v6 00/92] VM introspection&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190809160047.8319-1-alazar@bitdefender.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20190809160047.8319-1-alazar@bitdefender.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;호스트 또는 별도 VM 에서 돌아가는 어플리케이션이 다른 VM들을 제어하거나 상태를
+알아보거나 shadow 페이지 테이블을 조정하거나 특정 이벤트 발생시 알림을 받거나
+할 수 있게 해주는 KVM introspection 서브시스템을 제안하는 패치입니다.  무려
+92개짜리의 거대한 패치군요.&lt;/p&gt;
+
+&lt;h2 id=&#34;patch-v4-1-5-mm-page-idle-add-per-pid-idle-page-tracking-using-virtual-indexing&#34;&gt;[PATCH v4 &lt;sup&gt;1&lt;/sup&gt;&amp;frasl;&lt;sub&gt;5&lt;/sub&gt;] &lt;code&gt;mm/page_idle&lt;/code&gt;: Add per-pid idle page tracking using virtual indexing&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190805170451.26009-1-joel@joelfernandes.org&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20190805170451.26009-1-joel@joelfernandes.org&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;페이지 액세스 여부를 알아볼 수 있는 &lt;code&gt;page_idle&lt;/code&gt; 기능을 프로세스별로 트래킹 하기
+편하게 만들어 주는 패치의 네번째 버전입니다.  저자는 구글 직원으로,
+안드로이드의 heap profiler 가 이 기능을 쓰나봅니다.  이전 버전과의 차이는&amp;hellip;
+Swap pte 처리가 추가되었군요.&lt;/p&gt;
+
+&lt;p&gt;다섯번째 버전도 바로 올라왔습니다만, 큰 차이는 없어 보이는군요:
+&lt;a href=&#34;https://lkml.kernel.org/r/20190807171559.182301-1-joel@joelfernandes.org&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20190807171559.182301-1-joel@joelfernandes.org&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>LKML News v5.3-rc3</title>
       <link>https://sjp38.github.io/post/lkml_news_v5.3-rc3/</link>
       <pubDate>Wed, 31 Jul 2019 08:40:48 +0900</pubDate>
@@ -1014,39 +1045,6 @@ generation.&lt;/p&gt;
 &lt;p&gt;[2] &lt;a href=&#34;https://gource.io/&#34; target=&#34;_blank&#34;&gt;https://gource.io/&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;[3] &lt;a href=&#34;https://github.com/sjp38/linux_development_visualization&#34; target=&#34;_blank&#34;&gt;https://github.com/sjp38/linux_development_visualization&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>DAPHICX: Data Access Pattern Hint Injecting Compiler Extension</title>
-      <link>https://sjp38.github.io/post/daphicx/</link>
-      <pubDate>Thu, 30 May 2019 18:59:53 +0900</pubDate>
-      
-      <guid>https://sjp38.github.io/post/daphicx/</guid>
-      <description>&lt;p&gt;Memory pressure is inevitable as the size of working sets is rapidly growing
-while the capacity of dynamic random access memory (DRAM) is not. Meanwhile,
-storage devices have evolved so that their speed is comparable to the speed of
-DRAM while their capacity scales are comparable to that of hard disk drives
-(HDD). Thus, hierarchial memory systems configuring DRAM as the main memory and
-high-end storages as swap devices will be common.&lt;/p&gt;
-
-&lt;p&gt;Due to the unique characteristics of these modern storage devices, the swap
-target decision should be optimal. It is essential to know the exact data
-access patterns of workloads for such an optimal decision, although underlying
-systems cannot accurately estimate such complex and dynamic patterns. For this
-reason, memory systems allow programs to voluntarily hint their data access
-pattern. Nevertheless, it is exhausting for a human to manually figure out the
-patterns and embed optimal hints if the workloads are huge and complex.&lt;/p&gt;
-
-&lt;p&gt;This project introduces a compiler extension that automatically optimizes a
-program to voluntarily hint its dynamic data access patterns to the underlying
-swap system using a static/dynamic analysis based profiling result. To our best
-knowledge, this is the first profile-guided optimization (PGO) for modern swap
-devices. Our empirical evaluation of the scheme using realistic workloads shows
-consistent improvement in performance and swap device lifetime up to 2.65 times
-and 2.98 times, respectively.&lt;/p&gt;
-
-&lt;p&gt;DAPHICX has introduced by the &lt;a href=&#34;https://www.usenix.org/conference/fast19/wips&#34; target=&#34;_blank&#34;&gt;FAST&amp;rsquo;19 WiP&lt;/a&gt; and the &lt;a href=&#34;https://www.usenix.org/conference/hotstorage19/presentation/park&#34; target=&#34;_blank&#34;&gt;HotStorage&amp;rsquo;19&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     

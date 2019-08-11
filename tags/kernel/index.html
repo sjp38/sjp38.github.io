@@ -82,7 +82,7 @@
   <meta property="og:description" content="System Programmer">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2019-07-31T08:40:48&#43;09:00">
+  <meta property="og:updated_time" content="2019-08-12T01:40:13&#43;09:00">
   
 
   
@@ -257,6 +257,18 @@
   
   
   <div>
+    <h2><a href="https://sjp38.github.io/post/lkml_news_v5.3-rc4/">LKML News v5.3-rc4</a></h2>
+    <div class="article-style">
+      
+      [RFC PATCH v6 00/92] VM introspection <a href="https://lkml.kernel.org/r/20190809160047.8319-1-alazar@bitdefender.com" target="_blank">https://lkml.kernel.org/r/20190809160047.8319-1-alazar@bitdefender.com</a>
+호스트 또는 별도 VM 에서 돌아가는 어플리케이션이 다른 VM들을 제어하거나 상태를 알아보거나 shadow 페이지 테이블을 조정하거나 특정 이벤트 발생시 알림을 받거나 할 수 있게 해주는 KVM introspection 서브시스템을 제안하는 패치입니다. 무려 92개짜리의 거대한 패치군요.
+[PATCH v4 1&frasl;5] mm/page_idle: Add per-pid idle page tracking using virtual indexing <a href="https://lkml.kernel.org/r/20190805170451.26009-1-joel@joelfernandes.org" target="_blank">https://lkml.kernel.org/r/20190805170451.26009-1-joel@joelfernandes.org</a>
+페이지 액세스 여부를 알아볼 수 있는 page_idle 기능을 프로세스별로 트래킹 하기 편하게 만들어 주는 패치의 네번째 버전입니다.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="https://sjp38.github.io/post/lkml_news_v5.3-rc3/">LKML News v5.3-rc3</a></h2>
     <div class="article-style">
       
@@ -369,21 +381,6 @@ uprobe 는 THP 로 되어있는 페이지를 쪼갭니다. 이로 인해 성능 
 바로 지난주에도 소개한 external madvise 패치셋이 쪼개졌네요. MADV_COLD 와 MADV_PAGEOUT 두개의 새로운 advice 기능 추가 버전만 담은 패치셋입니다. 이게 더 일찍 머지될 가능성이 생겼군요.
 Linux 5.2-rc4 <a href="https://lkml.kernel.org/r/CAHk-=wjm7FQxdF=RKa8Xe23CLNNpbGDOACewgo8e-hwDJ8TyQg@mail.gmail.com" target="_blank">https://lkml.kernel.org/r/CAHk-=wjm7FQxdF=RKa8Xe23CLNNpbGDOACewgo8e-hwDJ8TyQg@mail.gmail.com</a>
 메일을 받고 깜짝 놀랐습니다, 평소보다 빨랐기 때문이죠.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="https://sjp38.github.io/post/lkml_news_v5.2-rc3/">LKML News v5.2-rc3</a></h2>
-    <div class="article-style">
-      
-      [PATCH tip/core/rcu 0/12] <a href="https://lkml.kernel.org/r/20190530145204.GA28526@linux.ibm.com" target="_blank">https://lkml.kernel.org/r/20190530145204.GA28526@linux.ibm.com</a>
-Paul E. McKenney 로부터의 RCU flavor consolidation 관련 추가 작업과 코드 정리를 위한 패치셋입니다.
-[PATCH tip/core/rcu 0/2] Documentation updates for v5.3 <a href="https://lkml.kernel.org/r/20190530145504.GA29820@linux.ibm.com" target="_blank">https://lkml.kernel.org/r/20190530145504.GA29820@linux.ibm.com</a>
-RCU 문서 업데이트를 담고 있는 패치셋입니다. rcuref 의 실제 예제와 rcu_task_stall_timeout 의 정의에 대한 내용이 추가되었군요!
-[PATCH tip/core/rcu 0/21] Torture-test updates for v5.3 <a href="https://lkml.kernel.org/r/20190530151650.GA422@linux.ibm.com" target="_blank">https://lkml.kernel.org/r/20190530151650.GA422@linux.ibm.com</a>
-RCU 와 spinlock 등을 위해 사용되는 torture 테스트 업데이트를 담은 패치셋입니다. 무려 21개 패치네요!
-[RFCv2 0/6] introduce memory hinting API for external process <a href="https://lkml" target="_blank">https://lkml</a>.
       
     </div>
   </div>
