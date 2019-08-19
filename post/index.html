@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme" content="hugo-academic">
-  <meta name="generator" content="Hugo 0.31.1" />
+  <meta name="generator" content="Hugo 0.51" />
   <meta name="author" content="SeongJae Park">
   <meta name="description" content="System Programmer">
 
@@ -246,6 +246,69 @@
   
 
   
+  
+    
+    
+
+<div class="article-list-item" itemscope itemprop="blogPost">
+  
+  
+  <h3 class="article-title" itemprop="name">
+    <a href="https://sjp38.github.io/post/lkml_news_v5.3-rc5/" itemprop="url">LKML News v5.3-rc5</a>
+  </h3>
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2019-08-19 14:19:58 &#43;0900 KST" itemprop="datePublished">
+      Aug 19, 2019
+    </time>
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/lkml-news">lkml news</a
+    >
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+  <div class="article-style" itemprop="articleBody">
+    
+    [RFC PATCH 0/2] Add predictive memory reclamation and compaction https://lkml.kernel.org/r/20190813014012.30232-1-khalid.aziz@oracle.com
+커널의 page reclamation 과 compaction 등은 기본적으로 시스템 메모리 잔여량이 부족할 때 시작됩니다. 하지만 이땐 이미 때가 늦었습니다. reclamation 과 compaction 을 열심히 하긴 하지만 어플리케이션은 이미 메모리 부족으로 인한 응답시간 폭증 등을 겪게 됩니다.
+이 패치셋은 시스템의 메모리 부족을 미리 예측하고 reclamation 과 compaction 을 시작하기 위한 패치셋입니다. 시간축에 따라 메모리 사용량 변화 추세를 보면 이걸 예측할 수 있지 않겠냐는 것이죠.
+    
+  </div>
+  <p class="read-more">
+    <a href="https://sjp38.github.io/post/lkml_news_v5.3-rc5/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
   
     
     
@@ -815,72 +878,6 @@ Linux 5.2 https://lkml.kernel.org/r/CAHk-=whtW3FdruS-q2zehJPSan1SKtHoFHKX28A3J_1
   </div>
   <p class="read-more">
     <a href="https://sjp38.github.io/post/integrate_external_git_repository_with_history/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-  
-    
-    
-
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.2-rc7/" itemprop="url">LKML News v5.2-rc7</a>
-  </h3>
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2019-06-27 15:35:12 &#43;0900 KST" itemprop="datePublished">
-      Jun 27, 2019
-    </time>
-  </span>
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/lkml-news">lkml news</a
-    >
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-  <div class="article-style" itemprop="articleBody">
-    
-    [PATCH v7 0/4] THP aware uprobe https://lkml.kernel.org/r/20190625235325.2096441-1-songliubraving@fb.com
-uprobe 가 THP 로 받쳐지고 있는 코드에 적용되면 이 THP 는 regular page 로 쪼개집니다. 이 패치셋은 이 문제를 해결합니다.
-[PATCH v9 0/6] Enable THP for text section of non-shmem files https://lkml.kernel.org/r/20190625001246.685563-1-songliubraving@fb.com
-어플리케이션의 텍스트 섹션을 THP 로 지원해 줌으로써 iTLB 미스를 줄이고 성능을 높이고자 하는 패치셋입니다.
-Linux 5.2-rc7 https://lkml.kernel.org/r/CAHk-=wgL5GyQ93o=VyiymFPfw=Z0TGHEPBJrCtGSqFSW2Mhx8g@mail.gmail.com
-여전히 토발즈의 여행 탓에 릴리즈가 평소와 조금 다른 시간대에 이뤄졌습니다, 토발즈 자신의 시점으로는 평소와 같은 일요일 오후지만요.
-    
-  </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.2-rc7/" class="btn btn-primary btn-outline">
       CONTINUE READING
     </a>
   </p>

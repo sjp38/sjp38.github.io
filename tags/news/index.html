@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme" content="hugo-academic">
-  <meta name="generator" content="Hugo 0.31.1" />
+  <meta name="generator" content="Hugo 0.51" />
   <meta name="author" content="SeongJae Park">
   <meta name="description" content="System Programmer">
 
@@ -64,8 +64,8 @@
   
 
   
-  <link rel="alternate" href="https://sjp38.github.io/index.xml" type="application/rss+xml" title="Hacklog">
-  <link rel="feed" href="https://sjp38.github.io/index.xml" type="application/rss+xml" title="Hacklog">
+  <link rel="alternate" href="https://sjp38.github.io/tags/news/index.xml" type="application/rss+xml" title="Hacklog">
+  <link rel="feed" href="https://sjp38.github.io/tags/news/index.xml" type="application/rss+xml" title="Hacklog">
   
 
   <link rel="manifest" href="/site.webmanifest">
@@ -78,16 +78,16 @@
   
   <meta property="og:site_name" content="Hacklog">
   <meta property="og:url" content="https://sjp38.github.io/tags/news/">
-  <meta property="og:title" content="News | Hacklog">
+  <meta property="og:title" content="news | Hacklog">
   <meta property="og:description" content="System Programmer">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2019-08-12T01:40:13&#43;09:00">
+  <meta property="og:updated_time" content="2019-08-19T14:19:58&#43;09:00">
   
 
   
 
-  <title>News | Hacklog</title>
+  <title>news | Hacklog</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
@@ -250,11 +250,22 @@
 
 <div class="universal-wrapper">
 
-  <h1>News</h1>
+  <h1>news</h1>
 
   
 
   
+  
+  <div>
+    <h2><a href="https://sjp38.github.io/post/lkml_news_v5.3-rc5/">LKML News v5.3-rc5</a></h2>
+    <div class="article-style">
+      
+      [RFC PATCH 0/2] Add predictive memory reclamation and compaction <a href="https://lkml.kernel.org/r/20190813014012.30232-1-khalid.aziz@oracle.com" target="_blank">https://lkml.kernel.org/r/20190813014012.30232-1-khalid.aziz@oracle.com</a>
+커널의 page reclamation 과 compaction 등은 기본적으로 시스템 메모리 잔여량이 부족할 때 시작됩니다. 하지만 이땐 이미 때가 늦었습니다. reclamation 과 compaction 을 열심히 하긴 하지만 어플리케이션은 이미 메모리 부족으로 인한 응답시간 폭증 등을 겪게 됩니다.
+이 패치셋은 시스템의 메모리 부족을 미리 예측하고 reclamation 과 compaction 을 시작하기 위한 패치셋입니다. 시간축에 따라 메모리 사용량 변화 추세를 보면 이걸 예측할 수 있지 않겠냐는 것이죠.
+      
+    </div>
+  </div>
   
   <div>
     <h2><a href="https://sjp38.github.io/post/lkml_news_v5.3-rc4/">LKML News v5.3-rc4</a></h2>
@@ -369,21 +380,6 @@ uprobe 는 THP 로 되어있는 페이지를 쪼갭니다. 이로 인해 성능 
 바로 지난주에도 소개한 external madvise 패치셋이 쪼개졌네요. MADV_COLD 와 MADV_PAGEOUT 두개의 새로운 advice 기능 추가 버전만 담은 패치셋입니다. 이게 더 일찍 머지될 가능성이 생겼군요.
 Linux 5.2-rc4 <a href="https://lkml.kernel.org/r/CAHk-=wjm7FQxdF=RKa8Xe23CLNNpbGDOACewgo8e-hwDJ8TyQg@mail.gmail.com" target="_blank">https://lkml.kernel.org/r/CAHk-=wjm7FQxdF=RKa8Xe23CLNNpbGDOACewgo8e-hwDJ8TyQg@mail.gmail.com</a>
 메일을 받고 깜짝 놀랐습니다, 평소보다 빨랐기 때문이죠.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="https://sjp38.github.io/post/lkml_news_v5.2-rc3/">LKML News v5.2-rc3</a></h2>
-    <div class="article-style">
-      
-      [PATCH tip/core/rcu 0/12] <a href="https://lkml.kernel.org/r/20190530145204.GA28526@linux.ibm.com" target="_blank">https://lkml.kernel.org/r/20190530145204.GA28526@linux.ibm.com</a>
-Paul E. McKenney 로부터의 RCU flavor consolidation 관련 추가 작업과 코드 정리를 위한 패치셋입니다.
-[PATCH tip/core/rcu 0/2] Documentation updates for v5.3 <a href="https://lkml.kernel.org/r/20190530145504.GA29820@linux.ibm.com" target="_blank">https://lkml.kernel.org/r/20190530145504.GA29820@linux.ibm.com</a>
-RCU 문서 업데이트를 담고 있는 패치셋입니다. rcuref 의 실제 예제와 rcu_task_stall_timeout 의 정의에 대한 내용이 추가되었군요!
-[PATCH tip/core/rcu 0/21] Torture-test updates for v5.3 <a href="https://lkml.kernel.org/r/20190530151650.GA422@linux.ibm.com" target="_blank">https://lkml.kernel.org/r/20190530151650.GA422@linux.ibm.com</a>
-RCU 와 spinlock 등을 위해 사용되는 torture 테스트 업데이트를 담은 패치셋입니다. 무려 21개 패치네요!
-[RFCv2 0/6] introduce memory hinting API for external process <a href="https://lkml" target="_blank">https://lkml</a>.
       
     </div>
   </div>

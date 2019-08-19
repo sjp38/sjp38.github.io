@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme" content="hugo-academic">
-  <meta name="generator" content="Hugo 0.31.1" />
+  <meta name="generator" content="Hugo 0.51" />
   <meta name="author" content="SeongJae Park">
   <meta name="description" content="System Programmer">
 
@@ -64,8 +64,8 @@
   
 
   
-  <link rel="alternate" href="https://sjp38.github.io/index.xml" type="application/rss+xml" title="Hacklog">
-  <link rel="feed" href="https://sjp38.github.io/index.xml" type="application/rss+xml" title="Hacklog">
+  <link rel="alternate" href="https://sjp38.github.io/tags/linux/index.xml" type="application/rss+xml" title="Hacklog">
+  <link rel="feed" href="https://sjp38.github.io/tags/linux/index.xml" type="application/rss+xml" title="Hacklog">
   
 
   <link rel="manifest" href="/site.webmanifest">
@@ -78,16 +78,16 @@
   
   <meta property="og:site_name" content="Hacklog">
   <meta property="og:url" content="https://sjp38.github.io/tags/linux/">
-  <meta property="og:title" content="Linux | Hacklog">
+  <meta property="og:title" content="linux | Hacklog">
   <meta property="og:description" content="System Programmer">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2019-01-15T09:06:44&#43;09:00">
+  <meta property="og:updated_time" content="2019-01-21T09:21:14&#43;09:00">
   
 
   
 
-  <title>Linux | Hacklog</title>
+  <title>linux | Hacklog</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
@@ -250,11 +250,27 @@
 
 <div class="universal-wrapper">
 
-  <h1>Linux</h1>
+  <h1>linux</h1>
 
   
 
   
+  
+  <div>
+    <h2><a href="https://sjp38.github.io/post/lkml_news_v5.0-rc3/">LKML News v5.0-rc3</a></h2>
+    <div class="article-style">
+      
+      LSF/MM 2019: Call for Proposals <a href="https://lkml.kernel.org/r/51b4b263-a0f2-113d-7bdc-f7960b540929@kernel.dk" target="_blank">https://lkml.kernel.org/r/51b4b263-a0f2-113d-7bdc-f7960b540929@kernel.dk</a>
+올해의 LSF/MM 을 위한 발표 모집입니다. 올해는 푸에르토리코에서 4월 30일부터 5월 2일까지 열리는군요.
+[LSF/MM TOPIC] NUMA, memory hierarchy and device memory <a href="https://lkml.kernel.org/r/20190118174512.GA3060@redhat.com" target="_blank">https://lkml.kernel.org/r/20190118174512.GA3060@redhat.com</a>
+LSF/MM 을 위한 발표 지원입니다. NUMA API 가 다계층 메모리에 적용될 때의 단점에 대해서 이야기 해보겠다는군요.
+[PATCH 00/22] Increase success rates and reduce latency of compaction v3 <a href="https://lkml.kernel.org/r/20190118175136.31341-1-mgorman@techsingularity.net" target="_blank">https://lkml.kernel.org/r/20190118175136.31341-1-mgorman@techsingularity.net</a>
+Mel Gorman 의 compaction 개선 패치셋 세번째 버전입니다.
+Linux 5.0-rc3 <a href="https://lkml.kernel.org/r/CAHk-=whS=6Z_UxzoMjLANupOk3u-8ycERLPnaZxShMTviW0jkQ@mail.gmail.com" target="_blank">https://lkml.kernel.org/r/CAHk-=whS=6Z_UxzoMjLANupOk3u-8ycERLPnaZxShMTviW0jkQ@mail.gmail.com</a>
+5.0 세번째 릴리즈입니다.
+      
+    </div>
+  </div>
   
   <div>
     <h2><a href="https://sjp38.github.io/post/lkml_news_v5.0-rc2/">LKML News v5.0-rc2</a></h2>
@@ -360,17 +376,6 @@ Transparent Huge Page 를 쪼개지 않고 swap out / swap in 함으로써 스�
   <div>
     <h2><a href="https://sjp38.github.io/post/lkml_news_v4.20-rc3/">LKML News by v4.20-rc3</a></h2>
     <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="https://sjp38.github.io/post/lkml_news_v4.20-rc2/">LKML News by v4.20-rc2</a></h2>
-    <div class="article-style">
-      
-      [PATCH 0/5] Fragmentation avoidance improvements v2 <a href="https://lkml.kernel.org/r/20181107183822.15567-1-mgorman@techsingularity.net" target="_blank">https://lkml.kernel.org/r/20181107183822.15567-1-mgorman@techsingularity.net</a>
-장시간 운영되는 시스템은 결국 메모리가 단편화 (fragmentation) 되게 되어 있습니다. 페이징을 사용하면 단일 페이지 단위 할당은 문제가 없지만, 물리적으로 연속적인 페이지를 할당받기가 어려워지죠. Mel Gorman 의 이 패치는 이런 메모리 분절화를 좀 더 잘 막을 수 있는 방법을 포함하고 있습니다.
-첫번째 패치는 단일 페이지 또는 적은 물리적 연속 페이지들의 할당 시에 불필요하게 higher order free page zone 을 사용하지 않게 하고, 두번째와 세번째 패치는 kswapd 와 kcompactd 를 사용한 defragmentation 을 좀 더 적극적으로 하게 합니다.
       
     </div>
   </div>

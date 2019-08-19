@@ -7,10 +7,33 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2017 Your Name</copyright>
-    <lastBuildDate>Wed, 31 Jul 2019 08:40:48 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 19 Aug 2019 14:19:58 +0900</lastBuildDate>
     
 	<atom:link href="https://sjp38.github.io/tags/news/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>LKML News v5.3-rc5</title>
+      <link>https://sjp38.github.io/post/lkml_news_v5.3-rc5/</link>
+      <pubDate>Mon, 19 Aug 2019 14:19:58 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/lkml_news_v5.3-rc5/</guid>
+      <description>[RFC PATCH 0/2] Add predictive memory reclamation and compaction https://lkml.kernel.org/r/20190813014012.30232-1-khalid.aziz@oracle.com
+커널의 page reclamation 과 compaction 등은 기본적으로 시스템 메모리 잔여량이 부족할 때 시작됩니다. 하지만 이땐 이미 때가 늦었습니다. reclamation 과 compaction 을 열심히 하긴 하지만 어플리케이션은 이미 메모리 부족으로 인한 응답시간 폭증 등을 겪게 됩니다.
+이 패치셋은 시스템의 메모리 부족을 미리 예측하고 reclamation 과 compaction 을 시작하기 위한 패치셋입니다. 시간축에 따라 메모리 사용량 변화 추세를 보면 이걸 예측할 수 있지 않겠냐는 것이죠.</description>
+    </item>
+    
+    <item>
+      <title>LKML News v5.3-rc4</title>
+      <link>https://sjp38.github.io/post/lkml_news_v5.3-rc4/</link>
+      <pubDate>Mon, 12 Aug 2019 01:40:13 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/lkml_news_v5.3-rc4/</guid>
+      <description>[RFC PATCH v6 00/92] VM introspection https://lkml.kernel.org/r/20190809160047.8319-1-alazar@bitdefender.com
+호스트 또는 별도 VM 에서 돌아가는 어플리케이션이 다른 VM들을 제어하거나 상태를 알아보거나 shadow 페이지 테이블을 조정하거나 특정 이벤트 발생시 알림을 받거나 할 수 있게 해주는 KVM introspection 서브시스템을 제안하는 패치입니다. 무려 92개짜리의 거대한 패치군요.
+[PATCH v4 1&amp;frasl;5] mm/page_idle: Add per-pid idle page tracking using virtual indexing https://lkml.kernel.org/r/20190805170451.26009-1-joel@joelfernandes.org
+페이지 액세스 여부를 알아볼 수 있는 page_idle 기능을 프로세스별로 트래킹 하기 편하게 만들어 주는 패치의 네번째 버전입니다.</description>
+    </item>
     
     <item>
       <title>LKML News v5.3-rc3</title>

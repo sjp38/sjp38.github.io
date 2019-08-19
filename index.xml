@@ -11,6 +11,65 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>LKML News v5.3-rc5</title>
+      <link>https://sjp38.github.io/post/lkml_news_v5.3-rc5/</link>
+      <pubDate>Mon, 19 Aug 2019 14:19:58 +0900</pubDate>
+      
+      <guid>https://sjp38.github.io/post/lkml_news_v5.3-rc5/</guid>
+      <description>
+
+&lt;h2 id=&#34;rfc-patch-0-2-add-predictive-memory-reclamation-and-compaction&#34;&gt;[RFC PATCH 0/2] Add predictive memory reclamation and compaction&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190813014012.30232-1-khalid.aziz@oracle.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20190813014012.30232-1-khalid.aziz@oracle.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;커널의 page reclamation 과 compaction 등은 기본적으로 시스템 메모리 잔여량이
+부족할 때 시작됩니다.  하지만 이땐 이미 때가 늦었습니다.  reclamation 과
+compaction 을 열심히 하긴 하지만 어플리케이션은 이미 메모리 부족으로 인한
+응답시간 폭증 등을 겪게 됩니다.&lt;/p&gt;
+
+&lt;p&gt;이 패치셋은 시스템의 메모리 부족을 미리 예측하고 reclamation 과 compaction 을
+시작하기 위한 패치셋입니다.  시간축에 따라 메모리 사용량 변화 추세를 보면 이걸
+예측할 수 있지 않겠냐는 것이죠.&lt;/p&gt;
+
+&lt;p&gt;이 패치셋은 이런 아이디어에 기반해 시스템의 메모리 부족을 예측하고 kswapd 를
+깨울지 재울지를 결정합니다.  간단한 dd 기반의 테스트를 통해 그 성능을 측정한
+결과도 있습니다.&lt;/p&gt;
+
+&lt;h2 id=&#34;patch-kbuild-change-fallthrough-comments-to-attributes&#34;&gt;[PATCH] kbuild: Change fallthrough comments to attributes&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190812214711.83710-1-nhuck@google.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20190812214711.83710-1-nhuck@google.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;C 언의 &lt;code&gt;switch&lt;/code&gt; 구문의 fall-through 기능은 복잡한 기능을 구현하기 좋긴 한데
+암묵적으로 이루어지는 fall-through 를 방지하기 위해 &lt;code&gt;break;&lt;/code&gt; 를 추가하는 걸
+깜박하곤 하는 경우가 많습니다.  GCC 는 주석으로 이 부분은 fall-through 가 맞다,
+라는걸 지정할 수 있게 하고 이 주석이 없는 경우는 모두 fall-through 를
+막아버림으로써 &lt;code&gt;switch&lt;/code&gt; 의 명시적 fall-through 기능이 가능하게 합니다.&lt;/p&gt;
+
+&lt;p&gt;리눅스 커널 역시 이런 방식으로 암묵적 fall-through 에 의한 버그를 극복하려
+노력하는데요, clang 은 이걸 주석 형태가 아니라 attribute 형태로 지원합니다.  이
+패치는 이런 차이를 어드레스 하기 위한 패치입니다.&lt;/p&gt;
+
+&lt;h2 id=&#34;rfc-mm-proactive-compaction&#34;&gt;[RFC] mm: Proactive compaction&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190816214413.15006-1-nigupta@nvidia.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20190816214413.15006-1-nigupta@nvidia.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Huge page 등의 할당 시간은 fragmentation 이 심한 메모리에선 길어지거나 아예
+실패할 수 있죠.  Huge page 에 성능이 의존적인 어플리케이션에겐 큰 문제입니다.&lt;/p&gt;
+
+&lt;p&gt;이 패치는 page order 별 fragmentation threshold 를 두고 이에 맞춰 page order
+별로 다른 compaction 을 수행하자는 겁니다.&lt;/p&gt;
+
+&lt;h2 id=&#34;linux-5-3-rc5&#34;&gt;Linux 5.3-rc5&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wiO5-puMa30fCwtgze57MH2JOzedVcEVotEviYmmQNihQ@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CAHk-=wiO5-puMa30fCwtgze57MH2JOzedVcEVotEviYmmQNihQ@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;다섯번째 rc 릴리즈입니다.  노드 로컬 할당 대 huge page 할당 관련 커밋 일부가
+리버트 시키지 않는 등의 몇가지 문제를 제외하면 조용한 릴리즈 주간이었다는군요.
+잘 안정화 되어가고 있다는 증거겠지요.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>LKML News v5.3-rc4</title>
       <link>https://sjp38.github.io/post/lkml_news_v5.3-rc4/</link>
       <pubDate>Mon, 12 Aug 2019 01:40:13 +0900</pubDate>
@@ -1039,31 +1098,6 @@ proactively swap out 시켰는데, 그 결과 tab 전환 속도가 25% 나 빨�
 
 &lt;p&gt;이번 릴리즈의 개발 과정을 시각화 한 비디오를 아래 URL 에서 볼 수 있습니다:
 &lt;a href=&#34;https://youtu.be/OooOmr4Z8dw&#34; target=&#34;_blank&#34;&gt;https://youtu.be/OooOmr4Z8dw&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Linux Development History Visualization Youtube Channel</title>
-      <link>https://sjp38.github.io/post/linux_develop_visualization_youtube/</link>
-      <pubDate>Tue, 04 Jun 2019 10:44:33 +0900</pubDate>
-      
-      <guid>https://sjp38.github.io/post/linux_develop_visualization_youtube/</guid>
-      <description>&lt;p&gt;재미 삼아 리눅스 커널 릴리즈 때마다 git history 를 visualize 해서 올리는 유투브
-채널[1]을 개설해 봤습니다. 지금은 visualization 에는 gource[2] 를 사용하고
-있습니다. 이 비디오를 만드는데 사용되는 스크립트도 GPL v3 로 공개[3]했으니
-필요한 분은 사용해 보셔도 좋을 것 같습니다.&lt;/p&gt;
-
-&lt;p&gt;I created a Youtube channel[1]. I will upload videos for the git history
-between each release of the Linux kernel, just for jun. I use gource[2] for the
-visualization for now. The scripts I use for these videos are available[3]
-under GPL v3. If you want, you may use the scripts for your own video
-generation.&lt;/p&gt;
-
-&lt;p&gt;[1] &lt;a href=&#34;https://www.youtube.com/channel/UCI7qoGt1hOfCsI8hFqriYCg&#34; target=&#34;_blank&#34;&gt;https://www.youtube.com/channel/UCI7qoGt1hOfCsI8hFqriYCg&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;[2] &lt;a href=&#34;https://gource.io/&#34; target=&#34;_blank&#34;&gt;https://gource.io/&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;[3] &lt;a href=&#34;https://github.com/sjp38/linux_development_visualization&#34; target=&#34;_blank&#34;&gt;https://github.com/sjp38/linux_development_visualization&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme" content="hugo-academic">
-  <meta name="generator" content="Hugo 0.31.1" />
+  <meta name="generator" content="Hugo 0.51" />
   <meta name="author" content="SeongJae Park">
   <meta name="description" content="System Programmer">
 
@@ -73,7 +73,7 @@
   <meta property="og:description" content="System Programmer">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2018-08-13T10:50:27&#43;09:00">
+  <meta property="og:updated_time" content="2018-08-27T16:03:42&#43;09:00">
   
 
   
@@ -246,6 +246,70 @@
   
 
   
+  
+    
+    
+
+<div class="article-list-item" itemscope itemprop="blogPost">
+  
+  
+  <h3 class="article-title" itemprop="name">
+    <a href="https://sjp38.github.io/post/rasp3-modelb-setup/" itemprop="url">Raspberry Pi 3 Model B Setup</a>
+  </h3>
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2018-08-27 16:03:42 &#43;0900 KST" itemprop="datePublished">
+      Aug 27, 2018
+    </time>
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/raspberry-pi">Raspberry Pi</a
+    >
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+  <div class="article-style" itemprop="articleBody">
+    
+    OSSE 2016 에서 받아온 라즈베리 파이3 셋업을 해봅니다. 셋업에 사용된 호스트 환경은 Ubuntu 16.04 데스크탑입니다.
+라즈베리 파이는 SD 카드를 저장소로 사용합니다. 따라서 여기에 운영체제를 깔아야 합니다. 다만, 라즈베리 파이를 구매하면 SD 카드는 따라오지 않습니다. 각자 알아서 사야 합니다. 전 예전에 사둔 16 GiB 짜리 SD 카드를 사용하겠습니다.
+라즈베리 파이를 지원하는 운영체제는 여러가지 있는데, 데비안 계열의 Raspbian 이 공식 운영체제입니다. 다운로드 페이지 에서 Raspbian stretch lite 를 다운받고 압축을 풀어줍니다.
+$ ls 2018-06-27-raspbian-stretch-lite.
+    
+  </div>
+  <p class="read-more">
+    <a href="https://sjp38.github.io/post/rasp3-modelb-setup/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
   
     
     
@@ -857,63 +921,6 @@ cma_alloc() 과 dma_alloc_from_contiguous() 함수는 gfp mask 패러미터를 �
   </div>
   <p class="read-more">
     <a href="https://sjp38.github.io/post/lkml_news_v4.18-rc4/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-  
-    
-    
-
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/lkml_news_v4.18-rc3/" itemprop="url">Lkml_news_v4.18 Rc3</a>
-  </h3>
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2018-07-02 11:18:24 &#43;0900 KST" itemprop="datePublished">
-      Jul 2, 2018
-    </time>
-  </span>
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-  
-  
-  
-
-  
-
-</div>
-
-  <div class="article-style" itemprop="articleBody">
-    
-    Linux 4.18-rc3 https://lkml.kernel.org/r/CA+55aFwGk-pWKKCtp+kQUN_hov9tW+vUo6Wgob91bewwBL17fA@mail.gmail.com
-4.18 을 향하는 세번째 릴리즈입니다. 그간 일본에 중국을 방문하고 있던 토발즈가 집에 돌아와서 이번엔 평소처럼 한국시간으로는 월요일 아침 릴리즈가 되었군요.
-큰 이상은 없고 드라이버, arch, 파일시스템 등에 변경이 있군요.
-그리고, 오늘이 리누스 토발즈가 리눅스 파운데이션 소속으로 일하게 된지 15주년이라는군요. 리눅스 파운데이션도 리눅스도 오래오래 건강했으면 좋겠습니다.
-[PATCH v2 0/2] x86/numa_emulation: Introduce uniform split capability https://lkml.kernel.org/r/153089327581.27680.11402583130804677094.stgit@dwillia2-desk3.amr.corp.intel.com
-X86 에서는 커널 패러미터를 줘서 NUMA emulation 이 가능한데, 각 NUMA node 의 메모리 사이즈를 모두 똑같게 하기보다는 요청된 NUMA node 수를 맞추는걸 우선시 하고 있습니다.
-    
-  </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/lkml_news_v4.18-rc3/" class="btn btn-primary btn-outline">
       CONTINUE READING
     </a>
   </p>
