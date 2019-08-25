@@ -11,6 +11,37 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>LKML News v5.3-rc6</title>
+      <link>https://sjp38.github.io/post/lkml_news_v5.3-rc6/</link>
+      <pubDate>Thu, 22 Aug 2019 15:30:54 +0200</pubDate>
+      
+      <guid>https://sjp38.github.io/post/lkml_news_v5.3-rc6/</guid>
+      <description>
+
+&lt;h2 id=&#34;linux-5-3-rc6&#34;&gt;Linux 5.3-rc6&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wgAKCTq+t5YnG6HzrF62=rr9H=q3LqokEP0_bQRHLwYNw@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CAHk-=wgAKCTq+t5YnG6HzrF62=rr9H=q3LqokEP0_bQRHLwYNw@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;오늘은 리눅스의 28번째 생일입니다.  따라서 오늘 rc6 릴리즈는 28년만의
+릴리즈이기도 하군요.  토발즈도 감회가 깊었는지 오늘의 릴리즈 메일엔 최초 릴리즈
+메일에 적었던 내용과 비슷하게 시작 부분을 꾸몄네요.
+감회 깊은 날, 감회 깊은 릴리즈입니다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;리눅스를 사용하는 여러분들 안녕하세요,
+
+저는 486 AT 클론과 그외의 많은 다른 하드웨어를 위한 (자유) 운영체제를 (취미보단
+더 진지하게) 만들고 있습니다.  이 일은 28년째 지속되고 있고, 아직도 끝나지
+않았습니다.  이 릴리즈에 의해 만들어진 (또는 그보다 오래된) 모든 버그에 대한
+피드백을 부탁드립니다.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;어쨌건, 아주 특별할 건 없는 릴리즈였습니다만, 토발즈가 원하던 것에 비하면
+변경사항이 좀 많았다는군요.  다음주에 확실히 변경사항이 줄지 않는다면 rc8 을
+만들어야 할 것 같다고 합니다.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>LKML News v5.3-rc5</title>
       <link>https://sjp38.github.io/post/lkml_news_v5.3-rc5/</link>
       <pubDate>Mon, 19 Aug 2019 14:19:58 +0900</pubDate>
@@ -1053,51 +1084,6 @@ proactively swap out 시켰는데, 그 결과 tab 전환 속도가 25% 나 빨�
 
 &lt;p&gt;어쨌든 5.2 가 가까워졌습니다.  어느덧 rc5군요.  rc4 대비 사이즈도 많이
 줄어들었습니다.  SPDX 업데이트도 없는 덕에 diff 도 깔끔하게 되었구요.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>LKML News v5.2-rc4</title>
-      <link>https://sjp38.github.io/post/lkml_news_v5.2-rc4/</link>
-      <pubDate>Tue, 04 Jun 2019 10:49:00 +0900</pubDate>
-      
-      <guid>https://sjp38.github.io/post/lkml_news_v5.2-rc4/</guid>
-      <description>
-
-&lt;h2 id=&#34;patch-00-15-slab-movable-objects-smo&#34;&gt;[PATCH 00/15] Slab Movable Objects (SMO)&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190603042637.2018-1-tobin@kernel.org&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20190603042637.2018-1-tobin@kernel.org&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;전에도 RFC 패치셋은 여기서도 소개했었죠.  Slab 할당자에 할당받은 객체들의
-이동이 가능하게끔 하는 패치셋의 정식 패치 버전이 나왔습니다.  변경된
-인터페이스는 XArray 와 dcache 에 적용되는군요.&lt;/p&gt;
-
-&lt;h2 id=&#34;patch-v1-0-4-introduce-madv-cold-and-madv-pageout&#34;&gt;[PATCH v1 0/4] Introduce MADV_COLD and MADV_PAGEOUT&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190603053655.127730-1-minchan@kernel.org&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20190603053655.127730-1-minchan@kernel.org&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;바로 지난주에도 소개한 external madvise 패치셋이 쪼개졌네요.  &lt;code&gt;MADV_COLD&lt;/code&gt; 와
-&lt;code&gt;MADV_PAGEOUT&lt;/code&gt; 두개의 새로운 advice 기능 추가 버전만 담은 패치셋입니다.  이게
-더 일찍 머지될 가능성이 생겼군요.&lt;/p&gt;
-
-&lt;h2 id=&#34;linux-5-2-rc4&#34;&gt;Linux 5.2-rc4&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wjm7FQxdF=RKa8Xe23CLNNpbGDOACewgo8e-hwDJ8TyQg@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CAHk-=wjm7FQxdF=RKa8Xe23CLNNpbGDOACewgo8e-hwDJ8TyQg@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;메일을 받고 깜짝 놀랐습니다, 평소보다 빨랐기 때문이죠.  아시아를 여행중인가?
-싶기도 했는데요, 그건 아니고 비행기 여행이 예정되어 있기 때문에 평소보다 일찍
-했다는군요.&lt;/p&gt;
-
-&lt;p&gt;지난 rc3 가 좀 작았던 탓인지 이번 rc4 는 덩치가 좀 큽니다.  하지만 그걸
-감안하면 별 문제 없어 보인다고 하네요.&lt;/p&gt;
-
-&lt;p&gt;이번 릴리즈에도 SPDX 변경이 많습니다.  변경 자체야 문제가 없긴 한데 diff 를
-보기 귀찮게 하는게 조금은 짜증도 나는 것 같네요.&lt;/p&gt;
-
-&lt;p&gt;어쨌든 이렇게 네번째 rc 가 릴리즈 되었습니다.  정식 버전도 많이 남지 않았네요!&lt;/p&gt;
-
-&lt;p&gt;이번 릴리즈의 개발 과정을 시각화 한 비디오를 아래 URL 에서 볼 수 있습니다:
-&lt;a href=&#34;https://youtu.be/OooOmr4Z8dw&#34; target=&#34;_blank&#34;&gt;https://youtu.be/OooOmr4Z8dw&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
