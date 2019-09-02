@@ -73,7 +73,7 @@
   <meta property="og:description" content="System Programmer">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2018-11-29T08:14:01&#43;09:00">
+  <meta property="og:updated_time" content="2018-12-05T08:20:36&#43;09:00">
   
 
   
@@ -246,6 +246,71 @@
   
 
   
+  
+    
+    
+
+<div class="article-list-item" itemscope itemprop="blogPost">
+  
+  
+  <h3 class="article-title" itemprop="name">
+    <a href="https://sjp38.github.io/post/lkml_news_v4.20-rc6/" itemprop="url">LKML News by v4.20-rc6</a>
+  </h3>
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2018-12-05 08:20:36 &#43;0900 &#43;0900" itemprop="datePublished">
+      Dec 5, 2018
+    </time>
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/lkml-news">lkml news</a
+    >
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+  <div class="article-style" itemprop="articleBody">
+    
+    [PATCH memory-model 0/3] Updates to the formal memory model https://lkml.kernel.org/r/20181203230411.GA27476@linux.ibm.com
+리눅스 커널 메모리 모델의 업데이트 입니다.
+smp_mb__after_unlock_lock() 을 추가로 모델링했고, github 리트머스 테스트를 체크하기 위한 스크립트가 추가되었으며, -j 옵션을 서포트 하게 되었습니다.
+[tip:core/rcu] tracing: Replace synchronize_sched() and call_rcu_sched() https://lkml.kernel.org/r/tip-7440172974e85b1828bdd84ac6b23b5bcad9c5eb@git.kernel.org
+synchronize_rcu() 가 이제는 RCU read-side 크리티컬 섹션 만이 아니라 preempt-disable 코드 영역도 기다리므로, synchronize_sched() 를 대체할 수 있고, call_rcu_sched() 도 call_rcu() 로 대체될 수 있습니다. 이 패치는 이 대체를 진행하고 있습니다.
+    
+  </div>
+  <p class="read-more">
+    <a href="https://sjp38.github.io/post/lkml_news_v4.20-rc6/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
   
     
     
@@ -813,71 +878,6 @@ CPU intensive 한 커널의 일을 여러 work queue 를 이용해 병렬화 시
   </div>
   <p class="read-more">
     <a href="https://sjp38.github.io/post/lkml_news_v4.19-rc8/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-  
-    
-    
-
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/lkml_news_v4.19-rc7/" itemprop="url">LKML News after v4.19-rc7</a>
-  </h3>
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2018-10-08 07:54:09 &#43;0900 &#43;0900" itemprop="datePublished">
-      Oct 8, 2018
-    </time>
-  </span>
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/lkml-news">lkml news</a
-    >
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-  <div class="article-style" itemprop="articleBody">
-    
-    Linux 4.19-rc7 https://lkml.kernel.org/r/20181007154529.GA4493@kroah.com
-토발즈 없이 진행되는 4.19를 위한 일곱번째 rc 릴리즈입니다. 이번에도 그렉이 대신 하는군요. 이번 릴리즈는 후반부임에도 rc6 보다 조금 더 커졌습니다. 하지만 그렇게까지 큰 차이는 아니라고 하는군요.
-일반적이라면 다음 릴리즈가 4.19 정식 릴리즈일텐데, 10월에 컨퍼런스가 많이 있다보니 rc 릴리즈를 한번 더 할 생각이라는군요. 간만에 rc8 을 보겠습니다.
-[PATCH -V6 00/21] swap: Swapout/swapin THP in one piece https://lkml.kernel.org/r/20181010071924.18767-1-ying.huang@intel.com
-THP 를 한방에 swap out / swap in 하는 Huang Ying 의 패치, 여섯번째 버전입니다.
-    
-  </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/lkml_news_v4.19-rc7/" class="btn btn-primary btn-outline">
       CONTINUE READING
     </a>
   </p>
