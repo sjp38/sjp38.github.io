@@ -73,7 +73,7 @@
   <meta property="og:description" content="System Programmer">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2018-12-05T08:20:36&#43;09:00">
+  <meta property="og:updated_time" content="2018-12-17T09:16:11&#43;09:00">
   
 
   
@@ -246,6 +246,72 @@
   
 
   
+  
+    
+    
+
+<div class="article-list-item" itemscope itemprop="blogPost">
+  
+  
+  <h3 class="article-title" itemprop="name">
+    <a href="https://sjp38.github.io/post/lkml_news_v4.20-rc7/" itemprop="url">LKML News by v4.20-rc7</a>
+  </h3>
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2018-12-17 09:16:11 &#43;0900 &#43;0900" itemprop="datePublished">
+      Dec 17, 2018
+    </time>
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/lkml-news">lkml news</a
+    >
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+  <div class="article-style" itemprop="articleBody">
+    
+    [PATCH -V9 00/21] swap: Swapout/swapin THP in one piece https://lkml.kernel.org/r/20181214062754.13723-1-ying.huang@intel.com
+아직 머지되지 못한 THP swap in 패치셋의 아홉번째 버전입니다.
+[RFC 0/3] reduce THP fault thrashing https://lkml.kernel.org/r/20181211142941.20500-1-vbabka@suse.cz
+THP fault 로 인한 로컬 노드 thrashing 을 해결하기 위한 패치의 RFC 입니다. THP fault 성공률을 낮추는 부작용도 있긴 하군요. 아직 테스트도 안된 첫번째 RFC 이니, 이대로 머지되진 않겠지 싶긴 합니다만 재밌네요.
+Linux 4.20-rc76 https://lkml.kernel.org/r/CAHk-=whv9u9aTEPoCz8h83JJbVK4fmHELJF=GG01ht9=1_MaCQ@mail.gmail.com
+일곱번째 rc 버전의 릴리즈입니다&hellip; 만, 이번엔 릴리즈 메일 제목에 오타가 있었군요.
+    
+  </div>
+  <p class="read-more">
+    <a href="https://sjp38.github.io/post/lkml_news_v4.20-rc7/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
   
     
     
@@ -823,61 +889,6 @@ CPU intensive 한 커널의 일을 여러 work queue 를 이용해 병렬화 시
   </div>
   <p class="read-more">
     <a href="https://sjp38.github.io/post/lkml_news_v4.19/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-  
-    
-    
-
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/lkml_news_v4.19-rc8/" itemprop="url">LKML News after v4.19-rc8</a>
-  </h3>
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2018-10-15 15:59:17 &#43;0900 &#43;0900" itemprop="datePublished">
-      Oct 15, 2018
-    </time>
-  </span>
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-  
-  
-  
-
-  
-
-</div>
-
-  <div class="article-style" itemprop="articleBody">
-    
-    Linux 4.19-rc8 https://lkml.kernel.org/r/20181015064915.GA10710@kroah.com
-여덟번째 rc 버전입니다. 여전히 그렉이 릴리즈 하는군요. 여덟번째 rc 인만큼, 큰 변화는 없었고, 대부분 앞서 고친 것들에 대한 수정이었군요. 아마도 다음주에는 예상대로 4.19 버전이 나올 것 같다고 합니다.
-[RFC v4 PATCH 0/5] Eliminate zone-&gt;lock contention for will-it-scale/page_fault1 and parallel free https://lkml.kernel.org/r/20181017063330.15384-1-aaron.lu@intel.com
-4 KB 크기 페이지를 위한 will-it-scale/page_fault1 워크로드를 2 소켓 112 코어 인텔 스카이레이크 서버에서 돌려보면 80% 의 CPU 시간이 zone-&gt;lock 을 기다리는데 소모된다고 합니다. 이는 struct page 의 캐시 미스 때문이라는군요.
-    
-  </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/lkml_news_v4.19-rc8/" class="btn btn-primary btn-outline">
       CONTINUE READING
     </a>
   </p>
