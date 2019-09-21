@@ -11,6 +11,89 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>LKML News v5.4-rc1</title>
+      <link>https://sjp38.github.io/post/lkml_news_v5.4-rc1/</link>
+      <pubDate>Sat, 21 Sep 2019 10:00:48 +0200</pubDate>
+      
+      <guid>https://sjp38.github.io/post/lkml_news_v5.4-rc1/</guid>
+      <description>
+
+&lt;h2 id=&#34;patch-0-2-introduce-new-perf-script-page-reclaim&#34;&gt;[PATCH 0/2] introduce new perf-script page-reclaim&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/1568817522-8754-1-git-send-email-laoar.shao@gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/1568817522-8754-1-git-send-email-laoar.shao@gmail.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Page reclaim 관련 성능 메트릭을 분석하기 위한 perf script 커맨드를 추가하는
+패치입니다.  Direct reclaim 으로 인한 응답시간 폭증, page reclaim 이 왜
+일어났는지, page reclaim 의 효과는 어땠는지 등을 알 수 있다는군요.&lt;/p&gt;
+
+&lt;p&gt;구체적으로는 direct reclaim 이 몇번 일어났는지, 그 latency 분포는 어땠는지,
+file / anon page 별로 reclaim, scan, sync write, async write 이 몇번
+일어났는지, kswapd 는 몇번 일어났는지, kswapd latency 는 어땠는지 등등을
+보입니다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    $ perf script report page-reclaim
+    Direct reclaims: 4924
+    Direct latency (ms)        total         max         avg         min
+                          177823.211    6378.977      36.114       0.051
+    Direct file reclaimed 22920
+    Direct file scanned 28306
+    Direct file sync write I/O 0
+    Direct file async write I/O 0
+    Direct anon reclaimed 212567
+    Direct anon scanned 1446854
+    Direct anon sync write I/O 0
+    Direct anon async write I/O 278325
+    Direct order      0     1     3
+                   4870    23    31
+    Wake kswapd requests 716
+    Wake order      0     1
+                  715     1
+
+    Kswapd reclaims: 9
+    Kswapd latency (ms)        total         max         avg         min
+                           86353.046   42128.816    9594.783     120.736
+    Kswapd file reclaimed 366461
+    Kswapd file scanned 369554
+    Kswapd file sync write I/O 0
+    Kswapd file async write I/O 0
+    Kswapd anon reclaimed 362594
+    Kswapd anon scanned 693938
+    Kswapd anon sync write I/O 0
+    Kswapd anon async write I/O 330663
+    Kswapd order      0     1     3
+                      3     1     5
+    Kswapd re-wakes 705
+
+    Per process latency (ms):
+         pid[comm]             total         max         avg         min
+               timestamp  latency(ns)
+           1[systemd]        276.764     248.933       21.29       0.293
+           3406860552338: 16819800
+           3406877381650: 5532855
+           3407458799399: 929517
+           3407459796042: 916682
+           3407460763220: 418989
+           3407461250236: 332355
+           3407461637534: 401731
+           3407462092234: 449219
+           3407462605855: 292857
+           3407462952343: 372700
+           3407463364947: 414880
+           3407463829547: 949162
+           3407464813883: 248933444
+         163[kswapd0]      86353.046   42128.816    9594.783     120.736
+           3357637025977: 1026962745
+           3358915619888: 41268642175
+           3400239664127: 42128816204
+           3443784780373: 679641989
+           3444847948969: 120735792
+           3445001978784: 342713657
+           ...
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Richard Stallman Resigns</title>
       <link>https://sjp38.github.io/post/rms_resigns/</link>
       <pubDate>Thu, 19 Sep 2019 21:57:01 +0200</pubDate>
@@ -879,84 +962,6 @@ Accuracy&amp;rdquo;.&lt;/p&gt;
 &lt;p&gt;더불어, 토발즈는 이번 여행 중에도 스쿠버다이빙을 즐겼나보네요.  더크 혼델이
 찍은 사진도 공유했습니다:
 &lt;a href=&#34;https://hohndel.name/palau-2019&#34; target=&#34;_blank&#34;&gt;https://hohndel.name/palau-2019&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Integrate external git repository with its history</title>
-      <link>https://sjp38.github.io/post/integrate_external_git_repository_with_history/</link>
-      <pubDate>Thu, 27 Jun 2019 17:02:49 +0900</pubDate>
-      
-      <guid>https://sjp38.github.io/post/integrate_external_git_repository_with_history/</guid>
-      <description>
-
-&lt;p&gt;프로젝트 a 와 프로젝트 b 를 병렬로 진행하고 있었는데, 두개의 리포지토리를
-합치고 싶어지는 경우가 있습니다.  예컨대 프로젝트 a 의 성격이 보다 범용이
-되었고 프로젝트 b 는 프로젝트 a 를 위한 도구적 성격이 되는 경우가 있겠죠.
-a 프로젝트에 &amp;lsquo;b&amp;rsquo; 디렉토리를 만들고 그 아래 기존 프로젝트 b 의 파일들을 위치하고
-싶습니다.
-하지만 기존 b 프로젝트의 git 히스토리들도 유지하고 싶습니다.
-비슷한 사례로 리눅스 커널 메모리 모델 프로젝트는 별도의 리포지토리[1] 로
-개발되었지만 리눅스 업스트림 리포지토리의 tools/ 디렉토리 아래로 머지[2]
-되었는데, 이 때 기존 개발 히스토리를 유지했죠.&lt;/p&gt;
-
-&lt;p&gt;이 포스트는 이렇게 특정 git 리포지토리를 그 히스토리를 유지한 채 다른 git
-리포지토리의 하위 디렉토리로 옮기는 법을 설명합니다.&lt;/p&gt;
-
-&lt;p&gt;[1] &lt;a href=&#34;https://github.com/aparri/memory-model&#34; target=&#34;_blank&#34;&gt;https://github.com/aparri/memory-model&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;[2] &lt;a href=&#34;https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/tools/memory-model&#34; target=&#34;_blank&#34;&gt;https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/tools/memory-model&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;초기-상황과-목표&#34;&gt;초기 상황과 목표&lt;/h2&gt;
-
-&lt;p&gt;먼저 현재 디렉토리 아래에 a 리포지토리와 b 리포지토리가 있다고 가정합니다:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ ls
-a   b
-$
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;우리는 a 리포지토리 아래 b/ 디렉토리를 만들고 그 아래 b 리포지토리를 넣고
-싶습니다.&lt;/p&gt;
-
-&lt;h2 id=&#34;전략&#34;&gt;전략&lt;/h2&gt;
-
-&lt;p&gt;b 리포지토리가 b/ 디렉토리 아래 모든 파일을 위치하도록 변경한 후, 이
-리포지토리를 a 리포지토리에서 &lt;code&gt;--allow-unrelated-histories&lt;/code&gt; 옵션을 사용해
-머지하도록 하겠습니다.&lt;/p&gt;
-
-&lt;h2 id=&#34;합쳐질-리포지토리-파일-구조-변경&#34;&gt;합쳐질 리포지토리 파일 구조 변경&lt;/h2&gt;
-
-&lt;p&gt;먼저 b 리포지토리의 파일들이 b/ 디렉토리 아래 위치하도록 만듭니다:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ cd b
-$ mkdir b
-$ git mv !(b) b
-$ git commit -a -m &amp;quot;Relocate files for inclusion&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;리포지토리-병합&#34;&gt;리포지토리 병합&lt;/h2&gt;
-
-&lt;p&gt;이제 b 리포지토리를 임시 remote 리포지토리로 등록하고 머지합니다:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ cd ../a
-$ git remote add temp ../b
-$ git fetch temp
-$ git merge --allow-unrelated-histories temp/master
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;code&gt;--allow-unrelated-histories&lt;/code&gt; 는 경로가 다른 파일에 대한 커밋들도 머지가 될 수
-있게 해줍니다.&lt;/p&gt;
-
-&lt;p&gt;임시로 등록한 remote 리포지토리는 지워줍시다:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ git remote rm temp
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;정리&#34;&gt;정리&lt;/h2&gt;
-
-&lt;p&gt;이상과 같이 기존의 개발 히스토리를 유지하면서 특정 git 리포지토리를 다른 git
-리포지토리의 하위 디렉토리로 병합하는 방법을 알아보았습니다.&lt;/p&gt;
 </description>
     </item>
     

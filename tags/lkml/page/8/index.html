@@ -82,7 +82,7 @@
   <meta property="og:description" content="System Programmer">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2018-01-29T09:20:38&#43;09:00">
+  <meta property="og:updated_time" content="2018-02-13T13:56:47&#43;09:00">
   
 
   
@@ -257,6 +257,18 @@
   
   
   <div>
+    <h2><a href="https://sjp38.github.io/post/lkml_news_v4.16-rc1/">LKML News after v4.16-rc1</a></h2>
+    <div class="article-style">
+      
+      Linux 4.16-rc1 <a href="https://lkml.kernel.org/r/CA+55aFzXVqgCMhPL9EaMW_D9E=HCQ9+JSQAbBPe3Oa_iQtky=g@mail.gmail.com" target="_blank">https://lkml.kernel.org/r/CA+55aFzXVqgCMhPL9EaMW_D9E=HCQ9+JSQAbBPe3Oa_iQtky=g@mail.gmail.com</a>
+어느덧 2주일이 지났습니다. 머지 윈도우가 닫히고 4.16 첫번째 rc 버전이 나왔습니다. 4.15는 역시 토발즈에게 고통스러웠던 시간이었던지 이번 머지 윈도우는 4.15 보다 훨씬 나았다는 토발즈의 이야기입니다.
+이번 릴리즈에서는 GPU 쪽 변경 사항이 많고 대부분은 드라이버라 아주 큰 변화는 거의 없지만, 여전히 arch 쪽에도, 네트워킹과 파일시스템 등에도 변경이 없지는 않다고 정리하고 있습니다. 스펙터 / 멜트다운 이슈에 대한 x86 외 아키텍쳐의 변경사항들도 들어왔군요.
+[PATCH v8 00/24] Speculative page faults <a href="https://lkml" target="_blank">https://lkml</a>.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="https://sjp38.github.io/post/lkml_news_v4.15/">LKML News after v4.15</a></h2>
     <div class="article-style">
       
@@ -353,18 +365,6 @@ Lockdep 의 cross release 기능은 너무 느렸고, false positive 가 많다�
 일반적으로 rc3 릴리즈는 좀 변경사항이 많지만 이번엔 그중에서도 변경사항이 많은 편이라 걱정된다고 하는군요. 대부분은 드라이버쪽 변경인데 perf 쪽 변경도 꽤 있고 core, networking, kvm, arch, 문서 업데이트도 물론 있습니다. 어쨌든 토발즈는 이제는 정말 안정화가 되어가길 바라는 마음이라는군요.
 [PATCH v2] mm/slab: Do not hash pointers when debugging slab <a href="https://lkml.kernel.org/r/1513179267-2509-1-git-send-email-geert+renesas@glider.be" target="_blank">https://lkml.kernel.org/r/1513179267-2509-1-git-send-email-geert+renesas@glider.be</a>
 이번 버전에 들어와 포인터 값을 기반으로 한 예측을 통해 공격이 들어오는 걸 방지하기 위해 &lsquo;%p&rsquo; 가 포인터를 그냥 출력하는게 아니라 hash 한 다음에 출력하도록 바뀌었죠.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="https://sjp38.github.io/post/lkml_news_v4.15-rc2/">LKML News after v4.15-rc2</a></h2>
-    <div class="article-style">
-      
-      Linux 4.15-rc2 <a href="https://lkml.kernel.org/r/CA+55aFxPBszFBt91KRNBrsQdJ10b+6fh9ySNzSKSX7JOq4WRPw@mail.gmail.com" target="_blank">https://lkml.kernel.org/r/CA+55aFxPBszFBt91KRNBrsQdJ10b+6fh9ySNzSKSX7JOq4WRPw@mail.gmail.com</a>
-4.15 의 두번째 rc 버전이 나왔습니다.
-동부 지방을 여행 중인가 보군요. 평소보다 좀 이른 시간에 릴리즈가 됐습니다. 원하던 것보단 큰 릴리즈가 되어버렸지만 대부분 fixup 이기에 큰 문제는 없는 것 같다는군요. Kernel ASLR leak 을 막기 위해 모든 &ldquo;%P&rdquo; 로 프린트되는 어드레스 주소를 해시해 버린다고 하네요. 이럼 디버깅할 때 좀 짜증날 수 있긴 하겠지만 다른 방법이 별로 없었다고&hellip;
-[RFC PATCH v3 0/7] ktask: multithread CPU-intensive kernel work <a href="https://lkml" target="_blank">https://lkml</a>.
       
     </div>
   </div>

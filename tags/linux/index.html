@@ -82,7 +82,7 @@
   <meta property="og:description" content="System Programmer">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2019-09-12T17:59:25&#43;02:00">
+  <meta property="og:updated_time" content="2019-09-21T10:00:48&#43;02:00">
   
 
   
@@ -257,6 +257,17 @@
   
   
   <div>
+    <h2><a href="https://sjp38.github.io/post/lkml_news_v5.4-rc1/">LKML News v5.4-rc1</a></h2>
+    <div class="article-style">
+      
+      [PATCH 0/2] introduce new perf-script page-reclaim <a href="https://lkml.kernel.org/r/1568817522-8754-1-git-send-email-laoar.shao@gmail.com" target="_blank">https://lkml.kernel.org/r/1568817522-8754-1-git-send-email-laoar.shao@gmail.com</a>
+Page reclaim 관련 성능 메트릭을 분석하기 위한 perf script 커맨드를 추가하는 패치입니다. Direct reclaim 으로 인한 응답시간 폭증, page reclaim 이 왜 일어났는지, page reclaim 의 효과는 어땠는지 등을 알 수 있다는군요.
+구체적으로는 direct reclaim 이 몇번 일어났는지, 그 latency 분포는 어땠는지, file / anon page 별로 reclaim, scan, sync write, async write 이 몇번 일어났는지, kswapd 는 몇번 일어났는지, kswapd latency 는 어땠는지 등등을 보입니다.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="https://sjp38.github.io/post/lkml_news_v5.3/">LKML News v5.3</a></h2>
     <div class="article-style">
       
@@ -359,17 +370,6 @@ May 27, 2019
 일곱번째 버전도 빠르게 올라왔군요: <a href="https://lkml.kernel.org/r/20190726023435.214162-1-minchan@kernel.org" target="_blank">https://lkml.kernel.org/r/20190726023435.214162-1-minchan@kernel.org</a> 단순히 mmotm 최신 버전 위로 리베이스 한 것 같네요.
 [PATCH v9 00/21] Generic page walk and ptdump <a href="https://lkml.kernel.org/r/20190722154210.42799-1-steven.price@arm.com" target="_blank">https://lkml.kernel.org/r/20190722154210.42799-1-steven.price@arm.com</a>
 x86 과 arm64 가 범용적 페이지 테이블 워킹을 하도록 했던 해치셋을 조금 더 확장한 버전입니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="https://sjp38.github.io/post/kernelsummit2019_talk/">I will have a talk at the Linux Kernel Summit 2019</a></h2>
-    <div class="article-style">
-      
-      Linux Plumbers Conference 2019 와 함께 열리는 올해의 Linux Kernel Summit 에 제안한 발표 주제가 accept 되어 9월에 리스본에서 이에 대한 내용을 발표하게 되었습니다. 발표 제목은 &ldquo;Tracing Data Access Pattern with Bounded Overhead and Best-effort Accuracy&rdquo; 입니다.
-티켓이 너무 일찍 팔려버리는 바람에 올해는 들으러도 못가나 걱정했는데 갈 수 있게 됐네요, 다행입니다! :D
-My talk proposal to the Linux Kernel Summit of this year which is co-located with the Linux Plumbers has accepted!
       
     </div>
   </div>

@@ -254,6 +254,69 @@
   
   
   <h3 class="article-title" itemprop="name">
+    <a href="https://sjp38.github.io/post/lkml_news_v5.4-rc1/" itemprop="url">LKML News v5.4-rc1</a>
+  </h3>
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2019-09-21 10:00:48 &#43;0200 CEST" itemprop="datePublished">
+      Sep 21, 2019
+    </time>
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/lkml-news">lkml news</a
+    >
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+  <div class="article-style" itemprop="articleBody">
+    
+    [PATCH 0/2] introduce new perf-script page-reclaim https://lkml.kernel.org/r/1568817522-8754-1-git-send-email-laoar.shao@gmail.com
+Page reclaim 관련 성능 메트릭을 분석하기 위한 perf script 커맨드를 추가하는 패치입니다. Direct reclaim 으로 인한 응답시간 폭증, page reclaim 이 왜 일어났는지, page reclaim 의 효과는 어땠는지 등을 알 수 있다는군요.
+구체적으로는 direct reclaim 이 몇번 일어났는지, 그 latency 분포는 어땠는지, file / anon page 별로 reclaim, scan, sync write, async write 이 몇번 일어났는지, kswapd 는 몇번 일어났는지, kswapd latency 는 어땠는지 등등을 보입니다.
+    
+  </div>
+  <p class="read-more">
+    <a href="https://sjp38.github.io/post/lkml_news_v5.4-rc1/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
+  
+    
+    
+
+<div class="article-list-item" itemscope itemprop="blogPost">
+  
+  
+  <h3 class="article-title" itemprop="name">
     <a href="https://sjp38.github.io/post/rms_resigns/" itemprop="url">Richard Stallman Resigns</a>
   </h3>
   
@@ -804,71 +867,6 @@ May 27, 2019
   </div>
   <p class="read-more">
     <a href="https://sjp38.github.io/post/lwn_memory_flat_discontiguous_sparse/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-  
-    
-    
-
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.3-rc2/" itemprop="url">LKML News v5.3-rc2</a>
-  </h3>
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2019-07-26 08:41:19 &#43;0900 &#43;0900" itemprop="datePublished">
-      Jul 26, 2019
-    </time>
-  </span>
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/lkml-news">lkml news</a
-    >
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-  <div class="article-style" itemprop="articleBody">
-    
-    [PATCH v6 0/5] Introduce MADV_COLD and MADV_PAGEOUT https://lkml.kernel.org/r/20190723062539.198697-1-minchan@kernel.org
-어플리케이션의 메모리를 좀 더 적극적으로 reclaim 시킴으로써 반응성을 높이기 위한 패치셋의 일부를 따로 떼어낸, MADV_COLD 와 MADV_PAGEOUT 힌트를 madvise() 에 추가하는 패치의 여섯번째 버전입니다.
-일곱번째 버전도 빠르게 올라왔군요: https://lkml.kernel.org/r/20190726023435.214162-1-minchan@kernel.org 단순히 mmotm 최신 버전 위로 리베이스 한 것 같네요.
-[PATCH v9 00/21] Generic page walk and ptdump https://lkml.kernel.org/r/20190722154210.42799-1-steven.price@arm.com
-x86 과 arm64 가 범용적 페이지 테이블 워킹을 하도록 했던 해치셋을 조금 더 확장한 버전입니다.
-    
-  </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.3-rc2/" class="btn btn-primary btn-outline">
       CONTINUE READING
     </a>
   </p>
