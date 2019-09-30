@@ -268,7 +268,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    2 min read
+    3 min read
   </span>
   
 
@@ -434,6 +434,25 @@ driven development 기법을 적용했고, 그 효과를 톡톡히 봤죠.
 좀 아쉬운 마음이 있었는데요.
 또 이제와서 생각해 보면 저도 <code>kernel/</code> 넘어가기 위해 한번 더 키보드에 손대야
 하는게 좀 불쾌했던 거 같기도 하네요. ;)</p>
+
+<h2 id="patch-v4-00-11-introduces-new-count-based-method-for-monitoring-lockless-pagetable-walks">[PATCH v4 00/11] Introduces new count-based method for monitoring lockless pagetable walks</h2>
+
+<p><a href="https://lkml.kernel.org/r/20190927234008.11513-1-leonardo@linux.ibm.com" target="_blank">https://lkml.kernel.org/r/20190927234008.11513-1-leonardo@linux.ibm.com</a></p>
+
+<p>128개 vcpu 의 qemu 가 THP 로 매핑된 496 GiB 메모리 영역을 <code>munmap()</code> 완료하는데
+무려 275초가 걸린다고 합니다.
+그 원인은 <code>serialize_against_pte_lookup()</code> 함수였다고 하는군요.
+이 함수는 <code>find_current_mm_pte()</code> 내에서의 <code>pmd_t</code> 에서 <code>pte_t</code> 로의 캐스팅
+또는 lockless page table walk 이 THP promotion/demotion 과 동시에 이루어지지
+않게끔 보호하는 용도로 사용됩니다.
+그렇다면, 실제 lockless page table walk 이 없다면
+<code>serialize_against_pte_lookup()</code> 은 호출될 필요가 없겠죠.</p>
+
+<p>이를 위해 이 패치셋은 현재 수행되고 있는 <code>find_current_mm_pte()</code> 함수 갯수를
+세고 그 갯수가 0이면 이 오버헤드가 되는 동시성 보호 코드를 생략하게 합니다.</p>
+
+<p>이 패치를 적용한 후 앞의 문제시 되던 작업에 걸리는 시간이 275초에서 무려 418 ms
+으로 줄었다는군요!</p>
 
       </div>
 

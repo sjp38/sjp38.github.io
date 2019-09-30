@@ -113,6 +113,25 @@ driven development 기법을 적용했고, 그 효과를 톡톡히 봤죠.
 좀 아쉬운 마음이 있었는데요.
 또 이제와서 생각해 보면 저도 &lt;code&gt;kernel/&lt;/code&gt; 넘어가기 위해 한번 더 키보드에 손대야
 하는게 좀 불쾌했던 거 같기도 하네요. ;)&lt;/p&gt;
+
+&lt;h2 id=&#34;patch-v4-00-11-introduces-new-count-based-method-for-monitoring-lockless-pagetable-walks&#34;&gt;[PATCH v4 00/11] Introduces new count-based method for monitoring lockless pagetable walks&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190927234008.11513-1-leonardo@linux.ibm.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20190927234008.11513-1-leonardo@linux.ibm.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;128개 vcpu 의 qemu 가 THP 로 매핑된 496 GiB 메모리 영역을 &lt;code&gt;munmap()&lt;/code&gt; 완료하는데
+무려 275초가 걸린다고 합니다.
+그 원인은 &lt;code&gt;serialize_against_pte_lookup()&lt;/code&gt; 함수였다고 하는군요.
+이 함수는 &lt;code&gt;find_current_mm_pte()&lt;/code&gt; 내에서의 &lt;code&gt;pmd_t&lt;/code&gt; 에서 &lt;code&gt;pte_t&lt;/code&gt; 로의 캐스팅
+또는 lockless page table walk 이 THP promotion/demotion 과 동시에 이루어지지
+않게끔 보호하는 용도로 사용됩니다.
+그렇다면, 실제 lockless page table walk 이 없다면
+&lt;code&gt;serialize_against_pte_lookup()&lt;/code&gt; 은 호출될 필요가 없겠죠.&lt;/p&gt;
+
+&lt;p&gt;이를 위해 이 패치셋은 현재 수행되고 있는 &lt;code&gt;find_current_mm_pte()&lt;/code&gt; 함수 갯수를
+세고 그 갯수가 0이면 이 오버헤드가 되는 동시성 보호 코드를 생략하게 합니다.&lt;/p&gt;
+
+&lt;p&gt;이 패치를 적용한 후 앞의 문제시 되던 작업에 걸리는 시간이 275초에서 무려 418 ms
+으로 줄었다는군요!&lt;/p&gt;
 </description>
     </item>
     
