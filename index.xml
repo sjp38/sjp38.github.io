@@ -53,6 +53,15 @@
 버전입니다.
 이 블로그에서도 소개했죠.
 지난 버전 이후로 인터럽트 처리 부분을 포함한 일부 부분이 조금 수정되었군요.&lt;/p&gt;
+
+&lt;h2 id=&#34;patch-mm-export-cma-alloc-and-release&#34;&gt;[PATCH] mm: export cma alloc and release&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20191002212257.196849-1-salyzyn@android.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20191002212257.196849-1-salyzyn@android.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;cma_alloc()&lt;/code&gt; 과 &lt;code&gt;cma_release()&lt;/code&gt; 함수를 드라이버에서도 쓸 수 있게 export 해주는
+패치셋입니다.
+안드로이드 ION 이라던지 RDMA, Camera 모듈들이 이에 의존적이어서 드라이버 레벨로
+빌드가 안되기 때문에 이런 변경을 제안했다네요.&lt;/p&gt;
 </description>
     </item>
     
