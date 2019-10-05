@@ -11,6 +11,52 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>LKML News v5.4-rc2</title>
+      <link>https://sjp38.github.io/post/lkml_news_v5.4-rc2/</link>
+      <pubDate>Sat, 05 Oct 2019 11:46:07 +0200</pubDate>
+      
+      <guid>https://sjp38.github.io/post/lkml_news_v5.4-rc2/</guid>
+      <description>
+
+&lt;h2 id=&#34;patch-v18-00-19-kunit-introduce-kunit-the-linux-kernel-unit-testing-framework&#34;&gt;[PATCH v18 00/19] kunit: introduce KUnit, the Linux kernel unit testing framework&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190923090249.127984-1-brendanhiggins@google.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20190923090249.127984-1-brendanhiggins@google.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;어떻게 보면 별거 아닌 이유로 5.4 머지윈도우에서 튕겨나가고 만 kunit.
+요청받은대로 파일 위치를 하위 디렉토리로 변경한 kunit 새 버전의 패치셋이
+올라왔습니다.
+&amp;lsquo;kunit/&amp;rsquo; 디렉토리와 kunit 을 위한 &amp;lsquo;Kconfig&amp;rsquo; 파일을 &amp;lsquo;lib/&amp;rsquo; 아래로 옮겼군요.&lt;/p&gt;
+
+&lt;p&gt;이후 벌어진 대화가 재미있는데요, 토발즈는 이걸 5.5에 넣을 예정인데, 가능하면
+그동안 실제 테스트 코드도 추가되면 좋겠다고 했습니다.
+근데 테스트 프레임웍이 머지안되었는데 테스트 코드를?  메인테이너 간에 일이
+복잡해지고 컨플릭 날 확률이 높아지니 이걸로 꽤 많은 이야기가 있었습니다.&lt;/p&gt;
+
+&lt;h2 id=&#34;patch-v2-perf-script-python-integrate-page-reclaim-analyze-script&#34;&gt;[PATCH v2] perf script python: integrate page reclaim analyze script&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/1569899984-16272-1-git-send-email-laoar.shao@gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/1569899984-16272-1-git-send-email-laoar.shao@gmail.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Page reclaim 을 좀더 잘 분석하기 위한 perf script 를 추가하는 패치셋의 두번째
+버전입니다.
+첫번째 버전은 이 블로그에서도 소개한 바 있죠.
+첫번째 버전 이후로의 변화 중 눈에 띄는 건 파이썬 2.7 과 3.6 에서 모두
+돌아가게끔 한 것이군요.&lt;/p&gt;
+
+&lt;h2 id=&#34;patch-v5-00-11-introduces-new-count-based-method-for-tracking-lockless-pagetable-walks&#34;&gt;[PATCH v5 00/11] Introduces new count-based method for tracking lockless pagetable walks&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20191003013325.2614-1-leonardo@linux.ibm.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20191003013325.2614-1-leonardo@linux.ibm.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;THP promotion/demotion 과 동시에 page table 조작이 일어나는 걸 막기 위해
+존재하는 &lt;code&gt;serialize_against_pte_lookup()&lt;/code&gt; 함수로 인해 발생하는 &lt;code&gt;munmap()&lt;/code&gt;
+레이턴시 문제를 동시의 page table walk 존재 여부를 카운트 기반으로 추적해,
+필요없을 땐 락을 잡지 않게 함으로써 레이턴시를 놀랍게 개선한 패치셋의 다섯번째
+버전입니다.
+이 블로그에서도 소개했죠.
+지난 버전 이후로 인터럽트 처리 부분을 포함한 일부 부분이 조금 수정되었군요.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>LKML News v5.4-rc1</title>
       <link>https://sjp38.github.io/post/lkml_news_v5.4-rc1/</link>
       <pubDate>Sat, 21 Sep 2019 10:00:48 +0200</pubDate>
@@ -987,38 +1033,6 @@ Accuracy&amp;rdquo;.&lt;/p&gt;
 합니다.&lt;/p&gt;
 
 &lt;p&gt;그리고 이번 머지 윈도우에 이름을 올린 개발자는 총 1600명이었다는군요.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>LKML News v5.2</title>
-      <link>https://sjp38.github.io/post/lkml_news_v5.2/</link>
-      <pubDate>Mon, 01 Jul 2019 15:48:04 +0900</pubDate>
-      
-      <guid>https://sjp38.github.io/post/lkml_news_v5.2/</guid>
-      <description>
-
-&lt;h2 id=&#34;patch-v5-00-12-s-a-r-a-a-new-stacked-lsm&#34;&gt;[PATCH v5 00/12] S.A.R.A. a new stacked LSM&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/1562410493-8661-1-git-send-email-s.mesoraca16@gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/1562410493-8661-1-git-send-email-s.mesoraca16@gmail.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;다양한 보안 측정을 위한 공용 인터페이스를 제공하는 스택 기반의 리눅스 보안
-모듈입니다.  이름이 재밌네요. S.A.R.A 는 S.A.R.A is Another Recursive Acronym
-의 약자라고 합니다.&lt;/p&gt;
-
-&lt;h2 id=&#34;linux-5-2&#34;&gt;Linux 5.2&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=whtW3FdruS-q2zehJPSan1SKtHoFHKX28A3J_1gfTFUMw@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CAHk-=whtW3FdruS-q2zehJPSan1SKtHoFHKX28A3J_1gfTFUMw@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;이번 릴리즈 중간엔 토발즈의 여행이 있었죠.  초반엔 예상 외로 큰 rc 릴리즈도
-있었구요.  해서 이번주는 rc8 이 릴리즈 될지 5.2가 릴리즈 될지 저도 좀
-궁금했는데, 최종적으로 5.2 릴리즈가 되었습니다.  토발즈도 rc8 을 릴리즈 할까
-망설였다고 하네요.  하지만 그래야 할만한 문제가 전혀 없었기에 5.2를 릴리즈
-했다고 합니다.&lt;/p&gt;
-
-&lt;p&gt;더불어, 토발즈는 이번 여행 중에도 스쿠버다이빙을 즐겼나보네요.  더크 혼델이
-찍은 사진도 공유했습니다:
-&lt;a href=&#34;https://hohndel.name/palau-2019&#34; target=&#34;_blank&#34;&gt;https://hohndel.name/palau-2019&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

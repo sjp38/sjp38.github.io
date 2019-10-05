@@ -73,7 +73,7 @@
   <meta property="og:description" content="System Programmer">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2019-03-04T13:07:30&#43;09:00">
+  <meta property="og:updated_time" content="2019-03-19T12:11:11&#43;09:00">
   
 
   
@@ -246,6 +246,71 @@
   
 
   
+  
+    
+    
+
+<div class="article-list-item" itemscope itemprop="blogPost">
+  
+  
+  <h3 class="article-title" itemprop="name">
+    <a href="https://sjp38.github.io/post/lkml_news_v5.1-rc2/" itemprop="url">LKML News v5.1-rc2</a>
+  </h3>
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2019-03-19 12:11:11 &#43;0900 &#43;0900" itemprop="datePublished">
+      Mar 19, 2019
+    </time>
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/lkml-news">lkml news</a
+    >
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+  <div class="article-style" itemprop="articleBody">
+    
+    [PATCH v5 00/19] Convert x86 &amp; arm64 to use generic page walk https://lkml.kernel.org/r/20190321141953.31960-1-steven.price@arm.com
+커널이 walk_page_range() 함수를 제공하긴 하지만 이 함수는 커널에 의해 사용되는 페이지 테이블은 볼수가 없기 때문에 각 아키텍쳐별로 페이지 테이블 순회를 위한 기능을 별도로 만들어 사용하고 있습니다.
+이 패치셋은 walk_page_range() 가 커널의 페이지 테이블을 만질 수 있도록 확장함으로써 그런 불필요한 아키텍쳐별 파편화를 줄이려 합니다.
+[PATCH v6 0/7] psi: pressure stall monitors v6 https://lkml.kernel.org/r/20190319235619.260832-1-surenb@google.com
+시스템이 어떤 부분의 pressure 를 받는지 쉽게 확인하기 위한 pressure stall monitor 구현 패치의 여섯 번째 버전입니다.
+    
+  </div>
+  <p class="read-more">
+    <a href="https://sjp38.github.io/post/lkml_news_v5.1-rc2/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
   
     
     
@@ -817,72 +882,6 @@ Linux 5.0-rc3 https://lkml.kernel.org/r/CAHk-=whS=6Z_UxzoMjLANupOk3u-8ycERLPnaZx
   </div>
   <p class="read-more">
     <a href="https://sjp38.github.io/post/lkml_news_v5.0-rc3/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-  
-    
-    
-
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.0-rc2/" itemprop="url">LKML News v5.0-rc2</a>
-  </h3>
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2019-01-15 09:06:44 &#43;0900 &#43;0900" itemprop="datePublished">
-      Jan 15, 2019
-    </time>
-  </span>
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/lkml-news">lkml news</a
-    >
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-  <div class="article-style" itemprop="articleBody">
-    
-    [PATCH v11 00/26] Speculative page faults https://lkml.kernel.org/r/8b0b2c05-89f8-8002-2dce-fa7004907e78@codeaurora.org
-SPF 패치에서 발견된 버그 레포트입니다. ARM 위에서 데드락 문제가 발견되었군요. 버그 발견자가 패치도 같이 내놓았는데, 이에 대한 토론은 아직도 계속되고 있네요.
-[RFC PATCH v7 00/16] Add support for eXclusive Page Frame Ownership https://lkml.kernel.org/r/cover.1547153058.git.khalid.aziz@oracle.com
-&lsquo;ret2dir&rsquo; 보안 공격[1]에 대비하기 위한 패치입니다. 하지만 이로 인해 tlb 를 좀 많이 flush 해야 하는 문제가 있었고, 이 패치셋은 그에 대한 해결책도 의논하고 있습니다.
-[1] http://www.cs.columbia.edu/~vpk/papers/ret2dir.sec14.pdf
-[PATCH 0/4] Allow persistent memory to be used like normal RAM https://lkml.
-    
-  </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.0-rc2/" class="btn btn-primary btn-outline">
       CONTINUE READING
     </a>
   </p>

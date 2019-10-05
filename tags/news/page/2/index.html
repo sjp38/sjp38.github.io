@@ -82,7 +82,7 @@
   <meta property="og:description" content="System Programmer">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2019-07-01T15:48:04&#43;09:00">
+  <meta property="og:updated_time" content="2019-07-11T02:42:22&#43;09:00">
   
 
   
@@ -257,6 +257,19 @@
   
   
   <div>
+    <h2><a href="https://sjp38.github.io/post/lkml_news_v5.3-rc1/">LKML News v5.3-rc1</a></h2>
+    <div class="article-style">
+      
+      [PATCH v5 0/5] Introduce MADV_COLD and MADV_PAGEOUT <a href="https://lkml.kernel.org/r/20190714233401.36909-1-minchan@kernel.org" target="_blank">https://lkml.kernel.org/r/20190714233401.36909-1-minchan@kernel.org</a>
+MADV_COLD 와 MADV_PAGEOUT 을 구현하는 패치, 어느새 다섯번째 버전입니다. 큰 변경은 없는 것 같군요.
+[PATCH v2 0/3] Make working with compound pages easier <a href="https://lkml.kernel.org/r/20190721104612.19120-1-willy@infradead.org" target="_blank">https://lkml.kernel.org/r/20190721104612.19120-1-willy@infradead.org</a>
+Huge page 를 다루기 쉽게끔 page_size(), page_shift(), 그리고 compound_nr() 이라는 세개의 helper 함수를 추가하고 이 함수들을 사용하게끔 기존 코드를 다듬는 패치셋입니다.
+PAGE_SIZE &lt;&lt; compound_order(page) 는 page_size(page) 가, PAGE_SHIFT + compound_order(page) 는 page_shift(page) 가, 그리고 1 &lt;&lt; compound_order(page) 는 compound_nr(page) 가 되는 것이죠.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="https://sjp38.github.io/post/lkml_news_v5.2/">LKML News v5.2</a></h2>
     <div class="article-style">
       
@@ -369,19 +382,6 @@ mm 쪽 함수들은 order 를 인자로 많이 받죠. 어차피 gfp_t 는 무�
 Linux 5.1 <a href="https://lkml.kernel.org/r/CAHk-=whsbDxdapMJGvy9OkVSrKMsKRJBTrH-Qj-qTbkMUGnWUw@mail.gmail.com" target="_blank">https://lkml.kernel.org/r/CAHk-=whsbDxdapMJGvy9OkVSrKMsKRJBTrH-Qj-qTbkMUGnWUw@mail.gmail.com</a>
 5.1 릴리즈입니다. 일요일 오후 릴리즈란 점은 평소와 같지만 평소보다 조금 늦은 시간이긴 했는데요, 오늘 갑자기 받은 풀 리퀘스트도 있었고, 이번 머지윈도우 기간에 졸업식에 참석해야 해서 조금 망설였다는군요.
 하지만 풀리퀘스트도 그렇게 크진 않고, 몇일 머지윈도우에 자리 비우는 정도는 어떻게든 할 수 있을거라 생각해서 5.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="https://sjp38.github.io/post/lkml_news_v5.1-rc7/">LKML News v5.1-rc7</a></h2>
-    <div class="article-style">
-      
-      Re: [LSF/MM] Preliminary agenda ? Anyone &hellip; anyone ? Bueller ? <a href="https://lkml.kernel.org/r/83fda245-849a-70cc-dde0-5c451938ee97@kernel.dk" target="_blank">https://lkml.kernel.org/r/83fda245-849a-70cc-dde0-5c451938ee97@kernel.dk</a>
-올해의 LSFMM 스케쥴이 구글 문서로 공유되고 있었군요: <a href="https://docs.google.com/spreadsheets/d/1Z1pDL-XeUT1ZwMWrBL8T8q3vtSqZpLPgF3Bzu_jejfk/edit#gid=0" target="_blank">https://docs.google.com/spreadsheets/d/1Z1pDL-XeUT1ZwMWrBL8T8q3vtSqZpLPgF3Bzu_jejfk/edit#gid=0</a>
-[LSF/MM TOPIC] Proactive Memory Reclaim <a href="https://lkml.kernel.org/r/CALvZod4V+56pZbPkFDYO3+60Xr0_ZjiSgrfJKs_=Bd4AjdvFzA@mail.gmail.com" target="_blank">https://lkml.kernel.org/r/CALvZod4V+56pZbPkFDYO3+60Xr0_ZjiSgrfJKs_=Bd4AjdvFzA@mail.gmail.com</a>
-이제 LSFMM 이 얼마 안남았습니다만, 또하나의 주제 제안이 올라왔습니다.
-메모리 오버커밋으로 인해 direct reclaim 이 발생하고, 이는 latency sensitive 어플리케이션의 latency 를 크게 저하시키니, 시스템이 좀 더 적극적으로 memory reclaim 을 해서 direct reclaim 을 최소화 시켜보자는 건데요. 잘 접근되지 않는 cold memory 를 추적해서 미리미리 reclaim 시키자는 겁니다.
       
     </div>
   </div>
