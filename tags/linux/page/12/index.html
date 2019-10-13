@@ -13,7 +13,7 @@
   <meta name="description" content="System Programmer">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/categories/">
+  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/tags/linux/">
 
   
   
@@ -64,30 +64,30 @@
   
 
   
-  <link rel="alternate" href="https://sjp38.github.io/categories/index.xml" type="application/rss+xml" title="Hacklog">
-  <link rel="feed" href="https://sjp38.github.io/categories/index.xml" type="application/rss+xml" title="Hacklog">
+  <link rel="alternate" href="https://sjp38.github.io/tags/linux/index.xml" type="application/rss+xml" title="Hacklog">
+  <link rel="feed" href="https://sjp38.github.io/tags/linux/index.xml" type="application/rss+xml" title="Hacklog">
   
 
   <link rel="manifest" href="/site.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://sjp38.github.io/categories/">
+  <link rel="canonical" href="https://sjp38.github.io/tags/linux/">
 
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="Hacklog">
-  <meta property="og:url" content="https://sjp38.github.io/categories/">
-  <meta property="og:title" content="Categories | Hacklog">
+  <meta property="og:url" content="https://sjp38.github.io/tags/linux/">
+  <meta property="og:title" content="linux | Hacklog">
   <meta property="og:description" content="System Programmer">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2019-10-13T12:22:50&#43;02:00">
+  <meta property="og:updated_time" content="2017-01-20T13:18:56&#43;09:00">
   
 
   
 
-  <title>Categories | Hacklog</title>
+  <title>linux | Hacklog</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
@@ -250,78 +250,21 @@
 
 <div class="universal-wrapper">
 
-  <h1>Categories</h1>
+  <h1>linux</h1>
 
   
 
   
   
   <div>
-    <h2><a href="https://sjp38.github.io/categories/lkml-news/">lkml news</a></h2>
+    <h2><a href="https://sjp38.github.io/post/uninstall-kernel/">uninstall kernel</a></h2>
     <div class="article-style">
       
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="https://sjp38.github.io/categories/lwn-translations/">lwn translations</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="https://sjp38.github.io/categories/misc/">misc</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="https://sjp38.github.io/categories/news/">news</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="https://sjp38.github.io/categories/open-source/">open source</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="https://sjp38.github.io/categories/open-source/">open-source</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="https://sjp38.github.io/categories/programming/">programming</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="https://sjp38.github.io/categories/projects/">projects</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="https://sjp38.github.io/categories/publications/">publications</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="https://sjp38.github.io/categories/record/">record</a></h2>
-    <div class="article-style">
+      테스트 등을 위해 소스코드로부터 커널을 직접 빌드, 설치하기 시작하면 어느새 수많은 커널이 설치되어 있는 것을 확인할 수 있다. 삭제를 위해선 make install 로 만들어진 파일들을 직접 제거하고 grub 을 업데이트 해줘야 한다.
+예를 들어 시스템이 현재 부팅되어 있는 버전의 커널을 언인스톨하고자 한다면 다음의 일련의 커맨드를 입력하면 된다:</p>
+
+<h1 id="rm-boot-vmlinuz-uname-r-rm-boot-initrd-img-uname-r-rm-boot-system-map-uname-r-rm-boot-config-uname-r-rm-fr-lib-modules-uname-r-rm-var-lib-initramfs-tools-uname-r-update-grub2-다른-버전의-설치되어있는-커널을-제거하고-싶다면-위의-uname-r-부분을-제거하고자-하는-커널-버전으로-대체하면-된다">rm /boot/vmlinuz-$(uname -r) # rm /boot/initrd.img-$(uname -r) # rm /boot/System.map-$(uname -r) # rm /boot/config-$(uname -r) # rm -fr /lib/modules/$(uname -r) # rm /var/lib/initramfs-tools/$(uname -r) # update-grub2  다른 버전의 설치되어있는 커널을 제거하고 싶다면 위의 $(uname -r) 부분을 제거하고자 하는 커널 버전으로 대체하면 된다.</h1>
+
       
     </div>
   </div>
@@ -331,10 +274,8 @@
 <nav>
   <ul class="pager">
     
-    <li><a href="/categories/">&lt;</a></li>
+    <li><a href="/tags/linux/page/11/">&lt;</a></li>
     
-    
-    <li><a href="/categories/page/3/">&gt;</a></li>
     
   </ul>
 </nav>
