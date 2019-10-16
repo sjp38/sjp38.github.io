@@ -82,7 +82,7 @@
   <meta property="og:description" content="System Programmer">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2019-03-19T12:11:11&#43;09:00">
+  <meta property="og:updated_time" content="2019-03-20T15:32:29&#43;09:00">
   
 
   
@@ -257,6 +257,16 @@
   
   
   <div>
+    <h2><a href="https://sjp38.github.io/post/kunit_intro/">Unit test for the Linux kernel using Kunit</a></h2>
+    <div class="article-style">
+      
+      지난 2월 말에 FAST&rsquo;19 학회를 다녀왔는데요, Ted Tso 도 왔더군요. 심지어 구글 부스를 지키고 계시더라구요. 어쩌다보니 식사자리에서 합석하고 잡담 나눈 레드햇 개발자 분들이랑 이야기를 하고 있길래 껴서 좀 이야기를 했는데, 이야기 중 테스트에 대한 이야기가 나왔고, 이에 Ted 가 KUnit 이라는 도구를 소개해 줬습니다. 잠깐 사용해 보니 매우 매력적인 것 같아서 이 블로그에서도 소개해 볼까 합니다.
+KUnit 은 이름에서 짐작했겠지만 리눅스 커널을 위한 유닛 테스트 프레임웍입니다. 구글의 Brendan Higgins 라는 분이 개발하고 있고, 커널 내에 머지되는 걸 목표로 해서 LKML 에도 RFC 패치를 보내고 있습니다.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="https://sjp38.github.io/post/lkml_news_v5.1-rc2/">LKML News v5.1-rc2</a></h2>
     <div class="article-style">
       
@@ -371,18 +381,6 @@ SPF 패치에서 발견된 버그 레포트입니다. ARM 위에서 데드락 �
 &lsquo;ret2dir&rsquo; 보안 공격[1]에 대비하기 위한 패치입니다. 하지만 이로 인해 tlb 를 좀 많이 flush 해야 하는 문제가 있었고, 이 패치셋은 그에 대한 해결책도 의논하고 있습니다.
 [1] <a href="http://www.cs.columbia.edu/~vpk/papers/ret2dir.sec14.pdf" target="_blank">http://www.cs.columbia.edu/~vpk/papers/ret2dir.sec14.pdf</a>
 [PATCH 0/4] Allow persistent memory to be used like normal RAM <a href="https://lkml" target="_blank">https://lkml</a>.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="https://sjp38.github.io/post/lkml_news_v5.0-rc1/">LKML News v5.0-rc1</a></h2>
-    <div class="article-style">
-      
-      [RFC v3 0/3] test driver to analyse vmalloc allocator <a href="https://lkml.kernel.org/r/20190102085924.14145-1-urezki@gmail.com" target="_blank">https://lkml.kernel.org/r/20190102085924.14145-1-urezki@gmail.com</a>
-vmalloc 의 성능과 스트레스 테스트를 위한 모듈을 구현한 패치입니다. Selftests 에도 테스트 스크립트를 추가했군요.
-[RFC PATCH 0/1] mm: add a warning about high order allocations <a href="https://lkml.kernel.org/r/20181225153927.2873-1-khorenko@virtuozzo.com" target="_blank">https://lkml.kernel.org/r/20181225153927.2873-1-khorenko@virtuozzo.com</a>
-특정 노드의 메모리에 접근이 많이 되고 있는 상황에서 해당 메모리가 fragment 되어 있고 이 시점에서 high order allocation 이 요청되면 이걸 위해 compaction 등이 작동하니까 다른 태스크의 latency 가 떨어질 수 있습니다. 이런 상황을 모니터링 할 수 있게끔, 이 패치는 vm.
       
     </div>
   </div>
