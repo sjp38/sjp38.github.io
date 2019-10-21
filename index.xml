@@ -26,6 +26,33 @@
 처음 세상에 모습을 드러낸건 9월이었고, 최근 컨퍼런스들에서도 발표가 있었죠.
 메커니즘은 간단하다면 간단한, 샘플링 기반입니다.
 구글 내부 fuzzing tester 인 syzkaller 는 이미 이 기능을 켠채 돌아간다는군요.&lt;/p&gt;
+
+&lt;h2 id=&#34;patch-2-2-mm-zswap-support-thp&#34;&gt;[PATCH &lt;sup&gt;2&lt;/sup&gt;&amp;frasl;&lt;sub&gt;2&lt;/sub&gt;] mm, zswap: Support THP&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/1571111349-5041-2-git-send-email-teawater@gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/1571111349-5041-2-git-send-email-teawater@gmail.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Zswap 이THP 를 지원하도록 수정하는 패치입니다.  그냥 &lt;code&gt;zswap_frontswap_store()&lt;/code&gt;
+함수가 THP 페이지를 연속적인 4 KiB 페이지로 인식하고 처리하게끔 했군요.&lt;/p&gt;
+
+&lt;h2 id=&#34;patch-rfc-v1-00-26-add-kernelmemorysanitizer-infrastructure&#34;&gt;[PATCH RFC v1 00/26] Add KernelMemorySanitizer infrastructure&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20191018094304.37056-1-glider@google.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20191018094304.37056-1-glider@google.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;구글에서 만든 또다른 sanitizer, KMSAN 입니다.  자매품으로 address sanitizer
+등이 있고, 앞서 소개한 concurrency sanitizer 도 있죠.  KMSAN 은 초기화 안된
+메모리에의 접근 문제를 찾아내는 Sanitizer 입니다.
+Syzkaller 에 적용되어 지난 2년간 무려 200개가 넘는 문제를 발견했다고 합니다.&lt;/p&gt;
+
+&lt;p&gt;이 패치셋은 KMSAN 을 적용한 커널을 QEMU 에서 부팅시킬 수 있게 해줍니다.
+알려진 false positive 는 없지만 실제로 적용해보면 있을수도 있다고 하는군요.&lt;/p&gt;
+
+&lt;h2 id=&#34;linux-5-4-rc4&#34;&gt;Linux 5.4-rc4&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wh3jhffc0u7s5n=-zUFpztuh+0Hfth4vwuyfc5SpBmvSA@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CAHk-=wh3jhffc0u7s5n=-zUFpztuh+0Hfth4vwuyfc5SpBmvSA@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;네번째 rc 버전 릴리즈입니다.  딱히 특별한 일 없이 평범한 릴리즈라고
+자평하는군요.  토발즈는 이번주에 OSSummit Europe 참가를 위해 프랑스로 가는
+모양입니다.  하지만 지금처럼 조용하면 큰일은 없을 것 같다고 하네요.&lt;/p&gt;
 </description>
     </item>
     
