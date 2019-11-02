@@ -11,6 +11,61 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>LKML News v5.4-rc6</title>
+      <link>https://sjp38.github.io/post/lkml_news_v5.4-rc6/</link>
+      <pubDate>Sat, 02 Nov 2019 09:24:21 +0100</pubDate>
+      
+      <guid>https://sjp38.github.io/post/lkml_news_v5.4-rc6/</guid>
+      <description>
+
+&lt;h2 id=&#34;patch-v8-mm-debug-add-tests-validating-architecture-page-table-helpers&#34;&gt;[PATCH V8] mm/debug: Add tests validating architecture page table helpers&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/1572240562-23630-1-git-send-email-anshuman.khandual@arm.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/1572240562-23630-1-git-send-email-anshuman.khandual@arm.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;아키텍쳐별 페이지 테이블 헬퍼 등을 테스트 하는 코드를 추가하는 패치입니다.
+&lt;code&gt;CONFIG_DEBUG_VM_PGTABLE&lt;/code&gt; 컨피규레이션이 켜져 있으면 동작합니다.&lt;/p&gt;
+
+&lt;h2 id=&#34;patch-rfc-v2-00-25-add-kernelmemorysanitizer-infrastructure&#34;&gt;[PATCH RFC v2 00/25] Add KernelMemorySanitizer infrastructure&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20191030142237.249532-1-glider@google.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20191030142237.249532-1-glider@google.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;초기화 되지 않은 메모리 영역에 액세스 하는 에러를 찾아주는 KMSAN 을 커널에
+추가하는 패치입니다.
+KCSAN 과 비슷하게 syzkaller 를 통해 돌아가게끔 되어 있군요.&lt;/p&gt;
+
+&lt;p&gt;False positive 문제가 존재할 수는 있는 모양입니다만, 구글 내부에서 syzbot 을
+통해 테스트 한 환경에서는 중요한 false positive 는 나오지 않은 모양입니다.
+구글 외부에서는 또 모른다는 거죠.&lt;/p&gt;
+
+&lt;p&gt;요즘 커널 개발 프로세스를 개선하자는 이야기가 있고, 그 중에는 패치의 히스토리를
+알고 싶다는 이야기가 많죠.
+그래서인지 이 메일은 구글 내부 리뷰 시스템인 Gerrit 으로의 링크를 포함시켰네요.&lt;/p&gt;
+
+&lt;h2 id=&#34;rfc-v2-mm-proactive-compaction&#34;&gt;[RFC v2] mm: Proactive compaction&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20191031005127.8037-1-nigupta@nvidia.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20191031005127.8037-1-nigupta@nvidia.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Huge page 할당을 위해선 연속된 메모리 할당이 필요합니다.
+Fragmentation 이 심한 시스템에선 이 할당이 어렵죠.
+리눅스는 그래서 compaction 기법을 사용하는데요, 이걸 좀 더 적극적으로 하자는
+패치입니다.
+이를 통해 latency 가 개선될 수 있죠.&lt;/p&gt;
+
+&lt;p&gt;단순히 hugepage 를 최대한, compaction 을 요청해가며 할당받는 드라이버를 통해 성능을 테스트 했군요.
+80th percentile latency 까지는 몇십배 넘게 할당 응답시간을 줄였는데, 90th
+percentile 부턴 별 차이 없군요.&lt;/p&gt;
+
+&lt;h2 id=&#34;rfc-00-10-autonuma-optimize-memory-placement-in-memory-tiering-system&#34;&gt;[RFC 00/10] autonuma: Optimize memory placement in memory tiering system&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20191101075727.26683-1-ying.huang@intel.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20191101075727.26683-1-ying.huang@intel.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;DRAM 과 PMEM 등으로 구성되어 PMEM 을 NUMA node 로 간주하는 multi-tiering memory
+system 을 염두에 두고 hot page / cold page 를 구분할 수 있게 해주는
+패치셋입니다.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>LKML News v5.4-rc5</title>
       <link>https://sjp38.github.io/post/lkml_news_v5.4-rc5/</link>
       <pubDate>Sun, 27 Oct 2019 12:48:30 +0100</pubDate>
@@ -794,77 +849,6 @@ FLATMEM 보단 조금 비싸지만 DISCONTIGMEM 보다는 효율적이기 때문
 쉬운 작업이 아닐 겁니다.
 그리고 ARC 아키텍쳐의 DISCONTIGMEM 사용은 &amp;ldquo;normal&amp;rdquo; 메모리 아래 &amp;ldquo;high memory&amp;rdquo;
 영역의 존재를 갖는데, 이는 분명 변경하기 어려울 겁니다.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>LKML News v5.3-rc2</title>
-      <link>https://sjp38.github.io/post/lkml_news_v5.3-rc2/</link>
-      <pubDate>Fri, 26 Jul 2019 08:41:19 +0900</pubDate>
-      
-      <guid>https://sjp38.github.io/post/lkml_news_v5.3-rc2/</guid>
-      <description>
-
-&lt;h2 id=&#34;patch-v6-0-5-introduce-madv-cold-and-madv-pageout&#34;&gt;[PATCH v6 0/5] Introduce MADV_COLD and MADV_PAGEOUT&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190723062539.198697-1-minchan@kernel.org&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20190723062539.198697-1-minchan@kernel.org&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;어플리케이션의 메모리를 좀 더 적극적으로 reclaim 시킴으로써 반응성을 높이기
-위한 패치셋의 일부를 따로 떼어낸, &lt;code&gt;MADV_COLD&lt;/code&gt; 와 &lt;code&gt;MADV_PAGEOUT&lt;/code&gt; 힌트를
-&lt;code&gt;madvise()&lt;/code&gt; 에 추가하는 패치의 여섯번째 버전입니다.&lt;/p&gt;
-
-&lt;p&gt;일곱번째 버전도 빠르게 올라왔군요:
-&lt;a href=&#34;https://lkml.kernel.org/r/20190726023435.214162-1-minchan@kernel.org&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20190726023435.214162-1-minchan@kernel.org&lt;/a&gt;
-단순히 mmotm 최신 버전 위로 리베이스 한 것 같네요.&lt;/p&gt;
-
-&lt;h2 id=&#34;patch-v9-00-21-generic-page-walk-and-ptdump&#34;&gt;[PATCH v9 00/21] Generic page walk and ptdump&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190722154210.42799-1-steven.price@arm.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20190722154210.42799-1-steven.price@arm.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;x86 과 arm64 가 범용적 페이지 테이블 워킹을 하도록 했던 해치셋을 조금 더 확장한
-버전입니다.  기존 대비 페이지 테이블 덤프 기능도 일반화 시킨게 차이군요.&lt;/p&gt;
-
-&lt;h2 id=&#34;patch-v1-1-2-mm-page-idle-add-support-for-per-pid-page-idle-using-virtual-indexing&#34;&gt;[PATCH v1 &lt;sup&gt;1&lt;/sup&gt;&amp;frasl;&lt;sub&gt;2&lt;/sub&gt;] mm/page_idle: Add support for per-pid page_idle using virtual indexing&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190722213205.140845-1-joel@joelfernandes.org&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20190722213205.140845-1-joel@joelfernandes.org&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;리눅스 커널은 &lt;code&gt;page_idle&lt;/code&gt; 이라는 인터페이스를 통해 특정 페이지의 액세스 여부를
-파악할 수 있게 합니다.  저도 이걸 통해서 wss 를 재거나 하는데 쓸 수 있는
-&lt;a href=&#34;https://github.com/sjp38/idle_page_tracking&#34; target=&#34;_blank&#34;&gt;도구&lt;/a&gt;를 만들었었죠.&lt;/p&gt;
-
-&lt;p&gt;문제는 이 인터페이스는 쓰기가 조금 복잡합니다.  PFN 을 가지고 페이지를 지목할
-수 있게 되어 있기 때문에 특정 프로세스의 데이터 액세스를 추적하려면 해당
-프로세스가 사용하고 있는 가상 메모리가 어떤 PFN 으로 매핑되어 있는지 알아야
-하기 때문이죠.  달리 말하면 &lt;code&gt;page_idle&lt;/code&gt; 인터페이스가 글로벌하기 때문에 생기는
-문제입니다.&lt;/p&gt;
-
-&lt;p&gt;이 패치셋은 &lt;code&gt;/proc/&amp;lt;pid&amp;gt;/page_idle&lt;/code&gt; 파일을 생성하고 이를 통해 프로세스 단위로
-virtual page frame number (VFN) 을 통해 페이지 트랙킹을 할 수 있게 합니다.
-이로써 이 인터페이스를 사용하는 유저스페이스 도구의 코드가 간단해질 뿐더러 보안
-이슈도 좀 더 편리해지죠.  구글에선 내부적으로 이를 통해 heap profiler
-(heapprofd) 를 좀 더 쉽게 만들었나보군요.&lt;/p&gt;
-
-&lt;h2 id=&#34;patch-rfc-mm-page-idle-simple-idle-page-tracking-for-virtual-memory&#34;&gt;[PATCH RFC] mm/page_idle: simple idle page tracking for virtual memory&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/156388286599.2859.5353604441686895041.stgit@buzz&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/156388286599.2859.5353604441686895041.stgit@buzz&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;앞에서 소개한 패치와 비슷하게 &lt;code&gt;page_idle&lt;/code&gt; 을 간편화 시키는 패치셋입니다.  특정
-pid 의 모든 mapped page frame 의 access bit 을 한번에 clear 할 수 있게 합니다.
-인터페이스는 &lt;code&gt;echo 6 &amp;gt; /proc/&amp;lt;pid&amp;gt;/clear_refs&lt;/code&gt; 같은 형태군요.  이후,
-&lt;code&gt;/proc/&amp;lt;pid&amp;gt;/smaps&lt;/code&gt; 파일을 이용해 현재 idle 한 페이지들의 갯수를 알 수
-있습니다.&lt;/p&gt;
-
-&lt;h2 id=&#34;linux-5-3-rc2&#34;&gt;Linux 5.3-rc2&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wiiKRJprQDJqJzdcjdaGs73UtVPTM2+jOHWdMgu5Sp2HQ@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CAHk-=wiiKRJprQDJqJzdcjdaGs73UtVPTM2+jOHWdMgu5Sp2HQ@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;두번째 rc 버전이 예정대로 나왔습니다.  변경사항이 많은 머지윈도우였던 만큼 rc2
-도 꽤 수정사항이 많은 것 같습니다.  전체적으로 문서, arch 코드, 그리고 드라이버
-쪽 수정사항이 대부분인 듯 하군요.&lt;/p&gt;
-
-&lt;p&gt;앞선 rc1 릴리즈부터 이번 릴리즈 사이의 변경 사항의 시각화 비디오를 아래
-링크에서 볼 수 있습니다:
-&lt;a href=&#34;https://youtu.be/yxtq3-lhebQ&#34; target=&#34;_blank&#34;&gt;https://youtu.be/yxtq3-lhebQ&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

@@ -82,7 +82,7 @@
   <meta property="og:description" content="System Programmer">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2019-05-28T23:28:37&#43;09:00">
+  <meta property="og:updated_time" content="2019-06-04T10:49:00&#43;09:00">
   
 
   
@@ -257,6 +257,20 @@
   
   
   <div>
+    <h2><a href="https://sjp38.github.io/post/lkml_news_v5.2-rc4/">LKML News v5.2-rc4</a></h2>
+    <div class="article-style">
+      
+      [PATCH 00/15] Slab Movable Objects (SMO) <a href="https://lkml.kernel.org/r/20190603042637.2018-1-tobin@kernel.org" target="_blank">https://lkml.kernel.org/r/20190603042637.2018-1-tobin@kernel.org</a>
+전에도 RFC 패치셋은 여기서도 소개했었죠. Slab 할당자에 할당받은 객체들의 이동이 가능하게끔 하는 패치셋의 정식 패치 버전이 나왔습니다. 변경된 인터페이스는 XArray 와 dcache 에 적용되는군요.
+[PATCH v1 0/4] Introduce MADV_COLD and MADV_PAGEOUT <a href="https://lkml.kernel.org/r/20190603053655.127730-1-minchan@kernel.org" target="_blank">https://lkml.kernel.org/r/20190603053655.127730-1-minchan@kernel.org</a>
+바로 지난주에도 소개한 external madvise 패치셋이 쪼개졌네요. MADV_COLD 와 MADV_PAGEOUT 두개의 새로운 advice 기능 추가 버전만 담은 패치셋입니다. 이게 더 일찍 머지될 가능성이 생겼군요.
+Linux 5.2-rc4 <a href="https://lkml.kernel.org/r/CAHk-=wjm7FQxdF=RKa8Xe23CLNNpbGDOACewgo8e-hwDJ8TyQg@mail.gmail.com" target="_blank">https://lkml.kernel.org/r/CAHk-=wjm7FQxdF=RKa8Xe23CLNNpbGDOACewgo8e-hwDJ8TyQg@mail.gmail.com</a>
+메일을 받고 깜짝 놀랐습니다, 평소보다 빨랐기 때문이죠.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="https://sjp38.github.io/post/lkml_news_v5.2-rc3/">LKML News v5.2-rc3</a></h2>
     <div class="article-style">
       
@@ -368,16 +382,6 @@ v5.2 에 머지될 목적의 RCU 문서화 업데이트 패치셋입니다.
 v5.2 를 위한 RCU 의 다양한 업데이트 패치셋입니다. rcu 를 위한 메일링 리스트도 추가되었군요. rcu@vger.kernel.org 입니다.
 [PATCH tip/core/rcu 0/9] Torture-test updates for v5.2 <a href="https://lkml.kernel.org/r/20190326233054.GA21523@linux.ibm.com" target="_blank">https://lkml.kernel.org/r/20190326233054.GA21523@linux.ibm.com</a>
 v5.2 를 위한 torture test 의 업데이트 패치셋입니다. LKMM 이라던지 formal verification 도 많은 발전이 있었지만, torture test 도 없어질 순 없겠죠.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="https://sjp38.github.io/post/kunit_intro/">Unit test for the Linux kernel using Kunit</a></h2>
-    <div class="article-style">
-      
-      지난 2월 말에 FAST&rsquo;19 학회를 다녀왔는데요, Ted Tso 도 왔더군요. 심지어 구글 부스를 지키고 계시더라구요. 어쩌다보니 식사자리에서 합석하고 잡담 나눈 레드햇 개발자 분들이랑 이야기를 하고 있길래 껴서 좀 이야기를 했는데, 이야기 중 테스트에 대한 이야기가 나왔고, 이에 Ted 가 KUnit 이라는 도구를 소개해 줬습니다. 잠깐 사용해 보니 매우 매력적인 것 같아서 이 블로그에서도 소개해 볼까 합니다.
-KUnit 은 이름에서 짐작했겠지만 리눅스 커널을 위한 유닛 테스트 프레임웍입니다. 구글의 Brendan Higgins 라는 분이 개발하고 있고, 커널 내에 머지되는 걸 목표로 해서 LKML 에도 RFC 패치를 보내고 있습니다.
       
     </div>
   </div>

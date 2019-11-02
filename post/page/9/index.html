@@ -73,7 +73,7 @@
   <meta property="og:description" content="System Programmer">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2018-08-27T16:03:42&#43;09:00">
+  <meta property="og:updated_time" content="2018-08-27T17:11:28&#43;09:00">
   
 
   
@@ -246,6 +246,70 @@
   
 
   
+  
+    
+    
+
+<div class="article-list-item" itemscope itemprop="blogPost">
+  
+  
+  <h3 class="article-title" itemprop="name">
+    <a href="https://sjp38.github.io/post/lkml_news_v4.19-rc1/" itemprop="url">LKML News after v4.19-rc1</a>
+  </h3>
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2018-08-27 17:11:28 &#43;0900 &#43;0900" itemprop="datePublished">
+      Aug 27, 2018
+    </time>
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/lkml-news">lkml news</a
+    >
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+  <div class="article-style" itemprop="articleBody">
+    
+    Linux 4.19-rc1 https://lkml.kernel.org/r/CA+55aFw9mxNPX6OtOp-aoUMdXSg=gBkQudGGamo__sh_ts_LdQ@mail.gmail.com
+이주일의 머지 윈도우가 끝나고 리눅스 4.19 버전을 향한 안정화 단계가 시작되었습니다.
+토발즈에겐 결코 즐겁지 않은 머지 윈도우였습니다 (frustrating merge window 였다고 표현하는군요). 일단 머지 윈도우 초기부터 L1TF 취약점 이슈가 나왔죠. 하지만 이슈가 처음 발견된 건 아니고 공식 보고된 거다보니 그 전부터 수정은 하고 있었기에 머지만 하면 됐습니다. 토발즈는 -next 트리와 다양한 커널 테스트 시스템들이 잘 갖추어져 있다는 증거라고 이야기 합니다.
+또, TLB 슛다운 버그에 대한 보고가 있었군요.
+    
+  </div>
+  <p class="read-more">
+    <a href="https://sjp38.github.io/post/lkml_news_v4.19-rc1/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
   
     
     
@@ -855,72 +919,6 @@ gmail imap 정보 입력 S (Settings) -&gt; L (collectionLists) -&gt; A (Add Clt
   </div>
   <p class="read-more">
     <a href="https://sjp38.github.io/post/lkml_news_v4.18-rc5/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-  
-    
-    
-
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/lkml_news_v4.18-rc4/" itemprop="url">Lkml_news_v4.18 Rc4</a>
-  </h3>
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2018-07-09 10:01:05 &#43;0900 &#43;0900" itemprop="datePublished">
-      Jul 9, 2018
-    </time>
-  </span>
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/lkml-news">lkml news</a
-    >
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-  <div class="article-style" itemprop="articleBody">
-    
-    Linux 4.18-rc4 https://lkml.kernel.org/r/CA+55aFwXGyZ1Yx+Z8a93gpvb596ZRJ5ppiQL_+-k7gjeQLtcsQ@mail.gmail.com
-어느덧 네번째 RC 버전 릴리즈입니다. 지루할 정도로 평범한 릴리즈라는군요. 대부분 드라이버쪽 업데이트이고, bpf, cifs, ext4, 스케쥴러, 그리고 일부 arch 업데이트가 대부분입니다.
-[PATCH v9 00/17] Improve shrink_slab() scalability (old complexity was O(n^2), new is O(n)) https://lkml.kernel.org/r/153112469064.4097.2581798353485457328.stgit@localhost.localdomain
-shrink_slab() 의 compexity 를 O(n^2) 에서 O(n) 으로 낮춰 확장성을 높인 패치의 아홉번째 버전입니다.
-[PATCH 0/2] CMA: remove unsupported gfp mask parameter https://lkml.kernel.org/r/20180709122018eucas1p277147b1e6385d552b5a8930d0a8ba91c~-sqSan6292733527335eucas1p2-@eucas1p2.samsung.com
-cma_alloc() 과 dma_alloc_from_contiguous() 함수는 gfp mask 패러미터를 받지만 실질적으론 __GFP_NORARN 플래그만을 지원하고 있습니다.
-    
-  </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/lkml_news_v4.18-rc4/" class="btn btn-primary btn-outline">
       CONTINUE READING
     </a>
   </p>
