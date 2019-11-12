@@ -73,7 +73,7 @@
   <meta property="og:description" content="System Programmer">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2017-12-18T17:46:23&#43;09:00">
+  <meta property="og:updated_time" content="2017-12-24T14:24:13&#43;09:00">
   
 
   
@@ -246,6 +246,136 @@
   
 
   
+  
+    
+    
+
+<div class="article-list-item" itemscope itemprop="blogPost">
+  
+  
+  <h3 class="article-title" itemprop="name">
+    <a href="https://sjp38.github.io/post/lkml_news_v4.14-rc4/" itemprop="url">LKML News after v4.15-rc5</a>
+  </h3>
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2017-12-24 14:24:13 &#43;0900 &#43;0900" itemprop="datePublished">
+      Dec 24, 2017
+    </time>
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/lkml-news">lkml news</a
+    >
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+  <div class="article-style" itemprop="articleBody">
+    
+    Linux 4.15-rc5 https://lkml.kernel.org/r/CA+55aFy1U+uBLEAoCWU3=BqEbROW6rsbaHUdYJArR6iYQQWo_A@mail.gmail.com
+4.15 의 다섯번째 rc 버전이 평소 스케쥴보다 하루 일찍 릴리즈 되었습니다. 원래대로라면 내일일텐데, 미국 시간으로는 크리스마스 이브라서 그냥 오늘 릴리즈 한다는군요.
+이번 rc5 의 변경 사항들도 지난 릴리즈의 rc5 와 비슷했다고 하는데, 다만 x86 의 커널 페이지 테이블 격리화 관련 작업이 진행 중인 게 좀 예외라고 하는군요.
+[RFC v3 PATCH 0/5] Eliminate zone-&gt;lock contention for will-it-scale/page_fault1 and parallel free https://lkml.kernel.org/r/20180509085450.3524-1-aaron.lu@intel.com
+패치셋 저자는 112개 CPU를 갖는 Intel Skylake 서버에서 will-it-scale/page_fult1 워크로드를 돌려보았고 80% CPU 가 zone-&gt;lock 에서 스핀하며 시간을 보내고 있음을 파악했습니다.
+    
+  </div>
+  <p class="read-more">
+    <a href="https://sjp38.github.io/post/lkml_news_v4.14-rc4/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
+  
+    
+    
+
+<div class="article-list-item" itemscope itemprop="blogPost">
+  
+  
+  <h3 class="article-title" itemprop="name">
+    <a href="https://sjp38.github.io/post/lkml_news_v4.15-rc5/" itemprop="url">LKML News after v4.15-rc5</a>
+  </h3>
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2017-12-24 14:24:13 &#43;0900 &#43;0900" itemprop="datePublished">
+      Dec 24, 2017
+    </time>
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/lkml-news">lkml news</a
+    >
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+  <div class="article-style" itemprop="articleBody">
+    
+    Linux 4.15-rc5 https://lkml.kernel.org/r/CA+55aFy1U+uBLEAoCWU3=BqEbROW6rsbaHUdYJArR6iYQQWo_A@mail.gmail.com
+4.15 의 다섯번째 rc 버전이 평소 스케쥴보다 하루 일찍 릴리즈 되었습니다. 원래대로라면 내일일텐데, 미국 시간으로는 크리스마스 이브라서 그냥 오늘 릴리즈 한다는군요.
+이번 rc5 의 변경 사항들도 지난 릴리즈의 rc5 와 비슷했다고 하는데, 다만 x86 의 커널 페이지 테이블 격리화 관련 작업이 진행 중인 게 좀 예외라고 하는군요.
+Re: About the try to remove cross-release feature entirely by Ingo https://lkml.kernel.org/r/20171229014736.GA10341@X58A-UD3R
+Lockdep 의 cross release 기능은 너무 느렸고, false positive 가 많다는 이유로, 특히 false positive 가 너무 많다는 이유로 Ingo Molnar 에 의해 제거되려 하고 있습니다.
+    
+  </div>
+  <p class="read-more">
+    <a href="https://sjp38.github.io/post/lkml_news_v4.15-rc5/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
   
     
     
@@ -754,131 +884,6 @@ v4.14 를 향한 (아마도) 마지막 rc 버전의 릴리즈입니다.
   </div>
   <p class="read-more">
     <a href="https://sjp38.github.io/post/lkml_news_v4.14-rc8/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-  
-    
-    
-
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/osse2017_03/" itemprop="url">OSSummit 2017 Attendence - 03</a>
-  </h3>
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2017-11-04 10:20:16 &#43;0900 &#43;0900" itemprop="datePublished">
-      Nov 4, 2017
-    </time>
-  </span>
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    5 min read
-  </span>
-  
-
-  
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/trip">trip</a
-    >
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-  <div class="article-style" itemprop="articleBody">
-    
-    OSSummit 등록도 마쳤고, 남은 하루는 프라하 성 쪽을 둘러보기로 했습니다. 내일부터는 OSSummit 발표를 아침부터 오후까지 들어야 하므로, 프라하 관광을 해가 떠있을 때 하는건 오늘이 마지막이니 부지런히 걸어야 합니다. 어떻게 생각해 보면 꽤 강행군이기도 하고, 아침 일찍 도착하길 다행이다 싶습니다.
-Vltava[1] OSSummit 컨퍼런스 회장인 힐튼 프라하 호텔은 프라하 시내의 동북쪽에 위치해 있어서 조금만 걸으면 아침에 심카드 사고 나서 걸었던 블타바 강이 나옵니다. 아까 지나갔던 코스지만 한번 더 걸어가기로 합니다.
-프라하에 있는 동안 날씨가 계속 흐렸습니다.
-    
-  </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/osse2017_03/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-  
-    
-    
-
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/osse2017_02/" itemprop="url">OSSummit 2017 Attendence - 02</a>
-  </h3>
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2017-11-04 04:58:24 &#43;0900 &#43;0900" itemprop="datePublished">
-      Nov 4, 2017
-    </time>
-  </span>
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    8 min read
-  </span>
-  
-
-  
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/trip">trip</a
-    >
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-  <div class="article-style" itemprop="articleBody">
-    
-    Immigration 먼저 공항에서 입국심사를 거쳐야 합니다. 한글 표지판이 많이 있어서 영어에 익숙지 않은 분들도 비교적 쉽게 적응할 수 있겠다 싶었습니다.
-제가 가장 많이 다녀온 외국은 미국인데요. 대한민국 여권 소지자는 미국에 갈 때 비자가 필요없지만 E-SATA 로 등록을 해야 하고, 언젠가부터 E-SATA 등록비도 몇만원 정도 생겼죠. 또, 미국은 입국심사가 왠지 날카롭다는 인상입니다. 입국할 때 입국심사 카드도 써야하고 여기 숙소 주소 등도 적어야 하고, 지문도 찍어야 하죠. 공항 보안검색대에선 투시카메라로 사진도 찍고.
-    
-  </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/osse2017_02/" class="btn btn-primary btn-outline">
       CONTINUE READING
     </a>
   </p>

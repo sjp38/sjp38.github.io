@@ -73,7 +73,7 @@
   <meta property="og:description" content="System Programmer">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2019-05-21T01:27:47&#43;09:00">
+  <meta property="og:updated_time" content="2019-05-28T23:28:37&#43;09:00">
   
 
   
@@ -246,6 +246,134 @@
   
 
   
+  
+    
+    
+
+<div class="article-list-item" itemscope itemprop="blogPost">
+  
+  
+  <h3 class="article-title" itemprop="name">
+    <a href="https://sjp38.github.io/post/lkml_news_v5.2-rc3/" itemprop="url">LKML News v5.2-rc3</a>
+  </h3>
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2019-05-28 23:28:37 &#43;0900 &#43;0900" itemprop="datePublished">
+      May 28, 2019
+    </time>
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/lkml-news">lkml news</a
+    >
+    
+  </span>
+  
+  
+
+  
+
+</div>
+
+  <div class="article-style" itemprop="articleBody">
+    
+    [PATCH tip/core/rcu 0/12] https://lkml.kernel.org/r/20190530145204.GA28526@linux.ibm.com
+Paul E. McKenney 로부터의 RCU flavor consolidation 관련 추가 작업과 코드 정리를 위한 패치셋입니다.
+[PATCH tip/core/rcu 0/2] Documentation updates for v5.3 https://lkml.kernel.org/r/20190530145504.GA29820@linux.ibm.com
+RCU 문서 업데이트를 담고 있는 패치셋입니다. rcuref 의 실제 예제와 rcu_task_stall_timeout 의 정의에 대한 내용이 추가되었군요!
+[PATCH tip/core/rcu 0/21] Torture-test updates for v5.3 https://lkml.kernel.org/r/20190530151650.GA422@linux.ibm.com
+RCU 와 spinlock 등을 위해 사용되는 torture 테스트 업데이트를 담은 패치셋입니다. 무려 21개 패치네요!
+[RFCv2 0/6] introduce memory hinting API for external process https://lkml.
+    
+  </div>
+  <p class="read-more">
+    <a href="https://sjp38.github.io/post/lkml_news_v5.2-rc3/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
+  
+    
+    
+
+<div class="article-list-item" itemscope itemprop="blogPost">
+  
+  
+  <h3 class="article-title" itemprop="name">
+    <a href="https://sjp38.github.io/post/biscuit_os_install/" itemprop="url">Biscuit (OS Written in Go) Install</a>
+  </h3>
+  
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2019-05-26 23:27:44 &#43;0900 &#43;0900" itemprop="datePublished">
+      May 26, 2019
+    </time>
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  
+
+  
+
+</div>
+
+  <div class="article-style" itemprop="articleBody">
+    
+    <pre><code>$ git clone https://go.googlesource.com/go go1.4; cd go1.4
+$ git checkout release-branch.go1.4; cd src
+$ ./make.bash
+$ cd ../../
+$ git clone https://github.com/mit-pdos/biscuit.git; cd biscuit/src
+$ ./make.bash
+$ cd ../biscuit/
+$ make qemu CPUS=2
+</code></pre>
+
+    
+  </div>
+  <p class="read-more">
+    <a href="https://sjp38.github.io/post/biscuit_os_install/" class="btn btn-primary btn-outline">
+      CONTINUE READING
+    </a>
+  </p>
+</div>
+
   
     
     
@@ -762,123 +890,6 @@ Original Program 먼저 다음과 같은 프로그램이 있을 수 있을 겁�
   </div>
   <p class="read-more">
     <a href="https://sjp38.github.io/post/hooking_library_calls/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-  
-    
-    
-
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/backtrace_c_language/" itemprop="url">Backtrace on C language program</a>
-  </h3>
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2019-04-09 17:33:50 &#43;0900 &#43;0900" itemprop="datePublished">
-      Apr 9, 2019
-    </time>
-  </span>
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-
-  
-  
-  
-  
-
-  
-
-</div>
-
-  <div class="article-style" itemprop="articleBody">
-    
-    디버깅 과정에선 현재 어떤 코드가 어떤 함수를 거쳐 수행됐는지를 통한 컨텍스트 파악이 중요합니다. Java, Python, Go 등 대부분의 언어가 이를 위해 콜스택을 뽑을 수 있는 기능을 제공하죠. C 언어의 경우 gdb 등을 사용하면 쉽게 이를 볼 수 있지만 경우에 따라선 gdb 를 포기하고 printf() 등에만 의존해야 하기도 합니다. 이를 위한 기능이 c 라이브러리에도 있습니다, backtrace() 함수입니다. man 에도 이에 대한 설명이 있습니다만, 여기서도 간단히 소개해 봅니다.
-Example Source Code 예제로 설명하는게 가장 쉽죠.
-    
-  </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/backtrace_c_language/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-  
-    
-    
-
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.1-rc5/" itemprop="url">LKML News v5.1-rc5</a>
-  </h3>
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    
-    <time datetime="2019-04-09 17:33:01 &#43;0900 &#43;0900" itemprop="datePublished">
-      Apr 9, 2019
-    </time>
-  </span>
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/lkml-news">lkml news</a
-    >
-    
-  </span>
-  
-  
-
-  
-
-</div>
-
-  <div class="article-style" itemprop="articleBody">
-    
-    [v2 RFC PATCH 0/9] Another Approach to Use PMEM as NUMA Node https://lkml.kernel.org/r/1554955019-29472-1-git-send-email-yang.shi@linux.alibaba.com
-본 블로그를 통해 지속적으로 소개하고 있는, PMEM as NUMA node 를 위한, 보다 나은 hotness 기반 page location 을 위한 패치셋입니다. 기존 코멘트에 기반해서 두번째 버전을 내놓았군요.
-[RFC PATCH v3 00/15] Slab Movable Objects (SMO) https://lkml.kernel.org/r/20190411013441.5415-1-tobin@kernel.org
-최근 LWN 에서도 소개된 (https://lwn.net/Articles/784964/) 패치입니다. Slab allocator 에서 할당된 object 가 free page 가운데에 박혀 있어 page 를 회수할 수 없는 fragmentation 이 발생합니다.
-    
-  </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.1-rc5/" class="btn btn-primary btn-outline">
       CONTINUE READING
     </a>
   </p>

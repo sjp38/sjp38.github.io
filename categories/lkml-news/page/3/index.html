@@ -82,7 +82,7 @@
   <meta property="og:description" content="System Programmer">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2019-05-28T23:28:37&#43;09:00">
+  <meta property="og:updated_time" content="2019-06-10T10:17:29&#43;09:00">
   
 
   
@@ -257,6 +257,32 @@
   
   
   <div>
+    <h2><a href="https://sjp38.github.io/post/lkml_news_v5.2-rc5/">LKML News v5.2-rc5</a></h2>
+    <div class="article-style">
+      
+      [PATCH v3 0/5] THP aware uprobe <a href="https://lkml.kernel.org/r/20190612220320.2223898-1-songliubraving@fb.com" target="_blank">https://lkml.kernel.org/r/20190612220320.2223898-1-songliubraving@fb.com</a>
+uprobe 는 THP 로 되어있는 페이지를 쪼갭니다. 이로 인해 성능 향상 효과가 사라지죠. 이 패치셋은 uprobe 가 THP 를 인식하게 해서 이런 문제를 제거합니다.
+[PATCH v2 0/5] Introduce MADV_COLD and MADV_PAGEOUT <a href="https://lkml.kernel.org/r/20190610111252.239156-1-minchan@kernel.org" target="_blank">https://lkml.kernel.org/r/20190610111252.239156-1-minchan@kernel.org</a>
+기존에도 소개한 MADV_COLD 와 MADV_PAGEOUT 을 madvise() 에 추가하는 패치셋의 두번째 버전입니다. 이 패치셋을 ChromeOS 팀의 Brian Geffon 은 가져다가 탭이 백그라운드로 들어가고 45초 이상 그 상태를 유지하면 이 기능을 사용해서 페이지를 proactively swap out 시켰는데, 그 결과 tab 전환 속도가 25% 나 빨라졌다고 합니다.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="https://sjp38.github.io/post/lkml_news_v5.2-rc4/">LKML News v5.2-rc4</a></h2>
+    <div class="article-style">
+      
+      [PATCH 00/15] Slab Movable Objects (SMO) <a href="https://lkml.kernel.org/r/20190603042637.2018-1-tobin@kernel.org" target="_blank">https://lkml.kernel.org/r/20190603042637.2018-1-tobin@kernel.org</a>
+전에도 RFC 패치셋은 여기서도 소개했었죠. Slab 할당자에 할당받은 객체들의 이동이 가능하게끔 하는 패치셋의 정식 패치 버전이 나왔습니다. 변경된 인터페이스는 XArray 와 dcache 에 적용되는군요.
+[PATCH v1 0/4] Introduce MADV_COLD and MADV_PAGEOUT <a href="https://lkml.kernel.org/r/20190603053655.127730-1-minchan@kernel.org" target="_blank">https://lkml.kernel.org/r/20190603053655.127730-1-minchan@kernel.org</a>
+바로 지난주에도 소개한 external madvise 패치셋이 쪼개졌네요. MADV_COLD 와 MADV_PAGEOUT 두개의 새로운 advice 기능 추가 버전만 담은 패치셋입니다. 이게 더 일찍 머지될 가능성이 생겼군요.
+Linux 5.2-rc4 <a href="https://lkml.kernel.org/r/CAHk-=wjm7FQxdF=RKa8Xe23CLNNpbGDOACewgo8e-hwDJ8TyQg@mail.gmail.com" target="_blank">https://lkml.kernel.org/r/CAHk-=wjm7FQxdF=RKa8Xe23CLNNpbGDOACewgo8e-hwDJ8TyQg@mail.gmail.com</a>
+메일을 받고 깜짝 놀랐습니다, 평소보다 빨랐기 때문이죠.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="https://sjp38.github.io/post/lkml_news_v5.2-rc3/">LKML News v5.2-rc3</a></h2>
     <div class="article-style">
       
@@ -354,33 +380,6 @@ Linux 5.1 <a href="https://lkml.kernel.org/r/CAHk-=whsbDxdapMJGvy9OkVSrKMsKRJBTr
 전에 이 블로그에도 공유했던, walk_page_range() 함수가 커널에서 사용하는 페이지 테이블은 지원하지 않아서 아키텍쳐별로 page table walk 기능을 구현한 걸 walk_page_range() 의 개선을 통해 가능하게 하고자 하는 패치의 여덟번째 버전입니다.
 [PATCH] mm: add vm event for page cache miss <a href="https://lkml.kernel.org/r/1554185720-26404-1-git-send-email-laoar.shao@gmail.com" target="_blank">https://lkml.kernel.org/r/1554185720-26404-1-git-send-email-laoar.shao@gmail.com</a>
 Page cache miss 로 인해 사용중인 데이터베이스에 레이턴시가 증가하는 문제가 있는데, 기존 커널에는 페이지 캐시 미스 카운트를 세는 기능이 없기 때문에 만들어 봤다고 합니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="https://sjp38.github.io/post/lkml_news_v5.1-rc3/">LKML News v5.1-rc3</a></h2>
-    <div class="article-style">
-      
-      [PATCH tip/core/rcu 0/4] Documentation updates for v5.2 <a href="https://lkml.kernel.org/r/20190326230408.GA17069@linux.ibm.com" target="_blank">https://lkml.kernel.org/r/20190326230408.GA17069@linux.ibm.com</a>
-v5.2 에 머지될 목적의 RCU 문서화 업데이트 패치셋입니다.
-[PATCH tip/core/rcu 0/18] Miscellaneous fixes for v5.2 <a href="https://lkml.kernel.org/r/20190326231253.GA18343@linux.ibm.com" target="_blank">https://lkml.kernel.org/r/20190326231253.GA18343@linux.ibm.com</a>
-v5.2 를 위한 RCU 의 다양한 업데이트 패치셋입니다. rcu 를 위한 메일링 리스트도 추가되었군요. rcu@vger.kernel.org 입니다.
-[PATCH tip/core/rcu 0/9] Torture-test updates for v5.2 <a href="https://lkml.kernel.org/r/20190326233054.GA21523@linux.ibm.com" target="_blank">https://lkml.kernel.org/r/20190326233054.GA21523@linux.ibm.com</a>
-v5.2 를 위한 torture test 의 업데이트 패치셋입니다. LKMM 이라던지 formal verification 도 많은 발전이 있었지만, torture test 도 없어질 순 없겠죠.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="https://sjp38.github.io/post/lkml_news_v5.1-rc2/">LKML News v5.1-rc2</a></h2>
-    <div class="article-style">
-      
-      [PATCH v5 00/19] Convert x86 &amp; arm64 to use generic page walk <a href="https://lkml.kernel.org/r/20190321141953.31960-1-steven.price@arm.com" target="_blank">https://lkml.kernel.org/r/20190321141953.31960-1-steven.price@arm.com</a>
-커널이 walk_page_range() 함수를 제공하긴 하지만 이 함수는 커널에 의해 사용되는 페이지 테이블은 볼수가 없기 때문에 각 아키텍쳐별로 페이지 테이블 순회를 위한 기능을 별도로 만들어 사용하고 있습니다.
-이 패치셋은 walk_page_range() 가 커널의 페이지 테이블을 만질 수 있도록 확장함으로써 그런 불필요한 아키텍쳐별 파편화를 줄이려 합니다.
-[PATCH v6 0/7] psi: pressure stall monitors v6 <a href="https://lkml.kernel.org/r/20190319235619.260832-1-surenb@google.com" target="_blank">https://lkml.kernel.org/r/20190319235619.260832-1-surenb@google.com</a>
-시스템이 어떤 부분의 pressure 를 받는지 쉽게 확인하기 위한 pressure stall monitor 구현 패치의 여섯 번째 버전입니다.
       
     </div>
   </div>
