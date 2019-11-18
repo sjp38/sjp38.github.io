@@ -19,7 +19,9 @@
       
       <guid>https://sjp38.github.io/post/lkml_news_v5.4-rc8/</guid>
       <description>[PATCH 00/13] Finish off [smp_]read_barrier_depends() https://lkml.kernel.org/r/20191108170120.22331-1-will@kernel.org
-Alpha 에만 의존적인 메모리 모델 요소인 smp_read_barrier_depends() 는 READ_ONCE() 에 내장됨으로써 Alpha-specific 하지 않은 커널 코드에서는 Alpha 를 신경쓰지 않아도 되게 되었죠. 그럼에도 불구하고 이걸 신경쓰는 코드가 올라오는게 신경쓰였나 봅니다. 이 패치셋은 커널 코드의 모든 문서와 주석에서 해당 기능에 대한 설명을 삭제해 버립니다.</description>
+Alpha 에만 의존적인 메모리 모델 요소인 smp_read_barrier_depends() 는 READ_ONCE() 에 내장됨으로써 Alpha-specific 하지 않은 커널 코드에서는 Alpha 를 신경쓰지 않아도 되게 되었죠. 그럼에도 불구하고 이걸 신경쓰는 코드가 올라오는게 신경쓰였나 봅니다. 이 패치셋은 커널 코드의 모든 문서와 주석에서 해당 기능에 대한 설명을 삭제해 버립니다.
+[PATCH v4 00/10] Add Kernel Concurrency Sanitizer (KCSAN) https://lkml.kernel.org/r/20191114180303.66955-1-elver@google.com
+구글의 동시성 버그를 잡아주는 KCSAN 패치입니다. 이번 버전은 x86 만을 위한 버전이지만 조만간 ARM64 와 POWER 지원을 추가할 예정이라는군요.</description>
     </item>
     
     <item>
