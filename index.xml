@@ -11,6 +11,15 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>LKML News v5.4</title>
+      <link>https://sjp38.github.io/post/lkml_news_v5.4/</link>
+      <pubDate>Tue, 19 Nov 2019 23:13:19 +0100</pubDate>
+      
+      <guid>https://sjp38.github.io/post/lkml_news_v5.4/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>LKML News v5.4-rc8</title>
       <link>https://sjp38.github.io/post/lkml_news_v5.4-rc8/</link>
       <pubDate>Tue, 12 Nov 2019 20:08:10 +0100</pubDate>
@@ -690,56 +699,6 @@ compaction 을 열심히 하긴 하지만 어플리케이션은 이미 메모리
 &lt;p&gt;다섯번째 rc 릴리즈입니다.  노드 로컬 할당 대 huge page 할당 관련 커밋 일부가
 리버트 시키지 않는 등의 몇가지 문제를 제외하면 조용한 릴리즈 주간이었다는군요.
 잘 안정화 되어가고 있다는 증거겠지요.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>LKML News v5.3-rc4</title>
-      <link>https://sjp38.github.io/post/lkml_news_v5.3-rc4/</link>
-      <pubDate>Mon, 12 Aug 2019 01:40:13 +0900</pubDate>
-      
-      <guid>https://sjp38.github.io/post/lkml_news_v5.3-rc4/</guid>
-      <description>
-
-&lt;h2 id=&#34;rfc-patch-v6-00-92-vm-introspection&#34;&gt;[RFC PATCH v6 00/92] VM introspection&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190809160047.8319-1-alazar@bitdefender.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20190809160047.8319-1-alazar@bitdefender.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;호스트 또는 별도 VM 에서 돌아가는 어플리케이션이 다른 VM들을 제어하거나 상태를
-알아보거나 shadow 페이지 테이블을 조정하거나 특정 이벤트 발생시 알림을 받거나
-할 수 있게 해주는 KVM introspection 서브시스템을 제안하는 패치입니다.  무려
-92개짜리의 거대한 패치군요.&lt;/p&gt;
-
-&lt;h2 id=&#34;patch-v4-1-5-mm-page-idle-add-per-pid-idle-page-tracking-using-virtual-indexing&#34;&gt;[PATCH v4 &lt;sup&gt;1&lt;/sup&gt;&amp;frasl;&lt;sub&gt;5&lt;/sub&gt;] &lt;code&gt;mm/page_idle&lt;/code&gt;: Add per-pid idle page tracking using virtual indexing&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190805170451.26009-1-joel@joelfernandes.org&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20190805170451.26009-1-joel@joelfernandes.org&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;페이지 액세스 여부를 알아볼 수 있는 &lt;code&gt;page_idle&lt;/code&gt; 기능을 프로세스별로 트래킹 하기
-편하게 만들어 주는 패치의 네번째 버전입니다.  저자는 구글 직원으로,
-안드로이드의 heap profiler 가 이 기능을 쓰나봅니다.  이전 버전과의 차이는&amp;hellip;
-Swap pte 처리가 추가되었군요.&lt;/p&gt;
-
-&lt;p&gt;다섯번째 버전도 바로 올라왔습니다만, 큰 차이는 없어 보이는군요:
-&lt;a href=&#34;https://lkml.kernel.org/r/20190807171559.182301-1-joel@joelfernandes.org&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/20190807171559.182301-1-joel@joelfernandes.org&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;linux-5-3-rc4&#34;&gt;Linux 5.3-rc4&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=whWJ7Dv9yZBZpxWd1zcAMwokjt7c8YOp-FOf1PXDKGrmQ@mail.gmail.com&#34; target=&#34;_blank&#34;&gt;https://lkml.kernel.org/r/CAHk-=whWJ7Dv9yZBZpxWd1zcAMwokjt7c8YOp-FOf1PXDKGrmQ@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;세번째 rc 는 어째선지 작은 크기였다 말했었죠, 그냥 pull request 들이 천천히
-왔기 때문이 맞는 것 같다고 합니다.  이번 rc 릴리즈는 평소 크기에 rc3 에
-안들어간 내용이 들어간 만큼 크다고 합니다.
-덕분에 최근 2년 사이의 rc4 중 가장 크다고 하네요.
-rc3 에 안들어갔다가 rc4 에 뒤늦게 들어온 변경사항은 대부분 network 쪽
-코드라는군요.&lt;/p&gt;
-
-&lt;p&gt;이번 변경 중 개인적으로 눈에 띄는건 &lt;code&gt;switch-case&lt;/code&gt; 구문의 fall-through 코멘트
-업데이트입니다.
-LWN 에도 관련 글이 올라왔으니 한번 읽어보는 것도 좋을 겁니다:
-&lt;a href=&#34;https://lwn.net/Articles/794944/&#34; target=&#34;_blank&#34;&gt;https://lwn.net/Articles/794944/&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;이번 rc 릴리즈 개발 과정 시각화 동영상을 아래 링크에서 보실 수 있습니다:
-&lt;a href=&#34;https://youtu.be/EB3i8iBuuHM&#34; target=&#34;_blank&#34;&gt;https://youtu.be/EB3i8iBuuHM&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
