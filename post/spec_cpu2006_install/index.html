@@ -94,6 +94,42 @@ Automated Toolbox 아래 내용들을 하나하나 읽고 따라하기엔 시간
 
 
 
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-30621335-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           document.location = url;
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target);  
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'UA-30621335-1', {});
+
+  
+  document.addEventListener('click', onClickCallback, false);
+</script>
+
+
   
 
 
@@ -116,7 +152,7 @@ Automated Toolbox 아래 내용들을 하나하나 읽고 따라하기엔 시간
   
   <meta property="og:site_name" content="hacklog">
   <meta property="og:url" content="/post/spec_cpu2006_install/">
-  <meta property="og:title" content="spec cpu2006 벤치마크 설치 / 실행하기 | hacklog">
+  <meta property="og:title" content="Install / execute spec cpu2006 benchmark | hacklog">
   <meta property="og:description" content="SPEC 은 벤치마크를 위한 협력기구 [0] 로, 다양한 벤치마크 suite 들을 만들고 공유합니다. SPEC CPU 2006 은 여기서 만든 벤치마크 도구집합 중 하나 [1] 로 계산 작업 집중적인 워크로드에 대한 성능을 측정을 목표로 만들어졌으며, 많은 곳에서 사용되고 있습니다. 2006년 1.0 버전이, 2008년에 1.1 버전이, 그리고 2011년에 1.2 버전이 나왔습니다. 본 글은 Ubuntu 16.04 서버 위에서의 SPEC CPU 2006 v1.1 의 설치와 실행 방법에 대해 간단히 설명합니다.
 Automated Toolbox 아래 내용들을 하나하나 읽고 따라하기엔 시간이 부족할 분들을 위해, 한방에 설치 / 수행이 가능하도록 스크립트를 짜서 Github 에 올려뒀습니다[1]."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
@@ -152,7 +188,7 @@ Automated Toolbox 아래 내용들을 하나하나 읽고 따라하기엔 시간
     "@type": "WebPage",
     "@id": "/post/spec_cpu2006_install/"
   },
-  "headline": "spec cpu2006 벤치마크 설치 / 실행하기",
+  "headline": "Install / execute spec cpu2006 benchmark",
   
   "datePublished": "2017-03-29T05:10:55+09:00",
   "dateModified": "2017-03-29T05:10:55+09:00",
@@ -188,7 +224,7 @@ Automated Toolbox 아래 내용들을 하나하나 읽고 따라하기엔 시간
 
 
 
-  <title>spec cpu2006 벤치마크 설치 / 실행하기 | hacklog</title>
+  <title>Install / execute spec cpu2006 benchmark | hacklog</title>
 
 </head>
 
@@ -524,7 +560,7 @@ Automated Toolbox 아래 내용들을 하나하나 읽고 따라하기엔 시간
   
   
 <div class="article-container pt-3">
-  <h1>spec cpu2006 벤치마크 설치 / 실행하기</h1>
+  <h1>Install / execute spec cpu2006 benchmark</h1>
 
   
 
@@ -815,7 +851,7 @@ SPEC CPU 벤치마크를 실행해 보는 방법을 설명합니다.</p>
       
       
       <li>
-        <a href="https://twitter.com/intent/tweet?url=/post/spec_cpu2006_install/&amp;text=spec%20cpu2006%20%eb%b2%a4%ec%b9%98%eb%a7%88%ed%81%ac%20%ec%84%a4%ec%b9%98%20/%20%ec%8b%a4%ed%96%89%ed%95%98%ea%b8%b0" target="_blank" rel="noopener" class="share-btn-twitter">
+        <a href="https://twitter.com/intent/tweet?url=/post/spec_cpu2006_install/&amp;text=Install%20/%20execute%20spec%20cpu2006%20benchmark" target="_blank" rel="noopener" class="share-btn-twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
@@ -828,7 +864,7 @@ SPEC CPU 벤치마크를 실행해 보는 방법을 설명합니다.</p>
       
       
       <li>
-        <a href="https://www.facebook.com/sharer.php?u=/post/spec_cpu2006_install/&amp;t=spec%20cpu2006%20%eb%b2%a4%ec%b9%98%eb%a7%88%ed%81%ac%20%ec%84%a4%ec%b9%98%20/%20%ec%8b%a4%ed%96%89%ed%95%98%ea%b8%b0" target="_blank" rel="noopener" class="share-btn-facebook">
+        <a href="https://www.facebook.com/sharer.php?u=/post/spec_cpu2006_install/&amp;t=Install%20/%20execute%20spec%20cpu2006%20benchmark" target="_blank" rel="noopener" class="share-btn-facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
@@ -841,7 +877,7 @@ SPEC CPU 벤치마크를 실행해 보는 방법을 설명합니다.</p>
       
       
       <li>
-        <a href="mailto:?subject=spec%20cpu2006%20%eb%b2%a4%ec%b9%98%eb%a7%88%ed%81%ac%20%ec%84%a4%ec%b9%98%20/%20%ec%8b%a4%ed%96%89%ed%95%98%ea%b8%b0&amp;body=/post/spec_cpu2006_install/" target="_blank" rel="noopener" class="share-btn-email">
+        <a href="mailto:?subject=Install%20/%20execute%20spec%20cpu2006%20benchmark&amp;body=/post/spec_cpu2006_install/" target="_blank" rel="noopener" class="share-btn-email">
           <i class="fas fa-envelope"></i>
         </a>
       </li>
@@ -854,7 +890,7 @@ SPEC CPU 벤치마크를 실행해 보는 방법을 설명합니다.</p>
       
       
       <li>
-        <a href="https://www.linkedin.com/shareArticle?url=/post/spec_cpu2006_install/&amp;title=spec%20cpu2006%20%eb%b2%a4%ec%b9%98%eb%a7%88%ed%81%ac%20%ec%84%a4%ec%b9%98%20/%20%ec%8b%a4%ed%96%89%ed%95%98%ea%b8%b0" target="_blank" rel="noopener" class="share-btn-linkedin">
+        <a href="https://www.linkedin.com/shareArticle?url=/post/spec_cpu2006_install/&amp;title=Install%20/%20execute%20spec%20cpu2006%20benchmark" target="_blank" rel="noopener" class="share-btn-linkedin">
           <i class="fab fa-linkedin-in"></i>
         </a>
       </li>
@@ -867,7 +903,7 @@ SPEC CPU 벤치마크를 실행해 보는 방법을 설명합니다.</p>
       
       
       <li>
-        <a href="https://web.whatsapp.com/send?text=spec%20cpu2006%20%eb%b2%a4%ec%b9%98%eb%a7%88%ed%81%ac%20%ec%84%a4%ec%b9%98%20/%20%ec%8b%a4%ed%96%89%ed%95%98%ea%b8%b0%20/post/spec_cpu2006_install/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+        <a href="https://web.whatsapp.com/send?text=Install%20/%20execute%20spec%20cpu2006%20benchmark%20/post/spec_cpu2006_install/" target="_blank" rel="noopener" class="share-btn-whatsapp">
           <i class="fab fa-whatsapp"></i>
         </a>
       </li>
@@ -880,7 +916,7 @@ SPEC CPU 벤치마크를 실행해 보는 방법을 설명합니다.</p>
       
       
       <li>
-        <a href="https://service.weibo.com/share/share.php?url=/post/spec_cpu2006_install/&amp;title=spec%20cpu2006%20%eb%b2%a4%ec%b9%98%eb%a7%88%ed%81%ac%20%ec%84%a4%ec%b9%98%20/%20%ec%8b%a4%ed%96%89%ed%95%98%ea%b8%b0" target="_blank" rel="noopener" class="share-btn-weibo">
+        <a href="https://service.weibo.com/share/share.php?url=/post/spec_cpu2006_install/&amp;title=Install%20/%20execute%20spec%20cpu2006%20benchmark" target="_blank" rel="noopener" class="share-btn-weibo">
           <i class="fab fa-weibo"></i>
         </a>
       </li>

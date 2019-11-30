@@ -95,6 +95,42 @@ Environment Setup 이 글을 작성하면서 사용한 운영체제와 소프트
 
 
 
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-30621335-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           document.location = url;
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target);  
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'UA-30621335-1', {});
+
+  
+  document.addEventListener('click', onClickCallback, false);
+</script>
+
+
   
 
 
@@ -960,7 +996,7 @@ $ for i in {1..22}; do ../qgen $i &gt; query-$i.sql; done
       
       <li><a href="/post/parsec_3_howto/">Parsec 3.0 설치 / 사용법</a></li>
       
-      <li><a href="/post/spec_cpu2006_install/">spec cpu2006 벤치마크 설치 / 실행하기</a></li>
+      <li><a href="/post/spec_cpu2006_install/">Install / execute spec cpu2006 benchmark</a></li>
       
     </ul>
   </div>
