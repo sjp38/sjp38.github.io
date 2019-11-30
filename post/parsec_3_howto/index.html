@@ -1,22 +1,48 @@
 <!DOCTYPE html>
 <html lang="en-us">
+
 <head>
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="theme" content="hugo-academic">
-  <meta name="generator" content="Hugo 0.51" />
+  <meta name="generator" content="Source Themes Academic 4.6.2">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
   <meta name="author" content="SeongJae Park">
-  <meta name="description" content="System Programmer">
-
-  
-  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/parsec_3_howto/">
 
   
   
+  
+    
+  
+  <meta name="description" content="PARSEC 은 멀티쓰레드 프로그램들로 구성된 benchmark suite 입니다. 멀티쓰레드로 구성되어 있기 때문에 멀티코어 시스템에서의 multi core scalability 를 테스트 하기에도 적합합니다. 이 글에선 현재 최신 버전인 3.0 버전의 PARSEC 을 Ubuntu 16.04 server 에 설치하면서 겪는 문제의 해결법과 간단한 사용법을 정리해 봅니다.
+Toolbox for PARSEC 3.0 on Ubuntu Xenial 아래의 내용을 하나하나 읽어가면서 따라하는 것도 귀찮은 일입니다. 그래서 아래에서 설명하는, Ubuntu Xenial 에서 PARSEC 3.0 을 돌리기 위해 필요한 작업을 대부분 자동으로 해주는 도구들을 만들어 두었습니다.">
+
+  
+  <link rel="alternate" hreflang="ko" href="/ko/post/parsec_3_howto/">
+  
+  <link rel="alternate" hreflang="en-us" href="/post/parsec_3_howto/">
+
+  
 
 
+  
+  
+  
+  <meta name="theme-color" content="#2962ff">
   
 
   
@@ -24,246 +50,504 @@
   
   
     
-  
-  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+    
     
     
       
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
       
     
-  
-  
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha512-6MXa8B6uaO18Hid6blRMetEIoPqHf7Ux1tnyIQdpt9qI5OACx7C+O3IVTr98vwGnlcg0LOLa02i9Y1HpVhlfiw==" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.1/css/academicons.min.css" integrity="sha512-NThgw3XKQ1absAahW6to7Ey42uycrVvfNfyjqcFNgCmOCQ5AR4AO0SiXrN+8ZtYeappp56lk1WtvjVmEa+VR6A==" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous">
-  
-  
-  
-  
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700%7cRoboto:400,400italic,700%7cRoboto&#43;Mono">
-  
-  <link rel="stylesheet" href="/styles.css">
-  
 
-  
-    <script>
-      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-      ga('create', 'UA-30621335-1', 'auto');
-      ga('require', 'eventTracker');
-      ga('require', 'outboundLinkTracker');
-      ga('require', 'urlChangeTracker');
-      ga('send', 'pageview');
-    </script>
-    <script async src="//www.google-analytics.com/analytics.js"></script>
     
-    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css" integrity="sha256-SHMGCYmST46SoyGgo4YR/9AlK1vf3ff84Aq9yK4hdqM=" crossorigin="anonymous">
     
+
+    
+
   
 
   
-  <link rel="alternate" href="https://sjp38.github.io/index.xml" type="application/rss+xml" title="Hacklog">
-  <link rel="feed" href="https://sjp38.github.io/index.xml" type="application/rss+xml" title="Hacklog">
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap">
   
 
-  <link rel="manifest" href="/site.webmanifest">
-  <link rel="icon" type="image/png" href="/img/icon.png">
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.css">
+
+  
+
+
+
+
+  
+
+
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon-32.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://sjp38.github.io/post/parsec_3_howto/">
+  <link rel="canonical" href="/post/parsec_3_howto/">
 
+  
+  
+  
+  
+    
+  
+  
   <meta property="twitter:card" content="summary_large_image">
   
-  <meta property="og:site_name" content="Hacklog">
-  <meta property="og:url" content="https://sjp38.github.io/post/parsec_3_howto/">
-  <meta property="og:title" content="Parsec 3.0 설치 / 사용법 | Hacklog">
-  <meta property="og:description" content="">
-  <meta property="og:locale" content="en-us">
+  <meta property="og:site_name" content="hacklog">
+  <meta property="og:url" content="/post/parsec_3_howto/">
+  <meta property="og:title" content="Parsec 3.0 설치 / 사용법 | hacklog">
+  <meta property="og:description" content="PARSEC 은 멀티쓰레드 프로그램들로 구성된 benchmark suite 입니다. 멀티쓰레드로 구성되어 있기 때문에 멀티코어 시스템에서의 multi core scalability 를 테스트 하기에도 적합합니다. 이 글에선 현재 최신 버전인 3.0 버전의 PARSEC 을 Ubuntu 16.04 server 에 설치하면서 겪는 문제의 해결법과 간단한 사용법을 정리해 봅니다.
+Toolbox for PARSEC 3.0 on Ubuntu Xenial 아래의 내용을 하나하나 읽어가면서 따라하는 것도 귀찮은 일입니다. 그래서 아래에서 설명하는, Ubuntu Xenial 에서 PARSEC 3.0 을 돌리기 위해 필요한 작업을 대부분 자동으로 해주는 도구들을 만들어 두었습니다."><meta property="og:image" content="/img/tux.png">
+  <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2017-05-19T06:23:15&#43;09:00">
-  
-  <meta property="article:modified_time" content="2017-05-19T06:23:15&#43;09:00">
+    
+      <meta property="article:published_time" content="2017-05-19T06:23:15&#43;09:00">
+    
+    <meta property="article:modified_time" content="2017-05-19T06:23:15&#43;09:00">
   
 
   
 
-  <title>Parsec 3.0 설치 / 사용법 | Hacklog</title>
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/post/parsec_3_howto/"
+  },
+  "headline": "Parsec 3.0 설치 / 사용법",
+  
+  "datePublished": "2017-05-19T06:23:15+09:00",
+  "dateModified": "2017-05-19T06:23:15+09:00",
+  
+  "author": {
+    "@type": "Person",
+    "name": "SeongJae Park"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "hacklog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/img/icon-512.png"
+    }
+  },
+  "description": "PARSEC 은 멀티쓰레드 프로그램들로 구성된 benchmark suite 입니다. 멀티쓰레드로 구성되어 있기 때문에 멀티코어 시스템에서의 multi core scalability 를 테스트 하기에도 적합합니다. 이 글에선 현재 최신 버전인 3.0 버전의 PARSEC 을 Ubuntu 16.04 server 에 설치하면서 겪는 문제의 해결법과 간단한 사용법을 정리해 봅니다.\nToolbox for PARSEC 3.0 on Ubuntu Xenial 아래의 내용을 하나하나 읽어가면서 따라하는 것도 귀찮은 일입니다. 그래서 아래에서 설명하는, Ubuntu Xenial 에서 PARSEC 3.0 을 돌리기 위해 필요한 작업을 대부분 자동으로 해주는 도구들을 만들어 두었습니다."
+}
+</script>
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>Parsec 3.0 설치 / 사용법 | hacklog</title>
 
 </head>
-<body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
 
-<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
   <div class="container">
 
     
-    <div class="navbar-header">
-      
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-              data-target=".navbar-collapse" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      
-      <a class="navbar-brand" href="/">Hacklog</a>
-    </div>
+    
+    
+      <a class="navbar-brand" href="/">hacklog</a>
+    
 
     
-    <div class="collapse navbar-collapse">
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
 
       
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#about"><span>Home</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#projects"><span>Projects</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#publications"><span>Publications</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/tags"><span>Tags</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/categories"><span>Categories</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/post/about"><span>CV</span></a>
+        </li>
+
+        
+        
+
       
-      <ul class="nav navbar-nav navbar-right">
-        
 
         
-
-        
-          
-        
-
-        <li class="nav-item">
-          <a href="/#about">
-            
-            <span>Home</span>
-            
-          </a>
-        </li>
-
-        
-        
-
-        
-
-        
-          
-        
-
-        <li class="nav-item">
-          <a href="/#publications_selected">
-            
-            <span>Publications</span>
-            
-          </a>
-        </li>
-
-        
-        
-
-        
-
-        
-          
-        
-
-        <li class="nav-item">
-          <a href="/#posts">
-            
-            <span>Posts</span>
-            
-          </a>
-        </li>
-
-        
-        
-
-        
-
-        
-          
-        
-
-        <li class="nav-item">
-          <a href="/#projects">
-            
-            <span>Projects</span>
-            
-          </a>
-        </li>
-
-        
-        
-
-        
-
-        
-          
-        
-
-        <li class="nav-item">
-          <a href="/#contact">
-            
-            <span>Contact</span>
-            
-          </a>
-        </li>
-
-        
-        
-
-        
-
-        
-          
-        
-
-        <li class="nav-item">
-          <a href="/#tags">
-            
-            <span>Tags</span>
-            
-          </a>
-        </li>
-
-        
-        
-
-        
-
-        
-          
-        
-
-        <li class="nav-item">
-          <a href="/post/about/">
-            
-            <span>About</span>
-            
-          </a>
-        </li>
-
-        
-        
-      
-
-      
       </ul>
-
     </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      <li class="nav-item">
+        <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      <li class="nav-item dropdown i18n-dropdown">
+        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true">
+          <i class="fas fa-globe mr-1" aria-hidden="true"></i><span class="d-none d-lg-inline">English</span>
+        </a>
+        <div class="dropdown-menu">
+          <div class="dropdown-item i18n-active font-weight-bold">
+            <span>English</span>
+          </div>
+          
+          <a class="dropdown-item" href="/ko/post/parsec_3_howto/">
+            <span>한국어</span>
+          </a>
+          
+        </div>
+      </li>
+      
+
+    </ul>
+
   </div>
 </nav>
 
 
-<article class="article" itemscope itemtype="http://schema.org/Article">
+  <article class="article">
 
   
 
 
-  <div class="article-container">
-    <div class="article-inner">
-      <h1 itemprop="name">Parsec 3.0 설치 / 사용법</h1>
 
-      
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1>Parsec 3.0 설치 / 사용법</h1>
+
+  
+
+  
+    
+
 
 <div class="article-metadata">
 
+  
+  
+
+  
   <span class="article-date">
     
-    <time datetime="2017-05-19 06:23:15 &#43;0900 &#43;0900" itemprop="datePublished">
-      May 19, 2017
-    </time>
+    
+      
+    
+    Fri, May 19, 2017
   </span>
+  
+
+  
 
   
   <span class="middot-divider"></span>
@@ -274,123 +558,76 @@
 
   
   
-
   
+
   
   
   <span class="middot-divider"></span>
   <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/tip">tip</a
-    >
-    
-  </span>
-  
-  
-
-  
-  
-<div class="share-box" aria-hidden="true">
-  <ul class="share">
-    <li>
-      <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=Parsec%203.0%20%ec%84%a4%ec%b9%98%20%2f%20%ec%82%ac%ec%9a%a9%eb%b2%95&amp;url=https%3a%2f%2fsjp38.github.io%2fpost%2fparsec_3_howto%2f"
-         target="_blank" rel="noopener">
-        <i class="fa fa-twitter"></i>
-      </a>
-    </li>
-    <li>
-      <a class="facebook"
-         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fsjp38.github.io%2fpost%2fparsec_3_howto%2f"
-         target="_blank" rel="noopener">
-        <i class="fa fa-facebook"></i>
-      </a>
-    </li>
-    <li>
-      <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fsjp38.github.io%2fpost%2fparsec_3_howto%2f&amp;title=Parsec%203.0%20%ec%84%a4%ec%b9%98%20%2f%20%ec%82%ac%ec%9a%a9%eb%b2%95"
-         target="_blank" rel="noopener">
-        <i class="fa fa-linkedin"></i>
-      </a>
-    </li>
-    <li>
-      <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fsjp38.github.io%2fpost%2fparsec_3_howto%2f&amp;title=Parsec%203.0%20%ec%84%a4%ec%b9%98%20%2f%20%ec%82%ac%ec%9a%a9%eb%b2%95"
-         target="_blank" rel="noopener">
-        <i class="fa fa-weibo"></i>
-      </a>
-    </li>
-    <li>
-      <a class="email"
-         href="mailto:?subject=Parsec%203.0%20%ec%84%a4%ec%b9%98%20%2f%20%ec%82%ac%ec%9a%a9%eb%b2%95&amp;body=https%3a%2f%2fsjp38.github.io%2fpost%2fparsec_3_howto%2f">
-        <i class="fa fa-envelope"></i>
-      </a>
-    </li>
-  </ul>
-</div>
-
-
+    <i class="fas fa-folder mr-1"></i><a href="/categories/tip/">tip</a></span>
   
 
 </div>
 
+    
 
-      <div class="article-style" itemprop="articleBody">
-        
 
-<p>PARSEC 은 멀티쓰레드 프로그램들로 구성된 benchmark suite 입니다.  멀티쓰레드로
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      <p>PARSEC 은 멀티쓰레드 프로그램들로 구성된 benchmark suite 입니다.  멀티쓰레드로
 구성되어 있기 때문에 멀티코어 시스템에서의 multi core scalability 를 테스트
 하기에도 적합합니다.  이 글에선 현재 최신 버전인 3.0 버전의 PARSEC 을 Ubuntu
 16.04 server 에 설치하면서 겪는 문제의 해결법과 간단한 사용법을 정리해 봅니다.</p>
-
-<h1 id="toolbox-for-parsec-3-0-on-ubuntu-xenial">Toolbox for PARSEC 3.0 on Ubuntu Xenial</h1>
-
+<h1 id="toolbox-for-parsec-30-on-ubuntu-xenial">Toolbox for PARSEC 3.0 on Ubuntu Xenial</h1>
 <p>아래의 내용을 하나하나 읽어가면서 따라하는 것도 귀찮은 일입니다.  그래서
 아래에서 설명하는, Ubuntu Xenial 에서 PARSEC 3.0 을 돌리기 위해 필요한 작업을
 대부분 자동으로 해주는 도구들을 만들어 두었습니다.  오픈소스로 공개되어
 있으니[1], 아래의 머리 아픈 내용을 읽기 귀찮다면 해당 도구들을 사용하시기
 바랍니다.  해당 도구들의 사용법은 README 에 간략히 설명되어 있습니다.</p>
-
-<p>[1] <a href="https://github.com/sjp38/parsec_on_ubuntu_xenial" target="_blank">https://github.com/sjp38/parsec_on_ubuntu_xenial</a></p>
-
-<h1 id="parsec-3-0-download">PARSEC 3.0 Download</h1>
-
+<p>[1] <a href="https://github.com/sjp38/parsec_on_ubuntu_xenial">https://github.com/sjp38/parsec_on_ubuntu_xenial</a></p>
+<h1 id="parsec-30-download">PARSEC 3.0 Download</h1>
 <p>공식 홈페이지[1] 에 들어가면 PARSEC 3.0 다운로드 링크가 첫페이지부터 있습니다.
 해당 링크를 사용하면 <code>tar.gz</code> 포맷의 tarball 로 정리된 PARSEC 3.0 을 다운받을
 수 있습니다.  웹브라우저로 들어가서 다운로드를 받는 방법도 있겠고, <code>curl</code> 이나
 <code>wget</code> 등의 command line tool 을 사용해 다운받을 수도 있겠습니다.  다음
 커맨드는 PARSEC 3.0 을 다운받아 <code>parsec-3.0/</code> 디렉토리 아래 압축을 풀고 압축을
 푼 디렉토리로 이동합니다.</p>
-
 <pre><code>$ wget http://parsec.cs.princeton.edu/download/3.0/parsec-3.0.tar.gz
 $ tar zxvf parsec-3.0.tar.gz
 $ cd parsec-3.0
-</code></pre>
-
-<h1 id="build">Build</h1>
-
+</code></pre><h1 id="build">Build</h1>
 <p>이제 PARSEC 3.0 을 빌드해야 합니다.  PARSEC 은 여러 벤치마크를 포함하고
 있으므로 개별적 벤치마크를 하나하나 직접적으로 다루기보다는 suite 내의 각
 벤치마크를 통합적으로 관리할 수 있는 <code>parsecmgmt</code> 라는 관리 프로그램을
 사용하도록 되어 있습니다.  빌드 역시 마찬가지입니다.  참고로, <code>parsecmgmt</code> 는
 bash script 입니다.</p>
-
 <p>기본적인 PARSEC 3.0 빌드 방법은 다음과 같이 간단합니다:</p>
-
 <pre><code>$ source ./env.sh
 $ parsecmgmt -a build
-</code></pre>
-
-<p>첫번째 커맨드는 parsecmgmt 의 경로를 PATH 에 추가하는 등, 환경 변수 설정 등의
+</code></pre><p>첫번째 커맨드는 parsecmgmt 의 경로를 PATH 에 추가하는 등, 환경 변수 설정 등의
 일을 처리해 주며, 두번째의 간단한 커맨드가 전체 PARSEC 3.0 빌드 프로세스를
 수행하게 됩니다.</p>
-
 <h2 id="perl-version-problem">Perl Version Problem</h2>
-
 <p>하지만 Ubuntu 16.04 server 에서는 다음과 같은 에러 메세지를 내뱉으며 빌드에
 실패합니다:</p>
-
 <pre><code>smime.pod around line 272: Expected text after =item, not a number
 smime.pod around line 276: Expected text after =item, not a number
 smime.pod around line 280: Expected text after =item, not a number
@@ -400,22 +637,17 @@ POD document had syntax errors at /usr/bin/pod2man line 68.
 make: *** [install_docs] Error 1
 Makefile:680: recipe for target 'install_docs' failed
 [PARSEC] Error: 'env PATH=/usr/local/sbin:...' failed.
-</code></pre>
-
-<p>에러 메세지에서 유추할 수 있듯 PARSEC 3.0 의 소스 코드 중 smime.pod 파일이
+</code></pre><p>에러 메세지에서 유추할 수 있듯 PARSEC 3.0 의 소스 코드 중 smime.pod 파일이
 문법에 맞지 않아 생긴 문제입니다.  참고로 pod 는 perl 프로그램 문서화에
 사용되는 간단한 markup language 입니다[2].  Ubuntu 16.04 는 perl 5.22.1 버전을
 기본으로 사용하고 있는데, PARSEC 3.0 에 있는 코드는 perl 5.14.2 버전에 맞춰져
 있으며 최신 버전으로 오는 사이 문법이 바뀐 것으로 인한 문제로 보입니다.
 해결책은 두가지가 있습니다.</p>
-
 <p><strong>방법 1: perl 5.14.2 설치</strong></p>
-
 <p>Google groups 의 관련 쓰레드[3] 를 참고한 방법입니다.
 5.14.2 버전의 perl 소스코드를 받아와 이를 설치하고 PARSEC 빌드에 이 버전의 perl
 을 사용하는 방법입니다.  다음의 커맨드로 <code>~/localperl/</code> 디렉토리 아래 5.14.2
 버전 perl 을 설치하고 사용할 수 있습니다.</p>
-
 <pre><code>wget http://www.cpan.org/src/5.0/perl-5.14.2.tar.gz
 $ tar zxvf perl-5.14.2.tar.gz
 $ cd perl-5.14.2/
@@ -425,17 +657,12 @@ $ time make -j
 $ make test
 $ make install
 $ ~/localperl/bin/perl -v
-</code></pre>
-
-<p><strong>방법 2: pod 파일 문법 오류 수정</strong></p>
-
+</code></pre><p><strong>방법 2: pod 파일 문법 오류 수정</strong></p>
 <p>좀 더 정공법에 가까운 방법으로, 다음 글을 참고한 해결책입니다:
-<a href="https://yulistic.gitlab.io/2016/05/parsec-3.0-installation-issues/" target="_blank">https://yulistic.gitlab.io/2016/05/parsec-3.0-installation-issues/</a></p>
-
+<a href="https://yulistic.gitlab.io/2016/05/parsec-3.0-installation-issues/">https://yulistic.gitlab.io/2016/05/parsec-3.0-installation-issues/</a></p>
 <p>최신 버전의 문법에 맞게 pod 파일의 문제시 되는 부분들을 고쳐주는 것으로,
 문제되는 모든 pod 파일의 <code>=item [0-9]</code> 을 <code>=item C&lt;[0-9]&gt;</code> 으로 바꿔줍니다.
 <code>diff</code> 로 표현하면 다음과 같은 수정을 가하게 되겠습니다:</p>
-
 <pre><code>--- a/pkgs/libs/ssl/src/doc/apps/smime.pod
 +++ b/pkgs/libs/ssl/src/doc/apps/smime.pod
 @@ -265,28 +265,28 @@ encrypted data is used for other purposes.
@@ -473,26 +700,18 @@ $ ~/localperl/bin/perl -v
 
  the message was verified correctly but an error occurred writing out
  the signers certificates.
-</code></pre>
-
-<p>이렇게 파일 하나하나 수정하면 이 에러 메세지는 사라집니다.  참고한 링크에서는
+</code></pre><p>이렇게 파일 하나하나 수정하면 이 에러 메세지는 사라집니다.  참고한 링크에서는
 하나하나 손으로 수정하기보다는 다음과 같이 간단한 bash shell script 를 짜서
 일괄적으로 수정하는 걸 추천합니다:</p>
-
 <pre><code>#! /bin/bash
 for i in 0 1 2 3 4 5 6 7 8 9 
 do
     echo &quot;Replacing '=item $i' to '=item C&lt;$i&gt;'&quot;
     grep -rl &quot;=item $i&quot; * | xargs sed -i &quot;s/=item $i/=item C&lt;$i&gt;/g&quot;
 done
-</code></pre>
-
-<p>이어서 설명할 문제들과 해결책도 해당 링크를 참고한 것임을 밝혀둡니다.</p>
-
-<h2 id="mbstate-t-conflict"><code>__mbstate_t</code> Conflict</h2>
-
+</code></pre><p>이어서 설명할 문제들과 해결책도 해당 링크를 참고한 것임을 밝혀둡니다.</p>
+<h2 id="mbstatet-conflict"><code>__mbstate_t</code> Conflict</h2>
 <p>앞의 에러 메세지는 사라지지만 이제 다음과 같은 에러 메세지가 나올 겁니다:</p>
-
 <pre><code>/usr/include/wchar.h:94:3: error: conflicting types for ‘__mbstate_t’
  } __mbstate_t;
    ^
@@ -511,12 +730,9 @@ In file included from ../include/net/bsd_if_var.h:82:0,
   uint32_t cons_head, cons_next, cons_next_next;
                                  ^
 make[1]: *** [if_host.o] Error 1
-</code></pre>
-
-<p><code>basd__types.h</code> 파일에 <code>__mbstate_t</code> 타입을 중복 정의했기 때문에 발생한
+</code></pre><p><code>basd__types.h</code> 파일에 <code>__mbstate_t</code> 타입을 중복 정의했기 때문에 발생한
 문제입니다.  해당 파일에서 해당 정의 부분을 다음과 같이 주석 처리하면 이 문제는
 사라집니다.</p>
-
 <pre><code>diff --git a/pkgs/libs/uptcpip/src/include/sys/bsd__types.h b/pkgs/libs/uptcpip/src/include/sys/bsd__types.h
 index fa1b0f0f26d9..bd7e6a97f4c8 100644
 --- a/pkgs/libs/uptcpip/src/include/sys/bsd__types.h
@@ -536,31 +752,20 @@ index fa1b0f0f26d9..bd7e6a97f4c8 100644
 +#endif /* Skip conflicting __mbstate_t definition */
 
  #endif /* !_BSD_SYS__TYPES_H_ */
-</code></pre>
-
-<h2 id="pkg-config-package-not-found">pkg-config Package Not Found</h2>
-
+</code></pre><h2 id="pkgconfig-package-not-found">pkg-config Package Not Found</h2>
 <p>성공적인 빌드를 위해선 당연하지만 PARSEC 3.0 이 의존성을 가진 패키지가 모두
 설치되어 있어야 합니다.  이를 주의 깊게 미리 설치해 두지 않았다면 다음과 같은
 에러 메세지를 만날 수도 있습니다:</p>
-
 <pre><code>configure: error: *** pkg-config not found. See http://www.freedesktop.org/software/pkgconfig/
 [PARSEC] Error: ...
-</code></pre>
-
-<p>위 메세지는 <code>pkg-config</code> 프로그램이 설치되어 있지 않아서 발생한 문제임을 알 수
+</code></pre><p>위 메세지는 <code>pkg-config</code> 프로그램이 설치되어 있지 않아서 발생한 문제임을 알 수
 있습니다.  간단히 Ubuntu 의 package 시스템인 apt 를 사용해 다음과 같이 해당
 프로그램을 설치해 주면 문제는 사라집니다.</p>
-
 <pre><code>$ sudo apt install pkg-config
-</code></pre>
-
-<h2 id="build-success">Build Success</h2>
-
+</code></pre><h2 id="build-success">Build Success</h2>
 <p>이 정도까지가 나타날 수 있는 대부분의 문제입니다.  위 해결책들을 모두
 적용했다면 아마 빌드에 성공할 겁니다.  빌드에 성공하면 다음과 같이 성공했다는
 메세지를 볼 수 있을 겁니다:</p>
-
 <pre><code>[PARSEC]
 [PARSEC] BIBLIOGRAPHY
 [PARSEC]
@@ -568,78 +773,133 @@ index fa1b0f0f26d9..bd7e6a97f4c8 100644
 [PARSEC] [2] Woo et al. The SPLASH-2 Programs: Characterization and Methodological Considerations. ISCA, 1995.
 [PARSEC]
 [PARSEC] Done.
-</code></pre>
-
-<p>참고로 빌드에 꽤 긴 시간이 소모됩니다.  제가 사용한 72 코어 / 144 쓰레드
+</code></pre><p>참고로 빌드에 꽤 긴 시간이 소모됩니다.  제가 사용한 72 코어 / 144 쓰레드
 머신에서도 약 10분이 걸렸습니다.</p>
-
 <h1 id="simple-usage">Simple Usage</h1>
-
 <p>이제 빌드가 잘 되었는지 돌려봐야 할 차례입니다.  다음 커맨드는 각 벤치마크를
 가장 작은 크기의 데이터셋을 가지고 실행해 보기 때문에 각 벤치마크가 돌아가긴
 하는지만 보는데 적격입니다:</p>
-
 <pre><code>parsecmgmt -a run
-</code></pre>
-
-<p>가장 작은 크기의 데이터셋을 사용하기 때문에 모든 벤치마크를 수행하지만 빠르게
+</code></pre><p>가장 작은 크기의 데이터셋을 사용하기 때문에 모든 벤치마크를 수행하지만 빠르게
 종료됩니다.</p>
-
 <h2 id="parsecmgmt-options"><code>parsecmgmt</code> Options</h2>
-
 <p><code>-a</code> 옵션은 action 을 의미합니다.  앞의 섹션에서는 빌드를 위해 여기에 <code>build</code>
 값을 주었고, 여기선 벤치마크 수행을 위해 <code>run</code> 값을 준 것입니다.</p>
-
 <p><code>-i</code> 옵션을 통해 벤치마크들은 워크로드에서 사용할 데이터 크기를 지정할 수
 있습니다.  이 인자의 값으로 test, simdev, simsmall, simmedium, simlarge, native
 를 줄 수 있습니다.  Test 는 정확성 테스트만을 위한, 빨리 끝나는 데이터로 이
 인자를 주지 않으면 default 로 이 값이 취해집니다.  native 는 가장 realworld
 workload 에 가까운 벤치마크를 위한 데이터라 볼 수 있습니다.</p>
-
 <p><code>-p</code> 옵션을 통해 어떤 sub benchmark 를 돌릴지 정할 수 있습니다.  이 옵션을
 별도로 주지 않으면 모든 benchmark 를 돌리게 됩니다.</p>
-
 <p><code>-n</code> 옵션은 number of threads to use 입니다.</p>
-
 <p>예를 들어 <code>parsecmgmt -p canneal -a run -i native -n 1</code> 은 <code>canneal</code> sub
 benchmark 하나만을 쓰레드 한개 써서 <code>native</code> 데이터셋으로 실행합니다.</p>
-
 <h1 id="references">References</h1>
+<p>[1] <a href="http://parsec.cs.princeton.edu">http://parsec.cs.princeton.edu</a><br>
+[2] <a href="https://en.wikipedia.org/wiki/Plain_Old_Documentation">https://en.wikipedia.org/wiki/Plain_Old_Documentation</a><br>
+[3] <a href="https://groups.google.com/forum/#">https://groups.google.com/forum/#</a>!topic/snipersim/_1qpbmpPRtg</p>
 
-<p>[1] <a href="http://parsec.cs.princeton.edu" target="_blank">http://parsec.cs.princeton.edu</a><br />
-[2] <a href="https://en.wikipedia.org/wiki/Plain_Old_Documentation" target="_blank">https://en.wikipedia.org/wiki/Plain_Old_Documentation</a><br />
-[3] <a href="https://groups.google.com/forum/#!topic/snipersim/_1qpbmpPRtg" target="_blank">https://groups.google.com/forum/#!topic/snipersim/_1qpbmpPRtg</a></p>
+    </div>
 
-      </div>
+    
 
-      
+
+
 
 
 <div class="article-tags">
   
-  <a class="btn btn-primary btn-outline" href="/tags/parsec">parsec</a>
+  <a class="badge badge-light" href="/tags/parsec/">parsec</a>
   
-  <a class="btn btn-primary btn-outline" href="/tags/benchmark">benchmark</a>
+  <a class="badge badge-light" href="/tags/benchmark/">benchmark</a>
   
-  <a class="btn btn-primary btn-outline" href="/tags/parsec3.0">parsec3.0</a>
+  <a class="badge badge-light" href="/tags/parsec3.0/">parsec3.0</a>
   
 </div>
 
 
 
-    </div>
-  </div>
-
-</article>
-
-
-
-<div class="article-container article-widget">
-  <div class="hr-light"></div>
-  <h3>Related</h3>
-  <ul>
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
     
-    <li><a href="/post/spec_cpu2006_install/">spec cpu2006 벤치마크 설치 / 실행하기</a></li>
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=/post/parsec_3_howto/&amp;text=Parsec%203.0%20%ec%84%a4%ec%b9%98%20/%20%ec%82%ac%ec%9a%a9%eb%b2%95" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=/post/parsec_3_howto/&amp;t=Parsec%203.0%20%ec%84%a4%ec%b9%98%20/%20%ec%82%ac%ec%9a%a9%eb%b2%95" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Parsec%203.0%20%ec%84%a4%ec%b9%98%20/%20%ec%82%ac%ec%9a%a9%eb%b2%95&amp;body=/post/parsec_3_howto/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=/post/parsec_3_howto/&amp;title=Parsec%203.0%20%ec%84%a4%ec%b9%98%20/%20%ec%82%ac%ec%9a%a9%eb%b2%95" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=Parsec%203.0%20%ec%84%a4%ec%b9%98%20/%20%ec%82%ac%ec%9a%a9%eb%b2%95%20/post/parsec_3_howto/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=/post/parsec_3_howto/&amp;title=Parsec%203.0%20%ec%84%a4%ec%b9%98%20/%20%ec%82%ac%ec%9a%a9%eb%b2%95" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
     
   </ul>
 </div>
@@ -647,50 +907,257 @@ benchmark 하나만을 쓰레드 한개 써서 <code>native</code> 데이터셋�
 
 
 
-<div class="article-container">
+
+
+
+
+
+
+
+
   
 
-</div>
 
-<footer class="site-footer">
-  <div class="container">
-    <p class="powered-by">
 
-      &copy; 2017 Your Name &middot; 
 
-      Powered by the
-      <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
-      <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
 
-      <span class="pull-right" aria-hidden="true">
-        <a href="#" id="back_to_top">
-          <span class="button_icon">
-            <i class="fa fa-chevron-up fa-2x"></i>
-          </span>
-        </a>
-      </span>
 
-    </p>
+  
+  
+  
+    
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      <img class="portrait mr-3" src="https://s.gravatar.com/avatar/43dc5645c78e68fda997138380dfaaf4?s=200')" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="/">SeongJae Park</a></h5>
+      <h6 class="card-subtitle">Kernel / Hypervisor Engineer</h6>
+      <p class="card-text">SeongJae Park is a programmer who loves to analyze and develop systems.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.com/citations?user=jJIiF3AAAAAJ" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/sjp38" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
   </div>
+
+
+
+
+
+
+
+
+
+  
+  
+  <div class="article-widget content-widget-hr">
+    <h3>Related</h3>
+    <ul>
+      
+      <li><a href="/post/spec_cpu2006_install/">spec cpu2006 벤치마크 설치 / 실행하기</a></li>
+      
+    </ul>
+  </div>
+  
+
+
+
+  </div>
+</article>
+
+      
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js" integrity="sha256-1zu+3BnLYV9LdiY85uXMzii3bdrkelyp37e0ZyTAQh0=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/languages/c.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/languages/bash.min.js"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js" integrity="sha256-EErZamuLefUnbMBQbsEqu1USa+btR2oIlCpBJbyD4/g=" crossorigin="anonymous"></script>
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.bcfae8267aba63cc55af53a503896bd9.js"></script>
+
+    
+
+
+
+
+
+
+  
+  
+  <div class="container">
+    <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" class="back-to-top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
 </footer>
 
+  </div>
+  
 
+  
 <div id="modal" class="modal fade" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close btn-large" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Cite</h4>
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
-      <div>
-        <pre><code class="modal-body tex"></code></pre>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
       </div>
       <div class="modal-footer">
-        <a class="btn btn-primary btn-outline js-copy-cite" href="#" target="_blank">
-          <i class="fa fa-copy"></i> Copy
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
         </a>
-        <a class="btn btn-primary btn-outline js-download-cite" href="#" target="_blank">
-          <i class="fa fa-download"></i> Download
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
         </a>
         <div id="modal-error"></div>
       </div>
@@ -698,40 +1165,5 @@ benchmark 하나만을 쓰레드 한개 써서 <code>native</code> 데이터셋�
   </div>
 </div>
 
-    
-
-    
-    
-
-    
-
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.3/imagesloaded.pkgd.min.js" integrity="sha512-umsR78NN0D23AzgoZ11K7raBD+R6hqKojyBZs1w8WvYlsI+QuKRGBx3LFCwhatzBunCjDuJpDHwxD13sLMbpRA==" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ==" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
-    
-    
-    <script src="/js/hugo-academic.js"></script>
-    
-
-    
-    
-      
-      
-      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
-      
-
-      
-
-      
-
-      <script>hljs.initHighlightingOnLoad();</script>
-    
-
-    
-    
-
-  </body>
+</body>
 </html>
-

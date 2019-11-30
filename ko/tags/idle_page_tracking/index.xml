@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>idle_page_tracking | hacklog</title>
+    <link>/ko/tags/idle_page_tracking/</link>
+      <atom:link href="/ko/tags/idle_page_tracking/index.xml" rel="self" type="application/rss+xml" />
+    <description>idle_page_tracking</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>ko-kr</language><lastBuildDate>Wed, 13 Sep 2017 13:46:00 +0900</lastBuildDate>
+    <image>
+      <url>/img/tux.png</url>
+      <title>idle_page_tracking</title>
+      <link>/ko/tags/idle_page_tracking/</link>
+    </image>
+    
+    <item>
+      <title>Idle Page Tracking Tools</title>
+      <link>/ko/post/idle_page_tracking/</link>
+      <pubDate>Wed, 13 Sep 2017 13:46:00 +0900</pubDate>
+      <guid>/ko/post/idle_page_tracking/</guid>
+      <description>&lt;p&gt;&lt;code&gt;idle_page_tracking&lt;/code&gt;[1] is a simple, stupid toolbox for idle pages tracking.
+It can be used to get real working set size of a process.&lt;/p&gt;
+&lt;h1 id=&#34;tools&#34;&gt;Tools&lt;/h1&gt;
+&lt;p&gt;This section describes two tools in the box though more tools exists.  You can
+get more description about each tool from the README in the repository[1].&lt;/p&gt;
+&lt;h2 id=&#34;userprog&#34;&gt;userprog&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;userprog&lt;/code&gt; is a sample synthetic workload for test of other tools.  It
+interactively allocates and access specified pages in the allocated pages.
+After execution, it first asks how many pages to allocates.  Once you type in
+how many pages to allocate, the program will repeatedly asks how many pages in
+the allocated pages you want to do access.&lt;/p&gt;
+&lt;h2 id=&#34;wspagessh&#34;&gt;wspages.sh&lt;/h2&gt;
+&lt;p&gt;Now you can calculate working set size of a process using the tools.  To
+simplify the life even more, &lt;code&gt;wspages.sh&lt;/code&gt; helps the complicated works.  It
+requires pid, time interval, and target memory mapped regions as argument.  The
+third argument can be ignored.  In the case, it uses heap, stack, and anonymous
+pages as target memory region by default.  If you give the arguments well, this
+tool will prints out number of pages accessed between the time interval.
+Simple example of usage and output is as below:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ sudo ./wspages.sh `pidof userprog` 1 [heap]
+3
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;wspgstatsh&#34;&gt;wspgstat.sh&lt;/h2&gt;
+&lt;p&gt;Like &lt;code&gt;*stat&lt;/code&gt; programs (such as vmstat, iostat, &amp;hellip;), wspgstat.sh monitors and
+print out number of pages in working set of specific process repeatedly.  It
+requires pid of target program, delay between idleness check, and target memory
+mapped regions as arguments.  The third argument is optional and has default
+value as same as wspages.sh&#39;s same argument.  Simple example usage is as below:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ ./wspgstat.sh `pidof mysqld` 5
+1 17448
+9 21536
+18 21659
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;limitations&#34;&gt;Limitations&lt;/h1&gt;
+&lt;p&gt;The tools use idle page tracking feature of the Linux kernel[2] internally.  It
+means that the tools work on Linux systems that idle page tracking feature is
+turned on.  You can check whether your system turned on or off the feature by
+simply running the command below:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ if [ -d /sys/kernel/mm/page_idle ]; \
+        then echo &amp;quot;ON&amp;quot;; else echo &amp;quot;OFF&amp;quot;; fi
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;It also shares limitation of idle page tracking feature of the Linux kernel.
+It tracks only userspace pages on LRU list of the kernel.&lt;/p&gt;
+&lt;h1 id=&#34;license&#34;&gt;License&lt;/h1&gt;
+&lt;p&gt;GPL v3&lt;/p&gt;
+&lt;h1 id=&#34;references&#34;&gt;References&lt;/h1&gt;
+&lt;p&gt;[1] &lt;a href=&#34;https://github.com/sjp38/idle_page_tracking&#34;&gt;https://github.com/sjp38/idle_page_tracking&lt;/a&gt;&lt;br&gt;
+[2] &lt;a href=&#34;https://www.kernel.org/doc/Documentation/vm/idle_page_tracking.txt&#34;&gt;https://www.kernel.org/doc/Documentation/vm/idle_page_tracking.txt&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

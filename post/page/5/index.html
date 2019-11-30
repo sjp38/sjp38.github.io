@@ -1,22 +1,47 @@
 <!DOCTYPE html>
 <html lang="en-us">
+
 <head>
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="theme" content="hugo-academic">
-  <meta name="generator" content="Hugo 0.51" />
+  <meta name="generator" content="Source Themes Academic 4.6.2">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
   <meta name="author" content="SeongJae Park">
-  <meta name="description" content="System Programmer">
-
-  
-  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/">
 
   
   
+  
+    
+  
+  <meta name="description" content="Kernel / Hypervisor Engineer">
+
+  
+  <link rel="alternate" hreflang="ko" href="/ko/post/">
+  
+  <link rel="alternate" hreflang="en-us" href="/post/">
+
+  
 
 
+  
+  
+  
+  <meta name="theme-color" content="#2962ff">
   
 
   
@@ -24,248 +49,492 @@
   
   
     
-  
-  
-  
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha512-6MXa8B6uaO18Hid6blRMetEIoPqHf7Ux1tnyIQdpt9qI5OACx7C+O3IVTr98vwGnlcg0LOLa02i9Y1HpVhlfiw==" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.1/css/academicons.min.css" integrity="sha512-NThgw3XKQ1absAahW6to7Ey42uycrVvfNfyjqcFNgCmOCQ5AR4AO0SiXrN+8ZtYeappp56lk1WtvjVmEa+VR6A==" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous">
-  
-  
-  
-  
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700%7cRoboto:400,400italic,700%7cRoboto&#43;Mono">
-  
-  <link rel="stylesheet" href="/styles.css">
-  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
-  
-    <script>
-      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-      ga('create', 'UA-30621335-1', 'auto');
-      ga('require', 'eventTracker');
-      ga('require', 'outboundLinkTracker');
-      ga('require', 'urlChangeTracker');
-      ga('send', 'pageview');
-    </script>
-    <script async src="//www.google-analytics.com/analytics.js"></script>
     
-    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
     
+    
+      
+    
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css" integrity="sha256-SHMGCYmST46SoyGgo4YR/9AlK1vf3ff84Aq9yK4hdqM=" crossorigin="anonymous">
+    
+
+    
+
   
 
   
-  <link rel="alternate" href="https://sjp38.github.io/post/index.xml" type="application/rss+xml" title="Hacklog">
-  <link rel="feed" href="https://sjp38.github.io/post/index.xml" type="application/rss+xml" title="Hacklog">
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap">
   
 
-  <link rel="manifest" href="/site.webmanifest">
-  <link rel="icon" type="image/png" href="/img/icon.png">
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.css">
+
+  
+
+
+
+
+  
+
+
+  
+  <link rel="alternate" href="/post/index.xml" type="application/rss+xml" title="hacklog">
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon-32.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://sjp38.github.io/post/">
+  <link rel="canonical" href="/post/">
 
+  
+  
+  
+  
+    
+  
+  
   <meta property="twitter:card" content="summary_large_image">
   
-  <meta property="og:site_name" content="Hacklog">
-  <meta property="og:url" content="https://sjp38.github.io/post/">
-  <meta property="og:title" content="Posts | Hacklog">
-  <meta property="og:description" content="System Programmer">
-  <meta property="og:locale" content="en-us">
+  <meta property="og:site_name" content="hacklog">
+  <meta property="og:url" content="/post/">
+  <meta property="og:title" content="Posts | hacklog">
+  <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
+  <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2019-04-10T11:39:06&#43;09:00">
+    <meta property="og:updated_time" content="2017-01-01T00:00:00&#43;01:00">
   
+
+  
+
+
+
 
   
 
-  <title>Posts | Hacklog</title>
+
+  
+
+
+
+
+
+  <title>Posts | hacklog</title>
 
 </head>
-<body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
 
-<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
   <div class="container">
 
     
-    <div class="navbar-header">
-      
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-              data-target=".navbar-collapse" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      
-      <a class="navbar-brand" href="/">Hacklog</a>
-    </div>
+    
+    
+      <a class="navbar-brand" href="/">hacklog</a>
+    
 
     
-    <div class="collapse navbar-collapse">
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
 
       
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#about"><span>Home</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#projects"><span>Projects</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#publications"><span>Publications</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/tags"><span>Tags</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/categories"><span>Categories</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/post/about"><span>CV</span></a>
+        </li>
+
+        
+        
+
       
-      <ul class="nav navbar-nav navbar-right">
-        
 
         
-
-        
-          
-        
-
-        <li class="nav-item">
-          <a href="/#about">
-            
-            <span>Home</span>
-            
-          </a>
-        </li>
-
-        
-        
-
-        
-
-        
-          
-        
-
-        <li class="nav-item">
-          <a href="/#publications_selected">
-            
-            <span>Publications</span>
-            
-          </a>
-        </li>
-
-        
-        
-
-        
-
-        
-          
-        
-
-        <li class="nav-item">
-          <a href="/#posts">
-            
-            <span>Posts</span>
-            
-          </a>
-        </li>
-
-        
-        
-
-        
-
-        
-          
-        
-
-        <li class="nav-item">
-          <a href="/#projects">
-            
-            <span>Projects</span>
-            
-          </a>
-        </li>
-
-        
-        
-
-        
-
-        
-          
-        
-
-        <li class="nav-item">
-          <a href="/#contact">
-            
-            <span>Contact</span>
-            
-          </a>
-        </li>
-
-        
-        
-
-        
-
-        
-          
-        
-
-        <li class="nav-item">
-          <a href="/#tags">
-            
-            <span>Tags</span>
-            
-          </a>
-        </li>
-
-        
-        
-
-        
-
-        
-          
-        
-
-        <li class="nav-item">
-          <a href="/post/about/">
-            
-            <span>About</span>
-            
-          </a>
-        </li>
-
-        
-        
-      
-
-      
       </ul>
-
     </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      <li class="nav-item">
+        <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      <li class="nav-item dropdown i18n-dropdown">
+        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true">
+          <i class="fas fa-globe mr-1" aria-hidden="true"></i><span class="d-none d-lg-inline">English</span>
+        </a>
+        <div class="dropdown-menu">
+          <div class="dropdown-item i18n-active font-weight-bold">
+            <span>English</span>
+          </div>
+          
+          <a class="dropdown-item" href="/ko/post/">
+            <span>한국어</span>
+          </a>
+          
+        </div>
+      </li>
+      
+
+    </ul>
+
   </div>
 </nav>
 
 
+  
 
 
 
-<div class="universal-wrapper">
 
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+    
+  
+<div class="universal-wrapper pt-3">
   <h1>Posts</h1>
 
   
 
   
+</div>
+
+
+
+<div class="universal-wrapper">
+
+  
+
+  
   
     
+      
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0">
+      <a href="/post/hooking_library_calls/" >Hooking Library Function Calls</a>
+    </h3>
+
+    
+    <div class="article-style">
+      LD_PRELOAD 환경변수를 사용하면 로더가 프로그램을 로드할 때 동적 로드해야 할 바이너리 코드를 해당 변수의 값의 디렉토리에서부터 뒤지도록 합니다. 따라서 이를 이용해 malloc(), free() 등의 일반적으로 사용하는 라이브러리 함 …
+    </div>
     
 
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/hooking_library_calls/" itemprop="url">Hooking Library Function Calls</a>
-  </h3>
-  
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
 
 <div class="article-metadata">
 
+  
+  
+
+  
   <span class="article-date">
     
-    <time datetime="2019-04-10 11:39:06 &#43;0900 &#43;0900" itemprop="datePublished">
-      Apr 10, 2019
-    </time>
+    
+      
+    
+    Wed, Apr 10, 2019
   </span>
+  
+
+  
 
   
   <span class="middot-divider"></span>
@@ -276,59 +545,85 @@
 
   
   
-
   
+
   
   
   <span class="middot-divider"></span>
   <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/programming">programming</a
-    >
-    
-  </span>
-  
-  
-
+    <i class="fas fa-folder mr-1"></i><a href="/categories/programming/">programming</a></span>
   
 
 </div>
 
-  <div class="article-style" itemprop="articleBody">
+      
+    </div>
+
     
-    LD_PRELOAD 환경변수를 사용하면 로더가 프로그램을 로드할 때 동적 로드해야 할 바이너리 코드를 해당 변수의 값의 디렉토리에서부터 뒤지도록 합니다. 따라서 이를 이용해 malloc(), free() 등의 일반적으로 사용하는 라이브러리 함수를 우리의 구현으로 대체하거나 후킹할 수 있습니다. 이 글은 이런 방법으로 malloc() 을 후킹하는 방법을 예제를 통해 간단히 설명합니다.
-Original Program 먼저 다음과 같은 프로그램이 있을 수 있을 겁니다:
-#include &lt;stdio.h&gt; #include &lt;stdlib.h&gt; int main(void) { char *abc; abc = (char *)malloc(8); printf(&quot;malloced address: %p\n&quot;, abc); sprintf(abc, &quot;hello\n&quot;); printf(&quot;%s\n&quot;, abc); free(abc); return 0; }  단순히 malloc() 을 통해 8바이트 메모리를 할당받아 그 영역을 표시하고 종료하는 프로그램입니다.
+
+  </div>
+  <div class="ml-3">
+    
     
   </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/hooking_library_calls/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
 </div>
 
+    
   
     
+      
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0">
+      <a href="/post/backtrace_c_language/" >Backtrace on C language program</a>
+    </h3>
+
+    
+    <div class="article-style">
+      디버깅 과정에선 현재 어떤 코드가 어떤 함수를 거쳐 수행됐는지를 통한 컨텍스트 파악이 중요합니다. Java, Python, Go 등 대부분의 언어가 이를 위해 콜스택을 뽑을 수 있는 기능을 제공하죠. C 언어의 경우 gdb …
+    </div>
     
 
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/backtrace_c_language/" itemprop="url">Backtrace on C language program</a>
-  </h3>
-  
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
 
 <div class="article-metadata">
 
+  
+  
+
+  
   <span class="article-date">
     
-    <time datetime="2019-04-09 17:33:50 &#43;0900 &#43;0900" itemprop="datePublished">
-      Apr 9, 2019
-    </time>
+    
+      
+    
+    Tue, Apr 9, 2019
   </span>
+  
+
+  
 
   
   <span class="middot-divider"></span>
@@ -339,49 +634,81 @@ Original Program 먼저 다음과 같은 프로그램이 있을 수 있을 겁�
 
   
   
-
-  
-  
-  
   
 
+  
   
 
 </div>
 
-  <div class="article-style" itemprop="articleBody">
+      
+    </div>
+
     
-    디버깅 과정에선 현재 어떤 코드가 어떤 함수를 거쳐 수행됐는지를 통한 컨텍스트 파악이 중요합니다. Java, Python, Go 등 대부분의 언어가 이를 위해 콜스택을 뽑을 수 있는 기능을 제공하죠. C 언어의 경우 gdb 등을 사용하면 쉽게 이를 볼 수 있지만 경우에 따라선 gdb 를 포기하고 printf() 등에만 의존해야 하기도 합니다. 이를 위한 기능이 c 라이브러리에도 있습니다, backtrace() 함수입니다. man 에도 이에 대한 설명이 있습니다만, 여기서도 간단히 소개해 봅니다.
-Example Source Code 예제로 설명하는게 가장 쉽죠.
+
+  </div>
+  <div class="ml-3">
+    
     
   </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/backtrace_c_language/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
 </div>
 
+    
   
     
+      
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0">
+      <a href="/post/lkml_news_v5.1-rc5/" >LKML News v5.1-rc5</a>
+    </h3>
+
+    
+    <div class="article-style">
+      [v2 RFC PATCH 0/9] Another Approach to Use PMEM as NUMA Node …
+    </div>
     
 
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.1-rc5/" itemprop="url">LKML News v5.1-rc5</a>
-  </h3>
-  
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
 
 <div class="article-metadata">
 
+  
+  
+
+  
   <span class="article-date">
     
-    <time datetime="2019-04-09 17:33:01 &#43;0900 &#43;0900" itemprop="datePublished">
-      Apr 9, 2019
-    </time>
+    
+      
+    
+    Tue, Apr 9, 2019
   </span>
+  
+
+  
 
   
   <span class="middot-divider"></span>
@@ -392,60 +719,86 @@ Example Source Code 예제로 설명하는게 가장 쉽죠.
 
   
   
-
   
+
   
   
   <span class="middot-divider"></span>
   <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/lkml-news">lkml news</a
-    >
-    
-  </span>
-  
-  
-
+    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
   
 
 </div>
 
-  <div class="article-style" itemprop="articleBody">
+      
+    </div>
+
     
-    [v2 RFC PATCH 0/9] Another Approach to Use PMEM as NUMA Node https://lkml.kernel.org/r/1554955019-29472-1-git-send-email-yang.shi@linux.alibaba.com
-본 블로그를 통해 지속적으로 소개하고 있는, PMEM as NUMA node 를 위한, 보다 나은 hotness 기반 page location 을 위한 패치셋입니다. 기존 코멘트에 기반해서 두번째 버전을 내놓았군요.
-[RFC PATCH v3 00/15] Slab Movable Objects (SMO) https://lkml.kernel.org/r/20190411013441.5415-1-tobin@kernel.org
-최근 LWN 에서도 소개된 (https://lwn.net/Articles/784964/) 패치입니다. Slab allocator 에서 할당된 object 가 free page 가운데에 박혀 있어 page 를 회수할 수 없는 fragmentation 이 발생합니다.
+
+  </div>
+  <div class="ml-3">
+    
     
   </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.1-rc5/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
 </div>
 
+    
   
     
+      
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0">
+      <a href="/post/lkml_news_v5.1-rc4/" >LKML News v5.1-rc4</a>
+    </h3>
+
+    
+    <div class="article-style">
+      Linux v5.1-rc3 릴리즈 후 Linux v.5.1-rc4 릴리즈 사이 기간에 LKML 에 올라온 흥미로운 메일들을 소개합니다.
+[PATCH v8 00/20] Convert x86 &amp; arm64 to use generic …
+    </div>
     
 
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.1-rc4/" itemprop="url">LKML News v5.1-rc4</a>
-  </h3>
-  
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
 
 <div class="article-metadata">
 
+  
+  
+
+  
   <span class="article-date">
     
-    <time datetime="2019-04-07 23:17:55 &#43;0900 &#43;0900" itemprop="datePublished">
-      Apr 7, 2019
-    </time>
+    
+      
+    
+    Sun, Apr 7, 2019
   </span>
+  
+
+  
 
   
   <span class="middot-divider"></span>
@@ -456,61 +809,86 @@ Example Source Code 예제로 설명하는게 가장 쉽죠.
 
   
   
-
   
+
   
   
   <span class="middot-divider"></span>
   <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/lkml-news">lkml news</a
-    >
-    
-  </span>
-  
-  
-
+    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
   
 
 </div>
 
-  <div class="article-style" itemprop="articleBody">
+      
+    </div>
+
     
-    Linux v5.1-rc3 릴리즈 후 Linux v.5.1-rc4 릴리즈 사이 기간에 LKML 에 올라온 흥미로운 메일들을 소개합니다.
-[PATCH v8 00/20] Convert x86 &amp; arm64 to use generic page walk https://lkml.kernel.org/r/20190403141627.11664-1-steven.price@arm.com
-전에 이 블로그에도 공유했던, walk_page_range() 함수가 커널에서 사용하는 페이지 테이블은 지원하지 않아서 아키텍쳐별로 page table walk 기능을 구현한 걸 walk_page_range() 의 개선을 통해 가능하게 하고자 하는 패치의 여덟번째 버전입니다.
-[PATCH] mm: add vm event for page cache miss https://lkml.kernel.org/r/1554185720-26404-1-git-send-email-laoar.shao@gmail.com
-Page cache miss 로 인해 사용중인 데이터베이스에 레이턴시가 증가하는 문제가 있는데, 기존 커널에는 페이지 캐시 미스 카운트를 세는 기능이 없기 때문에 만들어 봤다고 합니다.
+
+  </div>
+  <div class="ml-3">
+    
     
   </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.1-rc4/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
 </div>
 
+    
   
     
+      
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0">
+      <a href="/post/lkml_news_v5.1-rc3/" >LKML News v5.1-rc3</a>
+    </h3>
+
+    
+    <div class="article-style">
+      [PATCH tip/core/rcu 0/4] Documentation updates for v5.2 https://lkml.kernel.org/r/20190326230408.GA17069@linux.ibm.com
+v5.2 …
+    </div>
     
 
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.1-rc3/" itemprop="url">LKML News v5.1-rc3</a>
-  </h3>
-  
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
 
 <div class="article-metadata">
 
+  
+  
+
+  
   <span class="article-date">
     
-    <time datetime="2019-03-26 08:53:41 &#43;0900 &#43;0900" itemprop="datePublished">
-      Mar 26, 2019
-    </time>
+    
+      
+    
+    Tue, Mar 26, 2019
   </span>
+  
+
+  
 
   
   <span class="middot-divider"></span>
@@ -521,62 +899,85 @@ Page cache miss 로 인해 사용중인 데이터베이스에 레이턴시가 �
 
   
   
-
   
+
   
   
   <span class="middot-divider"></span>
   <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/lkml-news">lkml news</a
-    >
-    
-  </span>
-  
-  
-
+    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
   
 
 </div>
 
-  <div class="article-style" itemprop="articleBody">
+      
+    </div>
+
     
-    [PATCH tip/core/rcu 0/4] Documentation updates for v5.2 https://lkml.kernel.org/r/20190326230408.GA17069@linux.ibm.com
-v5.2 에 머지될 목적의 RCU 문서화 업데이트 패치셋입니다.
-[PATCH tip/core/rcu 0/18] Miscellaneous fixes for v5.2 https://lkml.kernel.org/r/20190326231253.GA18343@linux.ibm.com
-v5.2 를 위한 RCU 의 다양한 업데이트 패치셋입니다. rcu 를 위한 메일링 리스트도 추가되었군요. rcu@vger.kernel.org 입니다.
-[PATCH tip/core/rcu 0/9] Torture-test updates for v5.2 https://lkml.kernel.org/r/20190326233054.GA21523@linux.ibm.com
-v5.2 를 위한 torture test 의 업데이트 패치셋입니다. LKMM 이라던지 formal verification 도 많은 발전이 있었지만, torture test 도 없어질 순 없겠죠.
+
+  </div>
+  <div class="ml-3">
+    
     
   </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.1-rc3/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
 </div>
 
+    
   
     
+      
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0">
+      <a href="/post/kunit_intro/" >Unit test for the Linux kernel using Kunit</a>
+    </h3>
+
+    
+    <div class="article-style">
+      지난 2월 말에 FAST'19 학회를 다녀왔는데요, [Ted Tso] (https://thunk.org/tytso/) 도 왔더군요. 심지어 구글 부스를 지키고 계시더라구요. 어쩌다보니 식사자리에서 합석하고 잡담 나눈 레드햇 개발자 분들이랑 이 …
+    </div>
     
 
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/kunit_intro/" itemprop="url">Unit test for the Linux kernel using Kunit</a>
-  </h3>
-  
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
 
 <div class="article-metadata">
 
+  
+  
+
+  
   <span class="article-date">
     
-    <time datetime="2019-03-20 15:32:29 &#43;0900 &#43;0900" itemprop="datePublished">
-      Mar 20, 2019
-    </time>
+    
+      
+    
+    Wed, Mar 20, 2019
   </span>
+  
+
+  
 
   
   <span class="middot-divider"></span>
@@ -587,58 +988,85 @@ v5.2 를 위한 torture test 의 업데이트 패치셋입니다. LKMM 이라던
 
   
   
-
   
+
   
   
   <span class="middot-divider"></span>
   <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/kernel">kernel</a
-    >
-    
-  </span>
-  
-  
-
+    <i class="fas fa-folder mr-1"></i><a href="/categories/kernel/">kernel</a></span>
   
 
 </div>
 
-  <div class="article-style" itemprop="articleBody">
+      
+    </div>
+
     
-    지난 2월 말에 FAST&rsquo;19 학회를 다녀왔는데요, Ted Tso 도 왔더군요. 심지어 구글 부스를 지키고 계시더라구요. 어쩌다보니 식사자리에서 합석하고 잡담 나눈 레드햇 개발자 분들이랑 이야기를 하고 있길래 껴서 좀 이야기를 했는데, 이야기 중 테스트에 대한 이야기가 나왔고, 이에 Ted 가 KUnit 이라는 도구를 소개해 줬습니다. 잠깐 사용해 보니 매우 매력적인 것 같아서 이 블로그에서도 소개해 볼까 합니다.
-KUnit 은 이름에서 짐작했겠지만 리눅스 커널을 위한 유닛 테스트 프레임웍입니다. 구글의 Brendan Higgins 라는 분이 개발하고 있고, 커널 내에 머지되는 걸 목표로 해서 LKML 에도 RFC 패치를 보내고 있습니다.
+
+  </div>
+  <div class="ml-3">
+    
     
   </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/kunit_intro/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
 </div>
 
+    
   
     
+      
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0">
+      <a href="/post/gitlab_docker_install/" >Gitlab docker install</a>
+    </h3>
+
+    
+    <div class="article-style">
+      연구실 내부 사용을 위한 Gitlab 을 Docker 를 사용해서 구축하고 사용하고 있습니다만, 하도 예전이라 Gitlab official docker image 가 아니었고, docker 버전도 2.x …
+    </div>
     
 
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/gitlab_docker_install/" itemprop="url">Gitlab docker install</a>
-  </h3>
-  
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
 
 <div class="article-metadata">
 
+  
+  
+
+  
   <span class="article-date">
     
-    <time datetime="2019-03-19 16:39:48 &#43;0900 &#43;0900" itemprop="datePublished">
-      Mar 19, 2019
-    </time>
+    
+      
+    
+    Tue, Mar 19, 2019
   </span>
+  
+
+  
 
   
   <span class="middot-divider"></span>
@@ -649,60 +1077,85 @@ KUnit 은 이름에서 짐작했겠지만 리눅스 커널을 위한 유닛 테�
 
   
   
-
   
+
   
   
   <span class="middot-divider"></span>
   <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/installations">installations</a
-    >
-    
-  </span>
-  
-  
-
+    <i class="fas fa-folder mr-1"></i><a href="/categories/installations/">installations</a></span>
   
 
 </div>
 
-  <div class="article-style" itemprop="articleBody">
+      
+    </div>
+
     
-    연구실 내부 사용을 위한 Gitlab 을 Docker 를 사용해서 구축하고 사용하고 있습니다만, 하도 예전이라 Gitlab official docker image 가 아니었고, docker 버전도 2.x 대라서 최신 버전으로 바로 업그레이드가 불가능하군요.
-지금은 gitlab 에서 자체적으로 정식 docker 이미지를 제공합니다. 이 포스트에서는 Ubuntu 18.04 서버 위에 gitlab 정식 docker 이미지를 사용해 설치하는 방법을 기록합니다.
-Docker 설치 먼저 Docker 를 설치해야죠. 문서[1]를 참고해서 설치를 진행해 봅니다.
-먼저 apt 업데이트 후 종속 패키지들을 깔아줍니다:
+
+  </div>
+  <div class="ml-3">
+    
     
   </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/gitlab_docker_install/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
 </div>
 
+    
   
     
+      
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0">
+      <a href="/post/lkml_news_v5.1-rc2/" >LKML News v5.1-rc2</a>
+    </h3>
+
+    
+    <div class="article-style">
+      [PATCH v5 00/19] Convert x86 &amp; arm64 to use generic page walk https://lkml.kernel.org/r/20190321141953.31960-1-steven.price@arm.com …
+    </div>
     
 
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.1-rc2/" itemprop="url">LKML News v5.1-rc2</a>
-  </h3>
-  
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
 
 <div class="article-metadata">
 
+  
+  
+
+  
   <span class="article-date">
     
-    <time datetime="2019-03-19 12:11:11 &#43;0900 &#43;0900" itemprop="datePublished">
-      Mar 19, 2019
-    </time>
+    
+      
+    
+    Tue, Mar 19, 2019
   </span>
+  
+
+  
 
   
   <span class="middot-divider"></span>
@@ -713,61 +1166,86 @@ Docker 설치 먼저 Docker 를 설치해야죠. 문서[1]를 참고해서 설�
 
   
   
-
   
+
   
   
   <span class="middot-divider"></span>
   <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/lkml-news">lkml news</a
-    >
-    
-  </span>
-  
-  
-
+    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
   
 
 </div>
 
-  <div class="article-style" itemprop="articleBody">
+      
+    </div>
+
     
-    [PATCH v5 00/19] Convert x86 &amp; arm64 to use generic page walk https://lkml.kernel.org/r/20190321141953.31960-1-steven.price@arm.com
-커널이 walk_page_range() 함수를 제공하긴 하지만 이 함수는 커널에 의해 사용되는 페이지 테이블은 볼수가 없기 때문에 각 아키텍쳐별로 페이지 테이블 순회를 위한 기능을 별도로 만들어 사용하고 있습니다.
-이 패치셋은 walk_page_range() 가 커널의 페이지 테이블을 만질 수 있도록 확장함으로써 그런 불필요한 아키텍쳐별 파편화를 줄이려 합니다.
-[PATCH v6 0/7] psi: pressure stall monitors v6 https://lkml.kernel.org/r/20190319235619.260832-1-surenb@google.com
-시스템이 어떤 부분의 pressure 를 받는지 쉽게 확인하기 위한 pressure stall monitor 구현 패치의 여섯 번째 버전입니다.
+
+  </div>
+  <div class="ml-3">
+    
     
   </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.1-rc2/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
 </div>
 
+    
   
     
+      
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0">
+      <a href="/post/lkml_news_v5.1-rc1/" >LKML News v5.1-rc1</a>
+    </h3>
+
+    
+    <div class="article-style">
+      Linux v5.0 릴리즈 (2019-03-03) 부터 v5.1-rc1 릴리즈 (2019-03-17) 사이의 머지 윈도우 기간 LKML 에 올라온 흥미로운 메일들을 소개합니다.
+CMA allocation failure …
+    </div>
     
 
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.1-rc1/" itemprop="url">LKML News v5.1-rc1</a>
-  </h3>
-  
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
 
 <div class="article-metadata">
 
+  
+  
+
+  
   <span class="article-date">
     
-    <time datetime="2019-03-04 13:07:30 &#43;0900 &#43;0900" itemprop="datePublished">
-      Mar 4, 2019
-    </time>
+    
+      
+    
+    Mon, Mar 4, 2019
   </span>
+  
+
+  
 
   
   <span class="middot-divider"></span>
@@ -778,62 +1256,86 @@ Docker 설치 먼저 Docker 를 설치해야죠. 문서[1]를 참고해서 설�
 
   
   
-
   
+
   
   
   <span class="middot-divider"></span>
   <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/lkml-news">lkml news</a
-    >
-    
-  </span>
-  
-  
-
+    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
   
 
 </div>
 
-  <div class="article-style" itemprop="articleBody">
+      
+    </div>
+
     
-    Linux v5.0 릴리즈 (2019-03-03) 부터 v5.1-rc1 릴리즈 (2019-03-17) 사이의 머지 윈도우 기간 LKML 에 올라온 흥미로운 메일들을 소개합니다.
-CMA allocation failure https://lkml.kernel.org/r/57e0bc63-0be9-498b-8ffc-3b073e01e299@email.android.com
-제게도 GCMA 레이턴시 관련 문의를 보냈던 분인데, LKML 에도 관련 도움을 요청하는 메일을 보냈군요.
-왜 CMA 가 할당에 실패하는지 이유를 묻는 메일인데요, 답은 없습니다.
-[LSF/MM TOPIC] Using XArray to manage the VMA https://lkml.kernel.org/r/7da20892-f92a-68d8-4804-c72c1cb0d090@linux.ibm.com
-MM 의 오랜 숙원 중 하나는 mmap_sem 으로 인한 확장성 문제 해결이죠. 기존의 RB tree 대신 XArray 를 사용하는 것으로 새로운 시도를 시작해 보는건 어떨지 LSFMM 에서 토의해보자는, speculative page fault 의 최근 메인테이너인 Laurent 의 메일입니다.
+
+  </div>
+  <div class="ml-3">
+    
     
   </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.1-rc1/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
 </div>
 
+    
   
     
+      
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0">
+      <a href="/post/lkml_news_v5.0/" >LKML News v5.0</a>
+    </h3>
+
+    
+    <div class="article-style">
+      Linux v5.0-rc8 릴리즈 (2019-02-24) 부터 Linux v5.0 릴리즈 (2019-03-03) 사이 기간에 LKML 에 올라온 흥미로운 메일들을 소개합니다.
+[PATCH 0/5] [v5] Allow persistent …
+    </div>
     
 
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.0/" itemprop="url">LKML News v5.0</a>
-  </h3>
-  
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
 
 <div class="article-metadata">
 
+  
+  
+
+  
   <span class="article-date">
     
-    <time datetime="2019-02-25 13:16:39 &#43;0900 &#43;0900" itemprop="datePublished">
-      Feb 25, 2019
-    </time>
+    
+      
+    
+    Mon, Feb 25, 2019
   </span>
+  
+
+  
 
   
   <span class="middot-divider"></span>
@@ -844,51 +1346,40 @@ MM 의 오랜 숙원 중 하나는 mmap_sem 으로 인한 확장성 문제 해�
 
   
   
-
   
+
   
   
   <span class="middot-divider"></span>
   <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/lkml-news">lkml news</a
-    >
-    
-  </span>
-  
-  
-
+    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
   
 
 </div>
 
-  <div class="article-style" itemprop="articleBody">
+      
+    </div>
+
     
-    Linux v5.0-rc8 릴리즈 (2019-02-24) 부터 Linux v5.0 릴리즈 (2019-03-03) 사이 기간에 LKML 에 올라온 흥미로운 메일들을 소개합니다.
-[PATCH 0/5] [v5] Allow persistent memory to be used like normal RAM https://lkml.kernel.org/r/20190225185727.BCBD768C@viggo.jf.intel.com
-앞서 몇번 소개했던, persistent memory 를 좀 많이 느린 numa node 인 것처럼 해서 시스템이 사용할 수 있게 하는 접근법의 패치 다섯번째 버전입니다. 이제 개선은 어느정도 된 것 같으니 슬슬 머지되야하지 않겠냐고 주장하는군요.
-Linux v5.0 https://lkml.kernel.org/r/CAHk-=wjuG6HiGbD7DCGfvDvhr_1WZUR-eYF2qWGbYyn9k6unvg@mail.gmail.com
-마침내 5.0 릴리즈입니다! 제 랩톱에도 바로 받아다가 설치했습니다!
+
+  </div>
+  <div class="ml-3">
+    
     
   </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.0/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
 </div>
 
+    
   
 
   
 <nav>
-  <ul class="pager">
+  <ul class="pagination justify-content-center">
     
-    <li><a href="/post/page/4/">&lt;</a></li>
+    <li class="page-item"><a class="page-link" href="/post/page/4/">&laquo;</a></li>
     
     
-    <li><a href="/post/page/6/">&gt;</a></li>
+    <li class="page-item"><a class="page-link" href="/post/page/6/">&raquo;</a></li>
     
   </ul>
 </nav>
@@ -896,45 +1387,154 @@ Linux v5.0 https://lkml.kernel.org/r/CAHk-=wjuG6HiGbD7DCGfvDvhr_1WZUR-eYF2qWGbYy
 
 
 </div>
-<footer class="site-footer">
+
+      
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+
+      
+
+      
+
+      
+      
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js" integrity="sha256-EErZamuLefUnbMBQbsEqu1USa+btR2oIlCpBJbyD4/g=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.bcfae8267aba63cc55af53a503896bd9.js"></script>
+
+    
+
+
+
+
+
+
+  
+  
   <div class="container">
-    <p class="powered-by">
+    <footer class="site-footer">
+  
 
-      &copy; 2017 Your Name &middot; 
+  <p class="powered-by">
+    
 
-      Powered by the
-      <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
-      <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
 
-      <span class="pull-right" aria-hidden="true">
-        <a href="#" id="back_to_top">
-          <span class="button_icon">
-            <i class="fa fa-chevron-up fa-2x"></i>
-          </span>
-        </a>
-      </span>
-
-    </p>
-  </div>
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" class="back-to-top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
 </footer>
 
+  </div>
+  
 
+  
 <div id="modal" class="modal fade" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close btn-large" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Cite</h4>
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
-      <div>
-        <pre><code class="modal-body tex"></code></pre>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
       </div>
       <div class="modal-footer">
-        <a class="btn btn-primary btn-outline js-copy-cite" href="#" target="_blank">
-          <i class="fa fa-copy"></i> Copy
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
         </a>
-        <a class="btn btn-primary btn-outline js-download-cite" href="#" target="_blank">
-          <i class="fa fa-download"></i> Download
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
         </a>
         <div id="modal-error"></div>
       </div>
@@ -942,29 +1542,5 @@ Linux v5.0 https://lkml.kernel.org/r/CAHk-=wjuG6HiGbD7DCGfvDvhr_1WZUR-eYF2qWGbYy
   </div>
 </div>
 
-    
-
-    
-    
-
-    
-
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.3/imagesloaded.pkgd.min.js" integrity="sha512-umsR78NN0D23AzgoZ11K7raBD+R6hqKojyBZs1w8WvYlsI+QuKRGBx3LFCwhatzBunCjDuJpDHwxD13sLMbpRA==" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ==" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
-    
-    
-    <script src="/js/hugo-academic.js"></script>
-    
-
-    
-    
-
-    
-    
-
-  </body>
+</body>
 </html>
-

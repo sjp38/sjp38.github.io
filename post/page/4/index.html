@@ -1,22 +1,47 @@
 <!DOCTYPE html>
 <html lang="en-us">
+
 <head>
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="theme" content="hugo-academic">
-  <meta name="generator" content="Hugo 0.51" />
+  <meta name="generator" content="Source Themes Academic 4.6.2">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
   <meta name="author" content="SeongJae Park">
-  <meta name="description" content="System Programmer">
-
-  
-  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/">
 
   
   
+  
+    
+  
+  <meta name="description" content="Kernel / Hypervisor Engineer">
+
+  
+  <link rel="alternate" hreflang="ko" href="/ko/post/">
+  
+  <link rel="alternate" hreflang="en-us" href="/post/">
+
+  
 
 
+  
+  
+  
+  <meta name="theme-color" content="#2962ff">
   
 
   
@@ -24,248 +49,492 @@
   
   
     
-  
-  
-  
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha512-6MXa8B6uaO18Hid6blRMetEIoPqHf7Ux1tnyIQdpt9qI5OACx7C+O3IVTr98vwGnlcg0LOLa02i9Y1HpVhlfiw==" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.1/css/academicons.min.css" integrity="sha512-NThgw3XKQ1absAahW6to7Ey42uycrVvfNfyjqcFNgCmOCQ5AR4AO0SiXrN+8ZtYeappp56lk1WtvjVmEa+VR6A==" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous">
-  
-  
-  
-  
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700%7cRoboto:400,400italic,700%7cRoboto&#43;Mono">
-  
-  <link rel="stylesheet" href="/styles.css">
-  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
-  
-    <script>
-      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-      ga('create', 'UA-30621335-1', 'auto');
-      ga('require', 'eventTracker');
-      ga('require', 'outboundLinkTracker');
-      ga('require', 'urlChangeTracker');
-      ga('send', 'pageview');
-    </script>
-    <script async src="//www.google-analytics.com/analytics.js"></script>
     
-    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
     
+    
+      
+    
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css" integrity="sha256-SHMGCYmST46SoyGgo4YR/9AlK1vf3ff84Aq9yK4hdqM=" crossorigin="anonymous">
+    
+
+    
+
   
 
   
-  <link rel="alternate" href="https://sjp38.github.io/post/index.xml" type="application/rss+xml" title="Hacklog">
-  <link rel="feed" href="https://sjp38.github.io/post/index.xml" type="application/rss+xml" title="Hacklog">
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap">
   
 
-  <link rel="manifest" href="/site.webmanifest">
-  <link rel="icon" type="image/png" href="/img/icon.png">
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.css">
+
+  
+
+
+
+
+  
+
+
+  
+  <link rel="alternate" href="/post/index.xml" type="application/rss+xml" title="hacklog">
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon-32.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://sjp38.github.io/post/">
+  <link rel="canonical" href="/post/">
 
+  
+  
+  
+  
+    
+  
+  
   <meta property="twitter:card" content="summary_large_image">
   
-  <meta property="og:site_name" content="Hacklog">
-  <meta property="og:url" content="https://sjp38.github.io/post/">
-  <meta property="og:title" content="Posts | Hacklog">
-  <meta property="og:description" content="System Programmer">
-  <meta property="og:locale" content="en-us">
+  <meta property="og:site_name" content="hacklog">
+  <meta property="og:url" content="/post/">
+  <meta property="og:title" content="Posts | hacklog">
+  <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
+  <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2019-05-30T18:59:53&#43;09:00">
+    <meta property="og:updated_time" content="2017-01-01T00:00:00&#43;01:00">
   
+
+  
+
+
+
 
   
 
-  <title>Posts | Hacklog</title>
+
+  
+
+
+
+
+
+  <title>Posts | hacklog</title>
 
 </head>
-<body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
 
-<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
   <div class="container">
 
     
-    <div class="navbar-header">
-      
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-              data-target=".navbar-collapse" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      
-      <a class="navbar-brand" href="/">Hacklog</a>
-    </div>
+    
+    
+      <a class="navbar-brand" href="/">hacklog</a>
+    
 
     
-    <div class="collapse navbar-collapse">
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
 
       
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#about"><span>Home</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#projects"><span>Projects</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#publications"><span>Publications</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/tags"><span>Tags</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/categories"><span>Categories</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/post/about"><span>CV</span></a>
+        </li>
+
+        
+        
+
       
-      <ul class="nav navbar-nav navbar-right">
-        
 
         
-
-        
-          
-        
-
-        <li class="nav-item">
-          <a href="/#about">
-            
-            <span>Home</span>
-            
-          </a>
-        </li>
-
-        
-        
-
-        
-
-        
-          
-        
-
-        <li class="nav-item">
-          <a href="/#publications_selected">
-            
-            <span>Publications</span>
-            
-          </a>
-        </li>
-
-        
-        
-
-        
-
-        
-          
-        
-
-        <li class="nav-item">
-          <a href="/#posts">
-            
-            <span>Posts</span>
-            
-          </a>
-        </li>
-
-        
-        
-
-        
-
-        
-          
-        
-
-        <li class="nav-item">
-          <a href="/#projects">
-            
-            <span>Projects</span>
-            
-          </a>
-        </li>
-
-        
-        
-
-        
-
-        
-          
-        
-
-        <li class="nav-item">
-          <a href="/#contact">
-            
-            <span>Contact</span>
-            
-          </a>
-        </li>
-
-        
-        
-
-        
-
-        
-          
-        
-
-        <li class="nav-item">
-          <a href="/#tags">
-            
-            <span>Tags</span>
-            
-          </a>
-        </li>
-
-        
-        
-
-        
-
-        
-          
-        
-
-        <li class="nav-item">
-          <a href="/post/about/">
-            
-            <span>About</span>
-            
-          </a>
-        </li>
-
-        
-        
-      
-
-      
       </ul>
-
     </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      <li class="nav-item">
+        <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      <li class="nav-item dropdown i18n-dropdown">
+        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true">
+          <i class="fas fa-globe mr-1" aria-hidden="true"></i><span class="d-none d-lg-inline">English</span>
+        </a>
+        <div class="dropdown-menu">
+          <div class="dropdown-item i18n-active font-weight-bold">
+            <span>English</span>
+          </div>
+          
+          <a class="dropdown-item" href="/ko/post/">
+            <span>한국어</span>
+          </a>
+          
+        </div>
+      </li>
+      
+
+    </ul>
+
   </div>
 </nav>
 
 
+  
 
 
 
-<div class="universal-wrapper">
 
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+    
+  
+<div class="universal-wrapper pt-3">
   <h1>Posts</h1>
 
   
 
   
+</div>
+
+
+
+<div class="universal-wrapper">
+
+  
+
+  
   
     
+      
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0">
+      <a href="/post/daphicx/" >DAPHICX: Data Access Pattern Hint Injecting Compiler Extension</a>
+    </h3>
+
+    
+    <div class="article-style">
+      Memory pressure is inevitable as the size of working sets is rapidly growing while the capacity of dynamic random access memory (DRAM) …
+    </div>
     
 
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/daphicx/" itemprop="url">DAPHICX: Data Access Pattern Hint Injecting Compiler Extension</a>
-  </h3>
-  
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
 
 <div class="article-metadata">
 
+  
+  
+
+  
   <span class="article-date">
     
-    <time datetime="2019-05-30 18:59:53 &#43;0900 &#43;0900" itemprop="datePublished">
-      May 30, 2019
-    </time>
+    
+      
+    
+    Thu, May 30, 2019
   </span>
+  
+
+  
 
   
   <span class="middot-divider"></span>
@@ -276,57 +545,86 @@
 
   
   
-
   
+
   
   
   <span class="middot-divider"></span>
   <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/projects">projects</a
-    >
-    
-  </span>
-  
-  
-
+    <i class="fas fa-folder mr-1"></i><a href="/categories/projects/">projects</a></span>
   
 
 </div>
 
-  <div class="article-style" itemprop="articleBody">
+      
+    </div>
+
     
-    Memory pressure is inevitable as the size of working sets is rapidly growing while the capacity of dynamic random access memory (DRAM) is not. Meanwhile, storage devices have evolved so that their speed is comparable to the speed of DRAM while their capacity scales are comparable to that of hard disk drives (HDD). Thus, hierarchial memory systems configuring DRAM as the main memory and high-end storages as swap devices will be common.
+
+  </div>
+  <div class="ml-3">
+    
     
   </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/daphicx/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
 </div>
 
+    
   
     
+      
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0">
+      <a href="/post/lkml_news_v5.2-rc3/" >LKML News v5.2-rc3</a>
+    </h3>
+
+    
+    <div class="article-style">
+      [PATCH tip/core/rcu 0/12] https://lkml.kernel.org/r/20190530145204.GA28526@linux.ibm.com
+Paul E. McKenney 로부터의 RCU flavor consolidation …
+    </div>
     
 
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.2-rc3/" itemprop="url">LKML News v5.2-rc3</a>
-  </h3>
-  
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
 
 <div class="article-metadata">
 
+  
+  
+
+  
   <span class="article-date">
     
-    <time datetime="2019-05-28 23:28:37 &#43;0900 &#43;0900" itemprop="datePublished">
-      May 28, 2019
-    </time>
+    
+      
+    
+    Tue, May 28, 2019
   </span>
+  
+
+  
 
   
   <span class="middot-divider"></span>
@@ -337,63 +635,79 @@
 
   
   
-
   
+
   
   
   <span class="middot-divider"></span>
   <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/lkml-news">lkml news</a
-    >
-    
-  </span>
-  
-  
-
+    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
   
 
 </div>
 
-  <div class="article-style" itemprop="articleBody">
+      
+    </div>
+
     
-    [PATCH tip/core/rcu 0/12] https://lkml.kernel.org/r/20190530145204.GA28526@linux.ibm.com
-Paul E. McKenney 로부터의 RCU flavor consolidation 관련 추가 작업과 코드 정리를 위한 패치셋입니다.
-[PATCH tip/core/rcu 0/2] Documentation updates for v5.3 https://lkml.kernel.org/r/20190530145504.GA29820@linux.ibm.com
-RCU 문서 업데이트를 담고 있는 패치셋입니다. rcuref 의 실제 예제와 rcu_task_stall_timeout 의 정의에 대한 내용이 추가되었군요!
-[PATCH tip/core/rcu 0/21] Torture-test updates for v5.3 https://lkml.kernel.org/r/20190530151650.GA422@linux.ibm.com
-RCU 와 spinlock 등을 위해 사용되는 torture 테스트 업데이트를 담은 패치셋입니다. 무려 21개 패치네요!
-[RFCv2 0/6] introduce memory hinting API for external process https://lkml.
+
+  </div>
+  <div class="ml-3">
+    
     
   </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.2-rc3/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
 </div>
 
+    
   
     
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0">
+      <a href="/post/biscuit_os_install/" >Biscuit (OS Written in Go) Install</a>
+    </h3>
+
     
 
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/biscuit_os_install/" itemprop="url">Biscuit (OS Written in Go) Install</a>
-  </h3>
-  
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
 
 <div class="article-metadata">
 
+  
+  
+
+  
   <span class="article-date">
     
-    <time datetime="2019-05-26 23:27:44 &#43;0900 &#43;0900" itemprop="datePublished">
-      May 26, 2019
-    </time>
+    
+      
+    
+    Sun, May 26, 2019
   </span>
+  
+
+  
 
   
   <span class="middot-divider"></span>
@@ -404,57 +718,82 @@ RCU 와 spinlock 등을 위해 사용되는 torture 테스트 업데이트를 �
 
   
   
-
-  
-  
-  
   
 
+  
   
 
 </div>
 
-  <div class="article-style" itemprop="articleBody">
-    
-    <pre><code>$ git clone https://go.googlesource.com/go go1.4; cd go1.4
-$ git checkout release-branch.go1.4; cd src
-$ ./make.bash
-$ cd ../../
-$ git clone https://github.com/mit-pdos/biscuit.git; cd biscuit/src
-$ ./make.bash
-$ cd ../biscuit/
-$ make qemu CPUS=2
-</code></pre>
+      
+    </div>
 
+    
+
+  </div>
+  <div class="ml-3">
+    
     
   </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/biscuit_os_install/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
 </div>
 
+    
   
     
+      
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0">
+      <a href="/post/lkml_news_v5.2-rc2/" >LKML News v5.2-rc2</a>
+    </h3>
+
+    
+    <div class="article-style">
+      [RFC PATCH v5 00/16] Slab Movable Objects (SMO) https://lkml.kernel.org/r/20190520054017.32299-1-tobin@kernel.org
+이 블로그에서도 소개한 Slab …
+    </div>
     
 
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.2-rc2/" itemprop="url">LKML News v5.2-rc2</a>
-  </h3>
-  
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
 
 <div class="article-metadata">
 
+  
+  
+
+  
   <span class="article-date">
     
-    <time datetime="2019-05-21 01:27:47 &#43;0900 &#43;0900" itemprop="datePublished">
-      May 21, 2019
-    </time>
+    
+      
+    
+    Tue, May 21, 2019
   </span>
+  
+
+  
 
   
   <span class="middot-divider"></span>
@@ -465,60 +804,86 @@ $ make qemu CPUS=2
 
   
   
-
   
+
   
   
   <span class="middot-divider"></span>
   <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/lkml-news">lkml news</a
-    >
-    
-  </span>
-  
-  
-
+    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
   
 
 </div>
 
-  <div class="article-style" itemprop="articleBody">
+      
+    </div>
+
     
-    [RFC PATCH v5 00/16] Slab Movable Objects (SMO) https://lkml.kernel.org/r/20190520054017.32299-1-tobin@kernel.org
-이 블로그에서도 소개한 Slab movable objects 패치셋의 다섯번째 버전입니다. RFC 로는 아마도 마지막 버전이 될거라는군요.
-[RFC PATCH 00/14] mmap_sem range locking https://lkml.kernel.org/r/20190521045242.24378-1-dave@stgolabs.net
-이번 LSFMM 에서 개인적으로 가장 기대했던 세션이 mmap_sem 해결에 대한 세션이었습니다. 해당 세션에서는 예전부터 이야기가 나온 range locking 에 대해서도 이야기가 있었는데요, 이 패치셋은 이 range locking 을 사용한 mmap_sem 문제 해결 시도를 다시 정리해 RFC 의 형태로 올린 것입니다.
+
+  </div>
+  <div class="ml-3">
+    
     
   </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.2-rc2/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
 </div>
 
+    
   
     
+      
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0">
+      <a href="/post/lkml_news_v5.2-rc1/" >LKML News v5.2-rc1</a>
+    </h3>
+
+    
+    <div class="article-style">
+      [PATCH] mm: Introduce page_size() https://lkml.kernel.org/r/20190510181242.24580-1-willy@infradead.org
+Huge page 등의 경우를 위해 페이지의 실제 크기를  …
+    </div>
     
 
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.2-rc1/" itemprop="url">LKML News v5.2-rc1</a>
-  </h3>
-  
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
 
 <div class="article-metadata">
 
+  
+  
+
+  
   <span class="article-date">
     
-    <time datetime="2019-05-08 10:22:05 &#43;0900 &#43;0900" itemprop="datePublished">
-      May 8, 2019
-    </time>
+    
+      
+    
+    Wed, May 8, 2019
   </span>
+  
+
+  
 
   
   <span class="middot-divider"></span>
@@ -529,60 +894,86 @@ $ make qemu CPUS=2
 
   
   
-
   
+
   
   
   <span class="middot-divider"></span>
   <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/lkml-news">lkml news</a
-    >
-    
-  </span>
-  
-  
-
+    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
   
 
 </div>
 
-  <div class="article-style" itemprop="articleBody">
+      
+    </div>
+
     
-    [PATCH] mm: Introduce page_size() https://lkml.kernel.org/r/20190510181242.24580-1-willy@infradead.org
-Huge page 등의 경우를 위해 페이지의 실제 크기를 구하려면 PAGE_SIZE &lt;&lt; compound_order(page) 를 해야 하는게 짜증난 Matthew Wilcox 가 별도의 함수를 만들고 기존 코드들을 이 함수를 사용하도록 변경한 패치입니다.
-[PATCH v2 00/15] Remove &lsquo;order&rsquo; argument from many mm functions https://lkml.kernel.org/r/20190510135038.17129-1-willy@infradead.org
-mm 쪽 함수들은 order 를 인자로 많이 받죠. 어차피 gfp_t 는 무조건 받으니까 이 타입의 상위 bit 을 order 목적으로 사용하자는 패치입니다. 이 패치의 장점은?
+
+  </div>
+  <div class="ml-3">
+    
     
   </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.2-rc1/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
 </div>
 
+    
   
     
+      
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0">
+      <a href="/post/lkml_news_v5.1/" >LKML News v5.1</a>
+    </h3>
+
+    
+    <div class="article-style">
+      [RFC PATCH v4 00/15] Slab Movable Objects (SMO) https://lkml.kernel.org/r/20190430030746.26102-1-tobin@kernel.org
+앞서 이 블로그에서도 공유한 SMO 패 …
+    </div>
     
 
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.1/" itemprop="url">LKML News v5.1</a>
-  </h3>
-  
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
 
 <div class="article-metadata">
 
+  
+  
+
+  
   <span class="article-date">
     
-    <time datetime="2019-04-30 14:16:49 &#43;0900 &#43;0900" itemprop="datePublished">
-      Apr 30, 2019
-    </time>
+    
+      
+    
+    Tue, Apr 30, 2019
   </span>
+  
+
+  
 
   
   <span class="middot-divider"></span>
@@ -593,61 +984,79 @@ mm 쪽 함수들은 order 를 인자로 많이 받죠. 어차피 gfp_t 는 무�
 
   
   
-
   
+
   
   
   <span class="middot-divider"></span>
   <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/lkml-news">lkml news</a
-    >
-    
-  </span>
-  
-  
-
+    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
   
 
 </div>
 
-  <div class="article-style" itemprop="articleBody">
+      
+    </div>
+
     
-    [RFC PATCH v4 00/15] Slab Movable Objects (SMO) https://lkml.kernel.org/r/20190430030746.26102-1-tobin@kernel.org
-앞서 이 블로그에서도 공유한 SMO 패치의 새 버전입니다. 이번 버전은 dcache 쪽 코드를 많이 수정했군요.
-Linux 5.1 https://lkml.kernel.org/r/CAHk-=whsbDxdapMJGvy9OkVSrKMsKRJBTrH-Qj-qTbkMUGnWUw@mail.gmail.com
-5.1 릴리즈입니다. 일요일 오후 릴리즈란 점은 평소와 같지만 평소보다 조금 늦은 시간이긴 했는데요, 오늘 갑자기 받은 풀 리퀘스트도 있었고, 이번 머지윈도우 기간에 졸업식에 참석해야 해서 조금 망설였다는군요.
-하지만 풀리퀘스트도 그렇게 크진 않고, 몇일 머지윈도우에 자리 비우는 정도는 어떻게든 할 수 있을거라 생각해서 5.
+
+  </div>
+  <div class="ml-3">
+    
     
   </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.1/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
 </div>
 
+    
   
     
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0">
+      <a href="/post/fedora28_hangul_problem/" >Fedora28 ibus-hangul input problem</a>
+    </h3>
+
     
 
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/fedora28_hangul_problem/" itemprop="url">Fedora28 ibus-hangul input problem</a>
-  </h3>
-  
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
 
 <div class="article-metadata">
 
+  
+  
+
+  
   <span class="article-date">
     
-    <time datetime="2019-04-26 11:05:59 &#43;0900 &#43;0900" itemprop="datePublished">
-      Apr 26, 2019
-    </time>
+    
+      
+    
+    Fri, Apr 26, 2019
   </span>
+  
+
+  
 
   
   <span class="middot-divider"></span>
@@ -658,67 +1067,85 @@ Linux 5.1 https://lkml.kernel.org/r/CAHk-=whsbDxdapMJGvy9OkVSrKMsKRJBTrH-Qj-qTbk
 
   
   
-
   
+
   
   
   <span class="middot-divider"></span>
   <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/tips">tips</a
-    >
-    
-  </span>
-  
-  
-
+    <i class="fas fa-folder mr-1"></i><a href="/categories/tips/">tips</a></span>
   
 
 </div>
 
-  <div class="article-style" itemprop="articleBody">
+      
+    </div>
+
     
-    <p>어느날부터 Fedora 터미널에서 한글 입력이 매우 불편해졌습니다.  한글 모드에서는
-backspace, enter, esc 등의 특수키가 하나도 안먹힙니다.  Vim 을 쓰는 입장에선
-매우 불편하죠.  알고보니 ibus-hangul 버그인 것 같습니다[1].  아래 커맨드로
-ibus-hangul 을 문제 없던 버전으로 다운그레이드 시키고 세션을 재시작 하면 문제가
-사라집니다.</p>
 
-<pre><code>sudo dnf downgrade ibus-hangul-1.5.0-12.fc28.x86_64
-</code></pre>
-
-<p>[1] <a href="http://www.fedoralinux.or.kr/board-read.do?boardId=bbs3&amp;boardNo=153170459823549&amp;command=READ&amp;page=1&amp;categoryId=-1" target="_blank">http://www.fedoralinux.or.kr/board-read.do?boardId=bbs3&amp;boardNo=153170459823549&amp;command=READ&amp;page=1&amp;categoryId=-1</a></p>
-
+  </div>
+  <div class="ml-3">
+    
     
   </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/fedora28_hangul_problem/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
 </div>
 
+    
   
     
+      
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0">
+      <a href="/post/lkml_news_v5.1-rc7/" >LKML News v5.1-rc7</a>
+    </h3>
+
+    
+    <div class="article-style">
+      Re: [LSF/MM] Preliminary agenda ? Anyone &hellip; anyone ? Bueller ? …
+    </div>
     
 
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.1-rc7/" itemprop="url">LKML News v5.1-rc7</a>
-  </h3>
-  
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
 
 <div class="article-metadata">
 
+  
+  
+
+  
   <span class="article-date">
     
-    <time datetime="2019-04-26 11:02:24 &#43;0900 &#43;0900" itemprop="datePublished">
-      Apr 26, 2019
-    </time>
+    
+      
+    
+    Fri, Apr 26, 2019
   </span>
+  
+
+  
 
   
   <span class="middot-divider"></span>
@@ -729,61 +1156,79 @@ ibus-hangul 을 문제 없던 버전으로 다운그레이드 시키고 세션�
 
   
   
-
   
+
   
   
   <span class="middot-divider"></span>
   <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/lkml-news">lkml news</a
-    >
-    
-  </span>
-  
-  
-
+    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
   
 
 </div>
 
-  <div class="article-style" itemprop="articleBody">
+      
+    </div>
+
     
-    Re: [LSF/MM] Preliminary agenda ? Anyone &hellip; anyone ? Bueller ? https://lkml.kernel.org/r/83fda245-849a-70cc-dde0-5c451938ee97@kernel.dk
-올해의 LSFMM 스케쥴이 구글 문서로 공유되고 있었군요: https://docs.google.com/spreadsheets/d/1Z1pDL-XeUT1ZwMWrBL8T8q3vtSqZpLPgF3Bzu_jejfk/edit#gid=0
-[LSF/MM TOPIC] Proactive Memory Reclaim https://lkml.kernel.org/r/CALvZod4V+56pZbPkFDYO3+60Xr0_ZjiSgrfJKs_=Bd4AjdvFzA@mail.gmail.com
-이제 LSFMM 이 얼마 안남았습니다만, 또하나의 주제 제안이 올라왔습니다.
-메모리 오버커밋으로 인해 direct reclaim 이 발생하고, 이는 latency sensitive 어플리케이션의 latency 를 크게 저하시키니, 시스템이 좀 더 적극적으로 memory reclaim 을 해서 direct reclaim 을 최소화 시켜보자는 건데요. 잘 접근되지 않는 cold memory 를 추적해서 미리미리 reclaim 시키자는 겁니다.
+
+  </div>
+  <div class="ml-3">
+    
     
   </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.1-rc7/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
 </div>
 
+    
   
     
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0">
+      <a href="/post/hotstorage2019_talk/" >I will have a talk at the Hotstorage&#39;19</a>
+    </h3>
+
     
 
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/hotstorage2019_talk/" itemprop="url">I will have a talk at the Hotstorage&#39;19</a>
-  </h3>
-  
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
 
 <div class="article-metadata">
 
+  
+  
+
+  
   <span class="article-date">
     
-    <time datetime="2019-04-18 09:37:04 &#43;0900 &#43;0900" itemprop="datePublished">
-      Apr 18, 2019
-    </time>
+    
+      
+    
+    Thu, Apr 18, 2019
   </span>
+  
+
+  
 
   
   <span class="middot-divider"></span>
@@ -794,61 +1239,86 @@ ibus-hangul 을 문제 없던 버전으로 다운그레이드 시키고 세션�
 
   
   
-
   
+
   
   
   <span class="middot-divider"></span>
   <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/publications">publications</a
-    >
-    
-  </span>
-  
-  
-
+    <i class="fas fa-folder mr-1"></i><a href="/categories/publications/">publications</a></span>
   
 
 </div>
 
-  <div class="article-style" itemprop="articleBody">
-    
-    <p><a href="https://www.usenix.org/conference//hotstorage19" target="_blank">HotStorage&rsquo;19</a> 에 제출한 제
-최근 연구에 대한 논문이 accept 되어 7월에 해당 워크샵에서 이에 대한 내용을
-발표하게 되었습니다.  논문 제목은 &ldquo;Automating Context Based Access Pattern Hint
-Injection for System Performance and Swap Storage Durability&rdquo; 입니다.</p>
+      
+    </div>
 
+    
+
+  </div>
+  <div class="ml-3">
+    
     
   </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/hotstorage2019_talk/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
 </div>
 
+    
   
     
+      
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0">
+      <a href="/post/lkml_news_v5.1-rc6/" >LKML News v5.1-rc6</a>
+    </h3>
+
+    
+    <div class="article-style">
+      [PATCH v12 00/31] Speculative page faults https://lkml.kernl.org/r/20190416134522.17540-1-ldufour@linux.ibm.com
+오랫만에 업데이트 된 SPF 패치셋으로,  …
+    </div>
     
 
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.1-rc6/" itemprop="url">LKML News v5.1-rc6</a>
-  </h3>
-  
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
 
 <div class="article-metadata">
 
+  
+  
+
+  
   <span class="article-date">
     
-    <time datetime="2019-04-16 23:02:17 &#43;0900 &#43;0900" itemprop="datePublished">
-      Apr 16, 2019
-    </time>
+    
+      
+    
+    Tue, Apr 16, 2019
   </span>
+  
+
+  
 
   
   <span class="middot-divider"></span>
@@ -859,50 +1329,40 @@ Injection for System Performance and Swap Storage Durability&rdquo; 입니다.</
 
   
   
-
   
+
   
   
   <span class="middot-divider"></span>
   <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/lkml-news">lkml news</a
-    >
-    
-  </span>
-  
-  
-
+    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
   
 
 </div>
 
-  <div class="article-style" itemprop="articleBody">
+      
+    </div>
+
     
-    [PATCH v12 00/31] Speculative page faults https://lkml.kernl.org/r/20190416134522.17540-1-ldufour@linux.ibm.com
-오랫만에 업데이트 된 SPF 패치셋으로, 이번 패치셋은 v5.1 위로 리베이스 되었습니다. RCU 에서 Fine-grained reader-writer locking 으로 옮겼던 vma 보호를 다시 RCU 로 되돌린 게 눈에 띄는군요. 기존엔 패치셋만 공개했는데, 이젠 패치셋이 적용된 코드 트리를 github 으로도 제공합니다: https://github.com/ldu4/linux/tree/spf-v12
-[PATCH v3 00/11] Provide generic top-down mmap layout functions https://lkml.kernel.org/r/20190417052247.17809-1-alex@ghiti.fr
-아키텍쳐별로 별도 구현을 하지 않고도 전체 mmap 레이아웃을 접근할 수 있게 해주는 범용 함수들을 구현하는 패치셋입니다.
+
+  </div>
+  <div class="ml-3">
+    
     
   </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.1-rc6/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
 </div>
 
+    
   
 
   
 <nav>
-  <ul class="pager">
+  <ul class="pagination justify-content-center">
     
-    <li><a href="/post/page/3/">&lt;</a></li>
+    <li class="page-item"><a class="page-link" href="/post/page/3/">&laquo;</a></li>
     
     
-    <li><a href="/post/page/5/">&gt;</a></li>
+    <li class="page-item"><a class="page-link" href="/post/page/5/">&raquo;</a></li>
     
   </ul>
 </nav>
@@ -910,45 +1370,154 @@ Injection for System Performance and Swap Storage Durability&rdquo; 입니다.</
 
 
 </div>
-<footer class="site-footer">
+
+      
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+
+      
+
+      
+
+      
+      
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js" integrity="sha256-EErZamuLefUnbMBQbsEqu1USa+btR2oIlCpBJbyD4/g=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.bcfae8267aba63cc55af53a503896bd9.js"></script>
+
+    
+
+
+
+
+
+
+  
+  
   <div class="container">
-    <p class="powered-by">
+    <footer class="site-footer">
+  
 
-      &copy; 2017 Your Name &middot; 
+  <p class="powered-by">
+    
 
-      Powered by the
-      <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
-      <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
 
-      <span class="pull-right" aria-hidden="true">
-        <a href="#" id="back_to_top">
-          <span class="button_icon">
-            <i class="fa fa-chevron-up fa-2x"></i>
-          </span>
-        </a>
-      </span>
-
-    </p>
-  </div>
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" class="back-to-top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
 </footer>
 
+  </div>
+  
 
+  
 <div id="modal" class="modal fade" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close btn-large" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Cite</h4>
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
-      <div>
-        <pre><code class="modal-body tex"></code></pre>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
       </div>
       <div class="modal-footer">
-        <a class="btn btn-primary btn-outline js-copy-cite" href="#" target="_blank">
-          <i class="fa fa-copy"></i> Copy
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
         </a>
-        <a class="btn btn-primary btn-outline js-download-cite" href="#" target="_blank">
-          <i class="fa fa-download"></i> Download
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
         </a>
         <div id="modal-error"></div>
       </div>
@@ -956,29 +1525,5 @@ Injection for System Performance and Swap Storage Durability&rdquo; 입니다.</
   </div>
 </div>
 
-    
-
-    
-    
-
-    
-
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.3/imagesloaded.pkgd.min.js" integrity="sha512-umsR78NN0D23AzgoZ11K7raBD+R6hqKojyBZs1w8WvYlsI+QuKRGBx3LFCwhatzBunCjDuJpDHwxD13sLMbpRA==" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ==" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
-    
-    
-    <script src="/js/hugo-academic.js"></script>
-    
-
-    
-    
-
-    
-    
-
-  </body>
+</body>
 </html>
-

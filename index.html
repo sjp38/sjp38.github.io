@@ -1,22 +1,47 @@
 <!DOCTYPE html>
 <html lang="en-us">
+
 <head>
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="theme" content="hugo-academic">
-  <meta name="generator" content="Hugo 0.51" />
+  <meta name="generator" content="Source Themes Academic 4.6.2">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
   <meta name="author" content="SeongJae Park">
-  <meta name="description" content="System Programmer">
-
-  
-  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/">
 
   
   
+  
+    
+  
+  <meta name="description" content="Kernel / Hypervisor Engineer">
+
+  
+  <link rel="alternate" hreflang="ko" href="/ko/">
+  
+  <link rel="alternate" hreflang="en-us" href="/">
+
+  
 
 
+  
+  
+  
+  <meta name="theme-color" content="#2962ff">
   
 
   
@@ -24,227 +49,437 @@
   
   
     
-  
-  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+    
     
     
       
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
       
     
-  
-  
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha512-6MXa8B6uaO18Hid6blRMetEIoPqHf7Ux1tnyIQdpt9qI5OACx7C+O3IVTr98vwGnlcg0LOLa02i9Y1HpVhlfiw==" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.1/css/academicons.min.css" integrity="sha512-NThgw3XKQ1absAahW6to7Ey42uycrVvfNfyjqcFNgCmOCQ5AR4AO0SiXrN+8ZtYeappp56lk1WtvjVmEa+VR6A==" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous">
-  
-  
-  
-  
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700%7cRoboto:400,400italic,700%7cRoboto&#43;Mono">
-  
-  <link rel="stylesheet" href="/styles.css">
-  
 
-  
-    <script>
-      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-      ga('create', 'UA-30621335-1', 'auto');
-      ga('require', 'eventTracker');
-      ga('require', 'outboundLinkTracker');
-      ga('require', 'urlChangeTracker');
-      ga('send', 'pageview');
-    </script>
-    <script async src="//www.google-analytics.com/analytics.js"></script>
     
-    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css" integrity="sha256-SHMGCYmST46SoyGgo4YR/9AlK1vf3ff84Aq9yK4hdqM=" crossorigin="anonymous">
     
+
+    
+
   
 
   
-  <link rel="alternate" href="https://sjp38.github.io/index.xml" type="application/rss+xml" title="Hacklog">
-  <link rel="feed" href="https://sjp38.github.io/index.xml" type="application/rss+xml" title="Hacklog">
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap">
   
 
-  <link rel="manifest" href="/site.webmanifest">
-  <link rel="icon" type="image/png" href="/img/icon.png">
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.css">
+
+  
+
+
+
+
+  
+
+
+  
+  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="hacklog">
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon-32.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://sjp38.github.io/">
+  <link rel="canonical" href="/">
 
+  
+  
+  
+  
+    
+  
+  
   <meta property="twitter:card" content="summary_large_image">
   
-  <meta property="og:site_name" content="Hacklog">
-  <meta property="og:url" content="https://sjp38.github.io/">
-  <meta property="og:title" content="Hacklog">
-  <meta property="og:description" content="System Programmer">
-  <meta property="og:locale" content="en-us">
+  <meta property="og:site_name" content="hacklog">
+  <meta property="og:url" content="/">
+  <meta property="og:title" content="hacklog">
+  <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
+  <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2016-04-20T00:00:00&#43;00:00">
+    <meta property="og:updated_time" content="2019-11-19T23:13:19&#43;01:00">
   
+
+  
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "/?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  },
+  "url": "/"
+}
+</script>
+
 
   
 
-  <title>Hacklog</title>
+
+  
+
+
+  
+
+
+
+
+
+  <title>hacklog</title>
 
 </head>
-<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71" >
 
-<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+<body id="top" data-spy="scroll" data-offset="70" data-target="#navbar-main" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
   <div class="container">
 
     
-    <div class="navbar-header">
-      
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-              data-target=".navbar-collapse" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      
-      <a class="navbar-brand" href="/">Hacklog</a>
-    </div>
+    
+    
+      <a class="navbar-brand" href="/">hacklog</a>
+    
 
     
-    <div class="collapse navbar-collapse">
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
 
       
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#about" data-target="#about"><span>Home</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts" data-target="#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#projects" data-target="#projects"><span>Projects</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#publications" data-target="#publications"><span>Publications</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact" data-target="#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/tags"><span>Tags</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/categories"><span>Categories</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/post/about"><span>CV</span></a>
+        </li>
+
+        
+        
+
       
-      <ul class="nav navbar-nav navbar-right">
-        
 
         
-
-        
-          
-        
-
-        <li class="nav-item">
-          <a href="/#about" data-target="#about">
-            
-            <span>Home</span>
-            
-          </a>
-        </li>
-
-        
-        
-
-        
-
-        
-          
-        
-
-        <li class="nav-item">
-          <a href="/#publications_selected" data-target="#publications_selected">
-            
-            <span>Publications</span>
-            
-          </a>
-        </li>
-
-        
-        
-
-        
-
-        
-          
-        
-
-        <li class="nav-item">
-          <a href="/#posts" data-target="#posts">
-            
-            <span>Posts</span>
-            
-          </a>
-        </li>
-
-        
-        
-
-        
-
-        
-          
-        
-
-        <li class="nav-item">
-          <a href="/#projects" data-target="#projects">
-            
-            <span>Projects</span>
-            
-          </a>
-        </li>
-
-        
-        
-
-        
-
-        
-          
-        
-
-        <li class="nav-item">
-          <a href="/#contact" data-target="#contact">
-            
-            <span>Contact</span>
-            
-          </a>
-        </li>
-
-        
-        
-
-        
-
-        
-          
-        
-
-        <li class="nav-item">
-          <a href="/#tags" data-target="#tags">
-            
-            <span>Tags</span>
-            
-          </a>
-        </li>
-
-        
-        
-
-        
-
-        
-          
-        
-
-        <li class="nav-item">
-          <a href="/post/about/" data-target="/post/about/">
-            
-            <span>About</span>
-            
-          </a>
-        </li>
-
-        
-        
-      
-
-      
       </ul>
-
     </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      <li class="nav-item">
+        <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      <li class="nav-item dropdown i18n-dropdown">
+        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true">
+          <i class="fas fa-globe mr-1" aria-hidden="true"></i><span class="d-none d-lg-inline">English</span>
+        </a>
+        <div class="dropdown-menu">
+          <div class="dropdown-item i18n-active font-weight-bold">
+            <span>English</span>
+          </div>
+          
+          <a class="dropdown-item" href="/ko/" data-target="/ko/">
+            <span>한국어</span>
+          </a>
+          
+        </div>
+      </li>
+      
+
+    </ul>
+
   </div>
 </nav>
 
 
+  
 
-<span id="homepage" style="display: none"></span>
+
+
+
+
+
+
+
+
+<span class="js-widget-page d-none"></span>
+
+
 
 
   
@@ -253,62 +488,107 @@
 
 
 
+
+
   
   
   
-  <section id="about" class="home-section">
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+  <section id="about" class="home-section wg-about   "  >
     <div class="container">
       
 
 
 
-<div class="row" itemprop="author" itemscope itemtype="http://schema.org/Person" itemref="person-email">
-  <div class="col-xs-12 col-md-4">
+
+  
+
+
+
+
+
+
+
+
+
+<div class="row">
+  <div class="col-12 col-lg-4">
     <div id="profile">
 
       
-      <div class="portrait" style="background-image: url('https://s.gravatar.com/avatar/43dc5645c78e68fda997138380dfaaf4?s=200');"></div>
-      <meta itemprop="image" content="https://s.gravatar.com/avatar/43dc5645c78e68fda997138380dfaaf4?s=200">
+      <img class="portrait" src="https://s.gravatar.com/avatar/43dc5645c78e68fda997138380dfaaf4?s=200')" alt="Avatar">
       
 
       <div class="portrait-title">
-        <h2 itemprop="name">SeongJae Park</h2>
-        <h3 itemprop="jobTitle">System Programmer</h3>
+        <h2>SeongJae Park</h2>
+        <h3>Kernel / Hypervisor Engineer</h3>
 
         
-        
-
-        
-        <h3 itemprop="worksFor" itemscope itemtype="http://schema.org/Organization">
+        <h3>
           
-          <span itemprop="name">Amazon</span>
+          <span>Amazon</span>
           
         </h3>
         
       </div>
 
-      <link itemprop="url" href="https://sjp38.github.io/">
-
       <ul class="network-icon" aria-hidden="true">
         
         
-        <li>
-          <a itemprop="sameAs" href="mailto:sj38.park@gmail.com" target="_blank" rel="noopener">
-            <i class="fa fa-envelope big-icon"></i>
-          </a>
-        </li>
         
         
+        
+        
+        
+        
+          
+        
         <li>
-          <a itemprop="sameAs" href="https://scholar.google.co.uk/citations?user=jJIiF3AAAAAJ" target="_blank" rel="noopener">
+          <a href="https://scholar.google.com/citations?user=jJIiF3AAAAAJ" target="_blank" rel="noopener">
             <i class="ai ai-google-scholar big-icon"></i>
           </a>
         </li>
         
         
+        
+        
+          
+        
+        
+        
+        
+        
+          
+        
         <li>
-          <a itemprop="sameAs" href="//github.com/sjp38" target="_blank" rel="noopener">
-            <i class="fa fa-github big-icon"></i>
+          <a href="https://github.com/sjp38" target="_blank" rel="noopener">
+            <i class="fab fa-github big-icon"></i>
           </a>
         </li>
         
@@ -316,24 +596,22 @@
 
     </div>
   </div>
-  <div class="col-xs-12 col-md-8" itemprop="description">
+  <div class="col-12 col-lg-8">
 
     
+    <h1>Biography</h1>
 
-<h1 id="biography">Biography</h1>
-
-<p>SeongJae Park is a programmer who loves to analyze and develop systems.
-He received a PhD in the Department of Computer Science and Engineering, Seoul
-National University in 2019.
-His research interests include operating systems, parallel computing, and
-memory management.
-He is also participating in the Linux kernel community just for fun and profit.</p>
+    <p>SeongJae Park is a programmer who loves to analyze and develop systems. He
+received a PhD in the Department of Computer Science and Engineering, Seoul
+National University in 2019. His research interests include operating systems,
+parallel computing, and memory management. He is also participating in the
+Linux kernel community just for fun and profit.</p>
 
 
     <div class="row">
 
       
-      <div class="col-sm-5">
+      <div class="col-md-5">
         <h3>Interests</h3>
         <ul class="ul-interests">
           
@@ -347,29 +625,35 @@ He is also participating in the Linux kernel community just for fun and profit.<
           
           <li>Free/Open Source Software</li>
           
-          <li>Go programming language</li>
-          
         </ul>
       </div>
       
 
       
-      <div class="col-sm-7">
+      <div class="col-md-7">
         <h3>Education</h3>
         <ul class="ul-edu fa-ul">
           
           <li>
-            <i class="fa-li fa fa-graduation-cap"></i>
+            <i class="fa-li fas fa-graduation-cap"></i>
             <div class="description">
-              <p class="course">Ph.D in Computer Science and Engineering, 2019</p>
+              <p class="course">PhD in Computer Science and Engineering, 2019</p>
               <p class="institution">Seoul National University</p>
             </div>
           </li>
           
           <li>
-            <i class="fa-li fa fa-graduation-cap"></i>
+            <i class="fa-li fas fa-graduation-cap"></i>
             <div class="description">
-              <p class="course">B.S in Electrical Engineering, Information and Computer Engineering (Dual degree), 2009</p>
+              <p class="course">BSc in Electrical Engineering, 2009</p>
+              <p class="institution">Ajou University</p>
+            </div>
+          </li>
+          
+          <li>
+            <i class="fa-li fas fa-graduation-cap"></i>
+            <div class="description">
+              <p class="course">BSc in Information and Computer Engineering, 2009</p>
               <p class="institution">Ajou University</p>
             </div>
           </li>
@@ -384,178 +668,62 @@ He is also participating in the Linux kernel community just for fun and profit.<
 
     </div>
   </section>
+
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
   
 
   
   
   
-  <section id="experiance" class="home-section">
+
+  
+  
+  
+  
+  
+
+  
+  
+
+  <section id="experience" class="home-section wg-experience   "  >
     <div class="container">
       
 
 
+
 <div class="row">
-  
-  <div class="col-xs-12 col-md-4 section-heading">
-    <h1>Experiences</h1>
+  <div class="col-12 col-lg-4 section-heading">
+    <h1>Experience</h1>
     
   </div>
-  <div class="col-xs-12 col-md-8">
+  <div class="col-12 col-lg-8">
     <ul>
 <li><strong>Kernel / Hypervisor Engineer</strong> at <strong>Amazon</strong>, Sep 2019 - Present</li>
-<li><strong>Graduate Research Assistant</strong> at <strong>DCSLAB, Seoul National University</strong>,<br />
+<li><strong>Graduate Research Assistant</strong> at <strong>DCSLAB, Seoul National University</strong>,<br>
 Jul 2012 - Aug 2019</li>
-<li><strong>Part-time Linux Kernel Hacker</strong> at <strong>Korea Open Source Software Lab</strong>,<br />
+<li><strong>Part-time Linux Kernel Hacker</strong> at <strong>Korea Open Source Software Lab</strong>,<br>
 Jan 2016 - May 2019</li>
-<li><strong>Full-time Linux Kernel Hacker</strong> at <strong>Korea Open Source Software Lab</strong>,<br />
+<li><strong>Full-time Linux Kernel Hacker</strong> at <strong>Korea Open Source Software Lab</strong>,<br>
 Dec 2013 - Dec 2014</li>
 <li><strong>Free-lance S/W Developer</strong>, Aug 2011 - Nov 2013</li>
 <li><strong>Software Engineer</strong> at <strong>Samsung Electronics</strong>, Feb 2009 - Jul 2011</li>
 <li><strong>Software Engineer</strong> at <strong>Samsung Software Membership</strong>, Jan 2008 - Jan 2009</li>
 </ul>
 
-  </div>
-  
-</div>
-
-    </div>
-  </section>
-  
-
-  
-  
-  
-  <section id="publications" class="home-section">
-    <div class="container">
-      
-
-
-
-
-<div class="row">
-  <div class="col-xs-12 col-md-4 section-heading">
-    <h1>Recent Publications</h1>
-    
-    
-  </div>
-  <div class="col-xs-12 col-md-8">
-    <p><ul>
-<li>SeongJae Park, Yunjae Lee, Heon Y. Yeom, <strong>Profiling Dynamic Data Access
-Patterns with Controlled Overhead and Quality.</strong> In 20th ACM/IFIP
-International Middleware Conference Industry, December 2019. (Accepted)</li>
-<li>SeongJae Park, Yunjae Lee, Moonsub Kim, Heon Y. Yeom, <strong>Automating Context
-Based Access Pattern Hint Injection for System Performance and Swap Storage
-Durability.</strong> In 11th USENIX Workshop on Hot Topics in Storage and File
-Systems (HotStorage), July 2019.
-<a href="https://www.usenix.org/system/files/hotstorage19-paper-park.pdf" target="_blank">Paper</a>,
-<a href="https://www.usenix.org/sites/default/files/conference/protected-files/hotstorage19_slides_park.pdf" target="_blank">Slides</a></li>
-<li>SeongJae Park, Yunjae Lee, Yunhee Kim, Heon Y. Yeom, <strong>Profiling Dynamic Data
-Access Patterns with Bounded Overhead and Accuracy.</strong> In IEEE International
-Workshop on Foundations and Applications of Self-* Systems (FAS* 2019),
-June 2019.
-<a href="https://ieeexplore.ieee.org/abstract/document/8791992" target="_blank">Link</a></li>
-<li>SeongJae Park, Minchan Kim, Heon Y. Yeom, <strong>GCMA: Guaranteed Contiguous
-Memory Allocator.</strong> In <em>Transactions on Computers</em>, March 2019.
-<a href="https://ieeexplore.ieee.org/document/8456561" target="_blank">Link</a></li>
-<li>SeongJae Park, Yunjae Lee, Moonsub Kim, Heon Y. Yeom, <strong>Automated Data Access
-Pattern Hint Instrumentation for System Performance and Durability of Swap
-Storages.</strong> (WiP) In 17th USENIX Conference on File and Storage Technologies
-(FAST), February 2019.
-<a href="https://www.usenix.org/conference/fast19/wips" target="_blank">Link</a></li>
-<li>SeongJae Park, Hyuck Han, Heon Y. Yeom, <strong>Knowing the Cost of Synchronization
-Primitives on Modern Hardware.</strong> In <em>Journal of Korea</em>, November 2018.
-<a href="http://kiise.or.kr/e_journal/2018/11/JOK/pdf/12.pdf" target="_blank">Paper</a></li>
-<li>SeongJae Park, Minchan Kim, Heon Y. Yeom, <strong>GCMA: Guaranteed Contiguous
-Memory Allocator.</strong> In <em>Embedded Operating Systems Workshop (EWiLi)</em>, October
-2015.
-<a href="http://ceur-ws.org/Vol-1464/ewili15_12.pdf" target="_blank">Paper</a>,
-<a href="https://www.slideshare.net/SeongJaePark1/gcma-guaranteed-contiguous-memory-allocator" target="_blank">Slides</a></li>
-<li>Hyuck Han, SeongJae Park, Hyungsoo Jung, Alan Fekete, Uwe Rohm, Heon Y.
-Yeom, <strong>Scalable Serializable Snapshot Isolation for Multicore Systems.</strong> In
-<em>IEEE 30th International Conference on Data Engineering (ICDE)</em>, March 2014.
-<a href="http://ieeexplore.ieee.org/document/6816693/" target="_blank">Link</a></li>
-</ul>
-</p>
-
-    
-      
-    
-
-    
-
-    
-    
-
-  </div>
-</div>
-
-    </div>
-  </section>
-  
-
-  
-  
-  
-  <section id="talks" class="home-section">
-    <div class="container">
-      
-
-
-
-
-<div class="row">
-  <div class="col-xs-12 col-md-4 section-heading">
-    <h1>Recent &amp; Upcoming Talks</h1>
-    
-    
-  </div>
-  <div class="col-xs-12 col-md-8">
-    <p><ul>
-<li>SeongJae Park, <strong>Tracing Data Access Pattern with Bounded Overhead and
-Best-effort Accuracy.</strong> In <em>The Linux Kernel Summit</em>, September 2019.
-<a href="https://linuxplumbersconf.org/event/4/contributions/548/attachments/311/590/damon_ksummit19.pdf" target="_blank">Slides</a>,
-<a href="https://linuxplumbersconf.org/event/4/contributions/548/" target="_blank">Link</a></li>
-<li>SeongJae Park, <strong>Biscuit: an operating system written in Go.</strong> In <em>1st GDG
-Golang Korea meetup</em>, May 2019.
-<a href="https://www.slideshare.net/SeongJaePark1/biscuit-an-operating-system-written-in-go" target="_blank">Slides</a>,
-<a href="https://youtu.be/e-5kCRZhOw8" target="_blank">Video</a></li>
-<li>SeongJae Park, <strong>GCMA: Guaranteed Contiguous Memory Allocator.</strong> In <em>The
-Linux Kernel Summit</em>, November 2018.
-<a href="https://linuxplumbersconf.org/event/2/contributions/247/attachments/74/85/gcma_ksummit2018.pdf" target="_blank">Slides</a>,
-<a href="https://www.youtube.com/watch?v=ARrelFfdVkw" target="_blank">Video</a>,
-<a href="https://linuxplumbersconf.org/event/2/contributions/247/" target="_blank">Link</a></li>
-<li>SeongJae Park, <strong>Linux Kernel Memory Model.</strong> In <em>4th Korea Linux Kernel
-Conference</em>, November 2018.
-<a href="https://www.slideshare.net/SeongJaePark1/linux-kernel-memory-model" target="_blank">Slides</a></li>
-<li>SeongJae Park, <strong>An Introduction to the Formalised Memory Model for Linux
-Kernel.</strong> In <em>Korea Open Source Software Conference (KOSSCON)</em>, August 2018.
-<a href="https://www.slideshare.net/SeongJaePark1/an-introduction-to-the-formalised-memory-model-for-linux-kernel" target="_blank">Slides</a></li>
-<li>SeongJae Park, <strong>Design Choices of Golang for High Scalability.</strong> In <em>GDG
-Korea Meeup</em>, September 2017.
-<a href="https://www.slideshare.net/SeongJaePark1/design-choices-of-golang-for-high-scalability" target="_blank">Slides</a></li>
-<li>SeongJae Park, <strong>Brief Introduction to Kselftest.</strong> In <em>2nd Korea Linux Kernel
-Conference</em>, July 2017.
-<a href="https://www.slideshare.net/SeongJaePark1/brief-introduction-to-kselftest" target="_blank">Slides</a></li>
-<li>SeongJae Park, <strong>Understanding of Linux Kernel Memory Model.</strong> In <em>Korea Open
-Source Software Conference (KOSSCON)</em>, November 2016.
-<a href="https://www.slideshare.net/SeongJaePark1/understanding-of-linux-kernel-memory-model" target="_blank">Slides</a></li>
-<li>SeongJae Park, <strong>Develop Android/iOS app using golang.</strong> In <em>Gophercon
-Korea</em>, August 2015.
-<a href="https://www.slideshare.net/SeongJaePark1/develop-androidios-app-using-golang" target="_blank">Slides</a></li>
-<li>SeongJae Park, <strong>Hello Android.go</strong> In <em>GDG Android Korea Conference (GKAC)</em>, April 2015.
-<a href="https://www.slideshare.net/SeongJaePark1/hello-androidgo" target="_blank">Slides</a>,
-<a href="https://www.youtube.com/watch?v=vMZFjDipaK8" target="_blank">Video</a></li>
-<li>SeongJae Park, Minchan Kim, <strong>GCMA: Guaranteed Contiguous Memory Allocator.</strong>
-In <em>Linux Foundation Korea Linux Forum (LFKLF)</em>, October 2014.
-<a href="http://events.linuxfoundation.org/sites/events/files/slides/gcma-guaranteed_contiguous_memory_allocator-lfklf2014_0.pdf" target="_blank">Slides</a></li>
-<li>SeongJae Park, <strong>How GIT Works Internally.</strong> In <em>Samsung Open-source Software
-Conference (SOSCON)</em>, September 2014.
-<a href="https://www.slideshare.net/SeongJaePark1/deep-darkside-ofgit" target="_blank">Slides</a></li>
-<li>SeongJae Park, <strong>Let The Contribution Begin.</strong> In Google Developers Group
-DevFest W, March 2013.
-<a href="https://www.slideshare.net/SeongJaePark1/let-the-contribution-begin" target="_blank">Slides</a></li>
-</ul>
-</p>
 
     
   </div>
@@ -563,80 +731,146 @@ DevFest W, March 2013.
 
     </div>
   </section>
+
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
   
 
   
   
   
-  <section id="posts" class="home-section">
+
+  
+  
+  
+  
+  
+
+  
+  
+
+  <section id="posts" class="home-section wg-pages   "  >
     <div class="container">
       
 
 
 
 
-<div class="row">
-  <div class="col-xs-12 col-md-4 section-heading">
 
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="row">
+  <div class="col-12 col-lg-4 section-heading">
     <h1>Recent Posts</h1>
     
-    
-    <p class="view-all">
-      <a href="/post/">
-        More Posts
-        <i class="fa fa-angle-double-right"></i>
-      </a>
-    </p>
-    
-
   </div>
-  <div class="col-xs-12 col-md-8">
+  <div class="col-12 col-lg-8">
 
     
 
     
       
-
-      
-      
-
         
 
-        
-        
 
-        
-        
-          
-      
-          
-      
-          
-      
-          
-      
 
-      
-      
-        
-        
 
-<div class="article-list-item" itemscope itemprop="blogPost">
+
+
+
+
+
+
+
+
   
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.4/" itemprop="url">LKML News v5.4</a>
-  </h3>
-  
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0">
+      <a href="/post/lkml_news_v5.4/" >LKML News v5.4</a>
+    </h3>
+
+    
+    <div class="article-style">
+      [PATCH RFC v3 00/36] Add KernelMemorySanitizer infrastructure https://lkml.kernel.org/r/20191122112621.204798-1-glider@google.com
+초기화 되 …
+    </div>
+    
+
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
 
 <div class="article-metadata">
 
+  
+  
+
+  
   <span class="article-date">
     
-    <time datetime="2019-11-19 23:13:19 &#43;0100 CET" itemprop="datePublished">
-      Nov 19, 2019
-    </time>
+    
+      
+    
+    Tue, Nov 19, 2019
   </span>
+  
+
+  
 
   
   <span class="middot-divider"></span>
@@ -647,83 +881,86 @@ DevFest W, March 2013.
 
   
   
-
   
+
   
   
   <span class="middot-divider"></span>
   <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/lkml-news">lkml news</a
-    >
-    
-  </span>
-  
-  
-
+    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
   
 
 </div>
 
-  <div class="article-style" itemprop="articleBody">
+      
+    </div>
+
     
-    [PATCH RFC v3 00/36] Add KernelMemorySanitizer infrastructure https://lkml.kernel.org/r/20191122112621.204798-1-glider@google.com
-초기화 되지 않은 메모리 영역에 접근함으로써 생기는 에러를 검출해내는 구글의 KMSAN 세번째 RFC 패치셋입니다. 다른 SAN 시리즈와 마찬가지로 구글 syzkaller 에 사용되어 지난 2년간 200개가 넘는 버그를 찾아냈다고 하네요.
-LSF/MM/BPF: 2020: Call for Proposals https://lkml.kernel.org/r/20191122172502.vffyfxlqejthjib6@macbook-pro-91.dhcp.thefacebook.com
-내년 LSF/MM 의 CFP 가 나왔습니다. 근데, 내년부턴 LSF/MM 에 BPF 세션이 추가되네요, 명칭도 LSF/MM/BPF 로 바뀌었습니다. BPF 의 위상이 새삼 느껴지네요!
-Linux 5.4 https://lkml.kernel.org/r/CAHk-=wjmzaD=BZ1hjUYu+RTnSGDLfCRwCdg99GeQpCjEwo9uzw@mail.gmail.com
-여덟번의 rc 릴리즈를 끝으로 드디어 5.
+
+  </div>
+  <div class="ml-3">
+    
     
   </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.4/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
 </div>
 
       
-
+    
       
-
-        
-
-        
         
 
-        
-        
-          
-      
-          
-      
-          
-      
-          
-      
 
-      
-      
-        
-        
 
-<div class="article-list-item" itemscope itemprop="blogPost">
+
+
+
+
+
+
+
+
+
   
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.4-rc8/" itemprop="url">LKML News v5.4-rc8</a>
-  </h3>
-  
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0">
+      <a href="/post/lkml_news_v5.4-rc8/" >LKML News v5.4-rc8</a>
+    </h3>
+
+    
+    <div class="article-style">
+      [PATCH 00/13] Finish off [smp_]read_barrier_depends() https://lkml.kernel.org/r/20191108170120.22331-1-will@kernel.org
+Alpha 에만 의존적인 메모 …
+    </div>
+    
+
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
 
 <div class="article-metadata">
 
+  
+  
+
+  
   <span class="article-date">
     
-    <time datetime="2019-11-12 20:08:10 &#43;0100 CET" itemprop="datePublished">
-      Nov 12, 2019
-    </time>
+    
+      
+    
+    Tue, Nov 12, 2019
   </span>
+  
+
+  
 
   
   <span class="middot-divider"></span>
@@ -734,81 +971,79 @@ Linux 5.4 https://lkml.kernel.org/r/CAHk-=wjmzaD=BZ1hjUYu+RTnSGDLfCRwCdg99GeQpCj
 
   
   
-
   
+
   
   
   <span class="middot-divider"></span>
   <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/lkml-news">lkml news</a
-    >
-    
-  </span>
-  
-  
-
+    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
   
 
 </div>
 
-  <div class="article-style" itemprop="articleBody">
+      
+    </div>
+
     
-    [PATCH 00/13] Finish off [smp_]read_barrier_depends() https://lkml.kernel.org/r/20191108170120.22331-1-will@kernel.org
-Alpha 에만 의존적인 메모리 모델 요소인 smp_read_barrier_depends() 는 READ_ONCE() 에 내장됨으로써 Alpha-specific 하지 않은 커널 코드에서는 Alpha 를 신경쓰지 않아도 되게 되었죠. 그럼에도 불구하고 이걸 신경쓰는 코드가 올라오는게 신경쓰였나 봅니다. 이 패치셋은 커널 코드의 모든 문서와 주석에서 해당 기능에 대한 설명을 삭제해 버립니다.
-[PATCH v4 00/10] Add Kernel Concurrency Sanitizer (KCSAN) https://lkml.kernel.org/r/20191114180303.66955-1-elver@google.com
-구글의 동시성 버그를 잡아주는 KCSAN 패치입니다. 이번 버전은 x86 만을 위한 버전이지만 조만간 ARM64 와 POWER 지원을 추가할 예정이라는군요.
+
+  </div>
+  <div class="ml-3">
+    
     
   </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.4-rc8/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
 </div>
 
       
+    
+      
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0">
+      <a href="/post/lkml_news_v5.4-rc7/" >LKML News v5.4-rc7</a>
+    </h3>
+
+    
+
+    <div class="stream-meta article-metadata">
 
       
 
+      
         
 
-        
-        
-
-        
-        
-          
-      
-          
-      
-          
-      
-          
-      
-
-      
-      
-        
-        
-
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.4-rc7/" itemprop="url">LKML News v5.4-rc7</a>
-  </h3>
-  
 
 <div class="article-metadata">
 
+  
+  
+
+  
   <span class="article-date">
     
-    <time datetime="2019-11-11 07:17:00 &#43;0100 CET" itemprop="datePublished">
-      Nov 11, 2019
-    </time>
+    
+      
+    
+    Mon, Nov 11, 2019
   </span>
+  
+
+  
 
   
   <span class="middot-divider"></span>
@@ -819,88 +1054,85 @@ Alpha 에만 의존적인 메모리 모델 요소인 smp_read_barrier_depends() 
 
   
   
-
   
+
   
   
   <span class="middot-divider"></span>
   <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/lkml-news">lkml news</a
-    >
-    
-  </span>
-  
-  
-
+    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
   
 
 </div>
 
-  <div class="article-style" itemprop="articleBody">
+      
+    </div>
+
     
+
+  </div>
+  <div class="ml-3">
     
-
-<h2 id="linux-5-4-rc7">Linux 5.4-rc7</h2>
-
-<p><a href="https://lkml.kernel.org/r/CAHk-=wivmGEOTha5XkRHgH6VwfiroiN+PFVMNK3B0r-d0eFLPQ@mail.gmail.com" target="_blank">https://lkml.kernel.org/r/CAHk-=wivmGEOTha5XkRHgH6VwfiroiN+PFVMNK3B0r-d0eFLPQ@mail.gmail.com</a></p>
-
-<p>일곱번째 rc 버전이 릴리즈 되었습니다.  지난 rc6 때도 변경량이 생각보다 많아
-토발즈가 고민했는데, 이번주도 토발즈가 원했던 것보단 변경량이 많았다고
-하는군요.  다음주에 rc8 을 낼지 5.4 정식 버전을 낼지는 좀 더 고민해 봐야겠다고
-합니다.</p>
-
     
   </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.4-rc7/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
 </div>
 
       
-
+    
       
-
-        
-
-        
         
 
-        
-        
-          
-      
-          
-      
-          
-      
-          
-      
 
-      
-      
-        
-        
 
-<div class="article-list-item" itemscope itemprop="blogPost">
+
+
+
+
+
+
+
+
+
   
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.4-rc6/" itemprop="url">LKML News v5.4-rc6</a>
-  </h3>
-  
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0">
+      <a href="/post/lkml_news_v5.4-rc6/" >LKML News v5.4-rc6</a>
+    </h3>
+
+    
+    <div class="article-style">
+      [PATCH V8] mm/debug: Add tests validating architecture page table helpers …
+    </div>
+    
+
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
 
 <div class="article-metadata">
 
+  
+  
+
+  
   <span class="article-date">
     
-    <time datetime="2019-11-02 09:24:21 &#43;0100 CET" itemprop="datePublished">
-      Nov 2, 2019
-    </time>
+    
+      
+    
+    Sat, Nov 2, 2019
   </span>
+  
+
+  
 
   
   <span class="middot-divider"></span>
@@ -911,82 +1143,79 @@ Alpha 에만 의존적인 메모리 모델 요소인 smp_read_barrier_depends() 
 
   
   
-
   
+
   
   
   <span class="middot-divider"></span>
   <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/lkml-news">lkml news</a
-    >
-    
-  </span>
-  
-  
-
+    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
   
 
 </div>
 
-  <div class="article-style" itemprop="articleBody">
+      
+    </div>
+
     
-    [PATCH V8] mm/debug: Add tests validating architecture page table helpers https://lkml.kernel.org/r/1572240562-23630-1-git-send-email-anshuman.khandual@arm.com
-아키텍쳐별 페이지 테이블 헬퍼 등을 테스트 하는 코드를 추가하는 패치입니다. CONFIG_DEBUG_VM_PGTABLE 컨피규레이션이 켜져 있으면 동작합니다.
-[PATCH RFC v2 00/25] Add KernelMemorySanitizer infrastructure https://lkml.kernel.org/r/20191030142237.249532-1-glider@google.com
-초기화 되지 않은 메모리 영역에 액세스 하는 에러를 찾아주는 KMSAN 을 커널에 추가하는 패치입니다. KCSAN 과 비슷하게 syzkaller 를 통해 돌아가게끔 되어 있군요.
-False positive 문제가 존재할 수는 있는 모양입니다만, 구글 내부에서 syzbot 을 통해 테스트 한 환경에서는 중요한 false positive 는 나오지 않은 모양입니다.
+
+  </div>
+  <div class="ml-3">
+    
     
   </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.4-rc6/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
 </div>
 
       
+    
+      
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0">
+      <a href="/post/lkml_news_v5.4-rc5/" >LKML News v5.4-rc5</a>
+    </h3>
+
+    
+
+    <div class="stream-meta article-metadata">
 
       
 
+      
         
 
-        
-        
-
-        
-        
-          
-      
-          
-      
-          
-      
-          
-      
-
-      
-      
-        
-        
-
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.4-rc5/" itemprop="url">LKML News v5.4-rc5</a>
-  </h3>
-  
 
 <div class="article-metadata">
 
+  
+  
+
+  
   <span class="article-date">
     
-    <time datetime="2019-10-27 12:48:30 &#43;0100 CET" itemprop="datePublished">
-      Oct 27, 2019
-    </time>
+    
+      
+    
+    Sun, Oct 27, 2019
   </span>
+  
+
+  
 
   
   <span class="middot-divider"></span>
@@ -997,59 +1226,39 @@ False positive 문제가 존재할 수는 있는 모양입니다만, 구글 내�
 
   
   
-
   
+
   
   
   <span class="middot-divider"></span>
   <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/lkml-news">lkml news</a
-    >
-    
-  </span>
-  
-  
-
+    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
   
 
 </div>
 
-  <div class="article-style" itemprop="articleBody">
+      
+    </div>
+
     
+
+  </div>
+  <div class="ml-3">
     
-
-<h2 id="patch-00-12-mm-remove-arch-has-4level-hack"><code>[PATCH 00/12] mm: remove __ARCH_HAS_4LEVEL_HACK</code></h2>
-
-<p><a href="https://lkml.kernel.org/r/1571822941-29776-1-git-send-email-rppt@kernel.org" target="_blank">https://lkml.kernel.org/r/1571822941-29776-1-git-send-email-rppt@kernel.org</a></p>
-
-<p>서로 다른 아키텍쳐 간의 페이지 테이블 구조로 인해 사용해야 했던
-<code>__ARCH_HAS_4LEVEL_HACK</code> 을 제거하는 패치입니다.  Alpha, arm, c6x 등의
-아키텍쳐가 변경되는군요.
-UML, qemu 등에서 부팅 테스트를 거쳤군요.</p>
-
-<h2 id="linux-5-4-rc5">Linux 5.4-rc5</h2>
-
-<p><a href="https://lkml.kernel.org/r/CAHk-=wgpewLxHxnO71tFHh=M4C4iUofJykMqq3r=eRyxUyVsiw@mail.gmail.com" target="_blank">https://lkml.kernel.org/r/CAHk-=wgpewLxHxnO71tFHh=M4C4iUofJykMqq3r=eRyxUyVsiw@mail.gmail.com</a></p>
-
-<p>다섯번째 rc 버전 릴리즈입니다.
-하지만 안타깝게도 이번 릴리즈는 마냥 조용하진 않았다는군요.
-최근의 다른 rc5 들에 비하면 조금 큰 크기의 릴리즈가 되었습니다.
-그렇다곤 해도 아주 특이할 만한 정도는 아니라 토발즈도 큰 걱정은 없다는군요.</p>
-
     
   </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.4-rc5/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
 </div>
 
       
+    
 
-      
+    
+    <div class="see-all">
+      <a href="/post/">
+        See all posts
+        <i class="fas fa-angle-right"></i>
+      </a>
+    </div>
     
 
   </div>
@@ -1057,43 +1266,211 @@ UML, qemu 등에서 부팅 테스트를 거쳤군요.</p>
 
     </div>
   </section>
+
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
   
 
   
   
   
-  <section id="projects" class="home-section">
+
+  
+  
+  
+  
+  
+
+  
+  
+
+  <section id="projects" class="home-section wg-portfolio   "  >
     <div class="container">
       
 
 
 
+
+
+
+
+
+
+
 <div class="row">
   <div class="col-xs-12 col-md-4 section-heading">
+
     <h1>Projects</h1>
     
+
   </div>
   <div class="col-xs-12 col-md-8">
-    <p><ul>
-<li><a href="post/gcma" target="_blank">GCMA: Guaranteed Contiguous Memory Allocator</a></li>
-<li><a href="https://github.com/sjp38/lazybox" target="_blank">Lazybox</a></li>
-<li><a href="post/daphicx" target="_blank">DAPHICX: Data Access Pattern Hint Injecting Compiler Extension</a></li>
-<li><a href="post/perfbook-kokr" target="_blank">Translation of &ldquo;Is Parallel Programming Hard, And, If So, What Can You Do About It?&rdquo;</a></li>
+
+
+
+    <ul>
+<li><a href="https://linuxplumbersconf.org/event/4/contributions/548/">DAMON: Data Access Monitor</a></li>
+<li><a href="post/gcma">GCMA: Guaranteed Contiguous Memory Allocator</a></li>
+<li><a href="post/daphicx">DAPHICX: Data Access Pattern Hint Injecting Compiler Extension</a></li>
+<li><a href="post/perfbook-kokr">Translation of &ldquo;Is Parallel Programming Hard, And, If So, What Can You Do About It?&quot;</a></li>
+<li><a href="https://github.com/sjp38/lazybox">Lazybox</a></li>
 </ul>
-</p>
 
-    
-    
 
     
 
-    
-
-    <div class="row isotope projects-container js-layout-masonry">
-
+    <div class="isotope projects-container js-layout-masonry ">
       
+    </div>
+
+  </div>
+</div>
 
     </div>
+  </section>
+
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+  <section id="talks" class="home-section wg-pages   "  >
+    <div class="container">
+      
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="row">
+  <div class="col-12 col-lg-4 section-heading">
+    <h1>Recent &amp; Upcoming Talks</h1>
+    
+  </div>
+  <div class="col-12 col-lg-8">
+
+    <ul>
+<li>SeongJae Park, <strong>Tracing Data Access Pattern with Bounded Overhead and
+Best-effort Accuracy.</strong> In <em>The Linux Kernel Summit</em>, September 2019.
+<a href="https://linuxplumbersconf.org/event/4/contributions/548/attachments/311/590/damon_ksummit19.pdf">Slides</a>,
+<a href="https://linuxplumbersconf.org/event/4/contributions/548/">Link</a></li>
+<li>SeongJae Park, <strong>Biscuit: an operating system written in Go.</strong> In <em>1st GDG
+Golang Korea meetup</em>, May 2019.
+<a href="https://www.slideshare.net/SeongJaePark1/biscuit-an-operating-system-written-in-go">Slides</a>,
+<a href="https://youtu.be/e-5kCRZhOw8">Video</a></li>
+<li>SeongJae Park, <strong>GCMA: Guaranteed Contiguous Memory Allocator.</strong> In <em>The
+Linux Kernel Summit</em>, November 2018.
+<a href="https://linuxplumbersconf.org/event/2/contributions/247/attachments/74/85/gcma_ksummit2018.pdf">Slides</a>,
+<a href="https://www.youtube.com/watch?v=ARrelFfdVkw">Video</a>,
+<a href="https://linuxplumbersconf.org/event/2/contributions/247/">Link</a></li>
+<li>SeongJae Park, <strong>Linux Kernel Memory Model.</strong> In <em>4th Korea Linux Kernel
+Conference</em>, November 2018.
+<a href="https://www.slideshare.net/SeongJaePark1/linux-kernel-memory-model">Slides</a></li>
+<li>SeongJae Park, <strong>An Introduction to the Formalised Memory Model for Linux
+Kernel.</strong> In <em>Korea Open Source Software Conference (KOSSCON)</em>, August 2018.
+<a href="https://www.slideshare.net/SeongJaePark1/an-introduction-to-the-formalised-memory-model-for-linux-kernel">Slides</a></li>
+<li>SeongJae Park, <strong>Design Choices of Golang for High Scalability.</strong> In <em>GDG
+Korea Meeup</em>, September 2017.
+<a href="https://www.slideshare.net/SeongJaePark1/design-choices-of-golang-for-high-scalability">Slides</a></li>
+<li>SeongJae Park, <strong>Brief Introduction to Kselftest.</strong> In <em>2nd Korea Linux Kernel
+Conference</em>, July 2017.
+<a href="https://www.slideshare.net/SeongJaePark1/brief-introduction-to-kselftest">Slides</a></li>
+<li>SeongJae Park, <strong>Understanding of Linux Kernel Memory Model.</strong> In <em>Korea Open
+Source Software Conference (KOSSCON)</em>, November 2016.
+<a href="https://www.slideshare.net/SeongJaePark1/understanding-of-linux-kernel-memory-model">Slides</a></li>
+<li>SeongJae Park, <strong>Develop Android/iOS app using golang.</strong> In <em>Gophercon
+Korea</em>, August 2015.
+<a href="https://www.slideshare.net/SeongJaePark1/develop-androidios-app-using-golang">Slides</a></li>
+<li>SeongJae Park, <strong>Hello Android.go</strong> In <em>GDG Android Korea Conference (GKAC)</em>, April 2015.
+<a href="https://www.slideshare.net/SeongJaePark1/hello-androidgo">Slides</a>,
+<a href="https://www.youtube.com/watch?v=vMZFjDipaK8">Video</a></li>
+<li>SeongJae Park, Minchan Kim, <strong>GCMA: Guaranteed Contiguous Memory Allocator.</strong>
+In <em>Linux Foundation Korea Linux Forum (LFKLF)</em>, October 2014.
+<a href="http://events.linuxfoundation.org/sites/events/files/slides/gcma-guaranteed_contiguous_memory_allocator-lfklf2014_0.pdf">Slides</a></li>
+<li>SeongJae Park, <strong>How GIT Works Internally.</strong> In <em>Samsung Open-source Software
+Conference (SOSCON)</em>, September 2014.
+<a href="https://www.slideshare.net/SeongJaePark1/deep-darkside-ofgit">Slides</a></li>
+<li>SeongJae Park, <strong>Let The Contribution Begin.</strong> In Google Developers Group
+DevFest W, March 2013.
+<a href="https://www.slideshare.net/SeongJaePark1/let-the-contribution-begin">Slides</a></li>
+</ul>
+
+
+    
 
     
 
@@ -1102,27 +1479,196 @@ UML, qemu 등에서 부팅 테스트를 거쳤군요.</p>
 
     </div>
   </section>
+
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
   
 
   
   
   
-  <section id="tags" class="home-section">
+
+  
+  
+  
+  
+  
+
+  
+  
+
+  <section id="publications" class="home-section wg-pages   "  >
     <div class="container">
       
 
 
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
 <div class="row">
-  <div class="col-xs-12 col-md-4 section-heading">
-    <h1>Tags</h1>
+  <div class="col-12 col-lg-4 section-heading">
+    <h1>Recent Publications</h1>
     
   </div>
-  <div class="col-xs-12 col-md-8">
+  <div class="col-12 col-lg-8">
+
+    <!-- raw HTML omitted -->
+<ul>
+<li>SeongJae Park, Yunjae Lee, Heon Y. Yeom, <strong>Profiling Dynamic Data Access
+Patterns with Controlled Overhead and Quality.</strong> In 20th ACM/IFIP
+International Middleware Conference Industry, December 2019. (Accepted)</li>
+<li>SeongJae Park, Yunjae Lee, Moonsub Kim, Heon Y. Yeom, <strong>Automating Context
+Based Access Pattern Hint Injection for System Performance and Swap Storage
+Durability.</strong> In 11th USENIX Workshop on Hot Topics in Storage and File
+Systems (HotStorage), July 2019.
+<a href="https://www.usenix.org/system/files/hotstorage19-paper-park.pdf">Paper</a>,
+<a href="https://www.usenix.org/sites/default/files/conference/protected-files/hotstorage19_slides_park.pdf">Slides</a></li>
+<li>SeongJae Park, Yunjae Lee, Yunhee Kim, Heon Y. Yeom, <strong>Profiling Dynamic Data
+Access Patterns with Bounded Overhead and Accuracy.</strong> In IEEE International
+Workshop on Foundations and Applications of Self-* Systems (FAS* 2019),
+June 2019.
+<a href="https://ieeexplore.ieee.org/abstract/document/8791992">Link</a></li>
+<li>SeongJae Park, Minchan Kim, Heon Y. Yeom, <strong>GCMA: Guaranteed Contiguous
+Memory Allocator.</strong> In <em>Transactions on Computers</em>, March 2019.
+<a href="https://ieeexplore.ieee.org/document/8456561">Link</a></li>
+<li>SeongJae Park, Yunjae Lee, Moonsub Kim, Heon Y. Yeom, <strong>Automated Data Access
+Pattern Hint Instrumentation for System Performance and Durability of Swap
+Storages.</strong> (WiP) In 17th USENIX Conference on File and Storage Technologies
+(FAST), February 2019.
+<a href="https://www.usenix.org/conference/fast19/wips">Link</a></li>
+<li>SeongJae Park, Hyuck Han, Heon Y. Yeom, <strong>Knowing the Cost of Synchronization
+Primitives on Modern Hardware.</strong> In <em>Journal of Korea</em>, November 2018.
+<a href="http://kiise.or.kr/e_journal/2018/11/JOK/pdf/12.pdf">Paper</a></li>
+<li>SeongJae Park, Minchan Kim, Heon Y. Yeom, <strong>GCMA: Guaranteed Contiguous
+Memory Allocator.</strong> In <em>Embedded Operating Systems Workshop (EWiLi)</em>, October
+2015.
+<a href="http://ceur-ws.org/Vol-1464/ewili15_12.pdf">Paper</a>,
+<a href="https://www.slideshare.net/SeongJaePark1/gcma-guaranteed-contiguous-memory-allocator">Slides</a></li>
+<li>Hyuck Han, SeongJae Park, Hyungsoo Jung, Alan Fekete, Uwe Rohm, Heon Y.
+Yeom, <strong>Scalable Serializable Snapshot Isolation for Multicore Systems.</strong> In
+<em>IEEE 30th International Conference on Data Engineering (ICDE)</em>, March 2014.
+<a href="http://ieeexplore.ieee.org/document/6816693/">Link</a></li>
+</ul>
+
+
+    
+
+    
+
+  </div>
+</div>
+
+    </div>
+  </section>
+
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+  <section id="tags" class="home-section wg-tag-cloud   "  >
+    <div class="container">
+      
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+<div class="row">
+  <div class="col-12 col-lg-4 section-heading">
+    <h1>Popular Topics</h1>
+    
+  </div>
+  <div class="col-12 col-lg-8">
     
 
     
-      
-      
 
       
       
@@ -1130,819 +1676,107 @@ UML, qemu 등에서 부팅 테스트를 거쳤군요.</p>
       
       
 
-      <div id="tag-cloud">
+      <div class="tag-cloud">
         
           
           
           
-          
-          
-          <a href="/tags/fsf" style="font-size:0.8rem">FSF</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/free-software-foundation" style="font-size:0.8rem">Free Software Foundation</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/google-colab" style="font-size:0.8rem">Google Colab</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/jupyter-notebook" style="font-size:0.8rem">Jupyter Notebook</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/ml" style="font-size:0.8rem">ML</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/machine-learning" style="font-size:0.8rem">Machine Learning</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/richard-stallman" style="font-size:0.8rem">Richard Stallman</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/about" style="font-size:0.8rem">about</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/academy" style="font-size:0.8rem">academy</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/artifact" style="font-size:0.8rem">artifact</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/backtrace" style="font-size:0.8rem">backtrace</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/benchmark" style="font-size:1.373511910032078rem">benchmark</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/binary" style="font-size:0.8rem">binary</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/bot" style="font-size:0.8rem">bot</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/c" style="font-size:0.8rem">c</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/c-language" style="font-size:0.8rem">c language</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/chatbot" style="font-size:0.8rem">chatbot</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/chrome" style="font-size:0.8rem">chrome</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/chrome-os" style="font-size:0.8rem">chrome os</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/chromebook" style="font-size:0.8rem">chromebook</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/chromebook-plus" style="font-size:0.8rem">chromebook plus</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/coding" style="font-size:0.8rem">coding</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/coding-interview" style="font-size:0.8rem">coding interview</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/coding-rule" style="font-size:0.8rem">coding rule</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/coding-style" style="font-size:0.8rem">coding style</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/conference" style="font-size:1.4384809178260984rem">conference</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/contribute" style="font-size:0.8rem">contribute</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/daphicx" style="font-size:0.8rem">daphicx</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/database" style="font-size:0.8rem">database</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/db" style="font-size:0.8rem">db</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/dbms" style="font-size:0.8rem">dbms</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/development" style="font-size:1.0469981354267128rem">development</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/docker" style="font-size:0.8rem">docker</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/english" style="font-size:1.5409944062801384rem">english</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/evaluation" style="font-size:0.8rem">evaluation</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/event" style="font-size:1.373511910032078rem">event</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/fast" style="font-size:0.8rem">fast</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/fast19" style="font-size:0.8rem">fast19</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/fedora" style="font-size:1.1914827823993857rem">fedora</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/firefox" style="font-size:0.8rem">firefox</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/gadget" style="font-size:0.8rem">gadget</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/gcma" style="font-size:1.0469981354267128rem">gcma</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/git" style="font-size:1.1914827823993857rem">git</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/gitlab" style="font-size:0.8rem">gitlab</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/golang" style="font-size:1.1914827823993857rem">golang</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/google" style="font-size:0.8rem">google</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/hack" style="font-size:0.8rem">hack</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/hangul" style="font-size:0.8rem">hangul</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/hooking" style="font-size:0.8rem">hooking</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/hotstorage" style="font-size:0.8rem">hotstorage</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/hotstorage19" style="font-size:0.8rem">hotstorage19</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/hugo" style="font-size:0.8rem">hugo</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/idle_page_tracking" style="font-size:0.8rem">idle_page_tracking</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/ime" style="font-size:0.8rem">ime</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/install" style="font-size:0.8rem">install</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/installation" style="font-size:0.8rem">installation</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/job-interview" style="font-size:0.8rem">job interview</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/kakaotalk" style="font-size:0.8rem">kakaotalk</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/kernel" style="font-size:2.465129775681824rem">kernel</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/kernel-summit" style="font-size:1.0469981354267128rem">kernel summit</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/ksummit" style="font-size:0.8rem">ksummit</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/kunit" style="font-size:0.8rem">kunit</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/life" style="font-size:1.0469981354267128rem">life</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/linux" style="font-size:2.496967275438572rem">linux</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/linux-foundation" style="font-size:1.373511910032078rem">linux foundation</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/linux-kernel-mailing-list" style="font-size:0.8rem">linux kernel mailing list</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/linux-kernel-summit" style="font-size:0.8rem">linux kernel summit</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/linux-plumbers-conference-2019" style="font-size:0.8rem">linux plumbers conference 2019</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/linux-kernel-hack" style="font-size:0.8rem">linux-kernel-hack</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/lkml" style="font-size:2.4301661659990375rem">lkml</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/lpc" style="font-size:0.8rem">lpc</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/lpc2018" style="font-size:0.8rem">lpc2018</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/lpc2019" style="font-size:0.8rem">lpc2019</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/lwn" style="font-size:0.8rem">lwn</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/lwn-translations" style="font-size:0.8rem">lwn translations</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/mariadb" style="font-size:1.0469981354267128rem">mariadb</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/memory-model" style="font-size:0.8rem">memory model</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/memory-models" style="font-size:0.8rem">memory models</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/mozilla" style="font-size:0.8rem">mozilla</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/mysql" style="font-size:0.8rem">mysql</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/network" style="font-size:0.8rem">network</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/news" style="font-size:2.4301661659990375rem">news</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/open-source" style="font-size:1.0469981354267128rem">open source</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/open-source" style="font-size:1.0469981354267128rem">open-source</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/oracle" style="font-size:0.8rem">oracle</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/paper" style="font-size:0.8rem">paper</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/parallel-programming" style="font-size:0.8rem">parallel programming</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/parsec" style="font-size:0.8rem">parsec</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/parsec3.0" style="font-size:0.8rem">parsec3.0</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/perf" style="font-size:0.8rem">perf</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/perfbook" style="font-size:0.8rem">perfbook</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/prague" style="font-size:1.373511910032078rem">prague</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/programming" style="font-size:0.8rem">programming</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/projects" style="font-size:1.373511910032078rem">projects</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/raspberry" style="font-size:1.0469981354267128rem">raspberry</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/record" style="font-size:0.8rem">record</a>
-        
-          
-          
-          
-          
-          
-          <a href="/tags/rms" style="font-size:0.8rem">rms</a>
+          <a href="/tags/benchmark/" style="font-size:1.3779553013693993rem">benchmark</a>
         
-          
           
           
           
-          
-          <a href="/tags/serial" style="font-size:0.8rem">serial</a>
+          <a href="/tags/conference/" style="font-size:1.5128533874054364rem">conference</a>
         
-          
           
           
           
-          
-          <a href="/tags/setup" style="font-size:1.2939962708534256rem">setup</a>
+          <a href="/tags/development/" style="font-size:0.7rem">development</a>
         
-          
           
           
           
-          
-          <a href="/tags/spec" style="font-size:1.0469981354267128rem">spec</a>
+          <a href="/tags/english/" style="font-size:1.725706774810873rem">english</a>
         
-          
           
           
           
-          
-          <a href="/tags/spec_cpu" style="font-size:1.0469981354267128rem">spec_cpu</a>
+          <a href="/tags/event/" style="font-size:1.3779553013693993rem">event</a>
         
-          
           
           
           
-          
-          <a href="/tags/spec_cpu2006" style="font-size:1.0469981354267128rem">spec_cpu2006</a>
+          <a href="/tags/fedora/" style="font-size:1rem">fedora</a>
         
-          
           
           
           
-          
-          <a href="/tags/talk" style="font-size:1.1914827823993857rem">talk</a>
+          <a href="/tags/git/" style="font-size:1rem">git</a>
         
-          
           
           
           
-          
-          <a href="/tags/test" style="font-size:1.0469981354267128rem">test</a>
+          <a href="/tags/golang/" style="font-size:1rem">golang</a>
         
-          
           
           
           
-          
-          <a href="/tags/theme" style="font-size:0.8rem">theme</a>
+          <a href="/tags/kernel/" style="font-size:3.6445307926523123rem">kernel</a>
         
-          
           
           
           
-          
-          <a href="/tags/tip" style="font-size:1.5409944062801384rem">tip</a>
+          <a href="/tags/linux/" style="font-size:3.7106364317437155rem">linux</a>
         
-          
           
           
           
-          
-          <a href="/tags/tpc-h" style="font-size:0.8rem">tpc-h</a>
+          <a href="/tags/linux-foundation/" style="font-size:1.3779553013693993rem">linux foundation</a>
         
-          
           
           
           
-          
-          <a href="/tags/tpch" style="font-size:0.8rem">tpch</a>
+          <a href="/tags/lkml/" style="font-size:3.5719342702908747rem">lkml</a>
         
-          
           
           
           
-          
-          <a href="/tags/translation" style="font-size:1.0469981354267128rem">translation</a>
+          <a href="/tags/news/" style="font-size:3.5719342702908747rem">news</a>
         
-          
           
           
           
-          
-          <a href="/tags/trip" style="font-size:1.373511910032078rem">trip</a>
+          <a href="/tags/open-source/" style="font-size:1.2128533874054366rem">open-source</a>
         
-          
           
           
           
-          
-          <a href="/tags/unit-test" style="font-size:0.8rem">unit test</a>
+          <a href="/tags/prague/" style="font-size:1.3779553013693993rem">prague</a>
         
-          
           
           
           
-          
-          <a href="/tags/usenix" style="font-size:1.0469981354267128rem">usenix</a>
+          <a href="/tags/projects/" style="font-size:1.3779553013693993rem">projects</a>
         
-          
           
           
           
-          
-          <a href="/tags/version-control" style="font-size:1.0469981354267128rem">version control</a>
+          <a href="/tags/setup/" style="font-size:1.2128533874054366rem">setup</a>
         
-          
           
           
           
-          
-          <a href="/tags/visualization" style="font-size:0.8rem">visualization</a>
+          <a href="/tags/talk/" style="font-size:1rem">talk</a>
         
-          
           
           
           
-          
-          <a href="/tags/xclip" style="font-size:0.8rem">xclip</a>
+          <a href="/tags/tip/" style="font-size:1.725706774810873rem">tip</a>
         
-          
-          
           
           
           
-          <a href="/tags/youtube" style="font-size:0.8rem">youtube</a>
+          <a href="/tags/trip/" style="font-size:1.3779553013693993rem">trip</a>
         
       </div>
     
@@ -1952,33 +1786,87 @@ UML, qemu 등에서 부팅 테스트를 거쳤군요.</p>
 
     </div>
   </section>
+
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
   
 
   
   
   
-  <section id="contact" class="home-section">
+
+  
+  
+  
+  
+  
+
+  
+  
+
+  <section id="contact" class="home-section wg-contact   "  >
     <div class="container">
       
 
 
 
 
-<div class="row">
-  <div class="col-xs-12 col-md-4 section-heading">
+
+<div class="row contact-widget">
+  <div class="col-12 col-lg-4 section-heading">
     <h1>Contact</h1>
     
   </div>
-  <div class="col-xs-12 col-md-8">
+  <div class="col-12 col-lg-8">
     
 
-    <ul class="fa-ul" itemscope>
+    
+
+    
+    
+      
+      
+    
+
+    <div class="mb-3">
+      <form name="contact" method="POST" action="https://formspree.io/sj38.park@gmail.com">
+        <div class="form-group form-inline">
+          <label class="sr-only" for="inputName">Name</label>
+          <input type="text" name="name" class="form-control w-100" id="inputName" placeholder="Name" required>
+        </div>
+        <div class="form-group form-inline">
+          <label class="sr-only" for="inputEmail">Email</label>
+          <input type="email" name="email" class="form-control w-100" id="inputEmail" placeholder="Email" required>
+        </div>
+        <div class="form-group">
+          <label class="sr-only" for="inputMessage">Message</label>
+          <textarea name="message" class="form-control" id="inputMessage" rows="5" placeholder="Message" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-outline-primary px-3 py-2">Send</button>
+      </form>
+    </div>
+    
+
+    <ul class="fa-ul">
 
       
-      <li>
-        <i class="fa-li fa fa-envelope fa-2x" aria-hidden="true"></i>
-        <span id="person-email" itemprop="email"><a href="mailto:sj38.park@gmail.com">sj38.park@gmail.com</a></span>
-      </li>
+
+      
+
+      
       
 
       
@@ -1988,11 +1876,6 @@ UML, qemu 등에서 부팅 테스트를 거쳤군요.</p>
       
 
       
-
-      
-
-      
-
       
 
     </ul>
@@ -2004,49 +1887,166 @@ UML, qemu 등에서 부팅 테스트를 거쳤군요.</p>
 
     </div>
   </section>
+
+
+
+      
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js" integrity="sha256-1zu+3BnLYV9LdiY85uXMzii3bdrkelyp37e0ZyTAQh0=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/languages/c.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/languages/bash.min.js"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js" integrity="sha256-EErZamuLefUnbMBQbsEqu1USa+btR2oIlCpBJbyD4/g=" crossorigin="anonymous"></script>
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.bcfae8267aba63cc55af53a503896bd9.js"></script>
+
+    
+
+
+
+
+
+
+  
+  
+  <div class="container">
+    <footer class="site-footer">
   
 
+  <p class="powered-by">
+    
 
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
 
-<footer class="site-footer">
-  <div class="container">
-    <p class="powered-by">
-
-      &copy; 2017 Your Name &middot; 
-
-      Powered by the
-      <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
-      <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
-
-      <span class="pull-right" aria-hidden="true">
-        <a href="#" id="back_to_top">
-          <span class="button_icon">
-            <i class="fa fa-chevron-up fa-2x"></i>
-          </span>
-        </a>
-      </span>
-
-    </p>
-  </div>
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" class="back-to-top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
 </footer>
 
+  </div>
+  
 
+  
 <div id="modal" class="modal fade" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close btn-large" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Cite</h4>
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
-      <div>
-        <pre><code class="modal-body tex"></code></pre>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
       </div>
       <div class="modal-footer">
-        <a class="btn btn-primary btn-outline js-copy-cite" href="#" target="_blank">
-          <i class="fa fa-copy"></i> Copy
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
         </a>
-        <a class="btn btn-primary btn-outline js-download-cite" href="#" target="_blank">
-          <i class="fa fa-download"></i> Download
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
         </a>
         <div id="modal-error"></div>
       </div>
@@ -2054,41 +2054,5 @@ UML, qemu 등에서 부팅 테스트를 거쳤군요.</p>
   </div>
 </div>
 
-    
-
-    
-    
-
-    
-
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.3/imagesloaded.pkgd.min.js" integrity="sha512-umsR78NN0D23AzgoZ11K7raBD+R6hqKojyBZs1w8WvYlsI+QuKRGBx3LFCwhatzBunCjDuJpDHwxD13sLMbpRA==" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ==" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
-    
-    
-    <script src="/js/hugo-academic.js"></script>
-    
-
-    
-    
-      
-      
-      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
-      
-
-      
-
-      
-
-      <script>hljs.initHighlightingOnLoad();</script>
-    
-
-    
-    
-
-  </body>
+</body>
 </html>
-
-

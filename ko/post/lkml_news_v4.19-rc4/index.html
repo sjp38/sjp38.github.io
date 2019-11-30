@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="ko-kr">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.6.2">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="SeongJae Park">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Linux 4.19-rc4 released, an apology, and a maintainership note https://lkml.kernel.org/r/CA&#43;55aFy&#43;Hv9O5citAawS&#43;mVZO&#43;ywCKd9NQ2wxUmGsz9ZJzqgJQ@mail.gmail.com
+한국시간 새벽 네시 좀 넘어 이 메일을 받았습니다. 평범한 릴리즈 메일이겠거니 했는데 제목이 뭔가 심상치 않군요.
+일단 4.19를 위한 네번째 release candidate 릴리즈가 되었습니다. 약 3주 후 정식 4.19 버전이 릴리즈 되겠군요. 하지만 이 메일은 그보다 많은 내용을 담고 있습니다.
+자유분방하고 형식에 구애되지 않는 해커 문화에 기원을 두고 있는 리눅스 커뮤니티는 조금 거친 언어 문화로 유명했습니다. 예를 들어 이상한 코드를 보내면 리누스 토발즈와 커뮤니티의 일부 사람들이 이 코드를 꾸짖을 수 있는데 그 과정에서 욕설도 있을 수 있다는 거죠.">
+
+  
+  <link rel="alternate" hreflang="en" href="/post/lkml_news_v4.19-rc4/">
+  
+  <link rel="alternate" hreflang="ko-kr" href="/ko/post/lkml_news_v4.19-rc4/">
+
+  
+
+
+  
+  
+  
+  <meta name="theme-color" content="#2962ff">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css" integrity="sha256-SHMGCYmST46SoyGgo4YR/9AlK1vf3ff84Aq9yK4hdqM=" crossorigin="anonymous">
+    
+
+    
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap">
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.css">
+
+  
+
+
+
+
+  
+
+
+  
+
+  <link rel="manifest" href="/ko/index.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon-32.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/ko/post/lkml_news_v4.19-rc4/">
+
+  
+  
+  
+  
+    
+  
+  
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="og:site_name" content="hacklog">
+  <meta property="og:url" content="/ko/post/lkml_news_v4.19-rc4/">
+  <meta property="og:title" content="LKML News after v4.19-rc4 | hacklog">
+  <meta property="og:description" content="Linux 4.19-rc4 released, an apology, and a maintainership note https://lkml.kernel.org/r/CA&#43;55aFy&#43;Hv9O5citAawS&#43;mVZO&#43;ywCKd9NQ2wxUmGsz9ZJzqgJQ@mail.gmail.com
+한국시간 새벽 네시 좀 넘어 이 메일을 받았습니다. 평범한 릴리즈 메일이겠거니 했는데 제목이 뭔가 심상치 않군요.
+일단 4.19를 위한 네번째 release candidate 릴리즈가 되었습니다. 약 3주 후 정식 4.19 버전이 릴리즈 되겠군요. 하지만 이 메일은 그보다 많은 내용을 담고 있습니다.
+자유분방하고 형식에 구애되지 않는 해커 문화에 기원을 두고 있는 리눅스 커뮤니티는 조금 거친 언어 문화로 유명했습니다. 예를 들어 이상한 코드를 보내면 리누스 토발즈와 커뮤니티의 일부 사람들이 이 코드를 꾸짖을 수 있는데 그 과정에서 욕설도 있을 수 있다는 거죠."><meta property="og:image" content="/img/tux.png">
+  <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="ko-kr">
+  
+    
+      <meta property="article:published_time" content="2018-09-17T08:03:05&#43;09:00">
+    
+    <meta property="article:modified_time" content="2018-09-17T08:03:05&#43;09:00">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/ko/post/lkml_news_v4.19-rc4/"
+  },
+  "headline": "LKML News after v4.19-rc4",
+  
+  "datePublished": "2018-09-17T08:03:05+09:00",
+  "dateModified": "2018-09-17T08:03:05+09:00",
+  
+  "author": {
+    "@type": "Person",
+    "name": "SeongJae Park"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "hacklog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/img/icon-512.png"
+    }
+  },
+  "description": "Linux 4.19-rc4 released, an apology, and a maintainership note https://lkml.kernel.org/r/CA+55aFy+Hv9O5citAawS+mVZO+ywCKd9NQ2wxUmGsz9ZJzqgJQ@mail.gmail.com\n한국시간 새벽 네시 좀 넘어 이 메일을 받았습니다. 평범한 릴리즈 메일이겠거니 했는데 제목이 뭔가 심상치 않군요.\n일단 4.19를 위한 네번째 release candidate 릴리즈가 되었습니다. 약 3주 후 정식 4.19 버전이 릴리즈 되겠군요. 하지만 이 메일은 그보다 많은 내용을 담고 있습니다.\n자유분방하고 형식에 구애되지 않는 해커 문화에 기원을 두고 있는 리눅스 커뮤니티는 조금 거친 언어 문화로 유명했습니다. 예를 들어 이상한 코드를 보내면 리누스 토발즈와 커뮤니티의 일부 사람들이 이 코드를 꾸짖을 수 있는데 그 과정에서 욕설도 있을 수 있다는 거죠."
+}
+</script>
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>LKML News after v4.19-rc4 | hacklog</title>
+
+</head>
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+    
+    
+      <a class="navbar-brand" href="/ko">hacklog</a>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="네비게이션">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/ko/#about"><span>Home</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/ko/#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/ko/#projects"><span>Projects</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/ko/#publications"><span>Publications</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/ko/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/ko/tags"><span>Tags</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/ko/categories"><span>Categories</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/ko/post/about"><span>CV</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      <li class="nav-item">
+        <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      <li class="nav-item dropdown i18n-dropdown">
+        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true">
+          <i class="fas fa-globe mr-1" aria-hidden="true"></i><span class="d-none d-lg-inline">한국어</span>
+        </a>
+        <div class="dropdown-menu">
+          <div class="dropdown-item i18n-active font-weight-bold">
+            <span>한국어</span>
+          </div>
+          
+          <a class="dropdown-item" href="/post/lkml_news_v4.19-rc4/">
+            <span>English</span>
+          </a>
+          
+        </div>
+      </li>
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+  <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1>LKML News after v4.19-rc4</h1>
+
+  
+
+  
+    
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Mon, Sep 17, 2018
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    3 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/ko/categories/lkml-news/">lkml news</a></span>
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      <h2 id="linux-419rc4-released-an-apology-and-a-maintainership-note">Linux 4.19-rc4 released, an apology, and a maintainership note</h2>
+<p><a href="https://lkml.kernel.org/r/CA+55aFy+Hv9O5citAawS+mVZO+ywCKd9NQ2wxUmGsz9ZJzqgJQ@mail.gmail.com">https://lkml.kernel.org/r/CA+55aFy+Hv9O5citAawS+mVZO+ywCKd9NQ2wxUmGsz9ZJzqgJQ@mail.gmail.com</a></p>
+<p>한국시간 새벽 네시 좀 넘어 이 메일을 받았습니다.  평범한 릴리즈 메일이겠거니
+했는데 제목이 뭔가 심상치 않군요.</p>
+<p>일단 4.19를 위한 네번째 release candidate 릴리즈가 되었습니다.  약 3주 후 정식 4.19 버전이 릴리즈 되겠군요.  하지만 이 메일은 그보다 많은 내용을 담고 있습니다.</p>
+<p>자유분방하고 형식에 구애되지 않는 해커 문화에 기원을 두고 있는 리눅스
+커뮤니티는 조금 거친 언어 문화로 유명했습니다.  예를 들어 이상한 코드를 보내면
+리누스 토발즈와 커뮤니티의 일부 사람들이 이 코드를 꾸짖을 수 있는데 그 과정에서
+욕설도 있을 수 있다는 거죠.  어느새 5년이 넘게 흐른 사건이지만 토발즈는
+공식석상에서 Nvidia 에 가운데 손가락을 펴서 보여주기도 했죠.  이로 인해 마음에
+상처를 받았다는 사람도 꽤 되고, 7년간 리눅스에 패치를 올렸던 Sarah Sharp 라는
+인텔의 프로그래머는 이를 이유로 들어 결국 리눅스 커뮤니티에서 빠지기로 해서[1]
+한때 많은 논란이 있기도 했습니다.  당시 토발즈는 욕설을 멈출 생각이 없다고
+강경하게 맞서기도 했죠[2].</p>
+<p>그랬던 토발즈가 생각이 바뀌었다고 합니다.  올해 커널 메인테이너 서밋은 Linux
+Plumbers Conference 와 함께 열릴 예정이었는데 토발즈가 그걸 깜박하고 가족
+휴가를 잡는 바람에 토론이 있었고, 이 토론 과정에서 토발즈는 자신의 행위가 커널
+개발에 정말로 악영향을 끼치고 있다고 느낀 것 같습니다.  이로 인해 토발즈는 이
+메일을 통해 자신의 행위가 잘못되었음을 인정하고 그로 인해 상처 받은 사람들에게
+공식적으로 사과를 하고 있습니다.  또한 앞으로 그런 행위를 반복하지 않기 위해
+커널 개발에서 잠시 손을 떼고 거울 속의 자신을 바라보며 더 낫게 행동할 수 있도록
+하는 시간을 갖겠다고 하는군요.</p>
+<p>리누스 토발즈가 커널 개발에서 손을 떼는건 과거 git 개발을 위해 손을 뗐던
+사건[3] 후 처음입니다.  이 사이의 릴리즈 작업은 Greg Kroah-Hartman 에게
+부탁했다고 하니 곧바로 전체 개발 작업이 멈추진 않겠습니다.</p>
+<p>이 휴식 시간이 아주 길지는 않을 거고, 토발즈 자신은 너무 지쳐 더이상 리눅스
+커널 개발에 손을 데고 싶지 않다는 의도가 아니라고 합니다.  이건 얼마전 너무
+지쳤다며 자비로운 종신 독재자 직을 그만둔 귀도 반 로썸의 예[4]와 비교되기도
+하는군요, 토발즈도 이를 조금 의식한 거 아닐까 싶습니다.  토발즈는 자신은 여전히
+리눅스 커널 개발을 하고 싶고, 잘하고 싶기 때문에 이 선택을 한 것 뿐이며, 어쩌면
+단순히 욕설을 감지해 욕설이 포함된 메일은 자동으로 보내지 않는 메일
+클라이언트를 개발하고 복귀하는 간단한 일이 될수도 있을 거라고 합니다.</p>
+<p>개인적인 감상은, 글쎄요.  조금 반갑기도 하고 조금 아쉽기도 합니다.  커널
+커뮤니티가 거칠고 모욕적인건 사실이지만 어느정도의 긴장감은 필요하다고
+생각하기도 했고, 어떤 면에선 더욱 자유분방한 그 분위기를 저는 좋아했던 것도
+같아서일 겁니다.  특히 AOSP 와 같이 악플은 커녕 무플이 심한 프로젝트에 참여했던
+경험이 있는 저로썬 무플보단 악플이 낫다는 주의를 가졌던 것도 한 이유겠죠.
+분명한 건 이 선언은 리눅스 커뮤니티의 외연 확장을 크게 도울 것 같습니다.  그게
+마냥 좋기만 한 일일지, 윤리에 대한 자기검열이 커뮤니티의 토론 열기를 식히지는
+않을지 걱정되기도 하지만요.  그리고, 이 선언의 최종 결과가 어떨지를 떠나,
+그정도 위치에 있고 과거에 뱉어놓은 말들이 많은 리누스 토발즈가 이렇게 깔끔하게
+사과를 하는 것도 대단한 멘탈이라 생각됩니다.</p>
+<p>[1] <a href="http://sarah.thesharps.us/2013/07/15/no-more-verbal-abuse/">http://sarah.thesharps.us/2013/07/15/no-more-verbal-abuse/</a><br>
+[2] <a href="https://arstechnica.com/information-technology/2013/07/linus-torvalds-defends-his-right-to-shame-linux-kernel-developers/">https://arstechnica.com/information-technology/2013/07/linus-torvalds-defends-his-right-to-shame-linux-kernel-developers/</a><br>
+[3] <a href="https://sjp38.github.io/post/git_origin_story_ko/">https://sjp38.github.io/post/git_origin_story_ko/</a><br>
+[4] <a href="https://www.i-programmer.info/news/216-python/11967-guido-van-rossum-quits-as-python-bdfl.html">https://www.i-programmer.info/news/216-python/11967-guido-van-rossum-quits-as-python-bdfl.html</a></p>
+
+    </div>
+
+    
+
+
+
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/ko/tags/linux/">linux</a>
+  
+  <a class="badge badge-light" href="/ko/tags/kernel/">kernel</a>
+  
+  <a class="badge badge-light" href="/ko/tags/lkml/">lkml</a>
+  
+  <a class="badge badge-light" href="/ko/tags/news/">news</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=/ko/post/lkml_news_v4.19-rc4/&amp;text=LKML%20News%20after%20v4.19-rc4" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=/ko/post/lkml_news_v4.19-rc4/&amp;t=LKML%20News%20after%20v4.19-rc4" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=LKML%20News%20after%20v4.19-rc4&amp;body=/ko/post/lkml_news_v4.19-rc4/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=/ko/post/lkml_news_v4.19-rc4/&amp;title=LKML%20News%20after%20v4.19-rc4" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=LKML%20News%20after%20v4.19-rc4%20/ko/post/lkml_news_v4.19-rc4/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=/ko/post/lkml_news_v4.19-rc4/&amp;title=LKML%20News%20after%20v4.19-rc4" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      <img class="portrait mr-3" src="https://s.gravatar.com/avatar/43dc5645c78e68fda997138380dfaaf4?s=200')" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="/">SeongJae Park</a></h5>
+      <h6 class="card-subtitle">Kernel / Hypervisor Engineer</h6>
+      <p class="card-text">SeongJae Park is a programmer who loves to analyze and develop systems.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.com/citations?user=jJIiF3AAAAAJ" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/sjp38" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  
+  
+  <div class="article-widget content-widget-hr">
+    <h3>Related</h3>
+    <ul>
+      
+      <li><a href="/ko/post/lkml_news_v4.19-rc3/">LKML News after v4.19-rc3</a></li>
+      
+      <li><a href="/ko/post/lkml_news_v4.19-rc2/">LKML News after v4.19-rc2</a></li>
+      
+      <li><a href="/ko/post/lkml_news_v4.19-rc1/">LKML News after v4.19-rc1</a></li>
+      
+      <li><a href="/ko/post/lkml_news_v4.18/">Lkml_news_v4.18</a></li>
+      
+      <li><a href="/ko/post/lkml_news_v4.18-rc8/">LKML News after v4.18-rc8</a></li>
+      
+    </ul>
+  </div>
+  
+
+
+
+  </div>
+</article>
+
+      
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js" integrity="sha256-1zu+3BnLYV9LdiY85uXMzii3bdrkelyp37e0ZyTAQh0=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/languages/c.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/languages/bash.min.js"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js" integrity="sha256-EErZamuLefUnbMBQbsEqu1USa+btR2oIlCpBJbyD4/g=" crossorigin="anonymous"></script>
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/ko/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "포스트",
+        'project': "Projects",
+        'publication' : "논문",
+        'talk' : "강연"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.bcfae8267aba63cc55af53a503896bd9.js"></script>
+
+    
+
+
+
+
+
+
+  
+  
+  <div class="container">
+    <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" class="back-to-top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

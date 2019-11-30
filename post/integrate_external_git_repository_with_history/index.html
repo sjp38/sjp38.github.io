@@ -1,22 +1,47 @@
 <!DOCTYPE html>
 <html lang="en-us">
+
 <head>
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="theme" content="hugo-academic">
-  <meta name="generator" content="Hugo 0.51" />
+  <meta name="generator" content="Source Themes Academic 4.6.2">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
   <meta name="author" content="SeongJae Park">
-  <meta name="description" content="System Programmer">
-
-  
-  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/integrate_external_git_repository_with_history/">
 
   
   
+  
+    
+  
+  <meta name="description" content="프로젝트 a 와 프로젝트 b 를 병렬로 진행하고 있었는데, 두개의 리포지토리를 합치고 싶어지는 경우가 있습니다. 예컨대 프로젝트 a 의 성격이 보다 범용이 되었고 프로젝트 b 는 프로젝트 a 를 위한 도구적 성격이 되는 경우가 있겠죠. a 프로젝트에 &lsquo;b&rsquo; 디렉토리를 만들고 그 아래 기존 프로젝트 b 의 파일들을 위치하고 싶습니다. 하지만 기존 b 프로젝트의 git 히스토리들도 유지하고 싶습니다. 비슷한 사례로 리눅스 커널 메모리 모델 프로젝트는 별도의 리포지토리[1] 로 개발되었지만 리눅스 업스트림 리포지토리의 tools/ 디렉토리 아래로 머지[2] 되었는데, 이 때 기존 개발 히스토리를 유지했죠.">
+
+  
+  <link rel="alternate" hreflang="ko" href="/ko/post/integrate_external_git_repository_with_history/">
+  
+  <link rel="alternate" hreflang="en-us" href="/post/integrate_external_git_repository_with_history/">
+
+  
 
 
+  
+  
+  
+  <meta name="theme-color" content="#2962ff">
   
 
   
@@ -24,246 +49,503 @@
   
   
     
-  
-  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+    
     
     
       
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
       
     
-  
-  
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha512-6MXa8B6uaO18Hid6blRMetEIoPqHf7Ux1tnyIQdpt9qI5OACx7C+O3IVTr98vwGnlcg0LOLa02i9Y1HpVhlfiw==" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.1/css/academicons.min.css" integrity="sha512-NThgw3XKQ1absAahW6to7Ey42uycrVvfNfyjqcFNgCmOCQ5AR4AO0SiXrN+8ZtYeappp56lk1WtvjVmEa+VR6A==" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous">
-  
-  
-  
-  
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700%7cRoboto:400,400italic,700%7cRoboto&#43;Mono">
-  
-  <link rel="stylesheet" href="/styles.css">
-  
 
-  
-    <script>
-      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-      ga('create', 'UA-30621335-1', 'auto');
-      ga('require', 'eventTracker');
-      ga('require', 'outboundLinkTracker');
-      ga('require', 'urlChangeTracker');
-      ga('send', 'pageview');
-    </script>
-    <script async src="//www.google-analytics.com/analytics.js"></script>
     
-    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css" integrity="sha256-SHMGCYmST46SoyGgo4YR/9AlK1vf3ff84Aq9yK4hdqM=" crossorigin="anonymous">
     
+
+    
+
   
 
   
-  <link rel="alternate" href="https://sjp38.github.io/index.xml" type="application/rss+xml" title="Hacklog">
-  <link rel="feed" href="https://sjp38.github.io/index.xml" type="application/rss+xml" title="Hacklog">
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap">
   
 
-  <link rel="manifest" href="/site.webmanifest">
-  <link rel="icon" type="image/png" href="/img/icon.png">
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.css">
+
+  
+
+
+
+
+  
+
+
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon-32.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://sjp38.github.io/post/integrate_external_git_repository_with_history/">
+  <link rel="canonical" href="/post/integrate_external_git_repository_with_history/">
 
+  
+  
+  
+  
+    
+  
+  
   <meta property="twitter:card" content="summary_large_image">
   
-  <meta property="og:site_name" content="Hacklog">
-  <meta property="og:url" content="https://sjp38.github.io/post/integrate_external_git_repository_with_history/">
-  <meta property="og:title" content="Integrate external git repository with its history | Hacklog">
-  <meta property="og:description" content="">
-  <meta property="og:locale" content="en-us">
+  <meta property="og:site_name" content="hacklog">
+  <meta property="og:url" content="/post/integrate_external_git_repository_with_history/">
+  <meta property="og:title" content="Integrate external git repository with its history | hacklog">
+  <meta property="og:description" content="프로젝트 a 와 프로젝트 b 를 병렬로 진행하고 있었는데, 두개의 리포지토리를 합치고 싶어지는 경우가 있습니다. 예컨대 프로젝트 a 의 성격이 보다 범용이 되었고 프로젝트 b 는 프로젝트 a 를 위한 도구적 성격이 되는 경우가 있겠죠. a 프로젝트에 &lsquo;b&rsquo; 디렉토리를 만들고 그 아래 기존 프로젝트 b 의 파일들을 위치하고 싶습니다. 하지만 기존 b 프로젝트의 git 히스토리들도 유지하고 싶습니다. 비슷한 사례로 리눅스 커널 메모리 모델 프로젝트는 별도의 리포지토리[1] 로 개발되었지만 리눅스 업스트림 리포지토리의 tools/ 디렉토리 아래로 머지[2] 되었는데, 이 때 기존 개발 히스토리를 유지했죠."><meta property="og:image" content="/img/tux.png">
+  <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2019-06-27T17:02:49&#43;09:00">
-  
-  <meta property="article:modified_time" content="2019-06-27T17:02:49&#43;09:00">
+    
+      <meta property="article:published_time" content="2019-06-27T17:02:49&#43;09:00">
+    
+    <meta property="article:modified_time" content="2019-06-27T17:02:49&#43;09:00">
   
 
   
 
-  <title>Integrate external git repository with its history | Hacklog</title>
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/post/integrate_external_git_repository_with_history/"
+  },
+  "headline": "Integrate external git repository with its history",
+  
+  "datePublished": "2019-06-27T17:02:49+09:00",
+  "dateModified": "2019-06-27T17:02:49+09:00",
+  
+  "author": {
+    "@type": "Person",
+    "name": "SeongJae Park"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "hacklog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/img/icon-512.png"
+    }
+  },
+  "description": "프로젝트 a 와 프로젝트 b 를 병렬로 진행하고 있었는데, 두개의 리포지토리를 합치고 싶어지는 경우가 있습니다. 예컨대 프로젝트 a 의 성격이 보다 범용이 되었고 프로젝트 b 는 프로젝트 a 를 위한 도구적 성격이 되는 경우가 있겠죠. a 프로젝트에 \u0026lsquo;b\u0026rsquo; 디렉토리를 만들고 그 아래 기존 프로젝트 b 의 파일들을 위치하고 싶습니다. 하지만 기존 b 프로젝트의 git 히스토리들도 유지하고 싶습니다. 비슷한 사례로 리눅스 커널 메모리 모델 프로젝트는 별도의 리포지토리[1] 로 개발되었지만 리눅스 업스트림 리포지토리의 tools/ 디렉토리 아래로 머지[2] 되었는데, 이 때 기존 개발 히스토리를 유지했죠."
+}
+</script>
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>Integrate external git repository with its history | hacklog</title>
 
 </head>
-<body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
 
-<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
   <div class="container">
 
     
-    <div class="navbar-header">
-      
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-              data-target=".navbar-collapse" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      
-      <a class="navbar-brand" href="/">Hacklog</a>
-    </div>
+    
+    
+      <a class="navbar-brand" href="/">hacklog</a>
+    
 
     
-    <div class="collapse navbar-collapse">
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
 
       
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#about"><span>Home</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#projects"><span>Projects</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#publications"><span>Publications</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/tags"><span>Tags</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/categories"><span>Categories</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/post/about"><span>CV</span></a>
+        </li>
+
+        
+        
+
       
-      <ul class="nav navbar-nav navbar-right">
-        
 
         
-
-        
-          
-        
-
-        <li class="nav-item">
-          <a href="/#about">
-            
-            <span>Home</span>
-            
-          </a>
-        </li>
-
-        
-        
-
-        
-
-        
-          
-        
-
-        <li class="nav-item">
-          <a href="/#publications_selected">
-            
-            <span>Publications</span>
-            
-          </a>
-        </li>
-
-        
-        
-
-        
-
-        
-          
-        
-
-        <li class="nav-item">
-          <a href="/#posts">
-            
-            <span>Posts</span>
-            
-          </a>
-        </li>
-
-        
-        
-
-        
-
-        
-          
-        
-
-        <li class="nav-item">
-          <a href="/#projects">
-            
-            <span>Projects</span>
-            
-          </a>
-        </li>
-
-        
-        
-
-        
-
-        
-          
-        
-
-        <li class="nav-item">
-          <a href="/#contact">
-            
-            <span>Contact</span>
-            
-          </a>
-        </li>
-
-        
-        
-
-        
-
-        
-          
-        
-
-        <li class="nav-item">
-          <a href="/#tags">
-            
-            <span>Tags</span>
-            
-          </a>
-        </li>
-
-        
-        
-
-        
-
-        
-          
-        
-
-        <li class="nav-item">
-          <a href="/post/about/">
-            
-            <span>About</span>
-            
-          </a>
-        </li>
-
-        
-        
-      
-
-      
       </ul>
-
     </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      <li class="nav-item">
+        <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      <li class="nav-item dropdown i18n-dropdown">
+        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true">
+          <i class="fas fa-globe mr-1" aria-hidden="true"></i><span class="d-none d-lg-inline">English</span>
+        </a>
+        <div class="dropdown-menu">
+          <div class="dropdown-item i18n-active font-weight-bold">
+            <span>English</span>
+          </div>
+          
+          <a class="dropdown-item" href="/ko/post/integrate_external_git_repository_with_history/">
+            <span>한국어</span>
+          </a>
+          
+        </div>
+      </li>
+      
+
+    </ul>
+
   </div>
 </nav>
 
 
-<article class="article" itemscope itemtype="http://schema.org/Article">
+  <article class="article">
 
   
 
 
-  <div class="article-container">
-    <div class="article-inner">
-      <h1 itemprop="name">Integrate external git repository with its history</h1>
 
-      
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1>Integrate external git repository with its history</h1>
+
+  
+
+  
+    
+
 
 <div class="article-metadata">
 
+  
+  
+
+  
   <span class="article-date">
     
-    <time datetime="2019-06-27 17:02:49 &#43;0900 &#43;0900" itemprop="datePublished">
-      Jun 27, 2019
-    </time>
+    
+      
+    
+    Thu, Jun 27, 2019
   </span>
+  
+
+  
 
   
   <span class="middot-divider"></span>
@@ -274,72 +556,41 @@
 
   
   
-
   
+
   
   
   <span class="middot-divider"></span>
   <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/tip">tip</a
-    >
-    
-  </span>
-  
-  
-
-  
-  
-<div class="share-box" aria-hidden="true">
-  <ul class="share">
-    <li>
-      <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=Integrate%20external%20git%20repository%20with%20its%20history&amp;url=https%3a%2f%2fsjp38.github.io%2fpost%2fintegrate_external_git_repository_with_history%2f"
-         target="_blank" rel="noopener">
-        <i class="fa fa-twitter"></i>
-      </a>
-    </li>
-    <li>
-      <a class="facebook"
-         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fsjp38.github.io%2fpost%2fintegrate_external_git_repository_with_history%2f"
-         target="_blank" rel="noopener">
-        <i class="fa fa-facebook"></i>
-      </a>
-    </li>
-    <li>
-      <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fsjp38.github.io%2fpost%2fintegrate_external_git_repository_with_history%2f&amp;title=Integrate%20external%20git%20repository%20with%20its%20history"
-         target="_blank" rel="noopener">
-        <i class="fa fa-linkedin"></i>
-      </a>
-    </li>
-    <li>
-      <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fsjp38.github.io%2fpost%2fintegrate_external_git_repository_with_history%2f&amp;title=Integrate%20external%20git%20repository%20with%20its%20history"
-         target="_blank" rel="noopener">
-        <i class="fa fa-weibo"></i>
-      </a>
-    </li>
-    <li>
-      <a class="email"
-         href="mailto:?subject=Integrate%20external%20git%20repository%20with%20its%20history&amp;body=https%3a%2f%2fsjp38.github.io%2fpost%2fintegrate_external_git_repository_with_history%2f">
-        <i class="fa fa-envelope"></i>
-      </a>
-    </li>
-  </ul>
-</div>
-
-
+    <i class="fas fa-folder mr-1"></i><a href="/categories/tip/">tip</a></span>
   
 
 </div>
 
+    
 
-      <div class="article-style" itemprop="articleBody">
-        
 
-<p>프로젝트 a 와 프로젝트 b 를 병렬로 진행하고 있었는데, 두개의 리포지토리를
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      <p>프로젝트 a 와 프로젝트 b 를 병렬로 진행하고 있었는데, 두개의 리포지토리를
 합치고 싶어지는 경우가 있습니다.  예컨대 프로젝트 a 의 성격이 보다 범용이
 되었고 프로젝트 b 는 프로젝트 a 를 위한 도구적 성격이 되는 경우가 있겠죠.
 a 프로젝트에 &lsquo;b&rsquo; 디렉토리를 만들고 그 아래 기존 프로젝트 b 의 파일들을 위치하고
@@ -348,103 +599,141 @@ a 프로젝트에 &lsquo;b&rsquo; 디렉토리를 만들고 그 아래 기존 �
 비슷한 사례로 리눅스 커널 메모리 모델 프로젝트는 별도의 리포지토리[1] 로
 개발되었지만 리눅스 업스트림 리포지토리의 tools/ 디렉토리 아래로 머지[2]
 되었는데, 이 때 기존 개발 히스토리를 유지했죠.</p>
-
 <p>이 포스트는 이렇게 특정 git 리포지토리를 그 히스토리를 유지한 채 다른 git
 리포지토리의 하위 디렉토리로 옮기는 법을 설명합니다.</p>
-
-<p>[1] <a href="https://github.com/aparri/memory-model" target="_blank">https://github.com/aparri/memory-model</a></p>
-
-<p>[2] <a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/tools/memory-model" target="_blank">https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/tools/memory-model</a></p>
-
-<h2 id="초기-상황과-목표">초기 상황과 목표</h2>
-
+<p>[1] <a href="https://github.com/aparri/memory-model">https://github.com/aparri/memory-model</a></p>
+<p>[2] <a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/tools/memory-model">https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/tools/memory-model</a></p>
+<h2 id="--">초기 상황과 목표</h2>
 <p>먼저 현재 디렉토리 아래에 a 리포지토리와 b 리포지토리가 있다고 가정합니다:</p>
-
 <pre><code>$ ls
 a   b
 $
-</code></pre>
-
-<p>우리는 a 리포지토리 아래 b/ 디렉토리를 만들고 그 아래 b 리포지토리를 넣고
+</code></pre><p>우리는 a 리포지토리 아래 b/ 디렉토리를 만들고 그 아래 b 리포지토리를 넣고
 싶습니다.</p>
-
-<h2 id="전략">전략</h2>
-
+<h2 id="heading">전략</h2>
 <p>b 리포지토리가 b/ 디렉토리 아래 모든 파일을 위치하도록 변경한 후, 이
 리포지토리를 a 리포지토리에서 <code>--allow-unrelated-histories</code> 옵션을 사용해
 머지하도록 하겠습니다.</p>
-
-<h2 id="합쳐질-리포지토리-파일-구조-변경">합쳐질 리포지토리 파일 구조 변경</h2>
-
+<h2 id="----">합쳐질 리포지토리 파일 구조 변경</h2>
 <p>먼저 b 리포지토리의 파일들이 b/ 디렉토리 아래 위치하도록 만듭니다:</p>
-
 <pre><code>$ cd b
 $ mkdir b
 $ git mv !(b) b
 $ git commit -a -m &quot;Relocate files for inclusion&quot;
-</code></pre>
-
-<h2 id="리포지토리-병합">리포지토리 병합</h2>
-
+</code></pre><h2 id="-">리포지토리 병합</h2>
 <p>이제 b 리포지토리를 임시 remote 리포지토리로 등록하고 머지합니다:</p>
-
 <pre><code>$ cd ../a
 $ git remote add temp ../b
 $ git fetch temp
 $ git merge --allow-unrelated-histories temp/master
-</code></pre>
-
-<p><code>--allow-unrelated-histories</code> 는 경로가 다른 파일에 대한 커밋들도 머지가 될 수
+</code></pre><p><code>--allow-unrelated-histories</code> 는 경로가 다른 파일에 대한 커밋들도 머지가 될 수
 있게 해줍니다.</p>
-
 <p>임시로 등록한 remote 리포지토리는 지워줍시다:</p>
-
 <pre><code>$ git remote rm temp
-</code></pre>
-
-<h2 id="정리">정리</h2>
-
+</code></pre><h2 id="heading1">정리</h2>
 <p>이상과 같이 기존의 개발 히스토리를 유지하면서 특정 git 리포지토리를 다른 git
 리포지토리의 하위 디렉토리로 병합하는 방법을 알아보았습니다.</p>
 
-      </div>
+    </div>
 
-      
+    
+
+
+
 
 
 <div class="article-tags">
   
-  <a class="btn btn-primary btn-outline" href="/tags/git">git</a>
+  <a class="badge badge-light" href="/tags/git/">git</a>
   
-  <a class="btn btn-primary btn-outline" href="/tags/tip">tip</a>
+  <a class="badge badge-light" href="/tags/tip/">tip</a>
   
-  <a class="btn btn-primary btn-outline" href="/tags/version-control">version control</a>
+  <a class="badge badge-light" href="/tags/version-control/">version control</a>
   
 </div>
 
 
 
-    </div>
-  </div>
-
-</article>
-
-
-
-<div class="article-container article-widget">
-  <div class="hr-light"></div>
-  <h3>Related</h3>
-  <ul>
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
     
-    <li><a href="/post/git_origin_story_ko/">Git Origin Story in Korean</a></li>
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=/post/integrate_external_git_repository_with_history/&amp;text=Integrate%20external%20git%20repository%20with%20its%20history" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
     
-    <li><a href="/post/qemu_kernel_debugging/">QEMU 를 사용한 리눅스 커널 디버깅</a></li>
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=/post/integrate_external_git_repository_with_history/&amp;t=Integrate%20external%20git%20repository%20with%20its%20history" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
     
-    <li><a href="/post/kernel-text-addresses-removed-from-calltrace/">Kernel text addresses removed from calltrace</a></li>
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Integrate%20external%20git%20repository%20with%20its%20history&amp;body=/post/integrate_external_git_repository_with_history/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
     
-    <li><a href="/post/xclip_copy_remote_clipboard/">원격 데스크탑의 clipboard 를 ssh 와 xclip 으로 복사해오기</a></li>
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=/post/integrate_external_git_repository_with_history/&amp;title=Integrate%20external%20git%20repository%20with%20its%20history" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
     
-    <li><a href="/post/fetching-linux-source-code/">Fetching linux kernel source code</a></li>
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=Integrate%20external%20git%20repository%20with%20its%20history%20/post/integrate_external_git_repository_with_history/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=/post/integrate_external_git_repository_with_history/&amp;title=Integrate%20external%20git%20repository%20with%20its%20history" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
     
   </ul>
 </div>
@@ -452,50 +741,265 @@ $ git merge --allow-unrelated-histories temp/master
 
 
 
-<div class="article-container">
+
+
+
+
+
+
+
+
   
 
-</div>
 
-<footer class="site-footer">
-  <div class="container">
-    <p class="powered-by">
 
-      &copy; 2017 Your Name &middot; 
 
-      Powered by the
-      <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
-      <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
 
-      <span class="pull-right" aria-hidden="true">
-        <a href="#" id="back_to_top">
-          <span class="button_icon">
-            <i class="fa fa-chevron-up fa-2x"></i>
-          </span>
-        </a>
-      </span>
 
-    </p>
+  
+  
+  
+    
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      <img class="portrait mr-3" src="https://s.gravatar.com/avatar/43dc5645c78e68fda997138380dfaaf4?s=200')" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="/">SeongJae Park</a></h5>
+      <h6 class="card-subtitle">Kernel / Hypervisor Engineer</h6>
+      <p class="card-text">SeongJae Park is a programmer who loves to analyze and develop systems.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.com/citations?user=jJIiF3AAAAAJ" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/sjp38" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
   </div>
+
+
+
+
+
+
+
+
+
+  
+  
+  <div class="article-widget content-widget-hr">
+    <h3>Related</h3>
+    <ul>
+      
+      <li><a href="/post/git_origin_story_ko/">Git Origin Story in Korean</a></li>
+      
+      <li><a href="/post/qemu_kernel_debugging/">QEMU 를 사용한 리눅스 커널 디버깅</a></li>
+      
+      <li><a href="/post/kernel-text-addresses-removed-from-calltrace/">Kernel text addresses removed from calltrace</a></li>
+      
+      <li><a href="/post/xclip_copy_remote_clipboard/">원격 데스크탑의 clipboard 를 ssh 와 xclip 으로 복사해오기</a></li>
+      
+      <li><a href="/post/fetching-linux-source-code/">Fetching linux kernel source code</a></li>
+      
+    </ul>
+  </div>
+  
+
+
+
+  </div>
+</article>
+
+      
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js" integrity="sha256-1zu+3BnLYV9LdiY85uXMzii3bdrkelyp37e0ZyTAQh0=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/languages/c.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/languages/bash.min.js"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js" integrity="sha256-EErZamuLefUnbMBQbsEqu1USa+btR2oIlCpBJbyD4/g=" crossorigin="anonymous"></script>
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.bcfae8267aba63cc55af53a503896bd9.js"></script>
+
+    
+
+
+
+
+
+
+  
+  
+  <div class="container">
+    <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" class="back-to-top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
 </footer>
 
+  </div>
+  
 
+  
 <div id="modal" class="modal fade" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close btn-large" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Cite</h4>
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
-      <div>
-        <pre><code class="modal-body tex"></code></pre>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
       </div>
       <div class="modal-footer">
-        <a class="btn btn-primary btn-outline js-copy-cite" href="#" target="_blank">
-          <i class="fa fa-copy"></i> Copy
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
         </a>
-        <a class="btn btn-primary btn-outline js-download-cite" href="#" target="_blank">
-          <i class="fa fa-download"></i> Download
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
         </a>
         <div id="modal-error"></div>
       </div>
@@ -503,40 +1007,5 @@ $ git merge --allow-unrelated-histories temp/master
   </div>
 </div>
 
-    
-
-    
-    
-
-    
-
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.3/imagesloaded.pkgd.min.js" integrity="sha512-umsR78NN0D23AzgoZ11K7raBD+R6hqKojyBZs1w8WvYlsI+QuKRGBx3LFCwhatzBunCjDuJpDHwxD13sLMbpRA==" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ==" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
-    
-    
-    <script src="/js/hugo-academic.js"></script>
-    
-
-    
-    
-      
-      
-      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
-      
-
-      
-
-      
-
-      <script>hljs.initHighlightingOnLoad();</script>
-    
-
-    
-    
-
-  </body>
+</body>
 </html>
-

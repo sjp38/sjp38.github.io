@@ -1,22 +1,49 @@
 <!DOCTYPE html>
 <html lang="en-us">
+
 <head>
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="theme" content="hugo-academic">
-  <meta name="generator" content="Hugo 0.51" />
+  <meta name="generator" content="Source Themes Academic 4.6.2">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
   <meta name="author" content="SeongJae Park">
-  <meta name="description" content="System Programmer">
-
-  
-  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/tpch-on-mariadb/">
 
   
   
+  
+    
+  
+  <meta name="description" content="Database 를 위해 사용되는 벤치마크는 크게 OLTP vs OLAP 로 나뉩니다[1]. OLTP 계열의 대표주자는 TPC-C 이고, OLAP 계열의 대표주자 중 하나로 TPC-H[2] 가 있습니다. 이 글에서는 TPC-H 를 MariaDB 에서 돌리는 방법에 대해 설명합니다.
+Environment Setup 이 글을 작성하면서 사용한 운영체제와 소프트웨어들의 버전은 다음과 같습니다.
+ Ubuntu 16.04.2 Server MariaDB 10.2.8 TPC-H toolkit 2.17.2  Automated Scripts 아래 설명할 모든 내용을 자동화 해서 손쉽게 TPC-H 를 돌릴 수 있도록 소스코드 변경부터 빌드, 수행까지 정리한 스크립트들을 github 에 올려 두었습니다: https://github.">
+
+  
+  <link rel="alternate" hreflang="ko" href="/ko/post/tpch-on-mariadb/">
+  
+  <link rel="alternate" hreflang="en-us" href="/post/tpch-on-mariadb/">
+
+  
 
 
+  
+  
+  
+  <meta name="theme-color" content="#2962ff">
   
 
   
@@ -24,246 +51,505 @@
   
   
     
-  
-  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+    
     
     
       
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
       
     
-  
-  
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha512-6MXa8B6uaO18Hid6blRMetEIoPqHf7Ux1tnyIQdpt9qI5OACx7C+O3IVTr98vwGnlcg0LOLa02i9Y1HpVhlfiw==" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.1/css/academicons.min.css" integrity="sha512-NThgw3XKQ1absAahW6to7Ey42uycrVvfNfyjqcFNgCmOCQ5AR4AO0SiXrN+8ZtYeappp56lk1WtvjVmEa+VR6A==" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous">
-  
-  
-  
-  
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700%7cRoboto:400,400italic,700%7cRoboto&#43;Mono">
-  
-  <link rel="stylesheet" href="/styles.css">
-  
 
-  
-    <script>
-      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-      ga('create', 'UA-30621335-1', 'auto');
-      ga('require', 'eventTracker');
-      ga('require', 'outboundLinkTracker');
-      ga('require', 'urlChangeTracker');
-      ga('send', 'pageview');
-    </script>
-    <script async src="//www.google-analytics.com/analytics.js"></script>
     
-    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css" integrity="sha256-SHMGCYmST46SoyGgo4YR/9AlK1vf3ff84Aq9yK4hdqM=" crossorigin="anonymous">
     
+
+    
+
   
 
   
-  <link rel="alternate" href="https://sjp38.github.io/index.xml" type="application/rss+xml" title="Hacklog">
-  <link rel="feed" href="https://sjp38.github.io/index.xml" type="application/rss+xml" title="Hacklog">
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap">
   
 
-  <link rel="manifest" href="/site.webmanifest">
-  <link rel="icon" type="image/png" href="/img/icon.png">
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.css">
+
+  
+
+
+
+
+  
+
+
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon-32.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://sjp38.github.io/post/tpch-on-mariadb/">
+  <link rel="canonical" href="/post/tpch-on-mariadb/">
 
+  
+  
+  
+  
+    
+  
+  
   <meta property="twitter:card" content="summary_large_image">
   
-  <meta property="og:site_name" content="Hacklog">
-  <meta property="og:url" content="https://sjp38.github.io/post/tpch-on-mariadb/">
-  <meta property="og:title" content="TPC-H on MariaDB (MySQL) | Hacklog">
-  <meta property="og:description" content="">
-  <meta property="og:locale" content="en-us">
+  <meta property="og:site_name" content="hacklog">
+  <meta property="og:url" content="/post/tpch-on-mariadb/">
+  <meta property="og:title" content="TPC-H on MariaDB (MySQL) | hacklog">
+  <meta property="og:description" content="Database 를 위해 사용되는 벤치마크는 크게 OLTP vs OLAP 로 나뉩니다[1]. OLTP 계열의 대표주자는 TPC-C 이고, OLAP 계열의 대표주자 중 하나로 TPC-H[2] 가 있습니다. 이 글에서는 TPC-H 를 MariaDB 에서 돌리는 방법에 대해 설명합니다.
+Environment Setup 이 글을 작성하면서 사용한 운영체제와 소프트웨어들의 버전은 다음과 같습니다.
+ Ubuntu 16.04.2 Server MariaDB 10.2.8 TPC-H toolkit 2.17.2  Automated Scripts 아래 설명할 모든 내용을 자동화 해서 손쉽게 TPC-H 를 돌릴 수 있도록 소스코드 변경부터 빌드, 수행까지 정리한 스크립트들을 github 에 올려 두었습니다: https://github."><meta property="og:image" content="/img/tux.png">
+  <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2017-09-10T10:54:24&#43;09:00">
-  
-  <meta property="article:modified_time" content="2017-09-10T10:54:24&#43;09:00">
+    
+      <meta property="article:published_time" content="2017-09-10T10:54:24&#43;09:00">
+    
+    <meta property="article:modified_time" content="2017-09-10T10:54:24&#43;09:00">
   
 
   
 
-  <title>TPC-H on MariaDB (MySQL) | Hacklog</title>
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/post/tpch-on-mariadb/"
+  },
+  "headline": "TPC-H on MariaDB (MySQL)",
+  
+  "datePublished": "2017-09-10T10:54:24+09:00",
+  "dateModified": "2017-09-10T10:54:24+09:00",
+  
+  "author": {
+    "@type": "Person",
+    "name": "SeongJae Park"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "hacklog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/img/icon-512.png"
+    }
+  },
+  "description": "Database 를 위해 사용되는 벤치마크는 크게 OLTP vs OLAP 로 나뉩니다[1]. OLTP 계열의 대표주자는 TPC-C 이고, OLAP 계열의 대표주자 중 하나로 TPC-H[2] 가 있습니다. 이 글에서는 TPC-H 를 MariaDB 에서 돌리는 방법에 대해 설명합니다.\nEnvironment Setup 이 글을 작성하면서 사용한 운영체제와 소프트웨어들의 버전은 다음과 같습니다.\n Ubuntu 16.04.2 Server MariaDB 10.2.8 TPC-H toolkit 2.17.2  Automated Scripts 아래 설명할 모든 내용을 자동화 해서 손쉽게 TPC-H 를 돌릴 수 있도록 소스코드 변경부터 빌드, 수행까지 정리한 스크립트들을 github 에 올려 두었습니다: https://github."
+}
+</script>
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>TPC-H on MariaDB (MySQL) | hacklog</title>
 
 </head>
-<body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
 
-<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
   <div class="container">
 
     
-    <div class="navbar-header">
-      
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-              data-target=".navbar-collapse" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      
-      <a class="navbar-brand" href="/">Hacklog</a>
-    </div>
+    
+    
+      <a class="navbar-brand" href="/">hacklog</a>
+    
 
     
-    <div class="collapse navbar-collapse">
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
 
       
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#about"><span>Home</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#projects"><span>Projects</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#publications"><span>Publications</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/tags"><span>Tags</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/categories"><span>Categories</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/post/about"><span>CV</span></a>
+        </li>
+
+        
+        
+
       
-      <ul class="nav navbar-nav navbar-right">
-        
 
         
-
-        
-          
-        
-
-        <li class="nav-item">
-          <a href="/#about">
-            
-            <span>Home</span>
-            
-          </a>
-        </li>
-
-        
-        
-
-        
-
-        
-          
-        
-
-        <li class="nav-item">
-          <a href="/#publications_selected">
-            
-            <span>Publications</span>
-            
-          </a>
-        </li>
-
-        
-        
-
-        
-
-        
-          
-        
-
-        <li class="nav-item">
-          <a href="/#posts">
-            
-            <span>Posts</span>
-            
-          </a>
-        </li>
-
-        
-        
-
-        
-
-        
-          
-        
-
-        <li class="nav-item">
-          <a href="/#projects">
-            
-            <span>Projects</span>
-            
-          </a>
-        </li>
-
-        
-        
-
-        
-
-        
-          
-        
-
-        <li class="nav-item">
-          <a href="/#contact">
-            
-            <span>Contact</span>
-            
-          </a>
-        </li>
-
-        
-        
-
-        
-
-        
-          
-        
-
-        <li class="nav-item">
-          <a href="/#tags">
-            
-            <span>Tags</span>
-            
-          </a>
-        </li>
-
-        
-        
-
-        
-
-        
-          
-        
-
-        <li class="nav-item">
-          <a href="/post/about/">
-            
-            <span>About</span>
-            
-          </a>
-        </li>
-
-        
-        
-      
-
-      
       </ul>
-
     </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      <li class="nav-item">
+        <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      <li class="nav-item dropdown i18n-dropdown">
+        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true">
+          <i class="fas fa-globe mr-1" aria-hidden="true"></i><span class="d-none d-lg-inline">English</span>
+        </a>
+        <div class="dropdown-menu">
+          <div class="dropdown-item i18n-active font-weight-bold">
+            <span>English</span>
+          </div>
+          
+          <a class="dropdown-item" href="/ko/post/tpch-on-mariadb/">
+            <span>한국어</span>
+          </a>
+          
+        </div>
+      </li>
+      
+
+    </ul>
+
   </div>
 </nav>
 
 
-<article class="article" itemscope itemtype="http://schema.org/Article">
+  <article class="article">
 
   
 
 
-  <div class="article-container">
-    <div class="article-inner">
-      <h1 itemprop="name">TPC-H on MariaDB (MySQL)</h1>
 
-      
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1>TPC-H on MariaDB (MySQL)</h1>
+
+  
+
+  
+    
+
 
 <div class="article-metadata">
 
+  
+  
+
+  
   <span class="article-date">
     
-    <time datetime="2017-09-10 10:54:24 &#43;0900 &#43;0900" itemprop="datePublished">
-      Sep 10, 2017
-    </time>
+    
+      
+    
+    Sun, Sep 10, 2017
   </span>
+  
+
+  
 
   
   <span class="middot-divider"></span>
@@ -274,92 +560,56 @@
 
   
   
-
   
+
   
   
   <span class="middot-divider"></span>
   <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/tip">tip</a
-    >
-    
-  </span>
-  
-  
-
-  
-  
-<div class="share-box" aria-hidden="true">
-  <ul class="share">
-    <li>
-      <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=TPC-H%20on%20MariaDB%20%28MySQL%29&amp;url=https%3a%2f%2fsjp38.github.io%2fpost%2ftpch-on-mariadb%2f"
-         target="_blank" rel="noopener">
-        <i class="fa fa-twitter"></i>
-      </a>
-    </li>
-    <li>
-      <a class="facebook"
-         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fsjp38.github.io%2fpost%2ftpch-on-mariadb%2f"
-         target="_blank" rel="noopener">
-        <i class="fa fa-facebook"></i>
-      </a>
-    </li>
-    <li>
-      <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fsjp38.github.io%2fpost%2ftpch-on-mariadb%2f&amp;title=TPC-H%20on%20MariaDB%20%28MySQL%29"
-         target="_blank" rel="noopener">
-        <i class="fa fa-linkedin"></i>
-      </a>
-    </li>
-    <li>
-      <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fsjp38.github.io%2fpost%2ftpch-on-mariadb%2f&amp;title=TPC-H%20on%20MariaDB%20%28MySQL%29"
-         target="_blank" rel="noopener">
-        <i class="fa fa-weibo"></i>
-      </a>
-    </li>
-    <li>
-      <a class="email"
-         href="mailto:?subject=TPC-H%20on%20MariaDB%20%28MySQL%29&amp;body=https%3a%2f%2fsjp38.github.io%2fpost%2ftpch-on-mariadb%2f">
-        <i class="fa fa-envelope"></i>
-      </a>
-    </li>
-  </ul>
-</div>
-
-
+    <i class="fas fa-folder mr-1"></i><a href="/categories/tip/">tip</a></span>
   
 
 </div>
 
+    
 
-      <div class="article-style" itemprop="articleBody">
-        
 
-<p>Database 를 위해 사용되는 벤치마크는 크게 OLTP vs OLAP 로 나뉩니다[1].  OLTP
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      <p>Database 를 위해 사용되는 벤치마크는 크게 OLTP vs OLAP 로 나뉩니다[1].  OLTP
 계열의 대표주자는 TPC-C 이고, OLAP 계열의 대표주자 중 하나로 TPC-H[2] 가
 있습니다.  이 글에서는 TPC-H 를 MariaDB 에서 돌리는 방법에 대해 설명합니다.</p>
-
 <h1 id="environment-setup">Environment Setup</h1>
-
-<p>이 글을 작성하면서 사용한 운영체제와 소프트웨어들의 버전은 다음과 같습니다.
-- Ubuntu 16.04.2 Server
-- MariaDB 10.2.8
-- TPC-H toolkit 2.17.2</p>
-
+<p>이 글을 작성하면서 사용한 운영체제와 소프트웨어들의 버전은 다음과 같습니다.</p>
+<ul>
+<li>Ubuntu 16.04.2 Server</li>
+<li>MariaDB 10.2.8</li>
+<li>TPC-H toolkit 2.17.2</li>
+</ul>
 <h1 id="automated-scripts">Automated Scripts</h1>
-
 <p>아래 설명할 모든 내용을 자동화 해서 손쉽게 TPC-H 를 돌릴 수 있도록 소스코드
 변경부터 빌드, 수행까지 정리한 스크립트들을 github 에 올려 두었습니다:
-<a href="https://github.com/sjp38/tpch-mariadb" target="_blank">https://github.com/sjp38/tpch-mariadb</a></p>
-
+<a href="https://github.com/sjp38/tpch-mariadb">https://github.com/sjp38/tpch-mariadb</a></p>
 <p>시간이 없다면 해당 스크립트를 사용하실 것을 권장합니다.</p>
-
-<h1 id="tpc-h-spec">TPC-H Spec</h1>
-
+<h1 id="tpch-spec">TPC-H Spec</h1>
 <p>TPC-H 벤치마크 스펙은 TPC 웹사이트에서 얻을 수 있습니다[3].  하지만 여기서는
 간단히 설명을 해봅니다.  간단한 설명인 만큼 내용이 엄밀히 말해서 맞다고 할수는
 없으므로 엄밀한 내용은 정식 스펙 또는 다른 문서를 확인해 보시기 바랍니다.
@@ -368,9 +618,7 @@ TPC-H 는 8개의 테이블에 많은 데이터를 쌓아놓고, 이 데이터�
 데이터를 로드하는데 걸리는 시간, 22개의 쿼리 각각의 수행 시간, 그리고 여러
 세션을 열어놓고 22개 쿼리를 각 세션에서 수행하면서 파악되는 처리량 (초당 처리된
 쿼리의 갯수)으로 측정됩니다.</p>
-
-<h1 id="get-tpc-h-toolkit">Get TPC-H Toolkit</h1>
-
+<h1 id="get-tpch-toolkit">Get TPC-H Toolkit</h1>
 <p>TPC-H 는 8개의 테이블에 데이터가 쌓인 상태에서, 이 데이터의 분석을 위한 22개의
 쿼리들을 날리는 형태로 이루어져 있습니다.  테이블을 어떻게 만들고 거기에
 데이터는 어떻게 넣어야 하며, 쿼리는 어떤 것들로 이루어져야 하는지에 대한
@@ -380,26 +628,20 @@ TPC-H 는 8개의 테이블에 많은 데이터를 쌓아놓고, 이 데이터�
 그 소스코드를 공식적으로 제공하고 있습니다.  TPC 의 해당 사이트[4]를 찾아가
 개인정보를 입력하고 license 에 동의를 하면 다운로드 받을 수 있는 링크를 메일로
 보내줍니다.</p>
-
 <p>이렇게 받은 파일은 zip 파일입니다.  압축을 풀어보면 아래와 같이 해당 버전명의
 디렉토리가 나오고, 그 아래에 실제 소스 코드와 라이센스 파일이 있습니다.  여기서
 우린 dbgen/ 디렉토리를 사용할 겁니다.</p>
-
 <pre><code>$ tree 2.17.2 -L 1
 2.17.2
 ├── dbgen
 ├── dev-tools
 ├── EULA.txt
 └── ref_data
-</code></pre>
-
-<h1 id="build-source-code">Build Source Code</h1>
-
+</code></pre><h1 id="build-source-code">Build Source Code</h1>
 <p>dbgen 디렉토리 아래 dbgen 과 qgen 이라는, 우리가 사용하게 될 프로그램을 위한
 소스코드가 있습니다.  여기 있는 makefile.suite 라는 파일은 <code>make</code> 를 사용해 이
 코드를 빌드하기 위한 규칙의 기본 골조를 담고 있습니다.  이 파일을 `makefile&rsquo;
 이라는 이름으로 복사하고 내용을 다음과 같이 수정합니다.</p>
-
 <pre><code>$ diff -u makefile.suite makefile
 --- makefile.suite      2017-04-21 06:01:08.000000000 +0900
 +++ makefile    2017-09-10 11:10:12.563384756 +0900
@@ -423,10 +665,7 @@ TPC-H 는 8개의 테이블에 많은 데이터를 쌓아놓고, 이 데이터�
  #
  CFLAGS = -g -DDBNAME=\&quot;dss\&quot; -D$(MACHINE) -D$(DATABASE) -D$(WORKLOAD) -DRNG_TEST -D_FILE_OFFSET_BITS=64
  LDFLAGS = -O
-</code></pre>
-
-<p>이후, <code>$ make</code> 명령으로 dbgen 과 qgen 이라는 프로그램이 빌드됩니다.</p>
-
+</code></pre><p>이후, <code>$ make</code> 명령으로 dbgen 과 qgen 이라는 프로그램이 빌드됩니다.</p>
 <pre><code>$ make
 
 ...
@@ -436,32 +675,23 @@ $ file dbgen
 dbgen: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 2.6.32, BuildID[sha1]=d0bca1a18c33947d85f5943c8325837faec7c95d, not stripped
 $ file qgen
 qgen: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 2.6.32, BuildID[sha1]=79a6216e04c446715b0e55f9c804586887b698c8, not stripped
-</code></pre>
-
-<h1 id="tpc-h-toolkit-usage">TPC-H Toolkit Usage</h1>
-
+</code></pre><h1 id="tpch-toolkit-usage">TPC-H Toolkit Usage</h1>
 <p>MariaDB 에 TPC-H 를 돌리기 위해선 여기서 몇가지 추가 수정을 해야합니다.  하지만
 그에 앞서 <code>dbgen/</code> 디렉토리 내의 파일들을 어떻게 사용해서 TPC-H 를 수행하는지
 알아봅시다.</p>
-
 <h2 id="data-preparation">Data Preparation</h2>
-
 <p>먼저 dss.ddl 파일은 8개의 테이블 생성에 사용되는 sql 문을 담고 있습니다.  DB
 에서 이 파일 내에 적힌 sql 문들을 그대로 수행하라고 하면 8개의 테이블이
 생성됩니다.</p>
-
 <p>dbgen 은 테이블에 데이터를 로드하는 sql 문을 생성합니다.  dbgen 에 scale factor
 등의 인자를 줘서 수행시키면 8개의 <code>.tbl</code> suffix 를 갖는 파일이 생성됩니다.  이
 파일들은 각각 파일명에 일치하는 이름의 테이블에 데이터를 insert 하는 query
 문들로 구성되어 있습니다.  DB 에 이 파일 내의 sql 명령들을 수행하라고 하면
 데이터가 로드되는 것입니다.</p>
-
 <p>dss.ri 는 테이블 인덱스 생성에 필요한 sql 문을 담고 있습니다.  DB 에 이 파일
 내의 sql 명령들을 수행하라고 함으로써 테이블 인덱스 생성이 완료되어 TPC-H 의
 쿼리들을 수행할 준비가 마쳐집니다.</p>
-
 <h2 id="query-creation-and-execution">Query Creation and Execution</h2>
-
 <p>qgen 은 TPC-H 의 분석 작업을 대표하는 22개의 쿼리를 생성해 줍니다.  22개의
 쿼리라고 표현했지만 22 종류의 쿼리라고 하는게 옳을 겁니다.  동일한 쿼리의 경우
 반복 수행되면 DB 에서 앞 쿼리의 결과를 캐시해 뒀다가 곧바로 리턴하기 때문에
@@ -469,33 +699,24 @@ qgen: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked, i
 생성되어야 하는 22 종류 쿼리의 템플릿을 담고 있습니다.  qgen 은 이 템플릿을
 참고하고 랜덤하게 인자를 생성해 최종적으로 DB 에서 수행될 수 있는 쿼리문을
 생성합니다.  이 때 랜덤 시드는 dists.dss 라는 파일을 참고해 만들어집니다.</p>
-
-<h1 id="modify-tpc-h-toolkit-for-mariadb">Modify TPC-H Toolkit for MariaDB</h1>
-
+<h1 id="modify-tpch-toolkit-for-mariadb">Modify TPC-H Toolkit for MariaDB</h1>
 <p>DBMS 마다 query syntax 가 조금씩 다릅니다.  때문에 TPC-H Toolkit 은 지원하는
 DBMS 마다 다르게 테이블 생성, 쿼리 생성을 하도록 짜여져 있습니다만, 지원하는
 DBMS 목록에 MariaDB 는 포함되어 있지 않습니다.  따라서 MariaDB 에 TPC-H 를
 돌리기 위해선 TPC-H Toolkit 의 일부분을 수정해야 합니다.</p>
-
 <p>수정해야 하는 파일은 dss.ddl, dss.ri, 그리고 queries/ 디렉토리 아래의 템플릿
 등입니다.  하나하나 설명하는 것은 너무 내용이 길어지므로, 수정 내용을 patch
 형태로 만들어 github 에 올려두었습니다[5].  이 패치 파일을 가져와서 다음과 같이
 적용할 수 있습니다.  명령을 수행하는 디렉토리는 TPC-H Toolkit 소스코드 디렉토리
 여야 합니다.</p>
-
 <pre><code>$ wget https://raw.githubusercontent.com/sjp38/tpch-mariadb/07fdcbfa9ba1be26f437ff130338a223d0dbfecd/0001-Modify-for-MariaDB.patch
 $ patch -p1 &lt; 0001-Modify-for-MariaDB.patch
-</code></pre>
-
-<p>위 변경 사항은 makefile 의 수정도 포함되어 있습니다.  적용 후 dbgen, qgen 을
+</code></pre><p>위 변경 사항은 makefile 의 수정도 포함되어 있습니다.  적용 후 dbgen, qgen 을
 빌드해 줍시다.</p>
-
 <h1 id="data-creation">Data Creation</h1>
-
 <p>dbgen/ 디렉토리로 들어가 dbgen 을 수행해 줍니다.  인자로 scale factor 등을 줄
 수 있습니다.  -h 인자를 줘서 dbgen 의 수행 방법을 알 수 있으니 참고합시다.
 수행이 마무리 되면 다음과 같이 8개의 .tbl suffix 를 갖는 파일들이 생성됩니다.</p>
-
 <pre><code>dbgen$ ls -ahl *.tbl
 -rw-rw-r-- 1 sjpark sjpark 187M Sep  9 10:48 customer.tbl
 -rw-rw-r-- 1 sjpark sjpark 5.8G Sep  9 10:48 lineitem.tbl
@@ -505,16 +726,11 @@ $ patch -p1 &lt; 0001-Modify-for-MariaDB.patch
 -rw-rw-r-- 1 sjpark sjpark 186M Sep  9 10:48 part.tbl
 -rw-rw-r-- 1 sjpark sjpark  389 Sep  9 10:48 region.tbl
 -rw-rw-r-- 1 sjpark sjpark  11M Sep  9 10:48 supplier.tbl
-</code></pre>
-
-<p>참고로, 위 수행결과는 scale factor 값을 8로 준 결과입니다.</p>
-
+</code></pre><p>참고로, 위 수행결과는 scale factor 값을 8로 준 결과입니다.</p>
 <h1 id="load-data">Load Data</h1>
-
 <p>이제 MariaDB 를 사용해 tpch 라는 이름의 데이터베이스를 생성하고 (line 1) 그
 아래 테이블을 생성하고 (line 2) 각 테이블에 데이터를 로드한 후 (line 3-5) 각
 테이블의 인덱스까지 만들어 줍시다 (line 6).</p>
-
 <pre><code>$ mysql -u root -p password -e &quot;create database tpch;&quot;
 $ mysql -u root -p password &lt; dss.ddl
 $ for table in customer lineitem nation orders partsupp part region supplier \
@@ -522,83 +738,134 @@ $ for table in customer lineitem nation orders partsupp part region supplier \
 		&quot;LOAD DATA LOCAL INFILE '$table.tbl' FIELDS TERMINATED BY '|';&quot;
 	done
 $ mysql -u root -p password &lt; ./dss.ri
-</code></pre>
-
-<h1 id="create-queries">Create Queries</h1>
-
+</code></pre><h1 id="create-queries">Create Queries</h1>
 <p>이제 쿼리를 만들어 봅시다.  qgen 은 인자로 생성할 쿼리의 타입을 1-22 사이 숫자로 받아서 쿼리문을 생성, 화면에 뿌려줍니다.  다음과 같은 커맨드로 이를 따로 저장합니다.  아래 커맨드는 dbgen/ 디렉토리 아래에서 수행됨을 가정합니다.</p>
-
 <pre><code>$ cd queries/
 $ for i in {1..22}; do ../qgen $i &gt; query-$i.sql; done
-</code></pre>
-
-<p>이제 dbgen/queries/ 디렉토리 아래에 <code>query-</code> 라는 prefix 의 쿼리문을 담는 파일
+</code></pre><p>이제 dbgen/queries/ 디렉토리 아래에 <code>query-</code> 라는 prefix 의 쿼리문을 담는 파일
 22개가 생성되어 있습니다.</p>
-
 <h1 id="execute-queries">Execute Queries</h1>
-
 <p>앞서 생성한 쿼리문 파일은 MariaDB 에 호환되는 sql 문으로 구성되어 있으므로,
 아래와 같이 간단히 실행시키면 됩니다.</p>
-
 <pre><code>$ for i in {1..22}; do mysql -u root -p password &lt; dbgen/queries/query-$i.sql
-</code></pre>
-
-<p>일부 쿼리는 수십초, 일부 쿼리는 1초도 걸리지 않아 수행되는 걸 확인할 수
+</code></pre><p>일부 쿼리는 수십초, 일부 쿼리는 1초도 걸리지 않아 수행되는 걸 확인할 수
 있습니다.</p>
-
 <h1 id="conclusion">Conclusion</h1>
-
 <p>TPC-H 가 어떻게 구성되어 있고 어떻게 수행시키며, MariaDB 에서의 수행을 위해서는
 어떤 수정이 필요한지 설명했습니다.  github 에 있는 자동화 스크립트[6]를
 이용하면 이 과정을 손쉽게 한번에 해결할 수 있습니다.</p>
-
 <h1 id="references">References</h1>
+<p>[1] <a href="http://datawarehouse4u.info/OLTP-vs-OLAP.html">http://datawarehouse4u.info/OLTP-vs-OLAP.html</a><br>
+[2] <a href="http://www.tpc.org/tpch/">http://www.tpc.org/tpch/</a><br>
+[3] <a href="http://www.tpc.org/tpc_documents_current_versions/pdf/tpc-h_v2.17.2.pdf">http://www.tpc.org/tpc_documents_current_versions/pdf/tpc-h_v2.17.2.pdf</a><br>
+[4] <a href="http://www.tpc.org/tpc_documents_current_versions/download_programs/tools-download-request.asp?bm_type=TPC-H&amp;bm_vers=2.17.2&amp;mode=CURRENT-ONLY">http://www.tpc.org/tpc_documents_current_versions/download_programs/tools-download-request.asp?bm_type=TPC-H&amp;bm_vers=2.17.2&amp;mode=CURRENT-ONLY</a><br>
+[5] <a href="https://raw.githubusercontent.com/sjp38/tpch-mariadb/07fdcbfa9ba1be26f437ff130338a223d0dbfecd/0001-Modify-for-MariaDB.patch">https://raw.githubusercontent.com/sjp38/tpch-mariadb/07fdcbfa9ba1be26f437ff130338a223d0dbfecd/0001-Modify-for-MariaDB.patch</a><br>
+[6] <a href="https://github.com/sjp38/tpch-mariadb">https://github.com/sjp38/tpch-mariadb</a></p>
 
-<p>[1] <a href="http://datawarehouse4u.info/OLTP-vs-OLAP.html" target="_blank">http://datawarehouse4u.info/OLTP-vs-OLAP.html</a><br />
-[2] <a href="http://www.tpc.org/tpch/" target="_blank">http://www.tpc.org/tpch/</a><br />
-[3] <a href="http://www.tpc.org/tpc_documents_current_versions/pdf/tpc-h_v2.17.2.pdf" target="_blank">http://www.tpc.org/tpc_documents_current_versions/pdf/tpc-h_v2.17.2.pdf</a><br />
-[4] <a href="http://www.tpc.org/tpc_documents_current_versions/download_programs/tools-download-request.asp?bm_type=TPC-H&amp;bm_vers=2.17.2&amp;mode=CURRENT-ONLY" target="_blank">http://www.tpc.org/tpc_documents_current_versions/download_programs/tools-download-request.asp?bm_type=TPC-H&amp;bm_vers=2.17.2&amp;mode=CURRENT-ONLY</a><br />
-[5] <a href="https://raw.githubusercontent.com/sjp38/tpch-mariadb/07fdcbfa9ba1be26f437ff130338a223d0dbfecd/0001-Modify-for-MariaDB.patch" target="_blank">https://raw.githubusercontent.com/sjp38/tpch-mariadb/07fdcbfa9ba1be26f437ff130338a223d0dbfecd/0001-Modify-for-MariaDB.patch</a><br />
-[6] <a href="https://github.com/sjp38/tpch-mariadb" target="_blank">https://github.com/sjp38/tpch-mariadb</a></p>
+    </div>
 
-      </div>
+    
 
-      
+
+
 
 
 <div class="article-tags">
   
-  <a class="btn btn-primary btn-outline" href="/tags/tpch">tpch</a>
+  <a class="badge badge-light" href="/tags/tpch/">tpch</a>
   
-  <a class="btn btn-primary btn-outline" href="/tags/benchmark">benchmark</a>
+  <a class="badge badge-light" href="/tags/benchmark/">benchmark</a>
   
-  <a class="btn btn-primary btn-outline" href="/tags/tpc-h">tpc-h</a>
+  <a class="badge badge-light" href="/tags/tpc-h/">tpc-h</a>
   
-  <a class="btn btn-primary btn-outline" href="/tags/mariadb">mariadb</a>
+  <a class="badge badge-light" href="/tags/mariadb/">mariadb</a>
   
-  <a class="btn btn-primary btn-outline" href="/tags/mysql">mysql</a>
+  <a class="badge badge-light" href="/tags/mysql/">mysql</a>
   
 </div>
 
 
 
-    </div>
-  </div>
-
-</article>
-
-
-
-<div class="article-container article-widget">
-  <div class="hr-light"></div>
-  <h3>Related</h3>
-  <ul>
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
     
-    <li><a href="/post/mariadb_setup/">Ubuntu 16.04 Server 위에 MariaDB 설치/사용하기</a></li>
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=/post/tpch-on-mariadb/&amp;text=TPC-H%20on%20MariaDB%20%28MySQL%29" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
     
-    <li><a href="/post/parsec_3_howto/">Parsec 3.0 설치 / 사용법</a></li>
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=/post/tpch-on-mariadb/&amp;t=TPC-H%20on%20MariaDB%20%28MySQL%29" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
     
-    <li><a href="/post/spec_cpu2006_install/">spec cpu2006 벤치마크 설치 / 실행하기</a></li>
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=TPC-H%20on%20MariaDB%20%28MySQL%29&amp;body=/post/tpch-on-mariadb/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=/post/tpch-on-mariadb/&amp;title=TPC-H%20on%20MariaDB%20%28MySQL%29" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=TPC-H%20on%20MariaDB%20%28MySQL%29%20/post/tpch-on-mariadb/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=/post/tpch-on-mariadb/&amp;title=TPC-H%20on%20MariaDB%20%28MySQL%29" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
     
   </ul>
 </div>
@@ -606,50 +873,261 @@ $ for i in {1..22}; do ../qgen $i &gt; query-$i.sql; done
 
 
 
-<div class="article-container">
+
+
+
+
+
+
+
+
   
 
-</div>
 
-<footer class="site-footer">
-  <div class="container">
-    <p class="powered-by">
 
-      &copy; 2017 Your Name &middot; 
 
-      Powered by the
-      <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
-      <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
 
-      <span class="pull-right" aria-hidden="true">
-        <a href="#" id="back_to_top">
-          <span class="button_icon">
-            <i class="fa fa-chevron-up fa-2x"></i>
-          </span>
-        </a>
-      </span>
 
-    </p>
+  
+  
+  
+    
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      <img class="portrait mr-3" src="https://s.gravatar.com/avatar/43dc5645c78e68fda997138380dfaaf4?s=200')" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="/">SeongJae Park</a></h5>
+      <h6 class="card-subtitle">Kernel / Hypervisor Engineer</h6>
+      <p class="card-text">SeongJae Park is a programmer who loves to analyze and develop systems.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.com/citations?user=jJIiF3AAAAAJ" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/sjp38" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
   </div>
+
+
+
+
+
+
+
+
+
+  
+  
+  <div class="article-widget content-widget-hr">
+    <h3>Related</h3>
+    <ul>
+      
+      <li><a href="/post/mariadb_setup/">Ubuntu 16.04 Server 위에 MariaDB 설치/사용하기</a></li>
+      
+      <li><a href="/post/parsec_3_howto/">Parsec 3.0 설치 / 사용법</a></li>
+      
+      <li><a href="/post/spec_cpu2006_install/">spec cpu2006 벤치마크 설치 / 실행하기</a></li>
+      
+    </ul>
+  </div>
+  
+
+
+
+  </div>
+</article>
+
+      
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js" integrity="sha256-1zu+3BnLYV9LdiY85uXMzii3bdrkelyp37e0ZyTAQh0=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/languages/c.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/languages/bash.min.js"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js" integrity="sha256-EErZamuLefUnbMBQbsEqu1USa+btR2oIlCpBJbyD4/g=" crossorigin="anonymous"></script>
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.bcfae8267aba63cc55af53a503896bd9.js"></script>
+
+    
+
+
+
+
+
+
+  
+  
+  <div class="container">
+    <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" class="back-to-top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
 </footer>
 
+  </div>
+  
 
+  
 <div id="modal" class="modal fade" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close btn-large" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Cite</h4>
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
-      <div>
-        <pre><code class="modal-body tex"></code></pre>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
       </div>
       <div class="modal-footer">
-        <a class="btn btn-primary btn-outline js-copy-cite" href="#" target="_blank">
-          <i class="fa fa-copy"></i> Copy
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
         </a>
-        <a class="btn btn-primary btn-outline js-download-cite" href="#" target="_blank">
-          <i class="fa fa-download"></i> Download
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
         </a>
         <div id="modal-error"></div>
       </div>
@@ -657,40 +1135,5 @@ $ for i in {1..22}; do ../qgen $i &gt; query-$i.sql; done
   </div>
 </div>
 
-    
-
-    
-    
-
-    
-
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.3/imagesloaded.pkgd.min.js" integrity="sha512-umsR78NN0D23AzgoZ11K7raBD+R6hqKojyBZs1w8WvYlsI+QuKRGBx3LFCwhatzBunCjDuJpDHwxD13sLMbpRA==" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ==" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
-    
-    
-    <script src="/js/hugo-academic.js"></script>
-    
-
-    
-    
-      
-      
-      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
-      
-
-      
-
-      
-
-      <script>hljs.initHighlightingOnLoad();</script>
-    
-
-    
-    
-
-  </body>
+</body>
 </html>
-

@@ -1,22 +1,47 @@
 <!DOCTYPE html>
 <html lang="en-us">
+
 <head>
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="theme" content="hugo-academic">
-  <meta name="generator" content="Hugo 0.51" />
+  <meta name="generator" content="Source Themes Academic 4.6.2">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
   <meta name="author" content="SeongJae Park">
-  <meta name="description" content="System Programmer">
-
-  
-  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/">
 
   
   
+  
+    
+  
+  <meta name="description" content="Kernel / Hypervisor Engineer">
+
+  
+  <link rel="alternate" hreflang="ko" href="/ko/post/">
+  
+  <link rel="alternate" hreflang="en-us" href="/post/">
+
+  
 
 
+  
+  
+  
+  <meta name="theme-color" content="#2962ff">
   
 
   
@@ -24,248 +49,492 @@
   
   
     
-  
-  
-  
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha512-6MXa8B6uaO18Hid6blRMetEIoPqHf7Ux1tnyIQdpt9qI5OACx7C+O3IVTr98vwGnlcg0LOLa02i9Y1HpVhlfiw==" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.1/css/academicons.min.css" integrity="sha512-NThgw3XKQ1absAahW6to7Ey42uycrVvfNfyjqcFNgCmOCQ5AR4AO0SiXrN+8ZtYeappp56lk1WtvjVmEa+VR6A==" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous">
-  
-  
-  
-  
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700%7cRoboto:400,400italic,700%7cRoboto&#43;Mono">
-  
-  <link rel="stylesheet" href="/styles.css">
-  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
-  
-    <script>
-      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-      ga('create', 'UA-30621335-1', 'auto');
-      ga('require', 'eventTracker');
-      ga('require', 'outboundLinkTracker');
-      ga('require', 'urlChangeTracker');
-      ga('send', 'pageview');
-    </script>
-    <script async src="//www.google-analytics.com/analytics.js"></script>
     
-    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
     
+    
+      
+    
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css" integrity="sha256-SHMGCYmST46SoyGgo4YR/9AlK1vf3ff84Aq9yK4hdqM=" crossorigin="anonymous">
+    
+
+    
+
   
 
   
-  <link rel="alternate" href="https://sjp38.github.io/post/index.xml" type="application/rss+xml" title="Hacklog">
-  <link rel="feed" href="https://sjp38.github.io/post/index.xml" type="application/rss+xml" title="Hacklog">
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap">
   
 
-  <link rel="manifest" href="/site.webmanifest">
-  <link rel="icon" type="image/png" href="/img/icon.png">
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.css">
+
+  
+
+
+
+
+  
+
+
+  
+  <link rel="alternate" href="/post/index.xml" type="application/rss+xml" title="hacklog">
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon-32.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://sjp38.github.io/post/">
+  <link rel="canonical" href="/post/">
 
+  
+  
+  
+  
+    
+  
+  
   <meta property="twitter:card" content="summary_large_image">
   
-  <meta property="og:site_name" content="Hacklog">
-  <meta property="og:url" content="https://sjp38.github.io/post/">
-  <meta property="og:title" content="Posts | Hacklog">
-  <meta property="og:description" content="System Programmer">
-  <meta property="og:locale" content="en-us">
+  <meta property="og:site_name" content="hacklog">
+  <meta property="og:url" content="/post/">
+  <meta property="og:title" content="Posts | hacklog">
+  <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
+  <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2019-07-20T02:41:46&#43;09:00">
+    <meta property="og:updated_time" content="2017-01-01T00:00:00&#43;01:00">
   
+
+  
+
+
+
 
   
 
-  <title>Posts | Hacklog</title>
+
+  
+
+
+
+
+
+  <title>Posts | hacklog</title>
 
 </head>
-<body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
 
-<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
   <div class="container">
 
     
-    <div class="navbar-header">
-      
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-              data-target=".navbar-collapse" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      
-      <a class="navbar-brand" href="/">Hacklog</a>
-    </div>
+    
+    
+      <a class="navbar-brand" href="/">hacklog</a>
+    
 
     
-    <div class="collapse navbar-collapse">
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
 
       
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#about"><span>Home</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#projects"><span>Projects</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#publications"><span>Publications</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/tags"><span>Tags</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/categories"><span>Categories</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/post/about"><span>CV</span></a>
+        </li>
+
+        
+        
+
       
-      <ul class="nav navbar-nav navbar-right">
-        
 
         
-
-        
-          
-        
-
-        <li class="nav-item">
-          <a href="/#about">
-            
-            <span>Home</span>
-            
-          </a>
-        </li>
-
-        
-        
-
-        
-
-        
-          
-        
-
-        <li class="nav-item">
-          <a href="/#publications_selected">
-            
-            <span>Publications</span>
-            
-          </a>
-        </li>
-
-        
-        
-
-        
-
-        
-          
-        
-
-        <li class="nav-item">
-          <a href="/#posts">
-            
-            <span>Posts</span>
-            
-          </a>
-        </li>
-
-        
-        
-
-        
-
-        
-          
-        
-
-        <li class="nav-item">
-          <a href="/#projects">
-            
-            <span>Projects</span>
-            
-          </a>
-        </li>
-
-        
-        
-
-        
-
-        
-          
-        
-
-        <li class="nav-item">
-          <a href="/#contact">
-            
-            <span>Contact</span>
-            
-          </a>
-        </li>
-
-        
-        
-
-        
-
-        
-          
-        
-
-        <li class="nav-item">
-          <a href="/#tags">
-            
-            <span>Tags</span>
-            
-          </a>
-        </li>
-
-        
-        
-
-        
-
-        
-          
-        
-
-        <li class="nav-item">
-          <a href="/post/about/">
-            
-            <span>About</span>
-            
-          </a>
-        </li>
-
-        
-        
-      
-
-      
       </ul>
-
     </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      <li class="nav-item">
+        <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      <li class="nav-item dropdown i18n-dropdown">
+        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true">
+          <i class="fas fa-globe mr-1" aria-hidden="true"></i><span class="d-none d-lg-inline">English</span>
+        </a>
+        <div class="dropdown-menu">
+          <div class="dropdown-item i18n-active font-weight-bold">
+            <span>English</span>
+          </div>
+          
+          <a class="dropdown-item" href="/ko/post/">
+            <span>한국어</span>
+          </a>
+          
+        </div>
+      </li>
+      
+
+    </ul>
+
   </div>
 </nav>
 
 
+  
 
 
 
-<div class="universal-wrapper">
 
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+    
+  
+<div class="universal-wrapper pt-3">
   <h1>Posts</h1>
 
   
 
   
+</div>
+
+
+
+<div class="universal-wrapper">
+
+  
+
+  
   
     
+      
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0">
+      <a href="/post/kernelsummit2019_talk/" >I will have a talk at the Linux Kernel Summit 2019</a>
+    </h3>
+
+    
+    <div class="article-style">
+      [Linux Plumbers Conference 2019] (https://www.linuxplumbersconf.org/blog/2019/) 와 함께 열리는 올해의 [Linux Kernel Summit] …
+    </div>
     
 
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/kernelsummit2019_talk/" itemprop="url">I will have a talk at the Linux Kernel Summit 2019</a>
-  </h3>
-  
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
 
 <div class="article-metadata">
 
+  
+  
+
+  
   <span class="article-date">
     
-    <time datetime="2019-07-20 02:41:46 &#43;0900 &#43;0900" itemprop="datePublished">
-      Jul 20, 2019
-    </time>
+    
+      
+    
+    Sat, Jul 20, 2019
   </span>
+  
+
+  
 
   
   <span class="middot-divider"></span>
@@ -276,59 +545,86 @@
 
   
   
-
   
+
   
   
   <span class="middot-divider"></span>
   <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/talks">talks</a
-    >
-    
-  </span>
-  
-  
-
+    <i class="fas fa-folder mr-1"></i><a href="/categories/talks/">talks</a></span>
   
 
 </div>
 
-  <div class="article-style" itemprop="articleBody">
+      
+    </div>
+
     
-    Linux Plumbers Conference 2019 와 함께 열리는 올해의 Linux Kernel Summit 에 제안한 발표 주제가 accept 되어 9월에 리스본에서 이에 대한 내용을 발표하게 되었습니다. 발표 제목은 &ldquo;Tracing Data Access Pattern with Bounded Overhead and Best-effort Accuracy&rdquo; 입니다.
-티켓이 너무 일찍 팔려버리는 바람에 올해는 들으러도 못가나 걱정했는데 갈 수 있게 됐네요, 다행입니다! :D
-My talk proposal to the Linux Kernel Summit of this year which is co-located with the Linux Plumbers has accepted!
+
+  </div>
+  <div class="ml-3">
+    
     
   </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/kernelsummit2019_talk/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
 </div>
 
+    
   
     
+      
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0">
+      <a href="/post/lkml_news_v5.3-rc1/" >LKML News v5.3-rc1</a>
+    </h3>
+
+    
+    <div class="article-style">
+      [PATCH v5 0/5] Introduce MADV_COLD and MADV_PAGEOUT https://lkml.kernel.org/r/20190714233401.36909-1-minchan@kernel.org
+MADV_COLD …
+    </div>
     
 
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.3-rc1/" itemprop="url">LKML News v5.3-rc1</a>
-  </h3>
-  
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
 
 <div class="article-metadata">
 
+  
+  
+
+  
   <span class="article-date">
     
-    <time datetime="2019-07-11 02:42:22 &#43;0900 &#43;0900" itemprop="datePublished">
-      Jul 11, 2019
-    </time>
+    
+      
+    
+    Thu, Jul 11, 2019
   </span>
+  
+
+  
 
   
   <span class="middot-divider"></span>
@@ -339,61 +635,86 @@ My talk proposal to the Linux Kernel Summit of this year which is co-located wit
 
   
   
-
   
+
   
   
   <span class="middot-divider"></span>
   <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/lkml-news">lkml news</a
-    >
-    
-  </span>
-  
-  
-
+    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
   
 
 </div>
 
-  <div class="article-style" itemprop="articleBody">
+      
+    </div>
+
     
-    [PATCH v5 0/5] Introduce MADV_COLD and MADV_PAGEOUT https://lkml.kernel.org/r/20190714233401.36909-1-minchan@kernel.org
-MADV_COLD 와 MADV_PAGEOUT 을 구현하는 패치, 어느새 다섯번째 버전입니다. 큰 변경은 없는 것 같군요.
-[PATCH v2 0/3] Make working with compound pages easier https://lkml.kernel.org/r/20190721104612.19120-1-willy@infradead.org
-Huge page 를 다루기 쉽게끔 page_size(), page_shift(), 그리고 compound_nr() 이라는 세개의 helper 함수를 추가하고 이 함수들을 사용하게끔 기존 코드를 다듬는 패치셋입니다.
-PAGE_SIZE &lt;&lt; compound_order(page) 는 page_size(page) 가, PAGE_SHIFT + compound_order(page) 는 page_shift(page) 가, 그리고 1 &lt;&lt; compound_order(page) 는 compound_nr(page) 가 되는 것이죠.
+
+  </div>
+  <div class="ml-3">
+    
     
   </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.3-rc1/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
 </div>
 
+    
   
     
+      
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0">
+      <a href="/post/lkml_news_v5.2/" >LKML News v5.2</a>
+    </h3>
+
+    
+    <div class="article-style">
+      [PATCH v5 00/12] S.A.R.A. a new stacked LSM https://lkml.kernel.org/r/1562410493-8661-1-git-send-email-s.mesoraca16@gmail.com
+다양한 보안 측정 …
+    </div>
     
 
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.2/" itemprop="url">LKML News v5.2</a>
-  </h3>
-  
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
 
 <div class="article-metadata">
 
+  
+  
+
+  
   <span class="article-date">
     
-    <time datetime="2019-07-01 15:48:04 &#43;0900 &#43;0900" itemprop="datePublished">
-      Jul 1, 2019
-    </time>
+    
+      
+    
+    Mon, Jul 1, 2019
   </span>
+  
+
+  
 
   
   <span class="middot-divider"></span>
@@ -404,60 +725,85 @@ PAGE_SIZE &lt;&lt; compound_order(page) 는 page_size(page) 가, PAGE_SHIFT + co
 
   
   
-
   
+
   
   
   <span class="middot-divider"></span>
   <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/lkml-news">lkml news</a
-    >
-    
-  </span>
-  
-  
-
+    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
   
 
 </div>
 
-  <div class="article-style" itemprop="articleBody">
+      
+    </div>
+
     
-    [PATCH v5 00/12] S.A.R.A. a new stacked LSM https://lkml.kernel.org/r/1562410493-8661-1-git-send-email-s.mesoraca16@gmail.com
-다양한 보안 측정을 위한 공용 인터페이스를 제공하는 스택 기반의 리눅스 보안 모듈입니다. 이름이 재밌네요. S.A.R.A 는 S.A.R.A is Another Recursive Acronym 의 약자라고 합니다.
-Linux 5.2 https://lkml.kernel.org/r/CAHk-=whtW3FdruS-q2zehJPSan1SKtHoFHKX28A3J_1gfTFUMw@mail.gmail.com
-이번 릴리즈 중간엔 토발즈의 여행이 있었죠. 초반엔 예상 외로 큰 rc 릴리즈도 있었구요. 해서 이번주는 rc8 이 릴리즈 될지 5.2가 릴리즈 될지 저도 좀 궁금했는데, 최종적으로 5.2 릴리즈가 되었습니다. 토발즈도 rc8 을 릴리즈 할까 망설였다고 하네요.
+
+  </div>
+  <div class="ml-3">
+    
     
   </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.2/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
 </div>
 
+    
   
     
+      
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0">
+      <a href="/post/integrate_external_git_repository_with_history/" >Integrate external git repository with its history</a>
+    </h3>
+
+    
+    <div class="article-style">
+      프로젝트 a 와 프로젝트 b 를 병렬로 진행하고 있었는데, 두개의 리포지토리를 합치고 싶어지는 경우가 있습니다. 예컨대 프로젝트 a 의 성격이 보다 범용이 되었고 프로젝트 b 는 프로젝트 a 를 위한 도구적 성격이 되는 경우가 있겠죠. a 프 …
+    </div>
     
 
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/integrate_external_git_repository_with_history/" itemprop="url">Integrate external git repository with its history</a>
-  </h3>
-  
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
 
 <div class="article-metadata">
 
+  
+  
+
+  
   <span class="article-date">
     
-    <time datetime="2019-06-27 17:02:49 &#43;0900 &#43;0900" itemprop="datePublished">
-      Jun 27, 2019
-    </time>
+    
+      
+    
+    Thu, Jun 27, 2019
   </span>
+  
+
+  
 
   
   <span class="middot-divider"></span>
@@ -468,57 +814,86 @@ Linux 5.2 https://lkml.kernel.org/r/CAHk-=whtW3FdruS-q2zehJPSan1SKtHoFHKX28A3J_1
 
   
   
-
   
+
   
   
   <span class="middot-divider"></span>
   <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/tip">tip</a
-    >
-    
-  </span>
-  
-  
-
+    <i class="fas fa-folder mr-1"></i><a href="/categories/tip/">tip</a></span>
   
 
 </div>
 
-  <div class="article-style" itemprop="articleBody">
+      
+    </div>
+
     
-    프로젝트 a 와 프로젝트 b 를 병렬로 진행하고 있었는데, 두개의 리포지토리를 합치고 싶어지는 경우가 있습니다. 예컨대 프로젝트 a 의 성격이 보다 범용이 되었고 프로젝트 b 는 프로젝트 a 를 위한 도구적 성격이 되는 경우가 있겠죠. a 프로젝트에 &lsquo;b&rsquo; 디렉토리를 만들고 그 아래 기존 프로젝트 b 의 파일들을 위치하고 싶습니다. 하지만 기존 b 프로젝트의 git 히스토리들도 유지하고 싶습니다. 비슷한 사례로 리눅스 커널 메모리 모델 프로젝트는 별도의 리포지토리[1] 로 개발되었지만 리눅스 업스트림 리포지토리의 tools/ 디렉토리 아래로 머지[2] 되었는데, 이 때 기존 개발 히스토리를 유지했죠.
+
+  </div>
+  <div class="ml-3">
+    
     
   </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/integrate_external_git_repository_with_history/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
 </div>
 
+    
   
     
+      
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0">
+      <a href="/post/lkml_news_v5.2-rc7/" >LKML News v5.2-rc7</a>
+    </h3>
+
+    
+    <div class="article-style">
+      [PATCH v7 0/4] THP aware uprobe https://lkml.kernel.org/r/20190625235325.2096441-1-songliubraving@fb.com
+uprobe 가 THP 로 받쳐지고 있는 코드에 적용되 …
+    </div>
     
 
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.2-rc7/" itemprop="url">LKML News v5.2-rc7</a>
-  </h3>
-  
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
 
 <div class="article-metadata">
 
+  
+  
+
+  
   <span class="article-date">
     
-    <time datetime="2019-06-27 15:35:12 &#43;0900 &#43;0900" itemprop="datePublished">
-      Jun 27, 2019
-    </time>
+    
+      
+    
+    Thu, Jun 27, 2019
   </span>
+  
+
+  
 
   
   <span class="middot-divider"></span>
@@ -529,62 +904,86 @@ Linux 5.2 https://lkml.kernel.org/r/CAHk-=whtW3FdruS-q2zehJPSan1SKtHoFHKX28A3J_1
 
   
   
-
   
+
   
   
   <span class="middot-divider"></span>
   <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/lkml-news">lkml news</a
-    >
-    
-  </span>
-  
-  
-
+    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
   
 
 </div>
 
-  <div class="article-style" itemprop="articleBody">
+      
+    </div>
+
     
-    [PATCH v7 0/4] THP aware uprobe https://lkml.kernel.org/r/20190625235325.2096441-1-songliubraving@fb.com
-uprobe 가 THP 로 받쳐지고 있는 코드에 적용되면 이 THP 는 regular page 로 쪼개집니다. 이 패치셋은 이 문제를 해결합니다.
-[PATCH v9 0/6] Enable THP for text section of non-shmem files https://lkml.kernel.org/r/20190625001246.685563-1-songliubraving@fb.com
-어플리케이션의 텍스트 섹션을 THP 로 지원해 줌으로써 iTLB 미스를 줄이고 성능을 높이고자 하는 패치셋입니다.
-Linux 5.2-rc7 https://lkml.kernel.org/r/CAHk-=wgL5GyQ93o=VyiymFPfw=Z0TGHEPBJrCtGSqFSW2Mhx8g@mail.gmail.com
-여전히 토발즈의 여행 탓에 릴리즈가 평소와 조금 다른 시간대에 이뤄졌습니다, 토발즈 자신의 시점으로는 평소와 같은 일요일 오후지만요.
+
+  </div>
+  <div class="ml-3">
+    
     
   </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.2-rc7/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
 </div>
 
+    
   
     
+      
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0">
+      <a href="/post/lkml_news_v5.2-rc6/" >LKML News v5.2-rc6</a>
+    </h3>
+
+    
+    <div class="article-style">
+      [PATCH NOTFORMERGE 0/5] Extend remote madvise API to KSM hints https://lkml.kernel.org/r/20190616085835.953-1-oleksandr@redhat.com
+이 블로 …
+    </div>
     
 
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.2-rc6/" itemprop="url">LKML News v5.2-rc6</a>
-  </h3>
-  
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
 
 <div class="article-metadata">
 
+  
+  
+
+  
   <span class="article-date">
     
-    <time datetime="2019-06-17 19:22:48 &#43;0900 &#43;0900" itemprop="datePublished">
-      Jun 17, 2019
-    </time>
+    
+      
+    
+    Mon, Jun 17, 2019
   </span>
+  
+
+  
 
   
   <span class="middot-divider"></span>
@@ -595,61 +994,85 @@ Linux 5.2-rc7 https://lkml.kernel.org/r/CAHk-=wgL5GyQ93o=VyiymFPfw=Z0TGHEPBJrCtG
 
   
   
-
   
+
   
   
   <span class="middot-divider"></span>
   <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/lkml-news">lkml news</a
-    >
-    
-  </span>
-  
-  
-
+    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
   
 
 </div>
 
-  <div class="article-style" itemprop="articleBody">
+      
+    </div>
+
     
-    [PATCH NOTFORMERGE 0/5] Extend remote madvise API to KSM hints https://lkml.kernel.org/r/20190616085835.953-1-oleksandr@redhat.com
-이 블로그에서도 여러번 소개한 remote madvise() 에 대한 관심이 많이 있는 것 같네요. 이 패치셋은 MADV_MERGEABLE, MADV_UNMERGEABLE 을 추가해서 KSM 힌트도 madvise() 를 통해 줄 수 있게 합니다.
-논의를 위한 패치라 이대로 머지되진 않겠지만, 사용처가 많이 늘어날 것 같네요.
-Linux 5.2-rc6 https://lkml.kernel.org/r/CAHk-=wg+nPKhdn=vKSgJQkfOSGhauTO4jyt=0FH9cnM_QChDLw@mail.gmail.com
-안타깝게도 기대와 달리 이번 릴리즈는 조용하지 않았습니다. 이번 5.2 개발을 위한 릴리즈 중 머지 윈도우와 rc1 을 제외하면 rc6 가 오히려 가장 많은 변화를 담고 있다는군요.
+
+  </div>
+  <div class="ml-3">
+    
     
   </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.2-rc6/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
 </div>
 
+    
   
     
+      
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0">
+      <a href="/post/my_job_interview/" >My Job Interview Record (2019 summer)</a>
+    </h3>
+
+    
+    <div class="article-style">
+      이번 여름 졸업을 앞두고 구직 활동을 한 결과, 얼마전 운좋게도 미국에 본사를 두고 있는 한 글로벌 IT 기업의 커널/하이퍼바이저 팀으로부터 잡 오퍼를 받았습니다. 취업을 향한 한걸음 한걸음이 어둠 속을 더듬더듬, …
+    </div>
     
 
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/my_job_interview/" itemprop="url">My Job Interview Record (2019 summer)</a>
-  </h3>
-  
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
 
 <div class="article-metadata">
 
+  
+  
+
+  
   <span class="article-date">
     
-    <time datetime="2019-06-17 18:16:05 &#43;0900 &#43;0900" itemprop="datePublished">
-      Jun 17, 2019
-    </time>
+    
+      
+    
+    Mon, Jun 17, 2019
   </span>
+  
+
+  
 
   
   <span class="middot-divider"></span>
@@ -660,58 +1083,86 @@ Linux 5.2-rc6 https://lkml.kernel.org/r/CAHk-=wg+nPKhdn=vKSgJQkfOSGhauTO4jyt=0FH
 
   
   
-
   
+
   
   
   <span class="middot-divider"></span>
   <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/record">record</a
-    >
-    
-  </span>
-  
-  
-
+    <i class="fas fa-folder mr-1"></i><a href="/categories/record/">record</a></span>
   
 
 </div>
 
-  <div class="article-style" itemprop="articleBody">
+      
+    </div>
+
     
-    이번 여름 졸업을 앞두고 구직 활동을 한 결과, 얼마전 운좋게도 미국에 본사를 두고 있는 한 글로벌 IT 기업의 커널/하이퍼바이저 팀으로부터 잡 오퍼를 받았습니다. 취업을 향한 한걸음 한걸음이 어둠 속을 더듬더듬, 때로는 막무가내로 헤쳐나가는 느낌이었는데, 이런 저의 경험을 공유하는게 어떤 분들께는 도움이 되지 않을까 싶어 공유해 봅니다.
-목표설정 취업을 할까 포닥을 할까 모호한 고민만 하다가 어느새 4월 중순이 되어서야 해외 IT 회사로 직장을 구하겠다는 목표가 설정되었습니다. 그제서야 든 생각은 너무 늦었다, 준비가 부족하다, 하는 것이었습니다.
+
+  </div>
+  <div class="ml-3">
+    
     
   </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/my_job_interview/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
 </div>
 
+    
   
     
+      
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0">
+      <a href="/post/lkml_news_v5.2-rc5/" >LKML News v5.2-rc5</a>
+    </h3>
+
+    
+    <div class="article-style">
+      [PATCH v3 0/5] THP aware uprobe https://lkml.kernel.org/r/20190612220320.2223898-1-songliubraving@fb.com
+uprobe 는 THP 로 되어있는 페이지를 쪼갭니다. …
+    </div>
     
 
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.2-rc5/" itemprop="url">LKML News v5.2-rc5</a>
-  </h3>
-  
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
 
 <div class="article-metadata">
 
+  
+  
+
+  
   <span class="article-date">
     
-    <time datetime="2019-06-10 10:17:29 &#43;0900 &#43;0900" itemprop="datePublished">
-      Jun 10, 2019
-    </time>
+    
+      
+    
+    Mon, Jun 10, 2019
   </span>
+  
+
+  
 
   
   <span class="middot-divider"></span>
@@ -722,60 +1173,86 @@ Linux 5.2-rc6 https://lkml.kernel.org/r/CAHk-=wg+nPKhdn=vKSgJQkfOSGhauTO4jyt=0FH
 
   
   
-
   
+
   
   
   <span class="middot-divider"></span>
   <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/lkml-news">lkml news</a
-    >
-    
-  </span>
-  
-  
-
+    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
   
 
 </div>
 
-  <div class="article-style" itemprop="articleBody">
+      
+    </div>
+
     
-    [PATCH v3 0/5] THP aware uprobe https://lkml.kernel.org/r/20190612220320.2223898-1-songliubraving@fb.com
-uprobe 는 THP 로 되어있는 페이지를 쪼갭니다. 이로 인해 성능 향상 효과가 사라지죠. 이 패치셋은 uprobe 가 THP 를 인식하게 해서 이런 문제를 제거합니다.
-[PATCH v2 0/5] Introduce MADV_COLD and MADV_PAGEOUT https://lkml.kernel.org/r/20190610111252.239156-1-minchan@kernel.org
-기존에도 소개한 MADV_COLD 와 MADV_PAGEOUT 을 madvise() 에 추가하는 패치셋의 두번째 버전입니다. 이 패치셋을 ChromeOS 팀의 Brian Geffon 은 가져다가 탭이 백그라운드로 들어가고 45초 이상 그 상태를 유지하면 이 기능을 사용해서 페이지를 proactively swap out 시켰는데, 그 결과 tab 전환 속도가 25% 나 빨라졌다고 합니다.
+
+  </div>
+  <div class="ml-3">
+    
     
   </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.2-rc5/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
 </div>
 
+    
   
     
+      
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0">
+      <a href="/post/lkml_news_v5.2-rc4/" >LKML News v5.2-rc4</a>
+    </h3>
+
+    
+    <div class="article-style">
+      [PATCH 00/15] Slab Movable Objects (SMO) https://lkml.kernel.org/r/20190603042637.2018-1-tobin@kernel.org
+전에도 RFC 패치셋은 여기서도 소개했었죠. Slab …
+    </div>
     
 
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.2-rc4/" itemprop="url">LKML News v5.2-rc4</a>
-  </h3>
-  
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
 
 <div class="article-metadata">
 
+  
+  
+
+  
   <span class="article-date">
     
-    <time datetime="2019-06-04 10:49:00 &#43;0900 &#43;0900" itemprop="datePublished">
-      Jun 4, 2019
-    </time>
+    
+      
+    
+    Tue, Jun 4, 2019
   </span>
+  
+
+  
 
   
   <span class="middot-divider"></span>
@@ -786,62 +1263,85 @@ uprobe 는 THP 로 되어있는 페이지를 쪼갭니다. 이로 인해 성능 
 
   
   
-
   
+
   
   
   <span class="middot-divider"></span>
   <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/lkml-news">lkml news</a
-    >
-    
-  </span>
-  
-  
-
+    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
   
 
 </div>
 
-  <div class="article-style" itemprop="articleBody">
+      
+    </div>
+
     
-    [PATCH 00/15] Slab Movable Objects (SMO) https://lkml.kernel.org/r/20190603042637.2018-1-tobin@kernel.org
-전에도 RFC 패치셋은 여기서도 소개했었죠. Slab 할당자에 할당받은 객체들의 이동이 가능하게끔 하는 패치셋의 정식 패치 버전이 나왔습니다. 변경된 인터페이스는 XArray 와 dcache 에 적용되는군요.
-[PATCH v1 0/4] Introduce MADV_COLD and MADV_PAGEOUT https://lkml.kernel.org/r/20190603053655.127730-1-minchan@kernel.org
-바로 지난주에도 소개한 external madvise 패치셋이 쪼개졌네요. MADV_COLD 와 MADV_PAGEOUT 두개의 새로운 advice 기능 추가 버전만 담은 패치셋입니다. 이게 더 일찍 머지될 가능성이 생겼군요.
-Linux 5.2-rc4 https://lkml.kernel.org/r/CAHk-=wjm7FQxdF=RKa8Xe23CLNNpbGDOACewgo8e-hwDJ8TyQg@mail.gmail.com
-메일을 받고 깜짝 놀랐습니다, 평소보다 빨랐기 때문이죠.
+
+  </div>
+  <div class="ml-3">
+    
     
   </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/lkml_news_v5.2-rc4/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
 </div>
 
+    
   
     
+      
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0">
+      <a href="/post/linux_develop_visualization_youtube/" >Linux Development History Visualization Youtube Channel</a>
+    </h3>
+
+    
+    <div class="article-style">
+      재미 삼아 리눅스 커널 릴리즈 때마다 git history 를 visualize 해서 올리는 유투브 채널[1]을 개설해 봤습니다. 지금은 visualization 에는 gource[2] 를 사용하고 있습니다. 이 비디오를 만드는데 사용되는 스 …
+    </div>
     
 
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://sjp38.github.io/post/linux_develop_visualization_youtube/" itemprop="url">Linux Development History Visualization Youtube Channel</a>
-  </h3>
-  
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
 
 <div class="article-metadata">
 
+  
+  
+
+  
   <span class="article-date">
     
-    <time datetime="2019-06-04 10:44:33 &#43;0900 &#43;0900" itemprop="datePublished">
-      Jun 4, 2019
-    </time>
+    
+      
+    
+    Tue, Jun 4, 2019
   </span>
+  
+
+  
 
   
   <span class="middot-divider"></span>
@@ -852,48 +1352,40 @@ Linux 5.2-rc4 https://lkml.kernel.org/r/CAHk-=wjm7FQxdF=RKa8Xe23CLNNpbGDOACewgo8
 
   
   
-
   
+
   
   
   <span class="middot-divider"></span>
   <span class="article-categories">
-    <i class="fa fa-folder"></i>
-    
-    <a href="/categories/projects">projects</a
-    >
-    
-  </span>
-  
-  
-
+    <i class="fas fa-folder mr-1"></i><a href="/categories/projects/">projects</a></span>
   
 
 </div>
 
-  <div class="article-style" itemprop="articleBody">
+      
+    </div>
+
     
-    재미 삼아 리눅스 커널 릴리즈 때마다 git history 를 visualize 해서 올리는 유투브 채널[1]을 개설해 봤습니다. 지금은 visualization 에는 gource[2] 를 사용하고 있습니다. 이 비디오를 만드는데 사용되는 스크립트도 GPL v3 로 공개[3]했으니 필요한 분은 사용해 보셔도 좋을 것 같습니다.
-I created a Youtube channel[1]. I will upload videos for the git history between each release of the Linux kernel, just for jun. I use gource[2] for the visualization for now. The scripts I use for these videos are available[3] under GPL v3.
+
+  </div>
+  <div class="ml-3">
+    
     
   </div>
-  <p class="read-more">
-    <a href="https://sjp38.github.io/post/linux_develop_visualization_youtube/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
 </div>
 
+    
   
 
   
 <nav>
-  <ul class="pager">
+  <ul class="pagination justify-content-center">
     
-    <li><a href="/post/page/2/">&lt;</a></li>
+    <li class="page-item"><a class="page-link" href="/post/page/2/">&laquo;</a></li>
     
     
-    <li><a href="/post/page/4/">&gt;</a></li>
+    <li class="page-item"><a class="page-link" href="/post/page/4/">&raquo;</a></li>
     
   </ul>
 </nav>
@@ -901,45 +1393,154 @@ I created a Youtube channel[1]. I will upload videos for the git history between
 
 
 </div>
-<footer class="site-footer">
+
+      
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+
+      
+
+      
+
+      
+      
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js" integrity="sha256-EErZamuLefUnbMBQbsEqu1USa+btR2oIlCpBJbyD4/g=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.bcfae8267aba63cc55af53a503896bd9.js"></script>
+
+    
+
+
+
+
+
+
+  
+  
   <div class="container">
-    <p class="powered-by">
+    <footer class="site-footer">
+  
 
-      &copy; 2017 Your Name &middot; 
+  <p class="powered-by">
+    
 
-      Powered by the
-      <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
-      <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
 
-      <span class="pull-right" aria-hidden="true">
-        <a href="#" id="back_to_top">
-          <span class="button_icon">
-            <i class="fa fa-chevron-up fa-2x"></i>
-          </span>
-        </a>
-      </span>
-
-    </p>
-  </div>
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" class="back-to-top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
 </footer>
 
+  </div>
+  
 
+  
 <div id="modal" class="modal fade" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close btn-large" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Cite</h4>
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
-      <div>
-        <pre><code class="modal-body tex"></code></pre>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
       </div>
       <div class="modal-footer">
-        <a class="btn btn-primary btn-outline js-copy-cite" href="#" target="_blank">
-          <i class="fa fa-copy"></i> Copy
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
         </a>
-        <a class="btn btn-primary btn-outline js-download-cite" href="#" target="_blank">
-          <i class="fa fa-download"></i> Download
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
         </a>
         <div id="modal-error"></div>
       </div>
@@ -947,29 +1548,5 @@ I created a Youtube channel[1]. I will upload videos for the git history between
   </div>
 </div>
 
-    
-
-    
-    
-
-    
-
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.3/imagesloaded.pkgd.min.js" integrity="sha512-umsR78NN0D23AzgoZ11K7raBD+R6hqKojyBZs1w8WvYlsI+QuKRGBx3LFCwhatzBunCjDuJpDHwxD13sLMbpRA==" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ==" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
-    
-    
-    <script src="/js/hugo-academic.js"></script>
-    
-
-    
-    
-
-    
-    
-
-  </body>
+</body>
 </html>
-
