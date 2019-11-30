@@ -295,19 +295,7 @@ xclip 을 사용해서 해결할 수도 있다:&lt;/p&gt;
       <link>/ko/post/fedora-chrome-update/</link>
       <pubDate>Mon, 20 Mar 2017 22:24:26 +0900</pubDate>
       <guid>/ko/post/fedora-chrome-update/</guid>
-      <description>&lt;p&gt;I am using Fedora 23 laptop and installed stable version Google Chrome from its
-official website [0].  In this case, just using &lt;code&gt;Updates&lt;/code&gt; of Fedora &lt;code&gt;Software&lt;/code&gt;
-program doesn&#39;t update Chrome automatically.  For the case, follow below
-commands to update your Chrome:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ sudo dnf update google-chrome-stable
-...
-$ sudo killall chrome
-$ google-chrome-stable
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The second &lt;code&gt;killall&lt;/code&gt; command is necessary because Chrome doesn&#39;t kill its
-process by just cliking &lt;code&gt;Close&lt;/code&gt; button.  Or, you may reboot your computer but
-you wouldn&#39;t like that.&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;랩톱에 Fedora 23 을 깔고 크롬을 공식 홈페이지 [0] 에서 다운받아 메인 브라우저로
+      <description>&lt;p&gt;랩톱에 Fedora 23 을 깔고 크롬을 공식 홈페이지 [0] 에서 다운받아 메인 브라우저로
 사용하고 있습니다.  그런데 이렇게 설치한 경우에는 단순히 Fedora &lt;code&gt;Software&lt;/code&gt;
 프로그램의 &lt;code&gt;Updates&lt;/code&gt; 기능을 통해 업데이트가 되지 않더군요.  이런 경우에는
 다음의 커맨드를 통해 직접 업데이트를 할 수 있습니다:&lt;/p&gt;
@@ -328,24 +316,7 @@ $ google-chrome-stable
       <link>/ko/post/arping-howto/</link>
       <pubDate>Tue, 07 Mar 2017 19:41:16 +0900</pubDate>
       <guid>/ko/post/arping-howto/</guid>
-      <description>&lt;p&gt;You can use &lt;code&gt;arping&lt;/code&gt; to know IP address to MAC address mapping of your local
-network.  Usage is simple:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;arping  [-AbDfhqUV]  [-c count] [-w deadline] [-s source] -I interface destination
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;For example, you may use the command as below:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ arping -I eth0 10.0.0.1
-ARPING 10.0.0.1 from 10.0.0.2 eth0
-Unicast reply from 10.0.0.1 [11:22:33:44:55:66]  0.123ms
-Unicast reply from 10.0.0.1 [11:22:33:44:55:66]  0.251ms
-...
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Secret of the tool is ARP protocol [1].  To know the MAC address of the machine
-that has a specific IP address, IP protocol layer uses the protocol.  MAC
-address that found in this way can be used to communicate with Ethernet
-protocol layer.  &lt;code&gt;arping&lt;/code&gt; just sends the ARP REQUEST to local network
-neighbour.&lt;/p&gt;
-&lt;p&gt;It could be useful in case of internet connection problem if IP duplication is
-suspicious.&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;로컬 네트워크에서 어떤 IP 주소가 어떤 MAC 어드레스에 매핑되는지 알기 위해
+      <description>&lt;p&gt;로컬 네트워크에서 어떤 IP 주소가 어떤 MAC 어드레스에 매핑되는지 알기 위해
 &lt;code&gt;arping&lt;/code&gt; 을 사용할 수 있습니다. 사용법은 간단합니다:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;arping  [-AbDfhqUV]  [-c count] [-w deadline] [-s source] -I interface destination
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;예를 들면, 다음과 같습니다:&lt;/p&gt;
@@ -362,25 +333,6 @@ Unicast reply from 10.0.0.1 [11:22:33:44:55:66]  0.251ms
 있습니다.&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;[1] &lt;a href=&#34;http://www.erg.abdn.ac.uk/users/gorry/course/inet-pages/arp.html&#34;&gt;http://www.erg.abdn.ac.uk/users/gorry/course/inet-pages/arp.html&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Starting &#39;Linux Kernel Hack&#39; series</title>
-      <link>/ko/post/001_linux_dev_intro/</link>
-      <pubDate>Sat, 04 Mar 2017 15:53:08 +0900</pubDate>
-      <guid>/ko/post/001_linux_dev_intro/</guid>
-      <description>&lt;p&gt;많은 영역에서 사용되고 있는 리눅스 커널.  그렇기에 만져볼수록 재밌고 뜯어볼수록
-신기합니다.  아마도 이게 hack 의 재미가 아닐까요.&lt;/p&gt;
-&lt;p&gt;리눅스 커널을 hack 하는데에 필요한 기본적인 내용부터 몇가지 팁들, 소스 코드는
-어떻게 가져오고 어떻게 빌드해서 시스템에 설치를 하는지, 패치는 어떻게 보내면
-되는지와 같은 것들을 정리해 볼까 합니다.&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;So many environments and users are using Linux kernel.  That&#39;s why it is so fun
-and mysterious to touch and analyze it.  Maybe it is the fun of &lt;code&gt;hack&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;I will organize some basic informations and tips about linux kernel hacking,
-for example, how to get the source code, how to build it, how to install it,
-and how the patch can be submitted to &lt;code&gt;Linus Torvalds&lt;/code&gt;.&lt;/p&gt;
 </description>
     </item>
     

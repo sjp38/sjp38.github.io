@@ -521,8 +521,8 @@ kernel.org 리눅스 커널 소스 코드를 받아오기 위한 기본적 공�
     <h2><a href="/ko/post/fedora-chrome-update/">Updating Google Chrome on Fedora 23</a></h2>
     <div class="article-style">
       
-      I am using Fedora 23 laptop and installed stable version Google Chrome from its official website [0]. In this case, just using Updates of Fedora Software program doesn't update Chrome automatically. For the case, follow below commands to update your Chrome:
-$ sudo dnf update google-chrome-stable ... $ sudo killall chrome $ google-chrome-stable The second killall command is necessary because Chrome doesn't kill its process by just cliking Close button. Or, you may reboot your computer but you wouldn't like that.
+      랩톱에 Fedora 23 을 깔고 크롬을 공식 홈페이지 [0] 에서 다운받아 메인 브라우저로 사용하고 있습니다. 그런데 이렇게 설치한 경우에는 단순히 Fedora Software 프로그램의 Updates 기능을 통해 업데이트가 되지 않더군요. 이런 경우에는 다음의 커맨드를 통해 직접 업데이트를 할 수 있습니다:
+$ sudo dnf update google-chrome-stable ... $ sudo killall chrome $ google-chrome-stable 두번째의 killall 커맨드는 Chrome 프로세스들이 닫기 버튼을 누르는 것만으로는 모두 종료되지 않기 때문에 명시적으로 종료시키기 위해 필요합니다. 컴퓨터를 아예 리붓 하는 방법도 있겠지만 별로 그러고 싶지는 않을테지요.
       
     </div>
   </div>
@@ -531,20 +531,9 @@ $ sudo dnf update google-chrome-stable ... $ sudo killall chrome $ google-chrome
     <h2><a href="/ko/post/arping-howto/">Using arping to know ip-MAC mapping</a></h2>
     <div class="article-style">
       
-      You can use arping to know IP address to MAC address mapping of your local network. Usage is simple:
-arping [-AbDfhqUV] [-c count] [-w deadline] [-s source] -I interface destination For example, you may use the command as below:
-$ arping -I eth0 10.0.0.1 ARPING 10.0.0.1 from 10.0.0.2 eth0 Unicast reply from 10.0.0.1 [11:22:33:44:55:66] 0.123ms Unicast reply from 10.0.0.1 [11:22:33:44:55:66] 0.251ms ... Secret of the tool is ARP protocol [1]. To know the MAC address of the machine that has a specific IP address, IP protocol layer uses the protocol.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/ko/post/001_linux_dev_intro/">Starting &#39;Linux Kernel Hack&#39; series</a></h2>
-    <div class="article-style">
-      
-      많은 영역에서 사용되고 있는 리눅스 커널. 그렇기에 만져볼수록 재밌고 뜯어볼수록 신기합니다. 아마도 이게 hack 의 재미가 아닐까요.
-리눅스 커널을 hack 하는데에 필요한 기본적인 내용부터 몇가지 팁들, 소스 코드는 어떻게 가져오고 어떻게 빌드해서 시스템에 설치를 하는지, 패치는 어떻게 보내면 되는지와 같은 것들을 정리해 볼까 합니다.
- So many environments and users are using Linux kernel. That's why it is so fun and mysterious to touch and analyze it. Maybe it is the fun of hack.
+      로컬 네트워크에서 어떤 IP 주소가 어떤 MAC 어드레스에 매핑되는지 알기 위해 arping 을 사용할 수 있습니다. 사용법은 간단합니다:
+arping [-AbDfhqUV] [-c count] [-w deadline] [-s source] -I interface destination 예를 들면, 다음과 같습니다:
+$ arping -I eth0 10.0.0.1 ARPING 10.0.0.1 from 10.0.0.2 eth0 Unicast reply from 10.0.0.1 [11:22:33:44:55:66] 0.123ms Unicast reply from 10.0.0.1 [11:22:33:44:55:66] 0.251ms ... 이 툴의 동작 원리는 ARP 프로토콜 [1] 입니다. IP 프로토콜 레이어는 이 프로토콜을 사용해 특정 IP 주소를 사용하는 기계의 MAC 어드레스를 파악하고 이 주소를 아랫단의 Ethernet 레이어에 보냅니다.
       
     </div>
   </div>

@@ -554,7 +554,7 @@ $ arping -I eth0 10.0.0.1 ARPING 10.0.0.1 from 10.0.0.2 eth0 Unicast reply from 
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    2 min read
+    1 min read
   </span>
   
 
@@ -610,23 +610,6 @@ protocol layer.  <code>arping</code> just sends the ARP REQUEST to local network
 neighbour.</p>
 <p>It could be useful in case of internet connection problem if IP duplication is
 suspicious.</p>
-<hr>
-<p>로컬 네트워크에서 어떤 IP 주소가 어떤 MAC 어드레스에 매핑되는지 알기 위해
-<code>arping</code> 을 사용할 수 있습니다. 사용법은 간단합니다:</p>
-<pre><code>arping  [-AbDfhqUV]  [-c count] [-w deadline] [-s source] -I interface destination
-</code></pre><p>예를 들면, 다음과 같습니다:</p>
-<pre><code>$ arping -I eth0 10.0.0.1
-ARPING 10.0.0.1 from 10.0.0.2 eth0
-Unicast reply from 10.0.0.1 [11:22:33:44:55:66]  0.123ms
-Unicast reply from 10.0.0.1 [11:22:33:44:55:66]  0.251ms
-...
-</code></pre><p>이 툴의 동작 원리는 ARP 프로토콜 [1] 입니다.  IP 프로토콜 레이어는 이
-프로토콜을 사용해 특정 IP 주소를 사용하는 기계의 MAC 어드레스를 파악하고 이
-주소를 아랫단의 Ethernet 레이어에 보냅니다.  <code>arping</code> 은 단지 ARP REQUEST 를
-로컬 네트워크의 컴퓨터들에게 보내는 일을 합니다.</p>
-<p>인터넷 연결 문제가 발생했을 때, IP 중복이 의심된다면 유용하게 사용될 수
-있습니다.</p>
-<hr>
 <p>[1] <a href="http://www.erg.abdn.ac.uk/users/gorry/course/inet-pages/arp.html">http://www.erg.abdn.ac.uk/users/gorry/course/inet-pages/arp.html</a></p>
 
     </div>
@@ -644,8 +627,6 @@ Unicast reply from 10.0.0.1 [11:22:33:44:55:66]  0.251ms
   <a class="badge badge-light" href="/tags/linux/">linux</a>
   
   <a class="badge badge-light" href="/tags/network/">network</a>
-  
-  <a class="badge badge-light" href="/tags/english/">english</a>
   
 </div>
 
@@ -821,11 +802,7 @@ Unicast reply from 10.0.0.1 [11:22:33:44:55:66]  0.251ms
     <h3>Related</h3>
     <ul>
       
-      <li><a href="/post/001_linux_dev_intro/">Starting &#39;Linux Kernel Hack&#39; series</a></li>
-      
       <li><a href="/post/uninstall-kernel/">uninstall kernel</a></li>
-      
-      <li><a href="/post/gcma/">GCMA: Guaranteed Contiguous Memory Allocator</a></li>
       
     </ul>
   </div>

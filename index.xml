@@ -6771,10 +6771,6 @@ free_pages_check_bad at mm/page_alloc.c:941
 briefly like twitter livestream in Go language.  It is just an early version
 and so many things to be complemented exists, though.  Nevertheless, now it
 just works as I wanted at first.&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;쏟아지는 LKML[2] 의 메일들을 트위터 라이브스트림처럼 터미널에 보여주는 간단한
-프로그램[1] 을 go 언어로 만들어 봤습니다.  아직 보완할 점 투성이지만 이제
-최초의 목적대로는 동작하는군요.&lt;/p&gt;
 &lt;h1 id=&#34;references&#34;&gt;References&lt;/h1&gt;
 &lt;p&gt;[1] &lt;a href=&#34;https://github.com/sjp38/lkml&#34;&gt;https://github.com/sjp38/lkml&lt;/a&gt;&lt;br&gt;
 [2] &lt;a href=&#34;https://en.wikipedia.org/wiki/Linux_kernel_mailing_list&#34;&gt;https://en.wikipedia.org/wiki/Linux_kernel_mailing_list&lt;/a&gt;&lt;/p&gt;
@@ -7295,19 +7291,6 @@ $ google-chrome-stable
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The second &lt;code&gt;killall&lt;/code&gt; command is necessary because Chrome doesn&#39;t kill its
 process by just cliking &lt;code&gt;Close&lt;/code&gt; button.  Or, you may reboot your computer but
 you wouldn&#39;t like that.&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;랩톱에 Fedora 23 을 깔고 크롬을 공식 홈페이지 [0] 에서 다운받아 메인 브라우저로
-사용하고 있습니다.  그런데 이렇게 설치한 경우에는 단순히 Fedora &lt;code&gt;Software&lt;/code&gt;
-프로그램의 &lt;code&gt;Updates&lt;/code&gt; 기능을 통해 업데이트가 되지 않더군요.  이런 경우에는
-다음의 커맨드를 통해 직접 업데이트를 할 수 있습니다:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ sudo dnf update google-chrome-stable
-...
-$ sudo killall chrome
-$ google-chrome-stable
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;두번째의 &lt;code&gt;killall&lt;/code&gt; 커맨드는 Chrome 프로세스들이 &lt;code&gt;닫기&lt;/code&gt; 버튼을 누르는 것만으로는
-모두 종료되지 않기 때문에 명시적으로 종료시키기 위해 필요합니다.  컴퓨터를 아예
-리붓 하는 방법도 있겠지만 별로 그러고 싶지는 않을테지요.  이후에 크롬을 다시
-시작하면 업데이트된 버전으로 시작됩니다.&lt;/p&gt;
 &lt;p&gt;[0] &lt;a href=&#34;https://www.google.com/chrome/browser/desktop/index.html?brand=CHBD&amp;amp;gclid=CKiMjdqX5dICFYcGKgodqZIM2Q&#34;&gt;https://www.google.com/chrome/browser/desktop/index.html?brand=CHBD&amp;amp;gclid=CKiMjdqX5dICFYcGKgodqZIM2Q&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
@@ -7326,16 +7309,6 @@ brute-force manner, do only simple echoing.  However, for the reason, the code
 could be helpful for beginner of Kakaotalk chat bot or Go language Restful API
 server programmer.  That&#39;s why I am introducing it here.  You can get the code
 from below link:&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/sjp38/kakaobot&#34;&gt;https://github.com/sjp38/kakaobot&lt;/a&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;Kakaotalk [1] chat bot [2] 은 어떻게 만드는지 궁금해져서 Go 언어로 간단한
-Kakaotalk chat bot 을 만들어 봤습니다.  Go 언어의 강력함과 Kakaotalk auto-reply
-API 의 단순성, 그리고 echo 서버 역할 정도만 하자는 심플하다 못해 썰렁한 기능
-목표 덕에 최초 목표한 데까지는 두시간 만에 만들어졌습니다.  매우 단순히 echo
-서버 정도의 역할만 하고 있지만, 매우 단순하게 짜여져 있기 때문에 Kakaotalk chat
-bot 을 만들고자 할 때, 또는 Restful API 를 사용하는 서버를 Go 언어로 짜고자 할
-때 시작용으로 참고할 만 하지 않을까 싶어 소개합니다.  아래 링크를 통해 코드를
-얻을 수 있습니다:&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://github.com/sjp38/kakaobot&#34;&gt;https://github.com/sjp38/kakaobot&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&#34;references&#34;&gt;References&lt;/h1&gt;
 &lt;p&gt;[1] &lt;a href=&#34;https://en.wikipedia.org/wiki/Chatbot&#34;&gt;https://en.wikipedia.org/wiki/Chatbot&lt;/a&gt;&lt;/p&gt;
@@ -7364,43 +7337,7 @@ protocol layer.  &lt;code&gt;arping&lt;/code&gt; just sends the ARP REQUEST to l
 neighbour.&lt;/p&gt;
 &lt;p&gt;It could be useful in case of internet connection problem if IP duplication is
 suspicious.&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;로컬 네트워크에서 어떤 IP 주소가 어떤 MAC 어드레스에 매핑되는지 알기 위해
-&lt;code&gt;arping&lt;/code&gt; 을 사용할 수 있습니다. 사용법은 간단합니다:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;arping  [-AbDfhqUV]  [-c count] [-w deadline] [-s source] -I interface destination
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;예를 들면, 다음과 같습니다:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ arping -I eth0 10.0.0.1
-ARPING 10.0.0.1 from 10.0.0.2 eth0
-Unicast reply from 10.0.0.1 [11:22:33:44:55:66]  0.123ms
-Unicast reply from 10.0.0.1 [11:22:33:44:55:66]  0.251ms
-...
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;이 툴의 동작 원리는 ARP 프로토콜 [1] 입니다.  IP 프로토콜 레이어는 이
-프로토콜을 사용해 특정 IP 주소를 사용하는 기계의 MAC 어드레스를 파악하고 이
-주소를 아랫단의 Ethernet 레이어에 보냅니다.  &lt;code&gt;arping&lt;/code&gt; 은 단지 ARP REQUEST 를
-로컬 네트워크의 컴퓨터들에게 보내는 일을 합니다.&lt;/p&gt;
-&lt;p&gt;인터넷 연결 문제가 발생했을 때, IP 중복이 의심된다면 유용하게 사용될 수
-있습니다.&lt;/p&gt;
-&lt;hr&gt;
 &lt;p&gt;[1] &lt;a href=&#34;http://www.erg.abdn.ac.uk/users/gorry/course/inet-pages/arp.html&#34;&gt;http://www.erg.abdn.ac.uk/users/gorry/course/inet-pages/arp.html&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Starting &#39;Linux Kernel Hack&#39; series</title>
-      <link>/post/001_linux_dev_intro/</link>
-      <pubDate>Sat, 04 Mar 2017 15:53:08 +0900</pubDate>
-      <guid>/post/001_linux_dev_intro/</guid>
-      <description>&lt;p&gt;많은 영역에서 사용되고 있는 리눅스 커널.  그렇기에 만져볼수록 재밌고 뜯어볼수록
-신기합니다.  아마도 이게 hack 의 재미가 아닐까요.&lt;/p&gt;
-&lt;p&gt;리눅스 커널을 hack 하는데에 필요한 기본적인 내용부터 몇가지 팁들, 소스 코드는
-어떻게 가져오고 어떻게 빌드해서 시스템에 설치를 하는지, 패치는 어떻게 보내면
-되는지와 같은 것들을 정리해 볼까 합니다.&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;So many environments and users are using Linux kernel.  That&#39;s why it is so fun
-and mysterious to touch and analyze it.  Maybe it is the fun of &lt;code&gt;hack&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;I will organize some basic informations and tips about linux kernel hacking,
-for example, how to get the source code, how to build it, how to install it,
-and how the patch can be submitted to &lt;code&gt;Linus Torvalds&lt;/code&gt;.&lt;/p&gt;
 </description>
     </item>
     
@@ -7561,17 +7498,6 @@ Embedded Operating Systems Workshop 2015[2].  A paper about the project has
 been published by proceeding of Embedded Operating Systems Workshop 2015 and
 45th issue of ACM SIGBED Review[3].  The source code has been submitted to
 LKML[4] for discussion.  It is also available at Github[5].&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;GCMA (Guaranteed Contiguous Memory Allocator) 는 리눅스 커널을 위한 물리적으로
-연속적인 메모리 영역 할당자로, 빠른 응답시간과 할당의 성공, 그리고 합리적인
-시스템 메모리 활용을 보장합니다.  Raspberry Pi 2 위에서의 저희의 성능 평가
-실험은 Linux v3.18 의 기본 CMA 대비 &lt;strong&gt;15 배에서 130배 빠른&lt;/strong&gt;, 그리고 더 예측
-가능한 응답시간을 보임을 보였습니다.&lt;/p&gt;
-&lt;p&gt;이 프로젝트는 Linux Foundation Korea Forum 2014[1] 와 Embedded Operating
-Systems Workshop 2015[2] 에서 발표되었습니다.  이 프로젝트에 대한 논문은
-Embedded Operating System Workshop 2015 proceeding 과 ACM SIGBED Review 45th
-issue[3] 에 출판되었습니다.  소스코드는 LKML에 토론을 위해 공개되었으며[4] Github
-에서도 받아보실 수 있습니다[5].&lt;/p&gt;
 &lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
 &lt;p&gt;[1] &lt;a href=&#34;https://korealinuxforum2014.sched.com/event/1qZcBAO/gcma-guaranteed-contiguous-memory-allocator-seongjae-park-seoul-national-university-minchan-kim-lg&#34;&gt;https://korealinuxforum2014.sched.com/event/1qZcBAO/gcma-guaranteed-contiguous-memory-allocator-seongjae-park-seoul-national-university-minchan-kim-lg&lt;/a&gt;&lt;br&gt;
 [2] &lt;a href=&#34;http://ceur-ws.org/Vol-1464/&#34;&gt;http://ceur-ws.org/Vol-1464/&lt;/a&gt;&lt;br&gt;
