@@ -493,11 +493,9 @@
     <div class="article-style">
       
       [PATCH RFC v3 00/36] Add KernelMemorySanitizer infrastructure https://lkml.kernel.org/r/20191122112621.204798-1-glider@google.com
-초기화 되지 않은 메모리 영역에 접근함으로써 생기는 에러를 검출해내는 구글의 KMSAN 세번째 RFC 패치셋입니다. 다른 SAN 시리즈와 마찬가지로 구글 syzkaller 에 사용되어 지난 2년간 200개가 넘는 버그를 찾아냈다고 하네요.
+Google's third KMSAN RFC patchset that detects errors caused by accessing uninitialized memory areas. Like other SAN series, it has been used in Google syzkaller and found over 200 bugs in the last two years.
 LSF/MM/BPF: 2020: Call for Proposals https://lkml.kernel.org/r/20191122172502.vffyfxlqejthjib6@macbook-pro-91.dhcp.thefacebook.com
-내년 LSF/MM 의 CFP 가 나왔습니다. 근데, 내년부턴 LSF/MM 에 BPF 세션이 추가되네요, 명칭도 LSF/MM/BPF 로 바뀌었습니다. BPF 의 위상이 새삼 느껴지네요!
-Linux 5.4 https://lkml.kernel.org/r/CAHk-=wjmzaD=BZ1hjUYu+RTnSGDLfCRwCdg99GeQpCjEwo9uzw@mail.gmail.com
-여덟번의 rc 릴리즈를 끝으로 드디어 5.
+LSF/MM's CFP for the next year was released. From next year, BPF sessions will be added to LSF/MM, so the name has changed to LSF/MM/BPF.
       
     </div>
   </div>
@@ -507,9 +505,8 @@ Linux 5.4 https://lkml.kernel.org/r/CAHk-=wjmzaD=BZ1hjUYu+RTnSGDLfCRwCdg99GeQpCj
     <div class="article-style">
       
       [PATCH 00/13] Finish off [smp_]read_barrier_depends() https://lkml.kernel.org/r/20191108170120.22331-1-will@kernel.org
-Alpha 에만 의존적인 메모리 모델 요소인 smp_read_barrier_depends() 는 READ_ONCE() 에 내장됨으로써 Alpha-specific 하지 않은 커널 코드에서는 Alpha 를 신경쓰지 않아도 되게 되었죠. 그럼에도 불구하고 이걸 신경쓰는 코드가 올라오는게 신경쓰였나 봅니다. 이 패치셋은 커널 코드의 모든 문서와 주석에서 해당 기능에 대한 설명을 삭제해 버립니다.
-[PATCH v4 00/10] Add Kernel Concurrency Sanitizer (KCSAN) https://lkml.kernel.org/r/20191114180303.66955-1-elver@google.com
-구글의 동시성 버그를 잡아주는 KCSAN 패치입니다. 이번 버전은 x86 만을 위한 버전이지만 조만간 ARM64 와 POWER 지원을 추가할 예정이라는군요.
+The memory model element which is depends only on Alpha, smp_read_barrier_depends() is built into READ_ONCE(), so that you don't have to worry about Alpha in non-alpha-specific kernel code. Nevertheless, the author of this patchset concerned about the continuing uploads of the code that cares it. This patchset removes the description of the feature from all documentation and comments in the kernel code.
+[PATCH v4 00/10] Add Kernel Concurrency Sanitizer (KCSAN) https://lkml.
       
     </div>
   </div>

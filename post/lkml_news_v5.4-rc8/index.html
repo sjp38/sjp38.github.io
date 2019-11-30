@@ -29,9 +29,8 @@
     
   
   <meta name="description" content="[PATCH 00/13] Finish off [smp_]read_barrier_depends() https://lkml.kernel.org/r/20191108170120.22331-1-will@kernel.org
-Alpha 에만 의존적인 메모리 모델 요소인 smp_read_barrier_depends() 는 READ_ONCE() 에 내장됨으로써 Alpha-specific 하지 않은 커널 코드에서는 Alpha 를 신경쓰지 않아도 되게 되었죠. 그럼에도 불구하고 이걸 신경쓰는 코드가 올라오는게 신경쓰였나 봅니다. 이 패치셋은 커널 코드의 모든 문서와 주석에서 해당 기능에 대한 설명을 삭제해 버립니다.
-[PATCH v4 00/10] Add Kernel Concurrency Sanitizer (KCSAN) https://lkml.kernel.org/r/20191114180303.66955-1-elver@google.com
-구글의 동시성 버그를 잡아주는 KCSAN 패치입니다. 이번 버전은 x86 만을 위한 버전이지만 조만간 ARM64 와 POWER 지원을 추가할 예정이라는군요.">
+The memory model element which is depends only on Alpha, smp_read_barrier_depends() is built into READ_ONCE(), so that you don&#39;t have to worry about Alpha in non-alpha-specific kernel code. Nevertheless, the author of this patchset concerned about the continuing uploads of the code that cares it. This patchset removes the description of the feature from all documentation and comments in the kernel code.
+[PATCH v4 00/10] Add Kernel Concurrency Sanitizer (KCSAN) https://lkml.">
 
   
   <link rel="alternate" hreflang="ko" href="/ko/post/lkml_news_v5.4-rc8/">
@@ -120,9 +119,8 @@ Alpha 에만 의존적인 메모리 모델 요소인 smp_read_barrier_depends() 
   <meta property="og:url" content="/post/lkml_news_v5.4-rc8/">
   <meta property="og:title" content="LKML News v5.4-rc8 | hacklog">
   <meta property="og:description" content="[PATCH 00/13] Finish off [smp_]read_barrier_depends() https://lkml.kernel.org/r/20191108170120.22331-1-will@kernel.org
-Alpha 에만 의존적인 메모리 모델 요소인 smp_read_barrier_depends() 는 READ_ONCE() 에 내장됨으로써 Alpha-specific 하지 않은 커널 코드에서는 Alpha 를 신경쓰지 않아도 되게 되었죠. 그럼에도 불구하고 이걸 신경쓰는 코드가 올라오는게 신경쓰였나 봅니다. 이 패치셋은 커널 코드의 모든 문서와 주석에서 해당 기능에 대한 설명을 삭제해 버립니다.
-[PATCH v4 00/10] Add Kernel Concurrency Sanitizer (KCSAN) https://lkml.kernel.org/r/20191114180303.66955-1-elver@google.com
-구글의 동시성 버그를 잡아주는 KCSAN 패치입니다. 이번 버전은 x86 만을 위한 버전이지만 조만간 ARM64 와 POWER 지원을 추가할 예정이라는군요."><meta property="og:image" content="/img/tux.png">
+The memory model element which is depends only on Alpha, smp_read_barrier_depends() is built into READ_ONCE(), so that you don&#39;t have to worry about Alpha in non-alpha-specific kernel code. Nevertheless, the author of this patchset concerned about the continuing uploads of the code that cares it. This patchset removes the description of the feature from all documentation and comments in the kernel code.
+[PATCH v4 00/10] Add Kernel Concurrency Sanitizer (KCSAN) https://lkml."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -174,7 +172,7 @@ Alpha 에만 의존적인 메모리 모델 요소인 smp_read_barrier_depends() 
       "url": "/img/icon-512.png"
     }
   },
-  "description": "[PATCH 00/13] Finish off [smp_]read_barrier_depends() https://lkml.kernel.org/r/20191108170120.22331-1-will@kernel.org\nAlpha 에만 의존적인 메모리 모델 요소인 smp_read_barrier_depends() 는 READ_ONCE() 에 내장됨으로써 Alpha-specific 하지 않은 커널 코드에서는 Alpha 를 신경쓰지 않아도 되게 되었죠. 그럼에도 불구하고 이걸 신경쓰는 코드가 올라오는게 신경쓰였나 봅니다. 이 패치셋은 커널 코드의 모든 문서와 주석에서 해당 기능에 대한 설명을 삭제해 버립니다.\n[PATCH v4 00/10] Add Kernel Concurrency Sanitizer (KCSAN) https://lkml.kernel.org/r/20191114180303.66955-1-elver@google.com\n구글의 동시성 버그를 잡아주는 KCSAN 패치입니다. 이번 버전은 x86 만을 위한 버전이지만 조만간 ARM64 와 POWER 지원을 추가할 예정이라는군요."
+  "description": "[PATCH 00/13] Finish off [smp_]read_barrier_depends() https://lkml.kernel.org/r/20191108170120.22331-1-will@kernel.org\nThe memory model element which is depends only on Alpha, smp_read_barrier_depends() is built into READ_ONCE(), so that you don't have to worry about Alpha in non-alpha-specific kernel code. Nevertheless, the author of this patchset concerned about the continuing uploads of the code that cares it. This patchset removes the description of the feature from all documentation and comments in the kernel code.\n[PATCH v4 00/10] Add Kernel Concurrency Sanitizer (KCSAN) https://lkml."
 }
 </script>
 
@@ -598,25 +596,25 @@ Alpha 에만 의존적인 메모리 모델 요소인 smp_read_barrier_depends() 
     <div class="article-style">
       <h2 id="patch-0013-finish-off-smpreadbarrierdepends"><code>[PATCH 00/13] Finish off [smp_]read_barrier_depends()</code></h2>
 <p><a href="https://lkml.kernel.org/r/20191108170120.22331-1-will@kernel.org">https://lkml.kernel.org/r/20191108170120.22331-1-will@kernel.org</a></p>
-<p>Alpha 에만 의존적인 메모리 모델 요소인 <code>smp_read_barrier_depends()</code> 는
-<code>READ_ONCE()</code> 에 내장됨으로써 Alpha-specific 하지 않은 커널 코드에서는 Alpha 를
-신경쓰지 않아도 되게 되었죠.  그럼에도 불구하고 이걸 신경쓰는 코드가 올라오는게
-신경쓰였나 봅니다.
-이 패치셋은 커널 코드의 모든 문서와 주석에서 해당 기능에 대한 설명을 삭제해
-버립니다.</p>
+<p>The memory model element which is depends only on Alpha,
+<code>smp_read_barrier_depends()</code> is built into <code>READ_ONCE()</code>, so that you don't
+have to worry about Alpha in non-alpha-specific kernel code.
+Nevertheless, the author of this patchset concerned about the continuing
+uploads of the code that cares it.
+This patchset removes the description of the feature from all documentation and
+comments in the kernel code.</p>
 <h2 id="patch-v4-0010-add-kernel-concurrency-sanitizer-kcsan">[PATCH v4 00/10] Add Kernel Concurrency Sanitizer (KCSAN)</h2>
 <p><a href="https://lkml.kernel.org/r/20191114180303.66955-1-elver@google.com">https://lkml.kernel.org/r/20191114180303.66955-1-elver@google.com</a></p>
-<p>구글의 동시성 버그를 잡아주는 KCSAN 패치입니다.  이번 버전은 x86 만을 위한
-버전이지만 조만간 ARM64 와 POWER 지원을 추가할 예정이라는군요.  이번 네번째
-버전은 이전 버전에 비해 성능이 33% 향상되었다고 합니다.</p>
+<p>This is the Google's KCSAN patch that catches concurrency bugs. This version is
+for x86 only, but will add ARM64 and POWER support soon. This fourth version
+has a 33% performance improvement over previous versions.</p>
 <h2 id="linux-54rc8">Linux 5.4-rc8</h2>
 <p><a href="https://lkml.kernel.org/r/CAHk-=wiyR4Np_n5O6=rbf1GVNdr_zUd1WAC_GJDnc_hUhHqwWg@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wiyR4Np_n5O6=rbf1GVNdr_zUd1WAC_GJDnc_hUhHqwWg@mail.gmail.com</a></p>
-<p>정식버전이 나올지 rc8 이 나올지 나름 두근두근한 일주일이었는데, 결국 rc8 이
-나왔습니다.  하지만 딱히 문제가 있었던 건 아니라는군요.  떠들썩했던 인텔 취약점
-패치가 들어온 한주였음에도 매우 조용했다고 합니다.</p>
-<p>다다음주는 Thanksgiving 이군요.  이 점을 생각하면 다음주는 5.4 에 대한
-수정사항보다는 5.5 머지윈도우를 위한 early pull request 가 오길 바란다고
-합니다.</p>
+<p>It's been a week of thrilling to see if the full version or rc8 will be
+available. But it wasn't just a problem. It's been a quiet week, even though
+it's been a week since the bustling Intel vulnerability patch.</p>
+<p>Next week is Thanksgiving. With that in mind, next week we hope to have an
+early pull request for 5.5 merge windows rather than a fix for 5.4.</p>
 
     </div>
 

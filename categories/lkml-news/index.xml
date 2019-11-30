@@ -19,22 +19,23 @@
       <guid>/post/lkml_news_v5.4/</guid>
       <description>&lt;h2 id=&#34;patch-rfc-v3-0036-add-kernelmemorysanitizer-infrastructure&#34;&gt;[PATCH RFC v3 00/36] Add KernelMemorySanitizer infrastructure&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20191122112621.204798-1-glider@google.com&#34;&gt;https://lkml.kernel.org/r/20191122112621.204798-1-glider@google.com&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;초기화 되지 않은 메모리 영역에 접근함으로써 생기는 에러를 검출해내는 구글의
-KMSAN 세번째 RFC 패치셋입니다.  다른 SAN 시리즈와 마찬가지로 구글 syzkaller 에
-사용되어 지난 2년간 200개가 넘는 버그를 찾아냈다고 하네요.&lt;/p&gt;
+&lt;p&gt;Google&#39;s third KMSAN RFC patchset that detects errors caused by accessing
+uninitialized memory areas. Like other SAN series, it has been used in Google
+syzkaller and found over 200 bugs in the last two years.&lt;/p&gt;
 &lt;h2 id=&#34;lsfmmbpf-2020-call-for-proposals&#34;&gt;LSF/MM/BPF: 2020: Call for Proposals&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20191122172502.vffyfxlqejthjib6@macbook-pro-91.dhcp.thefacebook.com&#34;&gt;https://lkml.kernel.org/r/20191122172502.vffyfxlqejthjib6@macbook-pro-91.dhcp.thefacebook.com&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;내년 LSF/MM 의 CFP 가 나왔습니다.  근데, 내년부턴 LSF/MM 에 BPF 세션이
-추가되네요, 명칭도 LSF/MM/BPF 로 바뀌었습니다.  BPF 의 위상이 새삼 느껴지네요!&lt;/p&gt;
+&lt;p&gt;LSF/MM&#39;s CFP for the next year was released.  From next year, BPF sessions
+will be added to LSF/MM, so the name has changed to LSF/MM/BPF. I can
+feel the phase of BPF again!&lt;/p&gt;
 &lt;h2 id=&#34;linux-54&#34;&gt;Linux 5.4&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wjmzaD=BZ1hjUYu+RTnSGDLfCRwCdg99GeQpCjEwo9uzw@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wjmzaD=BZ1hjUYu+RTnSGDLfCRwCdg99GeQpCjEwo9uzw@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;여덟번의 rc 릴리즈를 끝으로 드디어 5.4 정식 버전이 릴리즈 되었습니다.  다행히
-지난 일주일 간은 정말 별일 없었다는군요.  Thanksgiving 을 대비해 일찍 들어온
-5.5 를 위한 풀리퀘스트가 대부분이었고, 네트워킹과 GPU 쪽의 일부 업데이트가
-대부분이었다고 합니다.&lt;/p&gt;
-&lt;p&gt;이렇게 5.5 머지 윈도우가 열렸는데, 머지윈도우 중에 Thanksgiving 이 있다는게
-조금 걱정되긴 합니다만, 토발즈는 큰일은 없을 걸로 믿으며, 아이들 돌보느라 조금
-처리가 늦어질 순 있겠다고 하네요.&lt;/p&gt;
+&lt;p&gt;At the end of the eight rc releases, the 5.4 official version is finally
+released.  Fortunately, the past week was really calm.  Most of the pull
+requests for 5.5 came early for Thanksgiving, and some updates to networking
+and GPUs.&lt;/p&gt;
+&lt;p&gt;In this way 5.5 merge window is open, but I&#39;m a little worried that there&#39;s
+Thanksgiving in the merge window, but Torvalds believes it won&#39;t be a big deal,
+and it might be a little slow to take care of the children.&lt;/p&gt;
 </description>
     </item>
     
@@ -45,25 +46,25 @@ KMSAN 세번째 RFC 패치셋입니다.  다른 SAN 시리즈와 마찬가지로
       <guid>/post/lkml_news_v5.4-rc8/</guid>
       <description>&lt;h2 id=&#34;patch-0013-finish-off-smpreadbarrierdepends&#34;&gt;&lt;code&gt;[PATCH 00/13] Finish off [smp_]read_barrier_depends()&lt;/code&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20191108170120.22331-1-will@kernel.org&#34;&gt;https://lkml.kernel.org/r/20191108170120.22331-1-will@kernel.org&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Alpha 에만 의존적인 메모리 모델 요소인 &lt;code&gt;smp_read_barrier_depends()&lt;/code&gt; 는
-&lt;code&gt;READ_ONCE()&lt;/code&gt; 에 내장됨으로써 Alpha-specific 하지 않은 커널 코드에서는 Alpha 를
-신경쓰지 않아도 되게 되었죠.  그럼에도 불구하고 이걸 신경쓰는 코드가 올라오는게
-신경쓰였나 봅니다.
-이 패치셋은 커널 코드의 모든 문서와 주석에서 해당 기능에 대한 설명을 삭제해
-버립니다.&lt;/p&gt;
+&lt;p&gt;The memory model element which is depends only on Alpha,
+&lt;code&gt;smp_read_barrier_depends()&lt;/code&gt; is built into &lt;code&gt;READ_ONCE()&lt;/code&gt;, so that you don&#39;t
+have to worry about Alpha in non-alpha-specific kernel code.
+Nevertheless, the author of this patchset concerned about the continuing
+uploads of the code that cares it.
+This patchset removes the description of the feature from all documentation and
+comments in the kernel code.&lt;/p&gt;
 &lt;h2 id=&#34;patch-v4-0010-add-kernel-concurrency-sanitizer-kcsan&#34;&gt;[PATCH v4 00/10] Add Kernel Concurrency Sanitizer (KCSAN)&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20191114180303.66955-1-elver@google.com&#34;&gt;https://lkml.kernel.org/r/20191114180303.66955-1-elver@google.com&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;구글의 동시성 버그를 잡아주는 KCSAN 패치입니다.  이번 버전은 x86 만을 위한
-버전이지만 조만간 ARM64 와 POWER 지원을 추가할 예정이라는군요.  이번 네번째
-버전은 이전 버전에 비해 성능이 33% 향상되었다고 합니다.&lt;/p&gt;
+&lt;p&gt;This is the Google&#39;s KCSAN patch that catches concurrency bugs. This version is
+for x86 only, but will add ARM64 and POWER support soon. This fourth version
+has a 33% performance improvement over previous versions.&lt;/p&gt;
 &lt;h2 id=&#34;linux-54rc8&#34;&gt;Linux 5.4-rc8&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wiyR4Np_n5O6=rbf1GVNdr_zUd1WAC_GJDnc_hUhHqwWg@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wiyR4Np_n5O6=rbf1GVNdr_zUd1WAC_GJDnc_hUhHqwWg@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;정식버전이 나올지 rc8 이 나올지 나름 두근두근한 일주일이었는데, 결국 rc8 이
-나왔습니다.  하지만 딱히 문제가 있었던 건 아니라는군요.  떠들썩했던 인텔 취약점
-패치가 들어온 한주였음에도 매우 조용했다고 합니다.&lt;/p&gt;
-&lt;p&gt;다다음주는 Thanksgiving 이군요.  이 점을 생각하면 다음주는 5.4 에 대한
-수정사항보다는 5.5 머지윈도우를 위한 early pull request 가 오길 바란다고
-합니다.&lt;/p&gt;
+&lt;p&gt;It&#39;s been a week of thrilling to see if the full version or rc8 will be
+available. But it wasn&#39;t just a problem. It&#39;s been a quiet week, even though
+it&#39;s been a week since the bustling Intel vulnerability patch.&lt;/p&gt;
+&lt;p&gt;Next week is Thanksgiving. With that in mind, next week we hope to have an
+early pull request for 5.5 merge windows rather than a fix for 5.4.&lt;/p&gt;
 </description>
     </item>
     
