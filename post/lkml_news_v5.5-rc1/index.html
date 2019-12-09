@@ -29,7 +29,9 @@
     
   
   <meta name="description" content="Splitting the mmap_sem https://lkml.kernel.org/r/20191203222147.GV20752@bombadil.infradead.org
-The mmap_sem is a big scalability bottleneck and there are several projects for solving it. In this mail, Matthew Wilcox suggests his plan for his solution and asks whether a exceptional case in his solution is acceptable to other people.">
+The mmap_sem is a big scalability bottleneck and there are several projects for solving it. In this mail, Matthew Wilcox suggests his plan for his solution and asks whether a exceptional case in his solution is acceptable to other people.
+Linux 5.5-rc1 https://lkml.kernel.org/r/CAHk-=wiEJK=yo9vEhX_4b4ROvCqUA_rjK7g996h-5MbfOMeDrw@mail.gmail.com
+Linux 5.5 merge window closed and the -rc1 has released. It was a tiny bit larger release compared to recent several releases, but fairly regular overall.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/lkml_news_v5.5-rc1/">
@@ -152,7 +154,9 @@ The mmap_sem is a big scalability bottleneck and there are several projects for 
   <meta property="og:url" content="/post/lkml_news_v5.5-rc1/">
   <meta property="og:title" content="LKML News v5.5-rc1 | hacklog">
   <meta property="og:description" content="Splitting the mmap_sem https://lkml.kernel.org/r/20191203222147.GV20752@bombadil.infradead.org
-The mmap_sem is a big scalability bottleneck and there are several projects for solving it. In this mail, Matthew Wilcox suggests his plan for his solution and asks whether a exceptional case in his solution is acceptable to other people."><meta property="og:image" content="/img/tux.png">
+The mmap_sem is a big scalability bottleneck and there are several projects for solving it. In this mail, Matthew Wilcox suggests his plan for his solution and asks whether a exceptional case in his solution is acceptable to other people.
+Linux 5.5-rc1 https://lkml.kernel.org/r/CAHk-=wiEJK=yo9vEhX_4b4ROvCqUA_rjK7g996h-5MbfOMeDrw@mail.gmail.com
+Linux 5.5 merge window closed and the -rc1 has released. It was a tiny bit larger release compared to recent several releases, but fairly regular overall."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -204,7 +208,7 @@ The mmap_sem is a big scalability bottleneck and there are several projects for 
       "url": "/img/icon-512.png"
     }
   },
-  "description": "Splitting the mmap_sem https://lkml.kernel.org/r/20191203222147.GV20752@bombadil.infradead.org\nThe mmap_sem is a big scalability bottleneck and there are several projects for solving it. In this mail, Matthew Wilcox suggests his plan for his solution and asks whether a exceptional case in his solution is acceptable to other people."
+  "description": "Splitting the mmap_sem https://lkml.kernel.org/r/20191203222147.GV20752@bombadil.infradead.org\nThe mmap_sem is a big scalability bottleneck and there are several projects for solving it. In this mail, Matthew Wilcox suggests his plan for his solution and asks whether a exceptional case in his solution is acceptable to other people.\nLinux 5.5-rc1 https://lkml.kernel.org/r/CAHk-=wiEJK=yo9vEhX_4b4ROvCqUA_rjK7g996h-5MbfOMeDrw@mail.gmail.com\nLinux 5.5 merge window closed and the -rc1 has released. It was a tiny bit larger release compared to recent several releases, but fairly regular overall."
 }
 </script>
 
@@ -616,6 +620,15 @@ The mmap_sem is a big scalability bottleneck and there are several projects for 
 for solving it.  In this mail, Matthew Wilcox suggests his plan for his
 solution and asks whether a exceptional case in his solution is acceptable to
 other people.</p>
+<h2 id="linux-55rc1">Linux 5.5-rc1</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wiEJK=yo9vEhX_4b4ROvCqUA_rjK7g996h-5MbfOMeDrw@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wiEJK=yo9vEhX_4b4ROvCqUA_rjK7g996h-5MbfOMeDrw@mail.gmail.com</a></p>
+<p>Linux 5.5 merge window closed and the -rc1 has released.
+It was a tiny bit larger release compared to recent several releases, but
+fairly regular overall.
+<code>perf</code> and <code>kselftest</code> was a standout, but Torvalds says it is normal in these
+days.</p>
+<p>My favorite new feature in 5.5-rc1 is <code>kunit</code>.  Now you can do unit test of the
+kernel in very fast and convenient way!</p>
 
     </div>
 
