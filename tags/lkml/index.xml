@@ -17,7 +17,16 @@
       <link>/post/lkml_news_v5.5-rc2/</link>
       <pubDate>Mon, 09 Dec 2019 18:54:28 +0100</pubDate>
       <guid>/post/lkml_news_v5.5-rc2/</guid>
-      <description></description>
+      <description>&lt;h2 id=&#34;patchset-05-support-for-rwfuncached&#34;&gt;[PATCHSET 0/5] Support for &lt;code&gt;RWF_UNCACHED&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20191210162454.8608-1-axboe@kernel.dk&#34;&gt;https://lkml.kernel.org/r/20191210162454.8608-1-axboe@kernel.dk&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;As the buffered IO uses the page cache, an intensive buffered IO workload using
+very huge file can cause memory pressure by inflating the page cache.
+Changing the workload to do direct IO can solve this problem, but the modification is not so simple.
+Jens Axboe thus implemented &lt;code&gt;RWF_UNCACHED&lt;/code&gt; flag, which skips use of the page
+cache if the given IO target is not in the page cache already.
+Jonathan Corbet has also introduced this patchset in LWN
+(&lt;a href=&#34;https://lwn.net/Articles/806980/)&#34;&gt;https://lwn.net/Articles/806980/)&lt;/a&gt;.&lt;/p&gt;
+</description>
     </item>
     
     <item>

@@ -528,6 +528,9 @@
     <h2><a href="/post/lkml_news_v5.5-rc2/">LKML News v5.5-rc2</a></h2>
     <div class="article-style">
       
+      [PATCHSET 0/5] Support for RWF_UNCACHED https://lkml.kernel.org/r/20191210162454.8608-1-axboe@kernel.dk
+As the buffered IO uses the page cache, an intensive buffered IO workload using very huge file can cause memory pressure by inflating the page cache. Changing the workload to do direct IO can solve this problem, but the modification is not so simple. Jens Axboe thus implemented RWF_UNCACHED flag, which skips use of the page cache if the given IO target is not in the page cache already.
+      
     </div>
   </div>
   
