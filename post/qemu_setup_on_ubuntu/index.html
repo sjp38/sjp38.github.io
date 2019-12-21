@@ -28,8 +28,8 @@
   
     
   
-  <meta name="description" content="This post describes how you can build, install, and use QEMU on an Ubuntu machine. I basically refererenced http://wiki.qemu.org/Hosts/Linux. The test has proceeded on an Ubuntu 16.04 server machine.
-QEMU Build sudo apt install libglib2.0-dev libfdt-dev libpixman-1-dev zlib1g-dev \ libgtk2.0-dev git clone git://git.qemu-project.org/qemu.git cd qemu git checkout v2.12.0 mkdir -p $HOME/qemu.sandbox/bin cd $HOME/qemu.sandbox/bin ../../qemu/configure --enable-debug time make -j143 ./x86_64-softmmu/qemu-system-x86_64 -L pc-bios Guest OS Install Get an Ubuntu server install image:">
+  <meta name="description" content="This post describes how you can build, install, and use QEMU on an Ubuntu machine. I basically refererenced http://wiki.qemu.org/Hosts/Linux. The test has proceeded on an Ubuntu 18.04 server machine.
+QEMU Build sudo apt install libglib2.0-dev libfdt-dev libpixman-1-dev zlib1g-dev \ libgtk-3-dev git clone git://git.qemu-project.org/qemu.git cd qemu git checkout v4.2.0 mkdir -p $HOME/qemu.sandbox/bin cd $HOME/qemu.sandbox/bin ../../qemu/configure --enable-debug --enable-gtk time make -j143 ./x86_64-softmmu/qemu-system-x86_64 -L pc-bios Guest OS Install Get an Ubuntu server install image:">
 
   
   <link rel="alternate" hreflang="ko" href="/ko/post/qemu_setup_on_ubuntu/">
@@ -153,8 +153,8 @@ QEMU Build sudo apt install libglib2.0-dev libfdt-dev libpixman-1-dev zlib1g-dev
   <meta property="og:site_name" content="hacklog">
   <meta property="og:url" content="/post/qemu_setup_on_ubuntu/">
   <meta property="og:title" content="Build, Install, and Use QEMU on Ubuntu | hacklog">
-  <meta property="og:description" content="This post describes how you can build, install, and use QEMU on an Ubuntu machine. I basically refererenced http://wiki.qemu.org/Hosts/Linux. The test has proceeded on an Ubuntu 16.04 server machine.
-QEMU Build sudo apt install libglib2.0-dev libfdt-dev libpixman-1-dev zlib1g-dev \ libgtk2.0-dev git clone git://git.qemu-project.org/qemu.git cd qemu git checkout v2.12.0 mkdir -p $HOME/qemu.sandbox/bin cd $HOME/qemu.sandbox/bin ../../qemu/configure --enable-debug time make -j143 ./x86_64-softmmu/qemu-system-x86_64 -L pc-bios Guest OS Install Get an Ubuntu server install image:"><meta property="og:image" content="/img/tux.png">
+  <meta property="og:description" content="This post describes how you can build, install, and use QEMU on an Ubuntu machine. I basically refererenced http://wiki.qemu.org/Hosts/Linux. The test has proceeded on an Ubuntu 18.04 server machine.
+QEMU Build sudo apt install libglib2.0-dev libfdt-dev libpixman-1-dev zlib1g-dev \ libgtk-3-dev git clone git://git.qemu-project.org/qemu.git cd qemu git checkout v4.2.0 mkdir -p $HOME/qemu.sandbox/bin cd $HOME/qemu.sandbox/bin ../../qemu/configure --enable-debug --enable-gtk time make -j143 ./x86_64-softmmu/qemu-system-x86_64 -L pc-bios Guest OS Install Get an Ubuntu server install image:"><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -206,7 +206,7 @@ QEMU Build sudo apt install libglib2.0-dev libfdt-dev libpixman-1-dev zlib1g-dev
       "url": "/img/icon-512.png"
     }
   },
-  "description": "This post describes how you can build, install, and use QEMU on an Ubuntu machine. I basically refererenced http://wiki.qemu.org/Hosts/Linux. The test has proceeded on an Ubuntu 16.04 server machine.\nQEMU Build sudo apt install libglib2.0-dev libfdt-dev libpixman-1-dev zlib1g-dev \\ libgtk2.0-dev git clone git://git.qemu-project.org/qemu.git cd qemu git checkout v2.12.0 mkdir -p $HOME/qemu.sandbox/bin cd $HOME/qemu.sandbox/bin ../../qemu/configure --enable-debug time make -j143 ./x86_64-softmmu/qemu-system-x86_64 -L pc-bios Guest OS Install Get an Ubuntu server install image:"
+  "description": "This post describes how you can build, install, and use QEMU on an Ubuntu machine. I basically refererenced http://wiki.qemu.org/Hosts/Linux. The test has proceeded on an Ubuntu 18.04 server machine.\nQEMU Build sudo apt install libglib2.0-dev libfdt-dev libpixman-1-dev zlib1g-dev \\ libgtk-3-dev git clone git://git.qemu-project.org/qemu.git cd qemu git checkout v4.2.0 mkdir -p $HOME/qemu.sandbox/bin cd $HOME/qemu.sandbox/bin ../../qemu/configure --enable-debug --enable-gtk time make -j143 ./x86_64-softmmu/qemu-system-x86_64 -L pc-bios Guest OS Install Get an Ubuntu server install image:"
 }
 </script>
 
@@ -631,21 +631,21 @@ QEMU Build sudo apt install libglib2.0-dev libfdt-dev libpixman-1-dev zlib1g-dev
       <p>This post describes how you can build, install, and use QEMU on an Ubuntu
 machine.
 I basically refererenced <a href="http://wiki.qemu.org/Hosts/Linux">http://wiki.qemu.org/Hosts/Linux</a>.
-The test has proceeded on an Ubuntu 16.04 server machine.</p>
+The test has proceeded on an Ubuntu 18.04 server machine.</p>
 <h1 id="qemu-build">QEMU Build</h1>
 <pre><code>sudo apt install libglib2.0-dev libfdt-dev libpixman-1-dev zlib1g-dev \
-		libgtk2.0-dev
+		libgtk-3-dev
 git clone git://git.qemu-project.org/qemu.git
 cd qemu
-git checkout v2.12.0
+git checkout v4.2.0
 mkdir -p $HOME/qemu.sandbox/bin
 cd $HOME/qemu.sandbox/bin
-../../qemu/configure --enable-debug
+../../qemu/configure --enable-debug --enable-gtk
 time make -j143
 ./x86_64-softmmu/qemu-system-x86_64 -L pc-bios
 </code></pre><h1 id="guest-os-install">Guest OS Install</h1>
 <p>Get an Ubuntu server install image:</p>
-<pre><code>$ wget http://releases.ubuntu.com/16.04/ubuntu-16.04.2-server-amd64.iso
+<pre><code>$ wget http://releases.ubuntu.com/18.04/ubuntu-18.04.3-live-server-amd64.iso
 </code></pre><p>Make qcow2 format image file:</p>
 <pre><code>cd ..
 $ ./bin/qemu-img create -f qcow2 qc2img 32G
@@ -656,11 +656,11 @@ drwxrwxr-x  3 sjpark sjpark 4.0K Jun  1 20:34 .
 drwxr-xr-x 28 sjpark sjpark 4.0K Jun  1 20:15 ..
 drwxrwxr-x 94 sjpark sjpark  12K Jun  1 20:19 bin
 -rw-r--r--  1 sjpark sjpark 193K Jun  1 20:34 qc2img
--rw-rw-r--  1 sjpark sjpark 829M Feb 16 05:37 ubuntu-16.04.2-server-amd64.iso
+-rw-rw-r--  1 sjpark sjpark 848M Feb 16 05:37 ubuntu-18.04.3-server-amd64.iso
 </code></pre><p>And, boot QEMU VM with the install image:</p>
 <pre><code>$ sudo ./bin/x86_64-softmmu/qemu-system-x86_64 -m 8G -enable-kvm \
 	-drive if=virtio,file=qc2img,cache=none \
-	-cdrom ubuntu-16.04.2-server-amd64.iso
+	-cdrom ubuntu-18.04.3-server-amd64.iso
 </code></pre><p>If your session is connected with X, above command opens QEMU GUI for the
 booted VM.
 The VM will be booted with the Ubuntu server install image, as same as when you
@@ -670,7 +670,8 @@ This post will use ssh to connect to the VM.  Install openssh pacakge while the
 install process.</p>
 <p>Now, you can boot your Ubuntu VM as below:</p>
 <pre><code>$ sudo ./bin/x86_64-softmmu/qemu-system-x86_64 -m 20G -smp 32 -enable-kvm \
-	-drive if=virtio,file=qc2img,cache=none -redir tcp:2242::22 -nographic
+	-drive if=virtio,file=qc2img,cache=none \
+	-net user.hostfwd=tcp::2242-:22 -net nic -nographic
 </code></pre><p>Because of the <code>-nographic</code> option, it will not give you GUI interface but
 shows <code>Booting from Hard Disk...</code> message only.  But, the VM is booted well.
 You can ssh to the VM via the port, 2242.</p>
@@ -698,10 +699,10 @@ Give the path to the kernel image file via <code>-kernel</code> option and give 
 parameter you want to use using <code>-append</code> option.
 For example:</p>
 <pre><code>$ sudo ../qemu/build/x86_64-softmmu/qemu-system-x86_64 -m 2048 -smp 2 \
--enable-kvm -drive if=virtio,file=debian.img,cache=none -redir tcp:2242:22 \
--nographic \
--kernel /linux.out/arch/x86/boot/bzImage \
--append “root=/dev/vda1 console=ttyS0 earlyprintk=ttyS0 debug ignore_loglevel ftrace_dump_on_oops”
+	-enable-kvm -drive if=virtio,file=debian.img,cache=none \
+	-net user,hostfwd=tcp::2242-:22 -net nic -nographic \
+	-kernel /linux.out/arch/x86/boot/bzImage \
+	-append “root=/dev/vda1 console=ttyS0 earlyprintk=ttyS0 debug ignore_loglevel ftrace_dump_on_oops”
 </code></pre><p>For the <code>root=</code> in the kernel parameter, check which device file is mounted as
 the rootfs by the guest OS and use it.</p>
 <p>Also, you cannot use modules built on the host in the VM, unless you send the

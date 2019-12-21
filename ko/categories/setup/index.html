@@ -528,9 +528,9 @@
     <h2><a href="/ko/post/qemu_setup_on_ubuntu/">Ubuntu 환경에서 QEMU 빌드 / 설치 / 사용하는 법</a></h2>
     <div class="article-style">
       
-      Ubuntu 에서 QEMU 를 빌드, 설치, 사용하는 법을 설명합니다. 기본적으로 http://wiki.qemu.org/Hosts/Linux 문서를 참고했습니다. 테스트는 Ubuntu 16.04 머신 위에서 진행되었습니다.
-QEMU Build sudo apt install libglib2.0-dev libfdt-dev libpixman-1-dev zlib1g-dev \ libgtk2.0-dev git clone git://git.qemu-project.org/qemu.git cd qemu git checkout v2.12.0 mkdir -p $HOME/qemu.sandbox/bin cd $HOME/qemu.sandbox/bin ../../qemu/configure --enable-debug time make -j143 ./x86_64-softmmu/qemu-system-x86_64 -L pc-bios Guest OS Install Ubuntu 서버 이미지를 가져오고,
-$ wget http://releases.ubuntu.com/16.04/ubuntu-16.04.2-server-amd64.iso qcow2 포맷으로 스토리지를 만들고,
+      Ubuntu 에서 QEMU 를 빌드, 설치, 사용하는 법을 설명합니다. 기본적으로 http://wiki.qemu.org/Hosts/Linux 문서를 참고했습니다. 테스트는 Ubuntu 18.04 머신 위에서 진행되었습니다.
+QEMU Build sudo apt install libglib2.0-dev libfdt-dev libpixman-1-dev zlib1g-dev \ libgtk-3-dev git clone git://git.qemu-project.org/qemu.git cd qemu git checkout v4.2.0 mkdir -p $HOME/qemu.sandbox/bin cd $HOME/qemu.sandbox/bin ../../qemu/configure --enable-debug --enable-gtk time make -j143 ./x86_64-softmmu/qemu-system-x86_64 -L pc-bios Guest OS Install Ubuntu 서버 이미지를 가져오고,
+$ wget http://releases.ubuntu.com/18.04/ubuntu-18.04.3-live-server-amd64.iso qcow2 포맷으로 스토리지를 만들고,
 cd .. $ ./bin/qemu-img create -f qcow2 qc2img 32G Formatting 'qc2img', fmt=qcow2 size=34359738368 encryption=off cluster_size=65536 lazy_refcounts=off refcount_bits=16 $ ls -alh total 830M drwxrwxr-x 3 sjpark sjpark 4.
       
     </div>
