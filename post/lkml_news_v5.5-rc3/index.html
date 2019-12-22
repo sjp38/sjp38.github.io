@@ -29,7 +29,9 @@
     
   
   <meta name="description" content="PROBLEM: Large (256MB) CMA allocation fails from time to time when using Intel VT-d https://lkml.kernel.org/r/5e75d900cb50457784ee1d2050b511ec@MAILER13.tech.ceia
-The author reports a CMA allocation failure that occurs time to time if the system is using Intel VT-d.">
+The author reports a CMA allocation failure that occurs time to time if the system is using Intel VT-d.
+[PATCHv2 0/3] Allow ZRAM to use any zpool-compatible backend https://lkml.kernel.org/r/20191219151928.ad4ccf732b64b7f8a26116db@gmail.com
+ZRAM is an in-memory block device that compresses the content. Currently, ZRAM is used only with zsmalloc. However, the zsmalloc is not an optimal selection in some environment.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/lkml_news_v5.5-rc3/">
@@ -152,7 +154,9 @@ The author reports a CMA allocation failure that occurs time to time if the syst
   <meta property="og:url" content="/post/lkml_news_v5.5-rc3/">
   <meta property="og:title" content="LKML News v5.5-rc3 | hacklog">
   <meta property="og:description" content="PROBLEM: Large (256MB) CMA allocation fails from time to time when using Intel VT-d https://lkml.kernel.org/r/5e75d900cb50457784ee1d2050b511ec@MAILER13.tech.ceia
-The author reports a CMA allocation failure that occurs time to time if the system is using Intel VT-d."><meta property="og:image" content="/img/tux.png">
+The author reports a CMA allocation failure that occurs time to time if the system is using Intel VT-d.
+[PATCHv2 0/3] Allow ZRAM to use any zpool-compatible backend https://lkml.kernel.org/r/20191219151928.ad4ccf732b64b7f8a26116db@gmail.com
+ZRAM is an in-memory block device that compresses the content. Currently, ZRAM is used only with zsmalloc. However, the zsmalloc is not an optimal selection in some environment."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -204,7 +208,7 @@ The author reports a CMA allocation failure that occurs time to time if the syst
       "url": "/img/icon-512.png"
     }
   },
-  "description": "PROBLEM: Large (256MB) CMA allocation fails from time to time when using Intel VT-d https://lkml.kernel.org/r/5e75d900cb50457784ee1d2050b511ec@MAILER13.tech.ceia\nThe author reports a CMA allocation failure that occurs time to time if the system is using Intel VT-d."
+  "description": "PROBLEM: Large (256MB) CMA allocation fails from time to time when using Intel VT-d https://lkml.kernel.org/r/5e75d900cb50457784ee1d2050b511ec@MAILER13.tech.ceia\nThe author reports a CMA allocation failure that occurs time to time if the system is using Intel VT-d.\n[PATCHv2 0/3] Allow ZRAM to use any zpool-compatible backend https://lkml.kernel.org/r/20191219151928.ad4ccf732b64b7f8a26116db@gmail.com\nZRAM is an in-memory block device that compresses the content. Currently, ZRAM is used only with zsmalloc. However, the zsmalloc is not an optimal selection in some environment."
 }
 </script>
 
@@ -614,6 +618,24 @@ The author reports a CMA allocation failure that occurs time to time if the syst
 <p><a href="https://lkml.kernel.org/r/5e75d900cb50457784ee1d2050b511ec@MAILER13.tech.ceia">https://lkml.kernel.org/r/5e75d900cb50457784ee1d2050b511ec@MAILER13.tech.ceia</a></p>
 <p>The author reports a CMA allocation failure that occurs time to time if the
 system is using Intel VT-d.</p>
+<h2 id="patchv2-03-allow-zram-to-use-any-zpoolcompatible-backend">[PATCHv2 0/3] Allow ZRAM to use any zpool-compatible backend</h2>
+<p><a href="https://lkml.kernel.org/r/20191219151928.ad4ccf732b64b7f8a26116db@gmail.com">https://lkml.kernel.org/r/20191219151928.ad4ccf732b64b7f8a26116db@gmail.com</a></p>
+<p>ZRAM is an in-memory block device that compresses the content.  Currently, ZRAM
+is used only with zsmalloc.  However, the zsmalloc is not an optimal selection
+in some environment.  The author gives embedded environment which fast response
+is important as an example.  In such environment, though compress ratio is a
+little bit less, faster response (e..g, z3fold) is more valuable.  Thus, this
+patchset changes ZRAM to be able to use multiple backend.</p>
+<h2 id="patch-rfc-v4-0042-add-kernelmemorysanitizer-infrastructure">[PATCH RFC v4 00/42] Add KernelMemorySanitizer infrastructure</h2>
+<p><a href="https://lkml.kernel.org/r/20191220184955.223741-1-glider@google.com">https://lkml.kernel.org/r/20191220184955.223741-1-glider@google.com</a></p>
+<p>KMSAN detects errors related to uses of uninitialized memory.  With a help from
+syzkaller, KMSAN has already reported more than 200 bugs in the past two years.
+This patch aims to be merged in the mainline.</p>
+<h2 id="regression-seen-when-using-madvfree-vs-madvdontneed">Regression seen when using <code>MADV_FREE</code> vs <code>MADV_DONTNEED</code></h2>
+<p>The author introduced a patch using <code>MADV_FREE</code> instead of <code>MADV_DONTNEED</code> in
+the QEMU.  On <code>next-20191120</code> kernel, it worked as the author expected.  On
+<code>next-20191120</code>, however, the author was able to encounter an issue.  The
+<code>MADV_FREE</code> has been significantly slower than <code>MADV_DONTNEED</code>.</p>
 
     </div>
 

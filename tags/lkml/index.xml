@@ -21,6 +21,24 @@
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/5e75d900cb50457784ee1d2050b511ec@MAILER13.tech.ceia&#34;&gt;https://lkml.kernel.org/r/5e75d900cb50457784ee1d2050b511ec@MAILER13.tech.ceia&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;The author reports a CMA allocation failure that occurs time to time if the
 system is using Intel VT-d.&lt;/p&gt;
+&lt;h2 id=&#34;patchv2-03-allow-zram-to-use-any-zpoolcompatible-backend&#34;&gt;[PATCHv2 0/3] Allow ZRAM to use any zpool-compatible backend&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20191219151928.ad4ccf732b64b7f8a26116db@gmail.com&#34;&gt;https://lkml.kernel.org/r/20191219151928.ad4ccf732b64b7f8a26116db@gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;ZRAM is an in-memory block device that compresses the content.  Currently, ZRAM
+is used only with zsmalloc.  However, the zsmalloc is not an optimal selection
+in some environment.  The author gives embedded environment which fast response
+is important as an example.  In such environment, though compress ratio is a
+little bit less, faster response (e..g, z3fold) is more valuable.  Thus, this
+patchset changes ZRAM to be able to use multiple backend.&lt;/p&gt;
+&lt;h2 id=&#34;patch-rfc-v4-0042-add-kernelmemorysanitizer-infrastructure&#34;&gt;[PATCH RFC v4 00/42] Add KernelMemorySanitizer infrastructure&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20191220184955.223741-1-glider@google.com&#34;&gt;https://lkml.kernel.org/r/20191220184955.223741-1-glider@google.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;KMSAN detects errors related to uses of uninitialized memory.  With a help from
+syzkaller, KMSAN has already reported more than 200 bugs in the past two years.
+This patch aims to be merged in the mainline.&lt;/p&gt;
+&lt;h2 id=&#34;regression-seen-when-using-madvfree-vs-madvdontneed&#34;&gt;Regression seen when using &lt;code&gt;MADV_FREE&lt;/code&gt; vs &lt;code&gt;MADV_DONTNEED&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;The author introduced a patch using &lt;code&gt;MADV_FREE&lt;/code&gt; instead of &lt;code&gt;MADV_DONTNEED&lt;/code&gt; in
+the QEMU.  On &lt;code&gt;next-20191120&lt;/code&gt; kernel, it worked as the author expected.  On
+&lt;code&gt;next-20191120&lt;/code&gt;, however, the author was able to encounter an issue.  The
+&lt;code&gt;MADV_FREE&lt;/code&gt; has been significantly slower than &lt;code&gt;MADV_DONTNEED&lt;/code&gt;.&lt;/p&gt;
 </description>
     </item>
     
