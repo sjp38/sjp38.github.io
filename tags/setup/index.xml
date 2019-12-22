@@ -45,11 +45,11 @@ drwxrwxr-x  3 sjpark sjpark 4.0K Jun  1 20:34 .
 drwxr-xr-x 28 sjpark sjpark 4.0K Jun  1 20:15 ..
 drwxrwxr-x 94 sjpark sjpark  12K Jun  1 20:19 bin
 -rw-r--r--  1 sjpark sjpark 193K Jun  1 20:34 qc2img
--rw-rw-r--  1 sjpark sjpark 848M Feb 16 05:37 ubuntu-18.04.3-server-amd64.iso
+-rw-rw-r--  1 sjpark sjpark 848M Feb 16 05:37 ubuntu-18.04.3-live-server-amd64.iso
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;And, boot QEMU VM with the install image:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ sudo ./bin/x86_64-softmmu/qemu-system-x86_64 -m 8G -enable-kvm \
 	-drive if=virtio,file=qc2img,cache=none \
-	-cdrom ubuntu-18.04.3-server-amd64.iso
+	-cdrom ubuntu-18.04.3-live-server-amd64.iso
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;If your session is connected with X, above command opens QEMU GUI for the
 booted VM.
 The VM will be booted with the Ubuntu server install image, as same as when you
@@ -60,7 +60,7 @@ install process.&lt;/p&gt;
 &lt;p&gt;Now, you can boot your Ubuntu VM as below:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ sudo ./bin/x86_64-softmmu/qemu-system-x86_64 -m 20G -smp 32 -enable-kvm \
 	-drive if=virtio,file=qc2img,cache=none \
-	-net user.hostfwd=tcp::2242-:22 -net nic -nographic
+	-net user,hostfwd=tcp::2242-:22 -net nic -nographic
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Because of the &lt;code&gt;-nographic&lt;/code&gt; option, it will not give you GUI interface but
 shows &lt;code&gt;Booting from Hard Disk...&lt;/code&gt; message only.  But, the VM is booted well.
 You can ssh to the VM via the port, 2242.&lt;/p&gt;
