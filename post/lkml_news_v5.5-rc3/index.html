@@ -574,7 +574,7 @@ ZRAM is an in-memory block device that compresses the content. Currently, ZRAM i
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -632,10 +632,21 @@ patchset changes ZRAM to be able to use multiple backend.</p>
 syzkaller, KMSAN has already reported more than 200 bugs in the past two years.
 This patch aims to be merged in the mainline.</p>
 <h2 id="regression-seen-when-using-madvfree-vs-madvdontneed">Regression seen when using <code>MADV_FREE</code> vs <code>MADV_DONTNEED</code></h2>
+<p><a href="https://lkml.kernel.org/r/CAKgT0UeSs_qy8g5QoXpgcw2685+JtJPY+rehggraoGSYPrP1Aw@mail.gmail.com">https://lkml.kernel.org/r/CAKgT0UeSs_qy8g5QoXpgcw2685+JtJPY+rehggraoGSYPrP1Aw@mail.gmail.com</a></p>
 <p>The author introduced a patch using <code>MADV_FREE</code> instead of <code>MADV_DONTNEED</code> in
 the QEMU.  On <code>next-20191120</code> kernel, it worked as the author expected.  On
 <code>next-20191120</code>, however, the author was able to encounter an issue.  The
 <code>MADV_FREE</code> has been significantly slower than <code>MADV_DONTNEED</code>.</p>
+<h2 id="linux-55rc3">Linux 5.5-rc3</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wiGKfWeUv294FD6bs4cw0m=nO_LdZkLz-vkp-2zwBzLcA@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wiGKfWeUv294FD6bs4cw0m=nO_LdZkLz-vkp-2zwBzLcA@mail.gmail.com</a></p>
+<p>This release has delayed a couple of hors due to Christmas preparation, but
+seems the Christmas has made no big effect to the development.  Rather than
+that, this release is not only bigger than rc2 (rc3 is almost always bigger
+than rc2), but also bigger than recent few other rc3 releases.</p>
+<p>Torvalds assumes that this is just a normal fluctuation, as the changes are
+spread around various subsystems.  Also, the merge window timing could made
+some effect.  As Santa is coming to the town, Torvalds also believe that next
+release will be more calm than now.  That said, he also asks some tests.</p>
 
     </div>
 
