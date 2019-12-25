@@ -64,80 +64,89 @@ $ git merge --allow-unrelated-histories temp/master
     </item>
     
     <item>
-      <title>QEMU 를 사용한 리눅스 커널 디버깅</title>
+      <title>Linux Kernel Debugging Using QEMU</title>
       <link>/post/qemu_kernel_debugging/</link>
       <pubDate>Mon, 07 May 2018 18:21:01 +0900</pubDate>
       <guid>/post/qemu_kernel_debugging/</guid>
-      <description>&lt;p&gt;토발즈는 좋아하지 않지만, 리눅스 커널 프로그래밍에도 디버거를 사용할 수
-있습니다.  저도 디버거 사용을 좋아하지는 않는 편이지만, 경우에 따라선 디버거를
-사용하는게 좋을 때도 있고 취향은 존중되어야죠. ;)&lt;/p&gt;
-&lt;p&gt;커널 디버깅 방법은 여러가지가 있는데, 그 중 하나는 QEMU 등을 이용한 리눅스 가상
-머신을 띄워 두고, 호스트 머신에서 해당 가상 머신의 리눅스 커널을 디버깅 하는
-방법입니다.  이 글에선 이렇게 디버깅 하는 방법을 간단히 정리해 봅니다.&lt;/p&gt;
-&lt;h1 id=&#34;-&#34;&gt;테스트 환경&lt;/h1&gt;
-&lt;p&gt;글 작성 과정에서 테스트에 사용한 주요 소프트웨어들과 버전은 다음과 같습니다.&lt;/p&gt;
+      <description>&lt;p&gt;You can use classical debugger for your Linux kernel programming, though
+Torvalds doesn&#39;t like it.
+I also do not prefer such use of debuggers, but admit that sometimes debuggers
+are quite useful. ;)&lt;/p&gt;
+&lt;p&gt;There are several ways to debug Linux kernel, but one of above is to set up a
+Linux virtual machine using QEMU and debugging the Linux kernel of the virtual
+machine from the host machine.
+This post summarises how to debug the Linux kernel in this way.&lt;/p&gt;
+&lt;h1 id=&#34;test-environment&#34;&gt;Test Environment&lt;/h1&gt;
+&lt;p&gt;The versions and names of the software I used for test of this post are as
+below.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Ubuntu 16.04.3 Server&lt;/li&gt;
 &lt;li&gt;gdb 7.11.1&lt;/li&gt;
 &lt;li&gt;QEMU v2.11.0-dirty&lt;/li&gt;
 &lt;li&gt;Linux v4.16&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1 id=&#34;-1&#34;&gt;커널 빌드&lt;/h1&gt;
-&lt;p&gt;디버깅할 커널을 빌드합니다.  이 때 &lt;code&gt;CONFIG_GDB_SCRIPTS&lt;/code&gt; 는 켜고
-&lt;code&gt;CONFIG_DEBUG_INFO_REDUCED&lt;/code&gt; 는 끄고, 타겟 아키텍쳐가 &lt;code&gt;CONFIG_FRAME_POINTER&lt;/code&gt; 를
-지원한다면 켜야 합니다.&lt;/p&gt;
-&lt;h1 id=&#34;--&#34;&gt;가상 머신 부팅&lt;/h1&gt;
-&lt;p&gt;빌드가 완료되면 해당 커널을 사용해 QEMU 가상 머신을 부팅시킵니다.  가상 머신
-위에 커널을 설치하는 방법도 있겠고, QEMU 에 &lt;code&gt;-kernel&lt;/code&gt; 과 &lt;code&gt;-append&lt;/code&gt;, &lt;code&gt;-initrd&lt;/code&gt;
-등을 사용해서 호스트에서 빌드한 리눅스 커널로 부팅시키는 방법도 있을 겁니다.
-이 때, &lt;strong&gt;kaslr&lt;/strong&gt; 을 꺼야 합니다.  커널 패러미터에 &lt;code&gt;nokaslr&lt;/code&gt; 을 추가하는 걸로 끌
-수 있습니다.  kaslr 이 켜진 채로 디버깅 해야 한다면 다른 방법이 있는데, 여기선
-다루지 않겠습니다.&lt;/p&gt;
-&lt;p&gt;QEMU 가상 머신을 시작할 때 QEMU 에 &lt;code&gt;-s&lt;/code&gt; 옵션을 주거나 QEMU monitor console 에서
-&lt;code&gt;gdbserver&lt;/code&gt; 라고 명령을 입력해 줍니다.  이 명령은 가상머신에서 gdbserver 를
-시작시켜서 gdbserver 가 &lt;code&gt;tcp::1234&lt;/code&gt; 에서 접속을 기다리게 함으로써 QEMU 의 gdb
-기능을 활성화 시켜줍니다.  &lt;code&gt;-nographic&lt;/code&gt; 옵션을 주거나 해서 QEMU 를 수행시켰다면
-화면에 QEMU monitor console 이 아니라 가상머신의 console 로 연결되었을 텐데,
-&lt;code&gt;Ctrl+a c&lt;/code&gt; 키 조합으로 QEMU monitor console 로 이동할 수 있습니다.  여기서
-가상머신 콘솔로 돌아가려면 &lt;code&gt;Ctrl+a c &amp;lt;enter&amp;gt;&lt;/code&gt; 를 입력해 줍니다.&lt;/p&gt;
-&lt;h1 id=&#34;gdb-&#34;&gt;gdb 시작&lt;/h1&gt;
-&lt;p&gt;호스트 머신에서 디버깅할 커널의 빌드 디렉토리로 이동해서 &lt;code&gt;gdb vmlinux&lt;/code&gt; 명령어를
-입력해 빌드된 리눅스 심볼과 디버깅 정보를 사용해 gdb 가 켜지도록 합니다.
-우분투나 일부 배포본에서는 이 때 &lt;code&gt;vmlinux-gdb.py&lt;/code&gt; 를 읽어들이는데 실패할 수
-있을 겁니다.  gdb 에서도 에러메세지를 띄워 주겠지만, 홈디렉토리의 &lt;code&gt;.gdbinit&lt;/code&gt;
-파일에 다음 한줄을 추가해 주고 앞서 설명한 커맨드로 gdb 를 다시 시작합니다:&lt;/p&gt;
+&lt;h1 id=&#34;kernel-build&#34;&gt;Kernel Build&lt;/h1&gt;
+&lt;p&gt;First, build the kernel you want to debug.  You should turn
+&lt;code&gt;CONFIG_GDB_SCRIPTS&lt;/code&gt; on, turn &lt;code&gt;CONFIG_DEBUG_INFO_REDUCED&lt;/code&gt; off, and turn
+&lt;code&gt;CONFIG_FRAME_POINTER&lt;/code&gt; on if your target architecture supports it.&lt;/p&gt;
+&lt;h1 id=&#34;boot-the-virtual-machine&#34;&gt;Boot The Virtual Machine&lt;/h1&gt;
+&lt;p&gt;If your kernel is ready, boot a QEMU vertual machine with it.
+You could do it in several ways.
+For example, you could install the kernel on the virtual machine disk.  Or, you
+could use &lt;code&gt;-kernel&lt;/code&gt;, &lt;code&gt;-append&lt;/code&gt; and &lt;code&gt;-initrd&lt;/code&gt; QEMU option to boot the virtual
+machine with your kernel image in host machine directly, or some other ways.
+One thing you should keep in your mind is that you should turn &lt;strong&gt;kaslr&lt;/strong&gt; off.
+Just giving &lt;code&gt;nokaslr&lt;/code&gt; in the kernel parameter doesn&#39;t works well.&lt;/p&gt;
+&lt;p&gt;Pass &lt;code&gt;-s&lt;/code&gt; option to QEMU when you start up the QEMU virtual machine, or enter
+&lt;code&gt;gdbserver&lt;/code&gt; in the QEMU monitor console command line.
+This make the virtual machine to start gdbserver and wait on &lt;code&gt;tcp::1234&lt;/code&gt; for
+some accesses.
+If you have given &lt;code&gt;-nographic&lt;/code&gt; QEMU option and set the kernel parameter so that
+the virtual machine&#39;s console is connected to your terminal, you could not see
+the QEMU monitor console directly.  In this case, you can go back to QEMU
+monitor console by entering &lt;code&gt;Ctrl+a c&lt;/code&gt;.
+If you want to go back to the virtual machine&#39;s console again, &lt;code&gt;Ctrl+a c &amp;lt;enter&amp;gt;&lt;/code&gt;.&lt;/p&gt;
+&lt;h1 id=&#34;start-gdb&#34;&gt;Start gdb&lt;/h1&gt;
+&lt;p&gt;Move to the build directory of the kernel to debug, enter &lt;code&gt;gdb vmlinux&lt;/code&gt;.
+This will start up gdb using the symbol and debuggin information of the kernel.
+Ubuntu or some distributions might fail to read &lt;code&gt;vmlinux-gdb.py&lt;/code&gt;.  The error
+message also show you how you can fix it, but in summary, you should append
+below one line at the end of the &lt;code&gt;.gdbinit&lt;/code&gt; file and start the gdb again with
+the above command:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;add-auto-load-state-path /path/to/linux-build
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;이후, gdb 세션에서 다음과 같은 명령어를 입력해 QEMU 가상머신에 연결합니다:&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Now, connect to the QEMU virtual machine by entering below command from the gdb
+session:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(gdb) target remote :1234
 Remote debugging using :1234
 0xffffffff818cce92 in native_safe_halt () at /home/sjpark/linux/arch/x86/include/asm/irqflags.h:54
 54              asm volatile(&amp;quot;sti; hlt&amp;quot;: : :&amp;quot;memory&amp;quot;);
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;이와 함께 QEMU 가상 머신은 동작이 멈출 겁니다.  여기서부터 gdb 를 평소에
-사용하듯이 사용해 리눅스 커널의 변수를 보거나 중단점 (breakpoint) 를 설정하거나
-한단계씩 코드를 수행시키거나 할 수 있습니다.  예를 들어 다음과 같이 특정 함수에
-breakpoint 를 설정할 수 있습니다:&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Just after you entering this command, QEMU virtual machine will be frozen.
+From now, you can see the variables of the kernel, set the breakpoint, execute
+the code step by step, as you normally did with gdb and user space programs.
+For example, you can set breakpoint to specific function as below:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(gdb) b cma_alloc
-Breakpoint 1 at 0xffffffff81240f10: file /home/sjpark/linux/mm/cma.c, line 399.
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;예를 들어 수행이 멈춰 있는 가상머신의 수행을 다시 가능하게 하려면 다음과 같이 c
-를 입력해 줍니다.  가상머신의 커널 수행이 재개되며, Breakpoint 가 설정되어 있고
-해당 위치 코드가 수행되면 다시 수행이 멈출 겁니다.&lt;/p&gt;
+Breakpoint 1 at 0xffffffff81240f10: file /home/hacklog/linux/mm/cma.c, line 399.
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;If you want your virtual machine to run again, you can enter &lt;code&gt;c&lt;/code&gt;.
+This will resume the execution of the kernel.
+If you set a breakpoint as described above and if the code is be executed, the
+execution will be started on the breakpoint.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(gdb) c
 Continuing.
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;다시 멈추려면 gdb 에서 Ctrl+C 를 누릅시다:&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;If you want the kernel to stop again, enter &lt;code&gt;Ctrl+C&lt;/code&gt; in the gdb.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;^C
 Thread 1 received signal SIGINT, Interrupt.
 0xffffffff818cce92 in native_safe_halt () at /home/sjpark/linux/arch/x86/include/asm/irqflags.h:54
 54              asm volatile(&amp;quot;sti; hlt&amp;quot;: : :&amp;quot;memory&amp;quot;);
 (gdb)
-&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;-gdb-helper-&#34;&gt;리눅스 gdb helper 사용하기&lt;/h1&gt;
-&lt;p&gt;사실은 앞 단계에서 &lt;code&gt;.gdbinit&lt;/code&gt; 를 굳이 수정하지 않아서 gdb가 &lt;code&gt;vmlinux-gdb.py&lt;/code&gt; 를
-읽어들이는데 실패하더라도 gdb 를 평범하게 사용할 수 있습니다.  &lt;code&gt;vmlinux-gdb.py&lt;/code&gt;
-는 사실 gdb 위에서 리눅스 커널을 디버깅하는걸 편리하게 해줄 수 있는 일부
-스크립트, 즉 gdb helper 를 담고 있습니다.  이걸 사용하면 보다 쉽게 커널
-디버깅을 할 수 있습니다.&lt;/p&gt;
-&lt;h2 id=&#34;helper--&#34;&gt;helper 스크립트 리스트업&lt;/h2&gt;
-&lt;p&gt;사용 가능한 helper 스크립트는 lx로 시작하는 규칙을 갖고 있습니다.  다음
-명령으로 사용 가능한 스크립트 목록과 간단한 설명을 볼 수 있습니다:&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;use-linux-gdb-helper&#34;&gt;Use Linux gdb helper&lt;/h1&gt;
+&lt;p&gt;Actually, you can normally use gdb even though it failed to load
+&lt;code&gt;vmlinux-gdb.py&lt;/code&gt;.
+The python script contains some helper scripts for more convenient kernel
+debugging on the gdb.
+You can do kernel debugging a little bit more conveniently if you use it.&lt;/p&gt;
+&lt;h2 id=&#34;list-of-the-helper-scripts&#34;&gt;List of the helper scripts&lt;/h2&gt;
+&lt;p&gt;The helper scripts have &lt;code&gt;lx&lt;/code&gt; prefix.  You can list up their names and brief
+descriptions as below:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(gdb) apropos lx
 function lx_current -- Return current task
 function lx_module -- Find module by name and return the module variable
@@ -157,12 +166,12 @@ lx-mounts -- Report the VFS mounts of the current process namespace
 lx-ps -- Dump Linux tasks
 lx-symbols -- (Re-)load symbols of Linux kernel and currently loaded modules
 lx-version --  Report the Linux Version of the current kernel
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;참 쉽죠? ;)&lt;/p&gt;
-&lt;h1 id=&#34;-2&#34;&gt;참고 자료&lt;/h1&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;So easy, huh? ;)&lt;/p&gt;
+&lt;h1 id=&#34;references&#34;&gt;References&lt;/h1&gt;
 &lt;ol&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.kernel.org/doc/html/v4.11/dev-tools/gdb-kernel-debugging.html&#34;&gt;커널 디버깅 공식 문서&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.alexlambert.com/2017/12/18/kernel-debugging-for-newbies.html&#34;&gt;참고할만한 영문 블로그 글&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://sourceware.org/gdb/onlinedocs/gdb/Server.html&#34;&gt;gdbserver 공식 문서&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.kernel.org/doc/html/v4.11/dev-tools/gdb-kernel-debugging.html&#34;&gt;The Kernel Official Document for the Kernel Debugging&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.alexlambert.com/2017/12/18/kernel-debugging-for-newbies.html&#34;&gt;A blog article&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://sourceware.org/gdb/onlinedocs/gdb/Server.html&#34;&gt;The gdbserver official document&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 </description>
     </item>
