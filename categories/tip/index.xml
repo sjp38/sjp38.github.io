@@ -170,43 +170,47 @@ index ccf4a72477c0..c8c0cd786522 100755
       <link>/post/tpch-on-mariadb/</link>
       <pubDate>Sun, 10 Sep 2017 10:54:24 +0900</pubDate>
       <guid>/post/tpch-on-mariadb/</guid>
-      <description>&lt;p&gt;Database 를 위해 사용되는 벤치마크는 크게 OLTP vs OLAP 로 나뉩니다[1].  OLTP
-계열의 대표주자는 TPC-C 이고, OLAP 계열의 대표주자 중 하나로 TPC-H[2] 가
-있습니다.  이 글에서는 TPC-H 를 MariaDB 에서 돌리는 방법에 대해 설명합니다.&lt;/p&gt;
+      <description>&lt;p&gt;Benchmarks for Database can be roughly divided into two kinds, OLTP and
+OLAP[1].
+One of the most popular OLTP benchamrks is TPC-C, while that of OLAP is
+TPC-H[2].
+This post describes how you can run TPC-H against MariaDB.&lt;/p&gt;
 &lt;h1 id=&#34;environment-setup&#34;&gt;Environment Setup&lt;/h1&gt;
-&lt;p&gt;이 글을 작성하면서 사용한 운영체제와 소프트웨어들의 버전은 다음과 같습니다.&lt;/p&gt;
+&lt;p&gt;The versions of the OS and programs I used for writeup of this post are as
+below.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Ubuntu 16.04.2 Server&lt;/li&gt;
 &lt;li&gt;MariaDB 10.2.8&lt;/li&gt;
 &lt;li&gt;TPC-H toolkit 2.17.2&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id=&#34;automated-scripts&#34;&gt;Automated Scripts&lt;/h1&gt;
-&lt;p&gt;아래 설명할 모든 내용을 자동화 해서 손쉽게 TPC-H 를 돌릴 수 있도록 소스코드
-변경부터 빌드, 수행까지 정리한 스크립트들을 github 에 올려 두었습니다:
+&lt;p&gt;I automated whole things I will describe below using scripts and uploaded the
+scripts to the Github:
 &lt;a href=&#34;https://github.com/sjp38/tpch-mariadb&#34;&gt;https://github.com/sjp38/tpch-mariadb&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;시간이 없다면 해당 스크립트를 사용하실 것을 권장합니다.&lt;/p&gt;
+&lt;p&gt;If you hano no time, just go to the link and use the script.&lt;/p&gt;
 &lt;h1 id=&#34;tpch-spec&#34;&gt;TPC-H Spec&lt;/h1&gt;
-&lt;p&gt;TPC-H 벤치마크 스펙은 TPC 웹사이트에서 얻을 수 있습니다[3].  하지만 여기서는
-간단히 설명을 해봅니다.  간단한 설명인 만큼 내용이 엄밀히 말해서 맞다고 할수는
-없으므로 엄밀한 내용은 정식 스펙 또는 다른 문서를 확인해 보시기 바랍니다.
-TPC-H 는 8개의 테이블에 많은 데이터를 쌓아놓고, 이 데이터의 분석을 위한 22개의
-쿼리를 수행하며 그 성능을 측정하는 형태로 구성되어 있습니다.  성능은 테이블에
-데이터를 로드하는데 걸리는 시간, 22개의 쿼리 각각의 수행 시간, 그리고 여러
-세션을 열어놓고 22개 쿼리를 각 세션에서 수행하면서 파악되는 처리량 (초당 처리된
-쿼리의 갯수)으로 측정됩니다.&lt;/p&gt;
+&lt;p&gt;You can ge TPC-H benchmark specification from TPC website[3].
+Refer to it if you need strict specification of the benchmark.
+Nonetheless, I give you a rough description of the benchmark here, though.
+TPC-H stores a huge data into 8 tables and run 22 queries analysing this data.
+To measure the performance, we can measure the time to store/load the data,
+runtime of each of the 22 queries, and the throughput (number of processed
+queries per second) of multiple sessions.&lt;/p&gt;
 &lt;h1 id=&#34;get-tpch-toolkit&#34;&gt;Get TPC-H Toolkit&lt;/h1&gt;
-&lt;p&gt;TPC-H 는 8개의 테이블에 데이터가 쌓인 상태에서, 이 데이터의 분석을 위한 22개의
-쿼리들을 날리는 형태로 이루어져 있습니다.  테이블을 어떻게 만들고 거기에
-데이터는 어떻게 넣어야 하며, 쿼리는 어떤 것들로 이루어져야 하는지에 대한
-명세서를 TPC 에서 제공합니다.  이를 바탕으로 각자 TPC-H 를 구성해서 돌릴 수
-있습니다.  하지만 이걸 각자 하는건 귀찮고 힘들기 때문에, 테이블과 테이블의
-데이터, 그리고 쿼리들을 생성하는 도구를 TPC 에서 TPC-H Toolkit 이라는 이름으로
-그 소스코드를 공식적으로 제공하고 있습니다.  TPC 의 해당 사이트[4]를 찾아가
-개인정보를 입력하고 license 에 동의를 하면 다운로드 받을 수 있는 링크를 메일로
-보내줍니다.&lt;/p&gt;
-&lt;p&gt;이렇게 받은 파일은 zip 파일입니다.  압축을 풀어보면 아래와 같이 해당 버전명의
-디렉토리가 나오고, 그 아래에 실제 소스 코드와 라이센스 파일이 있습니다.  여기서
-우린 dbgen/ 디렉토리를 사용할 겁니다.&lt;/p&gt;
+&lt;p&gt;TPC provides the specification says how the tables should be constructed, what
+data should be stored in the tables, and what kind of queries should be issued.
+So, anyone can implement their TPC-H based on this specification.
+Nonetheless, as manual read of the specification and manual implementation can
+be boring and exhaustive to someone.
+For the reason, TPC officially provides a tool, namely &lt;code&gt;TPC-H Toolkit&lt;/code&gt;, that
+helps creation of the tables, the data, and the queries.
+If you go to the site[4], enter your personal information, and agree to the
+license, they will send you a link to download the TPC-H Toolkit by mail.&lt;/p&gt;
+&lt;p&gt;The file is in zip format.
+After extracting the file, you can get the directory named by the version of
+the toolkit.
+The source code and license file is under the directory.
+We will use &lt;code&gt;dbgen/&lt;/code&gt; directory here.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ tree 2.17.2 -L 1
 2.17.2
 ├── dbgen
@@ -214,10 +218,9 @@ TPC-H 는 8개의 테이블에 많은 데이터를 쌓아놓고, 이 데이터�
 ├── EULA.txt
 └── ref_data
 &lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;build-source-code&#34;&gt;Build Source Code&lt;/h1&gt;
-&lt;p&gt;dbgen 디렉토리 아래 dbgen 과 qgen 이라는, 우리가 사용하게 될 프로그램을 위한
-소스코드가 있습니다.  여기 있는 makefile.suite 라는 파일은 &lt;code&gt;make&lt;/code&gt; 를 사용해 이
-코드를 빌드하기 위한 규칙의 기본 골조를 담고 있습니다.  이 파일을 `makefile&amp;rsquo;
-이라는 이름으로 복사하고 내용을 다음과 같이 수정합니다.&lt;/p&gt;
+&lt;p&gt;Under the &lt;code&gt;dbgen/&lt;/code&gt;, there are source code of the programs that we will use,
+&lt;code&gt;dbgen&lt;/code&gt; and &lt;code&gt;qgen&lt;/code&gt;.
+Copy &lt;code&gt;makefile.suite&lt;/code&gt; to &lt;code&gt;makefile&lt;/code&gt; and edit the content as below.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ diff -u makefile.suite makefile
 --- makefile.suite      2017-04-21 06:01:08.000000000 +0900
 +++ makefile    2017-09-10 11:10:12.563384756 +0900
@@ -241,7 +244,7 @@ TPC-H 는 8개의 테이블에 많은 데이터를 쌓아놓고, 이 데이터�
  #
  CFLAGS = -g -DDBNAME=\&amp;quot;dss\&amp;quot; -D$(MACHINE) -D$(DATABASE) -D$(WORKLOAD) -DRNG_TEST -D_FILE_OFFSET_BITS=64
  LDFLAGS = -O
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;이후, &lt;code&gt;$ make&lt;/code&gt; 명령으로 dbgen 과 qgen 이라는 프로그램이 빌드됩니다.&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Now, &lt;code&gt;$ make&lt;/code&gt; command will build &lt;code&gt;dbgen&lt;/code&gt; and &lt;code&gt;qgen&lt;/code&gt;.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ make
 
 ...
@@ -252,47 +255,54 @@ dbgen: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked, 
 $ file qgen
 qgen: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 2.6.32, BuildID[sha1]=79a6216e04c446715b0e55f9c804586887b698c8, not stripped
 &lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;tpch-toolkit-usage&#34;&gt;TPC-H Toolkit Usage&lt;/h1&gt;
-&lt;p&gt;MariaDB 에 TPC-H 를 돌리기 위해선 여기서 몇가지 추가 수정을 해야합니다.  하지만
-그에 앞서 &lt;code&gt;dbgen/&lt;/code&gt; 디렉토리 내의 파일들을 어떻게 사용해서 TPC-H 를 수행하는지
-알아봅시다.&lt;/p&gt;
+&lt;p&gt;To run TPC-H on MariaDB, we need several more modification.
+Before that, let&#39;s see how we run TPC-H using the files under &lt;code&gt;dbgen/&lt;/code&gt;
+directory.&lt;/p&gt;
 &lt;h2 id=&#34;data-preparation&#34;&gt;Data Preparation&lt;/h2&gt;
-&lt;p&gt;먼저 dss.ddl 파일은 8개의 테이블 생성에 사용되는 sql 문을 담고 있습니다.  DB
-에서 이 파일 내에 적힌 sql 문들을 그대로 수행하라고 하면 8개의 테이블이
-생성됩니다.&lt;/p&gt;
-&lt;p&gt;dbgen 은 테이블에 데이터를 로드하는 sql 문을 생성합니다.  dbgen 에 scale factor
-등의 인자를 줘서 수행시키면 8개의 &lt;code&gt;.tbl&lt;/code&gt; suffix 를 갖는 파일이 생성됩니다.  이
-파일들은 각각 파일명에 일치하는 이름의 테이블에 데이터를 insert 하는 query
-문들로 구성되어 있습니다.  DB 에 이 파일 내의 sql 명령들을 수행하라고 하면
-데이터가 로드되는 것입니다.&lt;/p&gt;
-&lt;p&gt;dss.ri 는 테이블 인덱스 생성에 필요한 sql 문을 담고 있습니다.  DB 에 이 파일
-내의 sql 명령들을 수행하라고 함으로써 테이블 인덱스 생성이 완료되어 TPC-H 의
-쿼리들을 수행할 준비가 마쳐집니다.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;dss.ddl&lt;/code&gt; file has the sql statements be used for the creation of the 8 tables.
+If you command your DB to execute the sql statements in this file, the 8 tables
+will be created.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;dbgen&lt;/code&gt; creates the sql statements that stores the data to the table.
+If you run the &lt;code&gt;dbgen&lt;/code&gt; with optional arguments including scale factor, 8 files
+having &lt;code&gt;.tbl&lt;/code&gt; suffix will be created.
+Each of these files has query statements inserting the data to the table having
+same name with the file.
+You can store the data to the tables by making your DB to run the sql
+statements.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;dss.ri&lt;/code&gt; has a sql statement creating the table index.
+Once your DB runs these sql statements, the table index will be generated and
+you will be ready to run the TPC-H queries.&lt;/p&gt;
 &lt;h2 id=&#34;query-creation-and-execution&#34;&gt;Query Creation and Execution&lt;/h2&gt;
-&lt;p&gt;qgen 은 TPC-H 의 분석 작업을 대표하는 22개의 쿼리를 생성해 줍니다.  22개의
-쿼리라고 표현했지만 22 종류의 쿼리라고 하는게 옳을 겁니다.  동일한 쿼리의 경우
-반복 수행되면 DB 에서 앞 쿼리의 결과를 캐시해 뒀다가 곧바로 리턴하기 때문에
-인자 등은 달라야 하기 때문입니다.  이를 위해 dbgen/queries/ 디렉토리 아래에는
-생성되어야 하는 22 종류 쿼리의 템플릿을 담고 있습니다.  qgen 은 이 템플릿을
-참고하고 랜덤하게 인자를 생성해 최종적으로 DB 에서 수행될 수 있는 쿼리문을
-생성합니다.  이 때 랜덤 시드는 dists.dss 라는 파일을 참고해 만들어집니다.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;qgen&lt;/code&gt; creates the queries doing the TPC-H&#39;s analysis tasks.
+We simply said 22 queries, but it would be better to say 22 kinds of queries.
+If a query is repeatedly issued with same arguments, DB server can cache the
+results and simply return it to the client.
+As this can distort the results, TPC-H Toolkit has the template of the 22
+queries under &lt;code&gt;dbgen/queries/&lt;/code&gt; directory and let &lt;code&gt;qgen&lt;/code&gt; to create query
+statements using random arguments, based on this templates.
+The seed for the random number generation is created based on &lt;code&gt;dists.dss&lt;/code&gt; file.&lt;/p&gt;
 &lt;h1 id=&#34;modify-tpch-toolkit-for-mariadb&#34;&gt;Modify TPC-H Toolkit for MariaDB&lt;/h1&gt;
-&lt;p&gt;DBMS 마다 query syntax 가 조금씩 다릅니다.  때문에 TPC-H Toolkit 은 지원하는
-DBMS 마다 다르게 테이블 생성, 쿼리 생성을 하도록 짜여져 있습니다만, 지원하는
-DBMS 목록에 MariaDB 는 포함되어 있지 않습니다.  따라서 MariaDB 에 TPC-H 를
-돌리기 위해선 TPC-H Toolkit 의 일부분을 수정해야 합니다.&lt;/p&gt;
-&lt;p&gt;수정해야 하는 파일은 dss.ddl, dss.ri, 그리고 queries/ 디렉토리 아래의 템플릿
-등입니다.  하나하나 설명하는 것은 너무 내용이 길어지므로, 수정 내용을 patch
-형태로 만들어 github 에 올려두었습니다[5].  이 패치 파일을 가져와서 다음과 같이
-적용할 수 있습니다.  명령을 수행하는 디렉토리는 TPC-H Toolkit 소스코드 디렉토리
-여야 합니다.&lt;/p&gt;
+&lt;p&gt;Each DBMS has a little bit different query syntax.
+Thus, TPC-H Toolkit is made to support multiple DBMSes, but the MariaDB is not
+in the supported DBMSes.
+Therefore, you should modify a part of the TPC-H Toolkit to run TPC-H on the
+MariaDB.&lt;/p&gt;
+&lt;p&gt;The files need modifications are &lt;code&gt;dss.ddl&lt;/code&gt;, &lt;code&gt;dss.ri&lt;/code&gt;, and the templates under
+the &lt;code&gt;queries/&lt;/code&gt; directory.
+As the description of the each of the modifications will be too long, I simply
+made patches for the modifications and uploaded on Github[5].
+You can apply the patch files to your TPC-H Toolkit as below.
+You should be on the TPC-H Toolkit source code directory while running below
+command.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ wget https://raw.githubusercontent.com/sjp38/tpch-mariadb/07fdcbfa9ba1be26f437ff130338a223d0dbfecd/0001-Modify-for-MariaDB.patch
 $ patch -p1 &amp;lt; 0001-Modify-for-MariaDB.patch
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;위 변경 사항은 makefile 의 수정도 포함되어 있습니다.  적용 후 dbgen, qgen 을
-빌드해 줍시다.&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The changes above includes the modification of the makefile.
+After applying, build &lt;code&gt;dbgen&lt;/code&gt; and &lt;code&gt;qgen&lt;/code&gt;.&lt;/p&gt;
 &lt;h1 id=&#34;data-creation&#34;&gt;Data Creation&lt;/h1&gt;
-&lt;p&gt;dbgen/ 디렉토리로 들어가 dbgen 을 수행해 줍니다.  인자로 scale factor 등을 줄
-수 있습니다.  -h 인자를 줘서 dbgen 의 수행 방법을 알 수 있으니 참고합시다.
-수행이 마무리 되면 다음과 같이 8개의 .tbl suffix 를 갖는 파일들이 생성됩니다.&lt;/p&gt;
+&lt;p&gt;Now, move to &lt;code&gt;dbgen/&lt;/code&gt; directory and run &lt;code&gt;dbgen&lt;/code&gt;.
+You can give scale factor using its argument.
+Refer to the usage of dbgen using &lt;code&gt;-h&lt;/code&gt; option.
+After its execution, you can see below 8 &lt;code&gt;.tbl&lt;/code&gt; files.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;dbgen$ ls -ahl *.tbl
 -rw-rw-r-- 1 sjpark sjpark 187M Sep  9 10:48 customer.tbl
 -rw-rw-r-- 1 sjpark sjpark 5.8G Sep  9 10:48 lineitem.tbl
@@ -302,11 +312,11 @@ $ patch -p1 &amp;lt; 0001-Modify-for-MariaDB.patch
 -rw-rw-r-- 1 sjpark sjpark 186M Sep  9 10:48 part.tbl
 -rw-rw-r-- 1 sjpark sjpark  389 Sep  9 10:48 region.tbl
 -rw-rw-r-- 1 sjpark sjpark  11M Sep  9 10:48 supplier.tbl
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;참고로, 위 수행결과는 scale factor 값을 8로 준 결과입니다.&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The above results used scale factor value as 8.&lt;/p&gt;
 &lt;h1 id=&#34;load-data&#34;&gt;Load Data&lt;/h1&gt;
-&lt;p&gt;이제 MariaDB 를 사용해 tpch 라는 이름의 데이터베이스를 생성하고 (line 1) 그
-아래 테이블을 생성하고 (line 2) 각 테이블에 데이터를 로드한 후 (line 3-5) 각
-테이블의 인덱스까지 만들어 줍시다 (line 6).&lt;/p&gt;
+&lt;p&gt;Now, with your MariaDB, create a database named tpch (line 1), create tables
+under the database (line 2), load the data to the tables (lines 3-5), and make
+index for each of the tables (line 6).&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ mysql -u root -p password -e &amp;quot;create database tpch;&amp;quot;
 $ mysql -u root -p password &amp;lt; dss.ddl
 $ for table in customer lineitem nation orders partsupp part region supplier \
@@ -315,21 +325,26 @@ $ for table in customer lineitem nation orders partsupp part region supplier \
 	done
 $ mysql -u root -p password &amp;lt; ./dss.ri
 &lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;create-queries&#34;&gt;Create Queries&lt;/h1&gt;
-&lt;p&gt;이제 쿼리를 만들어 봅시다.  qgen 은 인자로 생성할 쿼리의 타입을 1-22 사이 숫자로 받아서 쿼리문을 생성, 화면에 뿌려줍니다.  다음과 같은 커맨드로 이를 따로 저장합니다.  아래 커맨드는 dbgen/ 디렉토리 아래에서 수행됨을 가정합니다.&lt;/p&gt;
+&lt;p&gt;Now, create the queries.
+&lt;code&gt;qgen&lt;/code&gt; receives a number from 1 to 22 which means the type of the queries to
+create, generate the query statement, and print on the screen.
+You can save the queries with below commands.
+This example assumes it is executed on the &lt;code&gt;dbgen/&lt;/code&gt; directory.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ cd queries/
 $ for i in {1..22}; do ../qgen $i &amp;gt; query-$i.sql; done
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;이제 dbgen/queries/ 디렉토리 아래에 &lt;code&gt;query-&lt;/code&gt; 라는 prefix 의 쿼리문을 담는 파일
-22개가 생성되어 있습니다.&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Now, you have 22 &lt;code&gt;query-&lt;/code&gt; prefixed files containing each type of queries under
+the &lt;code&gt;dbgen/queries/&lt;/code&gt; directory.&lt;/p&gt;
 &lt;h1 id=&#34;execute-queries&#34;&gt;Execute Queries&lt;/h1&gt;
-&lt;p&gt;앞서 생성한 쿼리문 파일은 MariaDB 에 호환되는 sql 문으로 구성되어 있으므로,
-아래와 같이 간단히 실행시키면 됩니다.&lt;/p&gt;
+&lt;p&gt;As the query files have sql statement compatible with MariaDB, you can simply
+run them as below.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ for i in {1..22}; do mysql -u root -p password &amp;lt; dbgen/queries/query-$i.sql
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;일부 쿼리는 수십초, 일부 쿼리는 1초도 걸리지 않아 수행되는 걸 확인할 수
-있습니다.&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Few queries will take few of tens of seconds to complete while another queries
+take less than 1 second.&lt;/p&gt;
 &lt;h1 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h1&gt;
-&lt;p&gt;TPC-H 가 어떻게 구성되어 있고 어떻게 수행시키며, MariaDB 에서의 수행을 위해서는
-어떤 수정이 필요한지 설명했습니다.  github 에 있는 자동화 스크립트[6]를
-이용하면 이 과정을 손쉽게 한번에 해결할 수 있습니다.&lt;/p&gt;
+&lt;p&gt;This post summarised how TPC-H is constructed, how you can run it, and what
+modifications are required to run it on MariaDB.
+You can do this with only few lines of command based on the automated scripts
+on my Github repo[6].&lt;/p&gt;
 &lt;h1 id=&#34;references&#34;&gt;References&lt;/h1&gt;
 &lt;p&gt;[1] &lt;a href=&#34;http://datawarehouse4u.info/OLTP-vs-OLAP.html&#34;&gt;http://datawarehouse4u.info/OLTP-vs-OLAP.html&lt;/a&gt;&lt;br&gt;
 [2] &lt;a href=&#34;http://www.tpc.org/tpch/&#34;&gt;http://www.tpc.org/tpch/&lt;/a&gt;&lt;br&gt;
