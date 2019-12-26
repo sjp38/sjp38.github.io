@@ -153,7 +153,7 @@ Environment Setup 이 글을 작성하면서 사용한 운영체제와 소프트
   
   <meta property="og:site_name" content="hacklog">
   <meta property="og:url" content="/ko/post/tpch-on-mariadb/">
-  <meta property="og:title" content="TPC-H on MariaDB (MySQL) | hacklog">
+  <meta property="og:title" content="MariaDB (MySQL) 위에서 TPC-H 벤치마크 돌리기 | hacklog">
   <meta property="og:description" content="Database 를 위해 사용되는 벤치마크는 크게 OLTP vs OLAP 로 나뉩니다[1]. OLTP 계열의 대표주자는 TPC-C 이고, OLAP 계열의 대표주자 중 하나로 TPC-H[2] 가 있습니다. 이 글에서는 TPC-H 를 MariaDB 에서 돌리는 방법에 대해 설명합니다.
 Environment Setup 이 글을 작성하면서 사용한 운영체제와 소프트웨어들의 버전은 다음과 같습니다.
  Ubuntu 16.04.2 Server MariaDB 10.2.8 TPC-H toolkit 2.17.2  Automated Scripts 아래 설명할 모든 내용을 자동화 해서 손쉽게 TPC-H 를 돌릴 수 있도록 소스코드 변경부터 빌드, 수행까지 정리한 스크립트들을 github 에 올려 두었습니다: https://github."><meta property="og:image" content="/img/tux.png">
@@ -190,7 +190,7 @@ Environment Setup 이 글을 작성하면서 사용한 운영체제와 소프트
     "@type": "WebPage",
     "@id": "/ko/post/tpch-on-mariadb/"
   },
-  "headline": "TPC-H on MariaDB (MySQL)",
+  "headline": "MariaDB (MySQL) 위에서 TPC-H 벤치마크 돌리기",
   
   "datePublished": "2017-09-10T10:54:24+09:00",
   "dateModified": "2017-09-10T10:54:24+09:00",
@@ -226,7 +226,7 @@ Environment Setup 이 글을 작성하면서 사용한 운영체제와 소프트
 
 
 
-  <title>TPC-H on MariaDB (MySQL) | hacklog</title>
+  <title>MariaDB (MySQL) 위에서 TPC-H 벤치마크 돌리기 | hacklog</title>
 
 </head>
 
@@ -562,7 +562,7 @@ Environment Setup 이 글을 작성하면서 사용한 운영체제와 소프트
   
   
 <div class="article-container pt-3">
-  <h1>TPC-H on MariaDB (MySQL)</h1>
+  <h1>MariaDB (MySQL) 위에서 TPC-H 벤치마크 돌리기</h1>
 
   
 
@@ -655,15 +655,13 @@ TPC-H 는 8개의 테이블에 많은 데이터를 쌓아놓고, 이 데이터�
 세션을 열어놓고 22개 쿼리를 각 세션에서 수행하면서 파악되는 처리량 (초당 처리된
 쿼리의 갯수)으로 측정됩니다.</p>
 <h1 id="get-tpch-toolkit">Get TPC-H Toolkit</h1>
-<p>TPC-H 는 8개의 테이블에 데이터가 쌓인 상태에서, 이 데이터의 분석을 위한 22개의
-쿼리들을 날리는 형태로 이루어져 있습니다.  테이블을 어떻게 만들고 거기에
-데이터는 어떻게 넣어야 하며, 쿼리는 어떤 것들로 이루어져야 하는지에 대한
-명세서를 TPC 에서 제공합니다.  이를 바탕으로 각자 TPC-H 를 구성해서 돌릴 수
-있습니다.  하지만 이걸 각자 하는건 귀찮고 힘들기 때문에, 테이블과 테이블의
-데이터, 그리고 쿼리들을 생성하는 도구를 TPC 에서 TPC-H Toolkit 이라는 이름으로
-그 소스코드를 공식적으로 제공하고 있습니다.  TPC 의 해당 사이트[4]를 찾아가
-개인정보를 입력하고 license 에 동의를 하면 다운로드 받을 수 있는 링크를 메일로
-보내줍니다.</p>
+<p>TPC-H 라는 이름으로 벤치마크를 행하려면 테이블을 어떻게 만들고 거기에 데이터는
+어떻게 넣어야 하며, 쿼리는 어떤 것들로 이루어져야 하는지에 대한 명세서를 TPC
+에서 제공합니다.  이를 바탕으로 각자 TPC-H 를 구성해서 돌릴 수 있습니다.
+하지만 이걸 각자 하는건 귀찮고 힘들기 때문에, 테이블과 테이블의 데이터, 그리고
+쿼리들을 생성하는 도구를 TPC 에서 TPC-H Toolkit 이라는 이름으로 그 소스코드를
+공식적으로 제공하고 있습니다.  TPC 의 해당 사이트[4]를 찾아가 개인정보를
+입력하고 license 에 동의를 하면 다운로드 받을 수 있는 링크를 메일로 보내줍니다.</p>
 <p>이렇게 받은 파일은 zip 파일입니다.  압축을 풀어보면 아래와 같이 해당 버전명의
 디렉토리가 나오고, 그 아래에 실제 소스 코드와 라이센스 파일이 있습니다.  여기서
 우린 dbgen/ 디렉토리를 사용할 겁니다.</p>
@@ -833,7 +831,7 @@ $ for i in {1..22}; do ../qgen $i &gt; query-$i.sql; done
       
       
       <li>
-        <a href="https://twitter.com/intent/tweet?url=/ko/post/tpch-on-mariadb/&amp;text=TPC-H%20on%20MariaDB%20%28MySQL%29" target="_blank" rel="noopener" class="share-btn-twitter">
+        <a href="https://twitter.com/intent/tweet?url=/ko/post/tpch-on-mariadb/&amp;text=MariaDB%20%28MySQL%29%20%ec%9c%84%ec%97%90%ec%84%9c%20TPC-H%20%eb%b2%a4%ec%b9%98%eb%a7%88%ed%81%ac%20%eb%8f%8c%eb%a6%ac%ea%b8%b0" target="_blank" rel="noopener" class="share-btn-twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
@@ -846,7 +844,7 @@ $ for i in {1..22}; do ../qgen $i &gt; query-$i.sql; done
       
       
       <li>
-        <a href="https://www.facebook.com/sharer.php?u=/ko/post/tpch-on-mariadb/&amp;t=TPC-H%20on%20MariaDB%20%28MySQL%29" target="_blank" rel="noopener" class="share-btn-facebook">
+        <a href="https://www.facebook.com/sharer.php?u=/ko/post/tpch-on-mariadb/&amp;t=MariaDB%20%28MySQL%29%20%ec%9c%84%ec%97%90%ec%84%9c%20TPC-H%20%eb%b2%a4%ec%b9%98%eb%a7%88%ed%81%ac%20%eb%8f%8c%eb%a6%ac%ea%b8%b0" target="_blank" rel="noopener" class="share-btn-facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
@@ -859,7 +857,7 @@ $ for i in {1..22}; do ../qgen $i &gt; query-$i.sql; done
       
       
       <li>
-        <a href="mailto:?subject=TPC-H%20on%20MariaDB%20%28MySQL%29&amp;body=/ko/post/tpch-on-mariadb/" target="_blank" rel="noopener" class="share-btn-email">
+        <a href="mailto:?subject=MariaDB%20%28MySQL%29%20%ec%9c%84%ec%97%90%ec%84%9c%20TPC-H%20%eb%b2%a4%ec%b9%98%eb%a7%88%ed%81%ac%20%eb%8f%8c%eb%a6%ac%ea%b8%b0&amp;body=/ko/post/tpch-on-mariadb/" target="_blank" rel="noopener" class="share-btn-email">
           <i class="fas fa-envelope"></i>
         </a>
       </li>
@@ -872,7 +870,7 @@ $ for i in {1..22}; do ../qgen $i &gt; query-$i.sql; done
       
       
       <li>
-        <a href="https://www.linkedin.com/shareArticle?url=/ko/post/tpch-on-mariadb/&amp;title=TPC-H%20on%20MariaDB%20%28MySQL%29" target="_blank" rel="noopener" class="share-btn-linkedin">
+        <a href="https://www.linkedin.com/shareArticle?url=/ko/post/tpch-on-mariadb/&amp;title=MariaDB%20%28MySQL%29%20%ec%9c%84%ec%97%90%ec%84%9c%20TPC-H%20%eb%b2%a4%ec%b9%98%eb%a7%88%ed%81%ac%20%eb%8f%8c%eb%a6%ac%ea%b8%b0" target="_blank" rel="noopener" class="share-btn-linkedin">
           <i class="fab fa-linkedin-in"></i>
         </a>
       </li>
@@ -885,7 +883,7 @@ $ for i in {1..22}; do ../qgen $i &gt; query-$i.sql; done
       
       
       <li>
-        <a href="https://web.whatsapp.com/send?text=TPC-H%20on%20MariaDB%20%28MySQL%29%20/ko/post/tpch-on-mariadb/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+        <a href="https://web.whatsapp.com/send?text=MariaDB%20%28MySQL%29%20%ec%9c%84%ec%97%90%ec%84%9c%20TPC-H%20%eb%b2%a4%ec%b9%98%eb%a7%88%ed%81%ac%20%eb%8f%8c%eb%a6%ac%ea%b8%b0%20/ko/post/tpch-on-mariadb/" target="_blank" rel="noopener" class="share-btn-whatsapp">
           <i class="fab fa-whatsapp"></i>
         </a>
       </li>
@@ -898,7 +896,7 @@ $ for i in {1..22}; do ../qgen $i &gt; query-$i.sql; done
       
       
       <li>
-        <a href="https://service.weibo.com/share/share.php?url=/ko/post/tpch-on-mariadb/&amp;title=TPC-H%20on%20MariaDB%20%28MySQL%29" target="_blank" rel="noopener" class="share-btn-weibo">
+        <a href="https://service.weibo.com/share/share.php?url=/ko/post/tpch-on-mariadb/&amp;title=MariaDB%20%28MySQL%29%20%ec%9c%84%ec%97%90%ec%84%9c%20TPC-H%20%eb%b2%a4%ec%b9%98%eb%a7%88%ed%81%ac%20%eb%8f%8c%eb%a6%ac%ea%b8%b0" target="_blank" rel="noopener" class="share-btn-weibo">
           <i class="fab fa-weibo"></i>
         </a>
       </li>
