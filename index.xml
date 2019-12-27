@@ -5,12 +5,51 @@
     <link>/</link>
       <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <description>hacklog</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 25 Dec 2019 10:01:47 +0100</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Fri, 27 Dec 2019 18:21:07 +0100</lastBuildDate>
     <image>
       <url>/img/tux.png</url>
       <title>hacklog</title>
       <link>/</link>
     </image>
+    
+    <item>
+      <title>DAMON: Data Access Monitor</title>
+      <link>/post/damon/</link>
+      <pubDate>Fri, 27 Dec 2019 18:21:07 +0100</pubDate>
+      <guid>/post/damon/</guid>
+      <description>&lt;p&gt;Modern workloads tend to have huge working sets and low locality.  Despite this
+trend, the capacity of DRAM has not been increased enough to accommodate such
+huge working sets. Therefore, memory management mechanisms optimized for such
+modern workloads are widely required today. For such optimizations, knowing the
+data access pattern of given workloads is essential. However, manually
+extracting such patterns from huge and complex workloads is exhaustive. Worse
+yet, existing memory access analysis tools incur unacceptably high overheads
+for unnecessarily detailed analysis results.&lt;/p&gt;
+&lt;p&gt;To mitigate this situation, we introduce a tool that is designed for data
+access pattern tracing. Two core mechanisms in this tool, a region-based
+sampling and an adaptive region adjustment, allow users to limit the tracing
+overhead in a bounded range regardless of the size and complexity of target
+workloads, while preserving the quality of results. Our empirical evaluations
+that conducted with 20 realistic workloads show the high quality, low overhead,
+and a potential use case of this tool.&lt;/p&gt;
+&lt;h2 id=&#34;publications-and-presentations&#34;&gt;Publications and Presentations&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;SeongJae Park, Yunjae Lee, Heon Y. Yeom, &lt;strong&gt;Profiling Dynamic Data Access
+Patterns with Controlled Overhead and Quality.&lt;/strong&gt; In 20th ACM/IFIP
+International Middleware Conference Industry, December 2019.
+&lt;a href=&#34;https://dl.acm.org/citation.cfm?id=3368125&#34;&gt;Link&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;SeongJae Park, &lt;strong&gt;Tracing Data Access Pattern with Bounded Overhead and
+Best-effort Accuracy.&lt;/strong&gt; In &lt;em&gt;The Linux Kernel Summit&lt;/em&gt;, September 2019.
+&lt;a href=&#34;https://linuxplumbersconf.org/event/4/contributions/548/attachments/311/590/damon_ksummit19.pdf&#34;&gt;Slides&lt;/a&gt;,
+&lt;a href=&#34;https://linuxplumbersconf.org/event/4/contributions/548/&#34;&gt;Link&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;SeongJae Park, Yunjae Lee, Yunhee Kim, Heon Y. Yeom, &lt;strong&gt;Profiling Dynamic Data
+Access Patterns with Bounded Overhead and Accuracy.&lt;/strong&gt; In IEEE International
+Workshop on Foundations and Applications of Self-* Systems (FAS* 2019),
+June 2019.
+&lt;a href=&#34;https://ieeexplore.ieee.org/abstract/document/8791992&#34;&gt;Link&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>LKML News v5.5-rc4</title>
@@ -1632,11 +1671,7 @@ proactively swap out 시켰는데, 그 결과 tab 전환 속도가 25% 나 빨�
       <link>/post/linux_develop_visualization_youtube/</link>
       <pubDate>Tue, 04 Jun 2019 10:44:33 +0900</pubDate>
       <guid>/post/linux_develop_visualization_youtube/</guid>
-      <description>&lt;p&gt;재미 삼아 리눅스 커널 릴리즈 때마다 git history 를 visualize 해서 올리는 유투브
-채널[1]을 개설해 봤습니다. 지금은 visualization 에는 gource[2] 를 사용하고
-있습니다. 이 비디오를 만드는데 사용되는 스크립트도 GPL v3 로 공개[3]했으니
-필요한 분은 사용해 보셔도 좋을 것 같습니다.&lt;/p&gt;
-&lt;p&gt;I created a Youtube channel[1]. I will upload videos for the git history
+      <description>&lt;p&gt;I created a Youtube channel[1]. I will upload videos for the git history
 between each release of the Linux kernel, just for jun. I use gource[2] for the
 visualization for now. The scripts I use for these videos are available[3]
 under GPL v3. If you want, you may use the scripts for your own video
