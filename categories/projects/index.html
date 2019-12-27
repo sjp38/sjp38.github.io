@@ -569,8 +569,7 @@ References [1] https://github.com/sjp38/lkml
     <h2><a href="/post/gcma/">GCMA: Guaranteed Contiguous Memory Allocator</a></h2>
     <div class="article-style">
       
-      GCMA (Guaranteed Contiguous Memory Allocator) is a contiguous memory allocator for Linux kernel that guarantees fast latency, success of allocation, and reasonable system memory utilization. Our evaluation on Raspberry Pi 2 shows 15 to 130 times faster and more predictable allocation latency without system performance degradation compared to Linux v3.18 default CMA.
-The project has been introduced by Linux Foundation Korea Forum 2014[1] and Embedded Operating Systems Workshop 2015[2]. A paper about the project has been published by proceeding of Embedded Operating Systems Workshop 2015 and 45th issue of ACM SIGBED Review[3].
+      The importance of physically contiguous memory has increased in modern computing environments, including both low- and high-end systems. Existing physically contiguous memory allocators generally have critical limitations. For example, the most commonly adopted solution, the memory reservation technique, wastes a significant amount of memory space. Scatter/Gather direct memory access (DMA) and input-output memory management units (IOMMUs) avoid this problem by utilizing additional hardware for address space virtualization. However, additional hardware means an increase in costs and power consumption, which is especially disadvantageous for small systems and they do not provide real contiguous memory.
       
     </div>
   </div>

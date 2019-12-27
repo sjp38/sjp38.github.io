@@ -30,22 +30,36 @@ Transactions on Computers[1] 에 Accept 되었습니다.  조만간 이를 통�
       <link>/ko/post/gcma/</link>
       <pubDate>Sat, 14 Jan 2017 23:11:23 +0900</pubDate>
       <guid>/ko/post/gcma/</guid>
-      <description>&lt;p&gt;GCMA (Guaranteed Contiguous Memory Allocator) 는 리눅스 커널을 위한 물리적으로
-연속적인 메모리 영역 할당자로, 빠른 응답시간과 할당의 성공, 그리고 합리적인
-시스템 메모리 활용을 보장합니다.  Raspberry Pi 2 위에서의 저희의 성능 평가
-실험은 Linux v3.18 의 기본 CMA 대비 &lt;strong&gt;15 배에서 130배 빠른&lt;/strong&gt;, 그리고 더 예측
-가능한 응답시간을 보임을 보였습니다.&lt;/p&gt;
-&lt;p&gt;이 프로젝트는 Linux Foundation Korea Forum 2014[1] 와 Embedded Operating
-Systems Workshop 2015[2] 에서 발표되었습니다.  이 프로젝트에 대한 논문은
-Embedded Operating System Workshop 2015 proceeding 과 ACM SIGBED Review 45th
-issue[3] 에 출판되었습니다.  소스코드는 LKML에 토론을 위해 공개되었으며[4] Github
-에서도 받아보실 수 있습니다[5].&lt;/p&gt;
-&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
-&lt;p&gt;[1] &lt;a href=&#34;https://korealinuxforum2014.sched.com/event/1qZcBAO/gcma-guaranteed-contiguous-memory-allocator-seongjae-park-seoul-national-university-minchan-kim-lg&#34;&gt;https://korealinuxforum2014.sched.com/event/1qZcBAO/gcma-guaranteed-contiguous-memory-allocator-seongjae-park-seoul-national-university-minchan-kim-lg&lt;/a&gt;&lt;br&gt;
-[2] &lt;a href=&#34;http://ceur-ws.org/Vol-1464/&#34;&gt;http://ceur-ws.org/Vol-1464/&lt;/a&gt;&lt;br&gt;
-[3] &lt;a href=&#34;http://sigbed.seas.upenn.edu/vol13_num1.html#issue&#34;&gt;http://sigbed.seas.upenn.edu/vol13_num1.html#issue&lt;/a&gt;&lt;br&gt;
-[4] &lt;a href=&#34;https://lkml.org/lkml/2015/2/23/480&#34;&gt;https://lkml.org/lkml/2015/2/23/480&lt;/a&gt;&lt;br&gt;
-[5] &lt;a href=&#34;https://github.com/sjp38/linux.gcma&#34;&gt;https://github.com/sjp38/linux.gcma&lt;/a&gt;&lt;/p&gt;
+      <description>&lt;p&gt;The importance of physically contiguous memory has increased in modern
+computing environments, including both low- and high-end systems. Existing
+physically contiguous memory allocators generally have critical limitations.
+For example, the most commonly adopted solution, the memory reservation
+technique, wastes a significant amount of memory space. Scatter/Gather direct
+memory access (DMA) and input-output memory management units (IOMMUs) avoid
+this problem by utilizing additional hardware for address space virtualization.
+However, additional hardware means an increase in costs and power consumption,
+which is especially disadvantageous for small systems and they do not provide
+real contiguous memory. Linux Contiguous Memory Allocator (CMA) aims to provide
+both contiguous memory allocation and to maximize memory utilization based on
+page migration, but they suffer from unpredictably long latency and a high
+probability of allocation failure. Therefore, we introduce a new solution to
+this problem, the guaranteed contiguous memory allocator (GCMA). This
+guarantees efficient memory space utilization, short latency, and successful
+allocation. The GCMA uses a reservation scheme and increases memory utilization
+by sharing the memory with immediately discardable data. Our evaluation of a
+GCMA on a Raspberry Pi 2 finds a latency that is 15-130 times lower compared to
+a CMA, and a latency that is up to 10 times lower when taking a photo. Using a
+large working set in a memory-fragmented high-end system, the GCMA is able to
+produce a 2.27× speedup.&lt;/p&gt;
+&lt;h2 id=&#34;history&#34;&gt;History&lt;/h2&gt;
+&lt;p&gt;The early results of this project has been introduced in
+&lt;a href=&#34;https://korealinuxforum2014.sched.com/event/1qZcBAO/gcma-guaranteed-contiguous-memory-allocator-seongjae-park-seoul-national-university-minchan-kim-lg&#34;&gt;Linux Foundation Korea Forum 2014&lt;/a&gt;,
+&lt;a href=&#34;http://ceur-ws.org/Vol-1464/&#34;&gt;Embedded Operating Systems Workshop 2015&lt;/a&gt;,
+and &lt;a href=&#34;http://sigbed.seas.upenn.edu/vol13_num1.html#issue&#34;&gt;45th issue of ACM SIGBED Review&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The source code for this version has been submitted to &lt;a href=&#34;https://lkml.org/lkml/2015/2/23/480&#34;&gt;LKML&lt;/a&gt; for discussion.
+A complete git tree is also available at &lt;a href=&#34;https://github.com/sjp38/linux.gcma&#34;&gt;Github&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;More recent results has also introduced in the &lt;a href=&#34;https://linuxplumbersconf.org/event/2/contributions/247/&#34;&gt;Linux Kernel Summit 2018&lt;/a&gt; and
+&lt;a href=&#34;https://ieeexplore.ieee.org/document/8456561&#34;&gt;IEEE Transactions on Computers&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     
