@@ -13,6 +13,14 @@
     </image>
     
     <item>
+      <title>LKML News v5.5-rc5</title>
+      <link>/post/lkml_news_v5.5-rc5/</link>
+      <pubDate>Mon, 30 Dec 2019 17:54:23 +0100</pubDate>
+      <guid>/post/lkml_news_v5.5-rc5/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Setting Git for email send</title>
       <link>/post/git_email_setup/</link>
       <pubDate>Sat, 28 Dec 2019 09:58:49 +0100</pubDate>
@@ -2288,46 +2296,58 @@ verification 도 많은 발전이 있었지만, torture test 도 없어질 순 �
       <link>/post/kunit_intro/</link>
       <pubDate>Wed, 20 Mar 2019 15:32:29 +0900</pubDate>
       <guid>/post/kunit_intro/</guid>
-      <description>&lt;p&gt;지난 2월 말에 FAST&#39;19 학회를 다녀왔는데요, [Ted Tso] (&lt;a href=&#34;https://thunk.org/tytso/&#34;&gt;https://thunk.org/tytso/&lt;/a&gt;)
-도 왔더군요.  심지어 구글 부스를 지키고 계시더라구요.  어쩌다보니
-식사자리에서 합석하고 잡담 나눈 레드햇 개발자 분들이랑 이야기를 하고 있길래
-껴서 좀 이야기를 했는데, 이야기 중 테스트에 대한 이야기가 나왔고, 이에 Ted 가
-KUnit 이라는 도구를 소개해 줬습니다.  잠깐 사용해 보니 매우 매력적인 것 같아서
-이 블로그에서도 소개해 볼까 합니다.&lt;/p&gt;
-&lt;p&gt;KUnit 은 이름에서 짐작했겠지만 리눅스 커널을 위한 유닛 테스트 프레임웍입니다.
-구글의 Brendan Higgins 라는 분이 개발하고 있고, 커널 내에 머지되는 걸 목표로
-해서 LKML 에도 &lt;a href=&#34;https://lkml.org/lkml/2019/2/14/1144&#34;&gt;RFC 패치&lt;/a&gt;를 보내고
-있습니다.
-구글러다 보니 구글에서 호스팅 되는
-&lt;a href=&#34;https://kunit.googlesource.com/linux/&#34;&gt;소스트리&lt;/a&gt; 위에서 개발을 하고 있고,
-&lt;a href=&#34;https://google.github.io/kunit-docs/third_party/kernel/docs/&#34;&gt;문서화&lt;/a&gt; 도 잘
-해뒀군요.&lt;/p&gt;
-&lt;p&gt;이 글은 이런 KUnit 을 사용하는 법을 간단히 정리해 봅니다.  글 내의 테스트에
-사용된 환경은 Ubuntu 16.04 서버 버전입니다.&lt;/p&gt;
+      <description>&lt;p&gt;Update (2020-01-01): KUnit has merged in v5.5 merge window.  From the writing
+of this post, it had some changes, so below content, especially the test setup
+and running will not work.  Recommend you to refer to the
+&lt;a href=&#34;https://www.kernel.org/doc/html/latest/dev-tools/kunit/index.html&#34;&gt;official document&lt;/a&gt;
+in the kernel for detailed tutorial.  It also has a python version dependency
+now, so you would encounter a problem with Ubuntu 16.04.  Recommend you to use
+later Python or Ubuntu 18.04 instead.&lt;/p&gt;
+&lt;p&gt;I have attended FAST&#39;19 last February.  There was
+&lt;a href=&#34;https://thunk.org/tytso/&#34;&gt;Ted Tso&lt;/a&gt;.
+I saw he hanging out with a few of Redhat people who I met during the lunch and
+tagged along with them.
+During the chat, we talked about test and Ted introduced us a testing framework
+called KUnit.
+I started using it after return from FAST&#39;19 and felt it is amazing, so I would
+like to introduce it in this post.&lt;/p&gt;
+&lt;p&gt;As its name intimates, KUnit is a unit test framework for the Linux kernel.
+Google&#39;s Brendan Higgins is developing it and he is also sending
+&lt;a href=&#34;https://lkml.org/lkml/2019/2/14/1144&#34;&gt;RFC patches&lt;/a&gt; to LKML so that it can be
+merged into the mainline.
+Because he is a Googler, he is hosting a &lt;a href=&#34;https://kunit.googlesource.com/linux/&#34;&gt;source
+tree&lt;/a&gt; on a Google server and also made a
+well written
+&lt;a href=&#34;https://google.github.io/kunit-docs/third_party/kernel/docs/&#34;&gt;Documentation&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This post will further briefly summarise how you can use KUnit.  I tested this
+post on my Ubuntu 16.04 server.&lt;/p&gt;
 &lt;h1 id=&#34;install&#34;&gt;Install&lt;/h1&gt;
-&lt;p&gt;Kunit 개발 커널은 &lt;a href=&#34;https://kunit.googlesource.com&#34;&gt;https://kunit.googlesource.com&lt;/a&gt; 에서 받을 수 있습니다.  간단히
-아래 명령으로 커널 코드를 땡겨옵시다.  여기선 가장 최근에 RFC 패치를 보냈던
-5.0-rc5 위의 버전으로 가져오겠습니다.&lt;/p&gt;
+&lt;p&gt;You can receive Kunit development kernel from &lt;a href=&#34;https://kunit.googlesource.com&#34;&gt;https://kunit.googlesource.com&lt;/a&gt;.
+Clone it with below simple command.
+I will use 5.0-rc5 based version which Brendan has recently sent the RFC
+patches.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ git clone -b kunit/rfc/5.0-rc5/v4 https://kunit.googlesource.com/linux
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;물론, [Patchwork]
-(&lt;a href=&#34;https://lore.kernel.org/patchwork/project/lkml/list/?series=383391&#34;&gt;https://lore.kernel.org/patchwork/project/lkml/list/?series=383391&lt;/a&gt;) 을 통해
-KUnit 패치만 직접 받아와 사용중인 커널에 적용하실 수도 있습니다.  전 v5.0 버전
-위에도 적용해 봤는데 문제 없이 잘 적용되더군요.&lt;/p&gt;
-&lt;p&gt;이어서 KUnit 을 위한 패키지를 깔아야 할텐데요, 커널 빌드에 필요한 패키지만 깔면
-됩니다.  커널 빌드에 필요한 패키지에 대한 정보는 이 블로그의 커널 빌드 및
-설치에 대한 [포스트] (/post/linux-kernel-build/) 를 참고해 주세요.&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Of course, you can get only patches via
+&lt;a href=&#34;https://lore.kernel.org/patchwork/project/lkml/list/?series=383391&#34;&gt;Patchwork&lt;/a&gt;
+and apply it on your kernel.
+I got it and applied it on my v5.0 kernel and it worked well.&lt;/p&gt;
+&lt;p&gt;Now you should install some packages for KUnit.
+You need only the packages that required by kernel build.
+For the list of the packages, refer to the
+&lt;a href=&#34;/post/linux-kernel-build/&#34;&gt;post&lt;/a&gt; describing it.&lt;/p&gt;
 &lt;h1 id=&#34;test&#34;&gt;Test&lt;/h1&gt;
-&lt;p&gt;커널 빌드 종속성 패키지까지 다 설치했다면 준비가 거의 끝났습니다.  잘 돌아가는지 확인해 보기 위해 kunit 에서 제공하는 예제 테스트들을 돌려봅시다.&lt;/p&gt;
-&lt;p&gt;KUnit 을 돌리기 위해선 configuration 을 커널 트리 루트에 &lt;code&gt;kunitconfig&lt;/code&gt; 라는
-이름의 파일로 써줘야 합니다.  이 설정은 어떤 테스트를 돌릴지 등을 지정합니다.
-일단 아래 내용으로 해당 파일을 써줍시다:&lt;/p&gt;
+&lt;p&gt;It&#39;s almost ready.  Let&#39;s run the example tests that kunit provides.&lt;/p&gt;
+&lt;p&gt;First, you should write a file named &lt;code&gt;kunitconfig&lt;/code&gt; under the kernel tree root
+directory.
+This file specifies what tests you want to run.
+Just write as below for now:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ cd linux
 $ echo CONFIG_KUNIT=y &amp;gt; kunitconfig
 $ echo CONFIG_KUNIT_TEST=y &amp;gt;&amp;gt; kunitconfig
 $ echo CONFIG_KUNIT_EXAMPLE_TEST=y &amp;gt;&amp;gt; kunitconfig
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;이제 다음의 간단한 명령만으로 KUnit 예제 테스트를 돌릴 수 있습니다:&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Now you can run the KUnit example tests as below:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ ./tools/testing/kunit/kunit.py
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;아래와 같은 결과가 터미널에 뜰겁니다:&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;You will see results below on your terminal:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;[11:31:47] Building KUnit Kernel ...
 [11:32:12] Starting KUnit Kernel ...
 [11:32:12] ==============================
@@ -2348,20 +2368,24 @@ $ echo CONFIG_KUNIT_EXAMPLE_TEST=y &amp;gt;&amp;gt; kunitconfig
 [11:32:13] ==============================
 [11:32:13] Testing complete. 11 tests run. 0 failed. 0 crashed.
 [11:32:13] Elapsed time: 26.005s total, 0.000s configuring, 25.736s building, 0.268s running.
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;code&gt;kunit-resource-test, kunit-try-catch-test, string-stream-tets, example&lt;/code&gt; 등의
-예제 테스트가 돌아갔고, 모두 테스트를 통과해서 문제가 없음을 보여줍니다.&lt;/p&gt;
-&lt;p&gt;KUnit 은 테스트를 위해 커널도 빌드하기 때문에 빌드 시간이 조금 길긴 합니다.  이
-경우엔 26초 정도 걸렸네요.  하지만 이건 처음 빌드라 그렇고, 기존에 빌드를
-해두고 파일 하나만 수정하는 경우엔 약 10초 정도 걸리는 것 같습니다.  하지만
-이후 실제 테스트를 돌리는건 매우 짧은 시간을 필요로 합니다.  이 경우 0.27초
-가량 걸렸군요!  따라서 테스트가 늘어나도 많은 시간을 요하지 않습니다.&lt;/p&gt;
-&lt;p&gt;스스로를 위한 유닛 테스트를 추가하는 법은 Kunit 공식 문서[1] 를 참고하시기
-바랍니다.  어렵지 않습니다 :)&lt;/p&gt;
-&lt;p&gt;[1] &lt;a href=&#34;https://google.github.io/kunit-docs/third_party/kernel/docs/start.html#writing-your-first-test&#34;&gt;https://google.github.io/kunit-docs/third_party/kernel/docs/start.html#writing-your-first-test&lt;/a&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;It says example tests including &lt;code&gt;kunit-resource-test, kunit-try-catch-test, string-stream-tets, example&lt;/code&gt; has ran, and all of those passed.&lt;/p&gt;
+&lt;p&gt;KUnit should also build the kernel for the test, and the build takes a few of
+time.
+In this case, it took 26 seconds.
+That said, this was long because it&#39;s first build.
+It took about only 10 seconds for me when I modified only one file after.
+Also, it takes very short time only for running actual test.
+In this case, it took only 0.27 seconds!
+Therefore, it will not take too huge time even though you have lots of tests.&lt;/p&gt;
+&lt;p&gt;Refer to the Kunit official
+&lt;a href=&#34;https://google.github.io/kunit-docs/third_party/kernel/docs/start.html#writing-your-first-test&#34;&gt;document&lt;/a&gt;
+to know how you can add your unit test.
+Not so hard :)&lt;/p&gt;
 &lt;h1 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h1&gt;
-&lt;p&gt;리눅스 커널을 위한 Unit test framework 인 KUnit 에 대한 간단한 소개와 사용법을
-설명했습니다.  저도 최근 개발에 활용하고 있는데, TDD 의 장점을 오랫만에 느낄 수
-있었습니다.  하루 빨리 업스트림에도 머지되었으면 좋겠네요!&lt;/p&gt;
+&lt;p&gt;Introduced the unit test framework for the Linux kernel, KUnit.
+I am also using it for my recent programming and could feel the advantage of
+TDD again.
+Hope this to be merged in the upstream soon!&lt;/p&gt;
 </description>
     </item>
     

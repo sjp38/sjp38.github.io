@@ -2175,7 +2175,15 @@ verification 도 많은 발전이 있었지만, torture test 도 없어질 순 �
       <link>/ko/post/kunit_intro/</link>
       <pubDate>Wed, 20 Mar 2019 15:32:29 +0900</pubDate>
       <guid>/ko/post/kunit_intro/</guid>
-      <description>&lt;p&gt;지난 2월 말에 FAST&#39;19 학회를 다녀왔는데요, [Ted Tso] (&lt;a href=&#34;https://thunk.org/tytso/&#34;&gt;https://thunk.org/tytso/&lt;/a&gt;)
+      <description>&lt;p&gt;업데이트 (2020-01-01): KUnit 은 v5.5 머지 윈도우 사이 메인라인에
+머지되었습니다.  이 포스트 작성 시점 이후로 많은 KUnit 에도 많은 변화가 있었고,
+따라서 아래 내용 중 일부, 특히 테스트 셋업과 수행 부분은 좀 많이 달라졌습니다.
+해당 내용을 위해선 &lt;a href=&#34;https://www.kernel.org/doc/html/latest/dev-tools/kunit/index.html&#34;&gt;공식
+문서&lt;/a&gt; 를
+참고하시길 권장합니다.  또한, 최신 버전은 파이썬 버전 종속성이 생겨서 우분투
+16.04 위에서는 문제를 겪으실 수 있습니다.  최신버전의 파이썬을 쓰시거나 그냥
+우분투 18.04 를 사용하시길 권장합니다.&lt;/p&gt;
+&lt;p&gt;지난 2월 말에 FAST&#39;19 학회를 다녀왔는데요, &lt;a href=&#34;https://thunk.org/tytso/&#34;&gt;Ted Tso&lt;/a&gt;
 도 왔더군요.  심지어 구글 부스를 지키고 계시더라구요.  어쩌다보니
 식사자리에서 합석하고 잡담 나눈 레드햇 개발자 분들이랑 이야기를 하고 있길래
 껴서 좀 이야기를 했는데, 이야기 중 테스트에 대한 이야기가 나왔고, 이에 Ted 가
@@ -2202,9 +2210,10 @@ KUnit 패치만 직접 받아와 사용중인 커널에 적용하실 수도 있�
 위에도 적용해 봤는데 문제 없이 잘 적용되더군요.&lt;/p&gt;
 &lt;p&gt;이어서 KUnit 을 위한 패키지를 깔아야 할텐데요, 커널 빌드에 필요한 패키지만 깔면
 됩니다.  커널 빌드에 필요한 패키지에 대한 정보는 이 블로그의 커널 빌드 및
-설치에 대한 [포스트] (/ko/post/linux-kernel-build/) 를 참고해 주세요.&lt;/p&gt;
+설치에 대한 &lt;a href=&#34;/ko/post/linux-kernel-build/&#34;&gt;포스트&lt;/a&gt; 를 참고해 주세요.&lt;/p&gt;
 &lt;h1 id=&#34;test&#34;&gt;Test&lt;/h1&gt;
-&lt;p&gt;커널 빌드 종속성 패키지까지 다 설치했다면 준비가 거의 끝났습니다.  잘 돌아가는지 확인해 보기 위해 kunit 에서 제공하는 예제 테스트들을 돌려봅시다.&lt;/p&gt;
+&lt;p&gt;커널 빌드 종속성 패키지까지 다 설치했다면 준비가 거의 끝났습니다.  잘
+돌아가는지 확인해 보기 위해 kunit 에서 제공하는 예제 테스트들을 돌려봅시다.&lt;/p&gt;
 &lt;p&gt;KUnit 을 돌리기 위해선 configuration 을 커널 트리 루트에 &lt;code&gt;kunitconfig&lt;/code&gt; 라는
 이름의 파일로 써줘야 합니다.  이 설정은 어떤 테스트를 돌릴지 등을 지정합니다.
 일단 아래 내용으로 해당 파일을 써줍시다:&lt;/p&gt;
