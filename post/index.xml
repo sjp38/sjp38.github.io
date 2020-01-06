@@ -13,6 +13,45 @@
     </image>
     
     <item>
+      <title>A thing you should know if you are using multiple email accounts with `git send-email`</title>
+      <link>/post/git_send_email_multiple_email_caution/</link>
+      <pubDate>Mon, 06 Jan 2020 21:10:05 +0100</pubDate>
+      <guid>/post/git_send_email_multiple_email_caution/</guid>
+      <description>&lt;p&gt;In some case, we need to send patches that made by other people instead.  &lt;code&gt;git send-email&lt;/code&gt; command can know it by comparing the commit author information and
+mail sender&#39;s information.  In that case, &lt;code&gt;git send-email&lt;/code&gt; automatically add
+&lt;code&gt;From:&lt;/code&gt; like pointing the real author of the patch in the body of the mail so
+that maintainers applying the patches can set the author information correctly.&lt;/p&gt;
+&lt;p&gt;For example, if &amp;ldquo;Alice &lt;a href=&#34;mailto:alice@abc.com&#34;&gt;alice@abc.com&lt;/a&gt;&amp;rdquo; has made a commit and &amp;ldquo;Bob
+&lt;a href=&#34;mailto:bob@abc.com&#34;&gt;bob@abc.com&lt;/a&gt;&amp;rdquo; formats the commit into a patch file and sends it, &lt;code&gt;git send-email&lt;/code&gt; automatically adds &lt;code&gt;From: Alice &amp;lt;alice@abc.com&amp;gt;&lt;/code&gt; line in the body
+of the mail.  And, when a maintainer is applying the patch using &lt;code&gt;git am&lt;/code&gt;, the
+patch is applied with author &amp;ldquo;Alice &lt;a href=&#34;mailto:alice@abc.com&#34;&gt;alice@abc.com&lt;/a&gt;&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;However, please note that &lt;code&gt;git send-email&lt;/code&gt; notifies the situation by comparing
+the author information and the command caller&#39;s author information or given
+&amp;lsquo;&amp;ndash;from&amp;rsquo; option&#39;s email only, not considering real smtp email id.&lt;/p&gt;
+&lt;p&gt;For example, suppose that Alice has two email account, &lt;a href=&#34;mailto:%60alice@abc.com&#34;&gt;`alice@abc.com&lt;/a&gt;&lt;code&gt; and&lt;/code&gt;&lt;a href=&#34;mailto:alice@def.com&#34;&gt;alice@def.com&lt;/a&gt;&lt;code&gt;.  And, Alice wants to use &lt;/code&gt;&lt;a href=&#34;mailto:alice@abc.com&#34;&gt;alice@abc.com&lt;/a&gt;&lt;code&gt;as her author email address, but need to send her patches using&lt;/code&gt;def.com` SMTP server.  She might
+use below commands.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git config sendemail.smtpserver smtp.def.com
+$ git config user.email &amp;quot;Alice &amp;lt;alice@abc.com&amp;gt;&amp;quot;
+$ git commit -as -m &#39;the patch&#39;
+$ git format-patch HEAD^
+$ git send-email the_patch
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Because her git config is saying the user.email is &lt;a href=&#34;mailto:%60alice@abc.com&#34;&gt;`alice@abc.com&lt;/a&gt;&lt;code&gt;and the patch is authored by&lt;/code&gt;&lt;a href=&#34;mailto:alice@abc.com&#34;&gt;alice@abc.com&lt;/a&gt;&lt;code&gt;, &lt;/code&gt;git send-email&lt;code&gt;thinks same people is sending the patch and thus doesn&#39;t add the &#39;From:&#39; line in the body of the mail.  Of course,&lt;/code&gt;git send-email&lt;code&gt;tries to set the&lt;/code&gt;from&lt;code&gt; of the mail as&lt;/code&gt;&lt;a href=&#34;mailto:alice@abc.com&#34;&gt;alice@abc.com&lt;/a&gt;`, but as the additionally specified &amp;lsquo;from&amp;rsquo; information is
+usually (at least gmail does) ignored by the SMTP server, the maintainer will
+receive the mail saying author email is &lt;a href=&#34;mailto:&#39;alice@def.com&#34;&gt;&#39;alice@def.com&lt;/a&gt;&amp;rsquo; only.&lt;/p&gt;
+&lt;p&gt;Note that &lt;code&gt;git send-email&lt;/code&gt; considers the email it &lt;em&gt;tries&lt;/em&gt; to use as the from
+address, not the final one that SMTP server will use.  Thus, this problem can
+be worked around in weird way using the &lt;code&gt;--from&lt;/code&gt; option of the &lt;code&gt;git send-email&lt;/code&gt;.  In the above case, giving &lt;code&gt;--from &amp;quot;Alice &amp;lt;alice@def.com&amp;gt;&amp;quot;&lt;/code&gt; option
+to &lt;code&gt;git send-email&lt;/code&gt; makes the command to think the sender is not the author
+(&lt;a href=&#34;mailto:alice@abc.com&#34;&gt;alice@abc.com&lt;/a&gt;) and as a result, it adds the &lt;code&gt;From:&lt;/code&gt; line in the body.&lt;/p&gt;
+&lt;p&gt;Also, please note that adding &lt;code&gt;--from&lt;/code&gt; option does not always add the &lt;code&gt;From:&lt;/code&gt;
+line in the body.  Rather than that, it can even hide the &lt;code&gt;From:&lt;/code&gt; line you
+intended to add, if you give the address that same with the commit&#39;s author,
+regardless of what SMTP server you use.&lt;/p&gt;
+&lt;p&gt;I was also recently made this mistakes and confused.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>LKML News v5.5-rc5</title>
       <link>/post/lkml_news_v5.5-rc5/</link>
       <pubDate>Mon, 30 Dec 2019 17:54:23 +0100</pubDate>

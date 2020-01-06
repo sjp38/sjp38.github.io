@@ -28,12 +28,11 @@
   
     
   
-  <meta name="description" content="Kernel / Hypervisor Engineer">
+  <meta name="description" content="In some case, we need to send patches that made by other people instead. git send-email command can know it by comparing the commit author information and mail sender&#39;s information. In that case, git send-email automatically add From: like pointing the real author of the patch in the body of the mail so that maintainers applying the patches can set the author information correctly.
+For example, if &ldquo;Alice alice@abc.com&rdquo; has made a commit and &ldquo;Bob bob@abc.">
 
   
-  <link rel="alternate" hreflang="ko" href="/ko/tags/">
-  
-  <link rel="alternate" hreflang="en-us" href="/tags/">
+  <link rel="alternate" hreflang="en-us" href="/post/git_send_email_multiple_email_caution/">
 
   
 
@@ -133,14 +132,12 @@
 
 
   
-  <link rel="alternate" href="/tags/index.xml" type="application/rss+xml" title="hacklog">
-  
 
   <link rel="manifest" href="/index.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon-32.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="/tags/">
+  <link rel="canonical" href="/post/git_send_email_multiple_email_caution/">
 
   
   
@@ -152,18 +149,66 @@
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="hacklog">
-  <meta property="og:url" content="/tags/">
-  <meta property="og:title" content="Tags | hacklog">
-  <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
+  <meta property="og:url" content="/post/git_send_email_multiple_email_caution/">
+  <meta property="og:title" content="A thing you should know if you are using multiple email accounts with `git send-email` | hacklog">
+  <meta property="og:description" content="In some case, we need to send patches that made by other people instead. git send-email command can know it by comparing the commit author information and mail sender&#39;s information. In that case, git send-email automatically add From: like pointing the real author of the patch in the body of the mail so that maintainers applying the patches can set the author information correctly.
+For example, if &ldquo;Alice alice@abc.com&rdquo; has made a commit and &ldquo;Bob bob@abc."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2020-01-06T21:10:05&#43;01:00">
+    
+      <meta property="article:published_time" content="2020-01-06T21:10:05&#43;01:00">
+    
+    <meta property="article:modified_time" content="2020-01-06T21:10:05&#43;01:00">
   
 
   
 
 
+    
 
+
+
+
+
+
+  
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/post/git_send_email_multiple_email_caution/"
+  },
+  "headline": "A thing you should know if you are using multiple email accounts with `git send-email`",
+  
+  "datePublished": "2020-01-06T21:10:05+01:00",
+  "dateModified": "2020-01-06T21:10:05+01:00",
+  
+  "author": {
+    "@type": "Person",
+    "name": "SeongJae Park"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "hacklog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/img/icon-512.png"
+    }
+  },
+  "description": "In some case, we need to send patches that made by other people instead. git send-email command can know it by comparing the commit author information and mail sender's information. In that case, git send-email automatically add From: like pointing the real author of the patch in the body of the mail so that maintainers applying the patches can set the author information correctly.\nFor example, if \u0026ldquo;Alice alice@abc.com\u0026rdquo; has made a commit and \u0026ldquo;Bob bob@abc."
+}
+</script>
+
+  
 
   
 
@@ -171,10 +216,13 @@
   
 
 
+  
 
 
 
-  <title>Tags | hacklog</title>
+
+
+  <title>A thing you should know if you are using multiple email accounts with `git send-email` | hacklog</title>
 
 </head>
 
@@ -396,7 +444,7 @@
         
 
         <li class="nav-item">
-          <a class="nav-link  active" href="/tags"><span>Tags</span></a>
+          <a class="nav-link " href="/tags"><span>Tags</span></a>
         </li>
 
         
@@ -466,22 +514,6 @@
       
 
       
-      <li class="nav-item dropdown i18n-dropdown">
-        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true">
-          <i class="fas fa-globe mr-1" aria-hidden="true"></i><span class="d-none d-lg-inline">English</span>
-        </a>
-        <div class="dropdown-menu">
-          <div class="dropdown-item i18n-active font-weight-bold">
-            <span>English</span>
-          </div>
-          
-          <a class="dropdown-item" href="/ko/tags/">
-            <span>한국어</span>
-          </a>
-          
-        </div>
-      </li>
-      
 
     </ul>
 
@@ -489,126 +521,350 @@
 </nav>
 
 
-  
-
-
-
-
-
-
-
-
-
-
-
+  <article class="article">
 
   
 
+
+
+
+
+
+
+
+
+
+
+
+  
+
   
   
+  
+<div class="article-container pt-3">
+  <h1>A thing you should know if you are using multiple email accounts with `git send-email`</h1>
+
+  
+
   
     
-  
-<div class="universal-wrapper pt-3">
-  <h1>Tags</h1>
+
+
+<div class="article-metadata">
 
   
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Mon, Jan 6, 2020
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/categories/git/">git</a></span>
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   
 </div>
 
 
 
-<div class="universal-wrapper">
-  
+  <div class="article-container">
 
-  
-  
-  <div>
-    <h2><a href="/tags/chrome/">chrome</a></h2>
     <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/google/">google</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/bot/">bot</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/chatbot/">chatbot</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/kakaotalk/">kakaotalk</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/network/">network</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/contribute/">contribute</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/hugo/">hugo</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/theme/">theme</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/artifact/">artifact</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
+      <p>In some case, we need to send patches that made by other people instead.  <code>git send-email</code> command can know it by comparing the commit author information and
+mail sender's information.  In that case, <code>git send-email</code> automatically add
+<code>From:</code> like pointing the real author of the patch in the body of the mail so
+that maintainers applying the patches can set the author information correctly.</p>
+<p>For example, if &ldquo;Alice <a href="mailto:alice@abc.com">alice@abc.com</a>&rdquo; has made a commit and &ldquo;Bob
+<a href="mailto:bob@abc.com">bob@abc.com</a>&rdquo; formats the commit into a patch file and sends it, <code>git send-email</code> automatically adds <code>From: Alice &lt;alice@abc.com&gt;</code> line in the body
+of the mail.  And, when a maintainer is applying the patch using <code>git am</code>, the
+patch is applied with author &ldquo;Alice <a href="mailto:alice@abc.com">alice@abc.com</a>&rdquo;.</p>
+<p>However, please note that <code>git send-email</code> notifies the situation by comparing
+the author information and the command caller's author information or given
+&lsquo;&ndash;from&rsquo; option's email only, not considering real smtp email id.</p>
+<p>For example, suppose that Alice has two email account, <a href="mailto:%60alice@abc.com">`alice@abc.com</a><code> and</code><a href="mailto:alice@def.com">alice@def.com</a><code>.  And, Alice wants to use </code><a href="mailto:alice@abc.com">alice@abc.com</a><code>as her author email address, but need to send her patches using</code>def.com` SMTP server.  She might
+use below commands.</p>
+<pre><code>$ git config sendemail.smtpserver smtp.def.com
+$ git config user.email &quot;Alice &lt;alice@abc.com&gt;&quot;
+$ git commit -as -m 'the patch'
+$ git format-patch HEAD^
+$ git send-email the_patch
+</code></pre><p>Because her git config is saying the user.email is <a href="mailto:%60alice@abc.com">`alice@abc.com</a><code>and the patch is authored by</code><a href="mailto:alice@abc.com">alice@abc.com</a><code>, </code>git send-email<code>thinks same people is sending the patch and thus doesn't add the 'From:' line in the body of the mail.  Of course,</code>git send-email<code>tries to set the</code>from<code> of the mail as</code><a href="mailto:alice@abc.com">alice@abc.com</a>`, but as the additionally specified &lsquo;from&rsquo; information is
+usually (at least gmail does) ignored by the SMTP server, the maintainer will
+receive the mail saying author email is <a href="mailto:'alice@def.com">'alice@def.com</a>&rsquo; only.</p>
+<p>Note that <code>git send-email</code> considers the email it <em>tries</em> to use as the from
+address, not the final one that SMTP server will use.  Thus, this problem can
+be worked around in weird way using the <code>--from</code> option of the <code>git send-email</code>.  In the above case, giving <code>--from &quot;Alice &lt;alice@def.com&gt;&quot;</code> option
+to <code>git send-email</code> makes the command to think the sender is not the author
+(<a href="mailto:alice@abc.com">alice@abc.com</a>) and as a result, it adds the <code>From:</code> line in the body.</p>
+<p>Also, please note that adding <code>--from</code> option does not always add the <code>From:</code>
+line in the body.  Rather than that, it can even hide the <code>From:</code> line you
+intended to add, if you give the address that same with the commit's author,
+regardless of what SMTP server you use.</p>
+<p>I was also recently made this mistakes and confused.</p>
 
+    </div>
+
+    
+
+
+
+
+
+<div class="article-tags">
   
-<nav>
-  <ul class="pagination justify-content-center">
+  <a class="badge badge-light" href="/tags/git/">git</a>
+  
+  <a class="badge badge-light" href="/tags/git-send-email/">git send-email</a>
+  
+  <a class="badge badge-light" href="/tags/patches/">patches</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
     
-    <li class="page-item"><a class="page-link" href="/tags/page/11/">&laquo;</a></li>
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=/post/git_send_email_multiple_email_caution/&amp;text=A%20thing%20you%20should%20know%20if%20you%20are%20using%20multiple%20email%20accounts%20with%20%60git%20send-email%60" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
     
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=/post/git_send_email_multiple_email_caution/&amp;t=A%20thing%20you%20should%20know%20if%20you%20are%20using%20multiple%20email%20accounts%20with%20%60git%20send-email%60" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
     
-    <li class="page-item"><a class="page-link" href="/tags/page/13/">&raquo;</a></li>
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=A%20thing%20you%20should%20know%20if%20you%20are%20using%20multiple%20email%20accounts%20with%20%60git%20send-email%60&amp;body=/post/git_send_email_multiple_email_caution/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=/post/git_send_email_multiple_email_caution/&amp;title=A%20thing%20you%20should%20know%20if%20you%20are%20using%20multiple%20email%20accounts%20with%20%60git%20send-email%60" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=A%20thing%20you%20should%20know%20if%20you%20are%20using%20multiple%20email%20accounts%20with%20%60git%20send-email%60%20/post/git_send_email_multiple_email_caution/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=/post/git_send_email_multiple_email_caution/&amp;title=A%20thing%20you%20should%20know%20if%20you%20are%20using%20multiple%20email%20accounts%20with%20%60git%20send-email%60" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
     
   </ul>
-</nav>
-
-
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      <img class="portrait mr-3" src="https://s.gravatar.com/avatar/43dc5645c78e68fda997138380dfaaf4?s=200')" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="/">SeongJae Park</a></h5>
+      <h6 class="card-subtitle">Kernel / Hypervisor Engineer</h6>
+      <p class="card-text">SeongJae Park is a programmer who loves to analyze and develop systems.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/log/?qt=author&amp;q=seongjae&#43;park" target="_blank" rel="noopener">
+        <i class="fab fa-linux"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/sjp38" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.com/citations?user=jJIiF3AAAAAJ" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  
+  
+  <div class="article-widget content-widget-hr">
+    <h3>Related</h3>
+    <ul>
+      
+      <li><a href="/post/git_email_setup/">Setting Git for email send</a></li>
+      
+      <li><a href="/post/integrate_external_git_repository_with_history/">Integrate external git repository with its history</a></li>
+      
+      <li><a href="/post/git_origin_story_ko/">Git Origin Story in Korean</a></li>
+      
+      <li><a href="/post/fetching-linux-source-code/">Fetching linux kernel source code</a></li>
+      
+    </ul>
+  </div>
+  
+
+
+
+  </div>
+</article>
 
       
 
