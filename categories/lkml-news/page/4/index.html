@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2020-01-18T10:11:47&#43;01:00">
+    <meta property="og:updated_time" content="2020-01-26T03:52:17&#43;01:00">
   
 
   
@@ -525,6 +525,20 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.2-rc4/">LKML News v5.2-rc4</a></h2>
+    <div class="article-style">
+      
+      [PATCH 00/15] Slab Movable Objects (SMO) https://lkml.kernel.org/r/20190603042637.2018-1-tobin@kernel.org
+전에도 RFC 패치셋은 여기서도 소개했었죠. Slab 할당자에 할당받은 객체들의 이동이 가능하게끔 하는 패치셋의 정식 패치 버전이 나왔습니다. 변경된 인터페이스는 XArray 와 dcache 에 적용되는군요.
+[PATCH v1 0/4] Introduce MADV_COLD and MADV_PAGEOUT https://lkml.kernel.org/r/20190603053655.127730-1-minchan@kernel.org
+바로 지난주에도 소개한 external madvise 패치셋이 쪼개졌네요. MADV_COLD 와 MADV_PAGEOUT 두개의 새로운 advice 기능 추가 버전만 담은 패치셋입니다. 이게 더 일찍 머지될 가능성이 생겼군요.
+Linux 5.2-rc4 https://lkml.kernel.org/r/CAHk-=wjm7FQxdF=RKa8Xe23CLNNpbGDOACewgo8e-hwDJ8TyQg@mail.gmail.com
+메일을 받고 깜짝 놀랐습니다, 평소보다 빨랐기 때문이죠.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.2-rc3/">LKML News v5.2-rc3</a></h2>
     <div class="article-style">
       
@@ -636,19 +650,6 @@ v5.2 에 머지될 목적의 RCU 문서화 업데이트 패치셋입니다.
 v5.2 를 위한 RCU 의 다양한 업데이트 패치셋입니다. rcu 를 위한 메일링 리스트도 추가되었군요. rcu@vger.kernel.org 입니다.
 [PATCH tip/core/rcu 0/9] Torture-test updates for v5.2 https://lkml.kernel.org/r/20190326233054.GA21523@linux.ibm.com
 v5.2 를 위한 torture test 의 업데이트 패치셋입니다. LKMM 이라던지 formal verification 도 많은 발전이 있었지만, torture test 도 없어질 순 없겠죠.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.1-rc2/">LKML News v5.1-rc2</a></h2>
-    <div class="article-style">
-      
-      [PATCH v5 00/19] Convert x86 &amp; arm64 to use generic page walk https://lkml.kernel.org/r/20190321141953.31960-1-steven.price@arm.com
-커널이 walk_page_range() 함수를 제공하긴 하지만 이 함수는 커널에 의해 사용되는 페이지 테이블은 볼수가 없기 때문에 각 아키텍쳐별로 페이지 테이블 순회를 위한 기능을 별도로 만들어 사용하고 있습니다.
-이 패치셋은 walk_page_range() 가 커널의 페이지 테이블을 만질 수 있도록 확장함으로써 그런 불필요한 아키텍쳐별 파편화를 줄이려 합니다.
-[PATCH v6 0/7] psi: pressure stall monitors v6 https://lkml.kernel.org/r/20190319235619.260832-1-surenb@google.com
-시스템이 어떤 부분의 pressure 를 받는지 쉽게 확인하기 위한 pressure stall monitor 구현 패치의 여섯 번째 버전입니다.
       
     </div>
   </div>

@@ -5,12 +5,34 @@
     <link>/categories/lkml-news/</link>
       <atom:link href="/categories/lkml-news/index.xml" rel="self" type="application/rss+xml" />
     <description>lkml news</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sat, 18 Jan 2020 10:11:47 +0100</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sun, 26 Jan 2020 03:52:17 +0100</lastBuildDate>
     <image>
       <url>/img/tux.png</url>
       <title>lkml news</title>
       <link>/categories/lkml-news/</link>
     </image>
+    
+    <item>
+      <title>LKML News v5.5-rc8</title>
+      <link>/post/lkml_news_v5.5-rc8/</link>
+      <pubDate>Sun, 26 Jan 2020 03:52:17 +0100</pubDate>
+      <guid>/post/lkml_news_v5.5-rc8/</guid>
+      <description>&lt;h2 id=&#34;patch-08-introduce-data-access-monitor-damon&#34;&gt;[PATCH 0/8] Introduce Data Access MONitor (DAMON)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20200120162757.32375-1-sjpark@amazon.com&#34;&gt;https://lkml.kernel.org/r/20200120162757.32375-1-sjpark@amazon.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This is the patchset for the DAMON.&lt;/p&gt;
+&lt;h2 id=&#34;paging-out-when-free-memory-is-low-but-not-exhausted-and-available-memory-remains-high&#34;&gt;Paging out when free memory is low but not exhausted (and available memory remains high)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/e994b0a76099437b8edbae925e9ccac8@its-mail-p04.registry.otago.ac.nz&#34;&gt;https://lkml.kernel.org/r/e994b0a76099437b8edbae925e9ccac8@its-mail-p04.registry.otago.ac.nz&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This mail introduces an issue on 5.3 and 5.4 kernel that page out is occurred
+needlessly.  The author uses &lt;code&gt;stress&lt;/code&gt; and &lt;code&gt;dd&lt;/code&gt; to stress memory but still
+leave some memory in the system.  However, the system does swap excessively.&lt;/p&gt;
+&lt;h2 id=&#34;lsfmmbpf-topic-do-not-pin-pages-for-various-directio-scheme&#34;&gt;[LSF/MM/BPF TOPIC] Do not pin pages for various direct-io scheme&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20200122023100.75226-1-jglisse@redhat.com&#34;&gt;https://lkml.kernel.org/r/20200122023100.75226-1-jglisse@redhat.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Another talk proposal for the LSF/MM this year.  Due to the pinning of the
+pages for direct I/O, several mm activities including compaction and migration
+cannot work well.  Author want to convert direct io code to obey mmu nitofier
+to help this situation.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>LKML News v5.5-rc7</title>

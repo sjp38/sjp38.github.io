@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2020-01-18T10:11:47&#43;01:00">
+    <meta property="og:updated_time" content="2020-01-26T03:52:17&#43;01:00">
   
 
   
@@ -525,6 +525,17 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v4.15-rc7/">LKML News after v4.15-rc7</a></h2>
+    <div class="article-style">
+      
+      Linux 4.15-rc7 https://lkml.kernel.org/r/CA+55aFwbmKznuQZe_VemxXJPSmB-9yy8uyWsMZcrkA4T=m8xkw@mail.gmail.com
+Meltdown 과 Spectre 로 떠들썩했던 시간을 지나 4.15 의 일곱번째 rc 버전이 릴리즈 되었습니다. 지난 여섯번째 릴리즈 때도 상당히 안정화에 신경써야 할 시점임에도 x86 pti (page table isolation) 업데이트 패치가 많이 머지되어 의아했는데, 이게 Meltdown 과 Spectre 버그 때문이었음도 밝혀졌죠. 그렇다곤 해도 그 외의 부분은 예상대로 상당히 안정화 되어가고 있다고 합니다.
+더불어, Thomas Geixner 등의 인텔쪽 커널 개발자들의 노력 덕에 pti 등 Meltdown 과 Spectre 버그를 위한 패치가 잘 관리되어 비교적 쉽게 머지될 수 있었음에 리누스가 감사를 표하네요.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v4.15-rc6/">LKML News after v4.15-rc6</a></h2>
     <div class="article-style">
       
@@ -631,19 +642,6 @@ Lockdep 의 cross release 기능은 너무 느렸고, false positive 가 많다�
 v4.14 를 향한 (아마도) 마지막 rc 버전의 릴리즈입니다.
 정말로 별다른 일 없었다면 그냥 이번에 v4.14 릴리즈를 할 계획이었지만 그정도는 아니었다고 하는군요. 어쨌든 rc8 덕분에 v4.15 merge window 는 thanksgiving week 를 포함하게 되었는데 토발즈는 이때 가족과 휴가를 갈 계획이라 랩톱 가지고 휴가다니는 동안에도 머지를 잘 할 수 있길 바라지만 문제가 생기면 merge window 를 연장할 수도 있겠다고 하네요. 일단 어떻게 될지 두고보자는군요.
 이번 릴리즈에 포함된 변경은 대부분 드라이버 쪽 변경이고, SPDK 관련 소스코드에 라이센스 추가 등을 한 사소하지만 커다란 양의 변경이 있습니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.14-rc7/">LKML News after v4.14-rc7</a></h2>
-    <div class="article-style">
-      
-      Linux 4.14-rc7 https://lkml.kernel.org/r/CA+55aFwhgxivTE3k88nshbrH9nd-4nhmhXGzw-MxRVGxf-R8Eg@mail.gmail.com
-일곱번째 rc 버전의 릴리즈입니다.
-OSSE 와 kernel summit 으로 프라하를 방문했던 토발즈인데, 집에 잘 돌아왔다는군요. 이번 rc 버전은 기존의 rc7 보다도 작은 편에 가깝다고 합니다만, 다음 한주간이 정말 조용하지 않는한은 rc8 릴리즈를 할 생각이라는군요.
-Re: Page allocator bottleneck https://lkml.kernel.org/r/1c218381-067e-7757-ccc2-4e5befd2bfc3@mellanox.com
-멜라녹스의 빠른 네트워크 카드를 사용하는 환경에서는 page allocator 의 속도가 bottleneck 이 된다는 이야기에 대한 업데이트입니다. 여전히 해당 부분이 bottleneck 이며, queued_spin_lock_slowpath() 가 85 % 가까이 CPU 를 차지하고 있군요.
       
     </div>
   </div>
