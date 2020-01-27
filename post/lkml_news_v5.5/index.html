@@ -28,12 +28,13 @@
   
     
   
-  <meta name="description" content="Kernel / Hypervisor Engineer">
+  <meta name="description" content="[PATCH 0/8] Introduce Data Access MONitor (DAMON) https://lkml.kernel.org/r/20200120162757.32375-1-sjpark@amazon.com
+This is the patchset for the DAMON.
+Paging out when free memory is low but not exhausted (and available memory remains high) https://lkml.kernel.org/r/e994b0a76099437b8edbae925e9ccac8@its-mail-p04.registry.otago.ac.nz
+This mail introduces an issue on 5.3 and 5.4 kernel that page out is occurred needlessly. The author uses stress and dd to stress memory but still leave some memory in the system. However, the system does swap excessively.">
 
   
-  <link rel="alternate" hreflang="ko" href="/ko/tags/lkml/">
-  
-  <link rel="alternate" hreflang="en-us" href="/tags/lkml/">
+  <link rel="alternate" hreflang="en-us" href="/post/lkml_news_v5.5/">
 
   
 
@@ -133,14 +134,12 @@
 
 
   
-  <link rel="alternate" href="/tags/lkml/index.xml" type="application/rss+xml" title="hacklog">
-  
 
   <link rel="manifest" href="/index.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon-32.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="/tags/lkml/">
+  <link rel="canonical" href="/post/lkml_news_v5.5/">
 
   
   
@@ -152,18 +151,68 @@
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="hacklog">
-  <meta property="og:url" content="/tags/lkml/">
-  <meta property="og:title" content="lkml | hacklog">
-  <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
+  <meta property="og:url" content="/post/lkml_news_v5.5/">
+  <meta property="og:title" content="LKML News v5.5 | hacklog">
+  <meta property="og:description" content="[PATCH 0/8] Introduce Data Access MONitor (DAMON) https://lkml.kernel.org/r/20200120162757.32375-1-sjpark@amazon.com
+This is the patchset for the DAMON.
+Paging out when free memory is low but not exhausted (and available memory remains high) https://lkml.kernel.org/r/e994b0a76099437b8edbae925e9ccac8@its-mail-p04.registry.otago.ac.nz
+This mail introduces an issue on 5.3 and 5.4 kernel that page out is occurred needlessly. The author uses stress and dd to stress memory but still leave some memory in the system. However, the system does swap excessively."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2020-01-26T03:52:17&#43;01:00">
+    
+      <meta property="article:published_time" content="2020-01-26T03:52:17&#43;01:00">
+    
+    <meta property="article:modified_time" content="2020-01-26T03:52:17&#43;01:00">
   
 
   
 
 
+    
 
+
+
+
+
+
+  
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/post/lkml_news_v5.5/"
+  },
+  "headline": "LKML News v5.5",
+  
+  "datePublished": "2020-01-26T03:52:17+01:00",
+  "dateModified": "2020-01-26T03:52:17+01:00",
+  
+  "author": {
+    "@type": "Person",
+    "name": "SeongJae Park"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "hacklog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/img/icon-512.png"
+    }
+  },
+  "description": "[PATCH 0/8] Introduce Data Access MONitor (DAMON) https://lkml.kernel.org/r/20200120162757.32375-1-sjpark@amazon.com\nThis is the patchset for the DAMON.\nPaging out when free memory is low but not exhausted (and available memory remains high) https://lkml.kernel.org/r/e994b0a76099437b8edbae925e9ccac8@its-mail-p04.registry.otago.ac.nz\nThis mail introduces an issue on 5.3 and 5.4 kernel that page out is occurred needlessly. The author uses stress and dd to stress memory but still leave some memory in the system. However, the system does swap excessively."
+}
+</script>
+
+  
 
   
 
@@ -171,10 +220,13 @@
   
 
 
+  
 
 
 
-  <title>lkml | hacklog</title>
+
+
+  <title>LKML News v5.5 | hacklog</title>
 
 </head>
 
@@ -396,7 +448,7 @@
         
 
         <li class="nav-item">
-          <a class="nav-link  active" href="/tags"><span>Tags</span></a>
+          <a class="nav-link " href="/tags"><span>Tags</span></a>
         </li>
 
         
@@ -466,22 +518,6 @@
       
 
       
-      <li class="nav-item dropdown i18n-dropdown">
-        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true">
-          <i class="fas fa-globe mr-1" aria-hidden="true"></i><span class="d-none d-lg-inline">English</span>
-        </a>
-        <div class="dropdown-menu">
-          <div class="dropdown-item i18n-active font-weight-bold">
-            <span>English</span>
-          </div>
-          
-          <a class="dropdown-item" href="/ko/tags/lkml/">
-            <span>한국어</span>
-          </a>
-          
-        </div>
-      </li>
-      
 
     </ul>
 
@@ -489,171 +525,346 @@
 </nav>
 
 
-  
-
-
-
-
-
-
-
-
-
-
-
+  <article class="article">
 
   
 
+
+
+
+
+
+
+
+
+
+
+
+  
+
   
   
+  
+<div class="article-container pt-3">
+  <h1>LKML News v5.5</h1>
+
+  
+
   
     
-  
-<div class="universal-wrapper pt-3">
-  <h1>lkml</h1>
+
+
+<div class="article-metadata">
 
   
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Sun, Jan 26, 2020
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   
 </div>
 
 
 
-<div class="universal-wrapper">
-  
+  <div class="article-container">
 
-  
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.5/">LKML News v5.5</a></h2>
     <div class="article-style">
-      
-      [PATCH 0/8] Introduce Data Access MONitor (DAMON) https://lkml.kernel.org/r/20200120162757.32375-1-sjpark@amazon.com
-This is the patchset for the DAMON.
-Paging out when free memory is low but not exhausted (and available memory remains high) https://lkml.kernel.org/r/e994b0a76099437b8edbae925e9ccac8@its-mail-p04.registry.otago.ac.nz
-This mail introduces an issue on 5.3 and 5.4 kernel that page out is occurred needlessly. The author uses stress and dd to stress memory but still leave some memory in the system. However, the system does swap excessively.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.5-rc7/">LKML News v5.5-rc7</a></h2>
-    <div class="article-style">
-      
-      REMINDER: LSF/MM/BPF: 2020: Call for Proposals https://lkml.kernel.org/r/20200115215409.5pd4fnoawqzs7rvw@jbacik-mbp
-This is reminder of the LSF/MM/BPF of this year. It underscores the submitters to also send the mail to the appropriate mailing list as before. Maybe a few of people are missing sending mail but only wite up their proposal to the google form.
-[LSF/MM TOPIC] Free Page Reporting https://lkml.kernel.org/r/4b8671d16573307da09afc56030c2a5f5a9c45bf.camel@linux.intel.com
-In case of KVM case, as each VM guest receives virtual memory from the host, only when host gets memory pressure the memory being used by guests will be reclaimed.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.5-rc6/">LKML News v5.5-rc6</a></h2>
-    <div class="article-style">
-      
-      OOM killer not nearly agressive enough? https://lkml.kernel.org/r/20200107204412.GA29562@amd
-The author if this mail, Pavel updated his userspace to x86-64 and encountered chromium's memory hogging. He was required to kill the chromium himself, because OOM killer didn't kill it. He asks whether this means OOM killer is not aggressive enough.
-[PATCH 0/4] introduce memory hinting API for external process https://lkml.kernel.org/r/20200110213433.94739-1-minchan@kernel.org
-Minchan has previously posted the patchset introducing the MADV_COLD, MADV_PAGEOUT and external madvise() able code change.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.5-rc5/">LKML News v5.5-rc5</a></h2>
-    <div class="article-style">
-      
-      [PATCH v16 QEMU 4/3 RFC] memory: Add support for MADV_FREE as mechanism to lazy discard pages https://lkml.kernel.org/r/20200103212339.29849.99817.stgit@localhost.localdomain
-This RFC patch modifies QEMU to able to use MADV_FREE for discard of pages to avoid the page zeroing cost.
-Linux 5.5-rc5 https://lkml/kernel.org/r/CAHk-=whwmJQwwMD06VfPapDmc52LFQhG3HP6VyVLXVA=nYi_ow@mail.gmail.com
-Time files, rc5 released. Last week was also another calm week due to the new year holidays, and thus this release is small. Linus expects it will be changed in this upcoming weeks, or 5.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.5-rc4/">LKML News v5.5-rc4</a></h2>
-    <div class="article-style">
-      
-      [PATCH V11 RESEND] mm/debug: Add tests validating architecture page table helpers https://lkml.kernel.org/r/1577162322-30303-1-git-send-email-anshuman.khandual@arm.com
-This patchset adds tests for the page table helpers. Those tests covers basic page table entry transformations including old, young, dirty, clean, write, write protect etc. The tests are not using the kselftest or kunit, but implemented as a kernel module with new file, mm/debug_vm_pgtable.c.
-Linux 5.5-rc4 https://lkml.kernel.org/r/CAHk-=wjq2b9GkLzpaDE-Xryu5c0zMM72BqkJKeZVsX+4ymH6aA@mail.gmail.com
-Due to the holidays, last week was unsurprisingly quiet. Torvalds says it was hardly even worth making an rc release.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.5-rc3/">LKML News v5.5-rc3</a></h2>
-    <div class="article-style">
-      
-      PROBLEM: Large (256MB) CMA allocation fails from time to time when using Intel VT-d https://lkml.kernel.org/r/5e75d900cb50457784ee1d2050b511ec@MAILER13.tech.ceia
-The author reports a CMA allocation failure that occurs time to time if the system is using Intel VT-d.
-[PATCHv2 0/3] Allow ZRAM to use any zpool-compatible backend https://lkml.kernel.org/r/20191219151928.ad4ccf732b64b7f8a26116db@gmail.com
-ZRAM is an in-memory block device that compresses the content. Currently, ZRAM is used only with zsmalloc. However, the zsmalloc is not an optimal selection in some environment.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.5-rc2/">LKML News v5.5-rc2</a></h2>
-    <div class="article-style">
-      
-      [PATCHSET 0/5] Support for RWF_UNCACHED https://lkml.kernel.org/r/20191210162454.8608-1-axboe@kernel.dk
-As the buffered IO uses the page cache, an intensive buffered IO workload using very huge file can cause memory pressure by inflating the page cache. Changing the workload to do direct IO can solve this problem, but the modification is not so simple. Jens Axboe thus implemented RWF_UNCACHED flag, which skips use of the page cache if the given IO target is not in the page cache already.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.5-rc1/">LKML News v5.5-rc1</a></h2>
-    <div class="article-style">
-      
-      Splitting the mmap_sem https://lkml.kernel.org/r/20191203222147.GV20752@bombadil.infradead.org
-The mmap_sem is a big scalability bottleneck and there are several projects for solving it. In this mail, Matthew Wilcox suggests his plan for his solution and asks whether a exceptional case in his solution is acceptable to other people.
-Linux 5.5-rc1 https://lkml.kernel.org/r/CAHk-=wiEJK=yo9vEhX_4b4ROvCqUA_rjK7g996h-5MbfOMeDrw@mail.gmail.com
-Linux 5.5 merge window closed and the -rc1 has released. It was a tiny bit larger release compared to recent several releases, but fairly regular overall.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.4/">LKML News v5.4</a></h2>
-    <div class="article-style">
-      
-      [PATCH RFC v3 00/36] Add KernelMemorySanitizer infrastructure https://lkml.kernel.org/r/20191122112621.204798-1-glider@google.com
-Google's third KMSAN RFC patchset that detects errors caused by accessing uninitialized memory areas. Like other SAN series, it has been used in Google syzkaller and found over 200 bugs in the last two years.
-LSF/MM/BPF: 2020: Call for Proposals https://lkml.kernel.org/r/20191122172502.vffyfxlqejthjib6@macbook-pro-91.dhcp.thefacebook.com
-LSF/MM's CFP for the next year was released. From next year, BPF sessions will be added to LSF/MM, so the name has changed to LSF/MM/BPF.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.4-rc8/">LKML News v5.4-rc8</a></h2>
-    <div class="article-style">
-      
-      [PATCH 00/13] Finish off [smp_]read_barrier_depends() https://lkml.kernel.org/r/20191108170120.22331-1-will@kernel.org
-The memory model element which is depends only on Alpha, smp_read_barrier_depends() is built into READ_ONCE(), so that you don't have to worry about Alpha in non-alpha-specific kernel code. Nevertheless, the author of this patchset concerned about the continuing uploads of the code that cares it. This patchset removes the description of the feature from all documentation and comments in the kernel code.
-[PATCH v4 00/10] Add Kernel Concurrency Sanitizer (KCSAN) https://lkml.
-      
-    </div>
-  </div>
-  
+      <h2 id="patch-08-introduce-data-access-monitor-damon">[PATCH 0/8] Introduce Data Access MONitor (DAMON)</h2>
+<p><a href="https://lkml.kernel.org/r/20200120162757.32375-1-sjpark@amazon.com">https://lkml.kernel.org/r/20200120162757.32375-1-sjpark@amazon.com</a></p>
+<p>This is the patchset for the DAMON.</p>
+<h2 id="paging-out-when-free-memory-is-low-but-not-exhausted-and-available-memory-remains-high">Paging out when free memory is low but not exhausted (and available memory remains high)</h2>
+<p><a href="https://lkml.kernel.org/r/e994b0a76099437b8edbae925e9ccac8@its-mail-p04.registry.otago.ac.nz">https://lkml.kernel.org/r/e994b0a76099437b8edbae925e9ccac8@its-mail-p04.registry.otago.ac.nz</a></p>
+<p>This mail introduces an issue on 5.3 and 5.4 kernel that page out is occurred
+needlessly.  The author uses <code>stress</code> and <code>dd</code> to stress memory but still
+leave some memory in the system.  However, the system does swap excessively.</p>
+<h2 id="lsfmmbpf-topic-do-not-pin-pages-for-various-directio-scheme">[LSF/MM/BPF TOPIC] Do not pin pages for various direct-io scheme</h2>
+<p><a href="https://lkml.kernel.org/r/20200122023100.75226-1-jglisse@redhat.com">https://lkml.kernel.org/r/20200122023100.75226-1-jglisse@redhat.com</a></p>
+<p>Another talk proposal for the LSF/MM this year.  Due to the pinning of the
+pages for direct I/O, several mm activities including compaction and migration
+cannot work well.  Author want to convert direct io code to obey mmu nitofier
+to help this situation.</p>
+<h2 id="linux-55">Linux 5.5</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wigRZ6TSJU09bMk3Df2DiOw83B7TrQUq+iXroQCK5EVAQ@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wigRZ6TSJU09bMk3Df2DiOw83B7TrQUq+iXroQCK5EVAQ@mail.gmail.com</a></p>
+<p>Unlike my expectation, Torvalds released 5.5 instead of eighth rc release.
+There were some changes in network and some of core files, but David told
+Torvalds the changes are not worth for another rc.</p>
+<p>So, the merge window has started.  That said, Torvalds says that he will have
+some travel and some things to do during next two weeks, and thus he is hoping
+those things to go well.  Also, he want everybody to understand though he makes
+soem delay due to the reason.</p>
 
+    </div>
+
+    
+
+
+
+
+
+<div class="article-tags">
   
-<nav>
-  <ul class="pagination justify-content-center">
+  <a class="badge badge-light" href="/tags/linux/">linux</a>
+  
+  <a class="badge badge-light" href="/tags/kernel/">kernel</a>
+  
+  <a class="badge badge-light" href="/tags/lkml/">lkml</a>
+  
+  <a class="badge badge-light" href="/tags/news/">news</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
     
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=/post/lkml_news_v5.5/&amp;text=LKML%20News%20v5.5" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
     
-    <li class="page-item"><a class="page-link" href="/tags/lkml/page/2/">&raquo;</a></li>
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=/post/lkml_news_v5.5/&amp;t=LKML%20News%20v5.5" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=LKML%20News%20v5.5&amp;body=/post/lkml_news_v5.5/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=/post/lkml_news_v5.5/&amp;title=LKML%20News%20v5.5" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=LKML%20News%20v5.5%20/post/lkml_news_v5.5/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=/post/lkml_news_v5.5/&amp;title=LKML%20News%20v5.5" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
     
   </ul>
-</nav>
-
-
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      <img class="portrait mr-3" src="https://s.gravatar.com/avatar/43dc5645c78e68fda997138380dfaaf4?s=200')" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="/">SeongJae Park</a></h5>
+      <h6 class="card-subtitle">Kernel / Hypervisor Engineer</h6>
+      <p class="card-text">SeongJae Park is a programmer who loves to analyze and develop systems.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/log/?qt=author&amp;q=seongjae&#43;park" target="_blank" rel="noopener">
+        <i class="fab fa-linux"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/sjp38" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.com/citations?user=jJIiF3AAAAAJ" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  
+  
+  <div class="article-widget content-widget-hr">
+    <h3>Related</h3>
+    <ul>
+      
+      <li><a href="/post/lkml_news_v5.5-rc7/">LKML News v5.5-rc7</a></li>
+      
+      <li><a href="/post/lkml_news_v5.5-rc6/">LKML News v5.5-rc6</a></li>
+      
+      <li><a href="/post/lkml_news_v5.5-rc5/">LKML News v5.5-rc5</a></li>
+      
+      <li><a href="/post/lkml_news_v5.5-rc4/">LKML News v5.5-rc4</a></li>
+      
+      <li><a href="/post/lkml_news_v5.5-rc3/">LKML News v5.5-rc3</a></li>
+      
+    </ul>
+  </div>
+  
+
+
+
+  </div>
+</article>
 
       
 
