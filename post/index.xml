@@ -13,6 +13,43 @@
     </image>
     
     <item>
+      <title>RCX: Read-Copy Transact</title>
+      <link>/post/rcx/</link>
+      <pubDate>Sat, 15 Feb 2020 09:11:55 +0100</pubDate>
+      <guid>/post/rcx/</guid>
+      <description>&lt;p&gt;Read-copy update (RCU) can provide ideal scalability for read-mostly workloads,
+but some believe that it provides only poor performance for updates. This
+belief is due to the lack of RCU-centric update synchronization mechanisms. RCU
+instead works with a range of update-side mechanisms, such as locking. In fact,
+many developers embrace simplicity by using global locking. Logging, hardware
+transactional memory, or fine-grained locking can provide better scalability,
+but each of these approaches has limitations, such as imposing overhead on
+readers or poor scalability on non-uniform memory access (NUMA) systems, mainly
+due to their lack of NUMA-aware design principles.&lt;/p&gt;
+&lt;p&gt;This paper introduces an RCU extension (RCX) that provides highly scalable RCU
+updates on NUMA systems while retaining RCU’s read-side benefits. RCX combines
+hardware transactional memory (HTM) and traditional locking based on our
+NUMA-aware design principles for RCU. Micro-benchmarks on a NUMA system having
+144 hardware threads show RCX has up to 22.61 times better performance and up
+to 145.00 times lower HTM abort rates compared to a state-of-the-art RCU/HTM
+combination. To demonstrate the effectiveness and applicability of RCX, we have
+applied RCX to parallelize some of the Linux kernel memory management system
+and an in-memory database system. The optimized kernel and the database show up
+to 24 and 17 times better performance compared to the original version,
+respectively.&lt;/p&gt;
+&lt;h2 id=&#34;news&#34;&gt;News&lt;/h2&gt;
+&lt;p&gt;2020-02-14: The paper introducing RCX has accepted to be presented by
+&lt;a href=&#34;https://www.eurosys2020.org/&#34;&gt;EuroSys&#39;20&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;publications-and-presentations&#34;&gt;Publications and Presentations&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;SeongJae Park, Paul E. McKenney, Laurent Dufour, Heon Y. Yeom, &lt;strong&gt;An HTM-Based
+Update-side Synchronization for RCU on NUMA systems.&lt;/strong&gt; In &lt;em&gt;15th ACM European
+Conference on Computer Systems (EuroSys)&lt;/em&gt;, April 2020 (Accepted).&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
       <title>My paper has accepted to appear in the EuroSys2020</title>
       <link>/post/eurosys2020_talk/</link>
       <pubDate>Fri, 14 Feb 2020 19:44:36 +0100</pubDate>
@@ -8240,11 +8277,11 @@ Dec 2013 - Dec 2014&lt;/li&gt;
 &lt;h1 id=&#34;publications-and-presentations&#34;&gt;Publications And Presentations&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;SeongJae Park, Paul E. McKenney, Laurent Dufour, Heon Y. Yeom, &lt;strong&gt;An HTM-Based
-Update-side Synchronization for RCU on NUMA systems.&lt;/strong&gt; In 15th ACM European
-Conference on Computer Systems (EuroSys), April 2020 (Accepted).&lt;/li&gt;
+Update-side Synchronization for RCU on NUMA systems.&lt;/strong&gt; In &lt;em&gt;15th ACM European
+Conference on Computer Systems (EuroSys)&lt;/em&gt;, April 2020 (Accepted).&lt;/li&gt;
 &lt;li&gt;SeongJae Park, Yunjae Lee, Heon Y. Yeom, &lt;strong&gt;Profiling Dynamic Data Access
-Patterns with Controlled Overhead and Quality.&lt;/strong&gt; In 20th ACM/IFIP
-International Middleware Conference Industry, December 2019.
+Patterns with Controlled Overhead and Quality.&lt;/strong&gt; In &lt;em&gt;20th ACM/IFIP
+International Middleware Conference (MIDDLEWARE) Industry&lt;/em&gt;, December 2019.
 &lt;a href=&#34;https://dl.acm.org/citation.cfm?id=3368125&#34;&gt;Link&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;SeongJae Park, &lt;strong&gt;Tracing Data Access Pattern with Bounded Overhead and
 Best-effort Accuracy.&lt;/strong&gt; In &lt;em&gt;The Linux Kernel Summit&lt;/em&gt;, September 2019.
@@ -8252,8 +8289,8 @@ Best-effort Accuracy.&lt;/strong&gt; In &lt;em&gt;The Linux Kernel Summit&lt;/em
 &lt;a href=&#34;https://linuxplumbersconf.org/event/4/contributions/548/&#34;&gt;Link&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;SeongJae Park, Yunjae Lee, Moonsub Kim Heon Y. Yeom, &lt;strong&gt;Automating Context
 Based Access Pattern Hint Injection for System Performance and Swap Storage
-Durability.&lt;/strong&gt; In 11th USENIX Workshop on Hot Topics in Storage and File
-Systems (HotStorage), July 2019.
+Durability.&lt;/strong&gt; In &lt;em&gt;11th USENIX Workshop on Hot Topics in Storage and File
+Systems (HotStorage)&lt;/em&gt;, July 2019.
 &lt;a href=&#34;https://www.usenix.org/system/files/hotstorage19-paper-park.pdf&#34;&gt;Paper&lt;/a&gt;,
 &lt;a href=&#34;https://www.usenix.org/sites/default/files/conference/protected-files/hotstorage19_slides_park.pdf&#34;&gt;Slides&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;SeongJae Park, Yunjae Lee, Yunhee Kim, Heon Y. Yeom, &lt;strong&gt;Profiling Dynamic Data
@@ -8313,8 +8350,8 @@ Conference (SOSCON)&lt;/em&gt;, September 2014.
 Yeom, &lt;strong&gt;Scalable Serializable Snapshot Isolation for Multicore Systems.&lt;/strong&gt; In
 &lt;em&gt;IEEE 30th International Conference on Data Engineering (ICDE)&lt;/em&gt;, March 2014.
 &lt;a href=&#34;http://ieeexplore.ieee.org/document/6816693/&#34;&gt;Link&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;SeongJae Park, &lt;strong&gt;Let The Contribution Begin.&lt;/strong&gt; In Google Developers Group
-DevFest W, March 2013.
+&lt;li&gt;SeongJae Park, &lt;strong&gt;Let The Contribution Begin.&lt;/strong&gt; In &lt;em&gt;Google Developers Group
+DevFest W&lt;/em&gt;, March 2013.
 &lt;a href=&#34;https://www.slideshare.net/SeongJaePark1/let-the-contribution-begin&#34;&gt;Slides&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id=&#34;other-links&#34;&gt;Other Links&lt;/h1&gt;

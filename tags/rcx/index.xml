@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>rcx | hacklog</title>
+    <link>/tags/rcx/</link>
+      <atom:link href="/tags/rcx/index.xml" rel="self" type="application/rss+xml" />
+    <description>rcx</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sat, 15 Feb 2020 09:11:55 +0100</lastBuildDate>
+    <image>
+      <url>/img/tux.png</url>
+      <title>rcx</title>
+      <link>/tags/rcx/</link>
+    </image>
+    
+    <item>
+      <title>RCX: Read-Copy Transact</title>
+      <link>/post/rcx/</link>
+      <pubDate>Sat, 15 Feb 2020 09:11:55 +0100</pubDate>
+      <guid>/post/rcx/</guid>
+      <description>&lt;p&gt;Read-copy update (RCU) can provide ideal scalability for read-mostly workloads,
+but some believe that it provides only poor performance for updates. This
+belief is due to the lack of RCU-centric update synchronization mechanisms. RCU
+instead works with a range of update-side mechanisms, such as locking. In fact,
+many developers embrace simplicity by using global locking. Logging, hardware
+transactional memory, or fine-grained locking can provide better scalability,
+but each of these approaches has limitations, such as imposing overhead on
+readers or poor scalability on non-uniform memory access (NUMA) systems, mainly
+due to their lack of NUMA-aware design principles.&lt;/p&gt;
+&lt;p&gt;This paper introduces an RCU extension (RCX) that provides highly scalable RCU
+updates on NUMA systems while retaining RCU’s read-side benefits. RCX combines
+hardware transactional memory (HTM) and traditional locking based on our
+NUMA-aware design principles for RCU. Micro-benchmarks on a NUMA system having
+144 hardware threads show RCX has up to 22.61 times better performance and up
+to 145.00 times lower HTM abort rates compared to a state-of-the-art RCU/HTM
+combination. To demonstrate the effectiveness and applicability of RCX, we have
+applied RCX to parallelize some of the Linux kernel memory management system
+and an in-memory database system. The optimized kernel and the database show up
+to 24 and 17 times better performance compared to the original version,
+respectively.&lt;/p&gt;
+&lt;h2 id=&#34;news&#34;&gt;News&lt;/h2&gt;
+&lt;p&gt;2020-02-14: The paper introducing RCX has accepted to be presented by
+&lt;a href=&#34;https://www.eurosys2020.org/&#34;&gt;EuroSys&#39;20&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;publications-and-presentations&#34;&gt;Publications and Presentations&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;SeongJae Park, Paul E. McKenney, Laurent Dufour, Heon Y. Yeom, &lt;strong&gt;An HTM-Based
+Update-side Synchronization for RCU on NUMA systems.&lt;/strong&gt; In &lt;em&gt;15th ACM European
+Conference on Computer Systems (EuroSys)&lt;/em&gt;, April 2020 (Accepted).&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
