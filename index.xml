@@ -66,7 +66,48 @@ systems”&lt;/strong&gt;.&lt;/p&gt;
       <link>/post/lkml_news_v5.6-rc2/</link>
       <pubDate>Tue, 11 Feb 2020 07:37:21 +0100</pubDate>
       <guid>/post/lkml_news_v5.6-rc2/</guid>
-      <description></description>
+      <description>&lt;h2 id=&#34;rfc-patch-03-damon-implement-the-data-access-pattern-awared-memory-management-rules&#34;&gt;[RFC PATCH 0/3] DAMON: Implement The Data Access Pattern Awared Memory Management Rules&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20200210150921.32482-1-sjpark@amazon.com&#34;&gt;https://lkml.kernel.org/r/20200210150921.32482-1-sjpark@amazon.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This is an RFC patch from me that implementing simple way to run data access
+pattern awared memory system using DAMON.  Proactive reclamation or access
+awared THP promotion/demotion will be easily available using this change.&lt;/p&gt;
+&lt;h2 id=&#34;patch-09-workingset-protectiondetection-on-the-anonymous-lru-list&#34;&gt;[PATCH 0/9] workingset protection/detection on the anonymous LRU list&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/1581401993-20041-1-git-send-email-iamjoonsoo.kim@lge.com&#34;&gt;https://lkml.kernel.org/r/1581401993-20041-1-git-send-email-iamjoonsoo.kim@lge.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This patchset is for improving kernel&#39;s reclamation scheme in a corner case
+where pages which used only once evicting hot pages.  For example, if there are
+hot working set and periodically a big region of memory is scanned, the hot
+working set will be swapped out for each of the scan.  This patchset avoid the
+problem by letting the scanning-like pages to be inserted into the inactive
+list first.&lt;/p&gt;
+&lt;p&gt;Of course, for this change, accurate working set detection is necessary.  This
+patchset detects the working sets mostly based on the previous scheme, but
+extends it to deal with LRU well.&lt;/p&gt;
+&lt;h2 id=&#34;patch-v4-08-introduce-memory-hinting-api-for-external-process&#34;&gt;[PATCH v4 0/8] introduce memory hinting API for external process&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20200212233946.246210-1-minchan@kernel.org&#34;&gt;https://lkml.kernel.org/r/20200212233946.246210-1-minchan@kernel.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This is the fourth version of the patchset for &lt;code&gt;madvise_common()&lt;/code&gt; system call.
+Seems like the justification for the API itself has finished.&lt;/p&gt;
+&lt;h2 id=&#34;lsfmmbpf-topic-autonuma-enhancements-to-optimize-tiered-memory&#34;&gt;[LSF/MM/BPF TOPIC] AutoNUMA enhancements to optimize Tiered Memory&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/87mu9mhn10.fsf@yhuang-dev.intel.com&#34;&gt;https://lkml.kernel.org/r/87mu9mhn10.fsf@yhuang-dev.intel.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This is another LSF/MM session proposal.  As current kernel reclamation scheme
+is designed for universal DRAMs, it doesn&#39;t work well with tiered memory.
+Author has worked for AutoNUMA, which can find recently-accessed pages
+regardless of memory pressure and even frequently-access pages.  The authors
+want to discuss about this in the summit.&lt;/p&gt;
+&lt;h2 id=&#34;lfsmmbpf-topic-user-space-oom-management-on-chrome-os&#34;&gt;[LFS/MM/BPF Topic] User space OOM management on Chrome OS&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAPz6YkUci9=d-nkoN9e8pb1eO3Wgchh1GTNSNdWc3kYuvoQdBg@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAPz6YkUci9=d-nkoN9e8pb1eO3Wgchh1GTNSNdWc3kYuvoQdBg@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Another proposal for LSF/MM.  The author wants to share his experience of
+memory management in Chrom OS development of 8 year, including their use of
+Zram and per-process reclaim.&lt;/p&gt;
+&lt;h2 id=&#34;lsfmmbpf-topic-replacing-mmapsem-with-finer-grained-locks&#34;&gt;[LSF/MM/BPF TOPIC] Replacing mmap_sem with finer grained locks&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CANN689EippvdwsHuhU-Aq=kNdk8-cAaCzPC7v=zbe6X302NteA@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CANN689EippvdwsHuhU-Aq=kNdk8-cAaCzPC7v=zbe6X302NteA@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;A lot of LSF/MM proposals this week, maybe because the due is this week.  This
+is old topic, but not solved yet.  Authors want to keep the discussion about
+mmap splitting for multi CPU this year LSF/MM.&lt;/p&gt;
+&lt;h2 id=&#34;lsfmm-topic-guest-memory-without-struct-page&#34;&gt;[LSF/MM TOPIC] Guest memory without struct page&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/1be38ae3-d51e-2661-d0ab-6ad8baefe804@oracle.com&#34;&gt;https://lkml.kernel.org/r/1be38ae3-d51e-2661-d0ab-6ad8baefe804@oracle.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;struct page&lt;/code&gt; consumes about 1.5% of total memory.  Because the structure could
+be unnecessary for hypervisors, the author want to save the 1.5%.&lt;/p&gt;
+</description>
     </item>
     
     <item>

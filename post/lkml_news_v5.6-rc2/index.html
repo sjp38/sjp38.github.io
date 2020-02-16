@@ -28,7 +28,10 @@
   
     
   
-  <meta name="description" content="">
+  <meta name="description" content="[RFC PATCH 0/3] DAMON: Implement The Data Access Pattern Awared Memory Management Rules https://lkml.kernel.org/r/20200210150921.32482-1-sjpark@amazon.com
+This is an RFC patch from me that implementing simple way to run data access pattern awared memory system using DAMON. Proactive reclamation or access awared THP promotion/demotion will be easily available using this change.
+[PATCH 0/9] workingset protection/detection on the anonymous LRU list https://lkml.kernel.org/r/1581401993-20041-1-git-send-email-iamjoonsoo.kim@lge.com
+This patchset is for improving kernel&#39;s reclamation scheme in a corner case where pages which used only once evicting hot pages.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/lkml_news_v5.6-rc2/">
@@ -150,7 +153,10 @@
   <meta property="og:site_name" content="hacklog">
   <meta property="og:url" content="/post/lkml_news_v5.6-rc2/">
   <meta property="og:title" content="LKML News v5.6-rc2 | hacklog">
-  <meta property="og:description" content=""><meta property="og:image" content="/img/tux.png">
+  <meta property="og:description" content="[RFC PATCH 0/3] DAMON: Implement The Data Access Pattern Awared Memory Management Rules https://lkml.kernel.org/r/20200210150921.32482-1-sjpark@amazon.com
+This is an RFC patch from me that implementing simple way to run data access pattern awared memory system using DAMON. Proactive reclamation or access awared THP promotion/demotion will be easily available using this change.
+[PATCH 0/9] workingset protection/detection on the anonymous LRU list https://lkml.kernel.org/r/1581401993-20041-1-git-send-email-iamjoonsoo.kim@lge.com
+This patchset is for improving kernel&#39;s reclamation scheme in a corner case where pages which used only once evicting hot pages."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -202,7 +208,7 @@
       "url": "/img/icon-512.png"
     }
   },
-  "description": ""
+  "description": "[RFC PATCH 0/3] DAMON: Implement The Data Access Pattern Awared Memory Management Rules https://lkml.kernel.org/r/20200210150921.32482-1-sjpark@amazon.com\nThis is an RFC patch from me that implementing simple way to run data access pattern awared memory system using DAMON. Proactive reclamation or access awared THP promotion/demotion will be easily available using this change.\n[PATCH 0/9] workingset protection/detection on the anonymous LRU list https://lkml.kernel.org/r/1581401993-20041-1-git-send-email-iamjoonsoo.kim@lge.com\nThis patchset is for improving kernel's reclamation scheme in a corner case where pages which used only once evicting hot pages."
 }
 </script>
 
@@ -568,7 +574,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    0 min read
+    2 min read
   </span>
   
 
@@ -608,7 +614,48 @@
   <div class="article-container">
 
     <div class="article-style">
-      
+      <h2 id="rfc-patch-03-damon-implement-the-data-access-pattern-awared-memory-management-rules">[RFC PATCH 0/3] DAMON: Implement The Data Access Pattern Awared Memory Management Rules</h2>
+<p><a href="https://lkml.kernel.org/r/20200210150921.32482-1-sjpark@amazon.com">https://lkml.kernel.org/r/20200210150921.32482-1-sjpark@amazon.com</a></p>
+<p>This is an RFC patch from me that implementing simple way to run data access
+pattern awared memory system using DAMON.  Proactive reclamation or access
+awared THP promotion/demotion will be easily available using this change.</p>
+<h2 id="patch-09-workingset-protectiondetection-on-the-anonymous-lru-list">[PATCH 0/9] workingset protection/detection on the anonymous LRU list</h2>
+<p><a href="https://lkml.kernel.org/r/1581401993-20041-1-git-send-email-iamjoonsoo.kim@lge.com">https://lkml.kernel.org/r/1581401993-20041-1-git-send-email-iamjoonsoo.kim@lge.com</a></p>
+<p>This patchset is for improving kernel's reclamation scheme in a corner case
+where pages which used only once evicting hot pages.  For example, if there are
+hot working set and periodically a big region of memory is scanned, the hot
+working set will be swapped out for each of the scan.  This patchset avoid the
+problem by letting the scanning-like pages to be inserted into the inactive
+list first.</p>
+<p>Of course, for this change, accurate working set detection is necessary.  This
+patchset detects the working sets mostly based on the previous scheme, but
+extends it to deal with LRU well.</p>
+<h2 id="patch-v4-08-introduce-memory-hinting-api-for-external-process">[PATCH v4 0/8] introduce memory hinting API for external process</h2>
+<p><a href="https://lkml.kernel.org/r/20200212233946.246210-1-minchan@kernel.org">https://lkml.kernel.org/r/20200212233946.246210-1-minchan@kernel.org</a></p>
+<p>This is the fourth version of the patchset for <code>madvise_common()</code> system call.
+Seems like the justification for the API itself has finished.</p>
+<h2 id="lsfmmbpf-topic-autonuma-enhancements-to-optimize-tiered-memory">[LSF/MM/BPF TOPIC] AutoNUMA enhancements to optimize Tiered Memory</h2>
+<p><a href="https://lkml.kernel.org/r/87mu9mhn10.fsf@yhuang-dev.intel.com">https://lkml.kernel.org/r/87mu9mhn10.fsf@yhuang-dev.intel.com</a></p>
+<p>This is another LSF/MM session proposal.  As current kernel reclamation scheme
+is designed for universal DRAMs, it doesn't work well with tiered memory.
+Author has worked for AutoNUMA, which can find recently-accessed pages
+regardless of memory pressure and even frequently-access pages.  The authors
+want to discuss about this in the summit.</p>
+<h2 id="lfsmmbpf-topic-user-space-oom-management-on-chrome-os">[LFS/MM/BPF Topic] User space OOM management on Chrome OS</h2>
+<p><a href="https://lkml.kernel.org/r/CAPz6YkUci9=d-nkoN9e8pb1eO3Wgchh1GTNSNdWc3kYuvoQdBg@mail.gmail.com">https://lkml.kernel.org/r/CAPz6YkUci9=d-nkoN9e8pb1eO3Wgchh1GTNSNdWc3kYuvoQdBg@mail.gmail.com</a></p>
+<p>Another proposal for LSF/MM.  The author wants to share his experience of
+memory management in Chrom OS development of 8 year, including their use of
+Zram and per-process reclaim.</p>
+<h2 id="lsfmmbpf-topic-replacing-mmapsem-with-finer-grained-locks">[LSF/MM/BPF TOPIC] Replacing mmap_sem with finer grained locks</h2>
+<p><a href="https://lkml.kernel.org/r/CANN689EippvdwsHuhU-Aq=kNdk8-cAaCzPC7v=zbe6X302NteA@mail.gmail.com">https://lkml.kernel.org/r/CANN689EippvdwsHuhU-Aq=kNdk8-cAaCzPC7v=zbe6X302NteA@mail.gmail.com</a></p>
+<p>A lot of LSF/MM proposals this week, maybe because the due is this week.  This
+is old topic, but not solved yet.  Authors want to keep the discussion about
+mmap splitting for multi CPU this year LSF/MM.</p>
+<h2 id="lsfmm-topic-guest-memory-without-struct-page">[LSF/MM TOPIC] Guest memory without struct page</h2>
+<p><a href="https://lkml.kernel.org/r/1be38ae3-d51e-2661-d0ab-6ad8baefe804@oracle.com">https://lkml.kernel.org/r/1be38ae3-d51e-2661-d0ab-6ad8baefe804@oracle.com</a></p>
+<p><code>struct page</code> consumes about 1.5% of total memory.  Because the structure could
+be unnecessary for hypervisors, the author want to save the 1.5%.</p>
+
     </div>
 
     
