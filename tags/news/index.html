@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2020-02-11T07:37:21&#43;01:00">
+    <meta property="og:updated_time" content="2020-02-24T06:40:26&#43;01:00">
   
 
   
@@ -525,6 +525,16 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.6-rc3/">LKML News v5.6-rc3</a></h2>
+    <div class="article-style">
+      
+      Linux 5.6-rc3 https://lkml.kernel.org/r/CAHk-=whGODQBDqPGcEFU8EVkNAzMK9+gK_sGaUNHSZnB=JL+_Q@mail.gmail.com
+The third rc3 release was a little bit small. However, there were smaller rc3 and bigger rc3, either. Torvalds says this is fairly normal rc3, though there are too much noise in the signal to be sure about.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.6-rc2/">LKML News v5.6-rc2</a></h2>
     <div class="article-style">
       
@@ -627,18 +637,6 @@ ZRAM is an in-memory block device that compresses the content. Currently, ZRAM i
       
       [PATCHSET 0/5] Support for RWF_UNCACHED https://lkml.kernel.org/r/20191210162454.8608-1-axboe@kernel.dk
 As the buffered IO uses the page cache, an intensive buffered IO workload using very huge file can cause memory pressure by inflating the page cache. Changing the workload to do direct IO can solve this problem, but the modification is not so simple. Jens Axboe thus implemented RWF_UNCACHED flag, which skips use of the page cache if the given IO target is not in the page cache already.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.5-rc1/">LKML News v5.5-rc1</a></h2>
-    <div class="article-style">
-      
-      Splitting the mmap_sem https://lkml.kernel.org/r/20191203222147.GV20752@bombadil.infradead.org
-The mmap_sem is a big scalability bottleneck and there are several projects for solving it. In this mail, Matthew Wilcox suggests his plan for his solution and asks whether a exceptional case in his solution is acceptable to other people.
-Linux 5.5-rc1 https://lkml.kernel.org/r/CAHk-=wiEJK=yo9vEhX_4b4ROvCqUA_rjK7g996h-5MbfOMeDrw@mail.gmail.com
-Linux 5.5 merge window closed and the -rc1 has released. It was a tiny bit larger release compared to recent several releases, but fairly regular overall.
       
     </div>
   </div>
