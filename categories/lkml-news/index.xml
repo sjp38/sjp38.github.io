@@ -17,7 +17,24 @@
       <link>/post/lkml_news_v5.6-rc3/</link>
       <pubDate>Mon, 24 Feb 2020 06:40:26 +0100</pubDate>
       <guid>/post/lkml_news_v5.6-rc3/</guid>
-      <description>&lt;h2 id=&#34;linux-56rc3&#34;&gt;Linux 5.6-rc3&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;patch-02-slabinfo-parse-all-numa-attributes&#34;&gt;[PATCH 0/2] slabinfo: parse all NUMA attributes&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20200217084828.9092-1-tobin@kernel.org&#34;&gt;https://lkml.kernel.org/r/20200217084828.9092-1-tobin@kernel.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The author of this patchset found some information regarding NUMA is missed in
+slabinfo.  This patchset adds the info.&lt;/p&gt;
+&lt;h2 id=&#34;patch-v6-07-introduce-memory-hinting-api-for-external-process&#34;&gt;[PATCH v6 0/7] introduce memory hinting API for external process&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20200219014433.88424-1-minchan@kernel.org&#34;&gt;https://lkml.kernel.org/r/20200219014433.88424-1-minchan@kernel.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Sixth version of the patchset for new system call, &amp;lsquo;madvise_process()&#39;.
+Changes are not so big.  Support null task argument and requestor&#39;s mm for
+&amp;lsquo;io_madvise()&#39;.&lt;/p&gt;
+&lt;h2 id=&#34;patch-mm-stop-kswapd-early-when-nothings-waiting-for-it-to-free-pages&#34;&gt;[PATCH] mm: Stop kswapd early when nothing&#39;s waiting for it to free pages&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20200219182522.1960-1-sultan@kerneltoast.com&#34;&gt;https://lkml.kernel.org/r/20200219182522.1960-1-sultan@kerneltoast.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Once kswapd is awaken, it does many things.  To avoid that, this patch stops
+kswapd prematurely if it doesn&#39;t need to work to make and allocation succeed
+anymore.&lt;/p&gt;
+&lt;h2 id=&#34;patch-v2-09-workingset-protectiondetection-on-the-anonymous-lru-list&#34;&gt;[PATCH v2 0/9] workingset protection/detection on the anonymous LRU list&lt;/h2&gt;
+&lt;p&gt;The second version of the patchset for workingset in LRU protection.  This
+patchset avoids evicting workingset for scanning data.&lt;/p&gt;
+&lt;h2 id=&#34;linux-56rc3&#34;&gt;Linux 5.6-rc3&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;https://lkml.kernel.org/r/CAHk-=whGODQBDqPGcEFU8EVkNAzMK9+gK_sGaUNHSZnB=JL+_Q@mail.gmail.com&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;The third rc3 release was a little bit small.  However, there were smaller rc3
 and bigger rc3, either.  Torvalds says this is fairly normal rc3, though there
