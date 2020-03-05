@@ -25,6 +25,18 @@ solution.&lt;/p&gt;
 &lt;h2 id=&#34;patch-v7-07-introduce-memory-hinting-api-for-external-process&#34;&gt;[PATCH v7 0/7] introduce memory hinting API for external process&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20200302193630.68771-1-minchan@kernel.org&#34;&gt;https://lkml.kernel.org/r/20200302193630.68771-1-minchan@kernel.org&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Finally, this patchset has accepted by Andrew Morton.&lt;/p&gt;
+&lt;h2 id=&#34;patch-v2-mm-proactive-compaction&#34;&gt;[PATCH v2] mm: Proactive compaction&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20200302213343.2712-1-nigupta@nvidia.com&#34;&gt;https://lkml.kernel.org/r/20200302213343.2712-1-nigupta@nvidia.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This patchset makes kernel to do compaction proactively instead of THP
+allocation failures, to minimize the latency spike which comes from the
+compaction.  It significantly reduces THP allocation latency under memory
+fragmentation.  95th percentile of the latency has reduced from 33,799 to 429!&lt;/p&gt;
+&lt;h2 id=&#34;rfc-v4-07-implement-data-access-monitoringbased-memory-operation-schemes&#34;&gt;[RFC v4 0/7] Implement Data Access Monitoring-based Memory Operation Schemes&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20200303121406.20954-1-sjpark@amazon.com&#34;&gt;https://lkml.kernel.org/r/20200303121406.20954-1-sjpark@amazon.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;My fourth RFC for DAMON-based Operation Schemes.  This time, I updated the
+evaluation results of ETHP scheme with more reliable data.&lt;/p&gt;
+&lt;p&gt;TL;DR: &amp;lsquo;ethp&amp;rsquo; removes 97.61% of &amp;lsquo;thp&amp;rsquo; memory space overhead while preserving
+25.40% (up to 88.36%) of &amp;lsquo;thp&amp;rsquo; performance improvement in total.&lt;/p&gt;
 </description>
     </item>
     

@@ -31,7 +31,9 @@
   <meta name="description" content="[PATCH v1 00/11] virtio-mem: paravirtualized memory https://lkml.kernel.org/r/20200302134941.315212-1-david@redhat.com
 At KVM Forum 2018, virtio-mem&#39;s basic idea has presented and now this patchset introduces it. This provides a flexible, cross-architecture memory hot(un)plug solution.
 [PATCH v7 0/7] introduce memory hinting API for external process https://lkml.kernel.org/r/20200302193630.68771-1-minchan@kernel.org
-Finally, this patchset has accepted by Andrew Morton.">
+Finally, this patchset has accepted by Andrew Morton.
+[PATCH v2] mm: Proactive compaction https://lkml.kernel.org/r/20200302213343.2712-1-nigupta@nvidia.com
+This patchset makes kernel to do compaction proactively instead of THP allocation failures, to minimize the latency spike which comes from the compaction.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/lkml_news_v5.6-rc5/">
@@ -156,7 +158,9 @@ Finally, this patchset has accepted by Andrew Morton.">
   <meta property="og:description" content="[PATCH v1 00/11] virtio-mem: paravirtualized memory https://lkml.kernel.org/r/20200302134941.315212-1-david@redhat.com
 At KVM Forum 2018, virtio-mem&#39;s basic idea has presented and now this patchset introduces it. This provides a flexible, cross-architecture memory hot(un)plug solution.
 [PATCH v7 0/7] introduce memory hinting API for external process https://lkml.kernel.org/r/20200302193630.68771-1-minchan@kernel.org
-Finally, this patchset has accepted by Andrew Morton."><meta property="og:image" content="/img/tux.png">
+Finally, this patchset has accepted by Andrew Morton.
+[PATCH v2] mm: Proactive compaction https://lkml.kernel.org/r/20200302213343.2712-1-nigupta@nvidia.com
+This patchset makes kernel to do compaction proactively instead of THP allocation failures, to minimize the latency spike which comes from the compaction."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -208,7 +212,7 @@ Finally, this patchset has accepted by Andrew Morton."><meta property="og:image"
       "url": "/img/icon-512.png"
     }
   },
-  "description": "[PATCH v1 00/11] virtio-mem: paravirtualized memory https://lkml.kernel.org/r/20200302134941.315212-1-david@redhat.com\nAt KVM Forum 2018, virtio-mem's basic idea has presented and now this patchset introduces it. This provides a flexible, cross-architecture memory hot(un)plug solution.\n[PATCH v7 0/7] introduce memory hinting API for external process https://lkml.kernel.org/r/20200302193630.68771-1-minchan@kernel.org\nFinally, this patchset has accepted by Andrew Morton."
+  "description": "[PATCH v1 00/11] virtio-mem: paravirtualized memory https://lkml.kernel.org/r/20200302134941.315212-1-david@redhat.com\nAt KVM Forum 2018, virtio-mem's basic idea has presented and now this patchset introduces it. This provides a flexible, cross-architecture memory hot(un)plug solution.\n[PATCH v7 0/7] introduce memory hinting API for external process https://lkml.kernel.org/r/20200302193630.68771-1-minchan@kernel.org\nFinally, this patchset has accepted by Andrew Morton.\n[PATCH v2] mm: Proactive compaction https://lkml.kernel.org/r/20200302213343.2712-1-nigupta@nvidia.com\nThis patchset makes kernel to do compaction proactively instead of THP allocation failures, to minimize the latency spike which comes from the compaction."
 }
 </script>
 
@@ -622,6 +626,18 @@ solution.</p>
 <h2 id="patch-v7-07-introduce-memory-hinting-api-for-external-process">[PATCH v7 0/7] introduce memory hinting API for external process</h2>
 <p><a href="https://lkml.kernel.org/r/20200302193630.68771-1-minchan@kernel.org">https://lkml.kernel.org/r/20200302193630.68771-1-minchan@kernel.org</a></p>
 <p>Finally, this patchset has accepted by Andrew Morton.</p>
+<h2 id="patch-v2-mm-proactive-compaction">[PATCH v2] mm: Proactive compaction</h2>
+<p><a href="https://lkml.kernel.org/r/20200302213343.2712-1-nigupta@nvidia.com">https://lkml.kernel.org/r/20200302213343.2712-1-nigupta@nvidia.com</a></p>
+<p>This patchset makes kernel to do compaction proactively instead of THP
+allocation failures, to minimize the latency spike which comes from the
+compaction.  It significantly reduces THP allocation latency under memory
+fragmentation.  95th percentile of the latency has reduced from 33,799 to 429!</p>
+<h2 id="rfc-v4-07-implement-data-access-monitoringbased-memory-operation-schemes">[RFC v4 0/7] Implement Data Access Monitoring-based Memory Operation Schemes</h2>
+<p><a href="https://lkml.kernel.org/r/20200303121406.20954-1-sjpark@amazon.com">https://lkml.kernel.org/r/20200303121406.20954-1-sjpark@amazon.com</a></p>
+<p>My fourth RFC for DAMON-based Operation Schemes.  This time, I updated the
+evaluation results of ETHP scheme with more reliable data.</p>
+<p>TL;DR: &lsquo;ethp&rsquo; removes 97.61% of &lsquo;thp&rsquo; memory space overhead while preserving
+25.40% (up to 88.36%) of &lsquo;thp&rsquo; performance improvement in total.</p>
 
     </div>
 
