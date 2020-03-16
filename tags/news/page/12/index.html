@@ -31,9 +31,9 @@
   <meta name="description" content="Kernel / Hypervisor Engineer">
 
   
-  <link rel="alternate" hreflang="ko" href="/ko/tags/kernel/">
+  <link rel="alternate" hreflang="ko" href="/ko/tags/news/">
   
-  <link rel="alternate" hreflang="en-us" href="/tags/kernel/">
+  <link rel="alternate" hreflang="en-us" href="/tags/news/">
 
   
 
@@ -133,14 +133,14 @@
 
 
   
-  <link rel="alternate" href="/tags/kernel/index.xml" type="application/rss+xml" title="hacklog">
+  <link rel="alternate" href="/tags/news/index.xml" type="application/rss+xml" title="hacklog">
   
 
   <link rel="manifest" href="/index.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon-32.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="/tags/kernel/">
+  <link rel="canonical" href="/tags/news/">
 
   
   
@@ -152,8 +152,8 @@
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="hacklog">
-  <meta property="og:url" content="/tags/kernel/">
-  <meta property="og:title" content="kernel | hacklog">
+  <meta property="og:url" content="/tags/news/">
+  <meta property="og:title" content="news | hacklog">
   <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
@@ -174,7 +174,7 @@
 
 
 
-  <title>kernel | hacklog</title>
+  <title>news | hacklog</title>
 
 </head>
 
@@ -475,7 +475,7 @@
             <span>English</span>
           </div>
           
-          <a class="dropdown-item" href="/ko/tags/kernel/">
+          <a class="dropdown-item" href="/ko/tags/news/">
             <span>한국어</span>
           </a>
           
@@ -510,7 +510,7 @@
     
   
 <div class="universal-wrapper pt-3">
-  <h1>kernel</h1>
+  <h1>news</h1>
 
   
 
@@ -525,127 +525,11 @@
   
   
   <div>
-    <h2><a href="/post/lkml_news_v5.0/">LKML News v5.0</a></h2>
+    <h2><a href="/post/us-sues-oracle/">us sues oracle</a></h2>
     <div class="article-style">
       
-      Linux v5.0-rc8 릴리즈 (2019-02-24) 부터 Linux v5.0 릴리즈 (2019-03-03) 사이 기간에 LKML 에 올라온 흥미로운 메일들을 소개합니다.
-[PATCH 0/5] [v5] Allow persistent memory to be used like normal RAM https://lkml.kernel.org/r/20190225185727.BCBD768C@viggo.jf.intel.com
-앞서 몇번 소개했던, persistent memory 를 좀 많이 느린 numa node 인 것처럼 해서 시스템이 사용할 수 있게 하는 접근법의 패치 다섯번째 버전입니다. 이제 개선은 어느정도 된 것 같으니 슬슬 머지되야하지 않겠냐고 주장하는군요.
-Linux v5.0 https://lkml.kernel.org/r/CAHk-=wjuG6HiGbD7DCGfvDvhr_1WZUR-eYF2qWGbYyn9k6unvg@mail.gmail.com
-마침내 5.0 릴리즈입니다! 제 랩톱에도 바로 받아다가 설치했습니다!
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.0-rc8/">LKML News v5.0-rc8</a></h2>
-    <div class="article-style">
-      
-      Linux v5.0-rc7 릴리즈 (2019년 2월 17일) 부터 v5.0-rc8 릴리즈 (2019년 2월 24일) 사이의 기간에 LKML 에 올라온 흥미로운 메일들을 소개합니다.
-[LSF/MM ATTEND] MM track: NUMA, THP locality, reclaim https://lkml.kernel.org/r/20190218143203.GW9565@techsingularity.net
-Mel Gorman 의 LSF/MM 참여 메일입니다. NUMA remote THP vs NUMA local non-THP, NUMA, 메모리 계층 그리고 디바이스 메모리, NUMA rebalancing 과 메모리 reclaim 에 참여하고 싶다고 이야기 하는군요.
-[LSF/MM TOPIC ][LSF/MM ATTEND] Read-only Mapping of Program Text https://lkml.kernel.org/r/379F21DD-006F-4E33-9BD5-F81F9BA75C10@oracle.com
-THP 를 활용해 read-only text 를 매핑함으로써 성능을 높이려는 시도를 해오고 있는데, 하나의 base page 를 먼저 읽고 이어서 추가적인 page 를 읽는게 진짜로 사용될지 모르는 readahead 때문에 의논을 해보고 싶다고 하네요.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.0-rc7/">LKML News v5.0-rc7</a></h2>
-    <div class="article-style">
-      
-      [PATCH V15 00/18] block: support multi-page bvec https://lkml.kernel.org/r/20190215111324.30129-1-ming.lei@redhat.com
-시스템의 RAM 이 커지고 huge page 가 널리 사용되면서 물리적으로 연속된 페이지들의 I/O 가 흔해지고 있습니다. 이를 위해 struct bio_bvec 이 물리적으로 연속된 여러 페이지를 다룰 수 있게 해주는 패치의 15번째 버전입니다.
-Memory management facing a 400Gpbs network link https://lkml.kernel.org/r/01000168e2f54113-485312aa-7e08-4963-af92-803f8c7d21e6-000000@email.amazonses.com
-올해 내로 400Gbps 인피니밴드가 가능해질 거라고 합니다! 이건 프로세서-메모리 사이의 밴드위쓰를 넘길 수 있는 스피드죠! 단일 하드웨어 쓰레드는 20GB/s 이기 때문입니다. 이 재미있는 트렌드를 커널은 어떻게 대처해야 할 것인가 하는 메일입니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.0-rc6/">LKML News v5.0-rc6</a></h2>
-    <div class="article-style">
-      
-      [PATCH v4 1/1] psi: introduce psi monitor https://lkml.kernel.org/r/20190206023446.177362-1-surenb@google.com
-시스템의 메모리 부족 등의 현상이 어떻게 일어나고 있는지 쉽게 파악할 수 있는 장치를 추가하는 패치입니다.
-[LSF/MM TOPIC] Address space isolation inside the kernel https://lkml.kernel.org/r/20190207072421.GA9120@rapoport-lnx
-리눅스의 어드레스 스페이스 기능은 유저스페이스 프로그램들이 서로에게 영향을 끼치지 못하게 해줘서 컨테이너 등에 쓰이고 있죠. 하지만 커널은 공유하기 때문에 커널 버그는 여전히 영향을 끼칠 수 있습니다. 커널 코드도 어드레스 스페이스를 어느정도 인식하고 코드 분류를 시킴으로써 그 문제를 줄여보자는 LSF/MM 토론 주제 제안입니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.0-rc5/">LKML News v5.0-rc5</a></h2>
-    <div class="article-style">
-      
-      [LSF/MM TOPIC] Page flags, can we free up space ? https://lkml.kernel.org/r/20190122201744.GA3939@redhat.com
-리눅스 커널의 page 정보는 PG_ 로 시작하는 플래그를 사용해 현재 상태를 알리는데요, 이걸 저장하는데 사용되는 공간을 더 줄일 수 있을지에 대한 논의를 해보고 싶다는 LSF/MM 제안입니다.
-[LSF/MM TOPIC] Use NVDIMM as NUMA node and NUMA API https://lkml.kernel.org/r/f0d66b0c-c9b6-a040-c485-1606041a70a2@linux.alibaba.com
-알리바바에서는 NVDIMM 을 클라우드 고객들에게 싼 비용의 메모리로 제공하려 한다는군요. 이를 위해 여러 필요성이 있고, 현재 NUMA API 로는 모든 경우를 커퍼하기가 어렵다고 합니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.0-rc3/">LKML News v5.0-rc3</a></h2>
-    <div class="article-style">
-      
-      LSF/MM 2019: Call for Proposals https://lkml.kernel.org/r/51b4b263-a0f2-113d-7bdc-f7960b540929@kernel.dk
-올해의 LSF/MM 을 위한 발표 모집입니다. 올해는 푸에르토리코에서 4월 30일부터 5월 2일까지 열리는군요.
-[LSF/MM TOPIC] NUMA, memory hierarchy and device memory https://lkml.kernel.org/r/20190118174512.GA3060@redhat.com
-LSF/MM 을 위한 발표 지원입니다. NUMA API 가 다계층 메모리에 적용될 때의 단점에 대해서 이야기 해보겠다는군요.
-[PATCH 00/22] Increase success rates and reduce latency of compaction v3 https://lkml.kernel.org/r/20190118175136.31341-1-mgorman@techsingularity.net
-Mel Gorman 의 compaction 개선 패치셋 세번째 버전입니다.
-Linux 5.0-rc3 https://lkml.kernel.org/r/CAHk-=whS=6Z_UxzoMjLANupOk3u-8ycERLPnaZxShMTviW0jkQ@mail.gmail.com
-5.0 세번째 릴리즈입니다. 지난 릴리즈에서 여행 중이지만 항상 그렇듯 일요일 릴리즈를 하려 한다고 했는데, 이번에도 성공적이군요.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.0-rc2/">LKML News v5.0-rc2</a></h2>
-    <div class="article-style">
-      
-      [PATCH v11 00/26] Speculative page faults https://lkml.kernel.org/r/8b0b2c05-89f8-8002-2dce-fa7004907e78@codeaurora.org
-SPF 패치에서 발견된 버그 레포트입니다. ARM 위에서 데드락 문제가 발견되었군요. 버그 발견자가 패치도 같이 내놓았는데, 이에 대한 토론은 아직도 계속되고 있네요.
-[RFC PATCH v7 00/16] Add support for eXclusive Page Frame Ownership https://lkml.kernel.org/r/cover.1547153058.git.khalid.aziz@oracle.com
-&lsquo;ret2dir&rsquo; 보안 공격[1]에 대비하기 위한 패치입니다. 하지만 이로 인해 tlb 를 좀 많이 flush 해야 하는 문제가 있었고, 이 패치셋은 그에 대한 해결책도 의논하고 있습니다.
-[1] http://www.cs.columbia.edu/~vpk/papers/ret2dir.sec14.pdf
-[PATCH 0/4] Allow persistent memory to be used like normal RAM https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.0-rc1/">LKML News v5.0-rc1</a></h2>
-    <div class="article-style">
-      
-      [RFC v3 0/3] test driver to analyse vmalloc allocator https://lkml.kernel.org/r/20190102085924.14145-1-urezki@gmail.com
-vmalloc 의 성능과 스트레스 테스트를 위한 모듈을 구현한 패치입니다. Selftests 에도 테스트 스크립트를 추가했군요.
-[RFC PATCH 0/1] mm: add a warning about high order allocations https://lkml.kernel.org/r/20181225153927.2873-1-khorenko@virtuozzo.com
-특정 노드의 메모리에 접근이 많이 되고 있는 상황에서 해당 메모리가 fragment 되어 있고 이 시점에서 high order allocation 이 요청되면 이걸 위해 compaction 등이 작동하니까 다른 태스크의 latency 가 떨어질 수 있습니다. 이런 상황을 모니터링 할 수 있게끔, 이 패치는 vm.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/perf_symbol_problem_4.19/">Perf symbol problem on Linux 4.19</a></h2>
-    <div class="article-style">
-      
-      4.19 커널에서 오랫만에 perf 를 다시 빌드하고 써보려고 하니, perf report 가 아래와 같이 제대로 된 symbol name 을 찾질 못합니다.
-$ sudo perf record -g ls arch builtin-ftrace.c builtin-report.c Documentation perf.data.old bench builtin.h builtin-sched.c examples perf.h Build builtin-help.c builtin-script.c include perf-read-vdso.c builtin-annotate.c builtin-inject.c builtin-stat.c jvmti perf-sys.h builtin-bench.c builtin-kallsyms.c builtin-timechart.c Makefile perf-with-kcore.sh builtin-buildid-cache.c builtin-kmem.c builtin-top.c Makefile.config pmu-events builtin-buildid-list.c builtin-kvm.c builtin-trace.c Makefile.perf python builtin-c2c.c builtin-list.c builtin-version.c MANIFEST scripts builtin-config.c builtin-lock.c check-headers.sh perf-archive.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.20/">LKML News for v4.20</a></h2>
-    <div class="article-style">
-      
-      [PATCH V5 0/3] mm/kvm/vfio/ppc64: Migrate compound pages out of CMA https://lkml.kernel.org/r/20181219034047.16305-1-aneesh.kumar@linux.ibm.com
-ppc64 에서는 guest os page table 을 CMA area 내에 할당하는데, VFIO 를 쓰는 경우 이게 pinning 되어 있다 보니 CMA area 밖으로 migrate 하는데 실패해, guest os page table 할당에 실패하고, 이로 인해 guest 시작조차 불가능하게 되는 문제가 있었습니다.
-이 패치는 compound page 에 대해서도 CMA area 밖으로의 migration 이 가능하게 합니다.
-[RESEND PATCH V3 0/5] arm64/mm: Enable HugeTLB migration https://lkml.
+      오라클이 백인 남성에게 더 많은 월급을 지불하고 아시아인, 그중에서도 인도 사람을 많이 개발직에 채용했다는 이유로 미국 정부가 오라클을 고소.
+http://www.reuters.com/article/us-oracle-usa-labor-idUSKBN1522O6?il=0
       
     </div>
   </div>
@@ -655,10 +539,8 @@ ppc64 에서는 guest os page table 을 CMA area 내에 할당하는데, VFIO �
 <nav>
   <ul class="pagination justify-content-center">
     
-    <li class="page-item"><a class="page-link" href="/tags/kernel/page/5/">&laquo;</a></li>
+    <li class="page-item"><a class="page-link" href="/tags/news/page/11/">&laquo;</a></li>
     
-    
-    <li class="page-item"><a class="page-link" href="/tags/kernel/page/7/">&raquo;</a></li>
     
   </ul>
 </nav>
