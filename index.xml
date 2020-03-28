@@ -5,7 +5,7 @@
     <link>/</link>
       <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <description>hacklog</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Fri, 20 Mar 2020 07:04:51 +0100</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sat, 28 Mar 2020 09:22:44 +0100</lastBuildDate>
     <image>
       <url>/img/tux.png</url>
       <title>hacklog</title>
@@ -13,7 +13,30 @@
     </image>
     
     <item>
-      <title>Lkml_news_v5</title>
+      <title>LKML News v5.6</title>
+      <link>/post/lkml_news_v5.6/</link>
+      <pubDate>Sat, 28 Mar 2020 09:22:44 +0100</pubDate>
+      <guid>/post/lkml_news_v5.6/</guid>
+      <description>&lt;h2 id=&#34;patch-v5-0038-add-kernelmemorysanitizer-infrastructure-glider&#34;&gt;[PATCH v5 00/38] Add KernelMemorySanitizer infrastructure (glider)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20200325161249.55095-1-glider@google.com&#34;&gt;https://lkml.kernel.org/r/20200325161249.55095-1-glider@google.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This is the fifth official patchset for kernel uninitialized memory related
+error detector, KMSAN.&lt;/p&gt;
+&lt;h2 id=&#34;patch-12-mm-cma-numa-node-interface-aslan-barikov&#34;&gt;[PATCH 1/2] mm: cma: NUMA node interface (Aslan Barikov)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20200326212718.3798742-1-aslan@fb.com&#34;&gt;https://lkml.kernel.org/r/20200326212718.3798742-1-aslan@fb.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;CMA provides no way to specify what NUMA node the memory area to be allocated.
+This commit adds the interface to specify the NUMA node to use for the
+allocation.&lt;/p&gt;
+&lt;h2 id=&#34;patch-v3-0010-add-a-new-mmap-locking-api-wrapping-mmapsem-calls-michel-lespinasse&#34;&gt;[PATCH v3 00/10] Add a new mmap locking API wrapping mmap_sem calls (Michel Lespinasse)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20200327225102.25061-1-walken@google.com&#34;&gt;https://lkml.kernel.org/r/20200327225102.25061-1-walken@google.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This patchset adds new mmap locking API rather than rwsem, but just wrapping
+it.  This is for further step towards rwsem substitution with better one such
+as range lock.  The new interface looks like &lt;code&gt;mmap_init_lock(mm)&lt;/code&gt;,
+&lt;code&gt;mmap_write_lock(mm)&lt;/code&gt; and &lt;code&gt;mmap_read_lock(mm)&lt;/code&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>LKML News v5.6-rc7</title>
       <link>/post/lkml_news_v5.6-rc7/</link>
       <pubDate>Fri, 20 Mar 2020 07:04:51 +0100</pubDate>
       <guid>/post/lkml_news_v5.6-rc7/</guid>
