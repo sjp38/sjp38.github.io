@@ -40,6 +40,18 @@ would be allowed to participate in the conference without fee.&lt;/p&gt;
 &lt;h2 id=&#34;patch-v4-02-mm-using-cma-for-1-gb-hugepages-allocation&#34;&gt;[PATCH v4 0/2] mm: using CMA for 1 GB hugepages allocation&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20200407010431.1286488-1-guro@fb.com&#34;&gt;https://lkml.kernel.org/r/20200407010431.1286488-1-guro@fb.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;This patchset make hugetlb to use CMA for 1GB hugepage allocations.&lt;/p&gt;
+&lt;h2 id=&#34;patch-rfc-mm-compaction-avoid-migrating-noncma-pages-to-a-cma-area&#34;&gt;[PATCH RFC] mm: compaction: avoid migrating non-cma pages to a cma area&lt;/h2&gt;
+&lt;p&gt;The compaction algorithm doesn&#39;t distinguish CMA from other movable pageblocks.
+In other words, it can move non-cma pages into a cma zone.  This patch avoid
+the problem by preserving non-cma pages from being moved into a cma area.&lt;/p&gt;
+&lt;h2 id=&#34;linux-57rc1&#34;&gt;Linux 5.7-rc1&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wh0F0fnOQA3dr_-QCdjc_FTTk3ccPFLU33zr3zLD9FQ7Q@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wh0F0fnOQA3dr_-QCdjc_FTTk3ccPFLU33zr3zLD9FQ7Q@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The merge window for Linux 5.7 has closed about one or two hours earlier than
+usual, due to the Easter Sunday.&lt;/p&gt;
+&lt;p&gt;Torvalds says the merge window was pretty normal.  Not too big, not too small.
+The distribution of patches also seems quite normal.&lt;/p&gt;
+&lt;p&gt;The kernel technical advisotry board (TAB) asked Torvalds to announce that they
+would help people struggling their kernel work from COVID-19.&lt;/p&gt;
 </description>
     </item>
     
