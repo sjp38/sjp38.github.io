@@ -28,7 +28,21 @@ papers in ACM DL.  I believe this is a great decision of ACM.&lt;/p&gt;
       <link>/post/lkml_news_v5.7-rc3/</link>
       <pubDate>Wed, 22 Apr 2020 06:44:31 +0200</pubDate>
       <guid>/post/lkml_news_v5.7-rc3/</guid>
-      <description></description>
+      <description>&lt;h2 id=&#34;lsfmmbpf-2020-cancellation-announcement-josef-bacik&#34;&gt;LSFMMBPF 2020 Cancellation announcement (Josef Bacik)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/0b6d3d6f-99de-3603-4b42-c3db5113633d@toxicpanda.com&#34;&gt;https://lkml.kernel.org/r/0b6d3d6f-99de-3603-4b42-c3db5113633d@toxicpanda.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Due to the COVID-19, LSFMM, which was supposed to be help April, has delayed
+before, and now it has just canceled.  What a shame, but this might be the
+right thing to do.  This mail also announce the schedule of next year LSFMM.
+It will be held in Palm Springs, on May 12-14, 2021 at the Riviera Palm
+Springs.&lt;/p&gt;
+&lt;h2 id=&#34;patch-22-mm-support-vector-address-ranges-for-processmadvise-minchan-kim&#34;&gt;[PATCH 2/2] mm: support vector address ranges for process_madvise (Minchan Kim)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20200423145215.72666-2-minchan@kernel.org&#34;&gt;https://lkml.kernel.org/r/20200423145215.72666-2-minchan@kernel.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This is a modification of &lt;code&gt;process_madvise()&lt;/code&gt; interface for support of multiple
+address ranges.  In Android, the applications usually has thousands of vmas due
+to the Zygote and thus need a number of &lt;code&gt;process_madvise()&lt;/code&gt; calls to adjust
+their memory.  The author has shown about 15% performance improvement by
+comparing 2000-vma syscall and 1-vector syscall.&lt;/p&gt;
+</description>
     </item>
     
     <item>
