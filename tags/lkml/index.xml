@@ -5,12 +5,31 @@
     <link>/tags/lkml/</link>
       <atom:link href="/tags/lkml/index.xml" rel="self" type="application/rss+xml" />
     <description>lkml</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 22 Apr 2020 06:44:31 +0200</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 30 Apr 2020 06:57:24 +0200</lastBuildDate>
     <image>
       <url>/img/tux.png</url>
       <title>lkml</title>
       <link>/tags/lkml/</link>
     </image>
+    
+    <item>
+      <title>LKML News v5.7-rc4</title>
+      <link>/post/lkml_news_v5.7-rc4/</link>
+      <pubDate>Thu, 30 Apr 2020 06:57:24 +0200</pubDate>
+      <guid>/post/lkml_news_v5.7-rc4/</guid>
+      <description>&lt;h2 id=&#34;patch-07-record-the-mmstruct-in-the-page-table-pages-matthew-wilcox&#34;&gt;[PATCH 0/7] Record the mm_struct in the page table pages (Matthew Wilcox)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20200428194449.22615-1-willy@infradead.org&#34;&gt;https://lkml.kernel.org/r/20200428194449.22615-1-willy@infradead.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Literally, this patchset adds the &lt;code&gt;mm_struct&lt;/code&gt; pointer to &lt;code&gt;struct page&lt;/code&gt; if it is
+used for page tables.  This will be useful for several cases usch as
+uncorrectable errors handling and task-page table relation checking, etc.&lt;/p&gt;
+&lt;h2 id=&#34;patch-v4-mm-proactive-compaction-nitin-gupta&#34;&gt;[PATCH v4] mm: Proactive compaction (Nitin Gupta)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20200428221055.598-1-nigupta@nvidia.com&#34;&gt;https://lkml.kernel.org/r/20200428221055.598-1-nigupta@nvidia.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This patchset makes the compaction to be more proactively done for better THP
+allocation success and makes user to be able to control the proactiveness using
+a sysfs file, &lt;code&gt;/sys/kernel/mm/compaction/proactiveness&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;The main changes from the v3 of this patchset is add of documentations.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>LKML News v5.7-rc3</title>

@@ -28,12 +28,13 @@
   
     
   
-  <meta name="description" content="Kernel / Hypervisor Engineer">
+  <meta name="description" content="[PATCH 0/7] Record the mm_struct in the page table pages (Matthew Wilcox) https://lkml.kernel.org/r/20200428194449.22615-1-willy@infradead.org
+Literally, this patchset adds the mm_struct pointer to struct page if it is used for page tables. This will be useful for several cases usch as uncorrectable errors handling and task-page table relation checking, etc.
+[PATCH v4] mm: Proactive compaction (Nitin Gupta) https://lkml.kernel.org/r/20200428221055.598-1-nigupta@nvidia.com
+This patchset makes the compaction to be more proactively done for better THP allocation success and makes user to be able to control the proactiveness using a sysfs file, /sys/kernel/mm/compaction/proactiveness.">
 
   
-  <link rel="alternate" hreflang="ko" href="/ko/tags/kernel/">
-  
-  <link rel="alternate" hreflang="en-us" href="/tags/kernel/">
+  <link rel="alternate" hreflang="en-us" href="/post/lkml_news_v5.7-rc4/">
 
   
 
@@ -133,14 +134,12 @@
 
 
   
-  <link rel="alternate" href="/tags/kernel/index.xml" type="application/rss+xml" title="hacklog">
-  
 
   <link rel="manifest" href="/index.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon-32.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="/tags/kernel/">
+  <link rel="canonical" href="/post/lkml_news_v5.7-rc4/">
 
   
   
@@ -152,18 +151,68 @@
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="hacklog">
-  <meta property="og:url" content="/tags/kernel/">
-  <meta property="og:title" content="kernel | hacklog">
-  <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
+  <meta property="og:url" content="/post/lkml_news_v5.7-rc4/">
+  <meta property="og:title" content="LKML News v5.7-rc4 | hacklog">
+  <meta property="og:description" content="[PATCH 0/7] Record the mm_struct in the page table pages (Matthew Wilcox) https://lkml.kernel.org/r/20200428194449.22615-1-willy@infradead.org
+Literally, this patchset adds the mm_struct pointer to struct page if it is used for page tables. This will be useful for several cases usch as uncorrectable errors handling and task-page table relation checking, etc.
+[PATCH v4] mm: Proactive compaction (Nitin Gupta) https://lkml.kernel.org/r/20200428221055.598-1-nigupta@nvidia.com
+This patchset makes the compaction to be more proactively done for better THP allocation success and makes user to be able to control the proactiveness using a sysfs file, /sys/kernel/mm/compaction/proactiveness."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2020-04-30T06:57:24&#43;02:00">
+    
+      <meta property="article:published_time" content="2020-04-30T06:57:24&#43;02:00">
+    
+    <meta property="article:modified_time" content="2020-04-30T06:57:24&#43;02:00">
   
 
   
 
 
+    
 
+
+
+
+
+
+  
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/post/lkml_news_v5.7-rc4/"
+  },
+  "headline": "LKML News v5.7-rc4",
+  
+  "datePublished": "2020-04-30T06:57:24+02:00",
+  "dateModified": "2020-04-30T06:57:24+02:00",
+  
+  "author": {
+    "@type": "Person",
+    "name": "SeongJae Park"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "hacklog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/img/icon-512.png"
+    }
+  },
+  "description": "[PATCH 0/7] Record the mm_struct in the page table pages (Matthew Wilcox) https://lkml.kernel.org/r/20200428194449.22615-1-willy@infradead.org\nLiterally, this patchset adds the mm_struct pointer to struct page if it is used for page tables. This will be useful for several cases usch as uncorrectable errors handling and task-page table relation checking, etc.\n[PATCH v4] mm: Proactive compaction (Nitin Gupta) https://lkml.kernel.org/r/20200428221055.598-1-nigupta@nvidia.com\nThis patchset makes the compaction to be more proactively done for better THP allocation success and makes user to be able to control the proactiveness using a sysfs file, /sys/kernel/mm/compaction/proactiveness."
+}
+</script>
+
+  
 
   
 
@@ -171,10 +220,13 @@
   
 
 
+  
 
 
 
-  <title>kernel | hacklog</title>
+
+
+  <title>LKML News v5.7-rc4 | hacklog</title>
 
 </head>
 
@@ -396,7 +448,7 @@
         
 
         <li class="nav-item">
-          <a class="nav-link  active" href="/tags"><span>Tags</span></a>
+          <a class="nav-link " href="/tags"><span>Tags</span></a>
         </li>
 
         
@@ -466,22 +518,6 @@
       
 
       
-      <li class="nav-item dropdown i18n-dropdown">
-        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true">
-          <i class="fas fa-globe mr-1" aria-hidden="true"></i><span class="d-none d-lg-inline">English</span>
-        </a>
-        <div class="dropdown-menu">
-          <div class="dropdown-item i18n-active font-weight-bold">
-            <span>English</span>
-          </div>
-          
-          <a class="dropdown-item" href="/ko/tags/kernel/">
-            <span>한국어</span>
-          </a>
-          
-        </div>
-      </li>
-      
 
     </ul>
 
@@ -489,172 +525,334 @@
 </nav>
 
 
-  
-
-
-
-
-
-
-
-
-
-
-
+  <article class="article">
 
   
 
+
+
+
+
+
+
+
+
+
+
+
+  
+
   
   
+  
+<div class="article-container pt-3">
+  <h1>LKML News v5.7-rc4</h1>
+
+  
+
   
     
-  
-<div class="universal-wrapper pt-3">
-  <h1>kernel</h1>
+
+
+<div class="article-metadata">
 
   
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Thu, Apr 30, 2020
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   
 </div>
 
 
 
-<div class="universal-wrapper">
-  
+  <div class="article-container">
 
-  
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.17-rc7/">LKML News after 4.17-rc7</a></h2>
     <div class="article-style">
-      
-      Linux 4.17-rc7 https://lkml.kernel.org/r/CA+55aFwUqz9z1Rf4Wwr29W7DeKxQ67qKEW5xty+JPyCY3aNQ=A@mail.gmail.com
-일곱번째 rc 입니다. 지난 몇주보다는 조금 변경사항이 있었지만 그렇다 해도 그렇게 심한 정도는 아니었기에 아마도 이게 마지막 rc 일 거라는군요.
-[PATCH 00/13] Introdue io.latency io controller for cgroups https://lkml.kernel.org/r/20180529211724.4531-1-josef@toxicpanda.com
-Cgroup 에 응답시간 (latency) 기반의 I/O 컨트롤러를 추가하는 패치셋입니다. Cgroup 은 용량 기반의 컨트롤러는 많지만 응답시간 기반의 컨트롤러가 부족하다고 느껴왔는데, 역시 추가되어 가는군요.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.17-rc6/">LKML News after v4.17-rc6</a></h2>
-    <div class="article-style">
-      
-      Linux v4.17-rc6 https://lkml.kernel.org/r/CA+55aFxxYQFL3mwsQcC+__R23ZmO8c3F0SThi6r44TdK0ePNDQ@mail.gmail.com
-여섯번째 release candidate 버전입니다. 이번 릴리즈에도 특기할 만한 일은 없었습니다. 이제 충분히 안정화 되었을 거라고 하는군요.
-[PATCH -mm -V3 00/21] mm, THP, swap: Swapout/swapin THP in one piece https://lkml.kernel.org/r/20180523082625.6897-1-ying.huang@intel.com
-이전에도 이 시리즈로 소개했던, THP 의 swap out 과 swap in 최적화 마지막 단계 패치의 세번째 버전입니다. 마지막 단계 이야기 하니 문득 인피니티워의 오역 논란이 떠오르는군요 ;) 두번째 버전 이후 특정 컨피규레이션에서의 빌드 버그를 수정했고, mmotm/master 브랜치의 5월 18일자 버전으로 rebase 한게 차이점의 전부군요.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.17-rc5/">LKML News after v4.17-rc5</a></h2>
-    <div class="article-style">
-      
-      Linux 4.17-rc5 https://lkml.kernel.org/r/CA+55aFxi-Q6hvdHn+JwYSQ9b3feNGoFM3eeAuKNhpkfxVNAGpA@mail.gmail.com
-4.17을 향한 다섯번째 rc 릴리즈입니다. 이번 릴리즈도 여느 때와 다름없이 평범하군요. 대부분 드라이버 변경들이고, amd gpu 쪽 변경이 있지만 나머지 부분들은 그렇게 많지 않고 대부분 한두줄 짜리 변경들입니다. 이대로라면 이번 4.17 릴리즈는 꽤 무난무난하게 끝나겠군요.
-[PATCH v11 00/26] Speculative page faults https://lkml.kernel.org/r/1526555193-7242-1-git-send-email-ldufour@linux.vnet.ibm.com
-이 블로그에서도 몇차례 소개한, speculative page fault 의 11번째 버전입니다. 지난 LSFMM 에서도 관련해 논의를 한 것 같던데, 아주 긍정적 반응은 아니었던 것 같습니다만, 어쨌든 오랫만에 올라온 새로운 버전의 패치셋이군요.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/qemu_kernel_debugging/">Linux Kernel Debugging Using QEMU</a></h2>
-    <div class="article-style">
-      
-      You can use classical debugger for your Linux kernel programming, though Torvalds doesn't like it. I also do not prefer such use of debuggers, but admit that sometimes debuggers are quite useful. ;)
-There are several ways to debug Linux kernel, but one of above is to set up a Linux virtual machine using QEMU and debugging the Linux kernel of the virtual machine from the host machine. This post summarises how to debug the Linux kernel in this way.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.17-rc4/">LKML News after v4.17-rc4</a></h2>
-    <div class="article-style">
-      
-      Linux 4.17-rc4 https://lkml.kernel.org/r/CA+55aFyry0qeZvYjU5pf8a6zvb_ALmP-2T9+HZH2DHK93P6rQg@mail.gmail.com
-어느새 네번째 rc 버전입니다. v4.17 을 향한 여정이 절반을 넘어가는군요. 이번 릴리즈도 특이사항 없이 평범합니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.17-rc3/">LKML News after v4.17-rc3</a></h2>
-    <div class="article-style">
-      
-      Linux 4.17-rc3 https://lkml.kernel.org/r/CA+55aFyu=y0SBesB+vx3JZFGcOhP+tuVG7sjfrkfBhXHTe0Skg@mail.gmail.com
-세번째 rc 버전이 나왔습니다. 평소보다 좀 일찍 왔군요. rc2 에 비해 커다란 릴리즈이긴 한데, 그렇다 해도 평범한 릴리즈라고 리누스는 이야기 합니다. 대부분의 변경 사항이 드라이버 쪽 수정이기 때문이라고 하는군요.
-[PATCH v4 00/16] Rearrange struct page https://lkml.kernel.org/r/20180430202247.25220-1-willy@infradead.org
-이 블로그에서도 소개했던, Matthew Wilcox 의 &lsquo;struct page&rsquo; 정리 패치의 네번째 버전입니다. 지난주 LSFMM 에서도 소개한 모양인데, 이 변화의 전/후를 google spread sheet 로 정리한 문서도 여기서 공개했나보군요: https://docs.google.com/spreadsheets/d/1tvCszs_7FXrjei9_mtFiKV6nW1FLnYyvPvW-qNZhdog/edit?usp=sharing
-[PATCH v2 0/4] Interface for higher order contiguous allocations https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.17-rc2/">LKML News after v4.17-rc2</a></h2>
-    <div class="article-style">
-      
-      Linux v4.17-rc2 https://lkml.kernel.org/r/CA+55aFwzkGuq5ASF-vhYj7mEX26V0K+uZCLWi1BLYq+9F1n-Rw@mail.gmail.com
-두번째 rc 버전의 릴리즈입니다. perf 와 테스트 스크립트 쪽에 변경사항이 좀 많긴 하지만 평소와 크게 다르지 않은 추이라는군요.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.17-rc1/">LKML News after v4.17-rc1</a></h2>
-    <div class="article-style">
-      
-      Linux v4.17-rc1 https://lkml.kernel.org/r/CA+55aFx62iBkj+hOmhLksUtvjwTcm_o1dwcyvaNnVpJ-AmvzVQ@mail.gmail.com
-2주간의 머지 윈도우가 지나고, v4.17-rc1 이 릴리즈 되었습니다. 크게 특별할 것 없이 평범한 머지 윈도우였다고 토발즈는 평하는군요. 그리고 이번에 git objects mark 가 4백만을 넘겼습니다. 따라서 다음 커널이 v5.0 이어도 될 것 같은데, 꼭 다음 버전에서 그렇게 할지는 모르겠다는군요. 리눅스 커널에서 버전은 그저 시간이 흘렀음을 의미할 뿐, 큰 변화가 있어서 메이저 버전 넘버가 바뀌는게 아니기 때문이죠. 참고로 v3.0 과 v4.0 은 각각 git objects mark 2백만과 4백만에서 이루어졌군요.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.16/">LKML News after v4.16</a></h2>
-    <div class="article-style">
-      
-      Linux 4.16 https://lkml.kernel.org/r/CA+55aFyxn0bu5jOAJvO_63GHaGMkJ0uA=bVBm2T3HVX9SimZzw@mail.gmail.com
-릴리즈 마지막 주 치고는 네트워킹 쪽에 조금 변경사항이 있었습니다만, 큰 문제가 될 정도는 아니었습니다. 결과, 4.16이 드디어 릴리즈 되었습니다! 동시에 4.17 머지 윈도우가 시작되는군요.
-[PATCH 0/2] Move kfree_rcu out of rcu code and use kfree_bulk https://lkml.kernel.org/r/1522647064-27167-1-git-send-email-rao.shoaib@oracle.com
-kfree_rcu() 대신 kfree_bulk() 라는 새로 만들어진, 더 효율적인 기능을 사용하도록 하는 패치입니다.
-[RFC PATCH 0/1] mm: Support multiple kswapd threads per node https://lkml.kernel.org/r/1522661062-39745-1-git-send-email-buddy.lumpkin@oracle.com
-NUMA 아키텍쳐에서 리눅스 커널은 NUMA 노드당 하나의 kswapd 쓰레드를 띄웁니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.16-rc7/">LKML News after v4.16-rc7</a></h2>
-    <div class="article-style">
-      
-      Linux 4.16-rc7 https://lkml.kernel.org/r/CA+55aFxpxHnWBeTXN+DKqwCMW_=T2cR8UxSBVk_6c8LL7Et5JQ@mail.gmail.com
-4.16을 향한 일곱번째 rc 가 릴리즈 되었습니다. 평소대로라면 이게 마지막 rc 여야 할텐데, 평소와 다름없거나 변경사항이 적은 편이던 그동안의 rc와 달리 이번 rc 는 좀 변경사항이 많군요. 그렇다곤 해도 아마도 네트워킹 쪽 코드 머지가 늦었기 때문으로 보이며 rc8을 릴리즈할 생각은 아직은 없다고 토발즈는 이야기 하네요.
-더불어, 토발즈가 rc 릴리즈 때마다 변경 사항들을 정리하기 위해 주로 사용하는 git 사용 스크립트를 공개했습니다.
-다음주는 4.16이 릴리즈 될까요? 아니면, rc8이?
-[PATCH] mm/list_lru: replace spinlock with RCU in __list_lru_count_one https://lkml.
-      
-    </div>
-  </div>
-  
+      <h2 id="patch-07-record-the-mmstruct-in-the-page-table-pages-matthew-wilcox">[PATCH 0/7] Record the mm_struct in the page table pages (Matthew Wilcox)</h2>
+<p><a href="https://lkml.kernel.org/r/20200428194449.22615-1-willy@infradead.org">https://lkml.kernel.org/r/20200428194449.22615-1-willy@infradead.org</a></p>
+<p>Literally, this patchset adds the <code>mm_struct</code> pointer to <code>struct page</code> if it is
+used for page tables.  This will be useful for several cases usch as
+uncorrectable errors handling and task-page table relation checking, etc.</p>
+<h2 id="patch-v4-mm-proactive-compaction-nitin-gupta">[PATCH v4] mm: Proactive compaction (Nitin Gupta)</h2>
+<p><a href="https://lkml.kernel.org/r/20200428221055.598-1-nigupta@nvidia.com">https://lkml.kernel.org/r/20200428221055.598-1-nigupta@nvidia.com</a></p>
+<p>This patchset makes the compaction to be more proactively done for better THP
+allocation success and makes user to be able to control the proactiveness using
+a sysfs file, <code>/sys/kernel/mm/compaction/proactiveness</code>.</p>
+<p>The main changes from the v3 of this patchset is add of documentations.</p>
 
+    </div>
+
+    
+
+
+
+
+
+<div class="article-tags">
   
-<nav>
-  <ul class="pagination justify-content-center">
+  <a class="badge badge-light" href="/tags/linux/">linux</a>
+  
+  <a class="badge badge-light" href="/tags/kernel/">kernel</a>
+  
+  <a class="badge badge-light" href="/tags/lkml/">lkml</a>
+  
+  <a class="badge badge-light" href="/tags/news/">news</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
     
-    <li class="page-item"><a class="page-link" href="/tags/kernel/page/9/">&laquo;</a></li>
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=/post/lkml_news_v5.7-rc4/&amp;text=LKML%20News%20v5.7-rc4" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
     
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=/post/lkml_news_v5.7-rc4/&amp;t=LKML%20News%20v5.7-rc4" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
     
-    <li class="page-item"><a class="page-link" href="/tags/kernel/page/11/">&raquo;</a></li>
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=LKML%20News%20v5.7-rc4&amp;body=/post/lkml_news_v5.7-rc4/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=/post/lkml_news_v5.7-rc4/&amp;title=LKML%20News%20v5.7-rc4" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=LKML%20News%20v5.7-rc4%20/post/lkml_news_v5.7-rc4/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=/post/lkml_news_v5.7-rc4/&amp;title=LKML%20News%20v5.7-rc4" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
     
   </ul>
-</nav>
-
-
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      <img class="portrait mr-3" src="https://s.gravatar.com/avatar/43dc5645c78e68fda997138380dfaaf4?s=200')" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="/">SeongJae Park</a></h5>
+      <h6 class="card-subtitle">Kernel / Hypervisor Engineer</h6>
+      <p class="card-text">SeongJae Park is a programmer who loves to analyze and develop systems.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/log/?qt=author&amp;q=seongjae&#43;park" target="_blank" rel="noopener">
+        <i class="fab fa-linux"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/sjp38" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.com/citations?user=jJIiF3AAAAAJ" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  
+  
+  <div class="article-widget content-widget-hr">
+    <h3>Related</h3>
+    <ul>
+      
+      <li><a href="/post/lkml_news_v5.7-rc3/">LKML News v5.7-rc3</a></li>
+      
+      <li><a href="/post/lkml_news_v5.7-rc2/">LKML News after v5.7-rc2</a></li>
+      
+      <li><a href="/post/lkml_news_v5.7-rc1/">LKML News v5.7-rc1</a></li>
+      
+      <li><a href="/post/lkml_news_v5.6/">LKML News v5.6</a></li>
+      
+      <li><a href="/post/lkml_news_v5.6-rc7/">LKML News v5.6-rc7</a></li>
+      
+    </ul>
+  </div>
+  
+
+
+
+  </div>
+</article>
 
       
 
