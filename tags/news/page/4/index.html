@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2020-04-30T06:57:24&#43;02:00">
+    <meta property="og:updated_time" content="2020-05-07T06:56:23&#43;02:00">
   
 
   
@@ -525,6 +525,19 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.3/">LKML News v5.3</a></h2>
+    <div class="article-style">
+      
+      [PATCH] x86/mm: Enable 5-level paging support by default https://lkml.kernel.org/r/20190913095452.40592-1-kirill.shutemov@linux.intel.com
+5 레벨 페이지 테이블 기능이 들어간지도 어느덧 시간이 지났죠. 인텔 내부적 테스트 상으론 이 기능을 켰을 때 4 레벨 페이지 테이블 기계에서도 딱히 리그레션 등은 나타나지 않았고, 주요 배포판들은 5 레벨 페이지 테이블 서포트를 기본으로 켤것으로 보인다고 합니다. 따라서 이 기능을 아예 디폴트로 켜져있게 하는 패치입니다.
+v5.4 에 들어가기엔 좀 늦은 관계로, v5.5 에 들어갈 것 같다는군요.
+Linux 5.3 https://lkml.kernel.org/r/CAHk-=wiP4K8DRJWsCo=20hn_6054xBamGKF2kPgUzpB5aMaofA@mail.gmail.com
+LPC 와 커널 서밋 등으로 인해 한주 늦춰진 5.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.3-rc8/">LKML News v5.3-rc8</a></h2>
     <div class="article-style">
       
@@ -628,20 +641,6 @@ PAGE_SIZE &lt;&lt; compound_order(page) 는 page_size(page) 가, PAGE_SHIFT + co
 다양한 보안 측정을 위한 공용 인터페이스를 제공하는 스택 기반의 리눅스 보안 모듈입니다. 이름이 재밌네요. S.A.R.A 는 S.A.R.A is Another Recursive Acronym 의 약자라고 합니다.
 Linux 5.2 https://lkml.kernel.org/r/CAHk-=whtW3FdruS-q2zehJPSan1SKtHoFHKX28A3J_1gfTFUMw@mail.gmail.com
 이번 릴리즈 중간엔 토발즈의 여행이 있었죠. 초반엔 예상 외로 큰 rc 릴리즈도 있었구요. 해서 이번주는 rc8 이 릴리즈 될지 5.2가 릴리즈 될지 저도 좀 궁금했는데, 최종적으로 5.2 릴리즈가 되었습니다. 토발즈도 rc8 을 릴리즈 할까 망설였다고 하네요.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.2-rc7/">LKML News v5.2-rc7</a></h2>
-    <div class="article-style">
-      
-      [PATCH v7 0/4] THP aware uprobe https://lkml.kernel.org/r/20190625235325.2096441-1-songliubraving@fb.com
-uprobe 가 THP 로 받쳐지고 있는 코드에 적용되면 이 THP 는 regular page 로 쪼개집니다. 이 패치셋은 이 문제를 해결합니다.
-[PATCH v9 0/6] Enable THP for text section of non-shmem files https://lkml.kernel.org/r/20190625001246.685563-1-songliubraving@fb.com
-어플리케이션의 텍스트 섹션을 THP 로 지원해 줌으로써 iTLB 미스를 줄이고 성능을 높이고자 하는 패치셋입니다.
-Linux 5.2-rc7 https://lkml.kernel.org/r/CAHk-=wgL5GyQ93o=VyiymFPfw=Z0TGHEPBJrCtGSqFSW2Mhx8g@mail.gmail.com
-여전히 토발즈의 여행 탓에 릴리즈가 평소와 조금 다른 시간대에 이뤄졌습니다, 토발즈 자신의 시점으로는 평소와 같은 일요일 오후지만요.
       
     </div>
   </div>

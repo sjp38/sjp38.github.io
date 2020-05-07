@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2020-04-30T06:57:24&#43;02:00">
+    <meta property="og:updated_time" content="2020-05-07T06:56:23&#43;02:00">
   
 
   
@@ -525,6 +525,19 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v4.20-rc6/">LKML News by v4.20-rc6</a></h2>
+    <div class="article-style">
+      
+      [PATCH memory-model 0/3] Updates to the formal memory model https://lkml.kernel.org/r/20181203230411.GA27476@linux.ibm.com
+리눅스 커널 메모리 모델의 업데이트 입니다.
+smp_mb__after_unlock_lock() 을 추가로 모델링했고, github 리트머스 테스트를 체크하기 위한 스크립트가 추가되었으며, -j 옵션을 서포트 하게 되었습니다.
+[tip:core/rcu] tracing: Replace synchronize_sched() and call_rcu_sched() https://lkml.kernel.org/r/tip-7440172974e85b1828bdd84ac6b23b5bcad9c5eb@git.kernel.org
+synchronize_rcu() 가 이제는 RCU read-side 크리티컬 섹션 만이 아니라 preempt-disable 코드 영역도 기다리므로, synchronize_sched() 를 대체할 수 있고, call_rcu_sched() 도 call_rcu() 로 대체될 수 있습니다. 이 패치는 이 대체를 진행하고 있습니다.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v4.20-rc5/">LKML News by 4.20-rc5</a></h2>
     <div class="article-style">
       
@@ -622,16 +635,6 @@ CPU intensive 한 커널의 일을 여러 work queue 를 이용해 병렬화 시
 일반적이라면 다음 릴리즈가 4.19 정식 릴리즈일텐데, 10월에 컨퍼런스가 많이 있다보니 rc 릴리즈를 한번 더 할 생각이라는군요. 간만에 rc8 을 보겠습니다.
 [PATCH -V6 00/21] swap: Swapout/swapin THP in one piece https://lkml.kernel.org/r/20181010071924.18767-1-ying.huang@intel.com
 THP 를 한방에 swap out / swap in 하는 Huang Ying 의 패치, 여섯번째 버전입니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.19-rc6/">LKML News after v4.19-rc6</a></h2>
-    <div class="article-style">
-      
-      Linux 4.19-rc6 https://lkml.kernel.org/r/20180930150308.GA5010@kroah.com
-이번주도 Greg 에 의해 여섯번째 rc 버전이 릴리즈 되었습니다. 평소 일정대로면 2주일 후 4.19 정식 버전이 릴리즈 될텐데, 아마도 그때까지도 Greg 이 릴리즈 하지 않을까 싶기도 하군요. 전체적으로 특이사항은 없고 Greg 의 시스템에서는 잘 동작하고 있으며 별다른 이슈를 보고받지도 못했다는군요.
       
     </div>
   </div>
