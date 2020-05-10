@@ -23,6 +23,11 @@
 preserve VM guest memory across kexec boot for fast restart (VMM Fast Restart).
 Compared to DRAM based PMEM simulation, PKRAM is more flexible as the memory
 size is not need to be previously fixed.&lt;/p&gt;
+&lt;h2 id=&#34;patch-mm-replace-zerolength-array-with-flexiblearray-gustavo-a-r-silva&#34;&gt;[PATCH] mm: Replace zero-length array with flexible-array (Gustavo A. R. Silva)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20200507185942.GA15193@embeddedor&#34;&gt;https://lkml.kernel.org/r/20200507185942.GA15193@embeddedor&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The zero-length array of C90 are widely used in the kernel code base, but the
+flexible array member of C99 would be better choice.  This commit replaces the
+code to use the flexible array member instead.&lt;/p&gt;
 </description>
     </item>
     

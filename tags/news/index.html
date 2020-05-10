@@ -530,6 +530,8 @@
       
       [RFC 00/43] PKRAM: Preserved-over-Kexec RAM (Anthony Yznaga) https://lkml.kernel.org/r/1588812129-8596-1-git-send-email-anthony.yznaga@oracle.com
 This patchset introduces special memory called PKRAM. It can be used to preserve VM guest memory across kexec boot for fast restart (VMM Fast Restart). Compared to DRAM based PMEM simulation, PKRAM is more flexible as the memory size is not need to be previously fixed.
+[PATCH] mm: Replace zero-length array with flexible-array (Gustavo A. R. Silva) https://lkml.kernel.org/r/20200507185942.GA15193@embeddedor
+The zero-length array of C90 are widely used in the kernel code base, but the flexible array member of C99 would be better choice.
       
     </div>
   </div>
