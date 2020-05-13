@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="ko-kr">
   
-    <meta property="og:updated_time" content="2019-06-27T17:02:49&#43;09:00">
+    <meta property="og:updated_time" content="2020-05-13T06:40:03&#43;02:00">
   
 
   
@@ -523,6 +523,16 @@
   
 
   
+  
+  <div>
+    <h2><a href="/ko/post/sphynx_doc_on_github_pages_needs_nojekyll/">Sphynx document on Github pages Needs `.nojekyll` File</a></h2>
+    <div class="article-style">
+      
+      최근, Sphynx 빌드 시스템[1] 을 사용해 html 로 빌드한 리눅스 커널 문서를 Github page[2] 에 올리려 했습니다. DAMON[3] 문서를 어디서나 볼 수 있게 하려 함이었는데요. 업로드는 쉬웠습니다. 리포지토리 만들고, Sphynx 로 빌드된 Documentation/output/ 의 문서를 여기에 집어넣고 푸시했죠. 하지만, 테마가 적용되지 않아 보기 안좋더군요.
+Github 은 모든 Github page 들이 Jekyll[4] 에 기반하고 있다고 생각하며, Jekyll 에서는 _ 로 시작하는 이름의 모든 파일과 디렉토리가 특수하게 처리되기 때문에, Sphynx 에서 생성한 일부 디렉토리가 무시되고 있었습니다.
+      
+    </div>
+  </div>
   
   <div>
     <h2><a href="/ko/post/integrate_external_git_repository_with_history/">Integrate external git repository with its history</a></h2>

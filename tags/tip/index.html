@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2019-06-27T17:02:49&#43;09:00">
+    <meta property="og:updated_time" content="2020-05-13T06:40:03&#43;02:00">
   
 
   
@@ -523,6 +523,16 @@
   
 
   
+  
+  <div>
+    <h2><a href="/post/sphynx_doc_on_github_pages_needs_nojekyll/">Sphynx document on Github pages Needs `.nojekyll` File</a></h2>
+    <div class="article-style">
+      
+      I recently tried to upload the Linux kernel document which is generated in html form using the Sphynx build system[1] on a Github page[2] so that people can read DAMON[3] document from everywhere. The upload was very easy. I simply created the repo, put the generated html doc at Documentation/output/ into the repo and pushed. However, the theme was not applied.
+Github assumes every Github pages to be based on Jekyll[4], and because every files and directories starting with underscores are handled special in Jekyll, some directories Sphynx created were ignored.
+      
+    </div>
+  </div>
   
   <div>
     <h2><a href="/post/integrate_external_git_repository_with_history/">Integrate external git repository with its history</a></h2>
