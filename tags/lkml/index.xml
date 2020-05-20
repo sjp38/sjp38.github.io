@@ -5,12 +5,33 @@
     <link>/tags/lkml/</link>
       <atom:link href="/tags/lkml/index.xml" rel="self" type="application/rss+xml" />
     <description>lkml</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sat, 16 May 2020 09:55:20 +0200</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 20 May 2020 05:52:27 +0200</lastBuildDate>
     <image>
       <url>/img/tux.png</url>
       <title>lkml</title>
       <link>/tags/lkml/</link>
     </image>
+    
+    <item>
+      <title>LKML News v5.7-rc7</title>
+      <link>/post/lkml_news_v5.7-rc7/</link>
+      <pubDate>Wed, 20 May 2020 05:52:27 +0200</pubDate>
+      <guid>/post/lkml_news_v5.7-rc7/</guid>
+      <description>&lt;h2 id=&#34;patch-v5-mm-proactive-compaction-nitin-gupta&#34;&gt;[PATCH v5] mm: Proactive compaction (Nitin Gupta)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20200518181446.25759-1-nigupta@nvidia.com&#34;&gt;https://lkml.kernel.org/r/20200518181446.25759-1-nigupta@nvidia.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The 5th version of the proactive compaction.  This patchset make the compaction
+more proactive to make THP allocation easily success.&lt;/p&gt;
+&lt;h2 id=&#34;patch-v2-swap-reduce-lock-contention-on-swap-cache-from-swap-slots-allocation-huang-ying&#34;&gt;[PATCH -V2] swap: Reduce lock contention on swap cache from swap slots allocation (Huang Ying)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20200520031502.175659-1-ying.huang@intel.com&#34;&gt;https://lkml.kernel.org/r/20200520031502.175659-1-ying.huang@intel.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;After swap device is fragmented, there&#39;s no free swap cluster.  Therefore, each
+swap logic of each CPU will linearly scan each swap cluster to find a free
+slot.  As multiple CPUs can search the slot in same cluster, the swap cache
+lock contention could increase.&lt;/p&gt;
+&lt;p&gt;This patchset reduces the lock contention by using percpu pointer for next
+scanning cluster.  The pointer is set to random cluster.  This change is
+applied to SSD swap device only.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>LKML News v5.7-rc6</title>
