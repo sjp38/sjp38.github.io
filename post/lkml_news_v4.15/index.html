@@ -652,7 +652,7 @@ Vulnerable: Minimal generic ASM retpoline 이란 출력이 뜰겁니다."><meta 
 즉, 이번 릴리즈는 좀 평범하지 않기 했지만 그렇다고 아주 이상하기만 한 릴리즈도
 아니었다는 거죠.</p>
 <p>어쨌든 4.15 버전이 드디어 나왔습니다!</p>
-<h2 id="lsfmm-topic-addressing-mmapsem-contention">[LSF/MM TOPIC] Addressing mmap_sem contention</h2>
+<h2 id="lsfmm-topic-addressing-mmap_sem-contention">[LSF/MM TOPIC] Addressing mmap_sem contention</h2>
 <p><a href="https://lkml.kernel.org/r/4c20d397-1268-ca0f-4986-af59bb31022c@linux.vnet.ibm.com">https://lkml.kernel.org/r/4c20d397-1268-ca0f-4986-af59bb31022c@linux.vnet.ibm.com</a></p>
 <p>리눅스 커널에서 메모리 매핑은 mmap_sem 이라는 reader-writer semaphor 를 이용해
 race condition 으로부터 보호되고 있습니다.  당연하게도, 쓰레드가 많은 환경에선
@@ -667,7 +667,7 @@ Speculative Page Fault 패치는 페이지 폴트 시에 메모리 매핑을 할
 자체에 대한 논의를 LSFMM 에서 하고 싶다는 메일입니다.</p>
 <p>병렬 프로그래밍에 관심있는 제게도 흥미로운 주제네요.</p>
 <p>[1] <a href="http://ebizzy.sourceforge.net/">http://ebizzy.sourceforge.net/</a></p>
-<h2 id="lsfmm-topic-lrulock-scalability">[LSF/MM TOPIC] lru_lock scalability</h2>
+<h2 id="lsfmm-topic-lru_lock-scalability">[LSF/MM TOPIC] lru_lock scalability</h2>
 <p><a href="https://lkml.kernel.org/r/2a16be43-0757-d342-abfb-d4d043922da9@oracle.com">https://lkml.kernel.org/r/2a16be43-0757-d342-abfb-d4d043922da9@oracle.com</a></p>
 <p>최근에 덜 사용된 (Least Recently Used) 페이지를 가려내기 위해 사용되는
 <code>lru_lock</code> 은 메모리 집중적 벤치마크를 돌릴 때 커널에서 가장 뜨거워지는 락들
@@ -690,7 +690,7 @@ LSFMM 에서 이야기 해보자는 메일입니다.</p>
 <p>&lsquo;mmap_sem&rsquo; 은 커널의 메모리 관리에서 자주 사용되는 락으로, 많은 scalability
 문제의 중심에 있습니다.  이 패치셋은 mmap_sem 을 range locking 기법을 활용해서
 바꿔냄으로써 병렬성을 확보하는 패치입니다.</p>
-<h2 id="patch-mm-v2-mm-swap-frontswap-fix-thp-swap-if-frontswap-enabled">[PATCH -mm -v2] mm, swap, frontswap: Fix THP swap if frontswap enabled</h2>
+<h2 id="patch--mm--v2-mm-swap-frontswap-fix-thp-swap-if-frontswap-enabled">[PATCH -mm -v2] mm, swap, frontswap: Fix THP swap if frontswap enabled</h2>
 <p><a href="https://lkml.kernel.org/r/20180207070035.30302-1-ying.huang@intel.com">https://lkml.kernel.org/r/20180207070035.30302-1-ying.huang@intel.com</a></p>
 <p>zswap 은 THP 를 고려하지 않기 때문에 THP 가 켜진 상태에서 zswap 이 frontswap
 으로 동작할 경우 일부 어플리케이션은 segfault 와 memory corruption 을 낼 수
@@ -916,7 +916,7 @@ out&rdquo;)</p>
       
       <li><a href="/post/lkml_news_v4.15-rc6/">LKML News after v4.15-rc6</a></li>
       
-      <li><a href="/post/lkml_news_v4.15-rc5/">LKML News after v4.15-rc5</a></li>
+      <li><a href="/post/lkml_news_v4.14-rc4/">LKML News after v4.15-rc5</a></li>
       
     </ul>
   </div>

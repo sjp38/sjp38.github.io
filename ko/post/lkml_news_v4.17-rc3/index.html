@@ -634,7 +634,7 @@
   <div class="article-container">
 
     <div class="article-style">
-      <h2 id="linux-417rc3">Linux 4.17-rc3</h2>
+      <h2 id="linux-417-rc3">Linux 4.17-rc3</h2>
 <p><a href="https://lkml.kernel.org/r/CA+55aFyu=y0SBesB+vx3JZFGcOhP+tuVG7sjfrkfBhXHTe0Skg@mail.gmail.com">https://lkml.kernel.org/r/CA+55aFyu=y0SBesB+vx3JZFGcOhP+tuVG7sjfrkfBhXHTe0Skg@mail.gmail.com</a></p>
 <p>세번째 rc 버전이 나왔습니다.  평소보다 좀 일찍 왔군요.  rc2 에 비해 커다란
 릴리즈이긴 한데, 그렇다 해도 평범한 릴리즈라고 리누스는 이야기 합니다.
@@ -659,7 +659,7 @@ spread sheet 로 정리한 문서도 여기서 공개했나보군요:
 <p>VMalloc 페이지는 유저스페이스에 매핑될 수도 있으므로 성능 분석과 memory leak
 문제 분석의 편의를 위해  page-&gt;mapping 값에 이를 가리키는 표식과 해당 페이지를
 가리키는 <code>vm_struct</code> 와 그 안에서의 <code>offset</code> 을 저장하는 RFC 패치입니다.</p>
-<h2 id="introduce-atomicdecandlockirqsave">Introduce atomic_dec_and_lock_irqsave()</h2>
+<h2 id="introduce-atomic_dec_and_lock_irqsave">Introduce atomic_dec_and_lock_irqsave()</h2>
 <p><a href="https://lkml.kernel.org/r/20180504154533.8833-1-bigeasy@linutronix.de">https://lkml.kernel.org/r/20180504154533.8833-1-bigeasy@linutronix.de</a></p>
 <p><code>local_irq_save()</code> + <code>atomic_dec_and_lock()</code> 조합을 써야 하던 코드를 위해 이를
 감싸는 새로운 함수, <code>atomic_dec_and_lock_irqsave()</code> 를 만들고 기존의 코드가

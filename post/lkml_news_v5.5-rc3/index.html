@@ -614,11 +614,11 @@ ZRAM is an in-memory block device that compresses the content. Currently, ZRAM i
   <div class="article-container">
 
     <div class="article-style">
-      <h2 id="problem-large-256mb-cma-allocation-fails-from-time-to-time-when-using-intel-vtd">PROBLEM: Large (256MB) CMA allocation fails from time to time when using Intel VT-d</h2>
+      <h2 id="problem-large-256mb-cma-allocation-fails-from-time-to-time-when-using-intel-vt-d">PROBLEM: Large (256MB) CMA allocation fails from time to time when using Intel VT-d</h2>
 <p><a href="https://lkml.kernel.org/r/5e75d900cb50457784ee1d2050b511ec@MAILER13.tech.ceia">https://lkml.kernel.org/r/5e75d900cb50457784ee1d2050b511ec@MAILER13.tech.ceia</a></p>
 <p>The author reports a CMA allocation failure that occurs time to time if the
 system is using Intel VT-d.</p>
-<h2 id="patchv2-03-allow-zram-to-use-any-zpoolcompatible-backend">[PATCHv2 0/3] Allow ZRAM to use any zpool-compatible backend</h2>
+<h2 id="patchv2-03-allow-zram-to-use-any-zpool-compatible-backend">[PATCHv2 0/3] Allow ZRAM to use any zpool-compatible backend</h2>
 <p><a href="https://lkml.kernel.org/r/20191219151928.ad4ccf732b64b7f8a26116db@gmail.com">https://lkml.kernel.org/r/20191219151928.ad4ccf732b64b7f8a26116db@gmail.com</a></p>
 <p>ZRAM is an in-memory block device that compresses the content.  Currently, ZRAM
 is used only with zsmalloc.  However, the zsmalloc is not an optimal selection
@@ -631,13 +631,13 @@ patchset changes ZRAM to be able to use multiple backend.</p>
 <p>KMSAN detects errors related to uses of uninitialized memory.  With a help from
 syzkaller, KMSAN has already reported more than 200 bugs in the past two years.
 This patch aims to be merged in the mainline.</p>
-<h2 id="regression-seen-when-using-madvfree-vs-madvdontneed">Regression seen when using <code>MADV_FREE</code> vs <code>MADV_DONTNEED</code></h2>
+<h2 id="regression-seen-when-using-madv_free-vs-madv_dontneed">Regression seen when using <code>MADV_FREE</code> vs <code>MADV_DONTNEED</code></h2>
 <p><a href="https://lkml.kernel.org/r/CAKgT0UeSs_qy8g5QoXpgcw2685+JtJPY+rehggraoGSYPrP1Aw@mail.gmail.com">https://lkml.kernel.org/r/CAKgT0UeSs_qy8g5QoXpgcw2685+JtJPY+rehggraoGSYPrP1Aw@mail.gmail.com</a></p>
 <p>The author introduced a patch using <code>MADV_FREE</code> instead of <code>MADV_DONTNEED</code> in
 the QEMU.  On <code>next-20191120</code> kernel, it worked as the author expected.  On
 <code>next-20191120</code>, however, the author was able to encounter an issue.  The
 <code>MADV_FREE</code> has been significantly slower than <code>MADV_DONTNEED</code>.</p>
-<h2 id="linux-55rc3">Linux 5.5-rc3</h2>
+<h2 id="linux-55-rc3">Linux 5.5-rc3</h2>
 <p><a href="https://lkml.kernel.org/r/CAHk-=wiGKfWeUv294FD6bs4cw0m=nO_LdZkLz-vkp-2zwBzLcA@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wiGKfWeUv294FD6bs4cw0m=nO_LdZkLz-vkp-2zwBzLcA@mail.gmail.com</a></p>
 <p>This release has delayed a couple of hors due to Christmas preparation, but
 seems the Christmas has made no big effect to the development.  Rather than

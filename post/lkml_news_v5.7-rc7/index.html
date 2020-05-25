@@ -31,7 +31,7 @@
   <meta name="description" content="[PATCH v5] mm: Proactive compaction (Nitin Gupta) https://lkml.kernel.org/r/20200518181446.25759-1-nigupta@nvidia.com
 The 5th version of the proactive compaction. This patchset make the compaction more proactive to make THP allocation easily success.
 [PATCH -V2] swap: Reduce lock contention on swap cache from swap slots allocation (Huang Ying) https://lkml.kernel.org/r/20200520031502.175659-1-ying.huang@intel.com
-After swap device is fragmented, there&#39;s no free swap cluster. Therefore, each swap logic of each CPU will linearly scan each swap cluster to find a free slot.">
+After swap device is fragmented, there&rsquo;s no free swap cluster. Therefore, each swap logic of each CPU will linearly scan each swap cluster to find a free slot.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/lkml_news_v5.7-rc7/">
@@ -156,7 +156,7 @@ After swap device is fragmented, there&#39;s no free swap cluster. Therefore, ea
   <meta property="og:description" content="[PATCH v5] mm: Proactive compaction (Nitin Gupta) https://lkml.kernel.org/r/20200518181446.25759-1-nigupta@nvidia.com
 The 5th version of the proactive compaction. This patchset make the compaction more proactive to make THP allocation easily success.
 [PATCH -V2] swap: Reduce lock contention on swap cache from swap slots allocation (Huang Ying) https://lkml.kernel.org/r/20200520031502.175659-1-ying.huang@intel.com
-After swap device is fragmented, there&#39;s no free swap cluster. Therefore, each swap logic of each CPU will linearly scan each swap cluster to find a free slot."><meta property="og:image" content="/img/tux.png">
+After swap device is fragmented, there&rsquo;s no free swap cluster. Therefore, each swap logic of each CPU will linearly scan each swap cluster to find a free slot."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -208,7 +208,7 @@ After swap device is fragmented, there&#39;s no free swap cluster. Therefore, ea
       "url": "/img/icon-512.png"
     }
   },
-  "description": "[PATCH v5] mm: Proactive compaction (Nitin Gupta) https://lkml.kernel.org/r/20200518181446.25759-1-nigupta@nvidia.com\nThe 5th version of the proactive compaction. This patchset make the compaction more proactive to make THP allocation easily success.\n[PATCH -V2] swap: Reduce lock contention on swap cache from swap slots allocation (Huang Ying) https://lkml.kernel.org/r/20200520031502.175659-1-ying.huang@intel.com\nAfter swap device is fragmented, there's no free swap cluster. Therefore, each swap logic of each CPU will linearly scan each swap cluster to find a free slot."
+  "description": "[PATCH v5] mm: Proactive compaction (Nitin Gupta) https://lkml.kernel.org/r/20200518181446.25759-1-nigupta@nvidia.com\nThe 5th version of the proactive compaction. This patchset make the compaction more proactive to make THP allocation easily success.\n[PATCH -V2] swap: Reduce lock contention on swap cache from swap slots allocation (Huang Ying) https://lkml.kernel.org/r/20200520031502.175659-1-ying.huang@intel.com\nAfter swap device is fragmented, there\u0026rsquo;s no free swap cluster. Therefore, each swap logic of each CPU will linearly scan each swap cluster to find a free slot."
 }
 </script>
 
@@ -618,18 +618,25 @@ After swap device is fragmented, there&#39;s no free swap cluster. Therefore, ea
 <p><a href="https://lkml.kernel.org/r/20200518181446.25759-1-nigupta@nvidia.com">https://lkml.kernel.org/r/20200518181446.25759-1-nigupta@nvidia.com</a></p>
 <p>The 5th version of the proactive compaction.  This patchset make the compaction
 more proactive to make THP allocation easily success.</p>
-<h2 id="patch-v2-swap-reduce-lock-contention-on-swap-cache-from-swap-slots-allocation-huang-ying">[PATCH -V2] swap: Reduce lock contention on swap cache from swap slots allocation (Huang Ying)</h2>
+<h2 id="patch--v2-swap-reduce-lock-contention-on-swap-cache-from-swap-slots-allocation-huang-ying">[PATCH -V2] swap: Reduce lock contention on swap cache from swap slots allocation (Huang Ying)</h2>
 <p><a href="https://lkml.kernel.org/r/20200520031502.175659-1-ying.huang@intel.com">https://lkml.kernel.org/r/20200520031502.175659-1-ying.huang@intel.com</a></p>
-<p>After swap device is fragmented, there's no free swap cluster.  Therefore, each
+<p>After swap device is fragmented, there&rsquo;s no free swap cluster.  Therefore, each
 swap logic of each CPU will linearly scan each swap cluster to find a free
 slot.  As multiple CPUs can search the slot in same cluster, the swap cache
 lock contention could increase.</p>
 <p>This patchset reduces the lock contention by using percpu pointer for next
 scanning cluster.  The pointer is set to random cluster.  This change is
 applied to SSD swap device only.</p>
-<h2 id="ksummitdiscuss-tech-topic-seccomp-feature-development-kees-cook">[Ksummit-discuss] [TECH TOPIC] seccomp feature development (Kees Cook)</h2>
+<h2 id="ksummit-discuss-tech-topic-seccomp-feature-development-kees-cook">[Ksummit-discuss] [TECH TOPIC] seccomp feature development (Kees Cook)</h2>
 <p><a href="https://lkml.kernel.org/r/202005200917.71E6A5B20@keescook">https://lkml.kernel.org/r/202005200917.71E6A5B20@keescook</a></p>
 <p>The first kernel summit technical topic.  Kees Cook want to talk about seccomp.</p>
+<h2 id="linux-57-rc7">Linux 5.7-rc7</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=whan1CiRtcgBt-5SkW-ga_GeLH5+AO26RmK7vOA5yw9ng@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=whan1CiRtcgBt-5SkW-ga_GeLH5+AO26RmK7vOA5yw9ng@mail.gmail.com</a></p>
+<p>The rc6 was unexpectedly big, but rc7 is quite normal.  Torvalds says the
+release schedule will not dealyed, unless something happens.</p>
+<p>Also, Torvalds says he upgraded his main machine for the first time in about 15
+years, from Intel machine to the AMD Threadripper 3970x.  His build is not 3
+times faster!</p>
 
     </div>
 

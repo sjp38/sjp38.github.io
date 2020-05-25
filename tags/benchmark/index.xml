@@ -33,7 +33,7 @@
 있어서 개인 개발자가 자신의 패치를 테스트할 목적으로 사용하기에도 좋습니다.  이
 글에서는 이러한 lkp-tests 의 구조와 사용법을 간단히 설명합니다.  전체적으로
 인텔의 관련 블로그 글[3] 을 참고했습니다.&lt;/p&gt;
-&lt;h1 id=&#34;heading&#34;&gt;설치&lt;/h1&gt;
+&lt;h1 id=&#34;설치&#34;&gt;설치&lt;/h1&gt;
 &lt;p&gt;먼저 다음 커맨드로 lkp-tests 소스코드를 얻어옵니다:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ git clone https://github.com/intel/lkp-tests
 $ cd lkp-tests
@@ -80,7 +80,7 @@ More commands can be found in /home/sjpark/lkp-tests/{bin,sbin,tools}/
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;여기서 &lt;code&gt;&amp;lt;command&amp;gt;&lt;/code&gt; 는 lkp-tests 소스코드 디렉토리 아래 &lt;code&gt;bin/&lt;/code&gt;, &lt;code&gt;sbin/&lt;/code&gt;,
 &lt;code&gt;tools/&lt;/code&gt;, 또는 &lt;code&gt;lkp-exec/&lt;/code&gt; 아래 위치한 실행파일로, &lt;code&gt;lkp&lt;/code&gt; 는 단순히 그
 실행파일을 수행하면서 인자를 넘길 뿐입니다.&lt;/p&gt;
-&lt;h1 id=&#34;---&#34;&gt;테스트에 필요한 소프트웨어 설치&lt;/h1&gt;
+&lt;h1 id=&#34;테스트에-필요한-소프트웨어-설치&#34;&gt;테스트에 필요한 소프트웨어 설치&lt;/h1&gt;
 &lt;p&gt;다음 커맨드는 lkp-tests 가 의존하고 있는 기본적 소프트웨어 패키지들을 모두
 설치합니다:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ sudo lkp install
@@ -89,9 +89,9 @@ More commands can be found in /home/sjpark/lkp-tests/{bin,sbin,tools}/
 ca-certificates cpio fakeroot flex gcc git libc6-dev libc6-dev:i386
 libklibc-dev libtool linux-libc-dev linux-libc-dev:i386 linux-tools-generic
 make openssl patch rsync ruby ruby-dev wget
-&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;lkptests---&#34;&gt;lkp-tests 내부 벤치마크 실행&lt;/h1&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;lkp-tests-내부-벤치마크-실행&#34;&gt;lkp-tests 내부 벤치마크 실행&lt;/h1&gt;
 &lt;p&gt;이제 lkp-tests 에서 지원하는 벤치마크를 실제로 돌려봅시다.&lt;/p&gt;
-&lt;h2 id=&#34;----&#34;&gt;테스트 수행에 필요한 환경 설정&lt;/h2&gt;
+&lt;h2 id=&#34;테스트-수행에-필요한-환경-설정&#34;&gt;테스트 수행에 필요한 환경 설정&lt;/h2&gt;
 &lt;p&gt;실제 테스트를 돌리기 위해선 벤치마크를 깔고, 그 벤치마크가 사용하는 패키지를
 깔고, 테스트에 사용될 도구들을 깔고, 여러 설정을 하는등의 작업이 필요합니다.&lt;/p&gt;
 &lt;p&gt;다음 명령은 lkp-tests 에서 ebizzy 라는 벤치마크를 사용하는 테스트를 위해
@@ -107,10 +107,10 @@ make openssl patch rsync ruby ruby-dev wget
 인자를 줘가며 수행해야할지 등에 대한 내용을 담고 있습니다.  예컨대
 &lt;code&gt;jobs/aim7-fs-1brd.yaml&lt;/code&gt; job 은 &lt;code&gt;xfs&lt;/code&gt;, &lt;code&gt;ext4&lt;/code&gt;, &lt;code&gt;btrfs&lt;/code&gt;, &lt;code&gt;f2fs&lt;/code&gt; 파일 시스템
 각각에 대해 aim7 을 돌려보도록 되어 있습니다.&lt;/p&gt;
-&lt;h2 id=&#34;-&#34;&gt;테스트 수행&lt;/h2&gt;
+&lt;h2 id=&#34;테스트-수행&#34;&gt;테스트 수행&lt;/h2&gt;
 &lt;p&gt;다음 명령은 ebizzy job 으로 기술된 테스트를 실제 수행시킵니다:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ sudo lkp run jobs/ebizzy.yaml
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;job-&#34;&gt;job 쪼개기&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;job-쪼개기&#34;&gt;job 쪼개기&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;ebizzy.yaml&lt;/code&gt; 은 시스템 소유 CPU 코어 갯수 2배 갯수의 쓰레드를 사용해 ebizzy 를
 10초간 돌리는 실험을 100번 반복하도록 되어 있습니다.  즉, 실험의 경우의 수가
 하나입니다.  그러나, 앞서 설명한 &lt;code&gt;aim7-fs-1brd&lt;/code&gt; 와 같이 다양한 구성을 사용하게
@@ -154,7 +154,7 @@ aim7-fs-1brd-1BRD_48G-ext4-disk_wrt-3000.yaml
 aim7-fs-1brd-1BRD_48G-xfs-disk_wrt-3000.yaml
 aim7-fs-1brd-1BRD_48G-ext4-sync_disk_rw-600.yaml
 aim7-fs-1brd-1BRD_48G-xfs-sync_disk_rw-600.yaml
-&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;--&#34;&gt;테스트 결과 확인&lt;/h1&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;테스트-결과-확인&#34;&gt;테스트 결과 확인&lt;/h1&gt;
 &lt;p&gt;테스트에 사용된 벤치마크 수행의 결과와 테스트 동안의 시스템 프로파일링 결과는
 &lt;code&gt;/lkp/result/&lt;/code&gt; 디렉토리 밑에 &lt;code&gt;&amp;lt;job name&amp;gt;/&amp;lt;configuration&amp;gt;/&amp;lt;host name&amp;gt;/&amp;lt;os distribution name&amp;gt;/&amp;lt;kernel config&amp;gt;/&amp;lt;gcc version&amp;gt;/&amp;lt;kernel version&amp;gt;/&amp;lt;unique id&amp;gt;&lt;/code&gt;
 의 계층 구조로 저장됩니다.  또한, 이 실험 결과를 parsing 할 수 있는 경우엔
@@ -298,7 +298,7 @@ below.&lt;/p&gt;
 scripts to the Github:
 &lt;a href=&#34;https://github.com/sjp38/tpch-mariadb&#34;&gt;https://github.com/sjp38/tpch-mariadb&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;If you hano no time, just go to the link and use the script.&lt;/p&gt;
-&lt;h1 id=&#34;tpch-spec&#34;&gt;TPC-H Spec&lt;/h1&gt;
+&lt;h1 id=&#34;tpc-h-spec&#34;&gt;TPC-H Spec&lt;/h1&gt;
 &lt;p&gt;You can ge TPC-H benchmark specification from TPC website[3].
 Refer to it if you need strict specification of the benchmark.
 Nonetheless, I give you a rough description of the benchmark here, though.
@@ -306,7 +306,7 @@ TPC-H stores a huge data into 8 tables and run 22 queries analysing this data.
 To measure the performance, we can measure the time to store/load the data,
 runtime of each of the 22 queries, and the throughput (number of processed
 queries per second) of multiple sessions.&lt;/p&gt;
-&lt;h1 id=&#34;get-tpch-toolkit&#34;&gt;Get TPC-H Toolkit&lt;/h1&gt;
+&lt;h1 id=&#34;get-tpc-h-toolkit&#34;&gt;Get TPC-H Toolkit&lt;/h1&gt;
 &lt;p&gt;TPC provides the specification says how the tables should be constructed, what
 data should be stored in the tables, and what kind of queries should be issued.
 So, anyone can implement their TPC-H based on this specification.
@@ -364,9 +364,9 @@ $ file dbgen
 dbgen: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 2.6.32, BuildID[sha1]=d0bca1a18c33947d85f5943c8325837faec7c95d, not stripped
 $ file qgen
 qgen: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 2.6.32, BuildID[sha1]=79a6216e04c446715b0e55f9c804586887b698c8, not stripped
-&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;tpch-toolkit-usage&#34;&gt;TPC-H Toolkit Usage&lt;/h1&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;tpc-h-toolkit-usage&#34;&gt;TPC-H Toolkit Usage&lt;/h1&gt;
 &lt;p&gt;To run TPC-H on MariaDB, we need several more modification.
-Before that, let&#39;s see how we run TPC-H using the files under &lt;code&gt;dbgen/&lt;/code&gt;
+Before that, let&amp;rsquo;s see how we run TPC-H using the files under &lt;code&gt;dbgen/&lt;/code&gt;
 directory.&lt;/p&gt;
 &lt;h2 id=&#34;data-preparation&#34;&gt;Data Preparation&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;dss.ddl&lt;/code&gt; file has the sql statements be used for the creation of the 8 tables.
@@ -383,7 +383,7 @@ statements.&lt;/p&gt;
 Once your DB runs these sql statements, the table index will be generated and
 you will be ready to run the TPC-H queries.&lt;/p&gt;
 &lt;h2 id=&#34;query-creation-and-execution&#34;&gt;Query Creation and Execution&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;qgen&lt;/code&gt; creates the queries doing the TPC-H&#39;s analysis tasks.
+&lt;p&gt;&lt;code&gt;qgen&lt;/code&gt; creates the queries doing the TPC-H&amp;rsquo;s analysis tasks.
 We simply said 22 queries, but it would be better to say 22 kinds of queries.
 If a query is repeatedly issued with same arguments, DB server can cache the
 results and simply return it to the client.
@@ -391,7 +391,7 @@ As this can distort the results, TPC-H Toolkit has the template of the 22
 queries under &lt;code&gt;dbgen/queries/&lt;/code&gt; directory and let &lt;code&gt;qgen&lt;/code&gt; to create query
 statements using random arguments, based on this templates.
 The seed for the random number generation is created based on &lt;code&gt;dists.dss&lt;/code&gt; file.&lt;/p&gt;
-&lt;h1 id=&#34;modify-tpch-toolkit-for-mariadb&#34;&gt;Modify TPC-H Toolkit for MariaDB&lt;/h1&gt;
+&lt;h1 id=&#34;modify-tpc-h-toolkit-for-mariadb&#34;&gt;Modify TPC-H Toolkit for MariaDB&lt;/h1&gt;
 &lt;p&gt;Each DBMS has a little bit different query syntax.
 Thus, TPC-H Toolkit is made to support multiple DBMSes, but the MariaDB is not
 in the supported DBMSes.
@@ -588,7 +588,7 @@ do
     grep -rl &amp;quot;=item $i&amp;quot; * | xargs sed -i &amp;quot;s/=item $i/=item C&amp;lt;$i&amp;gt;/g&amp;quot;
 done
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;이어서 설명할 문제들과 해결책도 해당 링크를 참고한 것임을 밝혀둡니다.&lt;/p&gt;
-&lt;h2 id=&#34;mbstatet-conflict&#34;&gt;&lt;code&gt;__mbstate_t&lt;/code&gt; Conflict&lt;/h2&gt;
+&lt;h2 id=&#34;__mbstate_t-conflict&#34;&gt;&lt;code&gt;__mbstate_t&lt;/code&gt; Conflict&lt;/h2&gt;
 &lt;p&gt;앞의 에러 메세지는 사라지지만 이제 다음과 같은 에러 메세지가 나올 겁니다:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;/usr/include/wchar.h:94:3: error: conflicting types for ‘__mbstate_t’
  } __mbstate_t;
@@ -630,7 +630,7 @@ index fa1b0f0f26d9..bd7e6a97f4c8 100644
 +#endif /* Skip conflicting __mbstate_t definition */
 
  #endif /* !_BSD_SYS__TYPES_H_ */
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;pkgconfig-package-not-found&#34;&gt;pkg-config Package Not Found&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;pkg-config-package-not-found&#34;&gt;pkg-config Package Not Found&lt;/h2&gt;
 &lt;p&gt;성공적인 빌드를 위해선 당연하지만 PARSEC 3.0 이 의존성을 가진 패키지가 모두
 설치되어 있어야 합니다.  이를 주의 깊게 미리 설치해 두지 않았다면 다음과 같은
 에러 메세지를 만날 수도 있습니다:&lt;/p&gt;
@@ -676,7 +676,7 @@ benchmark 하나만을 쓰레드 한개 써서 &lt;code&gt;native&lt;/code&gt; �
 &lt;h1 id=&#34;references&#34;&gt;References&lt;/h1&gt;
 &lt;p&gt;[1] &lt;a href=&#34;http://parsec.cs.princeton.edu&#34;&gt;http://parsec.cs.princeton.edu&lt;/a&gt;&lt;br&gt;
 [2] &lt;a href=&#34;https://en.wikipedia.org/wiki/Plain_Old_Documentation&#34;&gt;https://en.wikipedia.org/wiki/Plain_Old_Documentation&lt;/a&gt;&lt;br&gt;
-[3] &lt;a href=&#34;https://groups.google.com/forum/#&#34;&gt;https://groups.google.com/forum/#&lt;/a&gt;!topic/snipersim/_1qpbmpPRtg&lt;/p&gt;
+[3] &lt;a href=&#34;https://groups.google.com/forum/#!topic/snipersim/_1qpbmpPRtg&#34;&gt;https://groups.google.com/forum/#!topic/snipersim/_1qpbmpPRtg&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -776,7 +776,7 @@ library.
 You can solve this problem by setting &lt;code&gt;PERLFLAGS&lt;/code&gt; env variable and executing
 &lt;code&gt;buildtools&lt;/code&gt; again:&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;$ PERLFLAGS=&amp;quot;-A libs=-lm -A libs=-ldl&amp;quot; ./buildtools&lt;/code&gt;&lt;/p&gt;
-&lt;h2 id=&#34;you-havent-done-a-make-depend-yet&#34;&gt;You haven&#39;t done a &amp;ldquo;make depend&amp;rdquo; yet!&lt;/h2&gt;
+&lt;h2 id=&#34;you-havent-done-a-make-depend-yet&#34;&gt;You haven&amp;rsquo;t done a &amp;ldquo;make depend&amp;rdquo; yet!&lt;/h2&gt;
 &lt;p&gt;Now, you see below error message.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;You haven&#39;t done a &amp;quot;make depend&amp;quot; yet!
 make[1]: *** [hash.o] Error 1

@@ -640,7 +640,7 @@ sudo apt update sudo apt install apt-transport-https ca-certificates curl softwa
 <p>지금은 gitlab 에서 자체적으로 정식 docker 이미지를 제공합니다.
 이 포스트에서는 Ubuntu 18.04 서버 위에 gitlab 정식 docker 이미지를 사용해
 설치하는 방법을 기록합니다.</p>
-<h1 id="docker-">Docker 설치</h1>
+<h1 id="docker-설치">Docker 설치</h1>
 <p>먼저 Docker 를 설치해야죠.  문서[1]를 참고해서 설치를 진행해 봅니다.</p>
 <p>먼저 apt 업데이트 후 종속 패키지들을 깔아줍니다:</p>
 <pre><code>sudo apt update
@@ -681,8 +681,8 @@ For more examples and ideas, visit:
  https://docs.docker.com/get-started/
 </code></pre><p>위와 같이 <code>Hello from Docker!</code> 가 나오면 된겁니다.</p>
 <p>[1] <a href="https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04">https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04</a></p>
-<h1 id="gitlab-">Gitlab 설치</h1>
-<h2 id="-">일단 시작</h2>
+<h1 id="gitlab-설치">Gitlab 설치</h1>
+<h2 id="일단-시작">일단 시작</h2>
 <p>이제 Gitlab docker image 를 가져오고 돌려보죠.  Gitlab 쪽 문서[1]를 참고합니다.</p>
 <pre><code>$ cd $HOME; mkdir data
 $ sudo docker run --detach --hostname gitlab.example.com \
@@ -694,12 +694,12 @@ $ sudo docker run --detach --hostname gitlab.example.com \
 		gitlab/gitlab-ce:11.8.2-ce.0
 </code></pre><p>이 글 작성 시점 기준으로 가장 마지막 정식 릴리즈가 11.8 이므로 11.8.2 버전을
 골랐고, 기존에 웹서버와 ssh 가 깔려있는 관계로 별도의 포트를 사용하게 했습니다.</p>
-<p>조금 기다렸다가 <a href="http://gitlab.example.com:30480">http://gitlab.example.com:30480</a> 으로 들어가면 로그인 됩니다.
+<p>조금 기다렸다가 <a href="http://gitlab.example.com">http://gitlab.example.com</a>:30480 으로 들어가면 로그인 됩니다.
 <code>$ sudo docker ps -a</code> 명령을 통해 만든 컨테이너의 status 가 <code>starting</code> 을
 넘어갈 때까지만 기다리면 됩니다.
 최초 로그인 시에는 관리자 패스워드를 바로 설정할 수 있습니다.
 이후 root 계정에 지금 설정한 패스워드를 입력해 접속할 수 있습니다.</p>
-<h2 id="-1">설정 변경</h2>
+<h2 id="설정-변경">설정 변경</h2>
 <p>몇가지 설정을 추가해야 합니다.  설정은 아래 명령으로 지금 띄운 컨테이너에
 들어가 설정 파일을 수정하는 것으로 가능합니다:</p>
 <pre><code>$ sudo docker exec -it gitlab /bin/bash
@@ -708,7 +708,7 @@ $ sudo docker run --detach --hostname gitlab.example.com \
 여기서 수정해도 괜찮습니다.</p>
 <p>해당 파일을 변경한 후에는 docker 를 재시작 해야 변경된 설정이 적용됩니다.</p>
 <pre><code>$ sudo docker restart gitlab
-</code></pre><h2 id="--">포트 변경 적용</h2>
+</code></pre><h2 id="포트-변경-적용">포트 변경 적용</h2>
 <p>호스트의 80 포트, 22 포트, 443 포트를 점유할 수 없는 상황이므로 우린 30480,
 30422, 30443 포트를 대신 사용하도록 했습니다.
 이 경우 추가적인 설정이 필요합니다.
@@ -718,7 +718,7 @@ nginx['listen_port'] = 80
 nginx['listen_https'] = false
 gitlab_rails['gitlab_shell_ssh_port'] = 30422
 </code></pre><p>두번째, 세번째 줄을 추가 안해주면 동작 안합니다[3].</p>
-<h2 id="gmail-smtp-">gmail smtp 설정</h2>
+<h2 id="gmail-smtp-설정">gmail smtp 설정</h2>
 <p>이어서 smtp 설정을 해야 합니다.</p>
 <p>우린 gmail smtp 를 사용하겠습니다.  이 설정 파일에 다음과 같은 내용을
 추가합니다.  이 내용은 공식 문서의 예제[2]에서 가져왔습니다.</p>
@@ -735,7 +735,7 @@ gitlab_rails['smtp_openssl_verify_mode'] = 'peer' # Can be: 'none', 'peer', 'cli
 </code></pre><p>여기서 <code>my.email</code> 과 <code>my-gmail-password</code> 는 당연히 실제 gmail 계정으로
 바꿔야겠죠?  해당 gmail 계정도 gmail 설정에서 smtp 를 사용할 수 있게 설정해
 줘야 합니다.</p>
-<h2 id="--1">가입 기능 제거</h2>
+<h2 id="가입-기능-제거">가입 기능 제거</h2>
 <p>gitlab 첫페이지는 <code>sign in</code> 과 <code>register</code> 기능이 있습니다.  처음 사용하는
 유저는 <code>register</code> 를 사용하면 되는거죠.</p>
 <p>하지만 우린 폐쇄적으로 운영할 꺼라 계정을 관리자 통해서만 만들 수 있게 하고

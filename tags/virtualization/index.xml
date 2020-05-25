@@ -65,8 +65,8 @@ install process.&lt;/p&gt;
 shows &lt;code&gt;Booting from Hard Disk...&lt;/code&gt; message only.  But, the VM is booted well.
 You can ssh to the VM via the port, 2242.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ ssh localhost -p 2242
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Let&#39;s connect the VM&#39;s console to the QEMU executing terminal.
-Modify the &lt;code&gt;/etc/default/grub&lt;/code&gt; file&#39;s &lt;code&gt;GRUB_CMDLINE_LINUX_DEFAULT&lt;/code&gt; to have
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Let&amp;rsquo;s connect the VM&amp;rsquo;s console to the QEMU executing terminal.
+Modify the &lt;code&gt;/etc/default/grub&lt;/code&gt; file&amp;rsquo;s &lt;code&gt;GRUB_CMDLINE_LINUX_DEFAULT&lt;/code&gt; to have
 &lt;code&gt;&amp;quot;console=ttyS0 earlyprintk=ttyS0 ftrace_dump_on_oops&amp;quot;&lt;/code&gt; and do below command:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ sudo update-grub
 $ sudo shutdown -h now
@@ -75,7 +75,7 @@ executed the QEMU command will be connected with the console of the VM and will
 show boot log and login prompt.&lt;/p&gt;
 &lt;h1 id=&#34;return-to-vm-monitor-console&#34;&gt;Return to VM Monitor Console&lt;/h1&gt;
 &lt;p&gt;If you want to go back to the VM monitor console, which you have seen before
-connecting the QEMU executed terminal to the VM&#39;s console, press &lt;code&gt;Ctrl+a c&lt;/code&gt;.
+connecting the QEMU executed terminal to the VM&amp;rsquo;s console, press &lt;code&gt;Ctrl+a c&lt;/code&gt;.
 If you want to go back to the guest console again, press &lt;code&gt;Ctr+a c enter&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Reference:
 &lt;a href=&#34;https://serverfault.com/questions/471719/how-to-start-qemu-directly-in-the-console-not-in-curses-or-sdl&#34;&gt;https://serverfault.com/questions/471719/how-to-start-qemu-directly-in-the-console-not-in-curses-or-sdl&lt;/a&gt;&lt;/p&gt;
@@ -96,11 +96,11 @@ For example:&lt;/p&gt;
 the rootfs by the guest OS and use it.&lt;/p&gt;
 &lt;p&gt;Also, you cannot use modules built on the host in the VM, unless you send the
 module binary files into the VM.
-If you don&#39;t want to do that, simply build the modules you need in static.  For
+If you don&amp;rsquo;t want to do that, simply build the modules you need in static.  For
 example, as this post uses the &lt;code&gt;ssh&lt;/code&gt;, I statically built the ethernet driver.&lt;/p&gt;
 &lt;h1 id=&#34;image-resize&#34;&gt;Image Resize&lt;/h1&gt;
 &lt;p&gt;The guest os disk might be full soon, if you configured it too small.
-You can enlarge the qcow2 image&#39;s size as below:&lt;/p&gt;
+You can enlarge the qcow2 image&amp;rsquo;s size as below:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ qemu-img resize qc2img +160G
 $ sudo apt install libguestfs-tools
 $ cp qc2img qc2img.bak

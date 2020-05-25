@@ -676,8 +676,8 @@ install process.</p>
 shows <code>Booting from Hard Disk...</code> message only.  But, the VM is booted well.
 You can ssh to the VM via the port, 2242.</p>
 <pre><code>$ ssh localhost -p 2242
-</code></pre><p>Let's connect the VM's console to the QEMU executing terminal.
-Modify the <code>/etc/default/grub</code> file's <code>GRUB_CMDLINE_LINUX_DEFAULT</code> to have
+</code></pre><p>Let&rsquo;s connect the VM&rsquo;s console to the QEMU executing terminal.
+Modify the <code>/etc/default/grub</code> file&rsquo;s <code>GRUB_CMDLINE_LINUX_DEFAULT</code> to have
 <code>&quot;console=ttyS0 earlyprintk=ttyS0 ftrace_dump_on_oops&quot;</code> and do below command:</p>
 <pre><code>$ sudo update-grub
 $ sudo shutdown -h now
@@ -686,7 +686,7 @@ executed the QEMU command will be connected with the console of the VM and will
 show boot log and login prompt.</p>
 <h1 id="return-to-vm-monitor-console">Return to VM Monitor Console</h1>
 <p>If you want to go back to the VM monitor console, which you have seen before
-connecting the QEMU executed terminal to the VM's console, press <code>Ctrl+a c</code>.
+connecting the QEMU executed terminal to the VM&rsquo;s console, press <code>Ctrl+a c</code>.
 If you want to go back to the guest console again, press <code>Ctr+a c enter</code>.</p>
 <p>Reference:
 <a href="https://serverfault.com/questions/471719/how-to-start-qemu-directly-in-the-console-not-in-curses-or-sdl">https://serverfault.com/questions/471719/how-to-start-qemu-directly-in-the-console-not-in-curses-or-sdl</a></p>
@@ -707,11 +707,11 @@ For example:</p>
 the rootfs by the guest OS and use it.</p>
 <p>Also, you cannot use modules built on the host in the VM, unless you send the
 module binary files into the VM.
-If you don't want to do that, simply build the modules you need in static.  For
+If you don&rsquo;t want to do that, simply build the modules you need in static.  For
 example, as this post uses the <code>ssh</code>, I statically built the ethernet driver.</p>
 <h1 id="image-resize">Image Resize</h1>
 <p>The guest os disk might be full soon, if you configured it too small.
-You can enlarge the qcow2 image's size as below:</p>
+You can enlarge the qcow2 image&rsquo;s size as below:</p>
 <pre><code>$ qemu-img resize qc2img +160G
 $ sudo apt install libguestfs-tools
 $ cp qc2img qc2img.bak

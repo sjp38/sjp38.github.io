@@ -28,7 +28,7 @@
   
     
   
-  <meta name="description" content="You can use classical debugger for your Linux kernel programming, though Torvalds doesn&#39;t like it. I also do not prefer such use of debuggers, but admit that sometimes debuggers are quite useful. ;)
+  <meta name="description" content="You can use classical debugger for your Linux kernel programming, though Torvalds doesn&rsquo;t like it. I also do not prefer such use of debuggers, but admit that sometimes debuggers are quite useful. ;)
 There are several ways to debug Linux kernel, but one of above is to set up a Linux virtual machine using QEMU and debugging the Linux kernel of the virtual machine from the host machine. This post summarises how to debug the Linux kernel in this way.">
 
   
@@ -153,7 +153,7 @@ There are several ways to debug Linux kernel, but one of above is to set up a Li
   <meta property="og:site_name" content="hacklog">
   <meta property="og:url" content="/post/qemu_kernel_debugging/">
   <meta property="og:title" content="Linux Kernel Debugging Using QEMU | hacklog">
-  <meta property="og:description" content="You can use classical debugger for your Linux kernel programming, though Torvalds doesn&#39;t like it. I also do not prefer such use of debuggers, but admit that sometimes debuggers are quite useful. ;)
+  <meta property="og:description" content="You can use classical debugger for your Linux kernel programming, though Torvalds doesn&rsquo;t like it. I also do not prefer such use of debuggers, but admit that sometimes debuggers are quite useful. ;)
 There are several ways to debug Linux kernel, but one of above is to set up a Linux virtual machine using QEMU and debugging the Linux kernel of the virtual machine from the host machine. This post summarises how to debug the Linux kernel in this way."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
@@ -206,7 +206,7 @@ There are several ways to debug Linux kernel, but one of above is to set up a Li
       "url": "/img/icon-512.png"
     }
   },
-  "description": "You can use classical debugger for your Linux kernel programming, though Torvalds doesn't like it. I also do not prefer such use of debuggers, but admit that sometimes debuggers are quite useful. ;)\nThere are several ways to debug Linux kernel, but one of above is to set up a Linux virtual machine using QEMU and debugging the Linux kernel of the virtual machine from the host machine. This post summarises how to debug the Linux kernel in this way."
+  "description": "You can use classical debugger for your Linux kernel programming, though Torvalds doesn\u0026rsquo;t like it. I also do not prefer such use of debuggers, but admit that sometimes debuggers are quite useful. ;)\nThere are several ways to debug Linux kernel, but one of above is to set up a Linux virtual machine using QEMU and debugging the Linux kernel of the virtual machine from the host machine. This post summarises how to debug the Linux kernel in this way."
 }
 </script>
 
@@ -629,7 +629,7 @@ There are several ways to debug Linux kernel, but one of above is to set up a Li
 
     <div class="article-style">
       <p>You can use classical debugger for your Linux kernel programming, though
-Torvalds doesn't like it.
+Torvalds doesn&rsquo;t like it.
 I also do not prefer such use of debuggers, but admit that sometimes debuggers
 are quite useful. ;)</p>
 <p>There are several ways to debug Linux kernel, but one of above is to set up a
@@ -656,16 +656,16 @@ For example, you could install the kernel on the virtual machine disk.  Or, you
 could use <code>-kernel</code>, <code>-append</code> and <code>-initrd</code> QEMU option to boot the virtual
 machine with your kernel image in host machine directly, or some other ways.
 One thing you should keep in your mind is that you should turn <strong>kaslr</strong> off.
-Just giving <code>nokaslr</code> in the kernel parameter doesn't works well.</p>
+Just giving <code>nokaslr</code> in the kernel parameter doesn&rsquo;t works well.</p>
 <p>Pass <code>-s</code> option to QEMU when you start up the QEMU virtual machine, or enter
 <code>gdbserver</code> in the QEMU monitor console command line.
 This make the virtual machine to start gdbserver and wait on <code>tcp::1234</code> for
 some accesses.
 If you have given <code>-nographic</code> QEMU option and set the kernel parameter so that
-the virtual machine's console is connected to your terminal, you could not see
+the virtual machine&rsquo;s console is connected to your terminal, you could not see
 the QEMU monitor console directly.  In this case, you can go back to QEMU
 monitor console by entering <code>Ctrl+a c</code>.
-If you want to go back to the virtual machine's console again, <code>Ctrl+a c &lt;enter&gt;</code>.</p>
+If you want to go back to the virtual machine&rsquo;s console again, <code>Ctrl+a c &lt;enter&gt;</code>.</p>
 <h1 id="start-gdb">Start gdb</h1>
 <p>Move to the build directory of the kernel to debug, enter <code>gdb vmlinux</code>.
 This will start up gdb using the symbol and debuggin information of the kernel.

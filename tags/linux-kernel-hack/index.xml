@@ -18,7 +18,7 @@
       <pubDate>Mon, 07 May 2018 18:21:01 +0900</pubDate>
       <guid>/post/qemu_kernel_debugging/</guid>
       <description>&lt;p&gt;You can use classical debugger for your Linux kernel programming, though
-Torvalds doesn&#39;t like it.
+Torvalds doesn&amp;rsquo;t like it.
 I also do not prefer such use of debuggers, but admit that sometimes debuggers
 are quite useful. ;)&lt;/p&gt;
 &lt;p&gt;There are several ways to debug Linux kernel, but one of above is to set up a
@@ -45,16 +45,16 @@ For example, you could install the kernel on the virtual machine disk.  Or, you
 could use &lt;code&gt;-kernel&lt;/code&gt;, &lt;code&gt;-append&lt;/code&gt; and &lt;code&gt;-initrd&lt;/code&gt; QEMU option to boot the virtual
 machine with your kernel image in host machine directly, or some other ways.
 One thing you should keep in your mind is that you should turn &lt;strong&gt;kaslr&lt;/strong&gt; off.
-Just giving &lt;code&gt;nokaslr&lt;/code&gt; in the kernel parameter doesn&#39;t works well.&lt;/p&gt;
+Just giving &lt;code&gt;nokaslr&lt;/code&gt; in the kernel parameter doesn&amp;rsquo;t works well.&lt;/p&gt;
 &lt;p&gt;Pass &lt;code&gt;-s&lt;/code&gt; option to QEMU when you start up the QEMU virtual machine, or enter
 &lt;code&gt;gdbserver&lt;/code&gt; in the QEMU monitor console command line.
 This make the virtual machine to start gdbserver and wait on &lt;code&gt;tcp::1234&lt;/code&gt; for
 some accesses.
 If you have given &lt;code&gt;-nographic&lt;/code&gt; QEMU option and set the kernel parameter so that
-the virtual machine&#39;s console is connected to your terminal, you could not see
+the virtual machine&amp;rsquo;s console is connected to your terminal, you could not see
 the QEMU monitor console directly.  In this case, you can go back to QEMU
 monitor console by entering &lt;code&gt;Ctrl+a c&lt;/code&gt;.
-If you want to go back to the virtual machine&#39;s console again, &lt;code&gt;Ctrl+a c &amp;lt;enter&amp;gt;&lt;/code&gt;.&lt;/p&gt;
+If you want to go back to the virtual machine&amp;rsquo;s console again, &lt;code&gt;Ctrl+a c &amp;lt;enter&amp;gt;&lt;/code&gt;.&lt;/p&gt;
 &lt;h1 id=&#34;start-gdb&#34;&gt;Start gdb&lt;/h1&gt;
 &lt;p&gt;Move to the build directory of the kernel to debug, enter &lt;code&gt;gdb vmlinux&lt;/code&gt;.
 This will start up gdb using the symbol and debuggin information of the kernel.

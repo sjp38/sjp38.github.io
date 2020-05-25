@@ -28,7 +28,7 @@
   
     
   
-  <meta name="description" content="In some case, we need to send patches that made by other people instead. git send-email command can know this situation by itself by comparing the commit author information and mail sender&#39;s information. In that case, git send-email automatically add From: line pointing the real author of the patch in the body of the mail so that maintainers applying the patches can set the author information correctly.
+  <meta name="description" content="In some case, we need to send patches that made by other people instead. git send-email command can know this situation by itself by comparing the commit author information and mail sender&rsquo;s information. In that case, git send-email automatically add From: line pointing the real author of the patch in the body of the mail so that maintainers applying the patches can set the author information correctly.
 For example, if &ldquo;Alice alice@abc.">
 
   
@@ -151,7 +151,7 @@ For example, if &ldquo;Alice alice@abc.">
   <meta property="og:site_name" content="hacklog">
   <meta property="og:url" content="/post/git_send_email_multiple_email_caution/">
   <meta property="og:title" content="A thing you should know if you are using multiple email accounts with `git send-email` | hacklog">
-  <meta property="og:description" content="In some case, we need to send patches that made by other people instead. git send-email command can know this situation by itself by comparing the commit author information and mail sender&#39;s information. In that case, git send-email automatically add From: line pointing the real author of the patch in the body of the mail so that maintainers applying the patches can set the author information correctly.
+  <meta property="og:description" content="In some case, we need to send patches that made by other people instead. git send-email command can know this situation by itself by comparing the commit author information and mail sender&rsquo;s information. In that case, git send-email automatically add From: line pointing the real author of the patch in the body of the mail so that maintainers applying the patches can set the author information correctly.
 For example, if &ldquo;Alice alice@abc."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
@@ -204,7 +204,7 @@ For example, if &ldquo;Alice alice@abc."><meta property="og:image" content="/img
       "url": "/img/icon-512.png"
     }
   },
-  "description": "In some case, we need to send patches that made by other people instead. git send-email command can know this situation by itself by comparing the commit author information and mail sender's information. In that case, git send-email automatically add From: line pointing the real author of the patch in the body of the mail so that maintainers applying the patches can set the author information correctly.\nFor example, if \u0026ldquo;Alice alice@abc."
+  "description": "In some case, we need to send patches that made by other people instead. git send-email command can know this situation by itself by comparing the commit author information and mail sender\u0026rsquo;s information. In that case, git send-email automatically add From: line pointing the real author of the patch in the body of the mail so that maintainers applying the patches can set the author information correctly.\nFor example, if \u0026ldquo;Alice alice@abc."
 }
 </script>
 
@@ -611,7 +611,7 @@ For example, if &ldquo;Alice alice@abc."><meta property="og:image" content="/img
 
     <div class="article-style">
       <p>In some case, we need to send patches that made by other people instead.  <code>git send-email</code> command can know this situation by itself by comparing the commit
-author information and mail sender's information.  In that case, <code>git send-email</code> automatically add <code>From:</code> line pointing the real author of the
+author information and mail sender&rsquo;s information.  In that case, <code>git send-email</code> automatically add <code>From:</code> line pointing the real author of the
 patch in the body of the mail so that maintainers applying the patches can set
 the author information correctly.</p>
 <p>For example, if &ldquo;Alice <a href="mailto:alice@abc.com">alice@abc.com</a>&rdquo; has made a commit and &ldquo;Bob
@@ -619,9 +619,11 @@ the author information correctly.</p>
 of the mail.  And, when a maintainer is applying the patch using <code>git am</code>, the
 patch is applied with author &ldquo;Alice <a href="mailto:alice@abc.com">alice@abc.com</a>&rdquo;.</p>
 <p>However, please note that <code>git send-email</code> knows the situation by comparing the
-author information and the command caller's git user eamil configuration or
+author information and the command caller&rsquo;s git user eamil configuration or
 given &lsquo;&ndash;from&rsquo; option only, not considering real smtp email account.</p>
-<p>For example, suppose that Alice has two email accounts, <a href="mailto:%60alice@abc.com">`alice@abc.com</a><code> and</code><a href="mailto:alice@def.com">alice@def.com</a><code>.  And, Alice wants to use </code><a href="mailto:alice@abc.com">alice@abc.com</a><code>as her email address in the git history, but needs to send her patches using</code>def.com` SMTP server.
+<p>For example, suppose that Alice has two email accounts, <code>alice@abc.com</code> and
+<code>alice@def.com</code>.  And, Alice wants to use <code>alice@abc.com</code> as her email address
+in the git history, but needs to send her patches using <code>def.com</code> SMTP server.
 She might use below commands.</p>
 <pre><code>$ git config sendemail.smtpserver smtp.def.com
 $ git config sendemail.smtpuser alice@def.com
@@ -629,9 +631,13 @@ $ git config user.email &quot;alice@abc.com&quot;
 $ git commit -as -m 'the patch'
 $ git format-patch HEAD^
 $ git send-email 0001_the_patch.patch
-</code></pre><p>Because her git config is saying the <code>user.email</code> is <a href="mailto:%60alice@abc.com">`alice@abc.com</a><code>and the patch is authored by</code><a href="mailto:alice@abc.com">alice@abc.com</a><code>, </code>git send-email<code>thinks same people is sending the patch.  Thus, it doesn't add the 'From:' line in the body of the mail.  Of course,</code>git send-email<code>tries to set the</code>from<code> of the mail as</code><a href="mailto:alice@abc.com">alice@abc.com</a>`, but as the additionally specified &lsquo;from&rsquo; information is
+</code></pre><p>Because her git config is saying the <code>user.email</code> is <code>alice@abc.com</code> and the
+patch is authored by <code>alice@abc.com</code>, <code>git send-email</code> thinks same people is
+sending the patch.  Thus, it doesn&rsquo;t add the &lsquo;From:&rsquo; line in the body of the
+mail.  Of course, <code>git send-email</code> tries to set the <code>from</code> of the mail as
+<code>alice@abc.com</code>, but as the additionally specified &lsquo;from&rsquo; information is
 usually (at least gmail does) ignored by the SMTP server, the maintainer will
-receive the mail saying author email as <a href="mailto:'alice@def.com">'alice@def.com</a>&rsquo; only.</p>
+receive the mail saying author email as &lsquo;<a href="mailto:alice@def.com">alice@def.com</a>&rsquo; only.</p>
 <p>Note that <code>git send-email</code> considers the email address it <em>tries</em> to use as the
 from address, not the final one that SMTP server will use.  Thus, this problem
 can be worked around in weird way using the <code>--from</code> option of the <code>git send-email</code>.  In the above case, giving <code>--from &quot;Alice &lt;alice@def.com&gt;&quot;</code> option
@@ -639,7 +645,7 @@ to <code>git send-email</code> makes the command to think the sender is not the 
 (<a href="mailto:alice@abc.com">alice@abc.com</a>) and as a result, it adds the <code>From:</code> line in the body.</p>
 <p>Also, please note that adding <code>--from</code> option does not always add the <code>From:</code>
 line in the body.  Rather than that, it can even hide the <code>From:</code> line you
-intended to add, if you give the address that same with the commit's author,
+intended to add, if you give the address that same with the commit&rsquo;s author,
 regardless of what SMTP server you use.  For example,</p>
 <pre><code>$ git config sendemail.smtpserver smtp.def.com
 $ git config sendemail.smtpuser alice@def.com

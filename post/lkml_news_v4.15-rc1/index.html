@@ -632,7 +632,7 @@
   <div class="article-container">
 
     <div class="article-style">
-      <h2 id="linux-415rc1">Linux 4.15-rc1</h2>
+      <h2 id="linux-415-rc1">Linux 4.15-rc1</h2>
 <p><a href="https://lkml.kernel.org/r/CA+55aFzcudOPSwbD9XfVxBgFsQOhBjyncyYnGDYwZUEHOGUwcw@mail.gmail.com">https://lkml.kernel.org/r/CA+55aFzcudOPSwbD9XfVxBgFsQOhBjyncyYnGDYwZUEHOGUwcw@mail.gmail.com</a></p>
 <p>예정대로 2주만에 4.15 의 첫번째 rc 버전이 나왔습니다.</p>
 <p>지난주는 추수감사절이라 다들 휴가인 사람이 많았기에 첫번째 주에 최대한 많이
@@ -643,7 +643,7 @@
 <p>4.14 가 LTS 였기에 이번 머지윈도우에는 변화가 크지 않을 것으로 예상했는데
 생각보다 많은 풀리퀘스트가 있었다고 합니다.  4.9 때와는 다른 경향인데, 4.9 에
 비해 4.14 가 변화가 크지 않았기 때문 아니겠냐고 토발즈는 생각하는군요.</p>
-<h2 id="patch-v3-04-introduce-getuserpageslongterm">[PATCH v3 0/4] introduce get_user_pages_longterm()</h2>
+<h2 id="patch-v3-04-introduce-get_user_pages_longterm">[PATCH v3 0/4] introduce get_user_pages_longterm()</h2>
 <p><a href="https://lkml.kernel.org/r/151197872943.26211.6551382719053304996.stgit@dwillia2-desk3.amr.corp.intel.com">https://lkml.kernel.org/r/151197872943.26211.6551382719053304996.stgit@dwillia2-desk3.amr.corp.intel.com</a></p>
 <p>커널스페이스에서 꽤 오랜시간 페이지를 잡아둬야 하는 경우를 위한, 예를 들어
 dma-to-dax vs truncate 문제를 위한, get_user_pages() 의 변종의 추가입니다.
@@ -656,12 +656,12 @@ dma-to-dax vs truncate 문제를 위한, get_user_pages() 의 변종의 추가�
 기능에 많이 의존하고 있기 때문에 KASAN 메인테이너 중 하나인 Dmitry 는 이게
 별도의 도구로 머지되어야 할지 의문스럽다며 머지될 예정이면 한번 더 이야기
 해달라고 하네요.</p>
-<h2 id="patch-v2-03-mmcma-manage-the-memory-of-the-cma-area-by-using-the-zonemovable">[PATCH v2 0/3] mm/cma: manage the memory of the CMA area by using the ZONE_MOVABLE</h2>
+<h2 id="patch-v2-03-mmcma-manage-the-memory-of-the-cma-area-by-using-the-zone_movable">[PATCH v2 0/3] mm/cma: manage the memory of the CMA area by using the ZONE_MOVABLE</h2>
 <p><a href="https://lkml.kernel.org/r/1512114786-5085-1-git-send-email-iamjoonsoo.kim@lge.com">https://lkml.kernel.org/r/1512114786-5085-1-git-send-email-iamjoonsoo.kim@lge.com</a></p>
 <p>CMA 를 위한 영역은 하나의 zone 내에 위치하게 되는데, 이 zone 내에 다양한 특성의
 페이지들이 혼재되어있다보니 이런저런 문제가 생깁니다.  CMA 영역을 MOVABLE zone
 만 쓰도록 함으로써 이 문제를 해결하는 패치입니다.</p>
-<h2 id="patch-tipcorercu-021-deemphasize-smpreadbarrierdepends">[PATCH tip/core/rcu 0/21] De-emphasize {smp_,}read_barrier_depends</h2>
+<h2 id="patch-tipcorercu-021-de-emphasize-smp_read_barrier_depends">[PATCH tip/core/rcu 0/21] De-emphasize {smp_,}read_barrier_depends</h2>
 <p><a href="https://lkml.kernel.org/r/20171201195053.GA23494@linux.vnet.ibm.com">https://lkml.kernel.org/r/20171201195053.GA23494@linux.vnet.ibm.com</a></p>
 <p>RCU 패치는 일단 Paul 의 트리에 머지된 후, tip 트리로 머지되고 나서야 토발즈의
 트리에 들어갑니다.  이번에도 tip 트리로 머지되기 위한 패치들이 올라왔습니다.

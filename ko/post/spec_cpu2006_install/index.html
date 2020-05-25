@@ -639,14 +639,14 @@ Automated Toolbox 아래 내용들을 하나하나 읽고 따라하기엔 시간
 수행이 가능하도록 스크립트를 짜서 Github 에 올려뒀습니다[1].  시간이 없는
 분들은 이쪽을 사용 바랍니다.</p>
 <p>[1] <a href="https://github.com/sjp38/spec_on_ubuntu_xenial">https://github.com/sjp38/spec_on_ubuntu_xenial</a></p>
-<h1 id="-">설치 환경</h1>
+<h1 id="설치-환경">설치 환경</h1>
 <p>본 글에서 설명하는 내용은 다음과 같은 환경의 머신 위에서 수행되었습니다:</p>
 <ul>
 <li>Intel Xeon E7-8870 v3</li>
 <li>Linux 4.10 kernel</li>
 <li>Ubuntu 16.04.1 Server version</li>
 </ul>
-<h1 id="--">소스 코드 구하기</h1>
+<h1 id="소스-코드-구하기">소스 코드 구하기</h1>
 <p>먼저 소스 코드가 있어야겠죠.  SPEC CPU 2006 은 DVD 또는 <code>.iso</code> 파일의 형태로
 구매 [2] 될 수 있습니다 (작성 시점에서 SPEC CPU 2006 v1.2 의 가격은 $800 군요).
 이렇게 구매된 DVD 안에는 벤치마크 소스코드와 벤치마크의 컴파일과 수행, 검증을
@@ -667,7 +667,7 @@ $ sudo umount ./tmnt &amp;&amp; rm -fr ./tmnt
 $ sudo chown -R &lt;username&gt; SPEC_CPU2006v1.1
 $ sudo chmod -R 755 SPEC_CPU2006v1.1
 $ cd SPEC_CPU2006v1.1
-</code></pre><h1 id="-1">툴 빌드</h1>
+</code></pre><h1 id="툴-빌드">툴 빌드</h1>
 <p>SPEC 에서 사용되는 도구들은 앞서 가져온 <code>.iso</code> 파일 안에 redhat, suse 등 여러
 플랫폼 용으로 미리 빌드되어 있습니다.  하지만 Ubuntu 를 위한 버전은 없습니다.
 따라서 다음과 같이 소스코드로부터 직접 빌드를 해야 합니다:</p>
@@ -717,7 +717,7 @@ pp.c:(.text+0x2a76): undefined reference to `pow'
 알려줘야 합니다.  다음과 같이 <code>PERLFLAGS</code> 환경변수를 설정하고 <code>buildtools</code> 를
 실행하는 것으로 해결할 수 있습니다:</p>
 <p><code>$ PERLFLAGS=&quot;-A libs=-lm -A libs=-ldl&quot; ./buildtools</code></p>
-<h2 id="you-havent-done-a-make-depend-yet">You haven't done a &ldquo;make depend&rdquo; yet!</h2>
+<h2 id="you-havent-done-a-make-depend-yet">You haven&rsquo;t done a &ldquo;make depend&rdquo; yet!</h2>
 <p>이어서 다음 에러 메세지가 나옵니다.</p>
 <pre><code>You haven't done a &quot;make depend&quot; yet!
 make[1]: *** [hash.o] Error 1
@@ -779,7 +779,7 @@ Hey!  Some of the Perl tests failed!  If you think this is okay, enter y now:
 <pre><code>Tools built successfully.  Go to the top of the tree and
 source the shrc file.  Then you should be ready.
 $
-</code></pre><h1 id="heading">실행</h1>
+</code></pre><h1 id="실행">실행</h1>
 <h2 id="configuration-file">Configuration File</h2>
 <p>빌드가 완료되었다면 이제 실행을 해야겠죠.  벤치마크의 실행 환경을 구성해야
 하는데, config/ 디렉토리 밑에 예제 구성 파일들이 있습니다.  이 가운데,

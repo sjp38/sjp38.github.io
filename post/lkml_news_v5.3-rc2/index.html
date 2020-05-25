@@ -634,7 +634,7 @@ x86 과 arm64 가 범용적 페이지 테이블 워킹을 하도록 했던 해�
   <div class="article-container">
 
     <div class="article-style">
-      <h2 id="patch-v6-05-introduce-madvcold-and-madvpageout">[PATCH v6 0/5] Introduce MADV_COLD and MADV_PAGEOUT</h2>
+      <h2 id="patch-v6-05-introduce-madv_cold-and-madv_pageout">[PATCH v6 0/5] Introduce MADV_COLD and MADV_PAGEOUT</h2>
 <p><a href="https://lkml.kernel.org/r/20190723062539.198697-1-minchan@kernel.org">https://lkml.kernel.org/r/20190723062539.198697-1-minchan@kernel.org</a></p>
 <p>어플리케이션의 메모리를 좀 더 적극적으로 reclaim 시킴으로써 반응성을 높이기
 위한 패치셋의 일부를 따로 떼어낸, <code>MADV_COLD</code> 와 <code>MADV_PAGEOUT</code> 힌트를
@@ -646,7 +646,7 @@ x86 과 arm64 가 범용적 페이지 테이블 워킹을 하도록 했던 해�
 <p><a href="https://lkml.kernel.org/r/20190722154210.42799-1-steven.price@arm.com">https://lkml.kernel.org/r/20190722154210.42799-1-steven.price@arm.com</a></p>
 <p>x86 과 arm64 가 범용적 페이지 테이블 워킹을 하도록 했던 해치셋을 조금 더 확장한
 버전입니다.  기존 대비 페이지 테이블 덤프 기능도 일반화 시킨게 차이군요.</p>
-<h2 id="patch-v1-12-mmpageidle-add-support-for-perpid-pageidle-using-virtual-indexing">[PATCH v1 1/2] mm/page_idle: Add support for per-pid page_idle using virtual indexing</h2>
+<h2 id="patch-v1-12-mmpage_idle-add-support-for-per-pid-page_idle-using-virtual-indexing">[PATCH v1 1/2] mm/page_idle: Add support for per-pid page_idle using virtual indexing</h2>
 <p><a href="https://lkml.kernel.org/r/20190722213205.140845-1-joel@joelfernandes.org">https://lkml.kernel.org/r/20190722213205.140845-1-joel@joelfernandes.org</a></p>
 <p>리눅스 커널은 <code>page_idle</code> 이라는 인터페이스를 통해 특정 페이지의 액세스 여부를
 파악할 수 있게 합니다.  저도 이걸 통해서 wss 를 재거나 하는데 쓸 수 있는
@@ -661,14 +661,14 @@ virtual page frame number (VFN) 을 통해 페이지 트랙킹을 할 수 있게
 이로써 이 인터페이스를 사용하는 유저스페이스 도구의 코드가 간단해질 뿐더러 보안
 이슈도 좀 더 편리해지죠.  구글에선 내부적으로 이를 통해 heap profiler
 (heapprofd) 를 좀 더 쉽게 만들었나보군요.</p>
-<h2 id="patch-rfc-mmpageidle-simple-idle-page-tracking-for-virtual-memory">[PATCH RFC] mm/page_idle: simple idle page tracking for virtual memory</h2>
+<h2 id="patch-rfc-mmpage_idle-simple-idle-page-tracking-for-virtual-memory">[PATCH RFC] mm/page_idle: simple idle page tracking for virtual memory</h2>
 <p><a href="https://lkml.kernel.org/r/156388286599.2859.5353604441686895041.stgit@buzz">https://lkml.kernel.org/r/156388286599.2859.5353604441686895041.stgit@buzz</a></p>
 <p>앞에서 소개한 패치와 비슷하게 <code>page_idle</code> 을 간편화 시키는 패치셋입니다.  특정
 pid 의 모든 mapped page frame 의 access bit 을 한번에 clear 할 수 있게 합니다.
 인터페이스는 <code>echo 6 &gt; /proc/&lt;pid&gt;/clear_refs</code> 같은 형태군요.  이후,
 <code>/proc/&lt;pid&gt;/smaps</code> 파일을 이용해 현재 idle 한 페이지들의 갯수를 알 수
 있습니다.</p>
-<h2 id="linux-53rc2">Linux 5.3-rc2</h2>
+<h2 id="linux-53-rc2">Linux 5.3-rc2</h2>
 <p><a href="https://lkml.kernel.org/r/CAHk-=wiiKRJprQDJqJzdcjdaGs73UtVPTM2+jOHWdMgu5Sp2HQ@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wiiKRJprQDJqJzdcjdaGs73UtVPTM2+jOHWdMgu5Sp2HQ@mail.gmail.com</a></p>
 <p>두번째 rc 버전이 예정대로 나왔습니다.  변경사항이 많은 머지윈도우였던 만큼 rc2
 도 꽤 수정사항이 많은 것 같습니다.  전체적으로 문서, arch 코드, 그리고 드라이버

@@ -59,24 +59,24 @@ a 프로젝트에 &amp;lsquo;b&amp;rsquo; 디렉토리를 만들고 그 아래 �
 리포지토리의 하위 디렉토리로 옮기는 법을 설명합니다.&lt;/p&gt;
 &lt;p&gt;[1] &lt;a href=&#34;https://github.com/aparri/memory-model&#34;&gt;https://github.com/aparri/memory-model&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;[2] &lt;a href=&#34;https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/tools/memory-model&#34;&gt;https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/tools/memory-model&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;--&#34;&gt;초기 상황과 목표&lt;/h2&gt;
+&lt;h2 id=&#34;초기-상황과-목표&#34;&gt;초기 상황과 목표&lt;/h2&gt;
 &lt;p&gt;먼저 현재 디렉토리 아래에 a 리포지토리와 b 리포지토리가 있다고 가정합니다:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ ls
 a   b
 $
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;우리는 a 리포지토리 아래 b/ 디렉토리를 만들고 그 아래 b 리포지토리를 넣고
 싶습니다.&lt;/p&gt;
-&lt;h2 id=&#34;heading&#34;&gt;전략&lt;/h2&gt;
+&lt;h2 id=&#34;전략&#34;&gt;전략&lt;/h2&gt;
 &lt;p&gt;b 리포지토리가 b/ 디렉토리 아래 모든 파일을 위치하도록 변경한 후, 이
 리포지토리를 a 리포지토리에서 &lt;code&gt;--allow-unrelated-histories&lt;/code&gt; 옵션을 사용해
 머지하도록 하겠습니다.&lt;/p&gt;
-&lt;h2 id=&#34;----&#34;&gt;합쳐질 리포지토리 파일 구조 변경&lt;/h2&gt;
+&lt;h2 id=&#34;합쳐질-리포지토리-파일-구조-변경&#34;&gt;합쳐질 리포지토리 파일 구조 변경&lt;/h2&gt;
 &lt;p&gt;먼저 b 리포지토리의 파일들이 b/ 디렉토리 아래 위치하도록 만듭니다:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ cd b
 $ mkdir b
 $ git mv !(b) b
 $ git commit -a -m &amp;quot;Relocate files for inclusion&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;-&#34;&gt;리포지토리 병합&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;리포지토리-병합&#34;&gt;리포지토리 병합&lt;/h2&gt;
 &lt;p&gt;이제 b 리포지토리를 임시 remote 리포지토리로 등록하고 머지합니다:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ cd ../a
 $ git remote add temp ../b
@@ -86,7 +86,7 @@ $ git merge --allow-unrelated-histories temp/master
 있게 해줍니다.&lt;/p&gt;
 &lt;p&gt;임시로 등록한 remote 리포지토리는 지워줍시다:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ git remote rm temp
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;heading1&#34;&gt;정리&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;정리&#34;&gt;정리&lt;/h2&gt;
 &lt;p&gt;이상과 같이 기존의 개발 히스토리를 유지하면서 특정 git 리포지토리를 다른 git
 리포지토리의 하위 디렉토리로 병합하는 방법을 알아보았습니다.&lt;/p&gt;
 </description>
@@ -103,7 +103,7 @@ $ git merge --allow-unrelated-histories temp/master
 &lt;p&gt;커널 디버깅 방법은 여러가지가 있는데, 그 중 하나는 QEMU 등을 이용한 리눅스 가상
 머신을 띄워 두고, 호스트 머신에서 해당 가상 머신의 리눅스 커널을 디버깅 하는
 방법입니다.  이 글에선 이렇게 디버깅 하는 방법을 간단히 정리해 봅니다.&lt;/p&gt;
-&lt;h1 id=&#34;-&#34;&gt;테스트 환경&lt;/h1&gt;
+&lt;h1 id=&#34;테스트-환경&#34;&gt;테스트 환경&lt;/h1&gt;
 &lt;p&gt;글 작성 과정에서 테스트에 사용한 주요 소프트웨어들과 버전은 다음과 같습니다.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Ubuntu 16.04.3 Server&lt;/li&gt;
@@ -111,11 +111,11 @@ $ git merge --allow-unrelated-histories temp/master
 &lt;li&gt;QEMU v2.11.0-dirty&lt;/li&gt;
 &lt;li&gt;Linux v4.16&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1 id=&#34;-1&#34;&gt;커널 빌드&lt;/h1&gt;
+&lt;h1 id=&#34;커널-빌드&#34;&gt;커널 빌드&lt;/h1&gt;
 &lt;p&gt;디버깅할 커널을 빌드합니다.  이 때 &lt;code&gt;CONFIG_GDB_SCRIPTS&lt;/code&gt; 는 켜고
 &lt;code&gt;CONFIG_DEBUG_INFO_REDUCED&lt;/code&gt; 는 끄고, 타겟 아키텍쳐가 &lt;code&gt;CONFIG_FRAME_POINTER&lt;/code&gt; 를
 지원한다면 켜야 합니다.&lt;/p&gt;
-&lt;h1 id=&#34;--&#34;&gt;가상 머신 부팅&lt;/h1&gt;
+&lt;h1 id=&#34;가상-머신-부팅&#34;&gt;가상 머신 부팅&lt;/h1&gt;
 &lt;p&gt;빌드가 완료되면 해당 커널을 사용해 QEMU 가상 머신을 부팅시킵니다.  가상 머신
 위에 커널을 설치하는 방법도 있겠고, QEMU 에 &lt;code&gt;-kernel&lt;/code&gt; 과 &lt;code&gt;-append&lt;/code&gt;, &lt;code&gt;-initrd&lt;/code&gt;
 등을 사용해서 호스트에서 빌드한 리눅스 커널로 부팅시키는 방법도 있을 겁니다.
@@ -129,7 +129,7 @@ $ git merge --allow-unrelated-histories temp/master
 화면에 QEMU monitor console 이 아니라 가상머신의 console 로 연결되었을 텐데,
 &lt;code&gt;Ctrl+a c&lt;/code&gt; 키 조합으로 QEMU monitor console 로 이동할 수 있습니다.  여기서
 가상머신 콘솔로 돌아가려면 &lt;code&gt;Ctrl+a c &amp;lt;enter&amp;gt;&lt;/code&gt; 를 입력해 줍니다.&lt;/p&gt;
-&lt;h1 id=&#34;gdb-&#34;&gt;gdb 시작&lt;/h1&gt;
+&lt;h1 id=&#34;gdb-시작&#34;&gt;gdb 시작&lt;/h1&gt;
 &lt;p&gt;호스트 머신에서 디버깅할 커널의 빌드 디렉토리로 이동해서 &lt;code&gt;gdb vmlinux&lt;/code&gt; 명령어를
 입력해 빌드된 리눅스 심볼과 디버깅 정보를 사용해 gdb 가 켜지도록 합니다.
 우분투나 일부 배포본에서는 이 때 &lt;code&gt;vmlinux-gdb.py&lt;/code&gt; 를 읽어들이는데 실패할 수
@@ -158,13 +158,13 @@ Thread 1 received signal SIGINT, Interrupt.
 0xffffffff818cce92 in native_safe_halt () at /home/sjpark/linux/arch/x86/include/asm/irqflags.h:54
 54              asm volatile(&amp;quot;sti; hlt&amp;quot;: : :&amp;quot;memory&amp;quot;);
 (gdb)
-&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;-gdb-helper-&#34;&gt;리눅스 gdb helper 사용하기&lt;/h1&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;리눅스-gdb-helper-사용하기&#34;&gt;리눅스 gdb helper 사용하기&lt;/h1&gt;
 &lt;p&gt;사실은 앞 단계에서 &lt;code&gt;.gdbinit&lt;/code&gt; 를 굳이 수정하지 않아서 gdb가 &lt;code&gt;vmlinux-gdb.py&lt;/code&gt; 를
 읽어들이는데 실패하더라도 gdb 를 평범하게 사용할 수 있습니다.  &lt;code&gt;vmlinux-gdb.py&lt;/code&gt;
 는 사실 gdb 위에서 리눅스 커널을 디버깅하는걸 편리하게 해줄 수 있는 일부
 스크립트, 즉 gdb helper 를 담고 있습니다.  이걸 사용하면 보다 쉽게 커널
 디버깅을 할 수 있습니다.&lt;/p&gt;
-&lt;h2 id=&#34;helper--&#34;&gt;helper 스크립트 리스트업&lt;/h2&gt;
+&lt;h2 id=&#34;helper-스크립트-리스트업&#34;&gt;helper 스크립트 리스트업&lt;/h2&gt;
 &lt;p&gt;사용 가능한 helper 스크립트는 lx로 시작하는 규칙을 갖고 있습니다.  다음
 명령으로 사용 가능한 스크립트 목록과 간단한 설명을 볼 수 있습니다:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(gdb) apropos lx
@@ -187,7 +187,7 @@ lx-ps -- Dump Linux tasks
 lx-symbols -- (Re-)load symbols of Linux kernel and currently loaded modules
 lx-version --  Report the Linux Version of the current kernel
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;참 쉽죠? ;)&lt;/p&gt;
-&lt;h1 id=&#34;-2&#34;&gt;참고 자료&lt;/h1&gt;
+&lt;h1 id=&#34;참고-자료&#34;&gt;참고 자료&lt;/h1&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.kernel.org/doc/html/v4.11/dev-tools/gdb-kernel-debugging.html&#34;&gt;커널 디버깅 공식 문서&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;http://www.alexlambert.com/2017/12/18/kernel-debugging-for-newbies.html&#34;&gt;참고할만한 영문 블로그 글&lt;/a&gt;&lt;/li&gt;
@@ -384,7 +384,7 @@ Unicast reply from 10.0.0.1 [11:22:33:44:55:66]  0.251ms
 # update-grub2
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;다른 버전의 설치되어있는 커널을 제거하고 싶다면 위의 &lt;code&gt;$(uname -r)&lt;/code&gt; 부분을
 제거하고자 하는 커널 버전으로 대체하면 된다.&lt;/p&gt;
-&lt;h2 id=&#34;-&#34;&gt;참고 문서&lt;/h2&gt;
+&lt;h2 id=&#34;참고-문서&#34;&gt;참고 문서&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;http://askubuntu.com/questions/594443/how-can-i-remove-compiled-kernel&#34;&gt;http://askubuntu.com/questions/594443/how-can-i-remove-compiled-kernel&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;

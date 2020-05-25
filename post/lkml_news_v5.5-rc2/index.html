@@ -610,7 +610,7 @@ As the buffered IO uses the page cache, an intensive buffered IO workload using 
   <div class="article-container">
 
     <div class="article-style">
-      <h2 id="patchset-05-support-for-rwfuncached">[PATCHSET 0/5] Support for <code>RWF_UNCACHED</code></h2>
+      <h2 id="patchset-05-support-for-rwf_uncached">[PATCHSET 0/5] Support for <code>RWF_UNCACHED</code></h2>
 <p><a href="https://lkml.kernel.org/r/20191210162454.8608-1-axboe@kernel.dk">https://lkml.kernel.org/r/20191210162454.8608-1-axboe@kernel.dk</a></p>
 <p>As the buffered IO uses the page cache, an intensive buffered IO workload using
 very huge file can cause memory pressure by inflating the page cache.
@@ -619,11 +619,11 @@ Jens Axboe thus implemented <code>RWF_UNCACHED</code> flag, which skips use of t
 cache if the given IO target is not in the page cache already.
 Jonathan Corbet has also introduced this patchset in LWN
 (<a href="https://lwn.net/Articles/806980/)">https://lwn.net/Articles/806980/)</a>.</p>
-<h2 id="linux-55rc2">Linux 5.5.-rc2</h2>
+<h2 id="linux-55-rc2">Linux 5.5.-rc2</h2>
 <p><a href="https://lkml.kernel.org/r/CAHk-=wgF1O8oPL9HRwRSrHt7NeLATtE5eZjcmP1QZfkcqE-+0g@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wgF1O8oPL9HRwRSrHt7NeLATtE5eZjcmP1QZfkcqE-+0g@mail.gmail.com</a></p>
 <p>The first release right after the close of the merge window, namely rc2, is
 usually calm because it is too early to find bugs.  This release was also did.
-It's calm and normal.  Torvalds asks us for test.</p>
+It&rsquo;s calm and normal.  Torvalds asks us for test.</p>
 
     </div>
 

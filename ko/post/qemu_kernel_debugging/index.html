@@ -636,7 +636,7 @@
 <p>커널 디버깅 방법은 여러가지가 있는데, 그 중 하나는 QEMU 등을 이용한 리눅스 가상
 머신을 띄워 두고, 호스트 머신에서 해당 가상 머신의 리눅스 커널을 디버깅 하는
 방법입니다.  이 글에선 이렇게 디버깅 하는 방법을 간단히 정리해 봅니다.</p>
-<h1 id="-">테스트 환경</h1>
+<h1 id="테스트-환경">테스트 환경</h1>
 <p>글 작성 과정에서 테스트에 사용한 주요 소프트웨어들과 버전은 다음과 같습니다.</p>
 <ul>
 <li>Ubuntu 16.04.3 Server</li>
@@ -644,11 +644,11 @@
 <li>QEMU v2.11.0-dirty</li>
 <li>Linux v4.16</li>
 </ul>
-<h1 id="-1">커널 빌드</h1>
+<h1 id="커널-빌드">커널 빌드</h1>
 <p>디버깅할 커널을 빌드합니다.  이 때 <code>CONFIG_GDB_SCRIPTS</code> 는 켜고
 <code>CONFIG_DEBUG_INFO_REDUCED</code> 는 끄고, 타겟 아키텍쳐가 <code>CONFIG_FRAME_POINTER</code> 를
 지원한다면 켜야 합니다.</p>
-<h1 id="--">가상 머신 부팅</h1>
+<h1 id="가상-머신-부팅">가상 머신 부팅</h1>
 <p>빌드가 완료되면 해당 커널을 사용해 QEMU 가상 머신을 부팅시킵니다.  가상 머신
 위에 커널을 설치하는 방법도 있겠고, QEMU 에 <code>-kernel</code> 과 <code>-append</code>, <code>-initrd</code>
 등을 사용해서 호스트에서 빌드한 리눅스 커널로 부팅시키는 방법도 있을 겁니다.
@@ -662,7 +662,7 @@
 화면에 QEMU monitor console 이 아니라 가상머신의 console 로 연결되었을 텐데,
 <code>Ctrl+a c</code> 키 조합으로 QEMU monitor console 로 이동할 수 있습니다.  여기서
 가상머신 콘솔로 돌아가려면 <code>Ctrl+a c &lt;enter&gt;</code> 를 입력해 줍니다.</p>
-<h1 id="gdb-">gdb 시작</h1>
+<h1 id="gdb-시작">gdb 시작</h1>
 <p>호스트 머신에서 디버깅할 커널의 빌드 디렉토리로 이동해서 <code>gdb vmlinux</code> 명령어를
 입력해 빌드된 리눅스 심볼과 디버깅 정보를 사용해 gdb 가 켜지도록 합니다.
 우분투나 일부 배포본에서는 이 때 <code>vmlinux-gdb.py</code> 를 읽어들이는데 실패할 수
@@ -691,13 +691,13 @@ Thread 1 received signal SIGINT, Interrupt.
 0xffffffff818cce92 in native_safe_halt () at /home/sjpark/linux/arch/x86/include/asm/irqflags.h:54
 54              asm volatile(&quot;sti; hlt&quot;: : :&quot;memory&quot;);
 (gdb)
-</code></pre><h1 id="-gdb-helper-">리눅스 gdb helper 사용하기</h1>
+</code></pre><h1 id="리눅스-gdb-helper-사용하기">리눅스 gdb helper 사용하기</h1>
 <p>사실은 앞 단계에서 <code>.gdbinit</code> 를 굳이 수정하지 않아서 gdb가 <code>vmlinux-gdb.py</code> 를
 읽어들이는데 실패하더라도 gdb 를 평범하게 사용할 수 있습니다.  <code>vmlinux-gdb.py</code>
 는 사실 gdb 위에서 리눅스 커널을 디버깅하는걸 편리하게 해줄 수 있는 일부
 스크립트, 즉 gdb helper 를 담고 있습니다.  이걸 사용하면 보다 쉽게 커널
 디버깅을 할 수 있습니다.</p>
-<h2 id="helper--">helper 스크립트 리스트업</h2>
+<h2 id="helper-스크립트-리스트업">helper 스크립트 리스트업</h2>
 <p>사용 가능한 helper 스크립트는 lx로 시작하는 규칙을 갖고 있습니다.  다음
 명령으로 사용 가능한 스크립트 목록과 간단한 설명을 볼 수 있습니다:</p>
 <pre><code>(gdb) apropos lx
@@ -720,7 +720,7 @@ lx-ps -- Dump Linux tasks
 lx-symbols -- (Re-)load symbols of Linux kernel and currently loaded modules
 lx-version --  Report the Linux Version of the current kernel
 </code></pre><p>참 쉽죠? ;)</p>
-<h1 id="-2">참고 자료</h1>
+<h1 id="참고-자료">참고 자료</h1>
 <ol>
 <li><a href="https://www.kernel.org/doc/html/v4.11/dev-tools/gdb-kernel-debugging.html">커널 디버깅 공식 문서</a></li>
 <li><a href="http://www.alexlambert.com/2017/12/18/kernel-debugging-for-newbies.html">참고할만한 영문 블로그 글</a></li>

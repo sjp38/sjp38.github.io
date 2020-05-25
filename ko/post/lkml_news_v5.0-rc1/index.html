@@ -643,12 +643,12 @@ vmalloc 의 성능과 스트레스 테스트를 위한 모듈을 구현한 패�
 작동하니까 다른 태스크의 latency 가 떨어질 수 있습니다.  이런 상황을 모니터링
 할 수 있게끔, 이 패치는 <code>vm.war_high_order</code> 라는 값을 sysctl 통해 설정하면 이
 값을 넘는 order 의 allocation 이 요청되었을 때 워닝을 뱉어 줍니다.</p>
-<h2 id="patch-mm-introduce-pagesize">[PATCH] mm: Introduce page_size()</h2>
+<h2 id="patch-mm-introduce-page_size">[PATCH] mm: Introduce page_size()</h2>
 <p><a href="https://lkml.kernel.org/r/20181231134223.20765-1-willy@infradead.org">https://lkml.kernel.org/r/20181231134223.20765-1-willy@infradead.org</a></p>
 <p>Huge page 의 존재로 인해 페이지의 실제 크기는 모두 똑같지가 않기 때문에 이를
 판별할 방법이 필요하죠.  이 패치는 단순히 기존에 좀 복잡하게 직접 페이지 크기를
 구하던 것을 별도의 wrapper function 으로 대체하기 위한 준비 작업입니다.</p>
-<h2 id="linux-50rc1">Linux 5.0-rc1</h2>
+<h2 id="linux-50-rc1">Linux 5.0-rc1</h2>
 <p><a href="https://lkml.kernel.org/r/wgKYnrL3LjhVkH2Fp+ecmWhLqezT9zmR6CzfcpwcJX0qA@mail.gmail.com">https://lkml.kernel.org/r/wgKYnrL3LjhVkH2Fp+ecmWhLqezT9zmR6CzfcpwcJX0qA@mail.gmail.com</a></p>
 <p>리눅스 커널 버전의 숫자가 큰 의미 없게 된지도 오래이긴 합니다만 그래도 메이저
 버전 변경은 항상 뭔가 들뜨게 마련이죠.

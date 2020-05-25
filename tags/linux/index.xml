@@ -21,18 +21,25 @@
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20200518181446.25759-1-nigupta@nvidia.com&#34;&gt;https://lkml.kernel.org/r/20200518181446.25759-1-nigupta@nvidia.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;The 5th version of the proactive compaction.  This patchset make the compaction
 more proactive to make THP allocation easily success.&lt;/p&gt;
-&lt;h2 id=&#34;patch-v2-swap-reduce-lock-contention-on-swap-cache-from-swap-slots-allocation-huang-ying&#34;&gt;[PATCH -V2] swap: Reduce lock contention on swap cache from swap slots allocation (Huang Ying)&lt;/h2&gt;
+&lt;h2 id=&#34;patch--v2-swap-reduce-lock-contention-on-swap-cache-from-swap-slots-allocation-huang-ying&#34;&gt;[PATCH -V2] swap: Reduce lock contention on swap cache from swap slots allocation (Huang Ying)&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20200520031502.175659-1-ying.huang@intel.com&#34;&gt;https://lkml.kernel.org/r/20200520031502.175659-1-ying.huang@intel.com&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;After swap device is fragmented, there&#39;s no free swap cluster.  Therefore, each
+&lt;p&gt;After swap device is fragmented, there&amp;rsquo;s no free swap cluster.  Therefore, each
 swap logic of each CPU will linearly scan each swap cluster to find a free
 slot.  As multiple CPUs can search the slot in same cluster, the swap cache
 lock contention could increase.&lt;/p&gt;
 &lt;p&gt;This patchset reduces the lock contention by using percpu pointer for next
 scanning cluster.  The pointer is set to random cluster.  This change is
 applied to SSD swap device only.&lt;/p&gt;
-&lt;h2 id=&#34;ksummitdiscuss-tech-topic-seccomp-feature-development-kees-cook&#34;&gt;[Ksummit-discuss] [TECH TOPIC] seccomp feature development (Kees Cook)&lt;/h2&gt;
+&lt;h2 id=&#34;ksummit-discuss-tech-topic-seccomp-feature-development-kees-cook&#34;&gt;[Ksummit-discuss] [TECH TOPIC] seccomp feature development (Kees Cook)&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/202005200917.71E6A5B20@keescook&#34;&gt;https://lkml.kernel.org/r/202005200917.71E6A5B20@keescook&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;The first kernel summit technical topic.  Kees Cook want to talk about seccomp.&lt;/p&gt;
+&lt;h2 id=&#34;linux-57-rc7&#34;&gt;Linux 5.7-rc7&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=whan1CiRtcgBt-5SkW-ga_GeLH5+AO26RmK7vOA5yw9ng@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=whan1CiRtcgBt-5SkW-ga_GeLH5+AO26RmK7vOA5yw9ng@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The rc6 was unexpectedly big, but rc7 is quite normal.  Torvalds says the
+release schedule will not dealyed, unless something happens.&lt;/p&gt;
+&lt;p&gt;Also, Torvalds says he upgraded his main machine for the first time in about 15
+years, from Intel machine to the AMD Threadripper 3970x.  His build is not 3
+times faster!&lt;/p&gt;
 </description>
     </item>
     
@@ -71,14 +78,14 @@ size changes[7], and&lt;/li&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20200515131656.12890-1-willy@infradead.org&#34;&gt;https://lkml.kernel.org/r/20200515131656.12890-1-willy@infradead.org&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;This is the fourth version of the patchset for the huge pages in the page
 cache.  Still it fails xfstests.&lt;/p&gt;
-&lt;h2 id=&#34;maintainers--kernel-summit-2020-planning-kickoff-theodore-y-tso&#34;&gt;Maintainers / Kernel Summit 2020 planning kick-off (Theodore Y. Ts&#39;o)&lt;/h2&gt;
+&lt;h2 id=&#34;maintainers--kernel-summit-2020-planning-kick-off-theodore-y-tso&#34;&gt;Maintainers / Kernel Summit 2020 planning kick-off (Theodore Y. Ts&amp;rsquo;o)&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20200515163956.GA2158595@mit.edu&#34;&gt;https://lkml.kernel.org/r/20200515163956.GA2158595@mit.edu&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Ted annouced that the Maintainers / Kernel Summit will be held in virtual this
 year, of course due to the COVID19.  With this announcement, the CFP for the
 kernel summit is also opened.&lt;/p&gt;
-&lt;h2 id=&#34;linux-57rc6-linus-torvalds&#34;&gt;Linux 5.7-rc6 (Linus Torvalds)&lt;/h2&gt;
+&lt;h2 id=&#34;linux-57-rc6-linus-torvalds&#34;&gt;Linux 5.7-rc6 (Linus Torvalds)&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wjP9eOr2GEpgtcpN4Hqve6YRiyEF5Pq6ZsKFKHZ_v5Bwg@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wjP9eOr2GEpgtcpN4Hqve6YRiyEF5Pq6ZsKFKHZ_v5Bwg@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;It&#39;s rc6, which is supposed to be calming down.  But, rc6 was bigger than
+&lt;p&gt;It&amp;rsquo;s rc6, which is supposed to be calming down.  But, rc6 was bigger than
 usual.  As rc5 was also bigger than usual, this probably not a good sign for
 5.7 release.  But, no detailed change seems obviously wrong.&lt;/p&gt;
 &lt;p&gt;Torvalds just hope hings calm down.&lt;/p&gt;
@@ -90,20 +97,20 @@ usual.  As rc5 was also bigger than usual, this probably not a good sign for
       <link>/post/lkml_news_v5.7-rc5/</link>
       <pubDate>Thu, 07 May 2020 06:56:23 +0200</pubDate>
       <guid>/post/lkml_news_v5.7-rc5/</guid>
-      <description>&lt;h2 id=&#34;rfc-0043-pkram-preservedoverkexec-ram-anthony-yznaga&#34;&gt;[RFC 00/43] PKRAM: Preserved-over-Kexec RAM (Anthony Yznaga)&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;rfc-0043-pkram-preserved-over-kexec-ram-anthony-yznaga&#34;&gt;[RFC 00/43] PKRAM: Preserved-over-Kexec RAM (Anthony Yznaga)&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/1588812129-8596-1-git-send-email-anthony.yznaga@oracle.com&#34;&gt;https://lkml.kernel.org/r/1588812129-8596-1-git-send-email-anthony.yznaga@oracle.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;This patchset introduces special memory called PKRAM.  It can be used to
 preserve VM guest memory across kexec boot for fast restart (VMM Fast Restart).
 Compared to DRAM based PMEM simulation, PKRAM is more flexible as the memory
 size is not need to be previously fixed.&lt;/p&gt;
-&lt;h2 id=&#34;patch-mm-replace-zerolength-array-with-flexiblearray-gustavo-a-r-silva&#34;&gt;[PATCH] mm: Replace zero-length array with flexible-array (Gustavo A. R. Silva)&lt;/h2&gt;
+&lt;h2 id=&#34;patch-mm-replace-zero-length-array-with-flexible-array-gustavo-a-r-silva&#34;&gt;[PATCH] mm: Replace zero-length array with flexible-array (Gustavo A. R. Silva)&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20200507185942.GA15193@embeddedor&#34;&gt;https://lkml.kernel.org/r/20200507185942.GA15193@embeddedor&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;The zero-length array of C90 are widely used in the kernel code base, but the
 flexible array member of C99 would be better choice.  This commit replaces the
 code to use the flexible array member instead.&lt;/p&gt;
-&lt;h2 id=&#34;linux-57rc5-linus-torvalds&#34;&gt;Linux 5.7-rc5 (Linus Torvalds)&lt;/h2&gt;
+&lt;h2 id=&#34;linux-57-rc5-linus-torvalds&#34;&gt;Linux 5.7-rc5 (Linus Torvalds)&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wi5ziqqgf9dMfwoNLy8A1SX36n1RuDYTyRX6O_Vmcr42g@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wi5ziqqgf9dMfwoNLy8A1SX36n1RuDYTyRX6O_Vmcr42g@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Last 4 rc releases were slightly smaller than usual, but this week&#39;s rc release
+&lt;p&gt;Last 4 rc releases were slightly smaller than usual, but this week&amp;rsquo;s rc release
 is bigger, though it is still in line of average.  This is maybe simply due to
 the delayed pull requests from network and some drivers and thus nothing is
 worrisome, Torvalds says.&lt;/p&gt;
@@ -115,7 +122,7 @@ worrisome, Torvalds says.&lt;/p&gt;
       <link>/post/lkml_news_v5.7-rc4/</link>
       <pubDate>Thu, 30 Apr 2020 06:57:24 +0200</pubDate>
       <guid>/post/lkml_news_v5.7-rc4/</guid>
-      <description>&lt;h2 id=&#34;patch-07-record-the-mmstruct-in-the-page-table-pages-matthew-wilcox&#34;&gt;[PATCH 0/7] Record the mm_struct in the page table pages (Matthew Wilcox)&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;patch-07-record-the-mm_struct-in-the-page-table-pages-matthew-wilcox&#34;&gt;[PATCH 0/7] Record the mm_struct in the page table pages (Matthew Wilcox)&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20200428194449.22615-1-willy@infradead.org&#34;&gt;https://lkml.kernel.org/r/20200428194449.22615-1-willy@infradead.org&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Literally, this patchset adds the &lt;code&gt;mm_struct&lt;/code&gt; pointer to &lt;code&gt;struct page&lt;/code&gt; if it is
 used for page tables.  This will be useful for several cases usch as
@@ -129,10 +136,10 @@ a sysfs file, &lt;code&gt;/sys/kernel/mm/compaction/proactiveness&lt;/code&gt;.&
 &lt;h2 id=&#34;patch-v3-0025-large-pages-in-the-page-cache-matthew-wilcox&#34;&gt;[PATCH v3 00/25] Large pages in the page cache (Matthew Wilcox)&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20200429133657.22632-1-willy@infradead.org&#34;&gt;https://lkml.kernel.org/r/20200429133657.22632-1-willy@infradead.org&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;This patchset is for use of huge pages in the page cache.  This will reduce
-many of overheads.  However, this patchset doesn&#39;t pass the xfs test.&lt;/p&gt;
-&lt;h2 id=&#34;linux-57rc4-linus-torvalds&#34;&gt;Linux 5.7-rc4 (Linus Torvalds)&lt;/h2&gt;
+many of overheads.  However, this patchset doesn&amp;rsquo;t pass the xfs test.&lt;/p&gt;
+&lt;h2 id=&#34;linux-57-rc4-linus-torvalds&#34;&gt;Linux 5.7-rc4 (Linus Torvalds)&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wjRQPn6zQnR2R2M6rupXq8OZTk7z9xJsUbgEADpZFX+NA@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wjRQPn6zQnR2R2M6rupXq8OZTk7z9xJsUbgEADpZFX+NA@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;The release candidate release of this week is a bit smaller than usual.  It&#39;s
+&lt;p&gt;The release candidate release of this week is a bit smaller than usual.  It&amp;rsquo;s
 smallest rc4 since the tiny one we had over the Christmas week.  Torvalds think
 this is due to a timing issue and because there was no pull request from
 network.  That said, he also says things are calm.&lt;/p&gt;
@@ -151,14 +158,14 @@ before, and now it has just canceled.  What a shame, but this might be the
 right thing to do.  This mail also announce the schedule of next year LSFMM.
 It will be held in Palm Springs, on May 12-14, 2021 at the Riviera Palm
 Springs.&lt;/p&gt;
-&lt;h2 id=&#34;patch-22-mm-support-vector-address-ranges-for-processmadvise-minchan-kim&#34;&gt;[PATCH 2/2] mm: support vector address ranges for process_madvise (Minchan Kim)&lt;/h2&gt;
+&lt;h2 id=&#34;patch-22-mm-support-vector-address-ranges-for-process_madvise-minchan-kim&#34;&gt;[PATCH 2/2] mm: support vector address ranges for process_madvise (Minchan Kim)&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20200423145215.72666-2-minchan@kernel.org&#34;&gt;https://lkml.kernel.org/r/20200423145215.72666-2-minchan@kernel.org&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;This is a modification of &lt;code&gt;process_madvise()&lt;/code&gt; interface for support of multiple
 address ranges.  In Android, the applications usually has thousands of vmas due
 to the Zygote and thus need a number of &lt;code&gt;process_madvise()&lt;/code&gt; calls to adjust
 their memory.  The author has shown about 15% performance improvement by
 comparing 2000-vma syscall and 1-vector syscall.&lt;/p&gt;
-&lt;h2 id=&#34;linux-57rc3-linus-torvalds&#34;&gt;Linux 5.7-rc3 (Linus Torvalds)&lt;/h2&gt;
+&lt;h2 id=&#34;linux-57-rc3-linus-torvalds&#34;&gt;Linux 5.7-rc3 (Linus Torvalds)&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wiDq0imdGHZwCnvWM1bc8r++==fB4BDrfenAB9_CZ45+w@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wiDq0imdGHZwCnvWM1bc8r++==fB4BDrfenAB9_CZ45+w@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;The third release candidate is released.  Nothing weird, just normal, though
 this release is bigger than rc2 and bigger than other rc3 of 5.x releases.&lt;/p&gt;
@@ -177,10 +184,10 @@ due to the pm-graph update.&lt;/p&gt;
 &lt;p&gt;AutoNUMA is currently scanning page tables of the processes in the process
 context and therefore this can increase the latency of the process.  This RFC
 thus makes the page table scanning asynchronous if there are idle CPUs.&lt;/p&gt;
-&lt;h2 id=&#34;patch-v4-0010-add-a-new-mmap-locking-api-wrapping-mmapsem-calls&#34;&gt;[PATCH v4 00/10] Add a new mmap locking API wrapping mmap_sem calls&lt;/h2&gt;
+&lt;h2 id=&#34;patch-v4-0010-add-a-new-mmap-locking-api-wrapping-mmap_sem-calls&#34;&gt;[PATCH v4 00/10] Add a new mmap locking API wrapping mmap_sem calls&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20200415004353.130248-1-walken@google.com&#34;&gt;https://lkml.kernel.org/r/20200415004353.130248-1-walken@google.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;This is just a repost of the patch series rebased on v5.7-rc1.&lt;/p&gt;
-&lt;h2 id=&#34;linux-57rc2-linux-torvalds&#34;&gt;Linux 5.7-rc2 (Linux Torvalds)&lt;/h2&gt;
+&lt;h2 id=&#34;linux-57-rc2-linux-torvalds&#34;&gt;Linux 5.7-rc2 (Linux Torvalds)&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wiQsJu-ZFjt7+c9FVD5R40khtZiihrT+7O3UaVvHYz=HQ@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wiQsJu-ZFjt7+c9FVD5R40khtZiihrT+7O3UaVvHYz=HQ@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;After a week pass since the rc1 release, rc2 is released.  Torvalds says the
 changes are very normal and clam as always, maybe because rc2 is usually the
@@ -193,20 +200,20 @@ time for taking breathe after the busy merge window.&lt;/p&gt;
       <link>/post/lkml_news_v5.7-rc1/</link>
       <pubDate>Sun, 05 Apr 2020 08:41:57 +0200</pubDate>
       <guid>/post/lkml_news_v5.7-rc1/</guid>
-      <description>&lt;h2 id=&#34;git-pull-xarray-for-57rc1&#34;&gt;[GIT PULL] XArray for 5.7-rc1&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;git-pull-xarray-for-57-rc1&#34;&gt;[GIT PULL] XArray for 5.7-rc1&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20200331141749.GB21484@bombadil.infradead.org&#34;&gt;https://lkml.kernel.org/r/20200331141749.GB21484@bombadil.infradead.org&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Matthew&#39;s XArray pull request for 5.7 merge window.  Quickly merged by Torvald.&lt;/p&gt;
+&lt;p&gt;Matthew&amp;rsquo;s XArray pull request for 5.7 merge window.  Quickly merged by Torvald.&lt;/p&gt;
 &lt;h2 id=&#34;patch-v5-0010-workingset-protectiondetection-on-the-anonymous-lru-list&#34;&gt;[PATCH v5 00/10] workingset protection/detection on the anonymous LRU list&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/1585892447-32059-1-git-send-email-iamjoonsoo.kim@lge.com&#34;&gt;https://lkml.kernel.org/r/1585892447-32059-1-git-send-email-iamjoonsoo.kim@lge.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;The fifth version of the workingset protection.&lt;/p&gt;
 &lt;h2 id=&#34;patch-v4-02-mm-using-cma-for-1-gb-hugepages-allocation&#34;&gt;[PATCH v4 0/2] mm: using CMA for 1 GB hugepages allocation&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20200407010431.1286488-1-guro@fb.com&#34;&gt;https://lkml.kernel.org/r/20200407010431.1286488-1-guro@fb.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;This patchset make hugetlb to use CMA for 1GB hugepage allocations.&lt;/p&gt;
-&lt;h2 id=&#34;patch-rfc-mm-compaction-avoid-migrating-noncma-pages-to-a-cma-area&#34;&gt;[PATCH RFC] mm: compaction: avoid migrating non-cma pages to a cma area&lt;/h2&gt;
-&lt;p&gt;The compaction algorithm doesn&#39;t distinguish CMA from other movable pageblocks.
+&lt;h2 id=&#34;patch-rfc-mm-compaction-avoid-migrating-non-cma-pages-to-a-cma-area&#34;&gt;[PATCH RFC] mm: compaction: avoid migrating non-cma pages to a cma area&lt;/h2&gt;
+&lt;p&gt;The compaction algorithm doesn&amp;rsquo;t distinguish CMA from other movable pageblocks.
 In other words, it can move non-cma pages into a cma zone.  This patch avoid
 the problem by preserving non-cma pages from being moved into a cma area.&lt;/p&gt;
-&lt;h2 id=&#34;linux-57rc1&#34;&gt;Linux 5.7-rc1&lt;/h2&gt;
+&lt;h2 id=&#34;linux-57-rc1&#34;&gt;Linux 5.7-rc1&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wh0F0fnOQA3dr_-QCdjc_FTTk3ccPFLU33zr3zLD9FQ7Q@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wh0F0fnOQA3dr_-QCdjc_FTTk3ccPFLU33zr3zLD9FQ7Q@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;The merge window for Linux 5.7 has closed about one or two hours earlier than
 usual, due to the Easter Sunday.&lt;/p&gt;
@@ -231,7 +238,7 @@ error detector, KMSAN.&lt;/p&gt;
 &lt;p&gt;CMA provides no way to specify what NUMA node the memory area to be allocated.
 This commit adds the interface to specify the NUMA node to use for the
 allocation.&lt;/p&gt;
-&lt;h2 id=&#34;patch-v3-0010-add-a-new-mmap-locking-api-wrapping-mmapsem-calls-michel-lespinasse&#34;&gt;[PATCH v3 00/10] Add a new mmap locking API wrapping mmap_sem calls (Michel Lespinasse)&lt;/h2&gt;
+&lt;h2 id=&#34;patch-v3-0010-add-a-new-mmap-locking-api-wrapping-mmap_sem-calls-michel-lespinasse&#34;&gt;[PATCH v3 00/10] Add a new mmap locking API wrapping mmap_sem calls (Michel Lespinasse)&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20200327225102.25061-1-walken@google.com&#34;&gt;https://lkml.kernel.org/r/20200327225102.25061-1-walken@google.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;This patchset adds new mmap locking API rather than rwsem, but just wrapping
 it.  This is for further step towards rwsem substitution with better one such
@@ -241,7 +248,7 @@ as range lock.  The new interface looks like &lt;code&gt;mmap_init_lock(mm)&lt;/
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wi9ZT7Stg-uSpX0UWQzam6OP9Jzz6Xu1CkYu1cicpD5OA@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wi9ZT7Stg-uSpX0UWQzam6OP9Jzz6Xu1CkYu1cicpD5OA@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;As supposed, v5.6 of Linux has released after rc7.  However, the number of
 changes during last week was a little bit larger than what Torvalds usually
-likes for official releases.  Most of those was from David Miller&#39;s network
+likes for official releases.  Most of those was from David Miller&amp;rsquo;s network
 change and David was comfy, and diff was not so scary.  So, Torvalds has
 reeleased 5.6.&lt;/p&gt;
 </description>
@@ -252,7 +259,7 @@ reeleased 5.6.&lt;/p&gt;
       <link>/post/lkml_news_v5.6-rc7/</link>
       <pubDate>Fri, 20 Mar 2020 07:04:51 +0100</pubDate>
       <guid>/post/lkml_news_v5.6-rc7/</guid>
-      <description>&lt;h2 id=&#34;linux-56rc7&#34;&gt;Linux 5.6-rc7&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;linux-56-rc7&#34;&gt;Linux 5.6-rc7&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wipv1y2Z7=CDQ5ajb2OvSyq-0BL9yLRPm1YqW+sjcSDzQ@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wipv1y2Z7=CDQ5ajb2OvSyq-0BL9yLRPm1YqW+sjcSDzQ@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;The world is struggling due to the COVID-19, but kernel development seems quite
 normal.  Torvalds released the 7th rc for the Linux 5.6.  There is nothing
@@ -269,9 +276,9 @@ bad happens.&lt;/p&gt;
       <description>&lt;h2 id=&#34;lsfmmbpf-2020-postponement-announcement-josef-bacik&#34;&gt;LSF/MM/BPF 2020: Postponement announcement (Josef Bacik)&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/e4f390c7-3b25-67c8-5d6d-d7e87ba1c072@toxicpanda.com&#34;&gt;https://lkml.kernel.org/r/e4f390c7-3b25-67c8-5d6d-d7e87ba1c072@toxicpanda.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;COVID-19 outbreak has finally delayed the LSF/MM/BPF of this year.&lt;/p&gt;
-&lt;h2 id=&#34;linux-56rc6&#34;&gt;Linux 5.6-rc6&lt;/h2&gt;
+&lt;h2 id=&#34;linux-56-rc6&#34;&gt;Linux 5.6-rc6&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=whcVTGVPtvdb9SdCcjLawG6tLvbNWfWB_Y6=QhovFy2rg@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=whcVTGVPtvdb9SdCcjLawG6tLvbNWfWB_Y6=QhovFy2rg@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Sixth rc release,  Torvalds says things looks quite normal.  I&#39;m looking
+&lt;p&gt;Sixth rc release,  Torvalds says things looks quite normal.  I&amp;rsquo;m looking
 forward for 5.6 official release.&lt;/p&gt;
 </description>
     </item>
@@ -281,9 +288,9 @@ forward for 5.6 official release.&lt;/p&gt;
       <link>/post/lkml_news_v5.6-rc5/</link>
       <pubDate>Tue, 03 Mar 2020 06:16:51 +0100</pubDate>
       <guid>/post/lkml_news_v5.6-rc5/</guid>
-      <description>&lt;h2 id=&#34;patch-v1-0011-virtiomem-paravirtualized-memory&#34;&gt;[PATCH v1 00/11] virtio-mem: paravirtualized memory&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;patch-v1-0011-virtio-mem-paravirtualized-memory&#34;&gt;[PATCH v1 00/11] virtio-mem: paravirtualized memory&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20200302134941.315212-1-david@redhat.com&#34;&gt;https://lkml.kernel.org/r/20200302134941.315212-1-david@redhat.com&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;At KVM Forum 2018, virtio-mem&#39;s basic idea has presented and now this patchset
+&lt;p&gt;At KVM Forum 2018, virtio-mem&amp;rsquo;s basic idea has presented and now this patchset
 introduces it.  This provides a flexible, cross-architecture memory hot(un)plug
 solution.&lt;/p&gt;
 &lt;h2 id=&#34;patch-v7-07-introduce-memory-hinting-api-for-external-process&#34;&gt;[PATCH v7 0/7] introduce memory hinting API for external process&lt;/h2&gt;
@@ -295,7 +302,7 @@ solution.&lt;/p&gt;
 allocation failures, to minimize the latency spike which comes from the
 compaction.  It significantly reduces THP allocation latency under memory
 fragmentation.  95th percentile of the latency has reduced from 33,799 to 429!&lt;/p&gt;
-&lt;h2 id=&#34;rfc-v4-07-implement-data-access-monitoringbased-memory-operation-schemes&#34;&gt;[RFC v4 0/7] Implement Data Access Monitoring-based Memory Operation Schemes&lt;/h2&gt;
+&lt;h2 id=&#34;rfc-v4-07-implement-data-access-monitoring-based-memory-operation-schemes&#34;&gt;[RFC v4 0/7] Implement Data Access Monitoring-based Memory Operation Schemes&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20200303121406.20954-1-sjpark@amazon.com&#34;&gt;https://lkml.kernel.org/r/20200303121406.20954-1-sjpark@amazon.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;My fourth RFC for DAMON-based Operation Schemes.  This time, I updated the
 evaluation results of ETHP scheme with more reliable data.&lt;/p&gt;
@@ -307,12 +314,12 @@ evaluation results of ETHP scheme with more reliable data.&lt;/p&gt;
 main points of problems the author feels are LSF/MM/BPF is invitation only but
 there are too many people need to be involved so that cannot fully invite every
 necessary people.  The author proposing LSF/MM to be somewhat like LPC instead.&lt;/p&gt;
-&lt;h2 id=&#34;lsfmmbpf-topic-lsfmmbpf-2020-covid19-status-update&#34;&gt;[LSFMMBPF TOPIC] LSFMMBPF 2020 COVID-19 status update&lt;/h2&gt;
+&lt;h2 id=&#34;lsfmmbpf-topic-lsfmmbpf-2020-covid-19-status-update&#34;&gt;[LSFMMBPF TOPIC] LSFMMBPF 2020 COVID-19 status update&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20200307185420.GG2236@42.do-not-panic.com&#34;&gt;https://lkml.kernel.org/r/20200307185420.GG2236@42.do-not-panic.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;COVID-19 is affecting so many conferences.  It seems LSF/MM/BPF also not an
 exception.  The committees are trying to figure out what is the right decision
 for it.&lt;/p&gt;
-&lt;h2 id=&#34;linux-56rc5&#34;&gt;Linux 5.6-rc5&lt;/h2&gt;
+&lt;h2 id=&#34;linux-56-rc5&#34;&gt;Linux 5.6-rc5&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wjie=L9=jO-VKR5u7+5Ekis-VR5m=zUChR9djhAuAN55g@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wjie=L9=jO-VKR5u7+5Ekis-VR5m=zUChR9djhAuAN55g@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Torvalds made this release from 28,000 feet, mainly due to flight cancellations
 and travel trouble.  Maybe due to the COVID-19?&lt;/p&gt;
@@ -326,11 +333,11 @@ Torvalds&amp;rsquo; preferred -rc5 size.&lt;/p&gt;
       <link>/post/lkml_news_v5.6-rc4/</link>
       <pubDate>Mon, 02 Mar 2020 06:45:18 +0100</pubDate>
       <guid>/post/lkml_news_v5.6-rc4/</guid>
-      <description>&lt;h2 id=&#34;lsfmm-attend-page-fault-and-mmapsem-scalabity&#34;&gt;[LSF/MM ATTEND]: page fault and mmap_sem scalabity&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;lsfmm-attend-page-fault-and-mmap_sem-scalabity&#34;&gt;[LSF/MM ATTEND]: page fault and mmap_sem scalabity&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/e67a9e90-5a64-b3cc-5014-2fd1e5bf3895@linux.ibm.com&#34;&gt;https://lkml.kernel.org/r/e67a9e90-5a64-b3cc-5014-2fd1e5bf3895@linux.ibm.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;A short mail from Laurent saying he is interested in attending the discussions
 about the page fault and &lt;code&gt;mmap_sem&lt;/code&gt; scalability issue.&lt;/p&gt;
-&lt;h2 id=&#34;linux-56rc4&#34;&gt;Linux 5.6-rc4&lt;/h2&gt;
+&lt;h2 id=&#34;linux-56-rc4&#34;&gt;Linux 5.6-rc4&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wgD3=ryAapzdpcZumMK2RQWBvWVE70qp_ft_cjdRX9htQ@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wgD3=ryAapzdpcZumMK2RQWBvWVE70qp_ft_cjdRX9htQ@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Fourthe rc release.  5.6 official release is not so far.  Torvalds says this is
 fairly reasonsable sized release.&lt;/p&gt;
@@ -349,17 +356,17 @@ slabinfo.  This patchset adds the info.&lt;/p&gt;
 &lt;h2 id=&#34;patch-v6-07-introduce-memory-hinting-api-for-external-process&#34;&gt;[PATCH v6 0/7] introduce memory hinting API for external process&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20200219014433.88424-1-minchan@kernel.org&#34;&gt;https://lkml.kernel.org/r/20200219014433.88424-1-minchan@kernel.org&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Sixth version of the patchset for new system call, &amp;lsquo;madvise_process()&#39;.
-Changes are not so big.  Support null task argument and requestor&#39;s mm for
+Changes are not so big.  Support null task argument and requestor&amp;rsquo;s mm for
 &amp;lsquo;io_madvise()&#39;.&lt;/p&gt;
-&lt;h2 id=&#34;patch-mm-stop-kswapd-early-when-nothings-waiting-for-it-to-free-pages&#34;&gt;[PATCH] mm: Stop kswapd early when nothing&#39;s waiting for it to free pages&lt;/h2&gt;
+&lt;h2 id=&#34;patch-mm-stop-kswapd-early-when-nothings-waiting-for-it-to-free-pages&#34;&gt;[PATCH] mm: Stop kswapd early when nothing&amp;rsquo;s waiting for it to free pages&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20200219182522.1960-1-sultan@kerneltoast.com&#34;&gt;https://lkml.kernel.org/r/20200219182522.1960-1-sultan@kerneltoast.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Once kswapd is awaken, it does many things.  To avoid that, this patch stops
-kswapd prematurely if it doesn&#39;t need to work to make and allocation succeed
+kswapd prematurely if it doesn&amp;rsquo;t need to work to make and allocation succeed
 anymore.&lt;/p&gt;
 &lt;h2 id=&#34;patch-v2-09-workingset-protectiondetection-on-the-anonymous-lru-list&#34;&gt;[PATCH v2 0/9] workingset protection/detection on the anonymous LRU list&lt;/h2&gt;
 &lt;p&gt;The second version of the patchset for workingset in LRU protection.  This
 patchset avoids evicting workingset for scanning data.&lt;/p&gt;
-&lt;h2 id=&#34;linux-56rc3&#34;&gt;Linux 5.6-rc3&lt;/h2&gt;
+&lt;h2 id=&#34;linux-56-rc3&#34;&gt;Linux 5.6-rc3&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;https://lkml.kernel.org/r/CAHk-=whGODQBDqPGcEFU8EVkNAzMK9+gK_sGaUNHSZnB=JL+_Q@mail.gmail.com&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;The third rc3 release was a little bit small.  However, there were smaller rc3
 and bigger rc3, either.  Torvalds says this is fairly normal rc3, though there
@@ -379,7 +386,7 @@ pattern awared memory system using DAMON.  Proactive reclamation or access
 awared THP promotion/demotion will be easily available using this change.&lt;/p&gt;
 &lt;h2 id=&#34;patch-09-workingset-protectiondetection-on-the-anonymous-lru-list&#34;&gt;[PATCH 0/9] workingset protection/detection on the anonymous LRU list&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/1581401993-20041-1-git-send-email-iamjoonsoo.kim@lge.com&#34;&gt;https://lkml.kernel.org/r/1581401993-20041-1-git-send-email-iamjoonsoo.kim@lge.com&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;This patchset is for improving kernel&#39;s reclamation scheme in a corner case
+&lt;p&gt;This patchset is for improving kernel&amp;rsquo;s reclamation scheme in a corner case
 where pages which used only once evicting hot pages.  For example, if there are
 hot working set and periodically a big region of memory is scanned, the hot
 working set will be swapped out for each of the scan.  This patchset avoid the
@@ -395,7 +402,7 @@ Seems like the justification for the API itself has finished.&lt;/p&gt;
 &lt;h2 id=&#34;lsfmmbpf-topic-autonuma-enhancements-to-optimize-tiered-memory&#34;&gt;[LSF/MM/BPF TOPIC] AutoNUMA enhancements to optimize Tiered Memory&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/87mu9mhn10.fsf@yhuang-dev.intel.com&#34;&gt;https://lkml.kernel.org/r/87mu9mhn10.fsf@yhuang-dev.intel.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;This is another LSF/MM session proposal.  As current kernel reclamation scheme
-is designed for universal DRAMs, it doesn&#39;t work well with tiered memory.
+is designed for universal DRAMs, it doesn&amp;rsquo;t work well with tiered memory.
 Author has worked for AutoNUMA, which can find recently-accessed pages
 regardless of memory pressure and even frequently-access pages.  The authors
 want to discuss about this in the summit.&lt;/p&gt;
@@ -404,7 +411,7 @@ want to discuss about this in the summit.&lt;/p&gt;
 &lt;p&gt;Another proposal for LSF/MM.  The author wants to share his experience of
 memory management in Chrom OS development of 8 year, including their use of
 Zram and per-process reclaim.&lt;/p&gt;
-&lt;h2 id=&#34;lsfmmbpf-topic-replacing-mmapsem-with-finer-grained-locks&#34;&gt;[LSF/MM/BPF TOPIC] Replacing mmap_sem with finer grained locks&lt;/h2&gt;
+&lt;h2 id=&#34;lsfmmbpf-topic-replacing-mmap_sem-with-finer-grained-locks&#34;&gt;[LSF/MM/BPF TOPIC] Replacing mmap_sem with finer grained locks&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CANN689EippvdwsHuhU-Aq=kNdk8-cAaCzPC7v=zbe6X302NteA@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CANN689EippvdwsHuhU-Aq=kNdk8-cAaCzPC7v=zbe6X302NteA@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;A lot of LSF/MM proposals this week, maybe because the due is this week.  This
 is old topic, but not solved yet.  Authors want to keep the discussion about
@@ -413,7 +420,7 @@ mmap splitting for multi CPU this year LSF/MM.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/1be38ae3-d51e-2661-d0ab-6ad8baefe804@oracle.com&#34;&gt;https://lkml.kernel.org/r/1be38ae3-d51e-2661-d0ab-6ad8baefe804@oracle.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;struct page&lt;/code&gt; consumes about 1.5% of total memory.  Because the structure could
 be unnecessary for hypervisors, the author want to save the 1.5%.&lt;/p&gt;
-&lt;h2 id=&#34;linux-56rc2&#34;&gt;Linux 5.6-rc2&lt;/h2&gt;
+&lt;h2 id=&#34;linux-56-rc2&#34;&gt;Linux 5.6-rc2&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wgqwiBLGvwTqU2kJEPNmafPpPe_K0XgBU-A58M+mkwpgQ@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wgqwiBLGvwTqU2kJEPNmafPpPe_K0XgBU-A58M+mkwpgQ@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;rc2&lt;/code&gt; was calm as usual.  More than half of the changes are kvm documentation,
 due to its conversion to ReST format.  &amp;lsquo;perf&amp;rsquo; change was also remarkable.&lt;/p&gt;
@@ -430,7 +437,7 @@ due to its conversion to ReST format.  &amp;lsquo;perf&amp;rsquo; change was als
 &lt;p&gt;The author, Yang Shi has posted a patchset for tiered memory management last
 year, but received no many comments.  Meanwhile, Dave posted another similar
 patch.  He wants to discuss about this in LSF/MM this year.&lt;/p&gt;
-&lt;h2 id=&#34;linux-56rc1&#34;&gt;Linux 5.6-rc1&lt;/h2&gt;
+&lt;h2 id=&#34;linux-56-rc1&#34;&gt;Linux 5.6-rc1&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wjVopuAm5Vwa1kK5O1tTzQAGFtCHm8_Hzy3Us1OC=PgUw@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wjVopuAm5Vwa1kK5O1tTzQAGFtCHm8_Hzy3Us1OC=PgUw@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;After the two weeks, the merge window for 5.6 has finished and therefore the
 5.6-rc1 has released.&lt;/p&gt;
@@ -453,7 +460,7 @@ huge changes (more than 10K commits) and the changes are normal.&lt;/p&gt;
 &lt;p&gt;This mail introduces an issue on 5.3 and 5.4 kernel that page out is occurred
 needlessly.  The author uses &lt;code&gt;stress&lt;/code&gt; and &lt;code&gt;dd&lt;/code&gt; to stress memory but still
 leave some memory in the system.  However, the system does swap excessively.&lt;/p&gt;
-&lt;h2 id=&#34;lsfmmbpf-topic-do-not-pin-pages-for-various-directio-scheme&#34;&gt;[LSF/MM/BPF TOPIC] Do not pin pages for various direct-io scheme&lt;/h2&gt;
+&lt;h2 id=&#34;lsfmmbpf-topic-do-not-pin-pages-for-various-direct-io-scheme&#34;&gt;[LSF/MM/BPF TOPIC] Do not pin pages for various direct-io scheme&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20200122023100.75226-1-jglisse@redhat.com&#34;&gt;https://lkml.kernel.org/r/20200122023100.75226-1-jglisse@redhat.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Another talk proposal for the LSF/MM this year.  Due to the pinning of the
 pages for direct I/O, several mm activities including compaction and migration
@@ -496,7 +503,7 @@ discuss about it in this year LSFMM.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20200116235953.163318-1-minchan@kernel.org&#34;&gt;https://lkml.kernel.org/r/20200116235953.163318-1-minchan@kernel.org&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;The second version of the &lt;code&gt;madvise_process()&lt;/code&gt; system call.  Modified its
 interface to support both pid and pidfd.&lt;/p&gt;
-&lt;h2 id=&#34;linux-55rc7&#34;&gt;Linux 5.5-rc7&lt;/h2&gt;
+&lt;h2 id=&#34;linux-55-rc7&#34;&gt;Linux 5.5-rc7&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wjvkH0xJF6yF72VZOF7cifFv3nH9qhGGZh8urLg5xWt=Q@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wjvkH0xJF6yF72VZOF7cifFv3nH9qhGGZh8urLg5xWt=Q@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;As worried, things picked up this week.  Half of all merges has arrived to
 Torvalds during the last two days of the week.  That said, Torvalds says he
@@ -514,8 +521,8 @@ and it is real pick up due to the holiday season, he will instead release rc8.&l
       <description>&lt;h2 id=&#34;oom-killer-not-nearly-agressive-enough&#34;&gt;OOM killer not nearly agressive enough?&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20200107204412.GA29562@amd&#34;&gt;https://lkml.kernel.org/r/20200107204412.GA29562@amd&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;The author if this mail, Pavel updated his userspace to x86-64 and encountered
-chromium&#39;s memory hogging.  He was required to kill the chromium himself,
-because OOM killer didn&#39;t kill it.  He asks whether this means OOM killer is
+chromium&amp;rsquo;s memory hogging.  He was required to kill the chromium himself,
+because OOM killer didn&amp;rsquo;t kill it.  He asks whether this means OOM killer is
 not aggressive enough.&lt;/p&gt;
 &lt;h2 id=&#34;patch-04-introduce-memory-hinting-api-for-external-process&#34;&gt;[PATCH 0/4] introduce memory hinting API for external process&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20200110213433.94739-1-minchan@kernel.org&#34;&gt;https://lkml.kernel.org/r/20200110213433.94739-1-minchan@kernel.org&lt;/a&gt;&lt;/p&gt;
@@ -525,11 +532,11 @@ split the patchset into two part.  And, the first part, which adds &lt;code&gt;M
 and &lt;code&gt;MADV_PAGEOUT&lt;/code&gt; has been merged to the mainline.  This patchset is the
 second part of the patchset.  Now he aims to let processes to be able to do
 &lt;code&gt;madvise()&lt;/code&gt; to other processes.&lt;/p&gt;
-&lt;h2 id=&#34;linux-55rc6&#34;&gt;Linux 5.5-rc6&lt;/h2&gt;
+&lt;h2 id=&#34;linux-55-rc6&#34;&gt;Linux 5.5-rc6&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wjZRs-nL2SQ3syoyC8-Ycaj-AcH18UHe2b3GV0ayf0ZjQ@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wjZRs-nL2SQ3syoyC8-Ycaj-AcH18UHe2b3GV0ayf0ZjQ@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;This release was also very calm.  Linus suspects it was due to the holiday.
 Therefore, he thinks the 5.5 release will be after &amp;lsquo;-rc8&amp;rsquo;, this time.  But,
-it&#39;s not fixed plan.  If things go well, he might release the 5.5 only after
+it&amp;rsquo;s not fixed plan.  If things go well, he might release the 5.5 only after
 &amp;lsquo;-rc7&amp;rsquo; as usual.&lt;/p&gt;
 &lt;p&gt;Most changes for rc6 was for drivers.&lt;/p&gt;
 </description>
@@ -540,11 +547,11 @@ it&#39;s not fixed plan.  If things go well, he might release the 5.5 only after
       <link>/post/lkml_news_v5.5-rc5/</link>
       <pubDate>Mon, 30 Dec 2019 17:54:23 +0100</pubDate>
       <guid>/post/lkml_news_v5.5-rc5/</guid>
-      <description>&lt;h2 id=&#34;patch-v16-qemu-43-rfc-memory-add-support-for-madvfree-as-mechanism-to-lazy-discard-pages&#34;&gt;[PATCH v16 QEMU 4/3 RFC] memory: Add support for MADV_FREE as mechanism to lazy discard pages&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;patch-v16-qemu-43-rfc-memory-add-support-for-madv_free-as-mechanism-to-lazy-discard-pages&#34;&gt;[PATCH v16 QEMU 4/3 RFC] memory: Add support for MADV_FREE as mechanism to lazy discard pages&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20200103212339.29849.99817.stgit@localhost.localdomain&#34;&gt;https://lkml.kernel.org/r/20200103212339.29849.99817.stgit@localhost.localdomain&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;This RFC patch modifies QEMU to able to use &lt;code&gt;MADV_FREE&lt;/code&gt; for discard of pages to
 avoid the page zeroing cost.&lt;/p&gt;
-&lt;h2 id=&#34;linux-55rc5&#34;&gt;Linux 5.5-rc5&lt;/h2&gt;
+&lt;h2 id=&#34;linux-55-rc5&#34;&gt;Linux 5.5-rc5&lt;/h2&gt;
 &lt;p&gt;https://lkml/kernel.org/r/CAHk-=whwmJQwwMD06VfPapDmc52LFQhG3HP6VyVLXVA=nYi_&lt;a href=&#34;mailto:ow@mail.gmail.com&#34;&gt;ow@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Time files, rc5 released.  Last week was also another calm week due to the new
 year holidays, and thus this release is small.  Linus expects it will be
@@ -566,7 +573,7 @@ of Linux.  Rest in peace, Bruce.&lt;/p&gt;
 page table entry transformations including old, young, dirty, clean, write,
 write protect etc.  The tests are not using the kselftest or kunit, but
 implemented as a kernel module with new file, &lt;code&gt;mm/debug_vm_pgtable.c&lt;/code&gt;.&lt;/p&gt;
-&lt;h2 id=&#34;linux-55rc4&#34;&gt;Linux 5.5-rc4&lt;/h2&gt;
+&lt;h2 id=&#34;linux-55-rc4&#34;&gt;Linux 5.5-rc4&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wjq2b9GkLzpaDE-Xryu5c0zMM72BqkJKeZVsX+4ymH6aA@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wjq2b9GkLzpaDE-Xryu5c0zMM72BqkJKeZVsX+4ymH6aA@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Due to the holidays, last week was unsurprisingly quiet.  Torvalds says it was
 hardly even worth making an rc release.  That said, there were some fixes for
@@ -579,11 +586,11 @@ cifs, io_uring, and kunit/selftest.&lt;/p&gt;
       <link>/post/lkml_news_v5.5-rc3/</link>
       <pubDate>Wed, 18 Dec 2019 20:33:01 +0100</pubDate>
       <guid>/post/lkml_news_v5.5-rc3/</guid>
-      <description>&lt;h2 id=&#34;problem-large-256mb-cma-allocation-fails-from-time-to-time-when-using-intel-vtd&#34;&gt;PROBLEM: Large (256MB) CMA allocation fails from time to time when using Intel VT-d&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;problem-large-256mb-cma-allocation-fails-from-time-to-time-when-using-intel-vt-d&#34;&gt;PROBLEM: Large (256MB) CMA allocation fails from time to time when using Intel VT-d&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/5e75d900cb50457784ee1d2050b511ec@MAILER13.tech.ceia&#34;&gt;https://lkml.kernel.org/r/5e75d900cb50457784ee1d2050b511ec@MAILER13.tech.ceia&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;The author reports a CMA allocation failure that occurs time to time if the
 system is using Intel VT-d.&lt;/p&gt;
-&lt;h2 id=&#34;patchv2-03-allow-zram-to-use-any-zpoolcompatible-backend&#34;&gt;[PATCHv2 0/3] Allow ZRAM to use any zpool-compatible backend&lt;/h2&gt;
+&lt;h2 id=&#34;patchv2-03-allow-zram-to-use-any-zpool-compatible-backend&#34;&gt;[PATCHv2 0/3] Allow ZRAM to use any zpool-compatible backend&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20191219151928.ad4ccf732b64b7f8a26116db@gmail.com&#34;&gt;https://lkml.kernel.org/r/20191219151928.ad4ccf732b64b7f8a26116db@gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;ZRAM is an in-memory block device that compresses the content.  Currently, ZRAM
 is used only with zsmalloc.  However, the zsmalloc is not an optimal selection
@@ -596,13 +603,13 @@ patchset changes ZRAM to be able to use multiple backend.&lt;/p&gt;
 &lt;p&gt;KMSAN detects errors related to uses of uninitialized memory.  With a help from
 syzkaller, KMSAN has already reported more than 200 bugs in the past two years.
 This patch aims to be merged in the mainline.&lt;/p&gt;
-&lt;h2 id=&#34;regression-seen-when-using-madvfree-vs-madvdontneed&#34;&gt;Regression seen when using &lt;code&gt;MADV_FREE&lt;/code&gt; vs &lt;code&gt;MADV_DONTNEED&lt;/code&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;regression-seen-when-using-madv_free-vs-madv_dontneed&#34;&gt;Regression seen when using &lt;code&gt;MADV_FREE&lt;/code&gt; vs &lt;code&gt;MADV_DONTNEED&lt;/code&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAKgT0UeSs_qy8g5QoXpgcw2685+JtJPY+rehggraoGSYPrP1Aw@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAKgT0UeSs_qy8g5QoXpgcw2685+JtJPY+rehggraoGSYPrP1Aw@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;The author introduced a patch using &lt;code&gt;MADV_FREE&lt;/code&gt; instead of &lt;code&gt;MADV_DONTNEED&lt;/code&gt; in
 the QEMU.  On &lt;code&gt;next-20191120&lt;/code&gt; kernel, it worked as the author expected.  On
 &lt;code&gt;next-20191120&lt;/code&gt;, however, the author was able to encounter an issue.  The
 &lt;code&gt;MADV_FREE&lt;/code&gt; has been significantly slower than &lt;code&gt;MADV_DONTNEED&lt;/code&gt;.&lt;/p&gt;
-&lt;h2 id=&#34;linux-55rc3&#34;&gt;Linux 5.5-rc3&lt;/h2&gt;
+&lt;h2 id=&#34;linux-55-rc3&#34;&gt;Linux 5.5-rc3&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wiGKfWeUv294FD6bs4cw0m=nO_LdZkLz-vkp-2zwBzLcA@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wiGKfWeUv294FD6bs4cw0m=nO_LdZkLz-vkp-2zwBzLcA@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;This release has delayed a couple of hors due to Christmas preparation, but
 seems the Christmas has made no big effect to the development.  Rather than
@@ -620,7 +627,7 @@ release will be more calm than now.  That said, he also asks some tests.&lt;/p&g
       <link>/post/lkml_news_v5.5-rc2/</link>
       <pubDate>Mon, 09 Dec 2019 18:54:28 +0100</pubDate>
       <guid>/post/lkml_news_v5.5-rc2/</guid>
-      <description>&lt;h2 id=&#34;patchset-05-support-for-rwfuncached&#34;&gt;[PATCHSET 0/5] Support for &lt;code&gt;RWF_UNCACHED&lt;/code&gt;&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;patchset-05-support-for-rwf_uncached&#34;&gt;[PATCHSET 0/5] Support for &lt;code&gt;RWF_UNCACHED&lt;/code&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20191210162454.8608-1-axboe@kernel.dk&#34;&gt;https://lkml.kernel.org/r/20191210162454.8608-1-axboe@kernel.dk&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;As the buffered IO uses the page cache, an intensive buffered IO workload using
 very huge file can cause memory pressure by inflating the page cache.
@@ -629,11 +636,11 @@ Jens Axboe thus implemented &lt;code&gt;RWF_UNCACHED&lt;/code&gt; flag, which sk
 cache if the given IO target is not in the page cache already.
 Jonathan Corbet has also introduced this patchset in LWN
 (&lt;a href=&#34;https://lwn.net/Articles/806980/)&#34;&gt;https://lwn.net/Articles/806980/)&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id=&#34;linux-55rc2&#34;&gt;Linux 5.5.-rc2&lt;/h2&gt;
+&lt;h2 id=&#34;linux-55-rc2&#34;&gt;Linux 5.5.-rc2&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wgF1O8oPL9HRwRSrHt7NeLATtE5eZjcmP1QZfkcqE-+0g@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wgF1O8oPL9HRwRSrHt7NeLATtE5eZjcmP1QZfkcqE-+0g@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;The first release right after the close of the merge window, namely rc2, is
 usually calm because it is too early to find bugs.  This release was also did.
-It&#39;s calm and normal.  Torvalds asks us for test.&lt;/p&gt;
+It&amp;rsquo;s calm and normal.  Torvalds asks us for test.&lt;/p&gt;
 </description>
     </item>
     
@@ -642,13 +649,13 @@ It&#39;s calm and normal.  Torvalds asks us for test.&lt;/p&gt;
       <link>/post/lkml_news_v5.5-rc1/</link>
       <pubDate>Mon, 02 Dec 2019 00:28:42 +0100</pubDate>
       <guid>/post/lkml_news_v5.5-rc1/</guid>
-      <description>&lt;h2 id=&#34;splitting-the-mmapsem&#34;&gt;&lt;code&gt;Splitting the mmap_sem&lt;/code&gt;&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;splitting-the-mmap_sem&#34;&gt;&lt;code&gt;Splitting the mmap_sem&lt;/code&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20191203222147.GV20752@bombadil.infradead.org&#34;&gt;https://lkml.kernel.org/r/20191203222147.GV20752@bombadil.infradead.org&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;The &lt;code&gt;mmap_sem&lt;/code&gt; is a big scalability bottleneck and there are several projects
 for solving it.  In this mail, Matthew Wilcox suggests his plan for his
 solution and asks whether a exceptional case in his solution is acceptable to
 other people.&lt;/p&gt;
-&lt;h2 id=&#34;linux-55rc1&#34;&gt;Linux 5.5-rc1&lt;/h2&gt;
+&lt;h2 id=&#34;linux-55-rc1&#34;&gt;Linux 5.5-rc1&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wiEJK=yo9vEhX_4b4ROvCqUA_rjK7g996h-5MbfOMeDrw@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wiEJK=yo9vEhX_4b4ROvCqUA_rjK7g996h-5MbfOMeDrw@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Linux 5.5 merge window closed and the -rc1 has released.
 It was a tiny bit larger release compared to recent several releases, but
@@ -667,12 +674,12 @@ kernel in very fast and convenient way!&lt;/p&gt;
       <guid>/post/lkml_news_v5.4/</guid>
       <description>&lt;h2 id=&#34;patch-rfc-v3-0036-add-kernelmemorysanitizer-infrastructure&#34;&gt;[PATCH RFC v3 00/36] Add KernelMemorySanitizer infrastructure&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20191122112621.204798-1-glider@google.com&#34;&gt;https://lkml.kernel.org/r/20191122112621.204798-1-glider@google.com&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Google&#39;s third KMSAN RFC patchset that detects errors caused by accessing
+&lt;p&gt;Google&amp;rsquo;s third KMSAN RFC patchset that detects errors caused by accessing
 uninitialized memory areas. Like other SAN series, it has been used in Google
 syzkaller and found over 200 bugs in the last two years.&lt;/p&gt;
 &lt;h2 id=&#34;lsfmmbpf-2020-call-for-proposals&#34;&gt;LSF/MM/BPF: 2020: Call for Proposals&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20191122172502.vffyfxlqejthjib6@macbook-pro-91.dhcp.thefacebook.com&#34;&gt;https://lkml.kernel.org/r/20191122172502.vffyfxlqejthjib6@macbook-pro-91.dhcp.thefacebook.com&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;LSF/MM&#39;s CFP for the next year was released.  From next year, BPF sessions
+&lt;p&gt;LSF/MM&amp;rsquo;s CFP for the next year was released.  From next year, BPF sessions
 will be added to LSF/MM, so the name has changed to LSF/MM/BPF. I can
 feel the phase of BPF again!&lt;/p&gt;
 &lt;h2 id=&#34;linux-54&#34;&gt;Linux 5.4&lt;/h2&gt;
@@ -681,8 +688,8 @@ feel the phase of BPF again!&lt;/p&gt;
 released.  Fortunately, the past week was really calm.  Most of the pull
 requests for 5.5 came early for Thanksgiving, and some updates to networking
 and GPUs.&lt;/p&gt;
-&lt;p&gt;In this way 5.5 merge window is open, but I&#39;m a little worried that there&#39;s
-Thanksgiving in the merge window, but Torvalds believes it won&#39;t be a big deal,
+&lt;p&gt;In this way 5.5 merge window is open, but I&amp;rsquo;m a little worried that there&amp;rsquo;s
+Thanksgiving in the merge window, but Torvalds believes it won&amp;rsquo;t be a big deal,
 and it might be a little slow to take care of the children.&lt;/p&gt;
 </description>
     </item>
@@ -692,10 +699,10 @@ and it might be a little slow to take care of the children.&lt;/p&gt;
       <link>/post/lkml_news_v5.4-rc8/</link>
       <pubDate>Tue, 12 Nov 2019 20:08:10 +0100</pubDate>
       <guid>/post/lkml_news_v5.4-rc8/</guid>
-      <description>&lt;h2 id=&#34;patch-0013-finish-off-smpreadbarrierdepends&#34;&gt;&lt;code&gt;[PATCH 00/13] Finish off [smp_]read_barrier_depends()&lt;/code&gt;&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;patch-0013-finish-off-smp_read_barrier_depends&#34;&gt;&lt;code&gt;[PATCH 00/13] Finish off [smp_]read_barrier_depends()&lt;/code&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20191108170120.22331-1-will@kernel.org&#34;&gt;https://lkml.kernel.org/r/20191108170120.22331-1-will@kernel.org&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;The memory model element which is depends only on Alpha,
-&lt;code&gt;smp_read_barrier_depends()&lt;/code&gt; is built into &lt;code&gt;READ_ONCE()&lt;/code&gt;, so that you don&#39;t
+&lt;code&gt;smp_read_barrier_depends()&lt;/code&gt; is built into &lt;code&gt;READ_ONCE()&lt;/code&gt;, so that you don&amp;rsquo;t
 have to worry about Alpha in non-alpha-specific kernel code.
 Nevertheless, the author of this patchset concerned about the continuing
 uploads of the code that cares it.
@@ -703,14 +710,14 @@ This patchset removes the description of the feature from all documentation and
 comments in the kernel code.&lt;/p&gt;
 &lt;h2 id=&#34;patch-v4-0010-add-kernel-concurrency-sanitizer-kcsan&#34;&gt;[PATCH v4 00/10] Add Kernel Concurrency Sanitizer (KCSAN)&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20191114180303.66955-1-elver@google.com&#34;&gt;https://lkml.kernel.org/r/20191114180303.66955-1-elver@google.com&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;This is the Google&#39;s KCSAN patch that catches concurrency bugs. This version is
+&lt;p&gt;This is the Google&amp;rsquo;s KCSAN patch that catches concurrency bugs. This version is
 for x86 only, but will add ARM64 and POWER support soon. This fourth version
 has a 33% performance improvement over previous versions.&lt;/p&gt;
-&lt;h2 id=&#34;linux-54rc8&#34;&gt;Linux 5.4-rc8&lt;/h2&gt;
+&lt;h2 id=&#34;linux-54-rc8&#34;&gt;Linux 5.4-rc8&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wiyR4Np_n5O6=rbf1GVNdr_zUd1WAC_GJDnc_hUhHqwWg@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wiyR4Np_n5O6=rbf1GVNdr_zUd1WAC_GJDnc_hUhHqwWg@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;It&#39;s been a week of thrilling to see if the full version or rc8 will be
-available. But it wasn&#39;t just a problem. It&#39;s been a quiet week, even though
-it&#39;s been a week since the bustling Intel vulnerability patch.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s been a week of thrilling to see if the full version or rc8 will be
+available. But it wasn&amp;rsquo;t just a problem. It&amp;rsquo;s been a quiet week, even though
+it&amp;rsquo;s been a week since the bustling Intel vulnerability patch.&lt;/p&gt;
 &lt;p&gt;Next week is Thanksgiving. With that in mind, next week we hope to have an
 early pull request for 5.5 merge windows rather than a fix for 5.4.&lt;/p&gt;
 </description>
@@ -721,7 +728,7 @@ early pull request for 5.5 merge windows rather than a fix for 5.4.&lt;/p&gt;
       <link>/post/lkml_news_v5.4-rc7/</link>
       <pubDate>Mon, 11 Nov 2019 07:17:00 +0100</pubDate>
       <guid>/post/lkml_news_v5.4-rc7/</guid>
-      <description>&lt;h2 id=&#34;linux-54rc7&#34;&gt;Linux 5.4-rc7&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;linux-54-rc7&#34;&gt;Linux 5.4-rc7&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wivmGEOTha5XkRHgH6VwfiroiN+PFVMNK3B0r-d0eFLPQ@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wivmGEOTha5XkRHgH6VwfiroiN+PFVMNK3B0r-d0eFLPQ@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;일곱번째 rc 버전이 릴리즈 되었습니다.  지난 rc6 때도 변경량이 생각보다 많아
 토발즈가 고민했는데, 이번주도 토발즈가 원했던 것보단 변경량이 많았다고
@@ -765,7 +772,7 @@ percentile 부턴 별 차이 없군요.&lt;/p&gt;
 &lt;p&gt;DRAM 과 PMEM 등으로 구성되어 PMEM 을 NUMA node 로 간주하는 multi-tiering memory
 system 을 염두에 두고 hot page / cold page 를 구분할 수 있게 해주는
 패치셋입니다.&lt;/p&gt;
-&lt;h2 id=&#34;linux-54rc6&#34;&gt;Linux 5.4-rc6&lt;/h2&gt;
+&lt;h2 id=&#34;linux-54-rc6&#34;&gt;Linux 5.4-rc6&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wg+8=w=sEx9WBF0OJj0SumQ4p-LuP8waRH=TSdAYDeqGg@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wg+8=w=sEx9WBF0OJj0SumQ4p-LuP8waRH=TSdAYDeqGg@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;OSSEU 가 종료되고 토발즈는 집에 잘 도착했고, 시차 적응도 큰 문제는 없었기에
 평소대로의 타이밍에 릴리즈가 가능했다고 합니다.
@@ -784,13 +791,13 @@ system 을 염두에 두고 hot page / cold page 를 구분할 수 있게 해주
       <link>/post/lkml_news_v5.4-rc5/</link>
       <pubDate>Sun, 27 Oct 2019 12:48:30 +0100</pubDate>
       <guid>/post/lkml_news_v5.4-rc5/</guid>
-      <description>&lt;h2 id=&#34;patch-0012-mm-remove-archhas4levelhack&#34;&gt;&lt;code&gt;[PATCH 00/12] mm: remove __ARCH_HAS_4LEVEL_HACK&lt;/code&gt;&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;patch-0012-mm-remove-__arch_has_4level_hack&#34;&gt;&lt;code&gt;[PATCH 00/12] mm: remove __ARCH_HAS_4LEVEL_HACK&lt;/code&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/1571822941-29776-1-git-send-email-rppt@kernel.org&#34;&gt;https://lkml.kernel.org/r/1571822941-29776-1-git-send-email-rppt@kernel.org&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;서로 다른 아키텍쳐 간의 페이지 테이블 구조로 인해 사용해야 했던
 &lt;code&gt;__ARCH_HAS_4LEVEL_HACK&lt;/code&gt; 을 제거하는 패치입니다.  Alpha, arm, c6x 등의
 아키텍쳐가 변경되는군요.
 UML, qemu 등에서 부팅 테스트를 거쳤군요.&lt;/p&gt;
-&lt;h2 id=&#34;linux-54rc5&#34;&gt;Linux 5.4-rc5&lt;/h2&gt;
+&lt;h2 id=&#34;linux-54-rc5&#34;&gt;Linux 5.4-rc5&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wgpewLxHxnO71tFHh=M4C4iUofJykMqq3r=eRyxUyVsiw@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wgpewLxHxnO71tFHh=M4C4iUofJykMqq3r=eRyxUyVsiw@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;다섯번째 rc 버전 릴리즈입니다.
 하지만 안타깝게도 이번 릴리즈는 마냥 조용하진 않았다는군요.
@@ -822,7 +829,7 @@ UML, qemu 등에서 부팅 테스트를 거쳤군요.&lt;/p&gt;
 Syzkaller 에 적용되어 지난 2년간 무려 200개가 넘는 문제를 발견했다고 합니다.&lt;/p&gt;
 &lt;p&gt;이 패치셋은 KMSAN 을 적용한 커널을 QEMU 에서 부팅시킬 수 있게 해줍니다.
 알려진 false positive 는 없지만 실제로 적용해보면 있을수도 있다고 하는군요.&lt;/p&gt;
-&lt;h2 id=&#34;linux-54rc4&#34;&gt;Linux 5.4-rc4&lt;/h2&gt;
+&lt;h2 id=&#34;linux-54-rc4&#34;&gt;Linux 5.4-rc4&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wh3jhffc0u7s5n=-zUFpztuh+0Hfth4vwuyfc5SpBmvSA@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wh3jhffc0u7s5n=-zUFpztuh+0Hfth4vwuyfc5SpBmvSA@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;네번째 rc 버전 릴리즈입니다.  딱히 특별한 일 없이 평범한 릴리즈라고
 자평하는군요.  토발즈는 이번주에 OSSummit Europe 참가를 위해 프랑스로 가는
@@ -835,7 +842,7 @@ Syzkaller 에 적용되어 지난 2년간 무려 200개가 넘는 문제를 발�
       <link>/post/lkml_news_v5.4-rc3/</link>
       <pubDate>Sun, 13 Oct 2019 12:22:50 +0200</pubDate>
       <guid>/post/lkml_news_v5.4-rc3/</guid>
-      <description>&lt;h2 id=&#34;linux-54rc3&#34;&gt;Linux 5.4-rc3&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;linux-54-rc3&#34;&gt;Linux 5.4-rc3&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wjOhveT=qrq8HHyL7gpA5fmBtDa2ue7sO5ZSEBrrcY6Vg@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wjOhveT=qrq8HHyL7gpA5fmBtDa2ue7sO5ZSEBrrcY6Vg@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;세번째 rc 릴리즈입니다.  실제 문제가 발견되고 그에 대한 수정이 본격적으로
 시작되는 시즌이라 rc2보단 당연히 크지만 역대 rc3 들과 비교하면 작은 편의
@@ -867,7 +874,7 @@ staging driver 일부가 사라진 게 조금 릴리즈 크기를 크게 보이�
 첫번째 버전은 이 블로그에서도 소개한 바 있죠.
 첫번째 버전 이후로의 변화 중 눈에 띄는 건 파이썬 2.7 과 3.6 에서 모두
 돌아가게끔 한 것이군요.&lt;/p&gt;
-&lt;h2 id=&#34;patch-v5-0011-introduces-new-countbased-method-for-tracking-lockless-pagetable-walks&#34;&gt;[PATCH v5 00/11] Introduces new count-based method for tracking lockless pagetable walks&lt;/h2&gt;
+&lt;h2 id=&#34;patch-v5-0011-introduces-new-count-based-method-for-tracking-lockless-pagetable-walks&#34;&gt;[PATCH v5 00/11] Introduces new count-based method for tracking lockless pagetable walks&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20191003013325.2614-1-leonardo@linux.ibm.com&#34;&gt;https://lkml.kernel.org/r/20191003013325.2614-1-leonardo@linux.ibm.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;THP promotion/demotion 과 동시에 page table 조작이 일어나는 걸 막기 위해
 존재하는 &lt;code&gt;serialize_against_pte_lookup()&lt;/code&gt; 함수로 인해 발생하는 &lt;code&gt;munmap()&lt;/code&gt;
@@ -882,7 +889,7 @@ staging driver 일부가 사라진 게 조금 릴리즈 크기를 크게 보이�
 패치셋입니다.
 안드로이드 ION 이라던지 RDMA, Camera 모듈들이 이에 의존적이어서 드라이버 레벨로
 빌드가 안되기 때문에 이런 변경을 제안했다네요.&lt;/p&gt;
-&lt;h2 id=&#34;linux-54rc2&#34;&gt;Linux 5.4-rc2&lt;/h2&gt;
+&lt;h2 id=&#34;linux-54-rc2&#34;&gt;Linux 5.4-rc2&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wiNT4Yk+36OXMyPuesrU88cFyDG_XnjRiKwaac09PJpQw@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wiNT4Yk+36OXMyPuesrU88cFyDG_XnjRiKwaac09PJpQw@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;다시 일요일 오후 릴리즈로 돌아왔습니다.
 큰 변화는 없고 그저 소소한 수정 사항들 뿐이었다는군요.
@@ -896,7 +903,7 @@ staging driver 일부가 사라진 게 조금 릴리즈 크기를 크게 보이�
       <link>/post/lkml_news_v5.4-rc1/</link>
       <pubDate>Sat, 21 Sep 2019 10:00:48 +0200</pubDate>
       <guid>/post/lkml_news_v5.4-rc1/</guid>
-      <description>&lt;h2 id=&#34;patch-02-introduce-new-perfscript-pagereclaim&#34;&gt;[PATCH 0/2] introduce new perf-script page-reclaim&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;patch-02-introduce-new-perf-script-page-reclaim&#34;&gt;[PATCH 0/2] introduce new perf-script page-reclaim&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/1568817522-8754-1-git-send-email-laoar.shao@gmail.com&#34;&gt;https://lkml.kernel.org/r/1568817522-8754-1-git-send-email-laoar.shao@gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Page reclaim 관련 성능 메트릭을 분석하기 위한 perf script 커맨드를 추가하는
 패치입니다.  Direct reclaim 으로 인한 응답시간 폭증, page reclaim 이 왜
@@ -963,7 +970,7 @@ file / anon page 별로 reclaim, scan, sync write, async write 이 몇번
            3444847948969: 120735792
            3445001978784: 342713657
            ...
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;git-pull-kselftest-update-for-linux-54rc1&#34;&gt;[GIT PULL] Kselftest update for Linux 5.4-rc1&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;git-pull-kselftest-update-for-linux-54-rc1&#34;&gt;[GIT PULL] Kselftest update for Linux 5.4-rc1&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/be8059f4-8e8f-cd18-0978-a9c861f6396b@linuxfoundation.org&#34;&gt;https://lkml.kernel.org/r/be8059f4-8e8f-cd18-0978-a9c861f6396b@linuxfoundation.org&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;이블로그에서도 여러차례 소개했던 kunit 은 제가 오랫동안 메인라인에 머지되기를
 기다려 왔던 기능입니다.
@@ -981,7 +988,7 @@ driven development 기법을 적용했고, 그 효과를 톡톡히 봤죠.
 좀 아쉬운 마음이 있었는데요.
 또 이제와서 생각해 보면 저도 &lt;code&gt;kernel/&lt;/code&gt; 넘어가기 위해 한번 더 키보드에 손대야
 하는게 좀 불쾌했던 거 같기도 하네요. ;)&lt;/p&gt;
-&lt;h2 id=&#34;patch-v4-0011-introduces-new-countbased-method-for-monitoring-lockless-pagetable-walks&#34;&gt;[PATCH v4 00/11] Introduces new count-based method for monitoring lockless pagetable walks&lt;/h2&gt;
+&lt;h2 id=&#34;patch-v4-0011-introduces-new-count-based-method-for-monitoring-lockless-pagetable-walks&#34;&gt;[PATCH v4 00/11] Introduces new count-based method for monitoring lockless pagetable walks&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190927234008.11513-1-leonardo@linux.ibm.com&#34;&gt;https://lkml.kernel.org/r/20190927234008.11513-1-leonardo@linux.ibm.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;128개 vcpu 의 qemu 가 THP 로 매핑된 496 GiB 메모리 영역을 &lt;code&gt;munmap()&lt;/code&gt; 완료하는데
 무려 275초가 걸린다고 합니다.
@@ -995,7 +1002,7 @@ driven development 기법을 적용했고, 그 효과를 톡톡히 봤죠.
 세고 그 갯수가 0이면 이 오버헤드가 되는 동시성 보호 코드를 생략하게 합니다.&lt;/p&gt;
 &lt;p&gt;이 패치를 적용한 후 앞의 문제시 되던 작업에 걸리는 시간이 275초에서 무려 418 ms
 으로 줄었다는군요!&lt;/p&gt;
-&lt;h2 id=&#34;linux-54rc1&#34;&gt;Linux 5.4-rc1&lt;/h2&gt;
+&lt;h2 id=&#34;linux-54-rc1&#34;&gt;Linux 5.4-rc1&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wgbGJ-SGeevEcgrThhPp+RwYOUUgWoZ3W27cbUpuB3VgA@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wgbGJ-SGeevEcgrThhPp+RwYOUUgWoZ3W27cbUpuB3VgA@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;평소보다 하루 늦은 월요일에 5.4 머지윈도우가 닫히고 rc1 릴리즈가
 이루어졌습니다.
@@ -1012,7 +1019,7 @@ AMD DRM 관련 변경이 많이 있지만 이는 하드웨어 구성에 따른 �
       <link>/post/lkml_news_v5.3/</link>
       <pubDate>Thu, 12 Sep 2019 17:59:25 +0200</pubDate>
       <guid>/post/lkml_news_v5.3/</guid>
-      <description>&lt;h2 id=&#34;patch-x86mm-enable-5level-paging-support-by-default&#34;&gt;[PATCH] x86/mm: Enable 5-level paging support by default&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;patch-x86mm-enable-5-level-paging-support-by-default&#34;&gt;[PATCH] x86/mm: Enable 5-level paging support by default&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190913095452.40592-1-kirill.shutemov@linux.intel.com&#34;&gt;https://lkml.kernel.org/r/20190913095452.40592-1-kirill.shutemov@linux.intel.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;5 레벨 페이지 테이블 기능이 들어간지도 어느덧 시간이 지났죠.
 인텔 내부적 테스트 상으론 이 기능을 켰을 때 4 레벨 페이지 테이블 기계에서도
@@ -1040,7 +1047,7 @@ AMD DRM 관련 변경이 많이 있지만 이는 하드웨어 구성에 따른 �
 메모리만 사용하는 cgroup 여러개가 존재하면 슬랩에서 크게 받아놓은 메모리에서
 조금씩만 실제 사용되니까 전체 활용률은 낮게 되는거죠.  이 RFC 패치셋은 서로
 다른 cgroup 들이 슬랩 페이지를 공유할 수 있게 함으로써 이 문제를 해결합니다.&lt;/p&gt;
-&lt;h2 id=&#34;linux-53rc8&#34;&gt;Linux 5.3-rc8&lt;/h2&gt;
+&lt;h2 id=&#34;linux-53-rc8&#34;&gt;Linux 5.3-rc8&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=whBQ+6c-h+htiv6pp8ndtv97+45AH9WvdZougDRM6M4VQ@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=whBQ+6c-h+htiv6pp8ndtv97+45AH9WvdZougDRM6M4VQ@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;평소대로라면 5.3 정식 릴리즈가 되었을테고 별다른 문제는 없었지만, rc7
 릴리즈에서 이야기된대로 LPC 와 커널 서밋도 있고 한 이유로, -rc8 이 릴리즈
@@ -1071,7 +1078,7 @@ AMD DRM 관련 변경이 많이 있지만 이는 하드웨어 구성에 따른 �
       <link>/post/lkml_news_v5.3-rc6/</link>
       <pubDate>Thu, 22 Aug 2019 15:30:54 +0200</pubDate>
       <guid>/post/lkml_news_v5.3-rc6/</guid>
-      <description>&lt;h2 id=&#34;linux-53rc6&#34;&gt;Linux 5.3-rc6&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;linux-53-rc6&#34;&gt;Linux 5.3-rc6&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wgAKCTq+t5YnG6HzrF62=rr9H=q3LqokEP0_bQRHLwYNw@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wgAKCTq+t5YnG6HzrF62=rr9H=q3LqokEP0_bQRHLwYNw@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;오늘은 리눅스의 28번째 생일입니다.  따라서 오늘 rc6 릴리즈는 28년만의
 릴리즈이기도 하군요.  토발즈도 감회가 깊었는지 오늘의 릴리즈 메일엔 최초 릴리즈
@@ -1122,7 +1129,7 @@ compaction 을 열심히 하긴 하지만 어플리케이션은 이미 메모리
 실패할 수 있죠.  Huge page 에 성능이 의존적인 어플리케이션에겐 큰 문제입니다.&lt;/p&gt;
 &lt;p&gt;이 패치는 page order 별 fragmentation threshold 를 두고 이에 맞춰 page order
 별로 다른 compaction 을 수행하자는 겁니다.&lt;/p&gt;
-&lt;h2 id=&#34;linux-53rc5&#34;&gt;Linux 5.3-rc5&lt;/h2&gt;
+&lt;h2 id=&#34;linux-53-rc5&#34;&gt;Linux 5.3-rc5&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wiO5-puMa30fCwtgze57MH2JOzedVcEVotEviYmmQNihQ@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wiO5-puMa30fCwtgze57MH2JOzedVcEVotEviYmmQNihQ@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;다섯번째 rc 릴리즈입니다.  노드 로컬 할당 대 huge page 할당 관련 커밋 일부가
 리버트 시키지 않는 등의 몇가지 문제를 제외하면 조용한 릴리즈 주간이었다는군요.
@@ -1141,7 +1148,7 @@ compaction 을 열심히 하긴 하지만 어플리케이션은 이미 메모리
 알아보거나 shadow 페이지 테이블을 조정하거나 특정 이벤트 발생시 알림을 받거나
 할 수 있게 해주는 KVM introspection 서브시스템을 제안하는 패치입니다.  무려
 92개짜리의 거대한 패치군요.&lt;/p&gt;
-&lt;h2 id=&#34;patch-v4-15-mmpageidle-add-perpid-idle-page-tracking-using-virtual-indexing&#34;&gt;[PATCH v4 1/5] &lt;code&gt;mm/page_idle&lt;/code&gt;: Add per-pid idle page tracking using virtual indexing&lt;/h2&gt;
+&lt;h2 id=&#34;patch-v4-15-mmpage_idle-add-per-pid-idle-page-tracking-using-virtual-indexing&#34;&gt;[PATCH v4 1/5] &lt;code&gt;mm/page_idle&lt;/code&gt;: Add per-pid idle page tracking using virtual indexing&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190805170451.26009-1-joel@joelfernandes.org&#34;&gt;https://lkml.kernel.org/r/20190805170451.26009-1-joel@joelfernandes.org&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;페이지 액세스 여부를 알아볼 수 있는 &lt;code&gt;page_idle&lt;/code&gt; 기능을 프로세스별로 트래킹 하기
 편하게 만들어 주는 패치의 네번째 버전입니다.  저자는 구글 직원으로,
@@ -1149,7 +1156,7 @@ compaction 을 열심히 하긴 하지만 어플리케이션은 이미 메모리
 Swap pte 처리가 추가되었군요.&lt;/p&gt;
 &lt;p&gt;다섯번째 버전도 바로 올라왔습니다만, 큰 차이는 없어 보이는군요:
 &lt;a href=&#34;https://lkml.kernel.org/r/20190807171559.182301-1-joel@joelfernandes.org&#34;&gt;https://lkml.kernel.org/r/20190807171559.182301-1-joel@joelfernandes.org&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;linux-53rc4&#34;&gt;Linux 5.3-rc4&lt;/h2&gt;
+&lt;h2 id=&#34;linux-53-rc4&#34;&gt;Linux 5.3-rc4&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=whWJ7Dv9yZBZpxWd1zcAMwokjt7c8YOp-FOf1PXDKGrmQ@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=whWJ7Dv9yZBZpxWd1zcAMwokjt7c8YOp-FOf1PXDKGrmQ@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;세번째 rc 는 어째선지 작은 크기였다 말했었죠, 그냥 pull request 들이 천천히
 왔기 때문이 맞는 것 같다고 합니다.  이번 rc 릴리즈는 평소 크기에 rc3 에
@@ -1171,7 +1178,7 @@ LWN 에도 관련 글이 올라왔으니 한번 읽어보는 것도 좋을 겁�
       <link>/post/lkml_news_v5.3-rc3/</link>
       <pubDate>Wed, 31 Jul 2019 08:40:48 +0900</pubDate>
       <guid>/post/lkml_news_v5.3-rc3/</guid>
-      <description>&lt;h2 id=&#34;patch-v5-0014-provide-generic-topdown-mmap-layout-functions&#34;&gt;[PATCH v5 00/14] Provide generic top-down mmap layout functions&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;patch-v5-0014-provide-generic-top-down-mmap-layout-functions&#34;&gt;[PATCH v5 00/14] Provide generic top-down mmap layout functions&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190730055113.23635-1-alex@ghiti.fr&#34;&gt;https://lkml.kernel.org/r/20190730055113.23635-1-alex@ghiti.fr&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;아키텍쳐별로 다르게 구현되어 있던 mmap 레이아웃 함수들을 범용화 시키는 패치셋,
 다섯번째 버전입니다.&lt;/p&gt;
@@ -1184,7 +1191,7 @@ LWN 에도 관련 글이 올라왔으니 한번 읽어보는 것도 좋을 겁�
 &lt;p&gt;&lt;code&gt;sysctl&lt;/code&gt; 이나 &lt;code&gt;procfs&lt;/code&gt; 를 통한 hugetlb 페이지 할당은 수분이나 수시간까지도 오래
 걸릴 수 있습니다.  이 패치셋은 이렇게 느린 할당시간 문제를 유발하는 reclaim 과
 compaction 쪽 문제를 해결할 수 있는 수정사항들을 담고 있습니다.&lt;/p&gt;
-&lt;h2 id=&#34;linux-53rc3&#34;&gt;Linux 5.3-rc3&lt;/h2&gt;
+&lt;h2 id=&#34;linux-53-rc3&#34;&gt;Linux 5.3-rc3&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wiW+q32YcUL62XWjAme8giZDo-=kmB9=f_JEgyEgV7eaA@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wiW+q32YcUL62XWjAme8giZDo-=kmB9=f_JEgyEgV7eaA@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;보통 머지 윈도우가 지난 후에는 사람들이 숨을 고르고 넘어가기 때문에 보통 rc2 가
 작고 rc3 부터 변경이 많아집니다.  하지만 이번 릴리즈는 이상하게도 rc2 보다
@@ -1314,7 +1321,7 @@ FLATMEM 보단 조금 비싸지만 DISCONTIGMEM 보다는 효율적이기 때문
       <link>/post/lkml_news_v5.3-rc2/</link>
       <pubDate>Fri, 26 Jul 2019 08:41:19 +0900</pubDate>
       <guid>/post/lkml_news_v5.3-rc2/</guid>
-      <description>&lt;h2 id=&#34;patch-v6-05-introduce-madvcold-and-madvpageout&#34;&gt;[PATCH v6 0/5] Introduce MADV_COLD and MADV_PAGEOUT&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;patch-v6-05-introduce-madv_cold-and-madv_pageout&#34;&gt;[PATCH v6 0/5] Introduce MADV_COLD and MADV_PAGEOUT&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190723062539.198697-1-minchan@kernel.org&#34;&gt;https://lkml.kernel.org/r/20190723062539.198697-1-minchan@kernel.org&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;어플리케이션의 메모리를 좀 더 적극적으로 reclaim 시킴으로써 반응성을 높이기
 위한 패치셋의 일부를 따로 떼어낸, &lt;code&gt;MADV_COLD&lt;/code&gt; 와 &lt;code&gt;MADV_PAGEOUT&lt;/code&gt; 힌트를
@@ -1326,7 +1333,7 @@ FLATMEM 보단 조금 비싸지만 DISCONTIGMEM 보다는 효율적이기 때문
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190722154210.42799-1-steven.price@arm.com&#34;&gt;https://lkml.kernel.org/r/20190722154210.42799-1-steven.price@arm.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;x86 과 arm64 가 범용적 페이지 테이블 워킹을 하도록 했던 해치셋을 조금 더 확장한
 버전입니다.  기존 대비 페이지 테이블 덤프 기능도 일반화 시킨게 차이군요.&lt;/p&gt;
-&lt;h2 id=&#34;patch-v1-12-mmpageidle-add-support-for-perpid-pageidle-using-virtual-indexing&#34;&gt;[PATCH v1 1/2] mm/page_idle: Add support for per-pid page_idle using virtual indexing&lt;/h2&gt;
+&lt;h2 id=&#34;patch-v1-12-mmpage_idle-add-support-for-per-pid-page_idle-using-virtual-indexing&#34;&gt;[PATCH v1 1/2] mm/page_idle: Add support for per-pid page_idle using virtual indexing&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190722213205.140845-1-joel@joelfernandes.org&#34;&gt;https://lkml.kernel.org/r/20190722213205.140845-1-joel@joelfernandes.org&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;리눅스 커널은 &lt;code&gt;page_idle&lt;/code&gt; 이라는 인터페이스를 통해 특정 페이지의 액세스 여부를
 파악할 수 있게 합니다.  저도 이걸 통해서 wss 를 재거나 하는데 쓸 수 있는
@@ -1341,14 +1348,14 @@ virtual page frame number (VFN) 을 통해 페이지 트랙킹을 할 수 있게
 이로써 이 인터페이스를 사용하는 유저스페이스 도구의 코드가 간단해질 뿐더러 보안
 이슈도 좀 더 편리해지죠.  구글에선 내부적으로 이를 통해 heap profiler
 (heapprofd) 를 좀 더 쉽게 만들었나보군요.&lt;/p&gt;
-&lt;h2 id=&#34;patch-rfc-mmpageidle-simple-idle-page-tracking-for-virtual-memory&#34;&gt;[PATCH RFC] mm/page_idle: simple idle page tracking for virtual memory&lt;/h2&gt;
+&lt;h2 id=&#34;patch-rfc-mmpage_idle-simple-idle-page-tracking-for-virtual-memory&#34;&gt;[PATCH RFC] mm/page_idle: simple idle page tracking for virtual memory&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/156388286599.2859.5353604441686895041.stgit@buzz&#34;&gt;https://lkml.kernel.org/r/156388286599.2859.5353604441686895041.stgit@buzz&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;앞에서 소개한 패치와 비슷하게 &lt;code&gt;page_idle&lt;/code&gt; 을 간편화 시키는 패치셋입니다.  특정
 pid 의 모든 mapped page frame 의 access bit 을 한번에 clear 할 수 있게 합니다.
 인터페이스는 &lt;code&gt;echo 6 &amp;gt; /proc/&amp;lt;pid&amp;gt;/clear_refs&lt;/code&gt; 같은 형태군요.  이후,
 &lt;code&gt;/proc/&amp;lt;pid&amp;gt;/smaps&lt;/code&gt; 파일을 이용해 현재 idle 한 페이지들의 갯수를 알 수
 있습니다.&lt;/p&gt;
-&lt;h2 id=&#34;linux-53rc2&#34;&gt;Linux 5.3-rc2&lt;/h2&gt;
+&lt;h2 id=&#34;linux-53-rc2&#34;&gt;Linux 5.3-rc2&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wiiKRJprQDJqJzdcjdaGs73UtVPTM2+jOHWdMgu5Sp2HQ@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wiiKRJprQDJqJzdcjdaGs73UtVPTM2+jOHWdMgu5Sp2HQ@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;두번째 rc 버전이 예정대로 나왔습니다.  변경사항이 많은 머지윈도우였던 만큼 rc2
 도 꽤 수정사항이 많은 것 같습니다.  전체적으로 문서, arch 코드, 그리고 드라이버
@@ -1385,7 +1392,7 @@ Accuracy&amp;rdquo;.&lt;/p&gt;
       <link>/post/lkml_news_v5.3-rc1/</link>
       <pubDate>Thu, 11 Jul 2019 02:42:22 +0900</pubDate>
       <guid>/post/lkml_news_v5.3-rc1/</guid>
-      <description>&lt;h2 id=&#34;patch-v5-05-introduce-madvcold-and-madvpageout&#34;&gt;[PATCH v5 0/5] Introduce MADV_COLD and MADV_PAGEOUT&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;patch-v5-05-introduce-madv_cold-and-madv_pageout&#34;&gt;[PATCH v5 0/5] Introduce MADV_COLD and MADV_PAGEOUT&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190714233401.36909-1-minchan@kernel.org&#34;&gt;https://lkml.kernel.org/r/20190714233401.36909-1-minchan@kernel.org&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;MADV_COLD&lt;/code&gt; 와 &lt;code&gt;MADV_PAGEOUT&lt;/code&gt; 을 구현하는 패치, 어느새 다섯번째 버전입니다.  큰
 변경은 없는 것 같군요.&lt;/p&gt;
@@ -1397,7 +1404,7 @@ Accuracy&amp;rdquo;.&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;PAGE_SIZE &amp;lt;&amp;lt; compound_order(page)&lt;/code&gt; 는 &lt;code&gt;page_size(page)&lt;/code&gt; 가,
 &lt;code&gt;PAGE_SHIFT + compound_order(page)&lt;/code&gt; 는 &lt;code&gt;page_shift(page)&lt;/code&gt; 가, 그리고
 &lt;code&gt;1 &amp;lt;&amp;lt; compound_order(page)&lt;/code&gt; 는 &lt;code&gt;compound_nr(page)&lt;/code&gt; 가 되는 것이죠.&lt;/p&gt;
-&lt;h2 id=&#34;linux-53rc1&#34;&gt;Linux 5.3-rc1&lt;/h2&gt;
+&lt;h2 id=&#34;linux-53-rc1&#34;&gt;Linux 5.3-rc1&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/wiVjkTqzP6OppBuLQZ+t1mpRQC4T+Ho4Wg2sBAapKd--Q@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/wiVjkTqzP6OppBuLQZ+t1mpRQC4T+Ho4Wg2sBAapKd--Q@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;이번 릴리즈 사이의 변경 사항을 시각화 한 비디오를 아래 링크에서 볼 수 있습니다:
 &lt;a href=&#34;https://youtu.be/vx_BUvs00u8&#34;&gt;https://youtu.be/vx_BUvs00u8&lt;/a&gt;&lt;/p&gt;
@@ -1448,11 +1455,11 @@ Accuracy&amp;rdquo;.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190625235325.2096441-1-songliubraving@fb.com&#34;&gt;https://lkml.kernel.org/r/20190625235325.2096441-1-songliubraving@fb.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;uprobe&lt;/code&gt; 가 THP 로 받쳐지고 있는 코드에 적용되면 이 THP 는 regular page 로
 쪼개집니다.  이 패치셋은 이 문제를 해결합니다.&lt;/p&gt;
-&lt;h2 id=&#34;patch-v9-06-enable-thp-for-text-section-of-nonshmem-files&#34;&gt;[PATCH v9 0/6] Enable THP for text section of non-shmem files&lt;/h2&gt;
+&lt;h2 id=&#34;patch-v9-06-enable-thp-for-text-section-of-non-shmem-files&#34;&gt;[PATCH v9 0/6] Enable THP for text section of non-shmem files&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190625001246.685563-1-songliubraving@fb.com&#34;&gt;https://lkml.kernel.org/r/20190625001246.685563-1-songliubraving@fb.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;어플리케이션의 텍스트 섹션을 THP 로 지원해 줌으로써 iTLB 미스를 줄이고 성능을
 높이고자 하는 패치셋입니다.&lt;/p&gt;
-&lt;h2 id=&#34;linux-52rc7&#34;&gt;Linux 5.2-rc7&lt;/h2&gt;
+&lt;h2 id=&#34;linux-52-rc7&#34;&gt;Linux 5.2-rc7&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wgL5GyQ93o=VyiymFPfw=Z0TGHEPBJrCtGSqFSW2Mhx8g@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wgL5GyQ93o=VyiymFPfw=Z0TGHEPBJrCtGSqFSW2Mhx8g@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;여전히 토발즈의 여행 탓에 릴리즈가 평소와 조금 다른 시간대에 이뤄졌습니다,
 토발즈 자신의 시점으로는 평소와 같은 일요일 오후지만요.  아마도 아시아 쪽에
@@ -1474,7 +1481,7 @@ Accuracy&amp;rdquo;.&lt;/p&gt;
 이 패치셋은 &lt;code&gt;MADV_MERGEABLE&lt;/code&gt;, &lt;code&gt;MADV_UNMERGEABLE&lt;/code&gt; 을 추가해서 KSM 힌트도
 &lt;code&gt;madvise()&lt;/code&gt; 를 통해 줄 수 있게 합니다.&lt;/p&gt;
 &lt;p&gt;논의를 위한 패치라 이대로 머지되진 않겠지만, 사용처가 많이 늘어날 것 같네요.&lt;/p&gt;
-&lt;h2 id=&#34;linux-52rc6&#34;&gt;Linux 5.2-rc6&lt;/h2&gt;
+&lt;h2 id=&#34;linux-52-rc6&#34;&gt;Linux 5.2-rc6&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wg+nPKhdn=vKSgJQkfOSGhauTO4jyt=0FH9cnM_QChDLw@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wg+nPKhdn=vKSgJQkfOSGhauTO4jyt=0FH9cnM_QChDLw@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;안타깝게도 기대와 달리 이번 릴리즈는 조용하지 않았습니다.  이번 5.2 개발을
 위한 릴리즈 중 머지 윈도우와 rc1 을 제외하면 rc6 가 오히려 가장 많은 변화를
@@ -1499,7 +1506,7 @@ Accuracy&amp;rdquo;.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190612220320.2223898-1-songliubraving@fb.com&#34;&gt;https://lkml.kernel.org/r/20190612220320.2223898-1-songliubraving@fb.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;uprobe 는 THP 로 되어있는 페이지를 쪼갭니다.  이로 인해 성능 향상 효과가
 사라지죠.  이 패치셋은 uprobe 가 THP 를 인식하게 해서 이런 문제를 제거합니다.&lt;/p&gt;
-&lt;h2 id=&#34;patch-v2-05-introduce-madvcold-and-madvpageout&#34;&gt;[PATCH v2 0/5] Introduce MADV_COLD and MADV_PAGEOUT&lt;/h2&gt;
+&lt;h2 id=&#34;patch-v2-05-introduce-madv_cold-and-madv_pageout&#34;&gt;[PATCH v2 0/5] Introduce MADV_COLD and MADV_PAGEOUT&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190610111252.239156-1-minchan@kernel.org&#34;&gt;https://lkml.kernel.org/r/20190610111252.239156-1-minchan@kernel.org&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;기존에도 소개한 MADV_COLD 와 MADV_PAGEOUT 을 madvise() 에 추가하는 패치셋의
 두번째 버전입니다.  이 패치셋을 ChromeOS 팀의 Brian Geffon 은 가져다가 탭이
@@ -1511,7 +1518,7 @@ proactively swap out 시켰는데, 그 결과 tab 전환 속도가 25% 나 빨�
 &lt;p&gt;NUMA node 로 pmem 을 취급할 수 있게 된 이후, 노드간 migration 을 보다
 효율적으로 하기 위한 패치셋의 세번째 버전입니다.  LSFMM 에서 이에 대해 토의가
 있었는데, 이번 버전은 그에 기반해 수정되었다고 하네요.&lt;/p&gt;
-&lt;h2 id=&#34;linux-v52rc5&#34;&gt;Linux v5.2-rc5&lt;/h2&gt;
+&lt;h2 id=&#34;linux-v52-rc5&#34;&gt;Linux v5.2-rc5&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=whEQPvLpDbx+WR4Q4jf2FxXjf_zTX3uLy_6ZzHtgTV4LA@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=whEQPvLpDbx+WR4Q4jf2FxXjf_zTX3uLy_6ZzHtgTV4LA@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;지난주는 토발즈의 여행 때문에 릴리즈가 평소보다 조금 빨리 이루어졌는데요,
 이번에도 마찬가지입니다.  앞으로도 2주동안 여행ㅇ을 더 한다네요.&lt;/p&gt;
@@ -1530,12 +1537,12 @@ proactively swap out 시켰는데, 그 결과 tab 전환 속도가 25% 나 빨�
 &lt;p&gt;전에도 RFC 패치셋은 여기서도 소개했었죠.  Slab 할당자에 할당받은 객체들의
 이동이 가능하게끔 하는 패치셋의 정식 패치 버전이 나왔습니다.  변경된
 인터페이스는 XArray 와 dcache 에 적용되는군요.&lt;/p&gt;
-&lt;h2 id=&#34;patch-v1-04-introduce-madvcold-and-madvpageout&#34;&gt;[PATCH v1 0/4] Introduce MADV_COLD and MADV_PAGEOUT&lt;/h2&gt;
+&lt;h2 id=&#34;patch-v1-04-introduce-madv_cold-and-madv_pageout&#34;&gt;[PATCH v1 0/4] Introduce MADV_COLD and MADV_PAGEOUT&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190603053655.127730-1-minchan@kernel.org&#34;&gt;https://lkml.kernel.org/r/20190603053655.127730-1-minchan@kernel.org&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;바로 지난주에도 소개한 external madvise 패치셋이 쪼개졌네요.  &lt;code&gt;MADV_COLD&lt;/code&gt; 와
 &lt;code&gt;MADV_PAGEOUT&lt;/code&gt; 두개의 새로운 advice 기능 추가 버전만 담은 패치셋입니다.  이게
 더 일찍 머지될 가능성이 생겼군요.&lt;/p&gt;
-&lt;h2 id=&#34;linux-52rc4&#34;&gt;Linux 5.2-rc4&lt;/h2&gt;
+&lt;h2 id=&#34;linux-52-rc4&#34;&gt;Linux 5.2-rc4&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wjm7FQxdF=RKa8Xe23CLNNpbGDOACewgo8e-hwDJ8TyQg@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wjm7FQxdF=RKa8Xe23CLNNpbGDOACewgo8e-hwDJ8TyQg@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;메일을 받고 깜짝 놀랐습니다, 평소보다 빨랐기 때문이죠.  아시아를 여행중인가?
 싶기도 했는데요, 그건 아니고 비행기 여행이 예정되어 있기 때문에 평소보다 일찍
@@ -1579,7 +1586,7 @@ generation.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190530145504.GA29820@linux.ibm.com&#34;&gt;https://lkml.kernel.org/r/20190530145504.GA29820@linux.ibm.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;RCU 문서 업데이트를 담고 있는 패치셋입니다.  &lt;code&gt;rcuref&lt;/code&gt; 의 실제 예제와
 &lt;code&gt;rcu_task_stall_timeout&lt;/code&gt; 의 정의에 대한 내용이 추가되었군요!&lt;/p&gt;
-&lt;h2 id=&#34;patch-tipcorercu-021-torturetest-updates-for-v53&#34;&gt;[PATCH tip/core/rcu 0/21] Torture-test updates for v5.3&lt;/h2&gt;
+&lt;h2 id=&#34;patch-tipcorercu-021-torture-test-updates-for-v53&#34;&gt;[PATCH tip/core/rcu 0/21] Torture-test updates for v5.3&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190530151650.GA422@linux.ibm.com&#34;&gt;https://lkml.kernel.org/r/20190530151650.GA422@linux.ibm.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;RCU 와 spinlock 등을 위해 사용되는 torture 테스트 업데이트를 담은 패치셋입니다.
 무려 21개 패치네요!&lt;/p&gt;
@@ -1590,7 +1597,7 @@ generation.&lt;/p&gt;
 소개되었고 관련 반응이 매우 뜨겁네요.  저도 매우 흥미롭게 보고 있습니다.
 두번째 버전에서는 &lt;code&gt;MADV_COOL&lt;/code&gt; 은 빠졌습니다.  &lt;code&gt;MADV_COLD&lt;/code&gt; 와 &lt;code&gt;MADV_PAGEOUT&lt;/code&gt; 만
 남았군요.&lt;/p&gt;
-&lt;h2 id=&#34;linux-52rc3&#34;&gt;Linux 5.2-rc3&lt;/h2&gt;
+&lt;h2 id=&#34;linux-52-rc3&#34;&gt;Linux 5.2-rc3&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;https://lkml.kernel.org/r/CAHk-=wg1evGTxx-aSNHO+m5xSa1sc6fQe7Y8fH=_ruGcwMyfyA@mail.gmail.com&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;상당히 고요한 한 주였고, 그로 인해 rc3 는 rc2 와 사이즈가 비슷했습니다.  이는
 조금 이상한 일인데, 보통 rc2 이후로는 사람들이 드디어 문제를 파악하기 시작하고
@@ -1607,7 +1614,7 @@ rc3 주간에 수정을 하느라 조금은 떠들썩해 왔기 때문이랍니�
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190520054017.32299-1-tobin@kernel.org&#34;&gt;https://lkml.kernel.org/r/20190520054017.32299-1-tobin@kernel.org&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;이 블로그에서도 소개한 Slab movable objects 패치셋의 다섯번째 버전입니다.  RFC
 로는 아마도 마지막 버전이 될거라는군요.&lt;/p&gt;
-&lt;h2 id=&#34;rfc-patch-0014-mmapsem-range-locking&#34;&gt;[RFC PATCH 00/14] mmap_sem range locking&lt;/h2&gt;
+&lt;h2 id=&#34;rfc-patch-0014-mmap_sem-range-locking&#34;&gt;[RFC PATCH 00/14] mmap_sem range locking&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190521045242.24378-1-dave@stgolabs.net&#34;&gt;https://lkml.kernel.org/r/20190521045242.24378-1-dave@stgolabs.net&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;이번 LSFMM 에서 개인적으로 가장 기대했던 세션이 &lt;code&gt;mmap_sem&lt;/code&gt; 해결에 대한
 세션이었습니다.  해당 세션에서는 예전부터 이야기가 나온 range locking 에
@@ -1626,7 +1633,7 @@ range locking 이라는 아이디어가 갖는 한계와 그에 대한 대책 �
 버려버리기 때문에 이런 두개의 힌트를 추가한거죠.&lt;/p&gt;
 &lt;p&gt;인공적 벤치마크가 아니라 수백명의 진짜 사용자를 통해 성능 실험을 했다고
 하는데요, 구글에서 고용한 테스트 집단일까요?&lt;/p&gt;
-&lt;h2 id=&#34;patch-v4-0014-provide-generic-topdown-mmap-layout-functions&#34;&gt;[PATCH v4 00/14] Provide generic top-down mmap layout functions&lt;/h2&gt;
+&lt;h2 id=&#34;patch-v4-0014-provide-generic-top-down-mmap-layout-functions&#34;&gt;[PATCH v4 00/14] Provide generic top-down mmap layout functions&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190526134746.9315-1-alex@ghiti.fr&#34;&gt;https://lkml.kernel.org/r/20190526134746.9315-1-alex@ghiti.fr&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;각 아키텍쳐별로 존재하는 중복 코드를 제거하기 위해 만들어진 범용 top-down mmap
 을 위한 패치의 네번째 버전입니다.&lt;/p&gt;
@@ -1635,7 +1642,7 @@ range locking 이라는 아이디어가 갖는 한계와 그에 대한 대책 �
 &lt;p&gt;Xen 의 tmem 기능이 제거되었군요.  관련 코드를 리눅스 커널에서도 제거하는
 패치셋입니다.  덕분에 cleancache 가 아예 사라질 모양입니다.  Cleancache 에
 의존하는 GCMA 를 만들고 있는 제 입장에선 쇼킹한 일입니다.&lt;/p&gt;
-&lt;h2 id=&#34;linux-52rc2&#34;&gt;Linux 5.2-rc2&lt;/h2&gt;
+&lt;h2 id=&#34;linux-52-rc2&#34;&gt;Linux 5.2-rc2&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wgob1t2g9iQZCuZ8My39CY26xGb6nqjVhCtb1nTirsR2Q@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wgob1t2g9iQZCuZ8My39CY26xGb6nqjVhCtb1nTirsR2Q@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;일정대로 두번째 rc2 가 릴리즈 되었습니다.  이번엔 그야말로 특기할 만한 점이
 없다는군요.  그나마 큰 변화는 SPDX 관련 변경들 뿐이었다고 합니다.&lt;/p&gt;
@@ -1647,7 +1654,7 @@ range locking 이라는 아이디어가 갖는 한계와 그에 대한 대책 �
       <link>/post/lkml_news_v5.2-rc1/</link>
       <pubDate>Wed, 08 May 2019 10:22:05 +0900</pubDate>
       <guid>/post/lkml_news_v5.2-rc1/</guid>
-      <description>&lt;h2 id=&#34;patch-mm-introduce-pagesize&#34;&gt;[PATCH] mm: Introduce page_size()&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;patch-mm-introduce-page_size&#34;&gt;[PATCH] mm: Introduce page_size()&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190510181242.24580-1-willy@infradead.org&#34;&gt;https://lkml.kernel.org/r/20190510181242.24580-1-willy@infradead.org&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Huge page 등의 경우를 위해 페이지의 실제 크기를 구하려면 &lt;code&gt;PAGE_SIZE &amp;lt;&amp;lt; compound_order(page)&lt;/code&gt; 를 해야 하는게 짜증난 Matthew Wilcox 가 별도의 함수를
 만들고 기존 코드들을 이 함수를 사용하도록 변경한 패치입니다.&lt;/p&gt;
@@ -1656,7 +1663,7 @@ range locking 이라는 아이디어가 갖는 한계와 그에 대한 대책 �
 &lt;p&gt;mm 쪽 함수들은 order 를 인자로 많이 받죠.  어차피 gfp_t 는 무조건 받으니까 이
 타입의 상위 bit 을 order 목적으로 사용하자는 패치입니다.  이 패치의 장점은?
 커널 텍스트 사이즈를 줄인다는 것입니다 :)&lt;/p&gt;
-&lt;h2 id=&#34;maintainers--kernel-summit-2019-planning-kickoff&#34;&gt;Maintainer&#39;s / Kernel Summit 2019 planning kick-off&lt;/h2&gt;
+&lt;h2 id=&#34;maintainers--kernel-summit-2019-planning-kick-off&#34;&gt;Maintainer&amp;rsquo;s / Kernel Summit 2019 planning kick-off&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190513230643.GA4347@mit.edu&#34;&gt;https://lkml.kernel.org/r/20190513230643.GA4347@mit.edu&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;올해의 커널 서밋 / 메인테이너 서밋을 위한 안내 메일입니다.  작년엔 커널 서밋은
 LPC 와, 메인테이너 서밋은 OSSEU 와 함께 열렸었죠.  올해는 둘 다 LPC 와 함께
@@ -1664,7 +1671,7 @@ LPC 와, 메인테이너 서밋은 OSSEU 와 함께 열렸었죠.  올해는 둘
 &lt;p&gt;메인테이너 서밋은 올해는 아예 30명으로 더욱 작게 모이는군요.&lt;/p&gt;
 &lt;p&gt;커널 서밋 발표 주제는 5월 31일까지 받습니다.  발표주제 선정되면 LPC 티켓도
 준다는군요!&lt;/p&gt;
-&lt;h2 id=&#34;linux-52rc1&#34;&gt;Linux 5.2-rc1&lt;/h2&gt;
+&lt;h2 id=&#34;linux-52-rc1&#34;&gt;Linux 5.2-rc1&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wgxi6fnxZ+p5Zdqr-i4s=xhOCBJL6s_RauYkjxM2CpXeA@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wgxi6fnxZ+p5Zdqr-i4s=xhOCBJL6s_RauYkjxM2CpXeA@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;5.2 릴리즈를 위한 머지윈도우가 끝나고 rc1 버전이 릴리즈 되었습니다.  이번 머지
 윈도우 중간에 토발즈의 개인적 여행이 있다고 했지만 다행히 잘 정리되었나보군요.
@@ -1725,7 +1732,7 @@ memory 를 어떻게 잘 추적하냐는 거지요.  이와 함께 커널의 &lt
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190426022622.4089-1-tobin@kernel.org&#34;&gt;https://lkml.kernel.org/r/20190426022622.4089-1-tobin@kernel.org&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;SLAB vs SLUB 토론 중 현재 slab allocator 의 fragmentation 정도를 알려주는
 도구가 있으면 좋겠다는 이야기가 있었는데, 이를 위한 기능을 추가한 패치입니다.&lt;/p&gt;
-&lt;h2 id=&#34;linux-51rc7&#34;&gt;Linux 5.1-rc7&lt;/h2&gt;
+&lt;h2 id=&#34;linux-51-rc7&#34;&gt;Linux 5.1-rc7&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=whvWQbP20g77U4QRXQDS5w+kf=V-P2QjMkgA-OwJJjHtg@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=whvWQbP20g77U4QRXQDS5w+kf=V-P2QjMkgA-OwJJjHtg@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;지난번 rc6 가 거대했던 건 역시 풀 리퀘스트 타이밍 때문이었는지, 이번 rc7 은
 다행히도 크기가 작은 편이라고 합니다.  네트워킹 쪽 변경이 좀 있고, 나머진
@@ -1746,11 +1753,11 @@ memory 를 어떻게 잘 추적하냐는 거지요.  이와 함께 커널의 &lt
 다시 RCU 로 되돌린 게 눈에 띄는군요.  기존엔 패치셋만 공개했는데, 이젠 패치셋이
 적용된 코드 트리를 github 으로도 제공합니다:
 &lt;a href=&#34;https://github.com/ldu4/linux/tree/spf-v12&#34;&gt;https://github.com/ldu4/linux/tree/spf-v12&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;patch-v3-0011-provide-generic-topdown-mmap-layout-functions&#34;&gt;[PATCH v3 00/11] Provide generic top-down mmap layout functions&lt;/h2&gt;
+&lt;h2 id=&#34;patch-v3-0011-provide-generic-top-down-mmap-layout-functions&#34;&gt;[PATCH v3 00/11] Provide generic top-down mmap layout functions&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190417052247.17809-1-alex@ghiti.fr&#34;&gt;https://lkml.kernel.org/r/20190417052247.17809-1-alex@ghiti.fr&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;아키텍쳐별로 별도 구현을 하지 않고도 전체 mmap 레이아웃을 접근할 수 있게 해주는
 범용 함수들을 구현하는 패치셋입니다.&lt;/p&gt;
-&lt;h2 id=&#34;linux-v51rc6&#34;&gt;Linux v5.1-rc6&lt;/h2&gt;
+&lt;h2 id=&#34;linux-v51-rc6&#34;&gt;Linux v5.1-rc6&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wii=Ym24FWf7J2s1CEwCXU3hjVXeHSkV3A8X5iAj6eT8Q@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wii=Ym24FWf7J2s1CEwCXU3hjVXeHSkV3A8X5iAj6eT8Q@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;부활절이었군요.  어쨌건 토발즈는 그런 사소한 휴일에 릴리즈 일정을 바꾸진
 않았습니다.&lt;/p&gt;
@@ -1789,7 +1796,7 @@ Slab allocator 에서 할당된 object 가 free page 가운데에 박혀 있어 
 &lt;p&gt;LSFMM 을 위한 늦은 주제네요.
 kmalloc() 이 2의 승수 크기 얼라인먼트를 지키도록 하는 패치에 대해서 논의하고
 싶어합니다.&lt;/p&gt;
-&lt;h2 id=&#34;linux-51rc5&#34;&gt;Linux 5.1-rc5&lt;/h2&gt;
+&lt;h2 id=&#34;linux-51-rc5&#34;&gt;Linux 5.1-rc5&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wjvcuyCQGnfOhooaL1H4H63qXO=xgo+9yncSOG=eK+kbA@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wjvcuyCQGnfOhooaL1H4H63qXO=xgo+9yncSOG=eK+kbA@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;다섯번째 rc 커널입니다.  v5.1이 얼마 남지 않았군요.
 이번 릴리즈에선 대부분 드라이버 쪽 변경이 있었으며, 딱히 이상하거나 수상한
@@ -1831,7 +1838,7 @@ replacement policy 를 이용해 page migration 을 하는 방법이 제기되�
 급지하는 패치셋입니다.  로드 되는 모듈에서 이걸 사용하면 메모리 회수가 안될
 것이기 때문이죠.  대신 동적으로 메모리 할당받고 초기화 해서 쓰고, 모듈 exit 될
 때 제대로 메모리 해제 시키라고 합니다.&lt;/p&gt;
-&lt;h2 id=&#34;linux-51rc4&#34;&gt;Linux 5.1-rc4&lt;/h2&gt;
+&lt;h2 id=&#34;linux-51-rc4&#34;&gt;Linux 5.1-rc4&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=widsb0vN7kqt8ATfNuNW6a54JpKjc6W0XPjt5=LW7UeGQ@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=widsb0vN7kqt8ATfNuNW6a54JpKjc6W0XPjt5=LW7UeGQ@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;이번 릴리즈는 초반 rc 들이 좀 커서 걱정을 끼쳤었는데, rc4 는 다행히도
 작아졌다고 합니다.  딱히 별다른 게 없다는군요.&lt;/p&gt;
@@ -1850,11 +1857,11 @@ replacement policy 를 이용해 page migration 을 하는 방법이 제기되�
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190326231253.GA18343@linux.ibm.com&#34;&gt;https://lkml.kernel.org/r/20190326231253.GA18343@linux.ibm.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;v5.2 를 위한 RCU 의 다양한 업데이트 패치셋입니다.  rcu 를 위한 메일링 리스트도
 추가되었군요.  &lt;a href=&#34;mailto:rcu@vger.kernel.org&#34;&gt;rcu@vger.kernel.org&lt;/a&gt; 입니다.&lt;/p&gt;
-&lt;h2 id=&#34;patch-tipcorercu-09-torturetest-updates-for-v52&#34;&gt;[PATCH tip/core/rcu 0/9] Torture-test updates for v5.2&lt;/h2&gt;
+&lt;h2 id=&#34;patch-tipcorercu-09-torture-test-updates-for-v52&#34;&gt;[PATCH tip/core/rcu 0/9] Torture-test updates for v5.2&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190326233054.GA21523@linux.ibm.com&#34;&gt;https://lkml.kernel.org/r/20190326233054.GA21523@linux.ibm.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;v5.2 를 위한 torture test 의 업데이트 패치셋입니다.  LKMM 이라던지 formal
 verification 도 많은 발전이 있었지만, torture test 도 없어질 순 없겠죠.&lt;/p&gt;
-&lt;h2 id=&#34;linux-51rc3&#34;&gt;Linux 5.1-rc3&lt;/h2&gt;
+&lt;h2 id=&#34;linux-51-rc3&#34;&gt;Linux 5.1-rc3&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wiHmEqxBvp3dfTqOut+NHzbNaip=BrnBO48SCTfnApLRg@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wiHmEqxBvp3dfTqOut+NHzbNaip=BrnBO48SCTfnApLRg@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;한국시간으로 만우절 아침, 5.1 을 위한 세번째 rc 버전이 릴리즈 되었습니다.  이번
 릴리즈는 다른 rc3 들에 비해 조금 많은 변화가 있었기에 좋은 현상은 아니지만
@@ -1885,7 +1892,7 @@ called KUnit.
 I started using it after return from FAST&#39;19 and felt it is amazing, so I would
 like to introduce it in this post.&lt;/p&gt;
 &lt;p&gt;As its name intimates, KUnit is a unit test framework for the Linux kernel.
-Google&#39;s Brendan Higgins is developing it and he is also sending
+Google&amp;rsquo;s Brendan Higgins is developing it and he is also sending
 &lt;a href=&#34;https://lkml.org/lkml/2019/2/14/1144&#34;&gt;RFC patches&lt;/a&gt; to LKML so that it can be
 merged into the mainline.
 Because he is a Googler, he is hosting a &lt;a href=&#34;https://kunit.googlesource.com/linux/&#34;&gt;source
@@ -1909,7 +1916,7 @@ You need only the packages that required by kernel build.
 For the list of the packages, refer to the
 &lt;a href=&#34;/post/linux-kernel-build/&#34;&gt;post&lt;/a&gt; describing it.&lt;/p&gt;
 &lt;h1 id=&#34;test&#34;&gt;Test&lt;/h1&gt;
-&lt;p&gt;It&#39;s almost ready.  Let&#39;s run the example tests that kunit provides.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s almost ready.  Let&amp;rsquo;s run the example tests that kunit provides.&lt;/p&gt;
 &lt;p&gt;First, you should write a file named &lt;code&gt;kunitconfig&lt;/code&gt; under the kernel tree root
 directory.
 This file specifies what tests you want to run.
@@ -1945,7 +1952,7 @@ $ echo CONFIG_KUNIT_EXAMPLE_TEST=y &amp;gt;&amp;gt; kunitconfig
 &lt;p&gt;KUnit should also build the kernel for the test, and the build takes a few of
 time.
 In this case, it took 26 seconds.
-That said, this was long because it&#39;s first build.
+That said, this was long because it&amp;rsquo;s first build.
 It took about only 10 seconds for me when I modified only one file after.
 Also, it takes very short time only for running actual test.
 In this case, it took only 0.27 seconds!
@@ -1999,7 +2006,7 @@ positive memory pressure 를 vmpressure signal 대비 약 10배까지 줄일 수
 &lt;p&gt;기본적으로 DRAM 을 먼저 쓰게 만들고, 사용자가 기존의 방식대로 명시적으로 NUMA
 인터페이스를 사용해 PMEM 을 요청하면 할당해 줍니다.  그리고, 자주 접근되는
 페이지는 vma 단위로 조사해서 DRAM 으로 migrate 시킵니다.&lt;/p&gt;
-&lt;h2 id=&#34;linux-51rc2&#34;&gt;Linux 5.1-rc2&lt;/h2&gt;
+&lt;h2 id=&#34;linux-51-rc2&#34;&gt;Linux 5.1-rc2&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wgg_PRWs3a6u2gnFLQjhxOJcrFkqqWVnLw60eQAwD-DNw@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wgg_PRWs3a6u2gnFLQjhxOJcrFkqqWVnLw60eQAwD-DNw@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;두번째 rc 입니다.  아직 rc 라고 하기엔 고칠 문제도 찾지 못한 상태라고 할 수
 있겠지만요.  따라서 토발즈는 열심히 테스트 해달라고 하네요.&lt;/p&gt;
@@ -2034,7 +2041,7 @@ tree 대신 XArray 를 사용하는 것으로 새로운 시도를 시작해 보�
 대해서는 제 실험 환경을 보내주고 그쪽 환경에서 돌려본 후 결과를 알려달라
 했는데, 아직 답이 없군요.
 좀 더 자세한 분석 결과를 달라는 Michal 의 답변이 있습니다.&lt;/p&gt;
-&lt;h2 id=&#34;linux-51rc1&#34;&gt;Linux 5.1-rc1&lt;/h2&gt;
+&lt;h2 id=&#34;linux-51-rc1&#34;&gt;Linux 5.1-rc1&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wj1c_Tb-wwM6qaPLdggXtW3rOh1JzYUOs+O7PsHt-=+jg@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wj1c_Tb-wwM6qaPLdggXtW3rOh1JzYUOs+O7PsHt-=+jg@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;v5.1 머지 윈도우가 종료되고 v5.1-rc1 이 릴리즈 되었습니다.  이번 릴리즈도 크게
 다른 건 없고 매우 평범했다고 합니다.  좋은 징조인데요, 변경사항의 60%를 차지한
@@ -2080,14 +2087,14 @@ tree 대신 XArray 를 사용하는 것으로 새로운 시도를 시작해 보�
 &lt;p&gt;Mel Gorman 의 LSF/MM 참여 메일입니다.  NUMA remote THP vs NUMA local non-THP,
 NUMA, 메모리 계층 그리고 디바이스 메모리, NUMA rebalancing 과 메모리 reclaim 에
 참여하고 싶다고 이야기 하는군요.&lt;/p&gt;
-&lt;h2 id=&#34;lsfmm-topic-lsfmm-attend-readonly-mapping-of-program-text&#34;&gt;&lt;code&gt;[LSF/MM TOPIC ][LSF/MM ATTEND] Read-only Mapping of Program Text&lt;/code&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;lsfmm-topic-lsfmm-attend-read-only-mapping-of-program-text&#34;&gt;&lt;code&gt;[LSF/MM TOPIC ][LSF/MM ATTEND] Read-only Mapping of Program Text&lt;/code&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/379F21DD-006F-4E33-9BD5-F81F9BA75C10@oracle.com&#34;&gt;https://lkml.kernel.org/r/379F21DD-006F-4E33-9BD5-F81F9BA75C10@oracle.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;THP 를 활용해 read-only text 를 매핑함으로써 성능을 높이려는 시도를 해오고
 있는데, 하나의 base page 를 먼저 읽고 이어서 추가적인 page 를 읽는게 진짜로
 사용될지 모르는 readahead 때문에 의논을 해보고 싶다고 하네요.
 또, 파일시스템에게 컨텐츠가 큰 청크를 필요로 할지 알려주는 인터페이스가 있으면
 좋겠다는군요.&lt;/p&gt;
-&lt;h2 id=&#34;linux-v50rc8&#34;&gt;Linux v5.0-rc8&lt;/h2&gt;
+&lt;h2 id=&#34;linux-v50-rc8&#34;&gt;Linux v5.0-rc8&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wgtNhecfn_nOi0Yuy7XQSswfozz0CvRMn0WsQhk0YZfyw@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wgtNhecfn_nOi0Yuy7XQSswfozz0CvRMn0WsQhk0YZfyw@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;rc8 이 나올지 바로 v5.0 이 나올지 궁금했는데, 결국 v5.0 릴리즈는 한주 더
 미뤄지게 되었습니다.  rc7 때보다도 많은 패치가 이번 기간에 들어왔다는군요.&lt;/p&gt;
@@ -2102,7 +2109,7 @@ NUMA, 메모리 계층 그리고 디바이스 메모리, NUMA rebalancing 과 �
       <link>/post/lkml_news_v5.0-rc7/</link>
       <pubDate>Mon, 18 Feb 2019 12:30:24 +0900</pubDate>
       <guid>/post/lkml_news_v5.0-rc7/</guid>
-      <description>&lt;h2 id=&#34;patch-v15-0018-block-support-multipage-bvec&#34;&gt;[PATCH V15 00/18] block: support multi-page bvec&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;patch-v15-0018-block-support-multi-page-bvec&#34;&gt;[PATCH V15 00/18] block: support multi-page bvec&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190215111324.30129-1-ming.lei@redhat.com&#34;&gt;https://lkml.kernel.org/r/20190215111324.30129-1-ming.lei@redhat.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;시스템의 RAM 이 커지고 huge page 가 널리 사용되면서 물리적으로 연속된
 페이지들의 I/O 가 흔해지고 있습니다.  이를 위해 &lt;code&gt;struct bio_bvec&lt;/code&gt; 이 물리적으로
@@ -2125,7 +2132,7 @@ NUMA, 메모리 계층 그리고 디바이스 메모리, NUMA rebalancing 과 �
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190214213729.21702-1-brendanhiggins@google.com&#34;&gt;https://lkml.kernel.org/r/20190214213729.21702-1-brendanhiggins@google.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;리눅스 커널은 다양한 테스트를 가지고 있지만 unit test framework 은 아직 없었죠.
 그걸 만든 패치입니다!&lt;/p&gt;
-&lt;h2 id=&#34;linux-50rc7&#34;&gt;Linux 5.0-rc7&lt;/h2&gt;
+&lt;h2 id=&#34;linux-50-rc7&#34;&gt;Linux 5.0-rc7&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wgvF18PqBch4=56DFwCamYpy+owngTZXGnjVbFgKq467g@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wgvF18PqBch4=56DFwCamYpy+owngTZXGnjVbFgKq467g@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;휴일을 끼고 시작된 머지 윈도우로 이래저래 걱정도 있던 5.0 릴리즈들이었습니다만
 이번 rc 릴리즈는 정말 별다른 게 없네요.  매우 고요한 릴리즈였다고 합니다.
@@ -2159,7 +2166,7 @@ BPF 의 상승세가 올해도 계속될 것 같군요!&lt;/p&gt;
 않겠냐는 LSF/MM 토론 제안입니다.  Computational Storage 개념을 이야기 하는데요,
 I/O 레이어에서 간단한 연산을 처리해 줌으로써 성능을 높이자는 거죠.  그러기 위한
 연산 요청에 BPF 를 쓰자는 것 같습니다.  말 되네요!&lt;/p&gt;
-&lt;h2 id=&#34;linux-50rc6&#34;&gt;Linux 5.0-rc6&lt;/h2&gt;
+&lt;h2 id=&#34;linux-50-rc6&#34;&gt;Linux 5.0-rc6&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=whuSY_-hAU8ugVR7a=xz3uZeRrAPdhsoMZHmZ_7Qc49YQ@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=whuSY_-hAU8ugVR7a=xz3uZeRrAPdhsoMZHmZ_7Qc49YQ@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;이제 리눅스 5.0 정식 릴리즈가 얼마 남지 않았네요, 여섯번째 rc 가 나왔습니다.
 그런데 이번 rc 는 토발즈가 바랬던 것보다는 조금 변경사항이 많았군요.  대부분
@@ -2190,7 +2197,7 @@ I/O 레이어에서 간단한 연산을 처리해 줌으로써 성능을 높이�
 page 는 멀고 느린 NUMA node 에 위치되도록 커널이 조정해줄 필요가 있겠죠.  NUMA
 balancing 기능이 있긴 하지만 cold page 를 멀고 느린 NUMA node 로 보내는 기능은
 현재까지는 없습니다.  이에 대한 논의를 LSF/MM 에서 시작해 보자고 하네요.&lt;/p&gt;
-&lt;h2 id=&#34;linux-50rc5&#34;&gt;Linux 5.0-rc5&lt;/h2&gt;
+&lt;h2 id=&#34;linux-50-rc5&#34;&gt;Linux 5.0-rc5&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wjoGOgYFCbpazT2Fyv=zHaiagU5PhmiAfrZ5DOmE-y0rg@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wjoGOgYFCbpazT2Fyv=zHaiagU5PhmiAfrZ5DOmE-y0rg@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;아무래도 이번 릴리즈들은 머지 윈도우가 길고 연휴와 함께 있었던 탓인지
 전체적으로 뭔가 변경사항이 줄지 않는듯 보였는데, 드디어 변경사항이 줄어들고
@@ -2214,7 +2221,7 @@ NUMA API 가 다계층 메모리에 적용될 때의 단점에 대해서 이야�
 &lt;h2 id=&#34;patch-0022-increase-success-rates-and-reduce-latency-of-compaction-v3&#34;&gt;[PATCH 00/22] Increase success rates and reduce latency of compaction v3&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190118175136.31341-1-mgorman@techsingularity.net&#34;&gt;https://lkml.kernel.org/r/20190118175136.31341-1-mgorman@techsingularity.net&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Mel Gorman 의 compaction 개선 패치셋 세번째 버전입니다.&lt;/p&gt;
-&lt;h2 id=&#34;linux-50rc3&#34;&gt;Linux 5.0-rc3&lt;/h2&gt;
+&lt;h2 id=&#34;linux-50-rc3&#34;&gt;Linux 5.0-rc3&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=whS=6Z_UxzoMjLANupOk3u-8ycERLPnaZxShMTviW0jkQ@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=whS=6Z_UxzoMjLANupOk3u-8ycERLPnaZxShMTviW0jkQ@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;5.0 세번째 릴리즈입니다.  지난 릴리즈에서 여행 중이지만 항상 그렇듯 일요일
 릴리즈를 하려 한다고 했는데, 이번에도 성공적이군요.  더불어 어디 여행 중인지도
@@ -2248,7 +2255,7 @@ NUMA API 가 다계층 메모리에 적용될 때의 단점에 대해서 이야�
 &lt;h2 id=&#34;patch-v2-05-psi-pressure-stall-monitors-v2&#34;&gt;[PATCH v2 0/5] psi: pressure stall monitors v2&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20190110220718.261134-1-surenb@google.com&#34;&gt;https://lkml.kernel.org/r/20190110220718.261134-1-surenb@google.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;LWN 에서도 소개된 pressure stall monitor 의 두번째 버전입니다.&lt;/p&gt;
-&lt;h2 id=&#34;linux-50rc2&#34;&gt;Linux 5.0-rc2&lt;/h2&gt;
+&lt;h2 id=&#34;linux-50-rc2&#34;&gt;Linux 5.0-rc2&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wicCXd7nALwEz+022iNesJV3DUmejS+dzVRE0D3UGzs_g@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wicCXd7nALwEz+022iNesJV3DUmejS+dzVRE0D3UGzs_g@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;5.x 로 나아가는 두번째 릴리즈 후보가 나왔습니다.  이번 머지 윈도우가 휴일이
 섞여 있었기 때문에 두번째 rc 를 위한 과정에 문제가 있지 않을까 싶었지만 별 문제
@@ -2273,12 +2280,12 @@ NUMA API 가 다계층 메모리에 적용될 때의 단점에 대해서 이야�
 작동하니까 다른 태스크의 latency 가 떨어질 수 있습니다.  이런 상황을 모니터링
 할 수 있게끔, 이 패치는 &lt;code&gt;vm.war_high_order&lt;/code&gt; 라는 값을 sysctl 통해 설정하면 이
 값을 넘는 order 의 allocation 이 요청되었을 때 워닝을 뱉어 줍니다.&lt;/p&gt;
-&lt;h2 id=&#34;patch-mm-introduce-pagesize&#34;&gt;[PATCH] mm: Introduce page_size()&lt;/h2&gt;
+&lt;h2 id=&#34;patch-mm-introduce-page_size&#34;&gt;[PATCH] mm: Introduce page_size()&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20181231134223.20765-1-willy@infradead.org&#34;&gt;https://lkml.kernel.org/r/20181231134223.20765-1-willy@infradead.org&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Huge page 의 존재로 인해 페이지의 실제 크기는 모두 똑같지가 않기 때문에 이를
 판별할 방법이 필요하죠.  이 패치는 단순히 기존에 좀 복잡하게 직접 페이지 크기를
 구하던 것을 별도의 wrapper function 으로 대체하기 위한 준비 작업입니다.&lt;/p&gt;
-&lt;h2 id=&#34;linux-50rc1&#34;&gt;Linux 5.0-rc1&lt;/h2&gt;
+&lt;h2 id=&#34;linux-50-rc1&#34;&gt;Linux 5.0-rc1&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/wgKYnrL3LjhVkH2Fp+ecmWhLqezT9zmR6CzfcpwcJX0qA@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/wgKYnrL3LjhVkH2Fp+ecmWhLqezT9zmR6CzfcpwcJX0qA@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;리눅스 커널 버전의 숫자가 큰 의미 없게 된지도 오래이긴 합니다만 그래도 메이저
 버전 변경은 항상 뭔가 들뜨게 마련이죠.
@@ -2364,7 +2371,7 @@ page table 할당에 실패하고, 이로 인해 guest 시작조차 불가능하
 &lt;h2 id=&#34;resend-patch-v3-05-arm64mm-enable-hugetlb-migration&#34;&gt;[RESEND PATCH V3 0/5] arm64/mm: Enable HugeTLB migration&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/1545121450-1663-1-git-send-email-anshuman.khandual@arm.com&#34;&gt;https://lkml.kernel.org/r/1545121450-1663-1-git-send-email-anshuman.khandual@arm.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;HugeTLB 를 통째로 migrate 할 수 있게 하는 패치입니다.&lt;/p&gt;
-&lt;h2 id=&#34;patch-v2-02-hugetlbfs-use-immaprwsem-for-better-synchronization&#34;&gt;[PATCH v2 0/2] hugetlbfs: use i_mmap_rwsem for better synchronization&lt;/h2&gt;
+&lt;h2 id=&#34;patch-v2-02-hugetlbfs-use-i_mmap_rwsem-for-better-synchronization&#34;&gt;[PATCH v2 0/2] hugetlbfs: use i_mmap_rwsem for better synchronization&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20181218223557.5202-1-mike.kravetz@oracle.com&#34;&gt;https://lkml.kernel.org/r/20181218223557.5202-1-mike.kravetz@oracle.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Hugetlbfs 와 truncation 사이에 race conditional bug 가 존재해 왔는데, 이 패치는
 &lt;code&gt;i_mmap_rwsem&lt;/code&gt; 을 사용해 동기화를 적용함으로써 이 race bug 를 제거합니다.&lt;/p&gt;
@@ -2389,7 +2396,7 @@ page table 할당에 실패하고, 이로 인해 guest 시작조차 불가능하
       <link>/post/lkml_news_v4.20-rc7/</link>
       <pubDate>Mon, 17 Dec 2018 09:16:11 +0900</pubDate>
       <guid>/post/lkml_news_v4.20-rc7/</guid>
-      <description>&lt;h2 id=&#34;patch-v9-0021-swap-swapoutswapin-thp-in-one-piece&#34;&gt;[PATCH -V9 00/21] swap: Swapout/swapin THP in one piece&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;patch--v9-0021-swap-swapoutswapin-thp-in-one-piece&#34;&gt;[PATCH -V9 00/21] swap: Swapout/swapin THP in one piece&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20181214062754.13723-1-ying.huang@intel.com&#34;&gt;https://lkml.kernel.org/r/20181214062754.13723-1-ying.huang@intel.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;아직 머지되지 못한 THP swap in 패치셋의 아홉번째 버전입니다.&lt;/p&gt;
 &lt;h2 id=&#34;rfc-03-reduce-thp-fault-thrashing&#34;&gt;[RFC 0/3] reduce THP fault thrashing&lt;/h2&gt;
@@ -2397,7 +2404,7 @@ page table 할당에 실패하고, 이로 인해 guest 시작조차 불가능하
 &lt;p&gt;THP fault 로 인한 로컬 노드 thrashing 을 해결하기 위한 패치의 RFC 입니다.  THP
 fault 성공률을 낮추는 부작용도 있긴 하군요.  아직 테스트도 안된 첫번째 RFC
 이니, 이대로 머지되진 않겠지 싶긴 합니다만 재밌네요.&lt;/p&gt;
-&lt;h2 id=&#34;linux-420rc76&#34;&gt;Linux 4.20-rc76&lt;/h2&gt;
+&lt;h2 id=&#34;linux-420-rc76&#34;&gt;Linux 4.20-rc76&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=whv9u9aTEPoCz8h83JJbVK4fmHELJF=GG01ht9=1_MaCQ@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=whv9u9aTEPoCz8h83JJbVK4fmHELJF=GG01ht9=1_MaCQ@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;일곱번째 rc 버전의 릴리즈입니다&amp;hellip; 만, 이번엔 릴리즈 메일 제목에 오타가
 있었군요.  전체적으로 일곱번째인만큼 변경사항이 적습니다.  릴리즈 하는 토발즈
@@ -2413,22 +2420,22 @@ fault 성공률을 낮추는 부작용도 있긴 하군요.  아직 테스트도
       <link>/post/lkml_news_v4.20-rc6/</link>
       <pubDate>Wed, 05 Dec 2018 08:20:36 +0900</pubDate>
       <guid>/post/lkml_news_v4.20-rc6/</guid>
-      <description>&lt;h2 id=&#34;patch-memorymodel-03-updates-to-the-formal-memory-model&#34;&gt;[PATCH memory-model 0/3] Updates to the formal memory model&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;patch-memory-model-03-updates-to-the-formal-memory-model&#34;&gt;[PATCH memory-model 0/3] Updates to the formal memory model&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20181203230411.GA27476@linux.ibm.com&#34;&gt;https://lkml.kernel.org/r/20181203230411.GA27476@linux.ibm.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;리눅스 커널 메모리 모델의 업데이트 입니다.&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;smp_mb__after_unlock_lock()&lt;/code&gt; 을 추가로 모델링했고, github 리트머스 테스트를
 체크하기 위한 스크립트가 추가되었으며, &lt;code&gt;-j&lt;/code&gt; 옵션을 서포트 하게 되었습니다.&lt;/p&gt;
-&lt;h2 id=&#34;tipcorercu-tracing-replace-synchronizesched-and-callrcusched&#34;&gt;[tip:core/rcu] tracing: Replace synchronize_sched() and call_rcu_sched()&lt;/h2&gt;
+&lt;h2 id=&#34;tipcorercu-tracing-replace-synchronize_sched-and-call_rcu_sched&#34;&gt;[tip:core/rcu] tracing: Replace synchronize_sched() and call_rcu_sched()&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/tip-7440172974e85b1828bdd84ac6b23b5bcad9c5eb@git.kernel.org&#34;&gt;https://lkml.kernel.org/r/tip-7440172974e85b1828bdd84ac6b23b5bcad9c5eb@git.kernel.org&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;synchronize_rcu()&lt;/code&gt; 가 이제는 RCU read-side 크리티컬 섹션 만이 아니라
 preempt-disable 코드 영역도 기다리므로, &lt;code&gt;synchronize_sched()&lt;/code&gt; 를 대체할 수
 있고, &lt;code&gt;call_rcu_sched()&lt;/code&gt; 도 &lt;code&gt;call_rcu()&lt;/code&gt; 로 대체될 수 있습니다.  이 패치는 이
 대체를 진행하고 있습니다.&lt;/p&gt;
-&lt;h2 id=&#34;patch-v8-0021-swap-swapoutswapin-thp-in-one-piece&#34;&gt;[PATCH -V8 00/21] swap: Swapout/swapin THP in one piece&lt;/h2&gt;
+&lt;h2 id=&#34;patch--v8-0021-swap-swapoutswapin-thp-in-one-piece&#34;&gt;[PATCH -V8 00/21] swap: Swapout/swapin THP in one piece&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20181207054122.27822-1-ying.huang@intel.com&#34;&gt;https://lkml.kernel.org/r/20181207054122.27822-1-ying.huang@intel.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;이 블로그를 통해 여러번 공유한 THP 를 통째로 스왑아웃 / 스왑인 하는 패치입니다.
 Daniel 에 의해 레포트된 버그 하나를 고쳐서 여덟번째 버전이 올라왔습니다.&lt;/p&gt;
-&lt;h2 id=&#34;linux-420rc6&#34;&gt;Linux 4.20-rc6&lt;/h2&gt;
+&lt;h2 id=&#34;linux-420-rc6&#34;&gt;Linux 4.20-rc6&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/wgHSX8x6mOB0xZibbg-xc3veqsQEnHZ1+3H2DbO5MU5Rw@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/wgHSX8x6mOB0xZibbg-xc3veqsQEnHZ1+3H2DbO5MU5Rw@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;지난 rc5 릴리즈는 평소와 달리 굉장히 규모가 컸기에 걱정이 있었죠.  이번
 릴리즈에는 확연히 변경의 양이 줄어들었다고 합니다.  뭔가 다시 정상적으로 간다는
@@ -2444,29 +2451,29 @@ Daniel 에 의해 레포트된 버그 하나를 고쳐서 여덟번째 버전이
       <link>/post/lkml_news_v4.20-rc5/</link>
       <pubDate>Thu, 29 Nov 2018 08:14:01 +0900</pubDate>
       <guid>/post/lkml_news_v4.20-rc5/</guid>
-      <description>&lt;h2 id=&#34;patch-v12-0020-block-support-multipage-bvec&#34;&gt;[PATCH V12 00/20] block: support multi-page bvec&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;patch-v12-0020-block-support-multi-page-bvec&#34;&gt;[PATCH V12 00/20] block: support multi-page bvec&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20181126021720.19471-1-ming.lei@redhat.com&#34;&gt;https://lkml.kernel.org/r/20181126021720.19471-1-ming.lei@redhat.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;struct bio_bvec&lt;/code&gt; 하나가 물리적으로 연속적인 여러개의 페이지를 담을 수 있게
 해서 block layer 의 효율성을 높이기 위한 시도입니다.&lt;/p&gt;
-&lt;h2 id=&#34;patch-aio-convert-ioctxtable-to-xarray&#34;&gt;[PATCH] aio: Convert ioctx_table to XArray&lt;/h2&gt;
+&lt;h2 id=&#34;patch-aio-convert-ioctx_table-to-xarray&#34;&gt;[PATCH] aio: Convert ioctx_table to XArray&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20181128183531.5139-1-willy@infradead.org&#34;&gt;https://lkml.kernel.org/r/20181128183531.5139-1-willy@infradead.org&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;aio 쪽의 &lt;code&gt;ioctx_table&lt;/code&gt; 이라는 자료구조가 스펙터에 취약한 자료구조인데, 인덱스
 오버플로 문제가 없는 XArray 로 교체하는 패치입니다.  정말 코드가
 깔끔해지는군요.&lt;/p&gt;
-&lt;h2 id=&#34;patch-04v4-drop-the-mmapsem-when-doing-io-in-the-fault-path&#34;&gt;&lt;code&gt;[PATCH 0/4][V4] drop the mmap_sem when doing IO in the fault path&lt;/code&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;patch-04v4-drop-the-mmap_sem-when-doing-io-in-the-fault-path&#34;&gt;&lt;code&gt;[PATCH 0/4][V4] drop the mmap_sem when doing IO in the fault path&lt;/code&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20181130195812.19536-1-josef@toxicpanda.com&#34;&gt;https://lkml.kernel.org/r/20181130195812.19536-1-josef@toxicpanda.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;ps&lt;/code&gt; 등의 도구를 사용해 시스템 상황을 모니터링하는 커다란 어플리케이션을 사용
 중인데, 이 과정에서 다른 &lt;code&gt;task&lt;/code&gt; 의 &lt;code&gt;mmap_sem&lt;/code&gt; 을 &lt;code&gt;down_read()&lt;/code&gt; 해야 하는 경우가
 종종 생긴다는군요.  문제는 이 &lt;code&gt;mmap_sem&lt;/code&gt; 의 쓰기 권한을 얻어오는 과정이 사실상
 mutex 와 동일하니 레이턴시가 크게 늘어날 때가 종종 생긴다고 합니다.  이 문제를
 해결하기 위해 &lt;code&gt;retry&lt;/code&gt; 메커니즘을 적용하는 패치셋입니다.&lt;/p&gt;
-&lt;h2 id=&#34;patch-v2-09-use-vminsertrange&#34;&gt;[PATCH v2 0/9] Use vm_insert_range&lt;/h2&gt;
+&lt;h2 id=&#34;patch-v2-09-use-vm_insert_range&#34;&gt;[PATCH v2 0/9] Use vm_insert_range&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20181202061707.GA3070@jordon-HP-15-Notebook-PC&#34;&gt;https://lkml.kernel.org/r/20181202061707.GA3070@jordon-HP-15-Notebook-PC&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;드라이버가 자신의 커널 메모리를 사용자 vma 로 매핑하는 방법은
 &lt;code&gt;vm_insert_page()&lt;/code&gt; 를 사용하는 방식이었고, 여러 페이지를 매핑하려면 이 함수를
 루프를 돌면서 수행해야 했는데요, 이게 좀 귀찮으므로 아예 &lt;code&gt;vm_insert_range()&lt;/code&gt;
 라는 함수를 추가한 패치입니다.&lt;/p&gt;
-&lt;h2 id=&#34;linux-420rc5&#34;&gt;Linux 4.20-rc5&lt;/h2&gt;
+&lt;h2 id=&#34;linux-420-rc5&#34;&gt;Linux 4.20-rc5&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wizcNrsoyCM1EXQqoswMCYsJaby2iAkZb9wBAzDEhvxNg@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wizcNrsoyCM1EXQqoswMCYsJaby2iAkZb9wBAzDEhvxNg@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;벌써 다섯번째 rc 릴리즈이므로 변경내용이 줄어들어야 할 타이밍이지만, 이상하게도
 이번 릴리즈는 -rc1 을 제외하고는 가장 변경이 큰 릴리즈라는군요.  게다가 arch 쪽
@@ -2487,7 +2494,7 @@ mutex 와 동일하니 레이턴시가 크게 늘어날 때가 종종 생긴다�
       <link>/post/lkml_news_v4.20-rc4/</link>
       <pubDate>Mon, 26 Nov 2018 08:06:40 +0900</pubDate>
       <guid>/post/lkml_news_v4.20-rc4/</guid>
-      <description>&lt;h2 id=&#34;patch-v7-0021-swap-swapoutswapin-thp-in-one-piece&#34;&gt;[PATCH -V7 00/21] swap: Swapout/swapin THP in one piece&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;patch--v7-0021-swap-swapoutswapin-thp-in-one-piece&#34;&gt;[PATCH -V7 00/21] swap: Swapout/swapin THP in one piece&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20181120085449.5542-1-ying.huang@intel.com&#34;&gt;https://lkml.kernel.org/r/20181120085449.5542-1-ying.huang@intel.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Transparent Huge Page 를 쪼개지 않고 swap out / swap in 함으로써 스왑 성능을
 최적화 하는 패치의 일곱번째 버전입니다.  이 블로그에서도 소개한 바 있죠.  크게
@@ -2513,7 +2520,7 @@ order free list 를 쪼개기보다 그걸 먼저 사용합니다.  메모리 �
 머지되었고 커널 서밋에서도 발표를 들었는데 매우 인상적이었습니다.  DAX 가
 XArray 를 사용하도록 수정한 후 DAX 의 버그가 발견되었고, 그에 대한 수정을
 포함한 수정사항들을 담은 풀 리퀘스트입니다.&lt;/p&gt;
-&lt;h2 id=&#34;linux-420rc4&#34;&gt;Linux 4.20-rc4&lt;/h2&gt;
+&lt;h2 id=&#34;linux-420-rc4&#34;&gt;Linux 4.20-rc4&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wgdsXyCaLsFEpyUpAeRqVS69u=xo4rzEN+cS=xwz2gajg@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wgdsXyCaLsFEpyUpAeRqVS69u=xo4rzEN+cS=xwz2gajg@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;4.x 의 마지막이 될 예정인 4.20을 향한 네번째 rc 버전 릴리즈입니다.  변경의 60
 퍼센트가 드라이버고, 나머진 네트워킹, 파일시스템쪽 수정과 arch, 문서화
@@ -2533,7 +2540,7 @@ XArray 를 사용하도록 수정한 후 DAX 의 버그가 발견되었고, 그�
       <link>/post/lkml_news_v4.20-rc3/</link>
       <pubDate>Mon, 19 Nov 2018 16:53:04 +0900</pubDate>
       <guid>/post/lkml_news_v4.20-rc3/</guid>
-      <description>&lt;h2 id=&#34;linux-420rc3&#34;&gt;Linux 4.20-rc3&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;linux-420-rc3&#34;&gt;Linux 4.20-rc3&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wiZmPvR64hDy-pcVJqcxoAwMRd4GrRhRjK04Mhng4nL4g@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wiZmPvR64hDy-pcVJqcxoAwMRd4GrRhRjK04Mhng4nL4g@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;리누스 토발즈의 개인적 여행이 있었다는 점을 제외하고는 이상할 것 없는
 한주였습니다만, 이번 릴리즈의 변경 사항은 rc3 치고는 상당히 적었다고 하는군요.&lt;/p&gt;
@@ -2585,7 +2592,7 @@ huge page 로 promote 를 해주고, 그 전에 memory pressure 가 발생하면
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20181111200127.GA9511@linux.ibm.com&#34;&gt;https://lkml.kernel.org/r/20181111200127.GA9511@linux.ibm.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;RCU 테스트 프레임웍인 rcutorture 는 가상머신 환경을 사용하는데, 이를 위한
 initrd 생성을 자동화 하는 패치셋입니다.&lt;/p&gt;
-&lt;h2 id=&#34;linux-v420rc2&#34;&gt;Linux v4.20-rc2&lt;/h2&gt;
+&lt;h2 id=&#34;linux-v420-rc2&#34;&gt;Linux v4.20-rc2&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/R7SW0SuwOMMMyRgTFGA@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/R7SW0SuwOMMMyRgTFGA@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;토발즈가 여행 중이란 걸 제외하고는 별 특이사항 없는 두번째 rc 버전
 릴리즈입니다.&lt;/p&gt;
@@ -2597,7 +2604,7 @@ initrd 생성을 자동화 하는 패치셋입니다.&lt;/p&gt;
       <link>/post/ksummit2018_talk/</link>
       <pubDate>Thu, 08 Nov 2018 06:11:48 +0900</pubDate>
       <guid>/post/ksummit2018_talk/</guid>
-      <description>&lt;p&gt;지난 토요일, Theodore Ts&#39;o 로부터 올해 Linux Plumbers Conference 의 한 트랙으로
+      <description>&lt;p&gt;지난 토요일, Theodore Ts&amp;rsquo;o 로부터 올해 Linux Plumbers Conference 의 한 트랙으로
 열리는 커널 서밋에서 GCMA 발표를 해줄 수 있겠냐는 제의를 받았고 물론
 그러겠노라고 했습니다.  발표 일정의 [첫번째 드래프트][1]가 올라왔군요.  화요일
 아침에 발표하게 됐습니다.&lt;/p&gt;
@@ -2698,7 +2705,7 @@ Thu Nov  8 04:55:45 KST 2018
       <guid>/post/lkml_news_v4.20-rc1/</guid>
       <description>&lt;p&gt;리눅스 4.19 버전 릴리즈 후부터 4.20-rc1 버전의 릴리즈까지 LKML 에 오간 메일 중
 흥미로운 메일들을 소개합니다.&lt;/p&gt;
-&lt;h2 id=&#34;rfc-patch-v4-0013-ktask-multithread-cpuintensive-kernel-work&#34;&gt;[RFC PATCH v4 00/13] ktask: multithread CPU-intensive kernel work&lt;/h2&gt;
+&lt;h2 id=&#34;rfc-patch-v4-0013-ktask-multithread-cpu-intensive-kernel-work&#34;&gt;[RFC PATCH v4 00/13] ktask: multithread CPU-intensive kernel work&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20181105165558.11698-1-daniel.m.jordan@oracle.com&#34;&gt;https://lkml.kernel.org/r/20181105165558.11698-1-daniel.m.jordan@oracle.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;CPU intensive 한 커널의 일을 여러 work queue 를 이용해 병렬화 시키기 위한
 새로운 프레임웍, ktask 구현 및 적용 패치입니다.  이 프레임웍을 이용해 병렬화
@@ -2723,7 +2730,7 @@ Thu Nov  8 04:55:45 KST 2018
 인터페이스 덕에 코드가 한결 간결하고 깔끔해졌음을 이야기 하네요.  특히, dax 쪽
 수정사항과 conflict 이 있었는데 이는 dax 쪽의 버그 수정에 의한 것으로, XArray
 인터페이스를 쓰면 애초에 그 버그가 발생도 안한다고 합니다.&lt;/p&gt;
-&lt;h2 id=&#34;linux-420rc1&#34;&gt;Linux 4.20-rc1&lt;/h2&gt;
+&lt;h2 id=&#34;linux-420-rc1&#34;&gt;Linux 4.20-rc1&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;https://lkml.kernel.org/r/CAHk-=whDiwASMgw8Q7TNA2MJhf3s=ouK4+_3ioqmobs-yagnkQ@mail.gmail.com&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;오랫만에 토발즈가 하는 릴리즈입니다.  3.19 다음 4.0 버전이 릴리즈 되었으니 이번
 버전은 5.0 이 될 것인지, 4.20 이 될 것인지 흥미진진한 릴리즈였는데요.
@@ -2775,7 +2782,7 @@ have the joy of dealing with the merge window :)
 돌아왔습니다.&lt;/p&gt;
 &lt;p&gt;이 메일을 이렇게 시작하는군요:&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;So I&#39;ve obviously started pulling stuff for the merge window,&lt;/p&gt;
+&lt;p&gt;So I&amp;rsquo;ve obviously started pulling stuff for the merge window,&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;마침 Maintainers Summit 이 있었으니, 거의 Summit 직후 돌아왔다고 볼 수 있을 것
 같네요.&lt;/p&gt;
@@ -2794,14 +2801,14 @@ have the joy of dealing with the merge window :)
       <link>/post/lkml_news_v4.19-rc7/</link>
       <pubDate>Mon, 08 Oct 2018 07:54:09 +0900</pubDate>
       <guid>/post/lkml_news_v4.19-rc7/</guid>
-      <description>&lt;h2 id=&#34;linux-419rc7&#34;&gt;Linux 4.19-rc7&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;linux-419-rc7&#34;&gt;Linux 4.19-rc7&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20181007154529.GA4493@kroah.com&#34;&gt;https://lkml.kernel.org/r/20181007154529.GA4493@kroah.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;토발즈 없이 진행되는 4.19를 위한 일곱번째 rc 릴리즈입니다.  이번에도 그렉이
 대신 하는군요.  이번 릴리즈는 후반부임에도 rc6 보다 조금 더 커졌습니다.  하지만
 그렇게까지 큰 차이는 아니라고 하는군요.&lt;/p&gt;
 &lt;p&gt;일반적이라면 다음 릴리즈가 4.19 정식 릴리즈일텐데, 10월에 컨퍼런스가 많이
 있다보니 rc 릴리즈를 한번 더 할 생각이라는군요.  간만에 rc8 을 보겠습니다.&lt;/p&gt;
-&lt;h2 id=&#34;patch-v6-0021-swap-swapoutswapin-thp-in-one-piece&#34;&gt;[PATCH -V6 00/21] swap: Swapout/swapin THP in one piece&lt;/h2&gt;
+&lt;h2 id=&#34;patch--v6-0021-swap-swapoutswapin-thp-in-one-piece&#34;&gt;[PATCH -V6 00/21] swap: Swapout/swapin THP in one piece&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20181010071924.18767-1-ying.huang@intel.com&#34;&gt;https://lkml.kernel.org/r/20181010071924.18767-1-ying.huang@intel.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;THP 를 한방에 swap out / swap in 하는 Huang Ying 의 패치, 여섯번째 버전입니다.
 기존 버전 대비 달라진 점은 크지 않군요.  좀 더 최신 mmotm/master 위로 rebase 한
@@ -2814,7 +2821,7 @@ have the joy of dealing with the merge window :)
       <link>/post/lkml_news_v4.19-rc6/</link>
       <pubDate>Mon, 01 Oct 2018 12:20:27 +0900</pubDate>
       <guid>/post/lkml_news_v4.19-rc6/</guid>
-      <description>&lt;h2 id=&#34;linux-419rc6&#34;&gt;Linux 4.19-rc6&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;linux-419-rc6&#34;&gt;Linux 4.19-rc6&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20180930150308.GA5010@kroah.com&#34;&gt;https://lkml.kernel.org/r/20180930150308.GA5010@kroah.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;이번주도 Greg 에 의해 여섯번째 rc 버전이 릴리즈 되었습니다.  평소 일정대로면
 2주일 후 4.19 정식 버전이 릴리즈 될텐데, 아마도 그때까지도 Greg 이 릴리즈 하지
@@ -2829,7 +2836,7 @@ have the joy of dealing with the merge window :)
       <link>/post/lkml_news_v4.19-rc5/</link>
       <pubDate>Mon, 24 Sep 2018 10:10:40 +0900</pubDate>
       <guid>/post/lkml_news_v4.19-rc5/</guid>
-      <description>&lt;h2 id=&#34;linux-419rc5&#34;&gt;Linux 4.19-rc5&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;linux-419-rc5&#34;&gt;Linux 4.19-rc5&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20180923175547.GA4462@kroah.com&#34;&gt;https://lkml.kernel.org/r/20180923175547.GA4462@kroah.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;지난주 토발즈가 휴식을 선언한 이유로 한동안 릴리즈는 Greg 이 맡게 되었죠.  이번
 릴리즈는 그래서 Greg 이 합니다.&lt;/p&gt;
@@ -2838,7 +2845,7 @@ have the joy of dealing with the merge window :)
 &lt;p&gt;사소하지만 재밌는 건 Greg 의 자기 서명.
 &lt;code&gt;greg &amp;quot;keeping the seat warm for a few weeks&amp;quot; k-h&lt;/code&gt; 라고 하는군요.
 토발즈가 휴가 가있는 동안 의자를 뎁혀 두는 역할이라는 겸손함이 눈에 띄네요.&lt;/p&gt;
-&lt;h2 id=&#34;patch-v5-resend-0021-swap-swapoutswapin-thp-in-one-piece&#34;&gt;[PATCH -V5 RESEND 00/21] swap: Swapout/swapin THP in one piece&lt;/h2&gt;
+&lt;h2 id=&#34;patch--v5-resend-0021-swap-swapoutswapin-thp-in-one-piece&#34;&gt;[PATCH -V5 RESEND 00/21] swap: Swapout/swapin THP in one piece&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20180925071348.31458-1-ying.huang@intel.com&#34;&gt;https://lkml.kernel.org/r/20180925071348.31458-1-ying.huang@intel.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;THP 의 Swap in/out 을 regular page 로 쪼개지 않고 한방에 하는 패치의 최신
 버전입니다&amp;hellip; 만, 기존 대비 버전업이 되진 않았고 리뷰를 요청하기 위해 다시 한번
@@ -2851,7 +2858,7 @@ have the joy of dealing with the merge window :)
       <link>/post/lkml_news_v4.19-rc4/</link>
       <pubDate>Mon, 17 Sep 2018 08:03:05 +0900</pubDate>
       <guid>/post/lkml_news_v4.19-rc4/</guid>
-      <description>&lt;h2 id=&#34;linux-419rc4-released-an-apology-and-a-maintainership-note&#34;&gt;Linux 4.19-rc4 released, an apology, and a maintainership note&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;linux-419-rc4-released-an-apology-and-a-maintainership-note&#34;&gt;Linux 4.19-rc4 released, an apology, and a maintainership note&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFy+Hv9O5citAawS+mVZO+ywCKd9NQ2wxUmGsz9ZJzqgJQ@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CA+55aFy+Hv9O5citAawS+mVZO+ywCKd9NQ2wxUmGsz9ZJzqgJQ@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;한국시간 새벽 네시 좀 넘어 이 메일을 받았습니다.  평범한 릴리즈 메일이겠거니
 했는데 제목이 뭔가 심상치 않군요.&lt;/p&gt;
@@ -2905,11 +2912,11 @@ Plumbers Conference 와 함께 열릴 예정이었는데 토발즈가 그걸 깜
       <link>/post/lkml_news_v4.19-rc3/</link>
       <pubDate>Tue, 11 Sep 2018 06:01:49 +0900</pubDate>
       <guid>/post/lkml_news_v4.19-rc3/</guid>
-      <description>&lt;h2 id=&#34;linux-419rc3&#34;&gt;Linux 4.19-rc3&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;linux-419-rc3&#34;&gt;Linux 4.19-rc3&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFwSxCt0aKkTxcBstthYXqJ5LtxRbO-CDyqgNwU94Ldq+w@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CA+55aFwSxCt0aKkTxcBstthYXqJ5LtxRbO-CDyqgNwU94Ldq+w@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;세번째 rc 릴리즈입니다.  어느새 이번 안정화 기간도 중반을 향하는군요.  시간 참
 빠릅니다.  전체적으로 평범한 릴리즈입니다.  딱히 언급할 거리가 없군요.&lt;/p&gt;
-&lt;h2 id=&#34;rfc-patch-v2-08-lrulock-scalability-and-smp-list-functions&#34;&gt;[RFC PATCH v2 0/8] lru_lock scalability and SMP list functions&lt;/h2&gt;
+&lt;h2 id=&#34;rfc-patch-v2-08-lru_lock-scalability-and-smp-list-functions&#34;&gt;[RFC PATCH v2 0/8] lru_lock scalability and SMP list functions&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20180911004240.4758-1-daniel.m.jordan@oracle.com&#34;&gt;https://lkml.kernel.org/r/20180911004240.4758-1-daniel.m.jordan@oracle.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;올해 LSF/MM 서밋에서도 이야기되었던, &lt;code&gt;lru_lock&lt;/code&gt; 의 확장성을 개선하기 위한
 노력의 정리입니다.  LRU 리스트에 여러 쓰레드가 실제 데이터를 겹쳐 쓰지 않는다면
@@ -2919,13 +2926,13 @@ Plumbers Conference 와 함께 열릴 예정이었는데 토발즈가 그걸 깜
 &lt;p&gt;&lt;code&gt;will-it-scale/page_fault1&lt;/code&gt; 이라는 마이크로 벤치마크를 사용해서 성능을
 비교했는데, 44 코어 시스템에서 최대 73.8% 더 초당 페이지 폴트 처리량을 늘릴 수
 있었다고 합니다.&lt;/p&gt;
-&lt;h2 id=&#34;rfc-patch-09-improve-zone-lock-scalability-using-daniel-jordans-list-work&#34;&gt;[RFC PATCH 0/9] Improve zone lock scalability using Daniel Jordan&#39;s list work&lt;/h2&gt;
+&lt;h2 id=&#34;rfc-patch-09-improve-zone-lock-scalability-using-daniel-jordans-list-work&#34;&gt;[RFC PATCH 0/9] Improve zone lock scalability using Daniel Jordan&amp;rsquo;s list work&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20180911053616.6894-1-aaron.lu@intel.com&#34;&gt;https://lkml.kernel.org/r/20180911053616.6894-1-aaron.lu@intel.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;바로 앞에서 설명한, 여러 쓰레드가 동시에 리스트에 접근할 수 있도록 새로
 만들어진 메커니즘은 &lt;code&gt;zone lock&lt;/code&gt; 에도 도움이 될 수 있다고 LSF/MM 에서 여럿이
 생각했다고 합니다.  이 패치셋은 실제로 이 기능들을 이용해 &lt;code&gt;zone lock&lt;/code&gt; 의
 확장성을 개선했습니다.&lt;/p&gt;
-&lt;h2 id=&#34;patch-v5-resend-0021-swap-swapoutswapin-thp-in-one-piece&#34;&gt;[PATCH -V5 RESEND 00/21] swap: Swapout/swapin THP in one piece&lt;/h2&gt;
+&lt;h2 id=&#34;patch--v5-resend-0021-swap-swapoutswapin-thp-in-one-piece&#34;&gt;[PATCH -V5 RESEND 00/21] swap: Swapout/swapin THP in one piece&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20180912004414.22583-1-ying.huang@intel.com&#34;&gt;https://lkml.kernel.org/r/20180912004414.22583-1-ying.huang@intel.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;THP 를 덩어리째 스왑아웃 / 스왑인 하기 위한 패치, 다섯번째 버전입니다.
 생각보다 쉽게 머지되지 못하고 있군요.  리뷰가 많지 않은 것도 한 이유 아닐까
@@ -3007,16 +3014,16 @@ $ make menuconfig
       <link>/post/lkml_news_v4.19-rc2/</link>
       <pubDate>Mon, 03 Sep 2018 11:34:35 +0900</pubDate>
       <guid>/post/lkml_news_v4.19-rc2/</guid>
-      <description>&lt;h2 id=&#34;linux-419rc2&#34;&gt;Linux 4.19-rc2&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;linux-419-rc2&#34;&gt;Linux 4.19-rc2&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFyG0GbDfoghEhAmKBPcZCiPu6CCpPRz9GwjCzLuP_Vv5Q@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CA+55aFyG0GbDfoghEhAmKBPcZCiPu6CCpPRz9GwjCzLuP_Vv5Q@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;리눅스 4.19 두번째 릴리즈 후보 버전의 릴리즈입니다.  첫번째 릴리즈 후보 버전
 릴리즈 후엔 사람들이 좀 쉬게 마련이고 버그를 찾기엔 시간이 많지 않았기에 큰
 변화는 없었습니다.  유럽사람들의 경우 아직 휴가기간인 사람도 많구요.  미국
 OSSummit 이 지난주 진행된 것도 한 영향이겠네요.&lt;/p&gt;
-&lt;h2 id=&#34;patch-v5-0021-swap-swapoutswapin-thp-in-one-piece&#34;&gt;[PATCH -V5 00/21] swap: Swapout/swapin THP in one piece&lt;/h2&gt;
+&lt;h2 id=&#34;patch--v5-0021-swap-swapoutswapin-thp-in-one-piece&#34;&gt;[PATCH -V5 00/21] swap: Swapout/swapin THP in one piece&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20180903072214.24602-1-ying.huang@intel.com&#34;&gt;https://lkml.kernel.org/r/20180903072214.24602-1-ying.huang@intel.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;관심있게 지켜보고 있는, THP swapout/in 패치입니다.  다음 머지 윈도우에선 들어갈 수 있을까요?&lt;/p&gt;
-&lt;h2 id=&#34;plumbers-2018--performance-and-scalability-microconference&#34;&gt;Plumbers 2018 - Performance and Scalability Microconference&lt;/h2&gt;
+&lt;h2 id=&#34;plumbers-2018---performance-and-scalability-microconference&#34;&gt;Plumbers 2018 - Performance and Scalability Microconference&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/1dc80ff6-f53f-ae89-be29-3408bf7d69cc@oracle.com&#34;&gt;https://lkml.kernel.org/r/1dc80ff6-f53f-ae89-be29-3408bf7d69cc@oracle.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;올해 Linux Plumbers Conference 에 &amp;lsquo;Performance and Scalability Microconference&amp;rsquo;
 가 열립니다.  Huge page, mmap_sem, cpu 병렬화 등등 재밌는 주제가 많네요.&lt;/p&gt;
@@ -3028,7 +3035,7 @@ OSSummit 이 지난주 진행된 것도 한 영향이겠네요.&lt;/p&gt;
       <link>/post/lkml_news_v4.19-rc1/</link>
       <pubDate>Mon, 27 Aug 2018 17:11:28 +0900</pubDate>
       <guid>/post/lkml_news_v4.19-rc1/</guid>
-      <description>&lt;h2 id=&#34;linux-419rc1&#34;&gt;Linux 4.19-rc1&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;linux-419-rc1&#34;&gt;Linux 4.19-rc1&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;https://lkml.kernel.org/r/CA+55aFw9mxNPX6OtOp-aoUMdXSg=gBkQudGGamo__sh_ts_LdQ@mail.gmail.com&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;이주일의 머지 윈도우가 끝나고 리눅스 4.19 버전을 향한 안정화 단계가
 시작되었습니다.&lt;/p&gt;
@@ -3043,7 +3050,7 @@ OSSummit 이 지난주 진행된 것도 한 영향이겠네요.&lt;/p&gt;
 같다는군요.&lt;/p&gt;
 &lt;p&gt;또한, 이번 릴리즈는 꽤 많은 변경이 있는 편이라고 합니다, 물론 커밋 수
 기반으로요.&lt;/p&gt;
-&lt;h2 id=&#34;rfcpatch-05-introduce-procpididlebitmap&#34;&gt;[RFC][PATCH 0/5] introduce /proc/PID/idle_bitmap&lt;/h2&gt;
+&lt;h2 id=&#34;rfcpatch-05-introduce-procpididle_bitmap&#34;&gt;[RFC][PATCH 0/5] introduce /proc/PID/idle_bitmap&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20180901112818.126790961@intel.com&#34;&gt;https://lkml.kernel.org/r/20180901112818.126790961@intel.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;/sys/kernel/mm/page_idle/bitmap&lt;/code&gt; 을 사용하면 시스템의 실제 워킹셋 페이지가
 무엇무엇인지 알 수 있는데요, 이걸 &lt;code&gt;/proc/PID/idle_bitmap&lt;/code&gt; 으로 옮겨서 좀 더
@@ -3055,7 +3062,7 @@ finer-grained 하게 특정 프로세스의 워킹셋을 추적할 수 있게 �
 좋겠습니다.&lt;/p&gt;
 &lt;p&gt;이와 함께 인텔의 Apache Pass NVDIMM 에 대한 이야기도 하는군요.  옵테인 기반의
 NVDIMM 제품인 거 같은데, NVDIMM 도 현물이 나오기 시작하는군요.&lt;/p&gt;
-&lt;h2 id=&#34;patch-rfc-lkmm-17-toolsmemorymodel-add-extra-ordering-for-locks-and-remove-it-for-ordinary-releaseacquire&#34;&gt;[PATCH RFC LKMM 1/7] tools/memory-model: Add extra ordering for locks and remove it for ordinary release/acquire&lt;/h2&gt;
+&lt;h2 id=&#34;patch-rfc-lkmm-17-toolsmemory-model-add-extra-ordering-for-locks-and-remove-it-for-ordinary-releaseacquire&#34;&gt;[PATCH RFC LKMM 1/7] tools/memory-model: Add extra ordering for locks and remove it for ordinary release/acquire&lt;/h2&gt;
 &lt;p&gt;이 락킹 앞뒤의 액세스 순서를 지켜주는게 LKMM 에는 반영되어 있지 않습니다.
 이걸로 몇명의 커널 프로그래머들이 항의했나 보네요.  이런 부분들을 추가하는
 패치입니다.&lt;/p&gt;
@@ -3067,7 +3074,7 @@ NVDIMM 제품인 거 같은데, NVDIMM 도 현물이 나오기 시작하는군�
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20180829212036.GA22033@linux.vnet.ibm.com&#34;&gt;https://lkml.kernel.org/r/20180829212036.GA22033@linux.vnet.ibm.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;다음 리눅스 머지 윈도우를 향한 SRCU 업데이트 입니다.  &lt;code&gt;call_srcu()&lt;/code&gt; 를 부팅
 초기부터 사용할 수 있도록 하는군요.  테스트도 작성했습니다.&lt;/p&gt;
-&lt;h2 id=&#34;patch-tipcorercu-024-additional-rcuconsolidation-cleanups-for-v420v50&#34;&gt;[PATCH tip/core/rcu 0/24] Additional RCU-consolidation cleanups for v4.20/v5.0&lt;/h2&gt;
+&lt;h2 id=&#34;patch-tipcorercu-024-additional-rcu-consolidation-cleanups-for-v420v50&#34;&gt;[PATCH tip/core/rcu 0/24] Additional RCU-consolidation cleanups for v4.20/v5.0&lt;/h2&gt;
 &lt;p&gt;RCU 는 여러 변종 (flavor) 들이 있는데, 이것들을 최대한 합치려 하고 있는 듯
 하군요.&lt;/p&gt;
 </description>
@@ -3100,7 +3107,7 @@ XArray 풀리퀘스트를 리누스 토발즈에게 던졌군요!&lt;/p&gt;
 문제가 있어서느 아니고, 이 패치셋이 &lt;code&gt;libnvdimm&lt;/code&gt; 소스트리 위에서 만들어졌기
 때문입니다.  &lt;code&gt;-next&lt;/code&gt; 트리 관리자가 그렇게 하자고 조언한 것 같은데, 어쨌든
 Mattew 에겐 안됐지만 다음 버전에서 머지되길 기대해야겠군요.&lt;/p&gt;
-&lt;h2 id=&#34;patch-v3-03-docscoreapi-add-memory-allocation-guide&#34;&gt;[PATCH v3 0/3] docs/core-api: add memory allocation guide&lt;/h2&gt;
+&lt;h2 id=&#34;patch-v3-03-docscore-api-add-memory-allocation-guide&#34;&gt;[PATCH v3 0/3] docs/core-api: add memory allocation guide&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/1534517236-16762-1-git-send-email-rppt@linux.vnet.ibm.com&#34;&gt;https://lkml.kernel.org/r/1534517236-16762-1-git-send-email-rppt@linux.vnet.ibm.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;메모리 관리쪽 커널 문서가 지속적으로 업데이트 되고 있습니다.  개인적으로는
 커널을 공부할 때 공식 문서를 선호하는 편이라 반가운 일이군요.&lt;/p&gt;
@@ -3112,7 +3119,7 @@ Mattew 에겐 안됐지만 다음 버전에서 머지되길 기대해야겠군�
       <link>/post/lkml_news_v4.18-rc8/</link>
       <pubDate>Mon, 06 Aug 2018 17:53:02 +0900</pubDate>
       <guid>/post/lkml_news_v4.18-rc8/</guid>
-      <description>&lt;h2 id=&#34;linux-418rc8&#34;&gt;Linux 4.18-rc8&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;linux-418-rc8&#34;&gt;Linux 4.18-rc8&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFw49Bh9u3KvGsMbnSLfHvevpWPuqgrWQT0tC0XCajNwzA@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CA+55aFw49Bh9u3KvGsMbnSLfHvevpWPuqgrWQT0tC0XCajNwzA@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;원래대로라면 오늘 4.18 정식 릴리즈가 있어야 했지만, 지난주 동안 여러 일이
 있었고, 결국 여덟번째 rc 버전이 나오고 말았습니다.  VM 쪽 이슈가 큰 이유였고,
@@ -3122,7 +3129,7 @@ Mattew 에겐 안됐지만 다음 버전에서 머지되길 기대해야겠군�
 &lt;p&gt;8월에 휴가를 많이 떠나는 유럽 개발자들을 고려해서 토발즈는 휴가가 예정되어
 있다면 그냥 원래 예상된 스케쥴대로 이번주부터 머지 윈도우 열렸다고 생각하고
 풀리퀘스트 보내고 휴가 가라고 대인배라면 대인배 같은 면모를 보이는군요.&lt;/p&gt;
-&lt;h2 id=&#34;patch-rfc-0010-introduce-lockless-shrinkslab&#34;&gt;[PATCH RFC 00/10] Introduce lockless shrink_slab()&lt;/h2&gt;
+&lt;h2 id=&#34;patch-rfc-0010-introduce-lockless-shrink_slab&#34;&gt;[PATCH RFC 00/10] Introduce lockless shrink_slab()&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/153365347929.19074.12509495712735843805.stgit@localhost.localdomain&#34;&gt;https://lkml.kernel.org/r/153365347929.19074.12509495712735843805.stgit@localhost.localdomain&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;이 블로그에서도 이야기 했던 &amp;ldquo;Improve shrink_slab() scalability&amp;hellip;&amp;rdquo; 패치의 머지
 후, 성능 병목 지점이 &lt;code&gt;shrink_lab()&lt;/code&gt; 에서 &lt;code&gt;down_read_trylock()&lt;/code&gt; 으로
@@ -3174,7 +3181,7 @@ Mattew 에겐 안됐지만 다음 버전에서 머지되길 기대해야겠군�
 있어서 개인 개발자가 자신의 패치를 테스트할 목적으로 사용하기에도 좋습니다.  이
 글에서는 이러한 lkp-tests 의 구조와 사용법을 간단히 설명합니다.  전체적으로
 인텔의 관련 블로그 글[3] 을 참고했습니다.&lt;/p&gt;
-&lt;h1 id=&#34;heading&#34;&gt;설치&lt;/h1&gt;
+&lt;h1 id=&#34;설치&#34;&gt;설치&lt;/h1&gt;
 &lt;p&gt;먼저 다음 커맨드로 lkp-tests 소스코드를 얻어옵니다:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ git clone https://github.com/intel/lkp-tests
 $ cd lkp-tests
@@ -3221,7 +3228,7 @@ More commands can be found in /home/sjpark/lkp-tests/{bin,sbin,tools}/
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;여기서 &lt;code&gt;&amp;lt;command&amp;gt;&lt;/code&gt; 는 lkp-tests 소스코드 디렉토리 아래 &lt;code&gt;bin/&lt;/code&gt;, &lt;code&gt;sbin/&lt;/code&gt;,
 &lt;code&gt;tools/&lt;/code&gt;, 또는 &lt;code&gt;lkp-exec/&lt;/code&gt; 아래 위치한 실행파일로, &lt;code&gt;lkp&lt;/code&gt; 는 단순히 그
 실행파일을 수행하면서 인자를 넘길 뿐입니다.&lt;/p&gt;
-&lt;h1 id=&#34;---&#34;&gt;테스트에 필요한 소프트웨어 설치&lt;/h1&gt;
+&lt;h1 id=&#34;테스트에-필요한-소프트웨어-설치&#34;&gt;테스트에 필요한 소프트웨어 설치&lt;/h1&gt;
 &lt;p&gt;다음 커맨드는 lkp-tests 가 의존하고 있는 기본적 소프트웨어 패키지들을 모두
 설치합니다:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ sudo lkp install
@@ -3230,9 +3237,9 @@ More commands can be found in /home/sjpark/lkp-tests/{bin,sbin,tools}/
 ca-certificates cpio fakeroot flex gcc git libc6-dev libc6-dev:i386
 libklibc-dev libtool linux-libc-dev linux-libc-dev:i386 linux-tools-generic
 make openssl patch rsync ruby ruby-dev wget
-&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;lkptests---&#34;&gt;lkp-tests 내부 벤치마크 실행&lt;/h1&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;lkp-tests-내부-벤치마크-실행&#34;&gt;lkp-tests 내부 벤치마크 실행&lt;/h1&gt;
 &lt;p&gt;이제 lkp-tests 에서 지원하는 벤치마크를 실제로 돌려봅시다.&lt;/p&gt;
-&lt;h2 id=&#34;----&#34;&gt;테스트 수행에 필요한 환경 설정&lt;/h2&gt;
+&lt;h2 id=&#34;테스트-수행에-필요한-환경-설정&#34;&gt;테스트 수행에 필요한 환경 설정&lt;/h2&gt;
 &lt;p&gt;실제 테스트를 돌리기 위해선 벤치마크를 깔고, 그 벤치마크가 사용하는 패키지를
 깔고, 테스트에 사용될 도구들을 깔고, 여러 설정을 하는등의 작업이 필요합니다.&lt;/p&gt;
 &lt;p&gt;다음 명령은 lkp-tests 에서 ebizzy 라는 벤치마크를 사용하는 테스트를 위해
@@ -3248,10 +3255,10 @@ make openssl patch rsync ruby ruby-dev wget
 인자를 줘가며 수행해야할지 등에 대한 내용을 담고 있습니다.  예컨대
 &lt;code&gt;jobs/aim7-fs-1brd.yaml&lt;/code&gt; job 은 &lt;code&gt;xfs&lt;/code&gt;, &lt;code&gt;ext4&lt;/code&gt;, &lt;code&gt;btrfs&lt;/code&gt;, &lt;code&gt;f2fs&lt;/code&gt; 파일 시스템
 각각에 대해 aim7 을 돌려보도록 되어 있습니다.&lt;/p&gt;
-&lt;h2 id=&#34;-&#34;&gt;테스트 수행&lt;/h2&gt;
+&lt;h2 id=&#34;테스트-수행&#34;&gt;테스트 수행&lt;/h2&gt;
 &lt;p&gt;다음 명령은 ebizzy job 으로 기술된 테스트를 실제 수행시킵니다:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ sudo lkp run jobs/ebizzy.yaml
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;job-&#34;&gt;job 쪼개기&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;job-쪼개기&#34;&gt;job 쪼개기&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;ebizzy.yaml&lt;/code&gt; 은 시스템 소유 CPU 코어 갯수 2배 갯수의 쓰레드를 사용해 ebizzy 를
 10초간 돌리는 실험을 100번 반복하도록 되어 있습니다.  즉, 실험의 경우의 수가
 하나입니다.  그러나, 앞서 설명한 &lt;code&gt;aim7-fs-1brd&lt;/code&gt; 와 같이 다양한 구성을 사용하게
@@ -3295,7 +3302,7 @@ aim7-fs-1brd-1BRD_48G-ext4-disk_wrt-3000.yaml
 aim7-fs-1brd-1BRD_48G-xfs-disk_wrt-3000.yaml
 aim7-fs-1brd-1BRD_48G-ext4-sync_disk_rw-600.yaml
 aim7-fs-1brd-1BRD_48G-xfs-sync_disk_rw-600.yaml
-&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;--&#34;&gt;테스트 결과 확인&lt;/h1&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;테스트-결과-확인&#34;&gt;테스트 결과 확인&lt;/h1&gt;
 &lt;p&gt;테스트에 사용된 벤치마크 수행의 결과와 테스트 동안의 시스템 프로파일링 결과는
 &lt;code&gt;/lkp/result/&lt;/code&gt; 디렉토리 밑에 &lt;code&gt;&amp;lt;job name&amp;gt;/&amp;lt;configuration&amp;gt;/&amp;lt;host name&amp;gt;/&amp;lt;os distribution name&amp;gt;/&amp;lt;kernel config&amp;gt;/&amp;lt;gcc version&amp;gt;/&amp;lt;kernel version&amp;gt;/&amp;lt;unique id&amp;gt;&lt;/code&gt;
 의 계층 구조로 저장됩니다.  또한, 이 실험 결과를 parsing 할 수 있는 경우엔
@@ -3319,11 +3326,11 @@ aim7-fs-1brd-1BRD_48G-xfs-sync_disk_rw-600.yaml
       <link>/post/lkml_news_v4.18-rc7/</link>
       <pubDate>Mon, 30 Jul 2018 08:49:12 +0900</pubDate>
       <guid>/post/lkml_news_v4.18-rc7/</guid>
-      <description>&lt;h2 id=&#34;linux-418rc7&#34;&gt;Linux 4.18-rc7&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;linux-418-rc7&#34;&gt;Linux 4.18-rc7&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFxpFefwVdTGVML99PSFUqwpJXPx5LVCA3D=g2t2_QLNsA@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CA+55aFxpFefwVdTGVML99PSFUqwpJXPx5LVCA3D=g2t2_QLNsA@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;일곱번째 rc 릴리즈입니다.  별다른 일 없으면 다음주에 4.18이 릴리즈 되겠다고
 토발즈도 이야기 하는군요.&lt;/p&gt;
-&lt;h2 id=&#34;patch-v4-06-kmallocreclaimable-caches&#34;&gt;[PATCH v4 0/6] kmalloc-reclaimable caches&lt;/h2&gt;
+&lt;h2 id=&#34;patch-v4-06-kmalloc-reclaimable-caches&#34;&gt;[PATCH v4 0/6] kmalloc-reclaimable caches&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20180731090649.16028-1-vbabka@suse.cz&#34;&gt;https://lkml.kernel.org/r/20180731090649.16028-1-vbabka@suse.cz&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;내부적으로 SLAB 할당자를 사용하는 kmem cache 들은 &lt;code&gt;SLAB_RECLAIM_ACCOUNT&lt;/code&gt;
 플래그를 가지고 생성될 경우에 시스템 메모리가 부족한 경우 기존에 할당받은
@@ -3336,7 +3343,7 @@ aim7-fs-1brd-1BRD_48G-xfs-sync_disk_rw-600.yaml
 SLAB_RECLAIM_ACCOUNT  와 비슷한 특성을 갖는 변종을 kmalloc-rcl-x 라는 이름으로
 만들었습니다.  kmalloc() 시에 &lt;code&gt;__GFP_RECLAIMABLE&lt;/code&gt; 플래그를 넣으면 이 캐시에서
 메모리가 할당됩니다.&lt;/p&gt;
-&lt;h2 id=&#34;patch-swap-use-trytoreclaimswap-in-freeswapandcache&#34;&gt;&lt;code&gt;[PATCH] swap: Use __try_to_reclaim_swap() in free_swap_and_cache()&lt;/code&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;patch-swap-use-__try_to_reclaim_swap-in-free_swap_and_cache&#34;&gt;&lt;code&gt;[PATCH] swap: Use __try_to_reclaim_swap() in free_swap_and_cache()&lt;/code&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20180803123014.15431-1-ying.huang@intel.com&#34;&gt;https://lkml.kernel.org/r/20180803123014.15431-1-ying.huang@intel.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;스왑 엔트리를 회수하는 코드 경로는 &lt;code&gt;free_swap_and_cache()&lt;/code&gt; 가 있고
 &lt;code&gt;__try_to_reclaim_swap()&lt;/code&gt; 이 있는데, 코딩 스타일 빼고는 실제 하는 일이 거의
@@ -3351,7 +3358,7 @@ SLAB_RECLAIM_ACCOUNT  와 비슷한 특성을 갖는 변종을 kmalloc-rcl-x 라
       <link>/post/lkml_news_v4.18-rc6/</link>
       <pubDate>Tue, 24 Jul 2018 06:19:53 +0900</pubDate>
       <guid>/post/lkml_news_v4.18-rc6/</guid>
-      <description>&lt;h2 id=&#34;linux-418rc6&#34;&gt;Linux 4.18-rc6&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;linux-418-rc6&#34;&gt;Linux 4.18-rc6&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFzMheDA-2z=MdGgJrz-REcrknb+4OEvRKaJipm+x6xEhw@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CA+55aFzMheDA-2z=MdGgJrz-REcrknb+4OEvRKaJipm+x6xEhw@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;이번 rc는 평소보다 조금 크게 되었는데, 네트워킹 쪽 메인테이너인 David 가 많은
 수정사항을 아직 보내지 않았다가 이번에 모아서 보냈기 때문이라는군요.  그렇다
@@ -3372,12 +3379,12 @@ SLAB_RECLAIM_ACCOUNT  와 비슷한 특성을 갖는 변종을 kmalloc-rcl-x 라
       <link>/post/lkml_news_v4.18-rc4/</link>
       <pubDate>Mon, 09 Jul 2018 10:01:05 +0900</pubDate>
       <guid>/post/lkml_news_v4.18-rc4/</guid>
-      <description>&lt;h2 id=&#34;linux-418rc4&#34;&gt;Linux 4.18-rc4&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;linux-418-rc4&#34;&gt;Linux 4.18-rc4&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;https://lkml.kernel.org/r/CA+55aFwXGyZ1Yx+Z8a93gpvb596ZRJ5ppiQL_+-k7gjeQLtcsQ@mail.gmail.com&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;어느덧 네번째 RC 버전 릴리즈입니다.  지루할 정도로 평범한 릴리즈라는군요.
 대부분 드라이버쪽 업데이트이고, bpf, cifs, ext4, 스케쥴러, 그리고 일부 arch
 업데이트가 대부분입니다.&lt;/p&gt;
-&lt;h2 id=&#34;patch-v9-0017-improve-shrinkslab-scalability-old-complexity-was-on2-new-is-on&#34;&gt;[PATCH v9 00/17] Improve shrink_slab() scalability (old complexity was O(n^2), new is O(n))&lt;/h2&gt;
+&lt;h2 id=&#34;patch-v9-0017-improve-shrink_slab-scalability-old-complexity-was-on2-new-is-on&#34;&gt;[PATCH v9 00/17] Improve shrink_slab() scalability (old complexity was O(n^2), new is O(n))&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/153112469064.4097.2581798353485457328.stgit@localhost.localdomain&#34;&gt;https://lkml.kernel.org/r/153112469064.4097.2581798353485457328.stgit@localhost.localdomain&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;shrink_slab()&lt;/code&gt; 의 compexity 를 O(n^2) 에서 O(n) 으로 낮춰 확장성을 높인 패치의
 아홉번째 버전입니다.&lt;/p&gt;
@@ -3386,7 +3393,7 @@ SLAB_RECLAIM_ACCOUNT  와 비슷한 특성을 갖는 변종을 kmalloc-rcl-x 라
 &lt;p&gt;&lt;code&gt;cma_alloc()&lt;/code&gt; 과 &lt;code&gt;dma_alloc_from_contiguous()&lt;/code&gt; 함수는 gfp mask 패러미터를
 받지만 실질적으론 &lt;code&gt;__GFP_NORARN&lt;/code&gt; 플래그만을 지원하고 있습니다.  이 패치는
 따라서 해당 패러미터를 &lt;code&gt;no_warn&lt;/code&gt; 이란 이름의 boolean 타입으로 교체합니다.&lt;/p&gt;
-&lt;h2 id=&#34;rfc-patch-mm-pagealloc-double-zones-batchsize&#34;&gt;[RFC PATCH] mm, page_alloc: double zone&#39;s batchsize&lt;/h2&gt;
+&lt;h2 id=&#34;rfc-patch-mm-page_alloc-double-zones-batchsize&#34;&gt;[RFC PATCH] mm, page_alloc: double zone&amp;rsquo;s batchsize&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20180711055855.29072-1-aaron.lu@intel.com&#34;&gt;https://lkml.kernel.org/r/20180711055855.29072-1-aaron.lu@intel.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;리눅스 커널 페이지 할당자는 잘 알려진 Buddy allocator 입니다만, 멀티 CPU
 환경에서의 컨텐션을 줄이기 위해 per-CPU pageset 이란 걸 존별로 가지고 있어서
@@ -3434,7 +3441,7 @@ section 내에서의 sleeping 을 하지 못하게 함으로써 리눅스 커널
 Page cache 가 이 자료구조를 사용하도록 변경하는 패치의 13번째 버전입니다.  작년
 OSSummit Europe 에서 처음 XArray 에 대한 발표를 들었는데 계속 발전중인 것
 같군요.&lt;/p&gt;
-&lt;h2 id=&#34;re-417-regression-performance-drop-on-kernel417-visible-on&#34;&gt;Re: [4.17 regression] Performance drop on kernel-4.17 visible on&lt;/h2&gt;
+&lt;h2 id=&#34;re-417-regression-performance-drop-on-kernel-417-visible-on&#34;&gt;Re: [4.17 regression] Performance drop on kernel-4.17 visible on&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20180607110713.GJ32433@dhcp22.suse.cz&#34;&gt;https://lkml.kernel.org/r/20180607110713.GJ32433@dhcp22.suse.cz&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;4.16 대비 4.17 의 NUMA 시스템에서 Stream, Linpack, NAS 벤치마크 성능이 크게
 떨어졌다는 레포트입니다.  최대 50% 까지의 성능 하락이 있었군요.&lt;/p&gt;
@@ -3446,7 +3453,7 @@ OSSummit Europe 에서 처음 XArray 에 대한 발표를 들었는데 계속 �
       <link>/post/lkml_news_v4.17-rc7/</link>
       <pubDate>Mon, 28 May 2018 10:41:50 +0900</pubDate>
       <guid>/post/lkml_news_v4.17-rc7/</guid>
-      <description>&lt;h2 id=&#34;linux-417rc7&#34;&gt;Linux 4.17-rc7&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;linux-417-rc7&#34;&gt;Linux 4.17-rc7&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFwUqz9z1Rf4Wwr29W7DeKxQ67qKEW5xty+JPyCY3aNQ=A@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CA+55aFwUqz9z1Rf4Wwr29W7DeKxQ67qKEW5xty+JPyCY3aNQ=A@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;일곱번째 rc 입니다.  지난 몇주보다는 조금 변경사항이 있었지만 그렇다 해도
 그렇게 심한 정도는 아니었기에 아마도 이게 마지막 rc 일 거라는군요.&lt;/p&gt;
@@ -3463,11 +3470,11 @@ Cgroup 은 용량 기반의 컨트롤러는 많지만 응답시간 기반의 컨
       <link>/post/lkml_news_v4.17-rc6/</link>
       <pubDate>Mon, 21 May 2018 10:19:16 +0900</pubDate>
       <guid>/post/lkml_news_v4.17-rc6/</guid>
-      <description>&lt;h2 id=&#34;linux-v417rc6&#34;&gt;Linux v4.17-rc6&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;linux-v417-rc6&#34;&gt;Linux v4.17-rc6&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;https://lkml.kernel.org/r/CA+55aFxxYQFL3mwsQcC+__R23ZmO8c3F0SThi6r44TdK0ePNDQ@mail.gmail.com&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;여섯번째 release candidate 버전입니다.  이번 릴리즈에도 특기할 만한 일은
 없었습니다.  이제 충분히 안정화 되었을 거라고 하는군요.&lt;/p&gt;
-&lt;h2 id=&#34;patch-mm-v3-0021-mm-thp-swap-swapoutswapin-thp-in-one-piece&#34;&gt;[PATCH -mm -V3 00/21] mm, THP, swap: Swapout/swapin THP in one piece&lt;/h2&gt;
+&lt;h2 id=&#34;patch--mm--v3-0021-mm-thp-swap-swapoutswapin-thp-in-one-piece&#34;&gt;[PATCH -mm -V3 00/21] mm, THP, swap: Swapout/swapin THP in one piece&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20180523082625.6897-1-ying.huang@intel.com&#34;&gt;https://lkml.kernel.org/r/20180523082625.6897-1-ying.huang@intel.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;이전에도 이 시리즈로 소개했던, THP 의 swap out 과 swap in 최적화 마지막 단계
 패치의 세번째 버전입니다.  마지막 단계 이야기 하니 문득 인피니티워의 오역
@@ -3486,7 +3493,7 @@ Cgroup 은 용량 기반의 컨트롤러는 많지만 응답시간 기반의 컨
 &lt;p&gt;하나의 &lt;code&gt;struct bio_bvec&lt;/code&gt; 이 물리적으로 연속적인 복수개의 페이지를 가질 수 있게
 하는 패치입니다.  시스템의 메모리가 거대해지고 THP 등이 널리 쓰임에 따라 이런
 변화가 필요했다는군요.&lt;/p&gt;
-&lt;h2 id=&#34;patch-v2-mm-04-mm-huge-page-copy-target-subpage-last-when-copy-huge-page&#34;&gt;[PATCH -V2 -mm 0/4] mm, huge page: Copy target sub-page last when copy huge page&lt;/h2&gt;
+&lt;h2 id=&#34;patch--v2--mm-04-mm-huge-page-copy-target-sub-page-last-when-copy-huge-page&#34;&gt;[PATCH -V2 -mm 0/4] mm, huge page: Copy target sub-page last when copy huge page&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20180524005851.4079-1-ying.huang@intel.com&#34;&gt;https://lkml.kernel.org/r/20180524005851.4079-1-ying.huang@intel.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Huge page 의 복사 시에는 source 와 destination page 각각에 접근을 해야 하므로,
 2 MiB huge page 를 사용한다 가정하면 총 4 MiB 데이터 액세스가 필요합니다.
@@ -3508,7 +3515,7 @@ Cache 를 모조리 접근해서 데이터가 flooding 나고 이후 데이터 �
       <link>/post/lkml_news_v4.17-rc5/</link>
       <pubDate>Mon, 14 May 2018 10:23:45 +0900</pubDate>
       <guid>/post/lkml_news_v4.17-rc5/</guid>
-      <description>&lt;h2 id=&#34;linux-417rc5&#34;&gt;Linux 4.17-rc5&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;linux-417-rc5&#34;&gt;Linux 4.17-rc5&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFxi-Q6hvdHn+JwYSQ9b3feNGoFM3eeAuKNhpkfxVNAGpA@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CA+55aFxi-Q6hvdHn+JwYSQ9b3feNGoFM3eeAuKNhpkfxVNAGpA@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;4.17을 향한 다섯번째 rc 릴리즈입니다.  이번 릴리즈도 여느 때와 다름없이
 평범하군요.  대부분 드라이버 변경들이고, amd gpu 쪽 변경이 있지만 나머지
@@ -3534,7 +3541,7 @@ Cache 를 모조리 접근해서 데이터가 flooding 나고 이후 데이터 �
       <pubDate>Mon, 07 May 2018 18:21:01 +0900</pubDate>
       <guid>/post/qemu_kernel_debugging/</guid>
       <description>&lt;p&gt;You can use classical debugger for your Linux kernel programming, though
-Torvalds doesn&#39;t like it.
+Torvalds doesn&amp;rsquo;t like it.
 I also do not prefer such use of debuggers, but admit that sometimes debuggers
 are quite useful. ;)&lt;/p&gt;
 &lt;p&gt;There are several ways to debug Linux kernel, but one of above is to set up a
@@ -3561,16 +3568,16 @@ For example, you could install the kernel on the virtual machine disk.  Or, you
 could use &lt;code&gt;-kernel&lt;/code&gt;, &lt;code&gt;-append&lt;/code&gt; and &lt;code&gt;-initrd&lt;/code&gt; QEMU option to boot the virtual
 machine with your kernel image in host machine directly, or some other ways.
 One thing you should keep in your mind is that you should turn &lt;strong&gt;kaslr&lt;/strong&gt; off.
-Just giving &lt;code&gt;nokaslr&lt;/code&gt; in the kernel parameter doesn&#39;t works well.&lt;/p&gt;
+Just giving &lt;code&gt;nokaslr&lt;/code&gt; in the kernel parameter doesn&amp;rsquo;t works well.&lt;/p&gt;
 &lt;p&gt;Pass &lt;code&gt;-s&lt;/code&gt; option to QEMU when you start up the QEMU virtual machine, or enter
 &lt;code&gt;gdbserver&lt;/code&gt; in the QEMU monitor console command line.
 This make the virtual machine to start gdbserver and wait on &lt;code&gt;tcp::1234&lt;/code&gt; for
 some accesses.
 If you have given &lt;code&gt;-nographic&lt;/code&gt; QEMU option and set the kernel parameter so that
-the virtual machine&#39;s console is connected to your terminal, you could not see
+the virtual machine&amp;rsquo;s console is connected to your terminal, you could not see
 the QEMU monitor console directly.  In this case, you can go back to QEMU
 monitor console by entering &lt;code&gt;Ctrl+a c&lt;/code&gt;.
-If you want to go back to the virtual machine&#39;s console again, &lt;code&gt;Ctrl+a c &amp;lt;enter&amp;gt;&lt;/code&gt;.&lt;/p&gt;
+If you want to go back to the virtual machine&amp;rsquo;s console again, &lt;code&gt;Ctrl+a c &amp;lt;enter&amp;gt;&lt;/code&gt;.&lt;/p&gt;
 &lt;h1 id=&#34;start-gdb&#34;&gt;Start gdb&lt;/h1&gt;
 &lt;p&gt;Move to the build directory of the kernel to debug, enter &lt;code&gt;gdb vmlinux&lt;/code&gt;.
 This will start up gdb using the symbol and debuggin information of the kernel.
@@ -3646,7 +3653,7 @@ lx-version --  Report the Linux Version of the current kernel
       <link>/post/lkml_news_v4.17-rc4/</link>
       <pubDate>Mon, 07 May 2018 12:12:32 +0900</pubDate>
       <guid>/post/lkml_news_v4.17-rc4/</guid>
-      <description>&lt;h2 id=&#34;linux-417rc4&#34;&gt;Linux 4.17-rc4&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;linux-417-rc4&#34;&gt;Linux 4.17-rc4&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFyry0qeZvYjU5pf8a6zvb_ALmP-2T9+HZH2DHK93P6rQg@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CA+55aFyry0qeZvYjU5pf8a6zvb_ALmP-2T9+HZH2DHK93P6rQg@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;어느새 네번째 rc 버전입니다.  v4.17 을 향한 여정이 절반을 넘어가는군요.  이번 릴리즈도 특이사항 없이 평범합니다.&lt;/p&gt;
 </description>
@@ -3657,7 +3664,7 @@ lx-version --  Report the Linux Version of the current kernel
       <link>/post/lkml_news_v4.17-rc3/</link>
       <pubDate>Mon, 30 Apr 2018 12:59:19 +0900</pubDate>
       <guid>/post/lkml_news_v4.17-rc3/</guid>
-      <description>&lt;h2 id=&#34;linux-417rc3&#34;&gt;Linux 4.17-rc3&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;linux-417-rc3&#34;&gt;Linux 4.17-rc3&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFyu=y0SBesB+vx3JZFGcOhP+tuVG7sjfrkfBhXHTe0Skg@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CA+55aFyu=y0SBesB+vx3JZFGcOhP+tuVG7sjfrkfBhXHTe0Skg@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;세번째 rc 버전이 나왔습니다.  평소보다 좀 일찍 왔군요.  rc2 에 비해 커다란
 릴리즈이긴 한데, 그렇다 해도 평범한 릴리즈라고 리누스는 이야기 합니다.
@@ -3682,7 +3689,7 @@ spread sheet 로 정리한 문서도 여기서 공개했나보군요:
 &lt;p&gt;VMalloc 페이지는 유저스페이스에 매핑될 수도 있으므로 성능 분석과 memory leak
 문제 분석의 편의를 위해  page-&amp;gt;mapping 값에 이를 가리키는 표식과 해당 페이지를
 가리키는 &lt;code&gt;vm_struct&lt;/code&gt; 와 그 안에서의 &lt;code&gt;offset&lt;/code&gt; 을 저장하는 RFC 패치입니다.&lt;/p&gt;
-&lt;h2 id=&#34;introduce-atomicdecandlockirqsave&#34;&gt;Introduce atomic_dec_and_lock_irqsave()&lt;/h2&gt;
+&lt;h2 id=&#34;introduce-atomic_dec_and_lock_irqsave&#34;&gt;Introduce atomic_dec_and_lock_irqsave()&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20180504154533.8833-1-bigeasy@linutronix.de&#34;&gt;https://lkml.kernel.org/r/20180504154533.8833-1-bigeasy@linutronix.de&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;local_irq_save()&lt;/code&gt; + &lt;code&gt;atomic_dec_and_lock()&lt;/code&gt; 조합을 써야 하던 코드를 위해 이를
 감싸는 새로운 함수, &lt;code&gt;atomic_dec_and_lock_irqsave()&lt;/code&gt; 를 만들고 기존의 코드가
@@ -3695,7 +3702,7 @@ spread sheet 로 정리한 문서도 여기서 공개했나보군요:
       <link>/post/lkml_news_v4.17-rc2/</link>
       <pubDate>Mon, 23 Apr 2018 12:03:23 +0900</pubDate>
       <guid>/post/lkml_news_v4.17-rc2/</guid>
-      <description>&lt;h2 id=&#34;linux-v417rc2&#34;&gt;Linux v4.17-rc2&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;linux-v417-rc2&#34;&gt;Linux v4.17-rc2&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFwzkGuq5ASF-vhYj7mEX26V0K+uZCLWi1BLYq+9F1n-Rw@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CA+55aFwzkGuq5ASF-vhYj7mEX26V0K+uZCLWi1BLYq+9F1n-Rw@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;두번째 rc 버전의 릴리즈입니다.  &lt;code&gt;perf&lt;/code&gt; 와 테스트 스크립트 쪽에 변경사항이 좀
 많긴 하지만 평소와 크게 다르지 않은 추이라는군요.&lt;/p&gt;
@@ -3707,7 +3714,7 @@ spread sheet 로 정리한 문서도 여기서 공개했나보군요:
       <link>/post/lkml_news_v4.17-rc1/</link>
       <pubDate>Mon, 16 Apr 2018 10:59:58 +0900</pubDate>
       <guid>/post/lkml_news_v4.17-rc1/</guid>
-      <description>&lt;h2 id=&#34;linux-v417rc1&#34;&gt;Linux v4.17-rc1&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;linux-v417-rc1&#34;&gt;Linux v4.17-rc1&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFx62iBkj+hOmhLksUtvjwTcm_o1dwcyvaNnVpJ-AmvzVQ@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CA+55aFx62iBkj+hOmhLksUtvjwTcm_o1dwcyvaNnVpJ-AmvzVQ@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;2주간의 머지 윈도우가 지나고, v4.17-rc1 이 릴리즈 되었습니다.  크게 특별할 것
 없이 평범한 머지 윈도우였다고 토발즈는 평하는군요.  그리고 이번에 git objects
@@ -3732,7 +3739,7 @@ pre-shipped lexer / parser 파일들도 사라졌구요.&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;patch-v10-0025-speculative-page-faults&#34;&gt;[PATCH v10 00/25] Speculative page faults&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/1523975611-15978-1-git-send-email-ldufour@linux.vnet.ibm.com&#34;&gt;https://lkml.kernel.org/r/1523975611-15978-1-git-send-email-ldufour@linux.vnet.ibm.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;어느새 열번째 버전의 speculative page faults 패치셋입니다.&lt;/p&gt;
-&lt;h2 id=&#34;patch-v2-0012-improve-shrinkslab-scalability-old-complexity-was-on2-new-is-on&#34;&gt;[PATCH v2 00/12] Improve shrink_slab() scalability (old complexity was O(n^2), new is O(n))&lt;/h2&gt;
+&lt;h2 id=&#34;patch-v2-0012-improve-shrink_slab-scalability-old-complexity-was-on2-new-is-on&#34;&gt;[PATCH v2 00/12] Improve shrink_slab() scalability (old complexity was O(n^2), new is O(n))&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/152397794111.3456.1281420602140818725.stgit@localhost.localdomain&#34;&gt;https://lkml.kernel.org/r/152397794111.3456.1281420602140818725.stgit@localhost.localdomain&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;많은 memort shrinker 들 또는 메모리 cgroups 를 가진 시스템에서는 그 수의 제곱에
 비례해 &lt;code&gt;shrink_slab()&lt;/code&gt; 의 수행시간이 증가하는데, 이 문제를 해결하고자 하는
@@ -3765,7 +3772,7 @@ swap-w-seq 테스트를 16개 프로세스로 실험한 결과, 약 10배의 성
 &lt;p&gt;릴리즈 마지막 주 치고는 네트워킹 쪽에 조금 변경사항이 있었습니다만, 큰 문제가
 될 정도는 아니었습니다.  결과, 4.16이 드디어 릴리즈 되었습니다!  동시에 4.17
 머지 윈도우가 시작되는군요.&lt;/p&gt;
-&lt;h2 id=&#34;patch-02-move-kfreercu-out-of-rcu-code-and-use-kfreebulk&#34;&gt;[PATCH 0/2] Move kfree_rcu out of rcu code and use kfree_bulk&lt;/h2&gt;
+&lt;h2 id=&#34;patch-02-move-kfree_rcu-out-of-rcu-code-and-use-kfree_bulk&#34;&gt;[PATCH 0/2] Move kfree_rcu out of rcu code and use kfree_bulk&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/1522647064-27167-1-git-send-email-rao.shoaib@oracle.com&#34;&gt;https://lkml.kernel.org/r/1522647064-27167-1-git-send-email-rao.shoaib@oracle.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;kfree_rcu() 대신 kfree_bulk() 라는 새로 만들어진, 더 효율적인 기능을 사용하도록
 하는 패치입니다.&lt;/p&gt;
@@ -3781,7 +3788,7 @@ swap-w-seq 테스트를 16개 프로세스로 실험한 결과, 약 10배의 성
 되어있고, 페이지가 어떤 목적으로 쓰이느냐에 따라 같은 필드가 다른 목적으로
 쓰이기도 합니다.
 이 RFC 패치는 이 혼란스러운 구조를 좀 개선해 보려는 시도를 담고 있습니다.&lt;/p&gt;
-&lt;h2 id=&#34;patch-12-slab-gfpzero-is-incompatible-with-a-constructor&#34;&gt;[PATCH 1/2] slab: &lt;code&gt;__GFP_ZERO&lt;/code&gt; is incompatible with a constructor&lt;/h2&gt;
+&lt;h2 id=&#34;patch-12-slab-__gfp_zero-is-incompatible-with-a-constructor&#34;&gt;[PATCH 1/2] slab: &lt;code&gt;__GFP_ZERO&lt;/code&gt; is incompatible with a constructor&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20180410125351.15837-1-willy@infradead.org&#34;&gt;https://lkml.kernel.org/r/20180410125351.15837-1-willy@infradead.org&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;시작은 김민찬 님의 null pointer dereference 문제에 대한 수정을 담은
 패치셋이었습니다
@@ -3806,7 +3813,7 @@ swap-w-seq 테스트를 16개 프로세스로 실험한 결과, 약 10배의 성
       <link>/post/lkml_news_v4.16-rc7/</link>
       <pubDate>Mon, 26 Mar 2018 08:45:19 +0900</pubDate>
       <guid>/post/lkml_news_v4.16-rc7/</guid>
-      <description>&lt;h2 id=&#34;linux-416rc7&#34;&gt;Linux 4.16-rc7&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;linux-416-rc7&#34;&gt;Linux 4.16-rc7&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFxpxHnWBeTXN+DKqwCMW_=T2cR8UxSBVk_6c8LL7Et5JQ@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CA+55aFxpxHnWBeTXN+DKqwCMW_=T2cR8UxSBVk_6c8LL7Et5JQ@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;4.16을 향한 일곱번째 rc 가 릴리즈 되었습니다.  평소대로라면 이게 마지막 rc 여야
 할텐데, 평소와 다름없거나 변경사항이 적은 편이던 그동안의 rc와 달리 이번 rc 는
@@ -3815,7 +3822,7 @@ swap-w-seq 테스트를 16개 프로세스로 실험한 결과, 약 10배의 성
 &lt;p&gt;더불어, 토발즈가 rc 릴리즈 때마다 변경 사항들을 정리하기 위해 주로 사용하는 git
 사용 스크립트를 공개했습니다.&lt;/p&gt;
 &lt;p&gt;다음주는 4.16이 릴리즈 될까요?  아니면, rc8이?&lt;/p&gt;
-&lt;h2 id=&#34;patch-mmlistlru-replace-spinlock-with-rcu-in-listlrucountone&#34;&gt;[PATCH] mm/list_lru: replace spinlock with RCU in &lt;code&gt;__list_lru_count_one&lt;/code&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;patch-mmlist_lru-replace-spinlock-with-rcu-in-__list_lru_count_one&#34;&gt;[PATCH] mm/list_lru: replace spinlock with RCU in &lt;code&gt;__list_lru_count_one&lt;/code&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/1522137544-27496-1-git-send-email-lirongqing@baidu.com&#34;&gt;https://lkml.kernel.org/r/1522137544-27496-1-git-send-email-lirongqing@baidu.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;list_lru_count_one()&lt;/code&gt; 이 스핀락을 잡기 때문에 &lt;code&gt;shrink_slab()&lt;/code&gt; 이 많은 시간을
 소모하게 되는데, 이를 스핀락 대신 RCU 를 사용하게 해서 최적화 시킨 패치입니다.&lt;/p&gt;
@@ -3840,7 +3847,7 @@ Wilcox 는 XArray 를 활용하는 패치를 이어서 계속 올리고 있군�
       <link>/post/lkml_news_v4.16-rc6/</link>
       <pubDate>Mon, 19 Mar 2018 10:19:34 +0900</pubDate>
       <guid>/post/lkml_news_v4.16-rc6/</guid>
-      <description>&lt;h2 id=&#34;linux-416rc6&#34;&gt;Linux 4.16-rc6&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;linux-416-rc6&#34;&gt;Linux 4.16-rc6&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFzV1nffUeriZLksK90noD49T+w+WmgBsYMAO13rTbn3Pg@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CA+55aFzV1nffUeriZLksK90noD49T+w+WmgBsYMAO13rTbn3Pg@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;4.16 여섯번째 rc 버전이 나왔습니다.  4.16을 향한 이번 사이클은 상당히 순탄하게
 진행되는군요.  rc7 까진 만들 예정이라고 하는데, 그 후엔 4.16이 안정적으로
@@ -3853,7 +3860,7 @@ Wilcox 는 XArray 를 활용하는 패치를 이어서 계속 올리고 있군�
       <link>/post/lkml_news_v4.16-rc5/</link>
       <pubDate>Mon, 12 Mar 2018 10:08:11 +0900</pubDate>
       <guid>/post/lkml_news_v4.16-rc5/</guid>
-      <description>&lt;h2 id=&#34;linux-416rc5&#34;&gt;Linux 4.16-rc5&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;linux-416-rc5&#34;&gt;Linux 4.16-rc5&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFxXAMHeD8zz1BLv9r_2rjWJ6xE=cNGVAoWOvQJog7oz9A@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CA+55aFxXAMHeD8zz1BLv9r_2rjWJ6xE=cNGVAoWOvQJog7oz9A@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;여전히 특이사항 없는 한주를 거쳐 다섯번째 rc 버전이 나왔습니다.  이번 릴리즈가
 기존의 rc5 단계보단 조금 크지만 특이할 정도는 아닌 모양이군요.  개인적으로 눈에
@@ -3875,7 +3882,7 @@ Wilcox 는 XArray 를 활용하는 패치를 이어서 계속 올리고 있군�
       <link>/post/lkml_news_v4.16-rc4/</link>
       <pubDate>Mon, 05 Mar 2018 10:50:48 +0900</pubDate>
       <guid>/post/lkml_news_v4.16-rc4/</guid>
-      <description>&lt;h2 id=&#34;linux-416rc4&#34;&gt;Linux 4.16-rc4&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;linux-416-rc4&#34;&gt;Linux 4.16-rc4&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFxXg8hi+T_DNCG_OrAotqSheyREw-Njf9XgUD1vXqAyHQ@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CA+55aFxXg8hi+T_DNCG_OrAotqSheyREw-Njf9XgUD1vXqAyHQ@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;벌써 개발 단계의 중반이라 할 수 있는 rc4 의 릴리즈입니다.  4.16 버전의 릴리즈도
 얼마 남지 않았군요.  여전히 충분히 조용한 한주였습니다.  다만 여기저기에 조금씩
@@ -3891,7 +3898,7 @@ Wilcox 는 XArray 를 활용하는 패치를 이어서 계속 올리고 있군�
       <link>/post/lkml_news_v4.16-rc3/</link>
       <pubDate>Mon, 26 Feb 2018 18:38:53 +0100</pubDate>
       <guid>/post/lkml_news_v4.16-rc3/</guid>
-      <description>&lt;h2 id=&#34;linux-416rc3&#34;&gt;Linux 4.16-rc3&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;linux-416-rc3&#34;&gt;Linux 4.16-rc3&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFxk5KBxL9DvRtBivP3hKT-aOAzvSA_B47L1+y0P2GLe_A@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CA+55aFxk5KBxL9DvRtBivP3hKT-aOAzvSA_B47L1+y0P2GLe_A@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;4.16 세번째 rc 버전이 릴리즈 되었습니다.  rc2 보단 변경사항이 많지만, rc2 때
 이야기 했듯 rc2 때는 대부분의 경우 고칠 것들을 찾지도 못했기 때문이 크기
@@ -3902,7 +3909,7 @@ Wilcox 는 XArray 를 활용하는 패치를 이어서 계속 올리고 있군�
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20180226215614.GA31616@linux.vnet.ibm.com&#34;&gt;https://lkml.kernel.org/r/20180226215614.GA31616@linux.vnet.ibm.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;RCU critical section 안에서 sleep 을 할 수 있는 SRCU 의 간단한 업데이트
 패치셋입니다.&lt;/p&gt;
-&lt;h2 id=&#34;patch-tipcorercu-012-torturetest-updates&#34;&gt;[PATCH tip/core/rcu 0/12] Torture-test updates&lt;/h2&gt;
+&lt;h2 id=&#34;patch-tipcorercu-012-torture-test-updates&#34;&gt;[PATCH tip/core/rcu 0/12] Torture-test updates&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20180226220225.GA32136@linux.vnet.ibm.com&#34;&gt;https://lkml.kernel.org/r/20180226220225.GA32136@linux.vnet.ibm.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;RCU 등의 동기화 도구의 동시성 버그를 찾는데 사용되는 torture test 의 업데이트
 패치셋입니다.&lt;/p&gt;
@@ -3914,7 +3921,7 @@ Wilcox 는 XArray 를 활용하는 패치를 이어서 계속 올리고 있군�
       <link>/post/lkml_news_v4.16-rc2/</link>
       <pubDate>Mon, 19 Feb 2018 11:09:15 +0900</pubDate>
       <guid>/post/lkml_news_v4.16-rc2/</guid>
-      <description>&lt;h2 id=&#34;linux-416rc2&#34;&gt;Linux 4.16-rc2&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;linux-416-rc2&#34;&gt;Linux 4.16-rc2&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFwDnBq9V6TVbc82DzVYpf-ELF7UcYzHuY0ei1Xjnob+0A@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CA+55aFwDnBq9V6TVbc82DzVYpf-ELF7UcYzHuY0ei1Xjnob+0A@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;4.16 두번째 rc 버전의 릴리즈입니다.  이번 한주는 매우 조용한 한주였군요.  머지
 윈도우가 끝나고 사람들이 좀 쉬기 때문일수도, 아직 버그를 찾지 못해서일 수도
@@ -3928,7 +3935,7 @@ Wilcox 는 XArray 를 활용하는 패치를 이어서 계속 올리고 있군�
       <link>/post/lkml_news_v4.16-rc1/</link>
       <pubDate>Tue, 13 Feb 2018 13:56:47 +0900</pubDate>
       <guid>/post/lkml_news_v4.16-rc1/</guid>
-      <description>&lt;h2 id=&#34;linux-416rc1&#34;&gt;Linux 4.16-rc1&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;linux-416-rc1&#34;&gt;Linux 4.16-rc1&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFzXVqgCMhPL9EaMW_D9E=HCQ9+JSQAbBPe3Oa_iQtky=g@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CA+55aFzXVqgCMhPL9EaMW_D9E=HCQ9+JSQAbBPe3Oa_iQtky=g@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;어느덧 2주일이 지났습니다.  머지 윈도우가 닫히고 4.16 첫번째 rc 버전이
 나왔습니다.  4.15는 역시 토발즈에게 고통스러웠던 시간이었던지 이번 머지
@@ -3944,7 +3951,7 @@ Wilcox 는 XArray 를 활용하는 패치를 이어서 계속 올리고 있군�
 page fault handling 을 speculative 하게 함으로써 병렬성을 높이려는 패치입니다.
 아이디어가 시작된 건 오래되었고 그 아이디어를 이어와 다시 제안되고 있는
 패치이죠.  이번엔 업데이트 될런지 궁금하네요.&lt;/p&gt;
-&lt;h2 id=&#34;patch-mm-v5-resend-mm-swap-fix-race-between-swapoff-and-some-swap-operations&#34;&gt;[PATCH -mm -v5 RESEND] mm, swap: Fix race between swapoff and some swap operations&lt;/h2&gt;
+&lt;h2 id=&#34;patch--mm--v5-resend-mm-swap-fix-race-between-swapoff-and-some-swap-operations&#34;&gt;[PATCH -mm -v5 RESEND] mm, swap: Fix race between swapoff and some swap operations&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20180213014220.2464-1-ying.huang@intel.com&#34;&gt;https://lkml.kernel.org/r/20180213014220.2464-1-ying.huang@intel.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;swapin 작업과 swapoff 작업 사이를 락으로 보호하지 않고 있기 때문에 segmentation
 fault 문제가 있을 수 있습니다.  swapoff 가 자주 불리진 않다보니 이 문제가 크게
@@ -3976,7 +3983,7 @@ fault 문제가 있을 수 있습니다.  swapoff 가 자주 불리진 않다보
 즉, 이번 릴리즈는 좀 평범하지 않기 했지만 그렇다고 아주 이상하기만 한 릴리즈도
 아니었다는 거죠.&lt;/p&gt;
 &lt;p&gt;어쨌든 4.15 버전이 드디어 나왔습니다!&lt;/p&gt;
-&lt;h2 id=&#34;lsfmm-topic-addressing-mmapsem-contention&#34;&gt;[LSF/MM TOPIC] Addressing mmap_sem contention&lt;/h2&gt;
+&lt;h2 id=&#34;lsfmm-topic-addressing-mmap_sem-contention&#34;&gt;[LSF/MM TOPIC] Addressing mmap_sem contention&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/4c20d397-1268-ca0f-4986-af59bb31022c@linux.vnet.ibm.com&#34;&gt;https://lkml.kernel.org/r/4c20d397-1268-ca0f-4986-af59bb31022c@linux.vnet.ibm.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;리눅스 커널에서 메모리 매핑은 mmap_sem 이라는 reader-writer semaphor 를 이용해
 race condition 으로부터 보호되고 있습니다.  당연하게도, 쓰레드가 많은 환경에선
@@ -3991,7 +3998,7 @@ Speculative Page Fault 패치는 페이지 폴트 시에 메모리 매핑을 할
 자체에 대한 논의를 LSFMM 에서 하고 싶다는 메일입니다.&lt;/p&gt;
 &lt;p&gt;병렬 프로그래밍에 관심있는 제게도 흥미로운 주제네요.&lt;/p&gt;
 &lt;p&gt;[1] &lt;a href=&#34;http://ebizzy.sourceforge.net/&#34;&gt;http://ebizzy.sourceforge.net/&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;lsfmm-topic-lrulock-scalability&#34;&gt;[LSF/MM TOPIC] lru_lock scalability&lt;/h2&gt;
+&lt;h2 id=&#34;lsfmm-topic-lru_lock-scalability&#34;&gt;[LSF/MM TOPIC] lru_lock scalability&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/2a16be43-0757-d342-abfb-d4d043922da9@oracle.com&#34;&gt;https://lkml.kernel.org/r/2a16be43-0757-d342-abfb-d4d043922da9@oracle.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;최근에 덜 사용된 (Least Recently Used) 페이지를 가려내기 위해 사용되는
 &lt;code&gt;lru_lock&lt;/code&gt; 은 메모리 집중적 벤치마크를 돌릴 때 커널에서 가장 뜨거워지는 락들
@@ -4014,7 +4021,7 @@ LSFMM 에서 이야기 해보자는 메일입니다.&lt;/p&gt;
 &lt;p&gt;&amp;lsquo;mmap_sem&amp;rsquo; 은 커널의 메모리 관리에서 자주 사용되는 락으로, 많은 scalability
 문제의 중심에 있습니다.  이 패치셋은 mmap_sem 을 range locking 기법을 활용해서
 바꿔냄으로써 병렬성을 확보하는 패치입니다.&lt;/p&gt;
-&lt;h2 id=&#34;patch-mm-v2-mm-swap-frontswap-fix-thp-swap-if-frontswap-enabled&#34;&gt;[PATCH -mm -v2] mm, swap, frontswap: Fix THP swap if frontswap enabled&lt;/h2&gt;
+&lt;h2 id=&#34;patch--mm--v2-mm-swap-frontswap-fix-thp-swap-if-frontswap-enabled&#34;&gt;[PATCH -mm -v2] mm, swap, frontswap: Fix THP swap if frontswap enabled&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20180207070035.30302-1-ying.huang@intel.com&#34;&gt;https://lkml.kernel.org/r/20180207070035.30302-1-ying.huang@intel.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;zswap 은 THP 를 고려하지 않기 때문에 THP 가 켜진 상태에서 zswap 이 frontswap
 으로 동작할 경우 일부 어플리케이션은 segfault 와 memory corruption 을 낼 수
@@ -4064,7 +4071,7 @@ out&amp;rdquo;)&lt;/p&gt;
       <link>/post/lkml_news_v4.15-rc8/</link>
       <pubDate>Tue, 16 Jan 2018 13:26:26 +0900</pubDate>
       <guid>/post/lkml_news_v4.15-rc8/</guid>
-      <description>&lt;h2 id=&#34;linux-415rc8&#34;&gt;Linux 4.15-rc8&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;linux-415-rc8&#34;&gt;Linux 4.15-rc8&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFz=PcxdARFpCTyQCJKaJcBwVUB9y6XAXM8VyyxnbRD=bw@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CA+55aFz=PcxdARFpCTyQCJKaJcBwVUB9y6XAXM8VyyxnbRD=bw@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;마침내 여덟번째 rc 버전의 릴리즈입니다.  스펙터 버그를 성능 저하 없이 막기 위한
 구글의 해결책, Retpoline 지원이 들어갔군요.  그 외에는 드라이버 업데이트여서
@@ -4078,7 +4085,7 @@ out&amp;rdquo;)&lt;/p&gt;
       <link>/post/lkml_news_v4.15-rc7/</link>
       <pubDate>Sat, 13 Jan 2018 10:30:13 +0900</pubDate>
       <guid>/post/lkml_news_v4.15-rc7/</guid>
-      <description>&lt;h2 id=&#34;linux-415rc7&#34;&gt;Linux 4.15-rc7&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;linux-415-rc7&#34;&gt;Linux 4.15-rc7&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFwbmKznuQZe_VemxXJPSmB-9yy8uyWsMZcrkA4T=m8xkw@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CA+55aFwbmKznuQZe_VemxXJPSmB-9yy8uyWsMZcrkA4T=m8xkw@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Meltdown 과 Spectre 로 떠들썩했던 시간을 지나 4.15 의 일곱번째 rc 버전이 릴리즈
 되었습니다.  지난 여섯번째 릴리즈 때도 상당히 안정화에 신경써야 할 시점임에도
@@ -4105,7 +4112,7 @@ Spectre 버그를 위한 패치가 잘 관리되어 비교적 쉽게 머지될 �
       <link>/post/lkml_news_v4.15-rc6/</link>
       <pubDate>Tue, 02 Jan 2018 13:34:11 +0900</pubDate>
       <guid>/post/lkml_news_v4.15-rc6/</guid>
-      <description>&lt;h2 id=&#34;linux-415rc6&#34;&gt;Linux 4.15-rc6&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;linux-415-rc6&#34;&gt;Linux 4.15-rc6&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFzU_Q04CVEABo50x24yeTaP-yzzrB1wTPeOiOgAbSKiDA@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CA+55aFzU_Q04CVEABo50x24yeTaP-yzzrB1wTPeOiOgAbSKiDA@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;한국시간으로는 1월 1일, 토발즈의 현지 시각으로는 2017년의 마지막날, 4.15 의
 여섯번째 rc 버전이 릴리즈 되었습니다.&lt;/p&gt;
@@ -4121,19 +4128,19 @@ Spectre 버그를 위한 패치가 잘 관리되어 비교적 쉽게 머지될 �
       <link>/post/lkml_news_v4.14-rc4/</link>
       <pubDate>Sun, 24 Dec 2017 14:24:13 +0900</pubDate>
       <guid>/post/lkml_news_v4.14-rc4/</guid>
-      <description>&lt;h2 id=&#34;linux-415rc5&#34;&gt;Linux 4.15-rc5&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;linux-415-rc5&#34;&gt;Linux 4.15-rc5&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFy1U+uBLEAoCWU3=BqEbROW6rsbaHUdYJArR6iYQQWo_A@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CA+55aFy1U+uBLEAoCWU3=BqEbROW6rsbaHUdYJArR6iYQQWo_A@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;4.15 의 다섯번째 rc 버전이 평소 스케쥴보다 하루 일찍 릴리즈 되었습니다.
 원래대로라면 내일일텐데, 미국 시간으로는 크리스마스 이브라서 그냥 오늘 릴리즈
 한다는군요.&lt;/p&gt;
 &lt;p&gt;이번 rc5 의 변경 사항들도 지난 릴리즈의 rc5 와 비슷했다고 하는데, 다만 x86 의
 커널 페이지 테이블 격리화 관련 작업이 진행 중인 게 좀 예외라고 하는군요.&lt;/p&gt;
-&lt;h2 id=&#34;rfc-v3-patch-05-eliminate-zonelock-contention-for-willitscalepagefault1-and-parallel-free&#34;&gt;[RFC v3 PATCH 0/5] Eliminate zone-&amp;gt;lock contention for will-it-scale/page_fault1 and parallel free&lt;/h2&gt;
+&lt;h2 id=&#34;rfc-v3-patch-05-eliminate-zone-lock-contention-for-will-it-scalepage_fault1-and-parallel-free&#34;&gt;[RFC v3 PATCH 0/5] Eliminate zone-&amp;gt;lock contention for will-it-scale/page_fault1 and parallel free&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20180509085450.3524-1-aaron.lu@intel.com&#34;&gt;https://lkml.kernel.org/r/20180509085450.3524-1-aaron.lu@intel.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;패치셋 저자는 112개 CPU를 갖는 Intel Skylake 서버에서 will-it-scale/page_fult1
 워크로드를 돌려보았고 80% CPU 가 zone-&amp;gt;lock 에서 스핀하며 시간을 보내고 있음을
 파악했습니다.  이 문제를 해결하기 위한 RFC 패치의 세번째 버전입니다.&lt;/p&gt;
-&lt;h2 id=&#34;patch-v4-0013-improve-shrinkslab-scalability-old-complexity-was-on2-new-is-on&#34;&gt;[PATCH v4 00/13] Improve shrink_slab() scalability (old complexity was O(n^2), new is O(n))&lt;/h2&gt;
+&lt;h2 id=&#34;patch-v4-0013-improve-shrink_slab-scalability-old-complexity-was-on2-new-is-on&#34;&gt;[PATCH v4 00/13] Improve shrink_slab() scalability (old complexity was O(n^2), new is O(n))&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/152586686544.3048.15776787801312398314.stgit@localhost.localdomain&#34;&gt;https://lkml.kernel.org/r/152586686544.3048.15776787801312398314.stgit@localhost.localdomain&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;shrink_slab()&lt;/code&gt; 의 복잡도가 O(n^2) 이기 때문에 많은 shrinker 와 메모리 cgroups
 를 갖는 기계에서는 확장성의 병목이 될 수 있습니다.  이를 간단한 스크립트로
@@ -4164,12 +4171,12 @@ cache 를 비우진 않고 그저 shrinker 와 memcg 를 둘러볼 뿐입니다.
 0.00user 0.00system 0:00.01elapsed 64%CPU
 0.00user 0.01system 0:00.01elapsed 82%CPU
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;약 548배의 성능 향상이군요!&lt;/p&gt;
-&lt;h2 id=&#34;patch-mm-v2-0021-mm-thp-swap-swapoutswapin-thp-as-a-whole&#34;&gt;[PATCH -mm -V2 00/21] mm, THP, swap: Swapout/swapin THP as a whole&lt;/h2&gt;
+&lt;h2 id=&#34;patch--mm--v2-0021-mm-thp-swap-swapoutswapin-thp-as-a-whole&#34;&gt;[PATCH -mm -V2 00/21] mm, THP, swap: Swapout/swapin THP as a whole&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20180509083846.14823-1-ying.huang@intel.com&#34;&gt;https://lkml.kernel.org/r/20180509083846.14823-1-ying.huang@intel.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;지난번에도 소개한, THP 를 2 MiB 그대로 한번에 swap out / swap in 하는
 패치입니다.  기존에는 THP 를 regular page 로 쪼개서 swap out / swap in
 했었거든요.&lt;/p&gt;
-&lt;h2 id=&#34;patch-mm-mm-thp-doc-add-document-for-thpswpoutthpswpoutfallback&#34;&gt;[PATCH -mm] mm, THP, doc: Add document for thp_swpout/thp_swpout_fallback&lt;/h2&gt;
+&lt;h2 id=&#34;patch--mm-mm-thp-doc-add-document-for-thp_swpoutthp_swpout_fallback&#34;&gt;[PATCH -mm] mm, THP, doc: Add document for thp_swpout/thp_swpout_fallback&lt;/h2&gt;
 &lt;p&gt;https:/lkml.kernel.org/r/20180509082341.13953-1-ying.huang@intel.com&lt;/p&gt;
 &lt;p&gt;앞에 설명한 THP swap 관련 최적화는 단계별로 적용되고 있는데, 그와 함께
 &lt;code&gt;/proc/vmstat&lt;/code&gt; 에는 &lt;code&gt;thp_swpout&lt;/code&gt; 과 &lt;code&gt;thp_swpout_fallback&lt;/code&gt; 필드가
@@ -4183,21 +4190,21 @@ cache 를 비우진 않고 그저 shrinker 와 memcg 를 둘러볼 뿐입니다.
       <link>/post/lkml_news_v4.15-rc5/</link>
       <pubDate>Sun, 24 Dec 2017 14:24:13 +0900</pubDate>
       <guid>/post/lkml_news_v4.15-rc5/</guid>
-      <description>&lt;h2 id=&#34;linux-415rc5&#34;&gt;Linux 4.15-rc5&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;linux-415-rc5&#34;&gt;Linux 4.15-rc5&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFy1U+uBLEAoCWU3=BqEbROW6rsbaHUdYJArR6iYQQWo_A@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CA+55aFy1U+uBLEAoCWU3=BqEbROW6rsbaHUdYJArR6iYQQWo_A@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;4.15 의 다섯번째 rc 버전이 평소 스케쥴보다 하루 일찍 릴리즈 되었습니다.
 원래대로라면 내일일텐데, 미국 시간으로는 크리스마스 이브라서 그냥 오늘 릴리즈
 한다는군요.&lt;/p&gt;
 &lt;p&gt;이번 rc5 의 변경 사항들도 지난 릴리즈의 rc5 와 비슷했다고 하는데, 다만 x86 의
 커널 페이지 테이블 격리화 관련 작업이 진행 중인 게 좀 예외라고 하는군요.&lt;/p&gt;
-&lt;h2 id=&#34;re-about-the-try-to-remove-crossrelease-feature-entirely-by-ingo&#34;&gt;Re: About the try to remove cross-release feature entirely by Ingo&lt;/h2&gt;
+&lt;h2 id=&#34;re-about-the-try-to-remove-cross-release-feature-entirely-by-ingo&#34;&gt;Re: About the try to remove cross-release feature entirely by Ingo&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20171229014736.GA10341@X58A-UD3R&#34;&gt;https://lkml.kernel.org/r/20171229014736.GA10341@X58A-UD3R&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Lockdep 의 cross release 기능은 너무 느렸고, false positive 가 많다는 이유로,
 특히 false positive 가 너무 많다는 이유로 Ingo Molnar 에 의해 제거되려 하고
 있습니다.  관련해서 이 블로그에서도 일단 default 로는 disable 되는 변경이 v4.14
 에 있었음을 이야기 했죠.&lt;/p&gt;
 &lt;p&gt;Cross release 의 개발자인 박병철님께서 이에 대해 다른 의견을 내놓는 메일입니다.&lt;/p&gt;
-&lt;h2 id=&#34;re-hang-with-v415rc-trying-to-swap-back-in&#34;&gt;Re: Hang with v4.15-rc trying to swap back in&lt;/h2&gt;
+&lt;h2 id=&#34;re-hang-with-v415-rc-trying-to-swap-back-in&#34;&gt;Re: Hang with v4.15-rc trying to swap back in&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/1514407817.4169.4.camel@HansenPartnership.com&#34;&gt;https://lkml.kernel.org/r/1514407817.4169.4.camel@HansenPartnership.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;스왑 레이어를 최적화하는 많은 변경이 최근에 있었는데, 그 중 하나가 시스템 행을
 일으키는군요.  관련된 패치들을 발본색원해서 레포팅 한 메일입니다.  충분히 빠른
@@ -4210,7 +4217,7 @@ swap device 에 대해서는 swapcache 를 건너뛰게 한게 원인이 되었�
       <link>/post/lkml_news_v4.15-rc4/</link>
       <pubDate>Mon, 18 Dec 2017 17:46:23 +0900</pubDate>
       <guid>/post/lkml_news_v4.15-rc4/</guid>
-      <description>&lt;h2 id=&#34;linux-415rc4&#34;&gt;Linux 4.15-rc4&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;linux-415-rc4&#34;&gt;Linux 4.15-rc4&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFysmVGm_shBvK4kmaS+_PsMEt3Mz_b+Dm0SDrmVtUofbA@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CA+55aFysmVGm_shBvK4kmaS+_PsMEt3Mz_b+Dm0SDrmVtUofbA@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;4.15 의 네번째 rc 버전입니다.  지난 rc 버전들이 생각보다 커서 토발즈가 좀
 걱정했는데, 이번 릴리즈에 들어서는 평범한 네번째 rc 만큼이나 변화가 많이 없어
@@ -4218,7 +4225,7 @@ swap device 에 대해서는 swapcache 를 건너뛰게 한게 원인이 되었�
 &lt;p&gt;이번에 가장 눈에 띌만한 변화는 suspend/resume 처리를 정리하고 고친 것이라고
 합니다.  크로스 락킹 디버깅 기능은 부팅 시간을 늘리는 문제 등도 있어선지 이번에
 일단 제거되었네요.  나중에 다시 되살릴 계획은 있는 것 같습니다.&lt;/p&gt;
-&lt;h2 id=&#34;patch-v2-11-move-kfreecallrcu-to-slabcommonc&#34;&gt;[PATCH v2 1/1] Move kfree_call_rcu() to slab_common.c&lt;/h2&gt;
+&lt;h2 id=&#34;patch-v2-11-move-kfree_call_rcu-to-slab_commonc&#34;&gt;[PATCH v2 1/1] Move kfree_call_rcu() to slab_common.c&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/1513895570-28640-1-git-send-email-rao.shoaib@oracle.com&#34;&gt;https://lkml.kernel.org/r/1513895570-28640-1-git-send-email-rao.shoaib@oracle.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;RCU 의 modularity 를 개선하는 패치입니다.  몇가지 쟁점이 있긴 하지만 기본
 아이디어는 받아들여지는 분위기군요.&lt;/p&gt;
@@ -4230,7 +4237,7 @@ swap device 에 대해서는 swapcache 를 건너뛰게 한게 원인이 되었�
       <link>/post/lkml_news_v4.15-rc3/</link>
       <pubDate>Mon, 11 Dec 2017 11:25:13 +0900</pubDate>
       <guid>/post/lkml_news_v4.15-rc3/</guid>
-      <description>&lt;h2 id=&#34;linux-415rc3&#34;&gt;Linux 4.15-rc3&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;linux-415-rc3&#34;&gt;Linux 4.15-rc3&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFz9O9R8u3ori-QNPz4ALU+0B=Es0gd+oWmsce5qxugxXA@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CA+55aFz9O9R8u3ori-QNPz4ALU+0B=Es0gd+oWmsce5qxugxXA@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;4.15 의 세번째 rc 버전입니다.  지난주보단 조금 늦게 릴리즈 되었네요.&lt;/p&gt;
 &lt;p&gt;일반적으로 rc3 릴리즈는 좀 변경사항이 많지만 이번엔 그중에서도 변경사항이 많은
@@ -4261,7 +4268,7 @@ swap device 에 대해서는 swapcache 를 건너뛰게 한게 원인이 되었�
 실패하면 THP 페이지를 쪼개고 현재 존재하는 리스트로 옮깁니다.  이렇게 함으로써
 우리는 모든 THP 서브페이지들을 항상 마이그레이션 하고 특정한 migrate_pages()
 사용자들은 앞서 이야기한 경우를 별도로 처리할 필요가 없어지는 것이죠.&lt;/p&gt;
-&lt;h2 id=&#34;patch-lockinglockdep-make-configlockdepcrossrelease-and-configlockdepcompletions-optional&#34;&gt;[PATCH] locking/lockdep: Make CONFIG_LOCKDEP_CROSSRELEASE and CONFIG_LOCKDEP_COMPLETIONS optional&lt;/h2&gt;
+&lt;h2 id=&#34;patch-lockinglockdep-make-config_lockdep_crossrelease-and-config_lockdep_completions-optional&#34;&gt;[PATCH] locking/lockdep: Make CONFIG_LOCKDEP_CROSSRELEASE and CONFIG_LOCKDEP_COMPLETIONS optional&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/1513062681-5995-1-git-send-email-byungchul.park@lge.com&#34;&gt;https://lkml.kernel.org/r/1513062681-5995-1-git-send-email-byungchul.park@lge.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;아직 락들의 classification 이 잘 되어있지 않아 너무 많은 false positive 가
 나오고 있어 lockdep 의 CROSSRELEASE 와 COMPLETIONS 를 기본 활성에서 옵셔널로
@@ -4294,7 +4301,7 @@ khugepaged 가 해당 영역이 정말로 매핑되어 있고 사용되고 있�
       <link>/post/lkml_news_v4.15-rc2/</link>
       <pubDate>Mon, 04 Dec 2017 13:38:11 +0900</pubDate>
       <guid>/post/lkml_news_v4.15-rc2/</guid>
-      <description>&lt;h2 id=&#34;linux-415rc2&#34;&gt;Linux 4.15-rc2&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;linux-415-rc2&#34;&gt;Linux 4.15-rc2&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFxPBszFBt91KRNBrsQdJ10b+6fh9ySNzSKSX7JOq4WRPw@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CA+55aFxPBszFBt91KRNBrsQdJ10b+6fh9ySNzSKSX7JOq4WRPw@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;4.15 의 두번째 rc 버전이 나왔습니다.&lt;/p&gt;
 &lt;p&gt;동부 지방을 여행 중인가 보군요.  평소보다 좀 이른 시간에 릴리즈가 됐습니다.
@@ -4302,7 +4309,7 @@ khugepaged 가 해당 영역이 정말로 매핑되어 있고 사용되고 있�
 같다는군요.  Kernel ASLR leak 을 막기 위해 모든 &amp;ldquo;%P&amp;rdquo; 로 프린트되는 어드레스
 주소를 해시해 버린다고 하네요.  이럼 디버깅할 때 좀 짜증날 수 있긴 하겠지만
 다른 방법이 별로 없었다고&amp;hellip;&lt;/p&gt;
-&lt;h2 id=&#34;rfc-patch-v3-07-ktask-multithread-cpuintensive-kernel-work&#34;&gt;[RFC PATCH v3 0/7] ktask: multithread CPU-intensive kernel work&lt;/h2&gt;
+&lt;h2 id=&#34;rfc-patch-v3-07-ktask-multithread-cpu-intensive-kernel-work&#34;&gt;[RFC PATCH v3 0/7] ktask: multithread CPU-intensive kernel work&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20171205195220.28208-1-daniel.m.jordan@oracle.com&#34;&gt;https://lkml.kernel.org/r/20171205195220.28208-1-daniel.m.jordan@oracle.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;CPU-intensive 한 작업을 커널 내에서 병렬로 진행하도록 도와주는 새로운 프레임웍,
 ktask 의 RFC 패치입니다.  예를 들어, 부팅 시에 &lt;code&gt;struct page&lt;/code&gt; 들을 초기화 하는
@@ -4327,7 +4334,7 @@ Radix tree 에서 XArray 로 갈아타게 했다는군요.  하지만 여전히 
       <link>/post/lkml_news_v4.15-rc1/</link>
       <pubDate>Mon, 27 Nov 2017 11:09:15 +0900</pubDate>
       <guid>/post/lkml_news_v4.15-rc1/</guid>
-      <description>&lt;h2 id=&#34;linux-415rc1&#34;&gt;Linux 4.15-rc1&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;linux-415-rc1&#34;&gt;Linux 4.15-rc1&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFzcudOPSwbD9XfVxBgFsQOhBjyncyYnGDYwZUEHOGUwcw@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CA+55aFzcudOPSwbD9XfVxBgFsQOhBjyncyYnGDYwZUEHOGUwcw@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;예정대로 2주만에 4.15 의 첫번째 rc 버전이 나왔습니다.&lt;/p&gt;
 &lt;p&gt;지난주는 추수감사절이라 다들 휴가인 사람이 많았기에 첫번째 주에 최대한 많이
@@ -4338,7 +4345,7 @@ Radix tree 에서 XArray 로 갈아타게 했다는군요.  하지만 여전히 
 &lt;p&gt;4.14 가 LTS 였기에 이번 머지윈도우에는 변화가 크지 않을 것으로 예상했는데
 생각보다 많은 풀리퀘스트가 있었다고 합니다.  4.9 때와는 다른 경향인데, 4.9 에
 비해 4.14 가 변화가 크지 않았기 때문 아니겠냐고 토발즈는 생각하는군요.&lt;/p&gt;
-&lt;h2 id=&#34;patch-v3-04-introduce-getuserpageslongterm&#34;&gt;[PATCH v3 0/4] introduce get_user_pages_longterm()&lt;/h2&gt;
+&lt;h2 id=&#34;patch-v3-04-introduce-get_user_pages_longterm&#34;&gt;[PATCH v3 0/4] introduce get_user_pages_longterm()&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/151197872943.26211.6551382719053304996.stgit@dwillia2-desk3.amr.corp.intel.com&#34;&gt;https://lkml.kernel.org/r/151197872943.26211.6551382719053304996.stgit@dwillia2-desk3.amr.corp.intel.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;커널스페이스에서 꽤 오랜시간 페이지를 잡아둬야 하는 경우를 위한, 예를 들어
 dma-to-dax vs truncate 문제를 위한, get_user_pages() 의 변종의 추가입니다.
@@ -4351,12 +4358,12 @@ dma-to-dax vs truncate 문제를 위한, get_user_pages() 의 변종의 추가�
 기능에 많이 의존하고 있기 때문에 KASAN 메인테이너 중 하나인 Dmitry 는 이게
 별도의 도구로 머지되어야 할지 의문스럽다며 머지될 예정이면 한번 더 이야기
 해달라고 하네요.&lt;/p&gt;
-&lt;h2 id=&#34;patch-v2-03-mmcma-manage-the-memory-of-the-cma-area-by-using-the-zonemovable&#34;&gt;[PATCH v2 0/3] mm/cma: manage the memory of the CMA area by using the ZONE_MOVABLE&lt;/h2&gt;
+&lt;h2 id=&#34;patch-v2-03-mmcma-manage-the-memory-of-the-cma-area-by-using-the-zone_movable&#34;&gt;[PATCH v2 0/3] mm/cma: manage the memory of the CMA area by using the ZONE_MOVABLE&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/1512114786-5085-1-git-send-email-iamjoonsoo.kim@lge.com&#34;&gt;https://lkml.kernel.org/r/1512114786-5085-1-git-send-email-iamjoonsoo.kim@lge.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;CMA 를 위한 영역은 하나의 zone 내에 위치하게 되는데, 이 zone 내에 다양한 특성의
 페이지들이 혼재되어있다보니 이런저런 문제가 생깁니다.  CMA 영역을 MOVABLE zone
 만 쓰도록 함으로써 이 문제를 해결하는 패치입니다.&lt;/p&gt;
-&lt;h2 id=&#34;patch-tipcorercu-021-deemphasize-smpreadbarrierdepends&#34;&gt;[PATCH tip/core/rcu 0/21] De-emphasize {smp_,}read_barrier_depends&lt;/h2&gt;
+&lt;h2 id=&#34;patch-tipcorercu-021-de-emphasize-smp_read_barrier_depends&#34;&gt;[PATCH tip/core/rcu 0/21] De-emphasize {smp_,}read_barrier_depends&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20171201195053.GA23494@linux.vnet.ibm.com&#34;&gt;https://lkml.kernel.org/r/20171201195053.GA23494@linux.vnet.ibm.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;RCU 패치는 일단 Paul 의 트리에 머지된 후, tip 트리로 머지되고 나서야 토발즈의
 트리에 들어갑니다.  이번에도 tip 트리로 머지되기 위한 패치들이 올라왔습니다.
@@ -4563,7 +4570,7 @@ powerpc64 를 지원하는군요.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20171124011607.GB3722@bombadil.infradead.org&#34;&gt;https://lkml.kernel.org/r/20171124011607.GB3722@bombadil.infradead.org&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;지난 ossummit europe 에서 흥미롭게 발표를 들었던 XArray 의 문서입니다.  radix
 tree 를 대체할 만한 인터페이스를 목표로 하고있다고 하더군요.&lt;/p&gt;
-&lt;h2 id=&#34;patch-mm-do-not-stall-registershrinker&#34;&gt;[PATCH] mm: Do not stall register_shrinker&lt;/h2&gt;
+&lt;h2 id=&#34;patch-mm-do-not-stall-register_shrinker&#34;&gt;[PATCH] mm: Do not stall register_shrinker&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/1511481899-20335-1-git-send-email-minchan@kernel.org&#34;&gt;https://lkml.kernel.org/r/1511481899-20335-1-git-send-email-minchan@kernel.org&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;메모리가 부족할 때 깨어나 일을 하게 되는 shrinker 의 등록 시 메모리가 부족해서
 다른 것들에 의해 shink_slab() 에서 시간을 보내느라 register_shrinker() 에서
@@ -4578,7 +4585,7 @@ shrinker 등록 여부를 rwsem 에 대한 contention 확인으로 파악하고 
       <link>/post/lkml_news_v4.14-rc8/</link>
       <pubDate>Wed, 08 Nov 2017 04:19:47 +0900</pubDate>
       <guid>/post/lkml_news_v4.14-rc8/</guid>
-      <description>&lt;h2 id=&#34;linux-414rc8&#34;&gt;Linux 4.14-rc8&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;linux-414-rc8&#34;&gt;Linux 4.14-rc8&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lwn.net/Articles/738207/&#34;&gt;https://lwn.net/Articles/738207/&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;v4.14 를 향한 (아마도) 마지막 rc 버전의 릴리즈입니다.&lt;/p&gt;
 &lt;p&gt;정말로 별다른 일 없었다면 그냥 이번에 v4.14 릴리즈를 할 계획이었지만 그정도는
@@ -4614,7 +4621,7 @@ super_netperf 를 사용, 128개 TCP 스트림을 RX queue 갯수 바꿔가며 �
 PCP allocator 내의 페이지가 남아있을 동안은 문제가 없지만, 이후부터는 페이지가
 할당된 코어와 해제되는 코어가 달라서 buddy allocator 에 부담을 주더란
 이야기입니다.&lt;/p&gt;
-&lt;h2 id=&#34;patch-x86selftests-add-test-for-mapping-placement-for-5level-paging&#34;&gt;[PATCH] x86/selftests: Add test for mapping placement for 5-level paging&lt;/h2&gt;
+&lt;h2 id=&#34;patch-x86selftests-add-test-for-mapping-placement-for-5-level-paging&#34;&gt;[PATCH] x86/selftests: Add test for mapping placement for 5-level paging&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20171108102250.38609-1-kirill.shutemov@linux.intel.com&#34;&gt;https://lkml.kernel.org/r/20171108102250.38609-1-kirill.shutemov@linux.intel.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;x86 의 5-level paging 을 위한 selftest 가 추가되었네요.&lt;/p&gt;
 </description>
@@ -4990,7 +4997,7 @@ T-mobile 대리점이 있습니다.
 소세지도 저렴합니다.
 여행중 매일밤 여기서 맥주와 소세지를 사서 맥주 한잔씩 하며 하루를 마무리
 했습니다.&lt;/p&gt;
-&lt;h1 id=&#34;sightseeing-before-checkin&#34;&gt;Sightseeing before Check-in&lt;/h1&gt;
+&lt;h1 id=&#34;sightseeing-before-check-in&#34;&gt;Sightseeing before Check-in&lt;/h1&gt;
 &lt;p&gt;이제 급한 불은 모두 껐습니다.
 숙소도 찾았고, 인터넷도 되고.
 하지만 아직도 오후 12시를 조금 넘긴 시간.
@@ -5059,7 +5066,7 @@ T-mobile 대리점이 있습니다.
 &lt;p&gt;내일부터 OSSummit 시작이니, 낮에 관광을 하는건 오늘이 마지막입니다.
 일단 나가서 좀 돌아다녀보고, 컨퍼런스 회장으로 이동해 pre-registration 도 하고,
 이어서 프라하 성을 돌아보기로 계획했습니다.&lt;/p&gt;
-&lt;h1 id=&#34;journey-to-ossummit-preregistration&#34;&gt;Journey to OSSummit Pre-registration&lt;/h1&gt;
+&lt;h1 id=&#34;journey-to-ossummit-pre-registration&#34;&gt;Journey to OSSummit Pre-registration&lt;/h1&gt;
 &lt;p&gt;![foo]
 (/img/osse_02/12.jpg)&lt;/p&gt;
 &lt;p&gt;![foo]
@@ -5115,7 +5122,7 @@ T-mobile 대리점이 있습니다.
       <link>/post/lkml_news_v4.14-rc7/</link>
       <pubDate>Fri, 03 Nov 2017 14:51:35 +0900</pubDate>
       <guid>/post/lkml_news_v4.14-rc7/</guid>
-      <description>&lt;h2 id=&#34;linux-414rc7&#34;&gt;Linux 4.14-rc7&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;linux-414-rc7&#34;&gt;Linux 4.14-rc7&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFwhgxivTE3k88nshbrH9nd-4nhmhXGzw-MxRVGxf-R8Eg@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CA+55aFwhgxivTE3k88nshbrH9nd-4nhmhXGzw-MxRVGxf-R8Eg@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;일곱번째 rc 버전의 릴리즈입니다.&lt;/p&gt;
 &lt;p&gt;OSSE 와 kernel summit 으로 프라하를 방문했던 토발즈인데, 집에 잘
@@ -5252,7 +5259,7 @@ Linux Forum 이라는 행사를 매년 열었죠.  특히 2015년에는 커널 �
       <link>/post/lkml_news_v4.14-rc6/</link>
       <pubDate>Wed, 25 Oct 2017 12:56:27 +0200</pubDate>
       <guid>/post/lkml_news_v4.14-rc6/</guid>
-      <description>&lt;h2 id=&#34;linux-414rc6&#34;&gt;Linux 4.14-rc6&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;linux-414-rc6&#34;&gt;Linux 4.14-rc6&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFxSJGeN=2X-uX-on1Uq2Nb8+v1aiMDz5H1+tKW_N5Q+6g@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CA+55aFxSJGeN=2X-uX-on1Uq2Nb8+v1aiMDz5H1+tKW_N5Q+6g@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;여섯번째 rc 버전의 릴리즈입니다.&lt;/p&gt;
 &lt;p&gt;토발즈 집 인터넷 문제로 평소보다 늦은 릴리즈였군요.
@@ -5262,7 +5269,7 @@ Linux Forum 이라는 행사를 매년 열었죠.  특히 2015년에는 커널 �
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20171023204502.GA2776@linux.vnet.ibm.com&#34;&gt;https://lkml.kernel.org/r/20171023204502.GA2776@linux.vnet.ibm.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;4.15 에 들어가야 할 RCU 쪽 커밋들의 풀리퀘스트 입니다.&lt;/p&gt;
 &lt;p&gt;문서, RCU CPU Stall warning 업데이트, rcutorture 쪽 업데이트가 포함되었네요.&lt;/p&gt;
-&lt;h2 id=&#34;git-pull-dealpha-make-core-code-not-need-to-know-about-alpha-for-v415&#34;&gt;[GIT PULL de-alpha] Make core code not need to know about Alpha for v4.15&lt;/h2&gt;
+&lt;h2 id=&#34;git-pull-de-alpha-make-core-code-not-need-to-know-about-alpha-for-v415&#34;&gt;[GIT PULL de-alpha] Make core code not need to know about Alpha for v4.15&lt;/h2&gt;
 &lt;p&gt;코어 커널 코드에서 Alpha 를 위한 예외 케이스를 제거하기 위한 작업의 첫번째
 결과물이 v4.15 를 향합니다.&lt;/p&gt;
 &lt;p&gt;먼저 &lt;code&gt;ACCESS_ONCE()&lt;/code&gt; 를 모두 &lt;code&gt;READ_ONCE()&lt;/code&gt; 와 &lt;code&gt;WRITE_ONCE()&lt;/code&gt; 로 변경하고,
@@ -5280,7 +5287,7 @@ Linux Forum 이라는 행사를 매년 열었죠.  특히 2015년에는 커널 �
       <link>/post/lkml_news_v4.14-rc5/</link>
       <pubDate>Tue, 17 Oct 2017 20:54:24 +0900</pubDate>
       <guid>/post/lkml_news_v4.14-rc5/</guid>
-      <description>&lt;h2 id=&#34;linux-414rc5&#34;&gt;Linux 4.14-rc5&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;linux-414-rc5&#34;&gt;Linux 4.14-rc5&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+55aFyKgEL3dj7XGYsPQd8y_z0GWx91TLZPSQAxjrua1aWOLw@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CA+55aFyKgEL3dj7XGYsPQd8y_z0GWx91TLZPSQAxjrua1aWOLw@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;다섯번째 rc 버전의 릴리즈입니다.&lt;/p&gt;
 &lt;p&gt;Lazy TLB flushing 변경은 지나치게 게으르게 TLB flushing 을 해서 AMD 칩 일부에서
@@ -5516,15 +5523,15 @@ repository 를 사용한 접근을 하는 편이 옳을 겁니다.&lt;/p&gt;
       <guid>/post/fedora-chrome-update/</guid>
       <description>&lt;p&gt;I am using Fedora 23 laptop and installed stable version Google Chrome from its
 official website [0].  In this case, just using &lt;code&gt;Updates&lt;/code&gt; of Fedora &lt;code&gt;Software&lt;/code&gt;
-program doesn&#39;t update Chrome automatically.  For the case, follow below
+program doesn&amp;rsquo;t update Chrome automatically.  For the case, follow below
 commands to update your Chrome:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ sudo dnf update google-chrome-stable
 ...
 $ sudo killall chrome
 $ google-chrome-stable
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The second &lt;code&gt;killall&lt;/code&gt; command is necessary because Chrome doesn&#39;t kill its
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The second &lt;code&gt;killall&lt;/code&gt; command is necessary because Chrome doesn&amp;rsquo;t kill its
 process by just cliking &lt;code&gt;Close&lt;/code&gt; button.  Or, you may reboot your computer but
-you wouldn&#39;t like that.&lt;/p&gt;
+you wouldn&amp;rsquo;t like that.&lt;/p&gt;
 &lt;p&gt;[0] &lt;a href=&#34;https://www.google.com/chrome/browser/desktop/index.html?brand=CHBD&amp;amp;gclid=CKiMjdqX5dICFYcGKgodqZIM2Q&#34;&gt;https://www.google.com/chrome/browser/desktop/index.html?brand=CHBD&amp;amp;gclid=CKiMjdqX5dICFYcGKgodqZIM2Q&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
@@ -5573,7 +5580,7 @@ suspicious.&lt;/p&gt;
 # update-grub2
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;다른 버전의 설치되어있는 커널을 제거하고 싶다면 위의 &lt;code&gt;$(uname -r)&lt;/code&gt; 부분을
 제거하고자 하는 커널 버전으로 대체하면 된다.&lt;/p&gt;
-&lt;h2 id=&#34;-&#34;&gt;참고 문서&lt;/h2&gt;
+&lt;h2 id=&#34;참고-문서&#34;&gt;참고 문서&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;http://askubuntu.com/questions/594443/how-can-i-remove-compiled-kernel&#34;&gt;http://askubuntu.com/questions/594443/how-can-i-remove-compiled-kernel&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;

@@ -644,7 +644,7 @@ Linux Kernel Performance (LKP) Tests[2] 는 0-day 서비스에서 기능 / 성�
 있어서 개인 개발자가 자신의 패치를 테스트할 목적으로 사용하기에도 좋습니다.  이
 글에서는 이러한 lkp-tests 의 구조와 사용법을 간단히 설명합니다.  전체적으로
 인텔의 관련 블로그 글[3] 을 참고했습니다.</p>
-<h1 id="heading">설치</h1>
+<h1 id="설치">설치</h1>
 <p>먼저 다음 커맨드로 lkp-tests 소스코드를 얻어옵니다:</p>
 <pre><code>$ git clone https://github.com/intel/lkp-tests
 $ cd lkp-tests
@@ -691,7 +691,7 @@ More commands can be found in /home/sjpark/lkp-tests/{bin,sbin,tools}/
 </code></pre><p>여기서 <code>&lt;command&gt;</code> 는 lkp-tests 소스코드 디렉토리 아래 <code>bin/</code>, <code>sbin/</code>,
 <code>tools/</code>, 또는 <code>lkp-exec/</code> 아래 위치한 실행파일로, <code>lkp</code> 는 단순히 그
 실행파일을 수행하면서 인자를 넘길 뿐입니다.</p>
-<h1 id="---">테스트에 필요한 소프트웨어 설치</h1>
+<h1 id="테스트에-필요한-소프트웨어-설치">테스트에 필요한 소프트웨어 설치</h1>
 <p>다음 커맨드는 lkp-tests 가 의존하고 있는 기본적 소프트웨어 패키지들을 모두
 설치합니다:</p>
 <pre><code>$ sudo lkp install
@@ -700,9 +700,9 @@ More commands can be found in /home/sjpark/lkp-tests/{bin,sbin,tools}/
 ca-certificates cpio fakeroot flex gcc git libc6-dev libc6-dev:i386
 libklibc-dev libtool linux-libc-dev linux-libc-dev:i386 linux-tools-generic
 make openssl patch rsync ruby ruby-dev wget
-</code></pre><h1 id="lkptests---">lkp-tests 내부 벤치마크 실행</h1>
+</code></pre><h1 id="lkp-tests-내부-벤치마크-실행">lkp-tests 내부 벤치마크 실행</h1>
 <p>이제 lkp-tests 에서 지원하는 벤치마크를 실제로 돌려봅시다.</p>
-<h2 id="----">테스트 수행에 필요한 환경 설정</h2>
+<h2 id="테스트-수행에-필요한-환경-설정">테스트 수행에 필요한 환경 설정</h2>
 <p>실제 테스트를 돌리기 위해선 벤치마크를 깔고, 그 벤치마크가 사용하는 패키지를
 깔고, 테스트에 사용될 도구들을 깔고, 여러 설정을 하는등의 작업이 필요합니다.</p>
 <p>다음 명령은 lkp-tests 에서 ebizzy 라는 벤치마크를 사용하는 테스트를 위해
@@ -718,10 +718,10 @@ make openssl patch rsync ruby ruby-dev wget
 인자를 줘가며 수행해야할지 등에 대한 내용을 담고 있습니다.  예컨대
 <code>jobs/aim7-fs-1brd.yaml</code> job 은 <code>xfs</code>, <code>ext4</code>, <code>btrfs</code>, <code>f2fs</code> 파일 시스템
 각각에 대해 aim7 을 돌려보도록 되어 있습니다.</p>
-<h2 id="-">테스트 수행</h2>
+<h2 id="테스트-수행">테스트 수행</h2>
 <p>다음 명령은 ebizzy job 으로 기술된 테스트를 실제 수행시킵니다:</p>
 <pre><code>$ sudo lkp run jobs/ebizzy.yaml
-</code></pre><h2 id="job-">job 쪼개기</h2>
+</code></pre><h2 id="job-쪼개기">job 쪼개기</h2>
 <p><code>ebizzy.yaml</code> 은 시스템 소유 CPU 코어 갯수 2배 갯수의 쓰레드를 사용해 ebizzy 를
 10초간 돌리는 실험을 100번 반복하도록 되어 있습니다.  즉, 실험의 경우의 수가
 하나입니다.  그러나, 앞서 설명한 <code>aim7-fs-1brd</code> 와 같이 다양한 구성을 사용하게
@@ -765,7 +765,7 @@ aim7-fs-1brd-1BRD_48G-ext4-disk_wrt-3000.yaml
 aim7-fs-1brd-1BRD_48G-xfs-disk_wrt-3000.yaml
 aim7-fs-1brd-1BRD_48G-ext4-sync_disk_rw-600.yaml
 aim7-fs-1brd-1BRD_48G-xfs-sync_disk_rw-600.yaml
-</code></pre><h1 id="--">테스트 결과 확인</h1>
+</code></pre><h1 id="테스트-결과-확인">테스트 결과 확인</h1>
 <p>테스트에 사용된 벤치마크 수행의 결과와 테스트 동안의 시스템 프로파일링 결과는
 <code>/lkp/result/</code> 디렉토리 밑에 <code>&lt;job name&gt;/&lt;configuration&gt;/&lt;host name&gt;/&lt;os distribution name&gt;/&lt;kernel config&gt;/&lt;gcc version&gt;/&lt;kernel version&gt;/&lt;unique id&gt;</code>
 의 계층 구조로 저장됩니다.  또한, 이 실험 결과를 parsing 할 수 있는 경우엔

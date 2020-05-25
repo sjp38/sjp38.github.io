@@ -5,7 +5,7 @@
     <link>/ko/tags/git/</link>
       <atom:link href="/ko/tags/git/index.xml" rel="self" type="application/rss+xml" />
     <description>git</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>ko-kr</language><lastBuildDate>Sat, 28 Dec 2019 09:58:49 +0100</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>ko-kr</language><lastBuildDate>Sat, 16 May 2020 13:25:55 +0200</lastBuildDate>
     <image>
       <url>/img/tux.png</url>
       <title>git</title>
@@ -33,12 +33,12 @@
 &lt;p&gt;이런 이유로, git 은 패치를 만들고 SMTP 를 통해 이메일로 보내는 걸 돕는 기능을
 갖고 있습니다.
 이 포스트는 git 을 이용해 이메일을 어떻게 보낼 수 있는지 간략히 정리해 봅니다.&lt;/p&gt;
-&lt;h1 id=&#34;--&#34;&gt;필요 패키지 설치&lt;/h1&gt;
+&lt;h1 id=&#34;필요-패키지-설치&#34;&gt;필요 패키지 설치&lt;/h1&gt;
 &lt;p&gt;여러분이 패키지 매니저를 이용해 git 을 설치했다면, &lt;code&gt;git&lt;/code&gt; 패키지 외에도
 &lt;code&gt;git-email&lt;/code&gt; 패키지를 설치해야 합니다.  &lt;code&gt;apt&lt;/code&gt; 패키지 매니저를 사용하신다면, 아래
 커맨드를 입력해 주세요:
 &lt;code&gt;$ sudo apt install git-email&lt;/code&gt; on the terminal.&lt;/p&gt;
-&lt;h1 id=&#34;smtp-&#34;&gt;SMTP 설정&lt;/h1&gt;
+&lt;h1 id=&#34;smtp-설정&#34;&gt;SMTP 설정&lt;/h1&gt;
 &lt;p&gt;이제, 여러분의 smtp 서버 관련 설정을 할 차례입니다.  물론, 여러분의 메일 계정의
 smtp 설정을 먼저 활성화 해둬야 합니다.  이게 되었다면 git 에게 여러분의 메일
 계정을 smtp 를 통해 사용하기 위한 정보를 입력해야겠죠.  &lt;code&gt;git config&lt;/code&gt; 를
@@ -50,7 +50,7 @@ $ git config --global sendemail.smtpuser &amp;lt;your-gmail-account@gmail.com&am
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;해당 메일 계정의 패스워드도 아래와 같이 저장해 둘 수 있습니다만, 이런 방법은
 보안에 위험할 수 있으니 추천하진 않습니다.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ git config --global sendemail.smtppass &amp;lt;your_password&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;-&#34;&gt;메일 보내기&lt;/h1&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;메일-보내기&#34;&gt;메일 보내기&lt;/h1&gt;
 &lt;p&gt;메일을 보내긴 매우 간단합니다.
 먼저 여러분이 보내고자 하는 메일 내용을 파일에 저장하세요.
 &lt;code&gt;git format-patch&lt;/code&gt; 를 통해 만든 패치 파일이 될 수도 있겠습니다.
@@ -61,7 +61,7 @@ $ git config --global sendemail.smtpuser &amp;lt;your-gmail-account@gmail.com&am
 추천합니다), 이 커멘드는 메일 계정 패스워드를 물어볼 겁니다.
 이제, 해당 메일이 여러분이 지정한 수신인에게 전달될 겁니다.&lt;/p&gt;
 &lt;p&gt;더 자세한 정보를 위해선, &lt;code&gt;$ git help send-email&lt;/code&gt; 커맨드를 사용하세요.&lt;/p&gt;
-&lt;h1 id=&#34;heading&#34;&gt;결론&lt;/h1&gt;
+&lt;h1 id=&#34;결론&#34;&gt;결론&lt;/h1&gt;
 &lt;p&gt;어떻게 Git 을 이용해 이메일을 보낼 수 있는지 정리해 보았습니다.  패키지를
 설치하고, SMTP 설정하고, 보내고자 하는 메세지를 파일에 저장 후, &lt;code&gt;git send-email&lt;/code&gt;.  그게 답니다. :)&lt;/p&gt;
 </description>
@@ -85,24 +85,24 @@ a 프로젝트에 &amp;lsquo;b&amp;rsquo; 디렉토리를 만들고 그 아래 �
 리포지토리의 하위 디렉토리로 옮기는 법을 설명합니다.&lt;/p&gt;
 &lt;p&gt;[1] &lt;a href=&#34;https://github.com/aparri/memory-model&#34;&gt;https://github.com/aparri/memory-model&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;[2] &lt;a href=&#34;https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/tools/memory-model&#34;&gt;https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/tools/memory-model&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;--&#34;&gt;초기 상황과 목표&lt;/h2&gt;
+&lt;h2 id=&#34;초기-상황과-목표&#34;&gt;초기 상황과 목표&lt;/h2&gt;
 &lt;p&gt;먼저 현재 디렉토리 아래에 a 리포지토리와 b 리포지토리가 있다고 가정합니다:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ ls
 a   b
 $
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;우리는 a 리포지토리 아래 b/ 디렉토리를 만들고 그 아래 b 리포지토리를 넣고
 싶습니다.&lt;/p&gt;
-&lt;h2 id=&#34;heading&#34;&gt;전략&lt;/h2&gt;
+&lt;h2 id=&#34;전략&#34;&gt;전략&lt;/h2&gt;
 &lt;p&gt;b 리포지토리가 b/ 디렉토리 아래 모든 파일을 위치하도록 변경한 후, 이
 리포지토리를 a 리포지토리에서 &lt;code&gt;--allow-unrelated-histories&lt;/code&gt; 옵션을 사용해
 머지하도록 하겠습니다.&lt;/p&gt;
-&lt;h2 id=&#34;----&#34;&gt;합쳐질 리포지토리 파일 구조 변경&lt;/h2&gt;
+&lt;h2 id=&#34;합쳐질-리포지토리-파일-구조-변경&#34;&gt;합쳐질 리포지토리 파일 구조 변경&lt;/h2&gt;
 &lt;p&gt;먼저 b 리포지토리의 파일들이 b/ 디렉토리 아래 위치하도록 만듭니다:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ cd b
 $ mkdir b
 $ git mv !(b) b
 $ git commit -a -m &amp;quot;Relocate files for inclusion&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;-&#34;&gt;리포지토리 병합&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;리포지토리-병합&#34;&gt;리포지토리 병합&lt;/h2&gt;
 &lt;p&gt;이제 b 리포지토리를 임시 remote 리포지토리로 등록하고 머지합니다:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ cd ../a
 $ git remote add temp ../b
@@ -112,7 +112,7 @@ $ git merge --allow-unrelated-histories temp/master
 있게 해줍니다.&lt;/p&gt;
 &lt;p&gt;임시로 등록한 remote 리포지토리는 지워줍시다:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ git remote rm temp
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;heading1&#34;&gt;정리&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;정리&#34;&gt;정리&lt;/h2&gt;
 &lt;p&gt;이상과 같이 기존의 개발 히스토리를 유지하면서 특정 git 리포지토리를 다른 git
 리포지토리의 하위 디렉토리로 병합하는 방법을 알아보았습니다.&lt;/p&gt;
 </description>

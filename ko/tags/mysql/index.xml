@@ -32,7 +32,7 @@
 변경부터 빌드, 수행까지 정리한 스크립트들을 github 에 올려 두었습니다:
 &lt;a href=&#34;https://github.com/sjp38/tpch-mariadb&#34;&gt;https://github.com/sjp38/tpch-mariadb&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;시간이 없다면 해당 스크립트를 사용하실 것을 권장합니다.&lt;/p&gt;
-&lt;h1 id=&#34;tpch-spec&#34;&gt;TPC-H Spec&lt;/h1&gt;
+&lt;h1 id=&#34;tpc-h-spec&#34;&gt;TPC-H Spec&lt;/h1&gt;
 &lt;p&gt;TPC-H 벤치마크 스펙은 TPC 웹사이트에서 얻을 수 있습니다[3].  하지만 여기서는
 간단히 설명을 해봅니다.  간단한 설명인 만큼 내용이 엄밀히 말해서 맞다고 할수는
 없으므로 엄밀한 내용은 정식 스펙 또는 다른 문서를 확인해 보시기 바랍니다.
@@ -41,7 +41,7 @@ TPC-H 는 8개의 테이블에 많은 데이터를 쌓아놓고, 이 데이터�
 데이터를 로드하는데 걸리는 시간, 22개의 쿼리 각각의 수행 시간, 그리고 여러
 세션을 열어놓고 22개 쿼리를 각 세션에서 수행하면서 파악되는 처리량 (초당 처리된
 쿼리의 갯수)으로 측정됩니다.&lt;/p&gt;
-&lt;h1 id=&#34;get-tpch-toolkit&#34;&gt;Get TPC-H Toolkit&lt;/h1&gt;
+&lt;h1 id=&#34;get-tpc-h-toolkit&#34;&gt;Get TPC-H Toolkit&lt;/h1&gt;
 &lt;p&gt;TPC-H 라는 이름으로 벤치마크를 행하려면 테이블을 어떻게 만들고 거기에 데이터는
 어떻게 넣어야 하며, 쿼리는 어떤 것들로 이루어져야 하는지에 대한 명세서를 TPC
 에서 제공합니다.  이를 바탕으로 각자 TPC-H 를 구성해서 돌릴 수 있습니다.
@@ -96,7 +96,7 @@ $ file dbgen
 dbgen: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 2.6.32, BuildID[sha1]=d0bca1a18c33947d85f5943c8325837faec7c95d, not stripped
 $ file qgen
 qgen: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 2.6.32, BuildID[sha1]=79a6216e04c446715b0e55f9c804586887b698c8, not stripped
-&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;tpch-toolkit-usage&#34;&gt;TPC-H Toolkit Usage&lt;/h1&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;tpc-h-toolkit-usage&#34;&gt;TPC-H Toolkit Usage&lt;/h1&gt;
 &lt;p&gt;MariaDB 에 TPC-H 를 돌리기 위해선 여기서 몇가지 추가 수정을 해야합니다.  하지만
 그에 앞서 &lt;code&gt;dbgen/&lt;/code&gt; 디렉토리 내의 파일들을 어떻게 사용해서 TPC-H 를 수행하는지
 알아봅시다.&lt;/p&gt;
@@ -120,7 +120,7 @@ qgen: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked, i
 생성되어야 하는 22 종류 쿼리의 템플릿을 담고 있습니다.  qgen 은 이 템플릿을
 참고하고 랜덤하게 인자를 생성해 최종적으로 DB 에서 수행될 수 있는 쿼리문을
 생성합니다.  이 때 랜덤 시드는 dists.dss 라는 파일을 참고해 만들어집니다.&lt;/p&gt;
-&lt;h1 id=&#34;modify-tpch-toolkit-for-mariadb&#34;&gt;Modify TPC-H Toolkit for MariaDB&lt;/h1&gt;
+&lt;h1 id=&#34;modify-tpc-h-toolkit-for-mariadb&#34;&gt;Modify TPC-H Toolkit for MariaDB&lt;/h1&gt;
 &lt;p&gt;DBMS 마다 query syntax 가 조금씩 다릅니다.  때문에 TPC-H Toolkit 은 지원하는
 DBMS 마다 다르게 테이블 생성, 쿼리 생성을 하도록 짜여져 있습니다만, 지원하는
 DBMS 목록에 MariaDB 는 포함되어 있지 않습니다.  따라서 MariaDB 에 TPC-H 를

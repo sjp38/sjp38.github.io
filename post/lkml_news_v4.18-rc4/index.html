@@ -636,12 +636,12 @@ cma_alloc() 과 dma_alloc_from_contiguous() 함수는 gfp mask 패러미터를 �
   <div class="article-container">
 
     <div class="article-style">
-      <h2 id="linux-418rc4">Linux 4.18-rc4</h2>
+      <h2 id="linux-418-rc4">Linux 4.18-rc4</h2>
 <p><code>https://lkml.kernel.org/r/CA+55aFwXGyZ1Yx+Z8a93gpvb596ZRJ5ppiQL_+-k7gjeQLtcsQ@mail.gmail.com</code></p>
 <p>어느덧 네번째 RC 버전 릴리즈입니다.  지루할 정도로 평범한 릴리즈라는군요.
 대부분 드라이버쪽 업데이트이고, bpf, cifs, ext4, 스케쥴러, 그리고 일부 arch
 업데이트가 대부분입니다.</p>
-<h2 id="patch-v9-0017-improve-shrinkslab-scalability-old-complexity-was-on2-new-is-on">[PATCH v9 00/17] Improve shrink_slab() scalability (old complexity was O(n^2), new is O(n))</h2>
+<h2 id="patch-v9-0017-improve-shrink_slab-scalability-old-complexity-was-on2-new-is-on">[PATCH v9 00/17] Improve shrink_slab() scalability (old complexity was O(n^2), new is O(n))</h2>
 <p><a href="https://lkml.kernel.org/r/153112469064.4097.2581798353485457328.stgit@localhost.localdomain">https://lkml.kernel.org/r/153112469064.4097.2581798353485457328.stgit@localhost.localdomain</a></p>
 <p><code>shrink_slab()</code> 의 compexity 를 O(n^2) 에서 O(n) 으로 낮춰 확장성을 높인 패치의
 아홉번째 버전입니다.</p>
@@ -650,7 +650,7 @@ cma_alloc() 과 dma_alloc_from_contiguous() 함수는 gfp mask 패러미터를 �
 <p><code>cma_alloc()</code> 과 <code>dma_alloc_from_contiguous()</code> 함수는 gfp mask 패러미터를
 받지만 실질적으론 <code>__GFP_NORARN</code> 플래그만을 지원하고 있습니다.  이 패치는
 따라서 해당 패러미터를 <code>no_warn</code> 이란 이름의 boolean 타입으로 교체합니다.</p>
-<h2 id="rfc-patch-mm-pagealloc-double-zones-batchsize">[RFC PATCH] mm, page_alloc: double zone's batchsize</h2>
+<h2 id="rfc-patch-mm-page_alloc-double-zones-batchsize">[RFC PATCH] mm, page_alloc: double zone&rsquo;s batchsize</h2>
 <p><a href="https://lkml.kernel.org/r/20180711055855.29072-1-aaron.lu@intel.com">https://lkml.kernel.org/r/20180711055855.29072-1-aaron.lu@intel.com</a></p>
 <p>리눅스 커널 페이지 할당자는 잘 알려진 Buddy allocator 입니다만, 멀티 CPU
 환경에서의 컨텐션을 줄이기 위해 per-CPU pageset 이란 걸 존별로 가지고 있어서

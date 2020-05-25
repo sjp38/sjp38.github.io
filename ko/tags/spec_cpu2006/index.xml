@@ -130,14 +130,14 @@ index ccf4a72477c0..c8c0cd786522 100755
 수행이 가능하도록 스크립트를 짜서 Github 에 올려뒀습니다[1].  시간이 없는
 분들은 이쪽을 사용 바랍니다.&lt;/p&gt;
 &lt;p&gt;[1] &lt;a href=&#34;https://github.com/sjp38/spec_on_ubuntu_xenial&#34;&gt;https://github.com/sjp38/spec_on_ubuntu_xenial&lt;/a&gt;&lt;/p&gt;
-&lt;h1 id=&#34;-&#34;&gt;설치 환경&lt;/h1&gt;
+&lt;h1 id=&#34;설치-환경&#34;&gt;설치 환경&lt;/h1&gt;
 &lt;p&gt;본 글에서 설명하는 내용은 다음과 같은 환경의 머신 위에서 수행되었습니다:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Intel Xeon E7-8870 v3&lt;/li&gt;
 &lt;li&gt;Linux 4.10 kernel&lt;/li&gt;
 &lt;li&gt;Ubuntu 16.04.1 Server version&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1 id=&#34;--&#34;&gt;소스 코드 구하기&lt;/h1&gt;
+&lt;h1 id=&#34;소스-코드-구하기&#34;&gt;소스 코드 구하기&lt;/h1&gt;
 &lt;p&gt;먼저 소스 코드가 있어야겠죠.  SPEC CPU 2006 은 DVD 또는 &lt;code&gt;.iso&lt;/code&gt; 파일의 형태로
 구매 [2] 될 수 있습니다 (작성 시점에서 SPEC CPU 2006 v1.2 의 가격은 $800 군요).
 이렇게 구매된 DVD 안에는 벤치마크 소스코드와 벤치마크의 컴파일과 수행, 검증을
@@ -158,7 +158,7 @@ $ sudo umount ./tmnt &amp;amp;&amp;amp; rm -fr ./tmnt
 $ sudo chown -R &amp;lt;username&amp;gt; SPEC_CPU2006v1.1
 $ sudo chmod -R 755 SPEC_CPU2006v1.1
 $ cd SPEC_CPU2006v1.1
-&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;-1&#34;&gt;툴 빌드&lt;/h1&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;툴-빌드&#34;&gt;툴 빌드&lt;/h1&gt;
 &lt;p&gt;SPEC 에서 사용되는 도구들은 앞서 가져온 &lt;code&gt;.iso&lt;/code&gt; 파일 안에 redhat, suse 등 여러
 플랫폼 용으로 미리 빌드되어 있습니다.  하지만 Ubuntu 를 위한 버전은 없습니다.
 따라서 다음과 같이 소스코드로부터 직접 빌드를 해야 합니다:&lt;/p&gt;
@@ -208,7 +208,7 @@ pp.c:(.text+0x2a76): undefined reference to `pow&#39;
 알려줘야 합니다.  다음과 같이 &lt;code&gt;PERLFLAGS&lt;/code&gt; 환경변수를 설정하고 &lt;code&gt;buildtools&lt;/code&gt; 를
 실행하는 것으로 해결할 수 있습니다:&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;$ PERLFLAGS=&amp;quot;-A libs=-lm -A libs=-ldl&amp;quot; ./buildtools&lt;/code&gt;&lt;/p&gt;
-&lt;h2 id=&#34;you-havent-done-a-make-depend-yet&#34;&gt;You haven&#39;t done a &amp;ldquo;make depend&amp;rdquo; yet!&lt;/h2&gt;
+&lt;h2 id=&#34;you-havent-done-a-make-depend-yet&#34;&gt;You haven&amp;rsquo;t done a &amp;ldquo;make depend&amp;rdquo; yet!&lt;/h2&gt;
 &lt;p&gt;이어서 다음 에러 메세지가 나옵니다.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;You haven&#39;t done a &amp;quot;make depend&amp;quot; yet!
 make[1]: *** [hash.o] Error 1
@@ -270,7 +270,7 @@ Hey!  Some of the Perl tests failed!  If you think this is okay, enter y now:
 &lt;pre&gt;&lt;code&gt;Tools built successfully.  Go to the top of the tree and
 source the shrc file.  Then you should be ready.
 $
-&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;heading&#34;&gt;실행&lt;/h1&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;실행&#34;&gt;실행&lt;/h1&gt;
 &lt;h2 id=&#34;configuration-file&#34;&gt;Configuration File&lt;/h2&gt;
 &lt;p&gt;빌드가 완료되었다면 이제 실행을 해야겠죠.  벤치마크의 실행 환경을 구성해야
 하는데, config/ 디렉토리 밑에 예제 구성 파일들이 있습니다.  이 가운데,

@@ -648,7 +648,7 @@ below.</p>
 scripts to the Github:
 <a href="https://github.com/sjp38/tpch-mariadb">https://github.com/sjp38/tpch-mariadb</a></p>
 <p>If you hano no time, just go to the link and use the script.</p>
-<h1 id="tpch-spec">TPC-H Spec</h1>
+<h1 id="tpc-h-spec">TPC-H Spec</h1>
 <p>You can ge TPC-H benchmark specification from TPC website[3].
 Refer to it if you need strict specification of the benchmark.
 Nonetheless, I give you a rough description of the benchmark here, though.
@@ -656,7 +656,7 @@ TPC-H stores a huge data into 8 tables and run 22 queries analysing this data.
 To measure the performance, we can measure the time to store/load the data,
 runtime of each of the 22 queries, and the throughput (number of processed
 queries per second) of multiple sessions.</p>
-<h1 id="get-tpch-toolkit">Get TPC-H Toolkit</h1>
+<h1 id="get-tpc-h-toolkit">Get TPC-H Toolkit</h1>
 <p>TPC provides the specification says how the tables should be constructed, what
 data should be stored in the tables, and what kind of queries should be issued.
 So, anyone can implement their TPC-H based on this specification.
@@ -714,9 +714,9 @@ $ file dbgen
 dbgen: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 2.6.32, BuildID[sha1]=d0bca1a18c33947d85f5943c8325837faec7c95d, not stripped
 $ file qgen
 qgen: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 2.6.32, BuildID[sha1]=79a6216e04c446715b0e55f9c804586887b698c8, not stripped
-</code></pre><h1 id="tpch-toolkit-usage">TPC-H Toolkit Usage</h1>
+</code></pre><h1 id="tpc-h-toolkit-usage">TPC-H Toolkit Usage</h1>
 <p>To run TPC-H on MariaDB, we need several more modification.
-Before that, let's see how we run TPC-H using the files under <code>dbgen/</code>
+Before that, let&rsquo;s see how we run TPC-H using the files under <code>dbgen/</code>
 directory.</p>
 <h2 id="data-preparation">Data Preparation</h2>
 <p><code>dss.ddl</code> file has the sql statements be used for the creation of the 8 tables.
@@ -733,7 +733,7 @@ statements.</p>
 Once your DB runs these sql statements, the table index will be generated and
 you will be ready to run the TPC-H queries.</p>
 <h2 id="query-creation-and-execution">Query Creation and Execution</h2>
-<p><code>qgen</code> creates the queries doing the TPC-H's analysis tasks.
+<p><code>qgen</code> creates the queries doing the TPC-H&rsquo;s analysis tasks.
 We simply said 22 queries, but it would be better to say 22 kinds of queries.
 If a query is repeatedly issued with same arguments, DB server can cache the
 results and simply return it to the client.
@@ -741,7 +741,7 @@ As this can distort the results, TPC-H Toolkit has the template of the 22
 queries under <code>dbgen/queries/</code> directory and let <code>qgen</code> to create query
 statements using random arguments, based on this templates.
 The seed for the random number generation is created based on <code>dists.dss</code> file.</p>
-<h1 id="modify-tpch-toolkit-for-mariadb">Modify TPC-H Toolkit for MariaDB</h1>
+<h1 id="modify-tpc-h-toolkit-for-mariadb">Modify TPC-H Toolkit for MariaDB</h1>
 <p>Each DBMS has a little bit different query syntax.
 Thus, TPC-H Toolkit is made to support multiple DBMSes, but the MariaDB is not
 in the supported DBMSes.

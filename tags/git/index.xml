@@ -5,7 +5,7 @@
     <link>/tags/git/</link>
       <atom:link href="/tags/git/index.xml" rel="self" type="application/rss+xml" />
     <description>git</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Mon, 06 Jan 2020 21:10:05 +0100</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 19 May 2020 06:27:47 +0200</lastBuildDate>
     <image>
       <url>/img/tux.png</url>
       <title>git</title>
@@ -18,7 +18,7 @@
       <pubDate>Mon, 06 Jan 2020 21:10:05 +0100</pubDate>
       <guid>/post/git_send_email_multiple_email_caution/</guid>
       <description>&lt;p&gt;In some case, we need to send patches that made by other people instead.  &lt;code&gt;git send-email&lt;/code&gt; command can know this situation by itself by comparing the commit
-author information and mail sender&#39;s information.  In that case, &lt;code&gt;git send-email&lt;/code&gt; automatically add &lt;code&gt;From:&lt;/code&gt; line pointing the real author of the
+author information and mail sender&amp;rsquo;s information.  In that case, &lt;code&gt;git send-email&lt;/code&gt; automatically add &lt;code&gt;From:&lt;/code&gt; line pointing the real author of the
 patch in the body of the mail so that maintainers applying the patches can set
 the author information correctly.&lt;/p&gt;
 &lt;p&gt;For example, if &amp;ldquo;Alice &lt;a href=&#34;mailto:alice@abc.com&#34;&gt;alice@abc.com&lt;/a&gt;&amp;rdquo; has made a commit and &amp;ldquo;Bob
@@ -26,9 +26,11 @@ the author information correctly.&lt;/p&gt;
 of the mail.  And, when a maintainer is applying the patch using &lt;code&gt;git am&lt;/code&gt;, the
 patch is applied with author &amp;ldquo;Alice &lt;a href=&#34;mailto:alice@abc.com&#34;&gt;alice@abc.com&lt;/a&gt;&amp;rdquo;.&lt;/p&gt;
 &lt;p&gt;However, please note that &lt;code&gt;git send-email&lt;/code&gt; knows the situation by comparing the
-author information and the command caller&#39;s git user eamil configuration or
+author information and the command caller&amp;rsquo;s git user eamil configuration or
 given &amp;lsquo;&amp;ndash;from&amp;rsquo; option only, not considering real smtp email account.&lt;/p&gt;
-&lt;p&gt;For example, suppose that Alice has two email accounts, &lt;a href=&#34;mailto:%60alice@abc.com&#34;&gt;`alice@abc.com&lt;/a&gt;&lt;code&gt; and&lt;/code&gt;&lt;a href=&#34;mailto:alice@def.com&#34;&gt;alice@def.com&lt;/a&gt;&lt;code&gt;.  And, Alice wants to use &lt;/code&gt;&lt;a href=&#34;mailto:alice@abc.com&#34;&gt;alice@abc.com&lt;/a&gt;&lt;code&gt;as her email address in the git history, but needs to send her patches using&lt;/code&gt;def.com` SMTP server.
+&lt;p&gt;For example, suppose that Alice has two email accounts, &lt;code&gt;alice@abc.com&lt;/code&gt; and
+&lt;code&gt;alice@def.com&lt;/code&gt;.  And, Alice wants to use &lt;code&gt;alice@abc.com&lt;/code&gt; as her email address
+in the git history, but needs to send her patches using &lt;code&gt;def.com&lt;/code&gt; SMTP server.
 She might use below commands.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ git config sendemail.smtpserver smtp.def.com
 $ git config sendemail.smtpuser alice@def.com
@@ -36,9 +38,13 @@ $ git config user.email &amp;quot;alice@abc.com&amp;quot;
 $ git commit -as -m &#39;the patch&#39;
 $ git format-patch HEAD^
 $ git send-email 0001_the_patch.patch
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Because her git config is saying the &lt;code&gt;user.email&lt;/code&gt; is &lt;a href=&#34;mailto:%60alice@abc.com&#34;&gt;`alice@abc.com&lt;/a&gt;&lt;code&gt;and the patch is authored by&lt;/code&gt;&lt;a href=&#34;mailto:alice@abc.com&#34;&gt;alice@abc.com&lt;/a&gt;&lt;code&gt;, &lt;/code&gt;git send-email&lt;code&gt;thinks same people is sending the patch.  Thus, it doesn&#39;t add the &#39;From:&#39; line in the body of the mail.  Of course,&lt;/code&gt;git send-email&lt;code&gt;tries to set the&lt;/code&gt;from&lt;code&gt; of the mail as&lt;/code&gt;&lt;a href=&#34;mailto:alice@abc.com&#34;&gt;alice@abc.com&lt;/a&gt;`, but as the additionally specified &amp;lsquo;from&amp;rsquo; information is
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Because her git config is saying the &lt;code&gt;user.email&lt;/code&gt; is &lt;code&gt;alice@abc.com&lt;/code&gt; and the
+patch is authored by &lt;code&gt;alice@abc.com&lt;/code&gt;, &lt;code&gt;git send-email&lt;/code&gt; thinks same people is
+sending the patch.  Thus, it doesn&amp;rsquo;t add the &amp;lsquo;From:&amp;rsquo; line in the body of the
+mail.  Of course, &lt;code&gt;git send-email&lt;/code&gt; tries to set the &lt;code&gt;from&lt;/code&gt; of the mail as
+&lt;code&gt;alice@abc.com&lt;/code&gt;, but as the additionally specified &amp;lsquo;from&amp;rsquo; information is
 usually (at least gmail does) ignored by the SMTP server, the maintainer will
-receive the mail saying author email as &lt;a href=&#34;mailto:&#39;alice@def.com&#34;&gt;&#39;alice@def.com&lt;/a&gt;&amp;rsquo; only.&lt;/p&gt;
+receive the mail saying author email as &amp;lsquo;&lt;a href=&#34;mailto:alice@def.com&#34;&gt;alice@def.com&lt;/a&gt;&amp;rsquo; only.&lt;/p&gt;
 &lt;p&gt;Note that &lt;code&gt;git send-email&lt;/code&gt; considers the email address it &lt;em&gt;tries&lt;/em&gt; to use as the
 from address, not the final one that SMTP server will use.  Thus, this problem
 can be worked around in weird way using the &lt;code&gt;--from&lt;/code&gt; option of the &lt;code&gt;git send-email&lt;/code&gt;.  In the above case, giving &lt;code&gt;--from &amp;quot;Alice &amp;lt;alice@def.com&amp;gt;&amp;quot;&lt;/code&gt; option
@@ -46,7 +52,7 @@ to &lt;code&gt;git send-email&lt;/code&gt; makes the command to think the sender
 (&lt;a href=&#34;mailto:alice@abc.com&#34;&gt;alice@abc.com&lt;/a&gt;) and as a result, it adds the &lt;code&gt;From:&lt;/code&gt; line in the body.&lt;/p&gt;
 &lt;p&gt;Also, please note that adding &lt;code&gt;--from&lt;/code&gt; option does not always add the &lt;code&gt;From:&lt;/code&gt;
 line in the body.  Rather than that, it can even hide the &lt;code&gt;From:&lt;/code&gt; line you
-intended to add, if you give the address that same with the commit&#39;s author,
+intended to add, if you give the address that same with the commit&amp;rsquo;s author,
 regardless of what SMTP server you use.  For example,&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ git config sendemail.smtpserver smtp.def.com
 $ git config sendemail.smtpuser alice@def.com
@@ -110,7 +116,7 @@ Then, your mail will delivered to the recipients you specified.&lt;/p&gt;
 &lt;p&gt;For more detail, &lt;code&gt;$ git help send-email&lt;/code&gt;.&lt;/p&gt;
 &lt;h1 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h1&gt;
 &lt;p&gt;Summarised how you can send email using Git.  Install packages, set SMTP, write
-your mail in a plain file, and &lt;code&gt;git send-email&lt;/code&gt;.  That&#39;s it. :)&lt;/p&gt;
+your mail in a plain file, and &lt;code&gt;git send-email&lt;/code&gt;.  That&amp;rsquo;s it. :)&lt;/p&gt;
 </description>
     </item>
     
@@ -132,24 +138,24 @@ a 프로젝트에 &amp;lsquo;b&amp;rsquo; 디렉토리를 만들고 그 아래 �
 리포지토리의 하위 디렉토리로 옮기는 법을 설명합니다.&lt;/p&gt;
 &lt;p&gt;[1] &lt;a href=&#34;https://github.com/aparri/memory-model&#34;&gt;https://github.com/aparri/memory-model&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;[2] &lt;a href=&#34;https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/tools/memory-model&#34;&gt;https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/tools/memory-model&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;--&#34;&gt;초기 상황과 목표&lt;/h2&gt;
+&lt;h2 id=&#34;초기-상황과-목표&#34;&gt;초기 상황과 목표&lt;/h2&gt;
 &lt;p&gt;먼저 현재 디렉토리 아래에 a 리포지토리와 b 리포지토리가 있다고 가정합니다:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ ls
 a   b
 $
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;우리는 a 리포지토리 아래 b/ 디렉토리를 만들고 그 아래 b 리포지토리를 넣고
 싶습니다.&lt;/p&gt;
-&lt;h2 id=&#34;heading&#34;&gt;전략&lt;/h2&gt;
+&lt;h2 id=&#34;전략&#34;&gt;전략&lt;/h2&gt;
 &lt;p&gt;b 리포지토리가 b/ 디렉토리 아래 모든 파일을 위치하도록 변경한 후, 이
 리포지토리를 a 리포지토리에서 &lt;code&gt;--allow-unrelated-histories&lt;/code&gt; 옵션을 사용해
 머지하도록 하겠습니다.&lt;/p&gt;
-&lt;h2 id=&#34;----&#34;&gt;합쳐질 리포지토리 파일 구조 변경&lt;/h2&gt;
+&lt;h2 id=&#34;합쳐질-리포지토리-파일-구조-변경&#34;&gt;합쳐질 리포지토리 파일 구조 변경&lt;/h2&gt;
 &lt;p&gt;먼저 b 리포지토리의 파일들이 b/ 디렉토리 아래 위치하도록 만듭니다:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ cd b
 $ mkdir b
 $ git mv !(b) b
 $ git commit -a -m &amp;quot;Relocate files for inclusion&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;-&#34;&gt;리포지토리 병합&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;리포지토리-병합&#34;&gt;리포지토리 병합&lt;/h2&gt;
 &lt;p&gt;이제 b 리포지토리를 임시 remote 리포지토리로 등록하고 머지합니다:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ cd ../a
 $ git remote add temp ../b
@@ -159,7 +165,7 @@ $ git merge --allow-unrelated-histories temp/master
 있게 해줍니다.&lt;/p&gt;
 &lt;p&gt;임시로 등록한 remote 리포지토리는 지워줍시다:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ git remote rm temp
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;heading1&#34;&gt;정리&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;정리&#34;&gt;정리&lt;/h2&gt;
 &lt;p&gt;이상과 같이 기존의 개발 히스토리를 유지하면서 특정 git 리포지토리를 다른 git
 리포지토리의 하위 디렉토리로 병합하는 방법을 알아보았습니다.&lt;/p&gt;
 </description>

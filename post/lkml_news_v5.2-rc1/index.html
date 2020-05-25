@@ -632,7 +632,7 @@ mm 쪽 함수들은 order 를 인자로 많이 받죠. 어차피 gfp_t 는 무�
   <div class="article-container">
 
     <div class="article-style">
-      <h2 id="patch-mm-introduce-pagesize">[PATCH] mm: Introduce page_size()</h2>
+      <h2 id="patch-mm-introduce-page_size">[PATCH] mm: Introduce page_size()</h2>
 <p><a href="https://lkml.kernel.org/r/20190510181242.24580-1-willy@infradead.org">https://lkml.kernel.org/r/20190510181242.24580-1-willy@infradead.org</a></p>
 <p>Huge page 등의 경우를 위해 페이지의 실제 크기를 구하려면 <code>PAGE_SIZE &lt;&lt; compound_order(page)</code> 를 해야 하는게 짜증난 Matthew Wilcox 가 별도의 함수를
 만들고 기존 코드들을 이 함수를 사용하도록 변경한 패치입니다.</p>
@@ -641,7 +641,7 @@ mm 쪽 함수들은 order 를 인자로 많이 받죠. 어차피 gfp_t 는 무�
 <p>mm 쪽 함수들은 order 를 인자로 많이 받죠.  어차피 gfp_t 는 무조건 받으니까 이
 타입의 상위 bit 을 order 목적으로 사용하자는 패치입니다.  이 패치의 장점은?
 커널 텍스트 사이즈를 줄인다는 것입니다 :)</p>
-<h2 id="maintainers--kernel-summit-2019-planning-kickoff">Maintainer's / Kernel Summit 2019 planning kick-off</h2>
+<h2 id="maintainers--kernel-summit-2019-planning-kick-off">Maintainer&rsquo;s / Kernel Summit 2019 planning kick-off</h2>
 <p><a href="https://lkml.kernel.org/r/20190513230643.GA4347@mit.edu">https://lkml.kernel.org/r/20190513230643.GA4347@mit.edu</a></p>
 <p>올해의 커널 서밋 / 메인테이너 서밋을 위한 안내 메일입니다.  작년엔 커널 서밋은
 LPC 와, 메인테이너 서밋은 OSSEU 와 함께 열렸었죠.  올해는 둘 다 LPC 와 함께
@@ -649,7 +649,7 @@ LPC 와, 메인테이너 서밋은 OSSEU 와 함께 열렸었죠.  올해는 둘
 <p>메인테이너 서밋은 올해는 아예 30명으로 더욱 작게 모이는군요.</p>
 <p>커널 서밋 발표 주제는 5월 31일까지 받습니다.  발표주제 선정되면 LPC 티켓도
 준다는군요!</p>
-<h2 id="linux-52rc1">Linux 5.2-rc1</h2>
+<h2 id="linux-52-rc1">Linux 5.2-rc1</h2>
 <p><a href="https://lkml.kernel.org/r/CAHk-=wgxi6fnxZ+p5Zdqr-i4s=xhOCBJL6s_RauYkjxM2CpXeA@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wgxi6fnxZ+p5Zdqr-i4s=xhOCBJL6s_RauYkjxM2CpXeA@mail.gmail.com</a></p>
 <p>5.2 릴리즈를 위한 머지윈도우가 끝나고 rc1 버전이 릴리즈 되었습니다.  이번 머지
 윈도우 중간에 토발즈의 개인적 여행이 있다고 했지만 다행히 잘 정리되었나보군요.

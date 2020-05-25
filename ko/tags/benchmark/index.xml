@@ -33,7 +33,7 @@
 있어서 개인 개발자가 자신의 패치를 테스트할 목적으로 사용하기에도 좋습니다.  이
 글에서는 이러한 lkp-tests 의 구조와 사용법을 간단히 설명합니다.  전체적으로
 인텔의 관련 블로그 글[3] 을 참고했습니다.&lt;/p&gt;
-&lt;h1 id=&#34;heading&#34;&gt;설치&lt;/h1&gt;
+&lt;h1 id=&#34;설치&#34;&gt;설치&lt;/h1&gt;
 &lt;p&gt;먼저 다음 커맨드로 lkp-tests 소스코드를 얻어옵니다:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ git clone https://github.com/intel/lkp-tests
 $ cd lkp-tests
@@ -80,7 +80,7 @@ More commands can be found in /home/sjpark/lkp-tests/{bin,sbin,tools}/
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;여기서 &lt;code&gt;&amp;lt;command&amp;gt;&lt;/code&gt; 는 lkp-tests 소스코드 디렉토리 아래 &lt;code&gt;bin/&lt;/code&gt;, &lt;code&gt;sbin/&lt;/code&gt;,
 &lt;code&gt;tools/&lt;/code&gt;, 또는 &lt;code&gt;lkp-exec/&lt;/code&gt; 아래 위치한 실행파일로, &lt;code&gt;lkp&lt;/code&gt; 는 단순히 그
 실행파일을 수행하면서 인자를 넘길 뿐입니다.&lt;/p&gt;
-&lt;h1 id=&#34;---&#34;&gt;테스트에 필요한 소프트웨어 설치&lt;/h1&gt;
+&lt;h1 id=&#34;테스트에-필요한-소프트웨어-설치&#34;&gt;테스트에 필요한 소프트웨어 설치&lt;/h1&gt;
 &lt;p&gt;다음 커맨드는 lkp-tests 가 의존하고 있는 기본적 소프트웨어 패키지들을 모두
 설치합니다:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ sudo lkp install
@@ -89,9 +89,9 @@ More commands can be found in /home/sjpark/lkp-tests/{bin,sbin,tools}/
 ca-certificates cpio fakeroot flex gcc git libc6-dev libc6-dev:i386
 libklibc-dev libtool linux-libc-dev linux-libc-dev:i386 linux-tools-generic
 make openssl patch rsync ruby ruby-dev wget
-&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;lkptests---&#34;&gt;lkp-tests 내부 벤치마크 실행&lt;/h1&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;lkp-tests-내부-벤치마크-실행&#34;&gt;lkp-tests 내부 벤치마크 실행&lt;/h1&gt;
 &lt;p&gt;이제 lkp-tests 에서 지원하는 벤치마크를 실제로 돌려봅시다.&lt;/p&gt;
-&lt;h2 id=&#34;----&#34;&gt;테스트 수행에 필요한 환경 설정&lt;/h2&gt;
+&lt;h2 id=&#34;테스트-수행에-필요한-환경-설정&#34;&gt;테스트 수행에 필요한 환경 설정&lt;/h2&gt;
 &lt;p&gt;실제 테스트를 돌리기 위해선 벤치마크를 깔고, 그 벤치마크가 사용하는 패키지를
 깔고, 테스트에 사용될 도구들을 깔고, 여러 설정을 하는등의 작업이 필요합니다.&lt;/p&gt;
 &lt;p&gt;다음 명령은 lkp-tests 에서 ebizzy 라는 벤치마크를 사용하는 테스트를 위해
@@ -107,10 +107,10 @@ make openssl patch rsync ruby ruby-dev wget
 인자를 줘가며 수행해야할지 등에 대한 내용을 담고 있습니다.  예컨대
 &lt;code&gt;jobs/aim7-fs-1brd.yaml&lt;/code&gt; job 은 &lt;code&gt;xfs&lt;/code&gt;, &lt;code&gt;ext4&lt;/code&gt;, &lt;code&gt;btrfs&lt;/code&gt;, &lt;code&gt;f2fs&lt;/code&gt; 파일 시스템
 각각에 대해 aim7 을 돌려보도록 되어 있습니다.&lt;/p&gt;
-&lt;h2 id=&#34;-&#34;&gt;테스트 수행&lt;/h2&gt;
+&lt;h2 id=&#34;테스트-수행&#34;&gt;테스트 수행&lt;/h2&gt;
 &lt;p&gt;다음 명령은 ebizzy job 으로 기술된 테스트를 실제 수행시킵니다:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ sudo lkp run jobs/ebizzy.yaml
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;job-&#34;&gt;job 쪼개기&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;job-쪼개기&#34;&gt;job 쪼개기&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;ebizzy.yaml&lt;/code&gt; 은 시스템 소유 CPU 코어 갯수 2배 갯수의 쓰레드를 사용해 ebizzy 를
 10초간 돌리는 실험을 100번 반복하도록 되어 있습니다.  즉, 실험의 경우의 수가
 하나입니다.  그러나, 앞서 설명한 &lt;code&gt;aim7-fs-1brd&lt;/code&gt; 와 같이 다양한 구성을 사용하게
@@ -154,7 +154,7 @@ aim7-fs-1brd-1BRD_48G-ext4-disk_wrt-3000.yaml
 aim7-fs-1brd-1BRD_48G-xfs-disk_wrt-3000.yaml
 aim7-fs-1brd-1BRD_48G-ext4-sync_disk_rw-600.yaml
 aim7-fs-1brd-1BRD_48G-xfs-sync_disk_rw-600.yaml
-&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;--&#34;&gt;테스트 결과 확인&lt;/h1&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;테스트-결과-확인&#34;&gt;테스트 결과 확인&lt;/h1&gt;
 &lt;p&gt;테스트에 사용된 벤치마크 수행의 결과와 테스트 동안의 시스템 프로파일링 결과는
 &lt;code&gt;/lkp/result/&lt;/code&gt; 디렉토리 밑에 &lt;code&gt;&amp;lt;job name&amp;gt;/&amp;lt;configuration&amp;gt;/&amp;lt;host name&amp;gt;/&amp;lt;os distribution name&amp;gt;/&amp;lt;kernel config&amp;gt;/&amp;lt;gcc version&amp;gt;/&amp;lt;kernel version&amp;gt;/&amp;lt;unique id&amp;gt;&lt;/code&gt;
 의 계층 구조로 저장됩니다.  또한, 이 실험 결과를 parsing 할 수 있는 경우엔
@@ -295,7 +295,7 @@ index ccf4a72477c0..c8c0cd786522 100755
 변경부터 빌드, 수행까지 정리한 스크립트들을 github 에 올려 두었습니다:
 &lt;a href=&#34;https://github.com/sjp38/tpch-mariadb&#34;&gt;https://github.com/sjp38/tpch-mariadb&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;시간이 없다면 해당 스크립트를 사용하실 것을 권장합니다.&lt;/p&gt;
-&lt;h1 id=&#34;tpch-spec&#34;&gt;TPC-H Spec&lt;/h1&gt;
+&lt;h1 id=&#34;tpc-h-spec&#34;&gt;TPC-H Spec&lt;/h1&gt;
 &lt;p&gt;TPC-H 벤치마크 스펙은 TPC 웹사이트에서 얻을 수 있습니다[3].  하지만 여기서는
 간단히 설명을 해봅니다.  간단한 설명인 만큼 내용이 엄밀히 말해서 맞다고 할수는
 없으므로 엄밀한 내용은 정식 스펙 또는 다른 문서를 확인해 보시기 바랍니다.
@@ -304,7 +304,7 @@ TPC-H 는 8개의 테이블에 많은 데이터를 쌓아놓고, 이 데이터�
 데이터를 로드하는데 걸리는 시간, 22개의 쿼리 각각의 수행 시간, 그리고 여러
 세션을 열어놓고 22개 쿼리를 각 세션에서 수행하면서 파악되는 처리량 (초당 처리된
 쿼리의 갯수)으로 측정됩니다.&lt;/p&gt;
-&lt;h1 id=&#34;get-tpch-toolkit&#34;&gt;Get TPC-H Toolkit&lt;/h1&gt;
+&lt;h1 id=&#34;get-tpc-h-toolkit&#34;&gt;Get TPC-H Toolkit&lt;/h1&gt;
 &lt;p&gt;TPC-H 라는 이름으로 벤치마크를 행하려면 테이블을 어떻게 만들고 거기에 데이터는
 어떻게 넣어야 하며, 쿼리는 어떤 것들로 이루어져야 하는지에 대한 명세서를 TPC
 에서 제공합니다.  이를 바탕으로 각자 TPC-H 를 구성해서 돌릴 수 있습니다.
@@ -359,7 +359,7 @@ $ file dbgen
 dbgen: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 2.6.32, BuildID[sha1]=d0bca1a18c33947d85f5943c8325837faec7c95d, not stripped
 $ file qgen
 qgen: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 2.6.32, BuildID[sha1]=79a6216e04c446715b0e55f9c804586887b698c8, not stripped
-&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;tpch-toolkit-usage&#34;&gt;TPC-H Toolkit Usage&lt;/h1&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;tpc-h-toolkit-usage&#34;&gt;TPC-H Toolkit Usage&lt;/h1&gt;
 &lt;p&gt;MariaDB 에 TPC-H 를 돌리기 위해선 여기서 몇가지 추가 수정을 해야합니다.  하지만
 그에 앞서 &lt;code&gt;dbgen/&lt;/code&gt; 디렉토리 내의 파일들을 어떻게 사용해서 TPC-H 를 수행하는지
 알아봅시다.&lt;/p&gt;
@@ -383,7 +383,7 @@ qgen: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked, i
 생성되어야 하는 22 종류 쿼리의 템플릿을 담고 있습니다.  qgen 은 이 템플릿을
 참고하고 랜덤하게 인자를 생성해 최종적으로 DB 에서 수행될 수 있는 쿼리문을
 생성합니다.  이 때 랜덤 시드는 dists.dss 라는 파일을 참고해 만들어집니다.&lt;/p&gt;
-&lt;h1 id=&#34;modify-tpch-toolkit-for-mariadb&#34;&gt;Modify TPC-H Toolkit for MariaDB&lt;/h1&gt;
+&lt;h1 id=&#34;modify-tpc-h-toolkit-for-mariadb&#34;&gt;Modify TPC-H Toolkit for MariaDB&lt;/h1&gt;
 &lt;p&gt;DBMS 마다 query syntax 가 조금씩 다릅니다.  때문에 TPC-H Toolkit 은 지원하는
 DBMS 마다 다르게 테이블 생성, 쿼리 생성을 하도록 짜여져 있습니다만, 지원하는
 DBMS 목록에 MariaDB 는 포함되어 있지 않습니다.  따라서 MariaDB 에 TPC-H 를
@@ -571,7 +571,7 @@ do
     grep -rl &amp;quot;=item $i&amp;quot; * | xargs sed -i &amp;quot;s/=item $i/=item C&amp;lt;$i&amp;gt;/g&amp;quot;
 done
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;이어서 설명할 문제들과 해결책도 해당 링크를 참고한 것임을 밝혀둡니다.&lt;/p&gt;
-&lt;h2 id=&#34;mbstatet-conflict&#34;&gt;&lt;code&gt;__mbstate_t&lt;/code&gt; Conflict&lt;/h2&gt;
+&lt;h2 id=&#34;__mbstate_t-conflict&#34;&gt;&lt;code&gt;__mbstate_t&lt;/code&gt; Conflict&lt;/h2&gt;
 &lt;p&gt;앞의 에러 메세지는 사라지지만 이제 다음과 같은 에러 메세지가 나올 겁니다:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;/usr/include/wchar.h:94:3: error: conflicting types for ‘__mbstate_t’
  } __mbstate_t;
@@ -613,7 +613,7 @@ index fa1b0f0f26d9..bd7e6a97f4c8 100644
 +#endif /* Skip conflicting __mbstate_t definition */
 
  #endif /* !_BSD_SYS__TYPES_H_ */
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;pkgconfig-package-not-found&#34;&gt;pkg-config Package Not Found&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;pkg-config-package-not-found&#34;&gt;pkg-config Package Not Found&lt;/h2&gt;
 &lt;p&gt;성공적인 빌드를 위해선 당연하지만 PARSEC 3.0 이 의존성을 가진 패키지가 모두
 설치되어 있어야 합니다.  이를 주의 깊게 미리 설치해 두지 않았다면 다음과 같은
 에러 메세지를 만날 수도 있습니다:&lt;/p&gt;
@@ -659,7 +659,7 @@ benchmark 하나만을 쓰레드 한개 써서 &lt;code&gt;native&lt;/code&gt; �
 &lt;h1 id=&#34;references&#34;&gt;References&lt;/h1&gt;
 &lt;p&gt;[1] &lt;a href=&#34;http://parsec.cs.princeton.edu&#34;&gt;http://parsec.cs.princeton.edu&lt;/a&gt;&lt;br&gt;
 [2] &lt;a href=&#34;https://en.wikipedia.org/wiki/Plain_Old_Documentation&#34;&gt;https://en.wikipedia.org/wiki/Plain_Old_Documentation&lt;/a&gt;&lt;br&gt;
-[3] &lt;a href=&#34;https://groups.google.com/forum/#&#34;&gt;https://groups.google.com/forum/#&lt;/a&gt;!topic/snipersim/_1qpbmpPRtg&lt;/p&gt;
+[3] &lt;a href=&#34;https://groups.google.com/forum/#!topic/snipersim/_1qpbmpPRtg&#34;&gt;https://groups.google.com/forum/#!topic/snipersim/_1qpbmpPRtg&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -679,14 +679,14 @@ benchmark 하나만을 쓰레드 한개 써서 &lt;code&gt;native&lt;/code&gt; �
 수행이 가능하도록 스크립트를 짜서 Github 에 올려뒀습니다[1].  시간이 없는
 분들은 이쪽을 사용 바랍니다.&lt;/p&gt;
 &lt;p&gt;[1] &lt;a href=&#34;https://github.com/sjp38/spec_on_ubuntu_xenial&#34;&gt;https://github.com/sjp38/spec_on_ubuntu_xenial&lt;/a&gt;&lt;/p&gt;
-&lt;h1 id=&#34;-&#34;&gt;설치 환경&lt;/h1&gt;
+&lt;h1 id=&#34;설치-환경&#34;&gt;설치 환경&lt;/h1&gt;
 &lt;p&gt;본 글에서 설명하는 내용은 다음과 같은 환경의 머신 위에서 수행되었습니다:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Intel Xeon E7-8870 v3&lt;/li&gt;
 &lt;li&gt;Linux 4.10 kernel&lt;/li&gt;
 &lt;li&gt;Ubuntu 16.04.1 Server version&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1 id=&#34;--&#34;&gt;소스 코드 구하기&lt;/h1&gt;
+&lt;h1 id=&#34;소스-코드-구하기&#34;&gt;소스 코드 구하기&lt;/h1&gt;
 &lt;p&gt;먼저 소스 코드가 있어야겠죠.  SPEC CPU 2006 은 DVD 또는 &lt;code&gt;.iso&lt;/code&gt; 파일의 형태로
 구매 [2] 될 수 있습니다 (작성 시점에서 SPEC CPU 2006 v1.2 의 가격은 $800 군요).
 이렇게 구매된 DVD 안에는 벤치마크 소스코드와 벤치마크의 컴파일과 수행, 검증을
@@ -707,7 +707,7 @@ $ sudo umount ./tmnt &amp;amp;&amp;amp; rm -fr ./tmnt
 $ sudo chown -R &amp;lt;username&amp;gt; SPEC_CPU2006v1.1
 $ sudo chmod -R 755 SPEC_CPU2006v1.1
 $ cd SPEC_CPU2006v1.1
-&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;-1&#34;&gt;툴 빌드&lt;/h1&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;툴-빌드&#34;&gt;툴 빌드&lt;/h1&gt;
 &lt;p&gt;SPEC 에서 사용되는 도구들은 앞서 가져온 &lt;code&gt;.iso&lt;/code&gt; 파일 안에 redhat, suse 등 여러
 플랫폼 용으로 미리 빌드되어 있습니다.  하지만 Ubuntu 를 위한 버전은 없습니다.
 따라서 다음과 같이 소스코드로부터 직접 빌드를 해야 합니다:&lt;/p&gt;
@@ -757,7 +757,7 @@ pp.c:(.text+0x2a76): undefined reference to `pow&#39;
 알려줘야 합니다.  다음과 같이 &lt;code&gt;PERLFLAGS&lt;/code&gt; 환경변수를 설정하고 &lt;code&gt;buildtools&lt;/code&gt; 를
 실행하는 것으로 해결할 수 있습니다:&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;$ PERLFLAGS=&amp;quot;-A libs=-lm -A libs=-ldl&amp;quot; ./buildtools&lt;/code&gt;&lt;/p&gt;
-&lt;h2 id=&#34;you-havent-done-a-make-depend-yet&#34;&gt;You haven&#39;t done a &amp;ldquo;make depend&amp;rdquo; yet!&lt;/h2&gt;
+&lt;h2 id=&#34;you-havent-done-a-make-depend-yet&#34;&gt;You haven&amp;rsquo;t done a &amp;ldquo;make depend&amp;rdquo; yet!&lt;/h2&gt;
 &lt;p&gt;이어서 다음 에러 메세지가 나옵니다.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;You haven&#39;t done a &amp;quot;make depend&amp;quot; yet!
 make[1]: *** [hash.o] Error 1
@@ -819,7 +819,7 @@ Hey!  Some of the Perl tests failed!  If you think this is okay, enter y now:
 &lt;pre&gt;&lt;code&gt;Tools built successfully.  Go to the top of the tree and
 source the shrc file.  Then you should be ready.
 $
-&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;heading&#34;&gt;실행&lt;/h1&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;실행&#34;&gt;실행&lt;/h1&gt;
 &lt;h2 id=&#34;configuration-file&#34;&gt;Configuration File&lt;/h2&gt;
 &lt;p&gt;빌드가 완료되었다면 이제 실행을 해야겠죠.  벤치마크의 실행 환경을 구성해야
 하는데, config/ 디렉토리 밑에 예제 구성 파일들이 있습니다.  이 가운데,

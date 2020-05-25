@@ -641,7 +641,7 @@ NUMA 아키텍쳐에서 리눅스 커널은 NUMA 노드당 하나의 kswapd 쓰�
 <p>릴리즈 마지막 주 치고는 네트워킹 쪽에 조금 변경사항이 있었습니다만, 큰 문제가
 될 정도는 아니었습니다.  결과, 4.16이 드디어 릴리즈 되었습니다!  동시에 4.17
 머지 윈도우가 시작되는군요.</p>
-<h2 id="patch-02-move-kfreercu-out-of-rcu-code-and-use-kfreebulk">[PATCH 0/2] Move kfree_rcu out of rcu code and use kfree_bulk</h2>
+<h2 id="patch-02-move-kfree_rcu-out-of-rcu-code-and-use-kfree_bulk">[PATCH 0/2] Move kfree_rcu out of rcu code and use kfree_bulk</h2>
 <p><a href="https://lkml.kernel.org/r/1522647064-27167-1-git-send-email-rao.shoaib@oracle.com">https://lkml.kernel.org/r/1522647064-27167-1-git-send-email-rao.shoaib@oracle.com</a></p>
 <p>kfree_rcu() 대신 kfree_bulk() 라는 새로 만들어진, 더 효율적인 기능을 사용하도록
 하는 패치입니다.</p>
@@ -657,7 +657,7 @@ NUMA 아키텍쳐에서 리눅스 커널은 NUMA 노드당 하나의 kswapd 쓰�
 되어있고, 페이지가 어떤 목적으로 쓰이느냐에 따라 같은 필드가 다른 목적으로
 쓰이기도 합니다.
 이 RFC 패치는 이 혼란스러운 구조를 좀 개선해 보려는 시도를 담고 있습니다.</p>
-<h2 id="patch-12-slab-gfpzero-is-incompatible-with-a-constructor">[PATCH 1/2] slab: <code>__GFP_ZERO</code> is incompatible with a constructor</h2>
+<h2 id="patch-12-slab-__gfp_zero-is-incompatible-with-a-constructor">[PATCH 1/2] slab: <code>__GFP_ZERO</code> is incompatible with a constructor</h2>
 <p><a href="https://lkml.kernel.org/r/20180410125351.15837-1-willy@infradead.org">https://lkml.kernel.org/r/20180410125351.15837-1-willy@infradead.org</a></p>
 <p>시작은 김민찬 님의 null pointer dereference 문제에 대한 수정을 담은
 패치셋이었습니다

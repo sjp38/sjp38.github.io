@@ -632,7 +632,7 @@ Alpha 에만 의존적인 메모리 모델 요소인 smp_read_barrier_depends() 
   <div class="article-container">
 
     <div class="article-style">
-      <h2 id="patch-0013-finish-off-smpreadbarrierdepends"><code>[PATCH 00/13] Finish off [smp_]read_barrier_depends()</code></h2>
+      <h2 id="patch-0013-finish-off-smp_read_barrier_depends"><code>[PATCH 00/13] Finish off [smp_]read_barrier_depends()</code></h2>
 <p><a href="https://lkml.kernel.org/r/20191108170120.22331-1-will@kernel.org">https://lkml.kernel.org/r/20191108170120.22331-1-will@kernel.org</a></p>
 <p>Alpha 에만 의존적인 메모리 모델 요소인 <code>smp_read_barrier_depends()</code> 는
 <code>READ_ONCE()</code> 에 내장됨으로써 Alpha-specific 하지 않은 커널 코드에서는 Alpha 를
@@ -645,7 +645,7 @@ Alpha 에만 의존적인 메모리 모델 요소인 smp_read_barrier_depends() 
 <p>구글의 동시성 버그를 잡아주는 KCSAN 패치입니다.  이번 버전은 x86 만을 위한
 버전이지만 조만간 ARM64 와 POWER 지원을 추가할 예정이라는군요.  이번 네번째
 버전은 이전 버전에 비해 성능이 33% 향상되었다고 합니다.</p>
-<h2 id="linux-54rc8">Linux 5.4-rc8</h2>
+<h2 id="linux-54-rc8">Linux 5.4-rc8</h2>
 <p><a href="https://lkml.kernel.org/r/CAHk-=wiyR4Np_n5O6=rbf1GVNdr_zUd1WAC_GJDnc_hUhHqwWg@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wiyR4Np_n5O6=rbf1GVNdr_zUd1WAC_GJDnc_hUhHqwWg@mail.gmail.com</a></p>
 <p>정식버전이 나올지 rc8 이 나올지 나름 두근두근한 일주일이었는데, 결국 rc8 이
 나왔습니다.  하지만 딱히 문제가 있었던 건 아니라는군요.  떠들썩했던 인텔 취약점

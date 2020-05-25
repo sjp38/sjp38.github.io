@@ -30,24 +30,24 @@ a 프로젝트에 &amp;lsquo;b&amp;rsquo; 디렉토리를 만들고 그 아래 �
 리포지토리의 하위 디렉토리로 옮기는 법을 설명합니다.&lt;/p&gt;
 &lt;p&gt;[1] &lt;a href=&#34;https://github.com/aparri/memory-model&#34;&gt;https://github.com/aparri/memory-model&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;[2] &lt;a href=&#34;https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/tools/memory-model&#34;&gt;https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/tools/memory-model&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;--&#34;&gt;초기 상황과 목표&lt;/h2&gt;
+&lt;h2 id=&#34;초기-상황과-목표&#34;&gt;초기 상황과 목표&lt;/h2&gt;
 &lt;p&gt;먼저 현재 디렉토리 아래에 a 리포지토리와 b 리포지토리가 있다고 가정합니다:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ ls
 a   b
 $
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;우리는 a 리포지토리 아래 b/ 디렉토리를 만들고 그 아래 b 리포지토리를 넣고
 싶습니다.&lt;/p&gt;
-&lt;h2 id=&#34;heading&#34;&gt;전략&lt;/h2&gt;
+&lt;h2 id=&#34;전략&#34;&gt;전략&lt;/h2&gt;
 &lt;p&gt;b 리포지토리가 b/ 디렉토리 아래 모든 파일을 위치하도록 변경한 후, 이
 리포지토리를 a 리포지토리에서 &lt;code&gt;--allow-unrelated-histories&lt;/code&gt; 옵션을 사용해
 머지하도록 하겠습니다.&lt;/p&gt;
-&lt;h2 id=&#34;----&#34;&gt;합쳐질 리포지토리 파일 구조 변경&lt;/h2&gt;
+&lt;h2 id=&#34;합쳐질-리포지토리-파일-구조-변경&#34;&gt;합쳐질 리포지토리 파일 구조 변경&lt;/h2&gt;
 &lt;p&gt;먼저 b 리포지토리의 파일들이 b/ 디렉토리 아래 위치하도록 만듭니다:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ cd b
 $ mkdir b
 $ git mv !(b) b
 $ git commit -a -m &amp;quot;Relocate files for inclusion&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;-&#34;&gt;리포지토리 병합&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;리포지토리-병합&#34;&gt;리포지토리 병합&lt;/h2&gt;
 &lt;p&gt;이제 b 리포지토리를 임시 remote 리포지토리로 등록하고 머지합니다:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ cd ../a
 $ git remote add temp ../b
@@ -57,7 +57,7 @@ $ git merge --allow-unrelated-histories temp/master
 있게 해줍니다.&lt;/p&gt;
 &lt;p&gt;임시로 등록한 remote 리포지토리는 지워줍시다:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ git remote rm temp
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;heading1&#34;&gt;정리&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;정리&#34;&gt;정리&lt;/h2&gt;
 &lt;p&gt;이상과 같이 기존의 개발 히스토리를 유지하면서 특정 git 리포지토리를 다른 git
 리포지토리의 하위 디렉토리로 병합하는 방법을 알아보았습니다.&lt;/p&gt;
 </description>
@@ -185,7 +185,7 @@ index ccf4a72477c0..c8c0cd786522 100755
 변경부터 빌드, 수행까지 정리한 스크립트들을 github 에 올려 두었습니다:
 &lt;a href=&#34;https://github.com/sjp38/tpch-mariadb&#34;&gt;https://github.com/sjp38/tpch-mariadb&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;시간이 없다면 해당 스크립트를 사용하실 것을 권장합니다.&lt;/p&gt;
-&lt;h1 id=&#34;tpch-spec&#34;&gt;TPC-H Spec&lt;/h1&gt;
+&lt;h1 id=&#34;tpc-h-spec&#34;&gt;TPC-H Spec&lt;/h1&gt;
 &lt;p&gt;TPC-H 벤치마크 스펙은 TPC 웹사이트에서 얻을 수 있습니다[3].  하지만 여기서는
 간단히 설명을 해봅니다.  간단한 설명인 만큼 내용이 엄밀히 말해서 맞다고 할수는
 없으므로 엄밀한 내용은 정식 스펙 또는 다른 문서를 확인해 보시기 바랍니다.
@@ -194,7 +194,7 @@ TPC-H 는 8개의 테이블에 많은 데이터를 쌓아놓고, 이 데이터�
 데이터를 로드하는데 걸리는 시간, 22개의 쿼리 각각의 수행 시간, 그리고 여러
 세션을 열어놓고 22개 쿼리를 각 세션에서 수행하면서 파악되는 처리량 (초당 처리된
 쿼리의 갯수)으로 측정됩니다.&lt;/p&gt;
-&lt;h1 id=&#34;get-tpch-toolkit&#34;&gt;Get TPC-H Toolkit&lt;/h1&gt;
+&lt;h1 id=&#34;get-tpc-h-toolkit&#34;&gt;Get TPC-H Toolkit&lt;/h1&gt;
 &lt;p&gt;TPC-H 라는 이름으로 벤치마크를 행하려면 테이블을 어떻게 만들고 거기에 데이터는
 어떻게 넣어야 하며, 쿼리는 어떤 것들로 이루어져야 하는지에 대한 명세서를 TPC
 에서 제공합니다.  이를 바탕으로 각자 TPC-H 를 구성해서 돌릴 수 있습니다.
@@ -249,7 +249,7 @@ $ file dbgen
 dbgen: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 2.6.32, BuildID[sha1]=d0bca1a18c33947d85f5943c8325837faec7c95d, not stripped
 $ file qgen
 qgen: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 2.6.32, BuildID[sha1]=79a6216e04c446715b0e55f9c804586887b698c8, not stripped
-&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;tpch-toolkit-usage&#34;&gt;TPC-H Toolkit Usage&lt;/h1&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;tpc-h-toolkit-usage&#34;&gt;TPC-H Toolkit Usage&lt;/h1&gt;
 &lt;p&gt;MariaDB 에 TPC-H 를 돌리기 위해선 여기서 몇가지 추가 수정을 해야합니다.  하지만
 그에 앞서 &lt;code&gt;dbgen/&lt;/code&gt; 디렉토리 내의 파일들을 어떻게 사용해서 TPC-H 를 수행하는지
 알아봅시다.&lt;/p&gt;
@@ -273,7 +273,7 @@ qgen: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked, i
 생성되어야 하는 22 종류 쿼리의 템플릿을 담고 있습니다.  qgen 은 이 템플릿을
 참고하고 랜덤하게 인자를 생성해 최종적으로 DB 에서 수행될 수 있는 쿼리문을
 생성합니다.  이 때 랜덤 시드는 dists.dss 라는 파일을 참고해 만들어집니다.&lt;/p&gt;
-&lt;h1 id=&#34;modify-tpch-toolkit-for-mariadb&#34;&gt;Modify TPC-H Toolkit for MariaDB&lt;/h1&gt;
+&lt;h1 id=&#34;modify-tpc-h-toolkit-for-mariadb&#34;&gt;Modify TPC-H Toolkit for MariaDB&lt;/h1&gt;
 &lt;p&gt;DBMS 마다 query syntax 가 조금씩 다릅니다.  때문에 TPC-H Toolkit 은 지원하는
 DBMS 마다 다르게 테이블 생성, 쿼리 생성을 하도록 짜여져 있습니다만, 지원하는
 DBMS 목록에 MariaDB 는 포함되어 있지 않습니다.  따라서 MariaDB 에 TPC-H 를
@@ -711,7 +711,7 @@ do
     grep -rl &amp;quot;=item $i&amp;quot; * | xargs sed -i &amp;quot;s/=item $i/=item C&amp;lt;$i&amp;gt;/g&amp;quot;
 done
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;이어서 설명할 문제들과 해결책도 해당 링크를 참고한 것임을 밝혀둡니다.&lt;/p&gt;
-&lt;h2 id=&#34;mbstatet-conflict&#34;&gt;&lt;code&gt;__mbstate_t&lt;/code&gt; Conflict&lt;/h2&gt;
+&lt;h2 id=&#34;__mbstate_t-conflict&#34;&gt;&lt;code&gt;__mbstate_t&lt;/code&gt; Conflict&lt;/h2&gt;
 &lt;p&gt;앞의 에러 메세지는 사라지지만 이제 다음과 같은 에러 메세지가 나올 겁니다:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;/usr/include/wchar.h:94:3: error: conflicting types for ‘__mbstate_t’
  } __mbstate_t;
@@ -753,7 +753,7 @@ index fa1b0f0f26d9..bd7e6a97f4c8 100644
 +#endif /* Skip conflicting __mbstate_t definition */
 
  #endif /* !_BSD_SYS__TYPES_H_ */
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;pkgconfig-package-not-found&#34;&gt;pkg-config Package Not Found&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;pkg-config-package-not-found&#34;&gt;pkg-config Package Not Found&lt;/h2&gt;
 &lt;p&gt;성공적인 빌드를 위해선 당연하지만 PARSEC 3.0 이 의존성을 가진 패키지가 모두
 설치되어 있어야 합니다.  이를 주의 깊게 미리 설치해 두지 않았다면 다음과 같은
 에러 메세지를 만날 수도 있습니다:&lt;/p&gt;
@@ -799,7 +799,7 @@ benchmark 하나만을 쓰레드 한개 써서 &lt;code&gt;native&lt;/code&gt; �
 &lt;h1 id=&#34;references&#34;&gt;References&lt;/h1&gt;
 &lt;p&gt;[1] &lt;a href=&#34;http://parsec.cs.princeton.edu&#34;&gt;http://parsec.cs.princeton.edu&lt;/a&gt;&lt;br&gt;
 [2] &lt;a href=&#34;https://en.wikipedia.org/wiki/Plain_Old_Documentation&#34;&gt;https://en.wikipedia.org/wiki/Plain_Old_Documentation&lt;/a&gt;&lt;br&gt;
-[3] &lt;a href=&#34;https://groups.google.com/forum/#&#34;&gt;https://groups.google.com/forum/#&lt;/a&gt;!topic/snipersim/_1qpbmpPRtg&lt;/p&gt;
+[3] &lt;a href=&#34;https://groups.google.com/forum/#!topic/snipersim/_1qpbmpPRtg&#34;&gt;https://groups.google.com/forum/#!topic/snipersim/_1qpbmpPRtg&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -834,14 +834,14 @@ xclip 을 사용해서 해결할 수도 있다:&lt;/p&gt;
 수행이 가능하도록 스크립트를 짜서 Github 에 올려뒀습니다[1].  시간이 없는
 분들은 이쪽을 사용 바랍니다.&lt;/p&gt;
 &lt;p&gt;[1] &lt;a href=&#34;https://github.com/sjp38/spec_on_ubuntu_xenial&#34;&gt;https://github.com/sjp38/spec_on_ubuntu_xenial&lt;/a&gt;&lt;/p&gt;
-&lt;h1 id=&#34;-&#34;&gt;설치 환경&lt;/h1&gt;
+&lt;h1 id=&#34;설치-환경&#34;&gt;설치 환경&lt;/h1&gt;
 &lt;p&gt;본 글에서 설명하는 내용은 다음과 같은 환경의 머신 위에서 수행되었습니다:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Intel Xeon E7-8870 v3&lt;/li&gt;
 &lt;li&gt;Linux 4.10 kernel&lt;/li&gt;
 &lt;li&gt;Ubuntu 16.04.1 Server version&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1 id=&#34;--&#34;&gt;소스 코드 구하기&lt;/h1&gt;
+&lt;h1 id=&#34;소스-코드-구하기&#34;&gt;소스 코드 구하기&lt;/h1&gt;
 &lt;p&gt;먼저 소스 코드가 있어야겠죠.  SPEC CPU 2006 은 DVD 또는 &lt;code&gt;.iso&lt;/code&gt; 파일의 형태로
 구매 [2] 될 수 있습니다 (작성 시점에서 SPEC CPU 2006 v1.2 의 가격은 $800 군요).
 이렇게 구매된 DVD 안에는 벤치마크 소스코드와 벤치마크의 컴파일과 수행, 검증을
@@ -862,7 +862,7 @@ $ sudo umount ./tmnt &amp;amp;&amp;amp; rm -fr ./tmnt
 $ sudo chown -R &amp;lt;username&amp;gt; SPEC_CPU2006v1.1
 $ sudo chmod -R 755 SPEC_CPU2006v1.1
 $ cd SPEC_CPU2006v1.1
-&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;-1&#34;&gt;툴 빌드&lt;/h1&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;툴-빌드&#34;&gt;툴 빌드&lt;/h1&gt;
 &lt;p&gt;SPEC 에서 사용되는 도구들은 앞서 가져온 &lt;code&gt;.iso&lt;/code&gt; 파일 안에 redhat, suse 등 여러
 플랫폼 용으로 미리 빌드되어 있습니다.  하지만 Ubuntu 를 위한 버전은 없습니다.
 따라서 다음과 같이 소스코드로부터 직접 빌드를 해야 합니다:&lt;/p&gt;
@@ -912,7 +912,7 @@ pp.c:(.text+0x2a76): undefined reference to `pow&#39;
 알려줘야 합니다.  다음과 같이 &lt;code&gt;PERLFLAGS&lt;/code&gt; 환경변수를 설정하고 &lt;code&gt;buildtools&lt;/code&gt; 를
 실행하는 것으로 해결할 수 있습니다:&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;$ PERLFLAGS=&amp;quot;-A libs=-lm -A libs=-ldl&amp;quot; ./buildtools&lt;/code&gt;&lt;/p&gt;
-&lt;h2 id=&#34;you-havent-done-a-make-depend-yet&#34;&gt;You haven&#39;t done a &amp;ldquo;make depend&amp;rdquo; yet!&lt;/h2&gt;
+&lt;h2 id=&#34;you-havent-done-a-make-depend-yet&#34;&gt;You haven&amp;rsquo;t done a &amp;ldquo;make depend&amp;rdquo; yet!&lt;/h2&gt;
 &lt;p&gt;이어서 다음 에러 메세지가 나옵니다.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;You haven&#39;t done a &amp;quot;make depend&amp;quot; yet!
 make[1]: *** [hash.o] Error 1
@@ -974,7 +974,7 @@ Hey!  Some of the Perl tests failed!  If you think this is okay, enter y now:
 &lt;pre&gt;&lt;code&gt;Tools built successfully.  Go to the top of the tree and
 source the shrc file.  Then you should be ready.
 $
-&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;heading&#34;&gt;실행&lt;/h1&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;실행&#34;&gt;실행&lt;/h1&gt;
 &lt;h2 id=&#34;configuration-file&#34;&gt;Configuration File&lt;/h2&gt;
 &lt;p&gt;빌드가 완료되었다면 이제 실행을 해야겠죠.  벤치마크의 실행 환경을 구성해야
 하는데, config/ 디렉토리 밑에 예제 구성 파일들이 있습니다.  이 가운데,
