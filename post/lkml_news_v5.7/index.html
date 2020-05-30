@@ -29,7 +29,10 @@
     
   
   <meta name="description" content="[PATCH v2 00/16] Introduce kvfree_rcu(1 or 2 arguments) (Uladzislau Rezki) https://lkml.kernel.org/r/20200525214800.93072-1-urezki@gmail.com
-This is the second version of the rcu-protected kvfree().">
+This is the second version of the rcu-protected kvfree().
+[PATCH v2 0/7] Add histogram measuring mmap_lock contention latency (Axel Rasmussen) https://lkml.kernel.org/r/20200528235238.74233-1-axelrasmussen@google.com
+For further analysis of the mmap_sem overhead from both kernel space and user space, this commit adds the latency historgram for mmap_sem acquisition time. Actually, mmap_sem is now renamed into mmap_lock, thanks to Michel&rsquo;s patch.
+[PATCH -V4] swap: Reduce lock contention on swap cache from swap slots allocation (Huang, Ying) https://lkml.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/lkml_news_v5.7/">
@@ -152,7 +155,10 @@ This is the second version of the rcu-protected kvfree().">
   <meta property="og:url" content="/post/lkml_news_v5.7/">
   <meta property="og:title" content="LKML News v5.7 | hacklog">
   <meta property="og:description" content="[PATCH v2 00/16] Introduce kvfree_rcu(1 or 2 arguments) (Uladzislau Rezki) https://lkml.kernel.org/r/20200525214800.93072-1-urezki@gmail.com
-This is the second version of the rcu-protected kvfree()."><meta property="og:image" content="/img/tux.png">
+This is the second version of the rcu-protected kvfree().
+[PATCH v2 0/7] Add histogram measuring mmap_lock contention latency (Axel Rasmussen) https://lkml.kernel.org/r/20200528235238.74233-1-axelrasmussen@google.com
+For further analysis of the mmap_sem overhead from both kernel space and user space, this commit adds the latency historgram for mmap_sem acquisition time. Actually, mmap_sem is now renamed into mmap_lock, thanks to Michel&rsquo;s patch.
+[PATCH -V4] swap: Reduce lock contention on swap cache from swap slots allocation (Huang, Ying) https://lkml."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -204,7 +210,7 @@ This is the second version of the rcu-protected kvfree()."><meta property="og:im
       "url": "/img/icon-512.png"
     }
   },
-  "description": "[PATCH v2 00/16] Introduce kvfree_rcu(1 or 2 arguments) (Uladzislau Rezki) https://lkml.kernel.org/r/20200525214800.93072-1-urezki@gmail.com\nThis is the second version of the rcu-protected kvfree()."
+  "description": "[PATCH v2 00/16] Introduce kvfree_rcu(1 or 2 arguments) (Uladzislau Rezki) https://lkml.kernel.org/r/20200525214800.93072-1-urezki@gmail.com\nThis is the second version of the rcu-protected kvfree().\n[PATCH v2 0/7] Add histogram measuring mmap_lock contention latency (Axel Rasmussen) https://lkml.kernel.org/r/20200528235238.74233-1-axelrasmussen@google.com\nFor further analysis of the mmap_sem overhead from both kernel space and user space, this commit adds the latency historgram for mmap_sem acquisition time. Actually, mmap_sem is now renamed into mmap_lock, thanks to Michel\u0026rsquo;s patch.\n[PATCH -V4] swap: Reduce lock contention on swap cache from swap slots allocation (Huang, Ying) https://lkml."
 }
 </script>
 
@@ -613,6 +619,21 @@ This is the second version of the rcu-protected kvfree()."><meta property="og:im
       <h2 id="patch-v2-0016-introduce-kvfree_rcu1-or-2-arguments-uladzislau-rezki">[PATCH v2 00/16] Introduce kvfree_rcu(1 or 2 arguments) (Uladzislau Rezki)</h2>
 <p><a href="https://lkml.kernel.org/r/20200525214800.93072-1-urezki@gmail.com">https://lkml.kernel.org/r/20200525214800.93072-1-urezki@gmail.com</a></p>
 <p>This is the second version of the rcu-protected <code>kvfree()</code>.</p>
+<h2 id="patch-v2-07-add-histogram-measuring-mmap_lock-contention-latency-axel-rasmussen">[PATCH v2 0/7] Add histogram measuring mmap_lock contention latency (Axel Rasmussen)</h2>
+<p><a href="https://lkml.kernel.org/r/20200528235238.74233-1-axelrasmussen@google.com">https://lkml.kernel.org/r/20200528235238.74233-1-axelrasmussen@google.com</a></p>
+<p>For further analysis of the <code>mmap_sem</code> overhead from both kernel space and
+user space, this commit adds the latency historgram for <code>mmap_sem</code>
+acquisition time.  Actually, <code>mmap_sem</code> is now renamed into <code>mmap_lock</code>,
+thanks to Michel&rsquo;s patch.</p>
+<h2 id="patch--v4-swap-reduce-lock-contention-on-swap-cache-from-swap-slots-allocation-huang-ying">[PATCH -V4] swap: Reduce lock contention on swap cache from swap slots allocation (Huang, Ying)</h2>
+<p><a href="https://lkml.kernel.org/r/20200529010840.928819-1-ying.huang@intel.com">https://lkml.kernel.org/r/20200529010840.928819-1-ying.huang@intel.com</a></p>
+<p>Fourth version of the swap slot allocation locking contention reduction patch.
+Previous version was also introduced in my previous posting.</p>
+<h2 id="patch-v5-0039-large-pages-in-the-page-cache-matthew-wilcox">[PATCH v5 00/39] Large pages in the page cache (Matthew Wilcox)</h2>
+<p><a href="https://lkml.kernel.org/r/20200529025824.32296-1-willy@infradead.org">https://lkml.kernel.org/r/20200529025824.32296-1-willy@infradead.org</a></p>
+<p>Fifth version of the page cache large pages work.  The previous version was
+also introduced in my previous posting.  It passes a little more test cases in
+xfstests than v4 did, but seems it still not entirely passes.</p>
 
     </div>
 

@@ -20,6 +20,21 @@
       <description>&lt;h2 id=&#34;patch-v2-0016-introduce-kvfree_rcu1-or-2-arguments-uladzislau-rezki&#34;&gt;[PATCH v2 00/16] Introduce kvfree_rcu(1 or 2 arguments) (Uladzislau Rezki)&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20200525214800.93072-1-urezki@gmail.com&#34;&gt;https://lkml.kernel.org/r/20200525214800.93072-1-urezki@gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;This is the second version of the rcu-protected &lt;code&gt;kvfree()&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;patch-v2-07-add-histogram-measuring-mmap_lock-contention-latency-axel-rasmussen&#34;&gt;[PATCH v2 0/7] Add histogram measuring mmap_lock contention latency (Axel Rasmussen)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20200528235238.74233-1-axelrasmussen@google.com&#34;&gt;https://lkml.kernel.org/r/20200528235238.74233-1-axelrasmussen@google.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;For further analysis of the &lt;code&gt;mmap_sem&lt;/code&gt; overhead from both kernel space and
+user space, this commit adds the latency historgram for &lt;code&gt;mmap_sem&lt;/code&gt;
+acquisition time.  Actually, &lt;code&gt;mmap_sem&lt;/code&gt; is now renamed into &lt;code&gt;mmap_lock&lt;/code&gt;,
+thanks to Michel&amp;rsquo;s patch.&lt;/p&gt;
+&lt;h2 id=&#34;patch--v4-swap-reduce-lock-contention-on-swap-cache-from-swap-slots-allocation-huang-ying&#34;&gt;[PATCH -V4] swap: Reduce lock contention on swap cache from swap slots allocation (Huang, Ying)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20200529010840.928819-1-ying.huang@intel.com&#34;&gt;https://lkml.kernel.org/r/20200529010840.928819-1-ying.huang@intel.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Fourth version of the swap slot allocation locking contention reduction patch.
+Previous version was also introduced in my previous posting.&lt;/p&gt;
+&lt;h2 id=&#34;patch-v5-0039-large-pages-in-the-page-cache-matthew-wilcox&#34;&gt;[PATCH v5 00/39] Large pages in the page cache (Matthew Wilcox)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20200529025824.32296-1-willy@infradead.org&#34;&gt;https://lkml.kernel.org/r/20200529025824.32296-1-willy@infradead.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Fifth version of the page cache large pages work.  The previous version was
+also introduced in my previous posting.  It passes a little more test cases in
+xfstests than v4 did, but seems it still not entirely passes.&lt;/p&gt;
 </description>
     </item>
     
