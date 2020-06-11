@@ -578,7 +578,7 @@ MM-side pull request. It contains the &ldquo;mmap locking API: initial implement
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -636,6 +636,22 @@ the <code>mmap_sem</code>.</p>
 <p>The 4th kernel summit talk proposal.  Jonathan says the conversion of the
 kernel doc to RST is almost done, and he wants to discuss about the next step
 in the kernel summit.</p>
+<h2 id="rfc-v6-0051-large-pages-in-the-page-cache-matthew-wilcox">[RFC v6 00/51] Large pages in the page cache (Matthew Wilcox)</h2>
+<p><a href="https://lkml.kernel.org/r/20200610201345.13273-1-willy@infradead.org">https://lkml.kernel.org/r/20200610201345.13273-1-willy@infradead.org</a></p>
+<p>Yet another version of the patchset.  More bugs are fixed and therefore more of
+xfstests passes, though not complete.</p>
+<h2 id="patch-v2-scriptsspelling-recommend-blocklistallowlist-instead-of-blacklistwhitelist-seongjae-park">[PATCH v2] scripts/spelling: Recommend blocklist/allowlist instead of blacklist/whitelist (SeongJae Park)</h2>
+<p><a href="https://lore.kernel.org/lkml/20200609122549.26304-1-sjpark@amazon.com/">https://lore.kernel.org/lkml/20200609122549.26304-1-sjpark@amazon.com/</a></p>
+<p>This patchset adds blacklist/whitelist in the spelling typo file of the kernel
+so that every patches using the term could get warnings.  The patch merged in
+the <code>-mm</code> tree immediately, but dropped again[1] as the maintainer of the
+``checkpatch.pl` required a revisement.</p>
+<p>[1] <a href="https://marc.info/?l=linux-mm-commits&amp;m=159182303424009&amp;w=2">https://marc.info/?l=linux-mm-commits&amp;m=159182303424009&amp;w=2</a></p>
+<h2 id="patch-2425-mm-use-only-pidfd-for-process_madvise-syscall-linus-torvalds">[patch 24/25] mm: use only pidfd for process_madvise syscall (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wgx=-vbxpDqsunkMTqQDD+oqcU9JQeW+MApGQeZD6hr6Q@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wgx=-vbxpDqsunkMTqQDD+oqcU9JQeW+MApGQeZD6hr6Q@mail.gmail.com</a></p>
+<p>The pull request for <code>process_madvise()</code> patchset finally made, but Torvalds
+denied it, due to the inconcrete decision of the signature.  The author of the
+patchset, Minchan, promised he will revise it after this merge window finishes.</p>
 
     </div>
 
