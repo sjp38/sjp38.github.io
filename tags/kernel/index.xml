@@ -30,6 +30,28 @@ the maintainers summit.  Ted asks people to submit until this week.&lt;/p&gt;
 &lt;p&gt;The sixth version of the workingset protection for the LRU&amp;rsquo;s corner case that
 comes in when a scanning of large object is made.  This version reflects new
 LRU balance model and updated the performance evaluation setup.&lt;/p&gt;
+&lt;h2 id=&#34;-scripts-deprecated_terms-recommend-denylist-allowlist-instead-of-blacklist-whitelistpatch-added-to--mm-tree&#34;&gt;&lt;code&gt;+ scripts-deprecated_terms-recommend-denylist-allowlist-instead-of-blacklist-whitelist.patch added to -mm tree&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://marc.info/?l=linux-mm-commits&amp;amp;m=159242954415572&amp;amp;w=2&#34;&gt;https://marc.info/?l=linux-mm-commits&amp;amp;m=159242954415572&amp;amp;w=2&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The patches for stop spreading of the terms, &amp;lsquo;blacklist&amp;rsquo; and &amp;lsquo;whitelist&amp;rsquo;, are
+finally merged in the &amp;lsquo;-mm&amp;rsquo; tree.&lt;/p&gt;
+&lt;p&gt;The second version of the patchset[1] was merged in there before, but the
+maintainer of the &amp;lsquo;checkpatch.pl&amp;rsquo; complained about use of &amp;lsquo;spelling.txt&amp;rsquo;.
+Therefore the author asked &amp;lsquo;-mm&amp;rsquo; tree maintainer, Andrew, to drop the patch and
+made v3 and v4[2] of the patchset to convince the &amp;lsquo;checkpatch.pl&amp;rsquo; maintainer.
+After some debates, the patchset has introduced by a recent LWN article[3] and
+merged again into the &amp;lsquo;-mm&amp;rsquo; tree.&lt;/p&gt;
+&lt;p&gt;[1] &lt;a href=&#34;https://lore.kernel.org/lkml/20200609122549.26304-1-sjpark@amazon.com/&#34;&gt;https://lore.kernel.org/lkml/20200609122549.26304-1-sjpark@amazon.com/&lt;/a&gt;
+[2] &lt;a href=&#34;https://lore.kernel.org/lkml/20200611062550.20113-1-sjpark@amazon.com/&#34;&gt;https://lore.kernel.org/lkml/20200611062550.20113-1-sjpark@amazon.com/&lt;/a&gt;
+[3] &lt;a href=&#34;https://lwn.net/Articles/823224/&#34;&gt;https://lwn.net/Articles/823224/&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;patch-mm-use-unsigned-types-for-fragmentation-score&#34;&gt;[PATCH] mm: Use unsigned types for fragmentation score&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20200618010319.13159-1-nigupta@nvidia.com&#34;&gt;https://lkml.kernel.org/r/20200618010319.13159-1-nigupta@nvidia.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This commit is for the proactive compaction.  It calculates &lt;code&gt;fragrmen score&lt;/code&gt;
+for the compaction.  This commit simply converts the type for it from &lt;code&gt;int&lt;/code&gt;
+to &lt;code&gt;unsigned int&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;rfc-patch-v3-01-add-rwsem-contended-hook-api-and-mmap_lock-histograms&#34;&gt;[RFC PATCH v3 0/1] Add rwsem &amp;ldquo;contended hook&amp;rdquo; API and mmap_lock histograms&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20200618222225.102337-1-axelrasmussen@google.com&#34;&gt;https://lkml.kernel.org/r/20200618222225.102337-1-axelrasmussen@google.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This patch adds tracepoints for &lt;code&gt;mmap_lock&lt;/code&gt;, to know how badly it is
+contended.&lt;/p&gt;
 </description>
     </item>
     
