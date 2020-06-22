@@ -651,6 +651,20 @@ to <code>unsigned int</code>.</p>
 <p><a href="https://lkml.kernel.org/r/20200618222225.102337-1-axelrasmussen@google.com">https://lkml.kernel.org/r/20200618222225.102337-1-axelrasmussen@google.com</a></p>
 <p>This patch adds tracepoints for <code>mmap_lock</code>, to know how badly it is
 contended.</p>
+<h2 id="linux-58-rc2">Linux 5.8-rc2</h2>
+<p><code>https://lkml.kernel.org/r/CAHk-=whXm00G4DJ-L2XSPS+TFU_-mcL0qgcMVq62mCzuUZsCwQ@mail.gmail.com</code></p>
+<p>Though the 5.8 merge window was biggest merge window of the Linux kernel
+development history, rc2 release is just as usual.  Torvalds says rc2 isn&rsquo;t
+particularly big or scary, and falls right in the normal range.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v4.18-rc3..v5.8-rc2.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2018-06-22 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
 
     </div>
 
