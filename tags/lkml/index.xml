@@ -27,6 +27,24 @@ LSF/MM/BPF, which scheduled but canceled due to the COVID19.&lt;/p&gt;
 &lt;h2 id=&#34;-mm-madvise-introduce-process_madvise-syscall-an-external-memory-hinting-api-fix-2patch-added-to--mm-tree&#34;&gt;&lt;code&gt;+ mm-madvise-introduce-process_madvise-syscall-an-external-memory-hinting-api-fix-2.patch added to -mm tree&lt;/code&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://marc.info/?l=linux-mm-commits&amp;amp;m=159303823314812&amp;amp;w=2&#34;&gt;https://marc.info/?l=linux-mm-commits&amp;amp;m=159303823314812&amp;amp;w=2&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;The &lt;code&gt;process_madvise()&lt;/code&gt; patch has merged in the &lt;code&gt;-mm&lt;/code&gt; tree again.&lt;/p&gt;
+&lt;h2 id=&#34;linux-58-rc3-linus-torvalds&#34;&gt;Linux 5.8-rc3 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=whNe2Gx=kgK6ucK_Bo0xCXh6g7HLQTHacQqsVZ8G1NPpw@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=whNe2Gx=kgK6ucK_Bo0xCXh6g7HLQTHacQqsVZ8G1NPpw@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Unlike the rc2 release, this release is big, as expected by the huge rc1
+release.  Among the 94 releases in last 2 years, this release has 20th biggest
+diff.  Among the 11 -rc3 releases in the last 2 years, it&amp;rsquo;s 4th biggest diff.
+That said, Torvalds says this is just the expected result and there
+is no scary point.  This will not make the rc period by itself.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v4.18-rc4..v5.8-rc3.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
+below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2018-06-29 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And, below is the diffstat of the -rc2 releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v5.8-rc3-only.png&#34; alt=&#34;rc2 release stat&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     

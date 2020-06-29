@@ -628,6 +628,24 @@ LSF/MM/BPF, which scheduled but canceled due to the COVID19.</p>
 <h2 id="-mm-madvise-introduce-process_madvise-syscall-an-external-memory-hinting-api-fix-2patch-added-to--mm-tree"><code>+ mm-madvise-introduce-process_madvise-syscall-an-external-memory-hinting-api-fix-2.patch added to -mm tree</code></h2>
 <p><a href="https://marc.info/?l=linux-mm-commits&amp;m=159303823314812&amp;w=2">https://marc.info/?l=linux-mm-commits&amp;m=159303823314812&amp;w=2</a></p>
 <p>The <code>process_madvise()</code> patch has merged in the <code>-mm</code> tree again.</p>
+<h2 id="linux-58-rc3-linus-torvalds">Linux 5.8-rc3 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=whNe2Gx=kgK6ucK_Bo0xCXh6g7HLQTHacQqsVZ8G1NPpw@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=whNe2Gx=kgK6ucK_Bo0xCXh6g7HLQTHacQqsVZ8G1NPpw@mail.gmail.com</a></p>
+<p>Unlike the rc2 release, this release is big, as expected by the huge rc1
+release.  Among the 94 releases in last 2 years, this release has 20th biggest
+diff.  Among the 11 -rc3 releases in the last 2 years, it&rsquo;s 4th biggest diff.
+That said, Torvalds says this is just the expected result and there
+is no scary point.  This will not make the rc period by itself.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v4.18-rc4..v5.8-rc3.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2018-06-29 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc2 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.8-rc3-only.png" alt="rc2 release stat"></p>
 
     </div>
 
