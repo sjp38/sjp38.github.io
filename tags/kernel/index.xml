@@ -24,7 +24,9 @@ code.&lt;/p&gt;
 &lt;h2 id=&#34;patch-codingstyle-inclusive-terminology-dan-williams&#34;&gt;[PATCH] CodingStyle: Inclusive Terminology (Dan Williams)&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/159389297140.2210796.13590142254668787525.stgit@dwillia2-desk3.amr.corp.intel.com&#34;&gt;https://lkml.kernel.org/r/159389297140.2210796.13590142254668787525.stgit@dwillia2-desk3.amr.corp.intel.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;This patch adds a new document for inclusive term usage in the kernel tree.  It
-suggests to stop using the terms, &amp;lsquo;slave&amp;rsquo; and &amp;lsquo;blacklist&amp;rsquo; anymore.&lt;/p&gt;
+suggests to stop using the terms, &amp;lsquo;slave&amp;rsquo; and &amp;lsquo;blacklist&amp;rsquo; anymore.  This patch
+was revised two times and the third revision is merged in Torvalds&amp;rsquo; tree by the
+Friday.&lt;/p&gt;
 &lt;h2 id=&#34;patch-v3-mmvmstat-add-events-for-thp-migration-without-split-anshuman-khandual&#34;&gt;[PATCH V3] mm/vmstat: Add events for THP migration without split (Anshuman Khandual)&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/1594080415-27924-1-git-send-email-anshuman.khandual@arm.com&#34;&gt;https://lkml.kernel.org/r/1594080415-27924-1-git-send-email-anshuman.khandual@arm.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;This patch adds three new vmstat events for THP migration without split
@@ -34,6 +36,23 @@ validation.  The events are &lt;code&gt;THP_MIGRATION_(SUCCESS|FAILURE|SPLIT)&lt
 &lt;p&gt;Nick is trying to put LLVM micro conference in the Linux Plumbers Conference.
 In the micro-conference, he wants to have a session for the kernel in-tree Rust
 support.  For this, this mail asks people whether have interest in the topic.&lt;/p&gt;
+&lt;h2 id=&#34;linux-58-rc5-linus-torvalds&#34;&gt;Linux 5.8-rc5 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wgX5+Q_trdMPaaQZmko0Og_eqAYoyMa_8S3ie+1Us6rkw@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wgX5+Q_trdMPaaQZmko0Og_eqAYoyMa_8S3ie+1Us6rkw@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;rc4 was smaller than usual, and Torvalds says rc5 is bigger than usual, though
+not enormous.  Nonetheless, its mainly due to the networking fixes that didn&amp;rsquo;t
+come in rc4, and Torvalds doesn&amp;rsquo;t hear something really scary sound from real
+people.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v4.18-rc5..v5.8-rc4.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
+below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2018-07-13 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And, below is the diffstat of the -rc4 releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v5.8-rc4-only.png&#34; alt=&#34;rc2 release stat&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     
