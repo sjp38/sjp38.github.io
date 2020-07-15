@@ -5,12 +5,29 @@
     <link>/categories/lkml-news/</link>
       <atom:link href="/categories/lkml-news/index.xml" rel="self" type="application/rss+xml" />
     <description>lkml news</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 07 Jul 2020 07:01:31 +0200</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 15 Jul 2020 06:50:00 +0200</lastBuildDate>
     <image>
       <url>/img/tux.png</url>
       <title>lkml news</title>
       <link>/categories/lkml-news/</link>
     </image>
+    
+    <item>
+      <title>LKML News v5.8-rc6</title>
+      <link>/post/lkml_news_v5.8-rc6/</link>
+      <pubDate>Wed, 15 Jul 2020 06:50:00 +0200</pubDate>
+      <guid>/post/lkml_news_v5.8-rc6/</guid>
+      <description>&lt;h2 id=&#34;patch-v3-x86mm-use-max-memory-block-size-on-bare-metal-daniel-jordan&#34;&gt;[PATCH v3] x86/mm: use max memory block size on bare metal (Daniel Jordan)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20200714205450.945834-1-daniel.m.jordan@oracle.com&#34;&gt;https://lkml.kernel.org/r/20200714205450.945834-1-daniel.m.jordan@oracle.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;On x86, smallest supported block size is 128MiB.  This means it needs to create
+16,288 sysfs directories for 2TiB memory system.  This sysfs creation takes
+significant amount of the boot time.  As the memory hotplug is frequenlty used
+for the virtualized systems, this commit makes the kernels that aren&amp;rsquo;t running
+on a hypervisor to use largest block size (2GiB) on big machines.&lt;/p&gt;
+&lt;p&gt;The author says the kernel boot time has been 7% faster after applying this
+patch on the 2TiB memory system.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>LKML News v5.8-rc5</title>

@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2020-07-07T07:01:31&#43;02:00">
+    <meta property="og:updated_time" content="2020-07-15T06:50:00&#43;02:00">
   
 
   
@@ -525,6 +525,16 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.8-rc6/">LKML News v5.8-rc6</a></h2>
+    <div class="article-style">
+      
+      [PATCH v3] x86/mm: use max memory block size on bare metal (Daniel Jordan) https://lkml.kernel.org/r/20200714205450.945834-1-daniel.m.jordan@oracle.com
+On x86, smallest supported block size is 128MiB. This means it needs to create 16,288 sysfs directories for 2TiB memory system. This sysfs creation takes significant amount of the boot time. As the memory hotplug is frequenlty used for the virtualized systems, this commit makes the kernels that aren&rsquo;t running on a hypervisor to use largest block size (2GiB) on big machines.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.8-rc5/">LKML News v5.8-rc5</a></h2>
     <div class="article-style">
       
@@ -639,18 +649,6 @@ After swap device is fragmented, there&rsquo;s no free swap cluster. Therefore, 
 This is the fourth version of the patchset for the huge pages in the page cache. Still it fails xfstests.
 Maintainers / Kernel Summit 2020 planning kick-off (Theodore Y. Ts&rsquo;o) https://lkml.kernel.org/r/20200515163956.GA2158595@mit.edu
 Ted annouced that the Maintainers / Kernel Summit will be held in virtual this year, of course due to the COVID19. With this announcement, the CFP for the kernel summit is also opened.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.7-rc5/">LKML News v5.7-rc5</a></h2>
-    <div class="article-style">
-      
-      [RFC 00/43] PKRAM: Preserved-over-Kexec RAM (Anthony Yznaga) https://lkml.kernel.org/r/1588812129-8596-1-git-send-email-anthony.yznaga@oracle.com
-This patchset introduces special memory called PKRAM. It can be used to preserve VM guest memory across kexec boot for fast restart (VMM Fast Restart). Compared to DRAM based PMEM simulation, PKRAM is more flexible as the memory size is not need to be previously fixed.
-[PATCH] mm: Replace zero-length array with flexible-array (Gustavo A. R. Silva) https://lkml.kernel.org/r/20200507185942.GA15193@embeddedor
-The zero-length array of C90 are widely used in the kernel code base, but the flexible array member of C99 would be better choice.
       
     </div>
   </div>
