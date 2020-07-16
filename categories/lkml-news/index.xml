@@ -26,6 +26,12 @@ for the virtualized systems, this commit makes the kernels that aren&amp;rsquo;t
 on a hypervisor to use largest block size (2GiB) on big machines.&lt;/p&gt;
 &lt;p&gt;The author says the kernel boot time has been 7% faster after applying this
 patch on the 2TiB memory system.&lt;/p&gt;
+&lt;h2 id=&#34;patch-mm-memcg-provide-a-stat-to-describe-reclaimable-memory-david-rientjes&#34;&gt;[patch] mm, memcg: provide a stat to describe reclaimable memory (David Rientjes)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/alpine.DEB.2.23.453.2007142018150.2667860@chino.kir.corp.google.com&#34;&gt;https://lkml.kernel.org/r/alpine.DEB.2.23.453.2007142018150.2667860@chino.kir.corp.google.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Under memory pressure, some of the memory can be reclaimed, so free memory plus
+some of reclaimable memory is called available memory.  This is provided by
+&lt;code&gt;/proc/meminfo&lt;/code&gt; file, but that for each &lt;code&gt;memcg&lt;/code&gt; is not.  This patch adds
+the value in &lt;code&gt;memory.stat&lt;/code&gt; file in memcg sysfs.&lt;/p&gt;
 </description>
     </item>
     
