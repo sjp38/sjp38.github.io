@@ -625,6 +625,11 @@ patch on the 2TiB memory system.</p>
 some of reclaimable memory is called available memory.  This is provided by
 <code>/proc/meminfo</code> file, but that for each <code>memcg</code> is not.  This patch adds
 the value in <code>memory.stat</code> file in memcg sysfs.</p>
+<h2 id="rfc-for-linux-v4-02-virtio_balloon-add-virtio_balloon_f_cont_pages-to-report-continuous-pages-hui-zhu">[RFC for Linux v4 0/2] virtio_balloon: Add VIRTIO_BALLOON_F_CONT_PAGES to report continuous pages (Hui Zhu)</h2>
+<p><a href="https://lkml.kernel.org/r/1594867315-8626-1-git-send-email-teawater@gmail.com">https://lkml.kernel.org/r/1594867315-8626-1-git-send-email-teawater@gmail.com</a></p>
+<p>This patchset adds <code>VIRTIO_BALLOON_F_CONT_PAGES</code> to <code>virtio_balloon</code>.  If
+this flag is given, <code>virtio_balloon</code> tries to inflate and deflate with
+continuous pages.</p>
 
     </div>
 
