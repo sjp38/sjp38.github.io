@@ -570,7 +570,7 @@ On x86, smallest supported block size is 128MiB. This means it needs to create 1
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -630,6 +630,22 @@ the value in <code>memory.stat</code> file in memcg sysfs.</p>
 <p>This patchset adds <code>VIRTIO_BALLOON_F_CONT_PAGES</code> to <code>virtio_balloon</code>.  If
 this flag is given, <code>virtio_balloon</code> tries to inflate and deflate with
 continuous pages.</p>
+<h2 id="linux-58-rc6-linus-torvalds">Linux 5.8-rc6 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wj_gy9xpqFx_aLTtLtFTCTKKLfV9E2bgE5J2GeKit3MCg@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wj_gy9xpqFx_aLTtLtFTCTKKLfV9E2bgE5J2GeKit3MCg@mail.gmail.com</a></p>
+<p>We have seen some fluctuations in the rcs of this year.  Fortunately, this week
+rc release looks normal to Torvalds, though it is a big release.  I guess 5.8
+will be released in the normal manner.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v4.18-rc7..v5.8-rc6.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2018-07-20 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc4 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.8-rc6-only.png" alt="rc2 release stat"></p>
 
     </div>
 
