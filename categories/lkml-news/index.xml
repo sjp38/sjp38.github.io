@@ -5,12 +5,26 @@
     <link>/categories/lkml-news/</link>
       <atom:link href="/categories/lkml-news/index.xml" rel="self" type="application/rss+xml" />
     <description>lkml news</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 15 Jul 2020 06:50:00 +0200</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 22 Jul 2020 06:48:06 +0200</lastBuildDate>
     <image>
       <url>/img/tux.png</url>
       <title>lkml news</title>
       <link>/categories/lkml-news/</link>
     </image>
+    
+    <item>
+      <title>LKML News v5.8-rc7</title>
+      <link>/post/lkml_news_v5.8-rc7/</link>
+      <pubDate>Wed, 22 Jul 2020 06:48:06 +0200</pubDate>
+      <guid>/post/lkml_news_v5.8-rc7/</guid>
+      <description>&lt;h2 id=&#34;patch-06-mm-introduce-secretmemfd-system-call-to-create-secret-memory-areas-mike-rapoport&#34;&gt;[PATCH 0/6] mm: introduce secretmemfd system call to create &amp;ldquo;secret&amp;rdquo; memory areas (Mike Rapoport)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20200720092435.17469-1-rppt@kernel.org&#34;&gt;https://lkml.kernel.org/r/20200720092435.17469-1-rppt@kernel.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This patchset make another special kind of file for secret memory areas.  The
+file can be opened using &lt;code&gt;secretmemfd()&lt;/code&gt;.  &lt;code&gt;mmap()&lt;/code&gt; of the file creates the
+secret memory mapping.  The mapped pages are marked as not present in the
+direct map and will have desired protection bits (e..g, uncached).&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>LKML News v5.8-rc6</title>
