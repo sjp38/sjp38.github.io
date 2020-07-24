@@ -29,7 +29,8 @@
     
   
   <meta name="description" content="[PATCH 0/6] mm: introduce secretmemfd system call to create &ldquo;secret&rdquo; memory areas (Mike Rapoport) https://lkml.kernel.org/r/20200720092435.17469-1-rppt@kernel.org
-This patchset make another special kind of file for secret memory areas. The file can be opened using secretmemfd(). mmap() of the file creates the secret memory mapping. The mapped pages are marked as not present in the direct map and will have desired protection bits (e..g, uncached).">
+This patchset make another special kind of file for secret memory areas. The file can be opened using secretmemfd(). mmap() of the file creates the secret memory mapping. The mapped pages are marked as not present in the direct map and will have desired protection bits (e..g, uncached).
+[PATCH v7 0/6] workingset protection/detection on the anonymous LRU list (js1304@gmail.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/lkml_news_v5.8-rc7/">
@@ -152,7 +153,8 @@ This patchset make another special kind of file for secret memory areas. The fil
   <meta property="og:url" content="/post/lkml_news_v5.8-rc7/">
   <meta property="og:title" content="LKML News v5.8-rc7 | hacklog">
   <meta property="og:description" content="[PATCH 0/6] mm: introduce secretmemfd system call to create &ldquo;secret&rdquo; memory areas (Mike Rapoport) https://lkml.kernel.org/r/20200720092435.17469-1-rppt@kernel.org
-This patchset make another special kind of file for secret memory areas. The file can be opened using secretmemfd(). mmap() of the file creates the secret memory mapping. The mapped pages are marked as not present in the direct map and will have desired protection bits (e..g, uncached)."><meta property="og:image" content="/img/tux.png">
+This patchset make another special kind of file for secret memory areas. The file can be opened using secretmemfd(). mmap() of the file creates the secret memory mapping. The mapped pages are marked as not present in the direct map and will have desired protection bits (e..g, uncached).
+[PATCH v7 0/6] workingset protection/detection on the anonymous LRU list (js1304@gmail."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -204,7 +206,7 @@ This patchset make another special kind of file for secret memory areas. The fil
       "url": "/img/icon-512.png"
     }
   },
-  "description": "[PATCH 0/6] mm: introduce secretmemfd system call to create \u0026ldquo;secret\u0026rdquo; memory areas (Mike Rapoport) https://lkml.kernel.org/r/20200720092435.17469-1-rppt@kernel.org\nThis patchset make another special kind of file for secret memory areas. The file can be opened using secretmemfd(). mmap() of the file creates the secret memory mapping. The mapped pages are marked as not present in the direct map and will have desired protection bits (e..g, uncached)."
+  "description": "[PATCH 0/6] mm: introduce secretmemfd system call to create \u0026ldquo;secret\u0026rdquo; memory areas (Mike Rapoport) https://lkml.kernel.org/r/20200720092435.17469-1-rppt@kernel.org\nThis patchset make another special kind of file for secret memory areas. The file can be opened using secretmemfd(). mmap() of the file creates the secret memory mapping. The mapped pages are marked as not present in the direct map and will have desired protection bits (e..g, uncached).\n[PATCH v7 0/6] workingset protection/detection on the anonymous LRU list (js1304@gmail."
 }
 </script>
 
@@ -616,6 +618,10 @@ This patchset make another special kind of file for secret memory areas. The fil
 file can be opened using <code>secretmemfd()</code>.  <code>mmap()</code> of the file creates the
 secret memory mapping.  The mapped pages are marked as not present in the
 direct map and will have desired protection bits (e..g, uncached).</p>
+<h2 id="patch-v7-06-workingset-protectiondetection-on-the-anonymous-lru-list-js1304gmailcom">[PATCH v7 0/6] workingset protection/detection on the anonymous LRU list (<a href="mailto:js1304@gmail.com">js1304@gmail.com</a>)</h2>
+<p><a href="https://lkml.kernel.org/r/1595490560-15117-1-git-send-email-iamjoonsoo.kim@lge.com">https://lkml.kernel.org/r/1595490560-15117-1-git-send-email-iamjoonsoo.kim@lge.com</a></p>
+<p>The seventh version of the workingset protection code.  In this version, some
+bugs in code and the workingset detection formula fixed.</p>
 
     </div>
 
