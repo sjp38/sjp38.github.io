@@ -622,6 +622,22 @@ direct map and will have desired protection bits (e..g, uncached).</p>
 <p><a href="https://lkml.kernel.org/r/1595490560-15117-1-git-send-email-iamjoonsoo.kim@lge.com">https://lkml.kernel.org/r/1595490560-15117-1-git-send-email-iamjoonsoo.kim@lge.com</a></p>
 <p>The seventh version of the workingset protection code.  In this version, some
 bugs in code and the workingset detection formula fixed.</p>
+<h2 id="linux-58-rc7">Linux 5.8-rc7</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wgcJ-dtTf+kY1Qj0F786gYqShJU19BguJHruQ2J4vZxOw@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wgcJ-dtTf+kY1Qj0F786gYqShJU19BguJHruQ2J4vZxOw@mail.gmail.com</a></p>
+<p>This release is slightly larger than what Torvalds would like.  Nothing seems
+worrisome, but Torvalds thinks this might mean rc8 isrequired.  He will see how
+this goes one more week and make the final decision.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v4.18-rc8..v5.8-rc7.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2018-07-27 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc4 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.8-rc7-only.png" alt="rc2 release stat"></p>
 
     </div>
 
