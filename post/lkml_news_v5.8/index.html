@@ -31,7 +31,8 @@
   <meta name="description" content="[PATCH v2 0/7] mm: introduce memfd_secret system call to create &ldquo;secret&rdquo; memory areas (Mike Rapoport) https://lkml.kernel.org/r/20200727162935.31714-1-rppt@kernel.org
 This is the second version of the secretmemfd. In this version, the system call has renamed to &lsquo;memfd_secret&rsquo;.
 [RFC PATCH 0/5] madvise MADV_DOEXEC (Anthony Yznaga) https://lkml.kernel.org/r/1595869887-23307-1-git-send-email-anthony.yznaga@oracle.com
-This patch introduces another madvise hint, MADV_DOEXEC. It preserves an anonymous memory range across exec.">
+This patch introduces another madvise hint, MADV_DOEXEC. It preserves an anonymous memory range across exec.
+[RFC PATCH 0/6] decrease unnecessary gap due to pmem kmem alignment (Jia He) https://lkml.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/lkml_news_v5.8/">
@@ -156,7 +157,8 @@ This patch introduces another madvise hint, MADV_DOEXEC. It preserves an anonymo
   <meta property="og:description" content="[PATCH v2 0/7] mm: introduce memfd_secret system call to create &ldquo;secret&rdquo; memory areas (Mike Rapoport) https://lkml.kernel.org/r/20200727162935.31714-1-rppt@kernel.org
 This is the second version of the secretmemfd. In this version, the system call has renamed to &lsquo;memfd_secret&rsquo;.
 [RFC PATCH 0/5] madvise MADV_DOEXEC (Anthony Yznaga) https://lkml.kernel.org/r/1595869887-23307-1-git-send-email-anthony.yznaga@oracle.com
-This patch introduces another madvise hint, MADV_DOEXEC. It preserves an anonymous memory range across exec."><meta property="og:image" content="/img/tux.png">
+This patch introduces another madvise hint, MADV_DOEXEC. It preserves an anonymous memory range across exec.
+[RFC PATCH 0/6] decrease unnecessary gap due to pmem kmem alignment (Jia He) https://lkml."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -208,7 +210,7 @@ This patch introduces another madvise hint, MADV_DOEXEC. It preserves an anonymo
       "url": "/img/icon-512.png"
     }
   },
-  "description": "[PATCH v2 0/7] mm: introduce memfd_secret system call to create \u0026ldquo;secret\u0026rdquo; memory areas (Mike Rapoport) https://lkml.kernel.org/r/20200727162935.31714-1-rppt@kernel.org\nThis is the second version of the secretmemfd. In this version, the system call has renamed to \u0026lsquo;memfd_secret\u0026rsquo;.\n[RFC PATCH 0/5] madvise MADV_DOEXEC (Anthony Yznaga) https://lkml.kernel.org/r/1595869887-23307-1-git-send-email-anthony.yznaga@oracle.com\nThis patch introduces another madvise hint, MADV_DOEXEC. It preserves an anonymous memory range across exec."
+  "description": "[PATCH v2 0/7] mm: introduce memfd_secret system call to create \u0026ldquo;secret\u0026rdquo; memory areas (Mike Rapoport) https://lkml.kernel.org/r/20200727162935.31714-1-rppt@kernel.org\nThis is the second version of the secretmemfd. In this version, the system call has renamed to \u0026lsquo;memfd_secret\u0026rsquo;.\n[RFC PATCH 0/5] madvise MADV_DOEXEC (Anthony Yznaga) https://lkml.kernel.org/r/1595869887-23307-1-git-send-email-anthony.yznaga@oracle.com\nThis patch introduces another madvise hint, MADV_DOEXEC. It preserves an anonymous memory range across exec.\n[RFC PATCH 0/6] decrease unnecessary gap due to pmem kmem alignment (Jia He) https://lkml."
 }
 </script>
 
@@ -622,6 +624,11 @@ call has renamed to &lsquo;memfd_secret&rsquo;.</p>
 <p><a href="https://lkml.kernel.org/r/1595869887-23307-1-git-send-email-anthony.yznaga@oracle.com">https://lkml.kernel.org/r/1595869887-23307-1-git-send-email-anthony.yznaga@oracle.com</a></p>
 <p>This patch introduces another madvise hint, <code>MADV_DOEXEC</code>.  It preserves an
 anonymous memory range across exec.</p>
+<h2 id="rfc-patch-06-decrease-unnecessary-gap-due-to-pmem-kmem-alignment-jia-he">[RFC PATCH 0/6] decrease unnecessary gap due to pmem kmem alignment (Jia He)</h2>
+<p><a href="https://lkml.kernel.org/r/20200729033424.2629-1-justin.he@arm.com">https://lkml.kernel.org/r/20200729033424.2629-1-justin.he@arm.com</a></p>
+<p>Because dax pmem as RAM device on arm64 makes the start address aligned with 1G
+memblock size, the amount of memory space of it is limited.  This patch
+decreases the alignment requirement to solve the problem.</p>
 
     </div>
 

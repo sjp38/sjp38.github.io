@@ -25,6 +25,11 @@ call has renamed to &amp;lsquo;memfd_secret&amp;rsquo;.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/1595869887-23307-1-git-send-email-anthony.yznaga@oracle.com&#34;&gt;https://lkml.kernel.org/r/1595869887-23307-1-git-send-email-anthony.yznaga@oracle.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;This patch introduces another madvise hint, &lt;code&gt;MADV_DOEXEC&lt;/code&gt;.  It preserves an
 anonymous memory range across exec.&lt;/p&gt;
+&lt;h2 id=&#34;rfc-patch-06-decrease-unnecessary-gap-due-to-pmem-kmem-alignment-jia-he&#34;&gt;[RFC PATCH 0/6] decrease unnecessary gap due to pmem kmem alignment (Jia He)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20200729033424.2629-1-justin.he@arm.com&#34;&gt;https://lkml.kernel.org/r/20200729033424.2629-1-justin.he@arm.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Because dax pmem as RAM device on arm64 makes the start address aligned with 1G
+memblock size, the amount of memory space of it is limited.  This patch
+decreases the alignment requirement to solve the problem.&lt;/p&gt;
 </description>
     </item>
     
