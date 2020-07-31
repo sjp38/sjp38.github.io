@@ -30,6 +30,16 @@ anonymous memory range across exec.&lt;/p&gt;
 &lt;p&gt;Because dax pmem as RAM device on arm64 makes the start address aligned with 1G
 memblock size, the amount of memory space of it is limited.  This patch
 decreases the alignment requirement to solve the problem.&lt;/p&gt;
+&lt;h2 id=&#34;raw-spinlocks-and-memory-allocation-paul-e-mckenney&#34;&gt;Raw spinlocks and memory allocation (Paul E. McKenney)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20200730231205.GA11265@paulmck-ThinkPad-P72&#34;&gt;https://lkml.kernel.org/r/20200730231205.GA11265@paulmck-ThinkPad-P72&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Paul E. McKenney is asking mm people to add new &lt;code&gt;GFP_&lt;/code&gt; flag for RCU.  In case
+of raw atomic contexts, &lt;code&gt;call_rcu()&lt;/code&gt; traditionally traversed a cache cold
+linked list for the callbacks.  Instead, recently Uladzislau has made it to use
+array instead of the linked list.  It showed non subtle benefit.  Now, how the
+array should be allocated?  Because it&amp;rsquo;s called within the raw atomic context,
+it shouldn&amp;rsquo;t hold the non-raw spinlock.  However, there is no &lt;code&gt;GFP_&lt;/code&gt; flag for
+such behavior.  Paul, hence, is asking mm people to add another &lt;code&gt;GFP_&lt;/code&gt; flag
+of the behavior.&lt;/p&gt;
 </description>
     </item>
     
