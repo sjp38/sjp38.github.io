@@ -40,6 +40,12 @@ array should be allocated?  Because it&amp;rsquo;s called within the raw atomic 
 it shouldn&amp;rsquo;t hold the non-raw spinlock.  However, there is no &lt;code&gt;GFP_&lt;/code&gt; flag for
 such behavior.  Paul, hence, is asking mm people to add another &lt;code&gt;GFP_&lt;/code&gt; flag
 of the behavior.&lt;/p&gt;
+&lt;h2 id=&#34;patch-mm-introduce-reference-pages-peter-collingbourne&#34;&gt;[PATCH] mm: introduce reference pages (Peter Collingbourne)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20200731203241.50427-1-pcc@google.com&#34;&gt;https://lkml.kernel.org/r/20200731203241.50427-1-pcc@google.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This patch introduces a new mmap flag, &lt;code&gt;MAP_REFPAGE&lt;/code&gt;.  It creates a mapping
+backed by a reference page, which address is specified using the offset
+argument to mmap.  Thus, reading the region can be done directly from the
+reference page, and the writing to the region will do copy-on-write.&lt;/p&gt;
 </description>
     </item>
     
