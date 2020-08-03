@@ -46,6 +46,28 @@ of the behavior.&lt;/p&gt;
 backed by a reference page, which address is specified using the offset
 argument to mmap.  Thus, reading the region can be done directly from the
 reference page, and the writing to the region will do copy-on-write.&lt;/p&gt;
+&lt;h2 id=&#34;linux-58-linus-torvalds&#34;&gt;Linux 5.8 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wj+mDPbj8hXspXRAksh+1TmPjubc9RNEbu8EVpYyypX=w@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wj+mDPbj8hXspXRAksh+1TmPjubc9RNEbu8EVpYyypX=w@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I was very curious what the name of this release will be, as the march to v5.8
+seemed quite dynamic.  Torvalds also says he considered rc8 all the way to the
+last minute.  He finally decided to release v5.8 instead of the v5.8-rc8.  I
+titled this post in my estimation, and it fortunately turned out to be right :)&lt;/p&gt;
+&lt;p&gt;Torvalds explains though we had very large rc1 for this release, there were
+really nothing scary.  Though there were header dependency problem last week,
+Torvalds says it was always there annoying and he says about adoption of some
+tooling.&lt;/p&gt;
+&lt;p&gt;So in the last week, there were the silly header file noise, dominant
+networking pull request, and some RCU fixes.  And, the big release of 5.8 is
+here now!&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v4.18..v5.8.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
+below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2018-07-27 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     

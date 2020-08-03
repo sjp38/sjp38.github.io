@@ -576,7 +576,7 @@ This patch introduces another madvise hint, MADV_DOEXEC. It preserves an anonymo
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    2 min read
+    3 min read
   </span>
   
 
@@ -645,6 +645,28 @@ of the behavior.</p>
 backed by a reference page, which address is specified using the offset
 argument to mmap.  Thus, reading the region can be done directly from the
 reference page, and the writing to the region will do copy-on-write.</p>
+<h2 id="linux-58-linus-torvalds">Linux 5.8 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wj+mDPbj8hXspXRAksh+1TmPjubc9RNEbu8EVpYyypX=w@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wj+mDPbj8hXspXRAksh+1TmPjubc9RNEbu8EVpYyypX=w@mail.gmail.com</a></p>
+<p>I was very curious what the name of this release will be, as the march to v5.8
+seemed quite dynamic.  Torvalds also says he considered rc8 all the way to the
+last minute.  He finally decided to release v5.8 instead of the v5.8-rc8.  I
+titled this post in my estimation, and it fortunately turned out to be right :)</p>
+<p>Torvalds explains though we had very large rc1 for this release, there were
+really nothing scary.  Though there were header dependency problem last week,
+Torvalds says it was always there annoying and he says about adoption of some
+tooling.</p>
+<p>So in the last week, there were the silly header file noise, dominant
+networking pull request, and some RCU fixes.  And, the big release of 5.8 is
+here now!</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v4.18..v5.8.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2018-07-27 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
 
     </div>
 
