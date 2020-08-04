@@ -5,12 +5,39 @@
     <link>/tags/lkml/</link>
       <atom:link href="/tags/lkml/index.xml" rel="self" type="application/rss+xml" />
     <description>lkml</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 28 Jul 2020 07:07:40 +0200</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 04 Aug 2020 07:08:27 +0200</lastBuildDate>
     <image>
       <url>/img/tux.png</url>
       <title>lkml</title>
       <link>/tags/lkml/</link>
     </image>
+    
+    <item>
+      <title>LKML News v5.9-rc1</title>
+      <link>/post/lkml_news_v5.9-rc1/</link>
+      <pubDate>Tue, 04 Aug 2020 07:08:27 +0200</pubDate>
+      <guid>/post/lkml_news_v5.9-rc1/</guid>
+      <description>&lt;h2 id=&#34;mm-sort-freelist-by-rank-number-cho-kyongho&#34;&gt;mm: sort freelist by rank number (Cho KyongHo)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/1596435031-41837-1-git-send-email-pullip.cho@samsung.com&#34;&gt;https://lkml.kernel.org/r/1596435031-41837-1-git-send-email-pullip.cho@samsung.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;LPDDR5 has severan ranks and there are ranks switching delay.  Therefore, it
+would be better to do accesses in same ranks if possible.  This patch sorts
+freelist by the rank number so that near future allocation can be done in same
+rank.&lt;/p&gt;
+&lt;h2 id=&#34;rfc-prototype-11-mm-add-__gfp_fast_try-flag-uladzislau-rezki&#34;&gt;&lt;code&gt;[RFC-PROTOTYPE 1/1] mm: Add __GFP_FAST_TRY flag (Uladzislau Rezki)&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20200803163029.1997-1-urezki@gmail.com&#34;&gt;https://lkml.kernel.org/r/20200803163029.1997-1-urezki@gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This is the rfc of the patch for the Paul&amp;rsquo;s last ask.  The memory objects to be
+freed by RCU are stored in the per-cpu array.  When the array is full, RCU
+allocates new block of array and link it after the current one.  This strategy
+is taken over the RCU head linked list to improve locality and thus reduce the
+cache misses.  The allocation should be made under atomic context.  However,
+the memory allocator makes lockdep compain if &lt;code&gt;CONFIG_PROVE_RAW_LOCK_NESTING&lt;/code&gt;
+is on.  Also, it doesn&amp;rsquo;t allow atomic context memory allocation if
+&lt;code&gt;CONFIG_PREEMPT_RT&lt;/code&gt; is on, as it converts &lt;code&gt;spinlock_t&lt;/code&gt; into sleepable
+variant.&lt;/p&gt;
+&lt;p&gt;To overcome the problem, this patch introduces &lt;code&gt;__GFP_FAST_TRY&lt;/code&gt; flag so that
+the memory allocator can work in the case.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>LKML News v5.8</title>
