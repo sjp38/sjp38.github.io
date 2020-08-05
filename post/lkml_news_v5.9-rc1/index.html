@@ -574,7 +574,7 @@ This is the rfc of the patch for the Paul&rsquo;s last ask."><meta property="og:
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -633,6 +633,15 @@ is on.  Also, it doesn&rsquo;t allow atomic context memory allocation if
 variant.</p>
 <p>To overcome the problem, this patch introduces <code>__GFP_FAST_TRY</code> flag so that
 the memory allocator can work in the case.</p>
+<h2 id="patch-v11-06-kasan-kunit-integration-david-gow">[PATCH v11 0/6] KASAN-KUnit Integration (David Gow)</h2>
+<p><a href="https://lkml.kernel.org/r/20200805042938.2961494-1-davidgow@google.com">https://lkml.kernel.org/r/20200805042938.2961494-1-davidgow@google.com</a></p>
+<p>This patchset makes KUnit to be able to fail tests wen unexpected KASAN error
+occurs and vice versa.</p>
+<h2 id="patch-v3-06-mm--virtio-mem-support-zone_movable-david-hildenbrand">[PATCH v3 0/6] mm / virtio-mem: support ZONE_MOVABLE (David Hildenbrand)</h2>
+<p><a href="https://lkml.kernel.org/r/20200804072408.5481-1-david@redhat.com">https://lkml.kernel.org/r/20200804072408.5481-1-david@redhat.com</a></p>
+<p>While virtio-mem allows to online fully plugged memory blocks to
+<code>ZONE_MOVABLE</code>, it dows not allow to online partially-plugged memory blocks
+to <code>ZONE_MOVABLE</code>.  This commit makes it available.</p>
 
     </div>
 

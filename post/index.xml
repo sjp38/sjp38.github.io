@@ -36,6 +36,15 @@ is on.  Also, it doesn&amp;rsquo;t allow atomic context memory allocation if
 variant.&lt;/p&gt;
 &lt;p&gt;To overcome the problem, this patch introduces &lt;code&gt;__GFP_FAST_TRY&lt;/code&gt; flag so that
 the memory allocator can work in the case.&lt;/p&gt;
+&lt;h2 id=&#34;patch-v11-06-kasan-kunit-integration-david-gow&#34;&gt;[PATCH v11 0/6] KASAN-KUnit Integration (David Gow)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20200805042938.2961494-1-davidgow@google.com&#34;&gt;https://lkml.kernel.org/r/20200805042938.2961494-1-davidgow@google.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This patchset makes KUnit to be able to fail tests wen unexpected KASAN error
+occurs and vice versa.&lt;/p&gt;
+&lt;h2 id=&#34;patch-v3-06-mm--virtio-mem-support-zone_movable-david-hildenbrand&#34;&gt;[PATCH v3 0/6] mm / virtio-mem: support ZONE_MOVABLE (David Hildenbrand)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20200804072408.5481-1-david@redhat.com&#34;&gt;https://lkml.kernel.org/r/20200804072408.5481-1-david@redhat.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;While virtio-mem allows to online fully plugged memory blocks to
+&lt;code&gt;ZONE_MOVABLE&lt;/code&gt;, it dows not allow to online partially-plugged memory blocks
+to &lt;code&gt;ZONE_MOVABLE&lt;/code&gt;.  This commit makes it available.&lt;/p&gt;
 </description>
     </item>
     
