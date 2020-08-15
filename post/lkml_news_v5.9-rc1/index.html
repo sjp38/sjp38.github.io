@@ -650,6 +650,12 @@ to <code>ZONE_MOVABLE</code>.  This commit makes it available.</p>
 <p>Another pull request from Andrew to Torvalds.  This pull request contains
 &ldquo;workingset protection/detection on the anonymous LRU list&rdquo;, and &ldquo;proactive
 compaction&rdquo;, which also reviewed by this post series.</p>
+<h2 id="patch-1839-mmmadvise-check-fatal-signal-pending-of-target-process-andrew-morton">[patch 18/39] mm/madvise: check fatal signal pending of target process (Andrew Morton)</h2>
+<p><a href="https://lkml.kernel.org/r/20200815003102.dzZiwVm-K%akpm@linux-foundation.org">https://lkml.kernel.org/r/20200815003102.dzZiwVm-K%akpm@linux-foundation.org</a></p>
+<p>The <code>madvise_process()</code> series has included in the pull request from Andrew
+to Linus.  It was rejected from v5.8 due to its weird patch sequence regarding
+its pidfd support.  Unfortunately, Torvalds don&rsquo;t like the signal handling of
+the patch at this time.</p>
 
     </div>
 
