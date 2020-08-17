@@ -59,6 +59,22 @@ compaction&amp;rdquo;, which also reviewed by this post series.&lt;/p&gt;
 to Linus.  It was rejected from v5.8 due to its weird patch sequence regarding
 its pidfd support.  Unfortunately, Torvalds don&amp;rsquo;t like the signal handling of
 the patch at this time.&lt;/p&gt;
+&lt;h2 id=&#34;linux-59-rc1-linus-torvalds&#34;&gt;Linux 5.9-rc1 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;https://lkml.kernel.org/r/CAHk-=wiwfkKp93C+yLqKWAU0ChBdeBDUhgOk09_=UQ8gOKbV3w@mail.gmail.com&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;The merge window for v5.9 has finished, and the first rc released.  It was much
+normal than v5.8.  The most interesting changes in my viewpoint are the
+anonymous pages workingset detection/protection and the proactive compaction.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v4.19-rc2..v5.9-rc1.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
+below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2018-07-20 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And, below is the diffstat of the -rc1 releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v5.9-rc1-only.png&#34; alt=&#34;rc2 release stat&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     
