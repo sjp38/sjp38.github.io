@@ -32,6 +32,11 @@ target of the OOM killing can be selected by user.&lt;/p&gt;
 &lt;p&gt;This patchset was originally sent by Colin Cross a long time ago but Sumit
 Semwal reposting this as he realised that this patchset is needed for Android
 to boot.&lt;/p&gt;
+&lt;h2 id=&#34;patch-rfc-mm-increase-page-waitqueue-hash-size-nicholas-piggin&#34;&gt;[PATCH RFC] mm: increase page waitqueue hash size (Nicholas Piggin)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20200819125349.558249-1-npiggin@gmail.com&#34;&gt;https://lkml.kernel.org/r/20200819125349.558249-1-npiggin@gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Nicholas found the page waitqueue hash is a bit small on his 16 socket 1536
+threads POWER9 system.  He increased the waitqueue hash size from 256 to 262144
+and it made 182% performance improvement.&lt;/p&gt;
 </description>
     </item>
     
