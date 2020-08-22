@@ -37,6 +37,16 @@ to boot.&lt;/p&gt;
 &lt;p&gt;Nicholas found the page waitqueue hash is a bit small on his 16 socket 1536
 threads POWER9 system.  He increased the waitqueue hash size from 256 to 262144
 and it made 182% performance improvement.&lt;/p&gt;
+&lt;h2 id=&#34;patch-078-transparent-huge-pages-for-xfs-matthew-wilcox&#34;&gt;[PATCH 0/78] Transparent Huge Pages for XFS (Matthew Wilcox)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20200821224522.GX17456@casper.infradead.org&#34;&gt;https://lkml.kernel.org/r/20200821224522.GX17456@casper.infradead.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Matthew&amp;rsquo;s THP for file-backed pages now passes xfstests.  For this, he made 78
+patches.  However, because no one really like to review 78 patches, he just
+want to let people know this and a portion of the patches is already formatted
+as 5 individual patchsets.  He hopes some of the patchsets to be merged in
+v5.10.&lt;/p&gt;
+&lt;p&gt;Biggest change this patchset makes is variable-sized THPs.  He made this change
+because filesystems would prefer a page size between &lt;code&gt;PAGE_SIZE&lt;/code&gt; and
+&lt;code&gt;PMD_SIZE&lt;/code&gt;.  &lt;code&gt;PMD_SIZE&lt;/code&gt; is the only one size for THP now.&lt;/p&gt;
 </description>
     </item>
     

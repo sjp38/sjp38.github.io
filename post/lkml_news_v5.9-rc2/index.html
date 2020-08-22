@@ -574,7 +574,7 @@ The memory cgroup v2 start reclamation if the amount of the memory of the cgroup
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -634,6 +634,16 @@ to boot.</p>
 <p>Nicholas found the page waitqueue hash is a bit small on his 16 socket 1536
 threads POWER9 system.  He increased the waitqueue hash size from 256 to 262144
 and it made 182% performance improvement.</p>
+<h2 id="patch-078-transparent-huge-pages-for-xfs-matthew-wilcox">[PATCH 0/78] Transparent Huge Pages for XFS (Matthew Wilcox)</h2>
+<p><a href="https://lkml.kernel.org/r/20200821224522.GX17456@casper.infradead.org">https://lkml.kernel.org/r/20200821224522.GX17456@casper.infradead.org</a></p>
+<p>Matthew&rsquo;s THP for file-backed pages now passes xfstests.  For this, he made 78
+patches.  However, because no one really like to review 78 patches, he just
+want to let people know this and a portion of the patches is already formatted
+as 5 individual patchsets.  He hopes some of the patchsets to be merged in
+v5.10.</p>
+<p>Biggest change this patchset makes is variable-sized THPs.  He made this change
+because filesystems would prefer a page size between <code>PAGE_SIZE</code> and
+<code>PMD_SIZE</code>.  <code>PMD_SIZE</code> is the only one size for THP now.</p>
 
     </div>
 
