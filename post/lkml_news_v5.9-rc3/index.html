@@ -29,7 +29,9 @@
     
   
   <meta name="description" content="[RFC -V3 0/5] autonuma: Optimize memory placement for memory tiering system (Huang Ying) https://lkml.kernel.org/r/20200825002354.17038-1-ying.huang@intel.com
-The third RFC of autonuma for help placing of data items on systems utilizing both DRAM and PMEM as different NUMA nodes.">
+The third RFC of autonuma for help placing of data items on systems utilizing both DRAM and PMEM as different NUMA nodes.
+Linux 5.9-rc3 https://lkml.kernel.org/r/CAHk-=wiD1yujm_WvWLYL7gZsWMvZyWMg1rfU7dWmnYYc3a7Gsg@mail.gmail.com
+This week rc release is also quite normal. The &lsquo;fallthought&rsquo; comment conversion made fairly evenly distributed changes. Torvalds says it was quite calm. Indeed, only one patchset got my interest this week.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/lkml_news_v5.9-rc3/">
@@ -152,7 +154,9 @@ The third RFC of autonuma for help placing of data items on systems utilizing bo
   <meta property="og:url" content="/post/lkml_news_v5.9-rc3/">
   <meta property="og:title" content="LkML New v5.9-rc3 | hacklog">
   <meta property="og:description" content="[RFC -V3 0/5] autonuma: Optimize memory placement for memory tiering system (Huang Ying) https://lkml.kernel.org/r/20200825002354.17038-1-ying.huang@intel.com
-The third RFC of autonuma for help placing of data items on systems utilizing both DRAM and PMEM as different NUMA nodes."><meta property="og:image" content="/img/tux.png">
+The third RFC of autonuma for help placing of data items on systems utilizing both DRAM and PMEM as different NUMA nodes.
+Linux 5.9-rc3 https://lkml.kernel.org/r/CAHk-=wiD1yujm_WvWLYL7gZsWMvZyWMg1rfU7dWmnYYc3a7Gsg@mail.gmail.com
+This week rc release is also quite normal. The &lsquo;fallthought&rsquo; comment conversion made fairly evenly distributed changes. Torvalds says it was quite calm. Indeed, only one patchset got my interest this week."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -204,7 +208,7 @@ The third RFC of autonuma for help placing of data items on systems utilizing bo
       "url": "/img/icon-512.png"
     }
   },
-  "description": "[RFC -V3 0/5] autonuma: Optimize memory placement for memory tiering system (Huang Ying) https://lkml.kernel.org/r/20200825002354.17038-1-ying.huang@intel.com\nThe third RFC of autonuma for help placing of data items on systems utilizing both DRAM and PMEM as different NUMA nodes."
+  "description": "[RFC -V3 0/5] autonuma: Optimize memory placement for memory tiering system (Huang Ying) https://lkml.kernel.org/r/20200825002354.17038-1-ying.huang@intel.com\nThe third RFC of autonuma for help placing of data items on systems utilizing both DRAM and PMEM as different NUMA nodes.\nLinux 5.9-rc3 https://lkml.kernel.org/r/CAHk-=wiD1yujm_WvWLYL7gZsWMvZyWMg1rfU7dWmnYYc3a7Gsg@mail.gmail.com\nThis week rc release is also quite normal. The \u0026lsquo;fallthought\u0026rsquo; comment conversion made fairly evenly distributed changes. Torvalds says it was quite calm. Indeed, only one patchset got my interest this week."
 }
 </script>
 
@@ -614,6 +618,23 @@ The third RFC of autonuma for help placing of data items on systems utilizing bo
 <p><a href="https://lkml.kernel.org/r/20200825002354.17038-1-ying.huang@intel.com">https://lkml.kernel.org/r/20200825002354.17038-1-ying.huang@intel.com</a></p>
 <p>The third RFC of autonuma for help placing of data items on systems utilizing
 both DRAM and PMEM as different NUMA nodes.</p>
+<h2 id="linux-59-rc3">Linux 5.9-rc3</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wiD1yujm_WvWLYL7gZsWMvZyWMg1rfU7dWmnYYc3a7Gsg@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wiD1yujm_WvWLYL7gZsWMvZyWMg1rfU7dWmnYYc3a7Gsg@mail.gmail.com</a></p>
+<p>This week rc release is also quite normal.  The &lsquo;fallthought&rsquo; comment
+conversion made fairly evenly distributed changes.  Torvalds says it was quite
+calm.  Indeed, only one patchset got my interest this week.  I guess it was
+maybe due to the Linux Plumbers Conference.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v4.19-rc3..v5.9-rc3.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2018-08-24 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc3 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.9-rc3-only.png" alt="rc2 release stat"></p>
 
     </div>
 
