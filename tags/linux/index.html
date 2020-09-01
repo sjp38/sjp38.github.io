@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2020-08-25T07:52:02&#43;02:00">
+    <meta property="og:updated_time" content="2020-09-01T07:20:35&#43;02:00">
   
 
   
@@ -525,6 +525,16 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.9-rc4/">LKML News v5.9-rc4</a></h2>
+    <div class="article-style">
+      
+      [PATCH v9 0/3] introduce memory hinting API for external process (Minchan Kim) https://lkml.kernel.org/r/20200901000633.1920247-1-minchan@kernel.org
+After the rejection, this patchset posted again. Linus&rsquo;s opinion about dropping the task_struct to do_madvise and Christian&rsquo;s comment regarding compat syscall entry has resolved.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.9-rc3/">LkML New v5.9-rc3</a></h2>
     <div class="article-style">
       
@@ -623,20 +633,6 @@ This patch adds a new document for inclusive term usage in the kernel tree. It s
 Maybe the last kernel summit proposal. The inline encryption work was presented in the last year LPC and a part of it has merged in the v5.8, being tested in Android. The talk will discuss the todo list of the work.
 [PATCH] mm: define pte_add_end for consistency (Wei Yang) https://lkml.kernel.org/r/20200630031852.45383-1-richard.weiyang@linux.alibaba.com
 This patch adds a helper to get the address of the next boundary for pte level.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.8-rc3/">LKML News v5.8-rc3</a></h2>
-    <div class="article-style">
-      
-      [TECH TOPIC] restricted kernel address spaces (Mike Rapoport) https://lkml.kernel.org/r/20200621090539.GM6493@linux.ibm.com
-A new kernel summit talk proposal is made. This topic is recycled from the LSF/MM/BPF, which scheduled but canceled due to the COVID19.
-[PATCH] mm: filemap: clear idle flag for writes (Yang Shi) https://lkml.kernel.org/r/1593020612-13051-1-git-send-email-yang.shi@linux.alibaba.com
-This patch adds missed idle flag clearing in filemap writing.
-+ mm-madvise-introduce-process_madvise-syscall-an-external-memory-hinting-api-fix-2.patch added to -mm tree https://marc.info/?l=linux-mm-commits&amp;m=159303823314812&amp;w=2
-The process_madvise() patch has merged in the -mm tree again.
       
     </div>
   </div>
