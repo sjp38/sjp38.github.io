@@ -31,6 +31,15 @@ repost this mainly due to its necessary for Android on mainline kenrnel.&lt;/p&g
 &lt;h2 id=&#34;rfc-patch-0016-1gb-thp-support-on-x86_64-zi-yan&#34;&gt;[RFC PATCH 00/16] 1GB THP support on x86_64 (Zi Yan)&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20200902180628.4052244-1-zi.yan@sent.com&#34;&gt;https://lkml.kernel.org/r/20200902180628.4052244-1-zi.yan@sent.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;This patchset makes 1GB THP available on x86_64.&lt;/p&gt;
+&lt;h2 id=&#34;patch-mm-workingset-ignore-slab-memory-size-when-calculating-shadows-pressure-roman-gushchin&#34;&gt;[PATCH] mm: workingset: ignore slab memory size when calculating shadows pressure (Roman Gushchin)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20200903230055.1245058-1-guro@fb.com&#34;&gt;https://lkml.kernel.org/r/20200903230055.1245058-1-guro@fb.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;count_shadow_nodes()&lt;/code&gt; function returns the memory size for LRU pages and slab.
+This makes sense in non-memcg case, but in memcg case, this doesn&amp;rsquo;t make sense
+as the shadow nodes themselves are backed by slabs.  Also, recent commit
+fb2f2b0adb98 (&amp;ldquo;mm: memcg/slab: reparent memcg kmem_caches on cgroup removal&amp;rdquo;)
+makes the per-lruvec slab counters on non-leaf cgroup inaccurate.  For the
+reason, this commit redefines the &lt;code&gt;count_shadow_nodes()&lt;/code&gt; to not count the slab
+memory.&lt;/p&gt;
 </description>
     </item>
     
