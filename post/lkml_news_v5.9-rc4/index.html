@@ -576,7 +576,7 @@ This is reposting of old patchset which Colin Cross sent before."><meta property
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -639,6 +639,23 @@ fb2f2b0adb98 (&ldquo;mm: memcg/slab: reparent memcg kmem_caches on cgroup remova
 makes the per-lruvec slab counters on non-leaf cgroup inaccurate.  For the
 reason, this commit redefines the <code>count_shadow_nodes()</code> to not count the slab
 memory.</p>
+<h2 id="linux-59-rc4-linus-torvalds">Linux 5.9-rc4 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wgdq1XfoECVoZyr5+j+LM7oG31DhEhSoju=DQFBdSvEsw@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wgdq1XfoECVoZyr5+j+LM7oG31DhEhSoju=DQFBdSvEsw@mail.gmail.com</a></p>
+<p>Unlke last week, this week release has unusually many changes.  Maybe the
+changes for last week came this week.  Nonetheless, it&rsquo;s not outlier.  Changes
+are spread well.  So, Torvalds says he can&rsquo;t say it&rsquo;s calmed down, but also he
+doesn&rsquo;t worry about this too much.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v4.19-rc4..v5.9-rc4.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2018-09-07 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc4 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.9-rc4-only.png" alt="rc2 release stat"></p>
 
     </div>
 

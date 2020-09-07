@@ -40,6 +40,23 @@ fb2f2b0adb98 (&amp;ldquo;mm: memcg/slab: reparent memcg kmem_caches on cgroup re
 makes the per-lruvec slab counters on non-leaf cgroup inaccurate.  For the
 reason, this commit redefines the &lt;code&gt;count_shadow_nodes()&lt;/code&gt; to not count the slab
 memory.&lt;/p&gt;
+&lt;h2 id=&#34;linux-59-rc4-linus-torvalds&#34;&gt;Linux 5.9-rc4 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wgdq1XfoECVoZyr5+j+LM7oG31DhEhSoju=DQFBdSvEsw@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wgdq1XfoECVoZyr5+j+LM7oG31DhEhSoju=DQFBdSvEsw@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Unlke last week, this week release has unusually many changes.  Maybe the
+changes for last week came this week.  Nonetheless, it&amp;rsquo;s not outlier.  Changes
+are spread well.  So, Torvalds says he can&amp;rsquo;t say it&amp;rsquo;s calmed down, but also he
+doesn&amp;rsquo;t worry about this too much.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v4.19-rc4..v5.9-rc4.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
+below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2018-09-07 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And, below is the diffstat of the -rc4 releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v5.9-rc4-only.png&#34; alt=&#34;rc2 release stat&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     
