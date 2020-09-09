@@ -29,7 +29,9 @@
     
   
   <meta name="description" content="[PATCH RFC 00/10] KFENCE: A low-overhead sampling-based memory safety error detector (Marco Elver) https://lkml.kernel.org/r/20200907134055.2878499-1-elver@google.com
-This patchset introduces another kernel use-after-free detection infrastructure, called Kernel Electric-Fence (KFENCE). Unlike KASAN, this trades the performance for precision and as a result it incurs near zero performance overhead so that it can be enabled in the production.">
+This patchset introduces another kernel use-after-free detection infrastructure, called Kernel Electric-Fence (KFENCE). Unlike KASAN, this trades the performance for precision and as a result it incurs near zero performance overhead so that it can be enabled in the production.
+[PATCH 00/11] Remove assumptions of THP size (Matthew Wilcox) https://lkml.kernel.org/r/20200908195539.25896-1-willy@infradead.org
+Matthew is working for variable sized THP. For start of the work, this patchset changes the assumption that THP will be PMD size by introducing thp_nr_pages() and let the other VM code to use it.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/lkml_news_v5.9-rc5/">
@@ -152,7 +154,9 @@ This patchset introduces another kernel use-after-free detection infrastructure,
   <meta property="og:url" content="/post/lkml_news_v5.9-rc5/">
   <meta property="og:title" content="LKML News v5.9-rc5 | hacklog">
   <meta property="og:description" content="[PATCH RFC 00/10] KFENCE: A low-overhead sampling-based memory safety error detector (Marco Elver) https://lkml.kernel.org/r/20200907134055.2878499-1-elver@google.com
-This patchset introduces another kernel use-after-free detection infrastructure, called Kernel Electric-Fence (KFENCE). Unlike KASAN, this trades the performance for precision and as a result it incurs near zero performance overhead so that it can be enabled in the production."><meta property="og:image" content="/img/tux.png">
+This patchset introduces another kernel use-after-free detection infrastructure, called Kernel Electric-Fence (KFENCE). Unlike KASAN, this trades the performance for precision and as a result it incurs near zero performance overhead so that it can be enabled in the production.
+[PATCH 00/11] Remove assumptions of THP size (Matthew Wilcox) https://lkml.kernel.org/r/20200908195539.25896-1-willy@infradead.org
+Matthew is working for variable sized THP. For start of the work, this patchset changes the assumption that THP will be PMD size by introducing thp_nr_pages() and let the other VM code to use it."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -204,7 +208,7 @@ This patchset introduces another kernel use-after-free detection infrastructure,
       "url": "/img/icon-512.png"
     }
   },
-  "description": "[PATCH RFC 00/10] KFENCE: A low-overhead sampling-based memory safety error detector (Marco Elver) https://lkml.kernel.org/r/20200907134055.2878499-1-elver@google.com\nThis patchset introduces another kernel use-after-free detection infrastructure, called Kernel Electric-Fence (KFENCE). Unlike KASAN, this trades the performance for precision and as a result it incurs near zero performance overhead so that it can be enabled in the production."
+  "description": "[PATCH RFC 00/10] KFENCE: A low-overhead sampling-based memory safety error detector (Marco Elver) https://lkml.kernel.org/r/20200907134055.2878499-1-elver@google.com\nThis patchset introduces another kernel use-after-free detection infrastructure, called Kernel Electric-Fence (KFENCE). Unlike KASAN, this trades the performance for precision and as a result it incurs near zero performance overhead so that it can be enabled in the production.\n[PATCH 00/11] Remove assumptions of THP size (Matthew Wilcox) https://lkml.kernel.org/r/20200908195539.25896-1-willy@infradead.org\nMatthew is working for variable sized THP. For start of the work, this patchset changes the assumption that THP will be PMD size by introducing thp_nr_pages() and let the other VM code to use it."
 }
 </script>
 
@@ -616,6 +620,11 @@ This patchset introduces another kernel use-after-free detection infrastructure,
 infrastructure, called Kernel Electric-Fence (KFENCE).  Unlike KASAN, this
 trades the performance for precision and as a result it incurs near zero
 performance overhead so that it can be enabled in the production.</p>
+<h2 id="patch-0011-remove-assumptions-of-thp-size-matthew-wilcox">[PATCH 00/11] Remove assumptions of THP size (Matthew Wilcox)</h2>
+<p><a href="https://lkml.kernel.org/r/20200908195539.25896-1-willy@infradead.org">https://lkml.kernel.org/r/20200908195539.25896-1-willy@infradead.org</a></p>
+<p>Matthew is working for variable sized THP.  For start of the work, this
+patchset changes the assumption that THP will be PMD size by introducing
+<code>thp_nr_pages()</code> and let the other VM code to use it.</p>
 
     </div>
 

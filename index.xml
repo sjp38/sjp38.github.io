@@ -23,6 +23,11 @@
 infrastructure, called Kernel Electric-Fence (KFENCE).  Unlike KASAN, this
 trades the performance for precision and as a result it incurs near zero
 performance overhead so that it can be enabled in the production.&lt;/p&gt;
+&lt;h2 id=&#34;patch-0011-remove-assumptions-of-thp-size-matthew-wilcox&#34;&gt;[PATCH 00/11] Remove assumptions of THP size (Matthew Wilcox)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20200908195539.25896-1-willy@infradead.org&#34;&gt;https://lkml.kernel.org/r/20200908195539.25896-1-willy@infradead.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Matthew is working for variable sized THP.  For start of the work, this
+patchset changes the assumption that THP will be PMD size by introducing
+&lt;code&gt;thp_nr_pages()&lt;/code&gt; and let the other VM code to use it.&lt;/p&gt;
 </description>
     </item>
     
