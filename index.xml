@@ -28,6 +28,12 @@ performance overhead so that it can be enabled in the production.&lt;/p&gt;
 &lt;p&gt;Matthew is working for variable sized THP.  For start of the work, this
 patchset changes the assumption that THP will be PMD size by introducing
 &lt;code&gt;thp_nr_pages()&lt;/code&gt; and let the other VM code to use it.&lt;/p&gt;
+&lt;h2 id=&#34;patch-memcg-introduce-per-memcg-reclaim-interface-shakeel-butt&#34;&gt;[PATCH] memcg: introduce per-memcg reclaim interface (Shakeel Butt)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20200909215752.1725525-1-shakeelb@google.com&#34;&gt;https://lkml.kernel.org/r/20200909215752.1725525-1-shakeelb@google.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Sometimes the workload is mixed with latency sensitive ones and latency
+tolerative ones.  The kernel does not have a way to distinguish those.  It&amp;rsquo;s
+rather well known to the users.  Therefore, this patchset allow the userspace
+to trigger reclaim specific memory cgroup.&lt;/p&gt;
 </description>
     </item>
     
