@@ -34,6 +34,17 @@ patchset changes the assumption that THP will be PMD size by introducing
 tolerative ones.  The kernel does not have a way to distinguish those.  It&amp;rsquo;s
 rather well known to the users.  Therefore, this patchset allow the userspace
 to trigger reclaim specific memory cgroup.&lt;/p&gt;
+&lt;h2 id=&#34;patch-v13-05-kasan-kunit-integration-david-gow&#34;&gt;[PATCH v13 0/5] KASAN-KUnit Integration (David Gow)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20200910070331.3358048-1-davidgow@google.com&#34;&gt;https://lkml.kernel.org/r/20200910070331.3358048-1-davidgow@google.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;13th version of the KASAN-KUnit integration patchset.&lt;/p&gt;
+&lt;h2 id=&#34;ways-to-deprecate-sysdevicessystemmemorymemoryxphys_device--david-hildenbrand&#34;&gt;Ways to deprecate /sys/devices/system/memory/memoryX/phys_device ? (David Hildenbrand)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/21852ccb-bd06-9281-7c8e-485ec02f2883@redhat.com&#34;&gt;https://lkml.kernel.org/r/21852ccb-bd06-9281-7c8e-485ec02f2883@redhat.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;In this mail, David introduces how &lt;code&gt;phys_device&lt;/code&gt; file has added in the kernel,
+updated, and finally been not useful at all but only makes concern in backward
+compatibility with some user space tools.  He asks what is the better
+intermediate step towards the complete removal of the interface.  Just making
+it return &amp;lsquo;0&amp;rsquo; always, or making it supported on the backward compatibility
+concerning arch, s390x, only.&lt;/p&gt;
 </description>
     </item>
     
