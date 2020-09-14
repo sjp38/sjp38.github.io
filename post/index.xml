@@ -45,6 +45,28 @@ compatibility with some user space tools.  He asks what is the better
 intermediate step towards the complete removal of the interface.  Just making
 it return &amp;lsquo;0&amp;rsquo; always, or making it supported on the backward compatibility
 concerning arch, s390x, only.&lt;/p&gt;
+&lt;h2 id=&#34;mm-fix-memory-to-node-bad-links-in-sysfs-laurent-dufour&#34;&gt;mm: fix memory to node bad links in sysfs (Laurent Dufour)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20200911134831.53258-1-ldufour@linux.ibm.com&#34;&gt;https://lkml.kernel.org/r/20200911134831.53258-1-ldufour@linux.ibm.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The firmware could expose memory layout that some region are interleaved in
+multiple NUMA nodes.  Then, the memory blocks wrongly assigned to the multiple
+nodes in sysfs.  This causes BUG_ON() when the block is hot-unplugged and the
+hot-plugged again, due to the sysfs inconsistency detection.&lt;/p&gt;
+&lt;p&gt;This patchset fixes the problem.&lt;/p&gt;
+&lt;h2 id=&#34;linux-59-rc5-linus-torvalds&#34;&gt;Linux 5.9-rc5 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wjLVdzdX09kS324Q=GoRn0uPCnr-sovqVCdJcUxVdkJCQ@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wjLVdzdX09kS324Q=GoRn0uPCnr-sovqVCdJcUxVdkJCQ@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Torvalds sees the gray world due to the wildfires but he also sees the release
+is quite normal.  Just as normal as usual rc5.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v4.19-rc5..v5.9-rc5.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
+below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2018-08-24 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And, below is the diffstat of the -rc3 releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v5.9-rc5-only.png&#34; alt=&#34;rc2 release stat&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     

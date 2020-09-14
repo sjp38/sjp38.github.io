@@ -642,6 +642,28 @@ compatibility with some user space tools.  He asks what is the better
 intermediate step towards the complete removal of the interface.  Just making
 it return &lsquo;0&rsquo; always, or making it supported on the backward compatibility
 concerning arch, s390x, only.</p>
+<h2 id="mm-fix-memory-to-node-bad-links-in-sysfs-laurent-dufour">mm: fix memory to node bad links in sysfs (Laurent Dufour)</h2>
+<p><a href="https://lkml.kernel.org/r/20200911134831.53258-1-ldufour@linux.ibm.com">https://lkml.kernel.org/r/20200911134831.53258-1-ldufour@linux.ibm.com</a></p>
+<p>The firmware could expose memory layout that some region are interleaved in
+multiple NUMA nodes.  Then, the memory blocks wrongly assigned to the multiple
+nodes in sysfs.  This causes BUG_ON() when the block is hot-unplugged and the
+hot-plugged again, due to the sysfs inconsistency detection.</p>
+<p>This patchset fixes the problem.</p>
+<h2 id="linux-59-rc5-linus-torvalds">Linux 5.9-rc5 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wjLVdzdX09kS324Q=GoRn0uPCnr-sovqVCdJcUxVdkJCQ@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wjLVdzdX09kS324Q=GoRn0uPCnr-sovqVCdJcUxVdkJCQ@mail.gmail.com</a></p>
+<p>Torvalds sees the gray world due to the wildfires but he also sees the release
+is quite normal.  Just as normal as usual rc5.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v4.19-rc5..v5.9-rc5.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2018-08-24 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc3 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.9-rc5-only.png" alt="rc2 release stat"></p>
 
     </div>
 
