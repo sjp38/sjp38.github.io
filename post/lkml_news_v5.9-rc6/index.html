@@ -31,7 +31,9 @@
   <meta name="description" content="[PATCH v14 0/5] KASAN-KUnit Integration (David Gow) https://lkml.kernel.org/r/20200915035828.570483-1-davidgow@google.com
 The 14th patchset for the KASAN and KUnit integration. From the v13, compile warnings in test_kasan_module fixed.
 [PATCH v2 00/10] KFENCE: A low-overhead sampling-based memory safety error detector (Marco Elver) https://lkml.kernel.org/r/20200915132046.3332537-1-elver@google.com
-The second version of the KFENCE posted.">
+The second version of the KFENCE posted.
+[PATCH 1/2] fs: Add a filesystem flag for THPs (Matthew Wilcox) https://lkml.kernel.org/r/20200916032717.22917-1-willy@infradead.org
+This patchset caches whether the backing filesystem support THP or not in an address space flags, so that the page cache can determine if it can send THP to the backing filesystem or not.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/lkml_news_v5.9-rc6/">
@@ -156,7 +158,9 @@ The second version of the KFENCE posted.">
   <meta property="og:description" content="[PATCH v14 0/5] KASAN-KUnit Integration (David Gow) https://lkml.kernel.org/r/20200915035828.570483-1-davidgow@google.com
 The 14th patchset for the KASAN and KUnit integration. From the v13, compile warnings in test_kasan_module fixed.
 [PATCH v2 00/10] KFENCE: A low-overhead sampling-based memory safety error detector (Marco Elver) https://lkml.kernel.org/r/20200915132046.3332537-1-elver@google.com
-The second version of the KFENCE posted."><meta property="og:image" content="/img/tux.png">
+The second version of the KFENCE posted.
+[PATCH 1/2] fs: Add a filesystem flag for THPs (Matthew Wilcox) https://lkml.kernel.org/r/20200916032717.22917-1-willy@infradead.org
+This patchset caches whether the backing filesystem support THP or not in an address space flags, so that the page cache can determine if it can send THP to the backing filesystem or not."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -208,7 +212,7 @@ The second version of the KFENCE posted."><meta property="og:image" content="/im
       "url": "/img/icon-512.png"
     }
   },
-  "description": "[PATCH v14 0/5] KASAN-KUnit Integration (David Gow) https://lkml.kernel.org/r/20200915035828.570483-1-davidgow@google.com\nThe 14th patchset for the KASAN and KUnit integration. From the v13, compile warnings in test_kasan_module fixed.\n[PATCH v2 00/10] KFENCE: A low-overhead sampling-based memory safety error detector (Marco Elver) https://lkml.kernel.org/r/20200915132046.3332537-1-elver@google.com\nThe second version of the KFENCE posted."
+  "description": "[PATCH v14 0/5] KASAN-KUnit Integration (David Gow) https://lkml.kernel.org/r/20200915035828.570483-1-davidgow@google.com\nThe 14th patchset for the KASAN and KUnit integration. From the v13, compile warnings in test_kasan_module fixed.\n[PATCH v2 00/10] KFENCE: A low-overhead sampling-based memory safety error detector (Marco Elver) https://lkml.kernel.org/r/20200915132046.3332537-1-elver@google.com\nThe second version of the KFENCE posted.\n[PATCH 1/2] fs: Add a filesystem flag for THPs (Matthew Wilcox) https://lkml.kernel.org/r/20200916032717.22917-1-willy@infradead.org\nThis patchset caches whether the backing filesystem support THP or not in an address space flags, so that the page cache can determine if it can send THP to the backing filesystem or not."
 }
 </script>
 
@@ -621,6 +625,11 @@ warnings in test_kasan_module fixed.</p>
 <h2 id="patch-v2-0010-kfence-a-low-overhead-sampling-based-memory-safety-error-detector-marco-elver">[PATCH v2 00/10] KFENCE: A low-overhead sampling-based memory safety error detector (Marco Elver)</h2>
 <p><a href="https://lkml.kernel.org/r/20200915132046.3332537-1-elver@google.com">https://lkml.kernel.org/r/20200915132046.3332537-1-elver@google.com</a></p>
 <p>The second version of the KFENCE posted.</p>
+<h2 id="patch-12-fs-add-a-filesystem-flag-for-thps-matthew-wilcox">[PATCH 1/2] fs: Add a filesystem flag for THPs (Matthew Wilcox)</h2>
+<p><a href="https://lkml.kernel.org/r/20200916032717.22917-1-willy@infradead.org">https://lkml.kernel.org/r/20200916032717.22917-1-willy@infradead.org</a></p>
+<p>This patchset caches whether the backing filesystem support THP or not in an
+address space flags, so that the page cache can determine if it can send THP to
+the backing filesystem or not.</p>
 
     </div>
 

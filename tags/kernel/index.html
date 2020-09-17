@@ -532,6 +532,8 @@
 The 14th patchset for the KASAN and KUnit integration. From the v13, compile warnings in test_kasan_module fixed.
 [PATCH v2 00/10] KFENCE: A low-overhead sampling-based memory safety error detector (Marco Elver) https://lkml.kernel.org/r/20200915132046.3332537-1-elver@google.com
 The second version of the KFENCE posted.
+[PATCH 1/2] fs: Add a filesystem flag for THPs (Matthew Wilcox) https://lkml.kernel.org/r/20200916032717.22917-1-willy@infradead.org
+This patchset caches whether the backing filesystem support THP or not in an address space flags, so that the page cache can determine if it can send THP to the backing filesystem or not.
       
     </div>
   </div>
