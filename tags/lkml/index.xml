@@ -20,6 +20,13 @@
       <description>&lt;h2 id=&#34;patch-v3-0010-kfence-a-low-overhead-sampling-based-memory-safety-error-detector-marco-elver&#34;&gt;[PATCH v3 00/10] KFENCE: A low-overhead sampling-based memory safety error detector (Marco Elver)&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20200921132611.1700350-1-elver@google.com&#34;&gt;https://lkml.kernel.org/r/20200921132611.1700350-1-elver@google.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;The third version of KFENCE patchset is uploaded.&lt;/p&gt;
+&lt;h2 id=&#34;machine-lockups-on-extreme-memory-pressure-shakeel-butt&#34;&gt;Machine lockups on extreme memory pressure (Shakeel Butt)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CALvZod4FWLsV9byrKQojeus7tMDhHjQHFF5J_JpNsyB0HkaERA@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CALvZod4FWLsV9byrKQojeus7tMDhHjQHFF5J_JpNsyB0HkaERA@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Shakeel reports a machine lockup due to extreme memory pressure.  It&amp;rsquo;s locked
+up on memcg&amp;rsquo;s vmpressure &lt;code&gt;sr_lock&lt;/code&gt;, which is irq-unsafe.  And the lockup made
+in IRQ.  He proposes a solution simply changing the lock with irq-safe one, but
+he also admits it&amp;rsquo;s not a maintainable solution.  Therefore, he asks if others
+has similar problems and if so, what was the solution.&lt;/p&gt;
 </description>
     </item>
     

@@ -29,7 +29,9 @@
     
   
   <meta name="description" content="[PATCH v3 00/10] KFENCE: A low-overhead sampling-based memory safety error detector (Marco Elver) https://lkml.kernel.org/r/20200921132611.1700350-1-elver@google.com
-The third version of KFENCE patchset is uploaded.">
+The third version of KFENCE patchset is uploaded.
+Machine lockups on extreme memory pressure (Shakeel Butt) https://lkml.kernel.org/r/CALvZod4FWLsV9byrKQojeus7tMDhHjQHFF5J_JpNsyB0HkaERA@mail.gmail.com
+Shakeel reports a machine lockup due to extreme memory pressure. It&rsquo;s locked up on memcg&rsquo;s vmpressure sr_lock, which is irq-unsafe. And the lockup made in IRQ. He proposes a solution simply changing the lock with irq-safe one, but he also admits it&rsquo;s not a maintainable solution.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/lkml_news_v5.9-rc7/">
@@ -152,7 +154,9 @@ The third version of KFENCE patchset is uploaded.">
   <meta property="og:url" content="/post/lkml_news_v5.9-rc7/">
   <meta property="og:title" content="LKML News v5.9-rc6 | hacklog">
   <meta property="og:description" content="[PATCH v3 00/10] KFENCE: A low-overhead sampling-based memory safety error detector (Marco Elver) https://lkml.kernel.org/r/20200921132611.1700350-1-elver@google.com
-The third version of KFENCE patchset is uploaded."><meta property="og:image" content="/img/tux.png">
+The third version of KFENCE patchset is uploaded.
+Machine lockups on extreme memory pressure (Shakeel Butt) https://lkml.kernel.org/r/CALvZod4FWLsV9byrKQojeus7tMDhHjQHFF5J_JpNsyB0HkaERA@mail.gmail.com
+Shakeel reports a machine lockup due to extreme memory pressure. It&rsquo;s locked up on memcg&rsquo;s vmpressure sr_lock, which is irq-unsafe. And the lockup made in IRQ. He proposes a solution simply changing the lock with irq-safe one, but he also admits it&rsquo;s not a maintainable solution."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -204,7 +208,7 @@ The third version of KFENCE patchset is uploaded."><meta property="og:image" con
       "url": "/img/icon-512.png"
     }
   },
-  "description": "[PATCH v3 00/10] KFENCE: A low-overhead sampling-based memory safety error detector (Marco Elver) https://lkml.kernel.org/r/20200921132611.1700350-1-elver@google.com\nThe third version of KFENCE patchset is uploaded."
+  "description": "[PATCH v3 00/10] KFENCE: A low-overhead sampling-based memory safety error detector (Marco Elver) https://lkml.kernel.org/r/20200921132611.1700350-1-elver@google.com\nThe third version of KFENCE patchset is uploaded.\nMachine lockups on extreme memory pressure (Shakeel Butt) https://lkml.kernel.org/r/CALvZod4FWLsV9byrKQojeus7tMDhHjQHFF5J_JpNsyB0HkaERA@mail.gmail.com\nShakeel reports a machine lockup due to extreme memory pressure. It\u0026rsquo;s locked up on memcg\u0026rsquo;s vmpressure sr_lock, which is irq-unsafe. And the lockup made in IRQ. He proposes a solution simply changing the lock with irq-safe one, but he also admits it\u0026rsquo;s not a maintainable solution."
 }
 </script>
 
@@ -613,6 +617,13 @@ The third version of KFENCE patchset is uploaded."><meta property="og:image" con
       <h2 id="patch-v3-0010-kfence-a-low-overhead-sampling-based-memory-safety-error-detector-marco-elver">[PATCH v3 00/10] KFENCE: A low-overhead sampling-based memory safety error detector (Marco Elver)</h2>
 <p><a href="https://lkml.kernel.org/r/20200921132611.1700350-1-elver@google.com">https://lkml.kernel.org/r/20200921132611.1700350-1-elver@google.com</a></p>
 <p>The third version of KFENCE patchset is uploaded.</p>
+<h2 id="machine-lockups-on-extreme-memory-pressure-shakeel-butt">Machine lockups on extreme memory pressure (Shakeel Butt)</h2>
+<p><a href="https://lkml.kernel.org/r/CALvZod4FWLsV9byrKQojeus7tMDhHjQHFF5J_JpNsyB0HkaERA@mail.gmail.com">https://lkml.kernel.org/r/CALvZod4FWLsV9byrKQojeus7tMDhHjQHFF5J_JpNsyB0HkaERA@mail.gmail.com</a></p>
+<p>Shakeel reports a machine lockup due to extreme memory pressure.  It&rsquo;s locked
+up on memcg&rsquo;s vmpressure <code>sr_lock</code>, which is irq-unsafe.  And the lockup made
+in IRQ.  He proposes a solution simply changing the lock with irq-safe one, but
+he also admits it&rsquo;s not a maintainable solution.  Therefore, he asks if others
+has similar problems and if so, what was the solution.</p>
 
     </div>
 
