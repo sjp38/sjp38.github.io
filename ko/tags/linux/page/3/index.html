@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="ko-kr">
   
-    <meta property="og:updated_time" content="2020-05-16T13:25:55&#43;02:00">
+    <meta property="og:updated_time" content="2020-09-26T08:47:12&#43;02:00">
   
 
   
@@ -525,6 +525,16 @@
   
   
   <div>
+    <h2><a href="/ko/post/kernelsummit2019_talk/">I will have a talk at the Linux Kernel Summit 2019</a></h2>
+    <div class="article-style">
+      
+      [Linux Plumbers Conference 2019] (https://www.linuxplumbersconf.org/blog/2019/) 와 함께 열리는 올해의 [Linux Kernel Summit] (https://lwn.net/Articles/788378/) 에 제안한 발표 주제가 accept 되어 9월에 리스본에서 이에 대한 내용을 발표하게 되었습니다. 발표 제목은 &ldquo;Tracing Data Access Pattern with Bounded Overhead and Best-effort Accuracy&rdquo; 입니다.
+티켓이 너무 일찍 팔려버리는 바람에 올해는 들으러도 못가나 걱정했는데 갈 수 있게 됐네요, 다행입니다! :D
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/ko/post/lkml_news_v5.3-rc1/">LKML News v5.3-rc1</a></h2>
     <div class="article-style">
       
@@ -637,18 +647,6 @@ RCU 와 spinlock 등을 위해 사용되는 torture 테스트 업데이트를 �
 이 블로그에서도 소개한 Slab movable objects 패치셋의 다섯번째 버전입니다. RFC 로는 아마도 마지막 버전이 될거라는군요.
 [RFC PATCH 00/14] mmap_sem range locking https://lkml.kernel.org/r/20190521045242.24378-1-dave@stgolabs.net
 이번 LSFMM 에서 개인적으로 가장 기대했던 세션이 mmap_sem 해결에 대한 세션이었습니다. 해당 세션에서는 예전부터 이야기가 나온 range locking 에 대해서도 이야기가 있었는데요, 이 패치셋은 이 range locking 을 사용한 mmap_sem 문제 해결 시도를 다시 정리해 RFC 의 형태로 올린 것입니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/ko/post/lkml_news_v5.2-rc1/">LKML News v5.2-rc1</a></h2>
-    <div class="article-style">
-      
-      [PATCH] mm: Introduce page_size() https://lkml.kernel.org/r/20190510181242.24580-1-willy@infradead.org
-Huge page 등의 경우를 위해 페이지의 실제 크기를 구하려면 PAGE_SIZE &lt;&lt; compound_order(page) 를 해야 하는게 짜증난 Matthew Wilcox 가 별도의 함수를 만들고 기존 코드들을 이 함수를 사용하도록 변경한 패치입니다.
-[PATCH v2 00/15] Remove &lsquo;order&rsquo; argument from many mm functions https://lkml.kernel.org/r/20190510135038.17129-1-willy@infradead.org
-mm 쪽 함수들은 order 를 인자로 많이 받죠. 어차피 gfp_t 는 무조건 받으니까 이 타입의 상위 bit 을 order 목적으로 사용하자는 패치입니다. 이 패치의 장점은? 커널 텍스트 사이즈를 줄인다는 것입니다 :)
       
     </div>
   </div>
