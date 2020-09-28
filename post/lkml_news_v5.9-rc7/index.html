@@ -574,7 +574,7 @@ Shakeel reports a machine lockup due to extreme memory pressure. It&rsquo;s lock
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -628,6 +628,22 @@ has similar problems and if so, what was the solution.</p>
 <p><a href="https://lkml.kernel.org/r/20200924132904.1391-1-rppt@kernel.org">https://lkml.kernel.org/r/20200924132904.1391-1-rppt@kernel.org</a></p>
 <p>Sixth version of the <code>memfd_secret</code> patchset.  It aims to provide &ldquo;secret&rdquo;
 mappings, mostly for the guests.</p>
+<h2 id="linux-59-rc7-linus-torvalds">Linux 5.9-rc7 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wj1SJmva5pQxT-XZkMREOa+iJuy0K8-zua0K=vF-Jz7zw@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wj1SJmva5pQxT-XZkMREOa+iJuy0K8-zua0K=vF-Jz7zw@mail.gmail.com</a></p>
+<p>All of the v5.9 gating issues including the VM bugs are finally fixed.
+However, because the fixes came in fairly late, Torvalds says he would release
+rc8 next week, instead of the v5.9.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v4.19-rc7..v5.9-rc7.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2018-09-28 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc7 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.9-rc7-only.png" alt="rc2 release stat"></p>
 
     </div>
 
