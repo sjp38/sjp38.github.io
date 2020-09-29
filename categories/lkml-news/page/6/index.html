@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2020-09-22T07:07:32&#43;02:00">
+    <meta property="og:updated_time" content="2020-09-29T07:22:30&#43;02:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.3-rc8/">LKML News v5.3-rc8</a></h2>
+    <div class="article-style">
+      
+      [PATCH RFC 00/14] The new slab memory controller https://lkml.kernel.org/r/20190905214553.1643060-1-guro@fb.com
+슬랩 할당자의 실제 메모리 활용률이 대부분 45-65 퍼센트에 불과했다고 합니다. 이는 슬랩 페이지가 각 메모리 cgroup 마다 배타적으로 사용되기 때문입니다. 적은 메모리만 사용하는 cgroup 여러개가 존재하면 슬랩에서 크게 받아놓은 메모리에서 조금씩만 실제 사용되니까 전체 활용률은 낮게 되는거죠. 이 RFC 패치셋은 서로 다른 cgroup 들이 슬랩 페이지를 공유할 수 있게 함으로써 이 문제를 해결합니다.
+Linux 5.3-rc8 https://lkml.kernel.org/r/CAHk-=whBQ+6c-h+htiv6pp8ndtv97+45AH9WvdZougDRM6M4VQ@mail.gmail.com
+평소대로라면 5.3 정식 릴리즈가 되었을테고 별다른 문제는 없었지만, rc7 릴리즈에서 이야기된대로 LPC 와 커널 서밋도 있고 한 이유로, -rc8 이 릴리즈 되었습니다.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.3-rc7/">LKML News v5.3-rc7</a></h2>
     <div class="article-style">
       
@@ -630,19 +642,6 @@ uprobe 가 THP 로 받쳐지고 있는 코드에 적용되면 이 THP 는 regula
 어플리케이션의 텍스트 섹션을 THP 로 지원해 줌으로써 iTLB 미스를 줄이고 성능을 높이고자 하는 패치셋입니다.
 Linux 5.2-rc7 https://lkml.kernel.org/r/CAHk-=wgL5GyQ93o=VyiymFPfw=Z0TGHEPBJrCtGSqFSW2Mhx8g@mail.gmail.com
 여전히 토발즈의 여행 탓에 릴리즈가 평소와 조금 다른 시간대에 이뤄졌습니다, 토발즈 자신의 시점으로는 평소와 같은 일요일 오후지만요.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.2-rc6/">LKML News v5.2-rc6</a></h2>
-    <div class="article-style">
-      
-      [PATCH NOTFORMERGE 0/5] Extend remote madvise API to KSM hints https://lkml.kernel.org/r/20190616085835.953-1-oleksandr@redhat.com
-이 블로그에서도 여러번 소개한 remote madvise() 에 대한 관심이 많이 있는 것 같네요. 이 패치셋은 MADV_MERGEABLE, MADV_UNMERGEABLE 을 추가해서 KSM 힌트도 madvise() 를 통해 줄 수 있게 합니다.
-논의를 위한 패치라 이대로 머지되진 않겠지만, 사용처가 많이 늘어날 것 같네요.
-Linux 5.2-rc6 https://lkml.kernel.org/r/CAHk-=wg+nPKhdn=vKSgJQkfOSGhauTO4jyt=0FH9cnM_QChDLw@mail.gmail.com
-안타깝게도 기대와 달리 이번 릴리즈는 조용하지 않았습니다. 이번 5.2 개발을 위한 릴리즈 중 머지 윈도우와 rc1 을 제외하면 rc6 가 오히려 가장 많은 변화를 담고 있다는군요.
       
     </div>
   </div>
