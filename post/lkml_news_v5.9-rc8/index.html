@@ -31,7 +31,10 @@
   <meta name="description" content="[RFC PATCH v2 00/30] 1GB PUD THP support on x86_64 (Zi Yan) https://lkml.kernel.org/r/20200928175428.4110504-1-zi.yan@sent.com
 This patch adds support of 1GB THP using PUD.
 [PATCH v4 00/11] KFENCE: A low-overhead sampling-based memory safety error detector (Marco Elver) https://lkml.kernel.org/r/20200929133814.2834621-1-elver@google.com
-The 4th version of the KFENCE patchset.">
+The 4th version of the KFENCE patchset.
+[PATCH 0/5] Speed up mremap on large regions (Kalesh Singh) https://lkml.kernel.org/r/20200930222130.4175584-1-kaleshsingh@google.com
+This patchset optimizes mremap() by allowing memory regions to be able to mapped at PMD/PUD.
+[PATCH] selftests/vm: 10x speedup for hmm-tests https://lkml.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/lkml_news_v5.9-rc8/">
@@ -156,7 +159,10 @@ The 4th version of the KFENCE patchset.">
   <meta property="og:description" content="[RFC PATCH v2 00/30] 1GB PUD THP support on x86_64 (Zi Yan) https://lkml.kernel.org/r/20200928175428.4110504-1-zi.yan@sent.com
 This patch adds support of 1GB THP using PUD.
 [PATCH v4 00/11] KFENCE: A low-overhead sampling-based memory safety error detector (Marco Elver) https://lkml.kernel.org/r/20200929133814.2834621-1-elver@google.com
-The 4th version of the KFENCE patchset."><meta property="og:image" content="/img/tux.png">
+The 4th version of the KFENCE patchset.
+[PATCH 0/5] Speed up mremap on large regions (Kalesh Singh) https://lkml.kernel.org/r/20200930222130.4175584-1-kaleshsingh@google.com
+This patchset optimizes mremap() by allowing memory regions to be able to mapped at PMD/PUD.
+[PATCH] selftests/vm: 10x speedup for hmm-tests https://lkml."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -208,7 +214,7 @@ The 4th version of the KFENCE patchset."><meta property="og:image" content="/img
       "url": "/img/icon-512.png"
     }
   },
-  "description": "[RFC PATCH v2 00/30] 1GB PUD THP support on x86_64 (Zi Yan) https://lkml.kernel.org/r/20200928175428.4110504-1-zi.yan@sent.com\nThis patch adds support of 1GB THP using PUD.\n[PATCH v4 00/11] KFENCE: A low-overhead sampling-based memory safety error detector (Marco Elver) https://lkml.kernel.org/r/20200929133814.2834621-1-elver@google.com\nThe 4th version of the KFENCE patchset."
+  "description": "[RFC PATCH v2 00/30] 1GB PUD THP support on x86_64 (Zi Yan) https://lkml.kernel.org/r/20200928175428.4110504-1-zi.yan@sent.com\nThis patch adds support of 1GB THP using PUD.\n[PATCH v4 00/11] KFENCE: A low-overhead sampling-based memory safety error detector (Marco Elver) https://lkml.kernel.org/r/20200929133814.2834621-1-elver@google.com\nThe 4th version of the KFENCE patchset.\n[PATCH 0/5] Speed up mremap on large regions (Kalesh Singh) https://lkml.kernel.org/r/20200930222130.4175584-1-kaleshsingh@google.com\nThis patchset optimizes mremap() by allowing memory regions to be able to mapped at PMD/PUD.\n[PATCH] selftests/vm: 10x speedup for hmm-tests https://lkml."
 }
 </script>
 
@@ -620,6 +626,13 @@ The 4th version of the KFENCE patchset."><meta property="og:image" content="/img
 <h2 id="patch-v4-0011-kfence-a-low-overhead-sampling-based-memory-safety-error-detector-marco-elver">[PATCH v4 00/11] KFENCE: A low-overhead sampling-based memory safety error detector (Marco Elver)</h2>
 <p><a href="https://lkml.kernel.org/r/20200929133814.2834621-1-elver@google.com">https://lkml.kernel.org/r/20200929133814.2834621-1-elver@google.com</a></p>
 <p>The 4th version of the KFENCE patchset.</p>
+<h2 id="patch-05-speed-up-mremap-on-large-regions-kalesh-singh">[PATCH 0/5] Speed up mremap on large regions (Kalesh Singh)</h2>
+<p><a href="https://lkml.kernel.org/r/20200930222130.4175584-1-kaleshsingh@google.com">https://lkml.kernel.org/r/20200930222130.4175584-1-kaleshsingh@google.com</a></p>
+<p>This patchset optimizes <code>mremap()</code> by allowing memory regions to be able to
+mapped at PMD/PUD.</p>
+<h2 id="patch-selftestsvm-10x-speedup-for-hmm-tests">[PATCH] selftests/vm: 10x speedup for hmm-tests</h2>
+<p><a href="https://lkml.kernel.org/r/20201003011721.44238-1-jhubbard@nvidia.com">https://lkml.kernel.org/r/20201003011721.44238-1-jhubbard@nvidia.com</a></p>
+<p>This patch reduces number of iteration of hmm-tests so it can run faster.</p>
 
     </div>
 
