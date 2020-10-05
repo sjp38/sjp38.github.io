@@ -633,6 +633,23 @@ mapped at PMD/PUD.</p>
 <h2 id="patch-selftestsvm-10x-speedup-for-hmm-tests">[PATCH] selftests/vm: 10x speedup for hmm-tests</h2>
 <p><a href="https://lkml.kernel.org/r/20201003011721.44238-1-jhubbard@nvidia.com">https://lkml.kernel.org/r/20201003011721.44238-1-jhubbard@nvidia.com</a></p>
 <p>This patch reduces number of iteration of hmm-tests so it can run faster.</p>
+<h2 id="linux-v59-rc8-linus-torvalds">Linux v5.9-rc8 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wj-H5BYCU_kKiOK=B9sN3BtRzL4pnne2AJPyf54nQ+d=w@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wj-H5BYCU_kKiOK=B9sN3BtRzL4pnne2AJPyf54nQ+d=w@mail.gmail.com</a></p>
+<p>As expected, rc8 instead of the v5.9 is released.  Torvalds is still waiting
+some fixes from network part, but he also says it was really calm last week and
+therefore he think this is the right time for the last week before the v5.9
+release.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v4.19-rc7..v5.9-rc8.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2018-10-05 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc8 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.9-rc8-only.png" alt="rc2 release stat"></p>
 
     </div>
 
