@@ -676,12 +676,17 @@ install process.</p>
 shows <code>Booting from Hard Disk...</code> message only.  But, the VM is booted well.
 You can ssh to the VM via the port, 2242.</p>
 <pre><code>$ ssh localhost -p 2242
-</code></pre><p>Let&rsquo;s connect the VM&rsquo;s console to the QEMU executing terminal.
+</code></pre><h2 id="connect-console-to-terminal">Connect Console to Terminal</h2>
+<p>Let&rsquo;s connect the VM&rsquo;s console to the QEMU executing terminal.
 Modify the <code>/etc/default/grub</code> file&rsquo;s <code>GRUB_CMDLINE_LINUX_DEFAULT</code> to have
-<code>&quot;console=ttyS0 earlyprintk=ttyS0 ftrace_dump_on_oops&quot;</code> and do below command:</p>
+<code>&quot;console=ttyS0 earlyprintk=ttyS0 ftrace_dump_on_oops&quot;</code>.</p>
+<p>You may also want to show GRUB when boot.  Comment out
+<code>GRUB_TIMEOUT_STYLE=hidden</code>, give none-zero value to <code>GRUB_TIMEOUT=</code>, and
+Uncomment <code>GRUB_TERMINAL=console</code>.</p>
+<p>Finally, commit the change by:</p>
 <pre><code>$ sudo update-grub
 $ sudo shutdown -h now
-</code></pre><p>After, if you start the VM again using the QEMU command, the terminal you
+</code></pre><p>After this, if you start the VM again using the QEMU command, the terminal you
 executed the QEMU command will be connected with the console of the VM and will
 show boot log and login prompt.</p>
 <h1 id="return-to-vm-monitor-console">Return to VM Monitor Console</h1>

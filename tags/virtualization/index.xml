@@ -65,12 +65,17 @@ install process.&lt;/p&gt;
 shows &lt;code&gt;Booting from Hard Disk...&lt;/code&gt; message only.  But, the VM is booted well.
 You can ssh to the VM via the port, 2242.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ ssh localhost -p 2242
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Let&amp;rsquo;s connect the VM&amp;rsquo;s console to the QEMU executing terminal.
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;connect-console-to-terminal&#34;&gt;Connect Console to Terminal&lt;/h2&gt;
+&lt;p&gt;Let&amp;rsquo;s connect the VM&amp;rsquo;s console to the QEMU executing terminal.
 Modify the &lt;code&gt;/etc/default/grub&lt;/code&gt; file&amp;rsquo;s &lt;code&gt;GRUB_CMDLINE_LINUX_DEFAULT&lt;/code&gt; to have
-&lt;code&gt;&amp;quot;console=ttyS0 earlyprintk=ttyS0 ftrace_dump_on_oops&amp;quot;&lt;/code&gt; and do below command:&lt;/p&gt;
+&lt;code&gt;&amp;quot;console=ttyS0 earlyprintk=ttyS0 ftrace_dump_on_oops&amp;quot;&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;You may also want to show GRUB when boot.  Comment out
+&lt;code&gt;GRUB_TIMEOUT_STYLE=hidden&lt;/code&gt;, give none-zero value to &lt;code&gt;GRUB_TIMEOUT=&lt;/code&gt;, and
+Uncomment &lt;code&gt;GRUB_TERMINAL=console&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Finally, commit the change by:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ sudo update-grub
 $ sudo shutdown -h now
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;After, if you start the VM again using the QEMU command, the terminal you
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;After this, if you start the VM again using the QEMU command, the terminal you
 executed the QEMU command will be connected with the console of the VM and will
 show boot log and login prompt.&lt;/p&gt;
 &lt;h1 id=&#34;return-to-vm-monitor-console&#34;&gt;Return to VM Monitor Console&lt;/h1&gt;
