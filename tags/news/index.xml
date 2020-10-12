@@ -31,6 +31,20 @@ the contention.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20201007161736.ACC6E387@viggo.jf.intel.com&#34;&gt;https://lkml.kernel.org/r/20201007161736.ACC6E387@viggo.jf.intel.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;This commit makes the tiered-memory operation to do migration instead of
 reclamation.&lt;/p&gt;
+&lt;h2 id=&#34;linux-59-linus-torvalds&#34;&gt;Linux 5.9 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wi-u86++np80GQvgDuARdt9xpBNho6SjHLmYgm8jibGag@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wi-u86++np80GQvgDuARdt9xpBNho6SjHLmYgm8jibGag@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;As expected, Linux v5.9 released.  Torvalds says the changes in last week was a
+little bit more that he hoped, but there was no scary change.  So, the merge
+window for v5.10 has open!&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v4.19..v5.9.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
+below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2018-10-12 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
