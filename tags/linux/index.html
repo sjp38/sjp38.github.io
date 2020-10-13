@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2020-10-06T07:12:49&#43;02:00">
+    <meta property="og:updated_time" content="2020-10-13T07:34:10&#43;02:00">
   
 
   
@@ -525,6 +525,16 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.10-rc1/">LKML News v5.10-rc1</a></h2>
+    <div class="article-style">
+      
+      [PATCH] mm: Make allocator take care of memoryless numa node (Xianting Tian) https://lkml.kernel.org/r/20201012082739.15661-1-tian.xianting@h3c.com
+CPUs in powerpc like architecture could have no local memory. As the kernel code doesn&rsquo;t care about it, this commit makes it to handle the case.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.9/">LKML News v5.9</a></h2>
     <div class="article-style">
       
@@ -632,15 +642,6 @@ This week rc release is also quite normal. The &lsquo;fallthought&rsquo; comment
 Jim Baxter encountered 6.5 seconds delay due to long workqueue delay. He want to ask if this is normal or real problem.
 [RFC PATCH 0/8] memcg: Enable fine-grained per process memory control (Waiman Long) https://lkml.kernel.org/r/20200817140831.30260-1-longman@redhat.com
 The memory cgroup v2 start reclamation if the amount of the memory of the cgroup exceeds &lsquo;memory.high&rsquo; and start OOM killing if if exceeds &lsquo;memory.max&rsquo;. Problem is, the OOM killer can kill any process.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/kernelsummit2020_talk/">I will have a talk at the Linux Kernel Summit 2020</a></h2>
-    <div class="article-style">
-      
-      My talk proposal to the Linux Kernel Summit of this year which is co-located with the Linux Plumbers Conference has accepted! Hope to (virtually) see you there. The title of the talk is, &ldquo;DAMON: Data Access Monitoring Framework for Fun and Memory Management Optimizations&rdquo;.
       
     </div>
   </div>
