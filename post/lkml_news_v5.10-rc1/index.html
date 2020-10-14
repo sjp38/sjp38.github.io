@@ -29,7 +29,11 @@
     
   
   <meta name="description" content="[PATCH] mm: Make allocator take care of memoryless numa node (Xianting Tian) https://lkml.kernel.org/r/20201012082739.15661-1-tian.xianting@h3c.com
-CPUs in powerpc like architecture could have no local memory. As the kernel code doesn&rsquo;t care about it, this commit makes it to handle the case.">
+CPUs in powerpc like architecture could have no local memory. As the kernel code doesn&rsquo;t care about it, this commit makes it to handle the case.
+incoming (Andrew Morton) https://lkml.kernel.org/r/20201013164658.3bfd96cc224d8923e66a9f4e@linux-foundation.org
+This is the pull request from Andrew Morton, the mm maintainer, for v5.10.
+[PATCH v4 0/5] Speed up mremap on large regions (Kalesh Singh) https://lkml.kernel.org/r/20201014005320.2233162-1-kaleshsingh@google.com)
+Repost fo the patch series.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/lkml_news_v5.10-rc1/">
@@ -152,7 +156,11 @@ CPUs in powerpc like architecture could have no local memory. As the kernel code
   <meta property="og:url" content="/post/lkml_news_v5.10-rc1/">
   <meta property="og:title" content="LKML News v5.10-rc1 | hacklog">
   <meta property="og:description" content="[PATCH] mm: Make allocator take care of memoryless numa node (Xianting Tian) https://lkml.kernel.org/r/20201012082739.15661-1-tian.xianting@h3c.com
-CPUs in powerpc like architecture could have no local memory. As the kernel code doesn&rsquo;t care about it, this commit makes it to handle the case."><meta property="og:image" content="/img/tux.png">
+CPUs in powerpc like architecture could have no local memory. As the kernel code doesn&rsquo;t care about it, this commit makes it to handle the case.
+incoming (Andrew Morton) https://lkml.kernel.org/r/20201013164658.3bfd96cc224d8923e66a9f4e@linux-foundation.org
+This is the pull request from Andrew Morton, the mm maintainer, for v5.10.
+[PATCH v4 0/5] Speed up mremap on large regions (Kalesh Singh) https://lkml.kernel.org/r/20201014005320.2233162-1-kaleshsingh@google.com)
+Repost fo the patch series."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -204,7 +212,7 @@ CPUs in powerpc like architecture could have no local memory. As the kernel code
       "url": "/img/icon-512.png"
     }
   },
-  "description": "[PATCH] mm: Make allocator take care of memoryless numa node (Xianting Tian) https://lkml.kernel.org/r/20201012082739.15661-1-tian.xianting@h3c.com\nCPUs in powerpc like architecture could have no local memory. As the kernel code doesn\u0026rsquo;t care about it, this commit makes it to handle the case."
+  "description": "[PATCH] mm: Make allocator take care of memoryless numa node (Xianting Tian) https://lkml.kernel.org/r/20201012082739.15661-1-tian.xianting@h3c.com\nCPUs in powerpc like architecture could have no local memory. As the kernel code doesn\u0026rsquo;t care about it, this commit makes it to handle the case.\nincoming (Andrew Morton) https://lkml.kernel.org/r/20201013164658.3bfd96cc224d8923e66a9f4e@linux-foundation.org\nThis is the pull request from Andrew Morton, the mm maintainer, for v5.10.\n[PATCH v4 0/5] Speed up mremap on large regions (Kalesh Singh) https://lkml.kernel.org/r/20201014005320.2233162-1-kaleshsingh@google.com)\nRepost fo the patch series."
 }
 </script>
 
@@ -614,6 +622,12 @@ CPUs in powerpc like architecture could have no local memory. As the kernel code
 <p><a href="https://lkml.kernel.org/r/20201012082739.15661-1-tian.xianting@h3c.com">https://lkml.kernel.org/r/20201012082739.15661-1-tian.xianting@h3c.com</a></p>
 <p>CPUs in powerpc like architecture could have no local memory.  As the kernel
 code doesn&rsquo;t care about it, this commit makes it to handle the case.</p>
+<h2 id="incoming-andrew-morton">incoming (Andrew Morton)</h2>
+<p><a href="https://lkml.kernel.org/r/20201013164658.3bfd96cc224d8923e66a9f4e@linux-foundation.org">https://lkml.kernel.org/r/20201013164658.3bfd96cc224d8923e66a9f4e@linux-foundation.org</a></p>
+<p>This is the pull request from Andrew Morton, the mm maintainer, for v5.10.</p>
+<h2 id="patch-v4-05-speed-up-mremap-on-large-regions-kalesh-singh">[PATCH v4 0/5] Speed up mremap on large regions (Kalesh Singh)</h2>
+<p><a href="https://lkml.kernel.org/r/20201014005320.2233162-1-kaleshsingh@google.com">https://lkml.kernel.org/r/20201014005320.2233162-1-kaleshsingh@google.com</a>)</p>
+<p>Repost fo the patch series.  Change from v3 is only adding Kirill&rsquo;s Acked-by&rsquo;s.</p>
 
     </div>
 
