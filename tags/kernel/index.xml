@@ -39,6 +39,16 @@ patchset is in here.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20201020014357.GW20115@casper.infradead.org&#34;&gt;https://lkml.kernel.org/r/20201020014357.GW20115@casper.infradead.org&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Matthew shares a weird corner case that THP is used beyond the end of file and
 his idea on the solution of this problem.&lt;/p&gt;
+&lt;h2 id=&#34;patch-mm-dont-wake-kswapd-prematurely-when-watermark-boosting-is-disabled-johannes-weiner&#34;&gt;[PATCH] mm: don&amp;rsquo;t wake kswapd prematurely when watermark boosting is disabled (Johannes Weiner)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20201020175833.397286-1-hannes@cmpxchg.org&#34;&gt;https://lkml.kernel.org/r/20201020175833.397286-1-hannes@cmpxchg.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;In case of multiple NUMA nodes systems, the watermark boosting related code
+allow kswapd to wake up if one node&amp;rsquo;s memory is full but other nodes have some
+free memory.  This is for fragmentation handling, but this frequent kswapd work
+makes some workloads slow.  This commit avoids such unnecessary kswapd wakeup.&lt;/p&gt;
+&lt;h2 id=&#34;patch-v4-01-add-tracepoints-around-mmap_lock-acquisition-axel-rasmussen&#34;&gt;[PATCH v4 0/1] Add tracepoints around mmap_lock acquisition (Axel Rasmussen)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20201020184746.300555-1-axelrasmussen@google.com&#34;&gt;https://lkml.kernel.org/r/20201020184746.300555-1-axelrasmussen@google.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Fourth version of the patch adding tracepoints for &lt;code&gt;mmap_lock&lt;/code&gt; acquisition.
+This will help understanding and solving the mmap locking contention problem.&lt;/p&gt;
 </description>
     </item>
     
