@@ -654,6 +654,24 @@ This will help understanding and solving the mmap locking contention problem.</p
 <p><a href="https://lkml.kernel.org/r/1603271049-20681-1-git-send-email-sergei.shtepa@veeam.com">https://lkml.kernel.org/r/1603271049-20681-1-git-send-email-sergei.shtepa@veeam.com</a></p>
 <p>This patchset introduce blk-filter, which allows to intercept BIO requests, and
 blk-snap, which snapshots block device for backup.</p>
+<h2 id="linux-510-rc1-linus-torvalds">Linux 5.10-rc1 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=whcRFYSm0jj3Xh3xCyBaxCHA1ZMNO0h_gZso_WZFDUtiQ@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=whcRFYSm0jj3Xh3xCyBaxCHA1ZMNO0h_gZso_WZFDUtiQ@mail.gmail.com</a></p>
+<p>Two weeks of the merge window passed, and the 5.10-rc1 has released as a
+result.  Torvalds says this is bigger than he expected.  This could be a
+general upward trend, just a fluke, or due to delayed 5.9 release, Torvalds
+says.  He also picks up the <code>set_fs()</code> removal change from Christoph as most
+interesting change in this release.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v4.20-rc2..v5.10-rc1.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2020-10-26 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc1 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.10-rc1-only.png" alt="rc2 release stat"></p>
 
     </div>
 
