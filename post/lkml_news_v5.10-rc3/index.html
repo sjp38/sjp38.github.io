@@ -29,7 +29,9 @@
     
   
   <meta name="description" content="[PATCH v7 0/9] KFENCE: A low-overhead sampling-based memory safety error detector (Marco Elver) https://lkml.kernel.org/r/20201103175841.3495947-1-elver@google.com
-The 7th version of KFENCE. Now the authors say they believe this is ready to be included in the mm tree.">
+The 7th version of KFENCE. Now the authors say they believe this is ready to be included in the mm tree. And, it has now merged in the -mm tree.
+[PATCH] page_frag: Recover from memory pressure (Matthew Wilcox) https://lkml.kernel.org/r/20201105042140.5253-1-willy@infradead.org
+After an extreme memory pressure, some non-essential packets can be dropped because the &lsquo;page_frag&rsquo; allocator do the drops to recover from the memory pressure but it doesn&rsquo;t change back the behavior even after the recovery.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/lkml_news_v5.10-rc3/">
@@ -152,7 +154,9 @@ The 7th version of KFENCE. Now the authors say they believe this is ready to be 
   <meta property="og:url" content="/post/lkml_news_v5.10-rc3/">
   <meta property="og:title" content="LKML News v5.10-rc3 | hacklog">
   <meta property="og:description" content="[PATCH v7 0/9] KFENCE: A low-overhead sampling-based memory safety error detector (Marco Elver) https://lkml.kernel.org/r/20201103175841.3495947-1-elver@google.com
-The 7th version of KFENCE. Now the authors say they believe this is ready to be included in the mm tree."><meta property="og:image" content="/img/tux.png">
+The 7th version of KFENCE. Now the authors say they believe this is ready to be included in the mm tree. And, it has now merged in the -mm tree.
+[PATCH] page_frag: Recover from memory pressure (Matthew Wilcox) https://lkml.kernel.org/r/20201105042140.5253-1-willy@infradead.org
+After an extreme memory pressure, some non-essential packets can be dropped because the &lsquo;page_frag&rsquo; allocator do the drops to recover from the memory pressure but it doesn&rsquo;t change back the behavior even after the recovery."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -204,7 +208,7 @@ The 7th version of KFENCE. Now the authors say they believe this is ready to be 
       "url": "/img/icon-512.png"
     }
   },
-  "description": "[PATCH v7 0/9] KFENCE: A low-overhead sampling-based memory safety error detector (Marco Elver) https://lkml.kernel.org/r/20201103175841.3495947-1-elver@google.com\nThe 7th version of KFENCE. Now the authors say they believe this is ready to be included in the mm tree."
+  "description": "[PATCH v7 0/9] KFENCE: A low-overhead sampling-based memory safety error detector (Marco Elver) https://lkml.kernel.org/r/20201103175841.3495947-1-elver@google.com\nThe 7th version of KFENCE. Now the authors say they believe this is ready to be included in the mm tree. And, it has now merged in the -mm tree.\n[PATCH] page_frag: Recover from memory pressure (Matthew Wilcox) https://lkml.kernel.org/r/20201105042140.5253-1-willy@infradead.org\nAfter an extreme memory pressure, some non-essential packets can be dropped because the \u0026lsquo;page_frag\u0026rsquo; allocator do the drops to recover from the memory pressure but it doesn\u0026rsquo;t change back the behavior even after the recovery."
 }
 </script>
 
@@ -613,7 +617,13 @@ The 7th version of KFENCE. Now the authors say they believe this is ready to be 
       <h2 id="patch-v7-09-kfence-a-low-overhead-sampling-based-memory-safety-error-detector-marco-elver">[PATCH v7 0/9] KFENCE: A low-overhead sampling-based memory safety error detector (Marco Elver)</h2>
 <p><a href="https://lkml.kernel.org/r/20201103175841.3495947-1-elver@google.com">https://lkml.kernel.org/r/20201103175841.3495947-1-elver@google.com</a></p>
 <p>The 7th version of KFENCE.  Now the authors say they believe this is ready to
-be included in the mm tree.</p>
+be included in the mm tree.  And, it has now merged in the -mm tree.</p>
+<h2 id="patch-page_frag-recover-from-memory-pressure-matthew-wilcox">[PATCH] page_frag: Recover from memory pressure (Matthew Wilcox)</h2>
+<p><a href="https://lkml.kernel.org/r/20201105042140.5253-1-willy@infradead.org">https://lkml.kernel.org/r/20201105042140.5253-1-willy@infradead.org</a></p>
+<p>After an extreme memory pressure, some non-essential packets can be dropped
+because the &lsquo;page_frag&rsquo; allocator do the drops to recover from the memory
+pressure but it doesn&rsquo;t change back the behavior even after the recovery.  This
+commit fixes this.</p>
 
     </div>
 
