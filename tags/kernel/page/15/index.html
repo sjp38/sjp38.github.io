@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2020-11-04T07:08:08&#43;01:00">
+    <meta property="og:updated_time" content="2020-11-10T07:16:10&#43;01:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v4.15-rc4/">LKML News after v4.15-rc4</a></h2>
+    <div class="article-style">
+      
+      Linux 4.15-rc4 https://lkml.kernel.org/r/CA+55aFysmVGm_shBvK4kmaS+_PsMEt3Mz_b+Dm0SDrmVtUofbA@mail.gmail.com
+4.15 의 네번째 rc 버전입니다. 지난 rc 버전들이 생각보다 커서 토발즈가 좀 걱정했는데, 이번 릴리즈에 들어서는 평범한 네번째 rc 만큼이나 변화가 많이 없어 충분히 안정화 되기 시작한 것 같다고 하는군요.
+이번에 가장 눈에 띌만한 변화는 suspend/resume 처리를 정리하고 고친 것이라고 합니다. 크로스 락킹 디버깅 기능은 부팅 시간을 늘리는 문제 등도 있어선지 이번에 일단 제거되었네요. 나중에 다시 되살릴 계획은 있는 것 같습니다.
+[PATCH v2 1/1] Move kfree_call_rcu() to slab_common.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v4.15-rc3/">LKML News after v4.15-rc3</a></h2>
     <div class="article-style">
       
@@ -633,16 +645,6 @@ Lazy TLB flushing 변경은 지나치게 게으르게 TLB flushing 을 해서 AM
     <div class="article-style">
       
       LKML 을 모니터링 하면서 흥미가는 패치나 토론을 lkml news 라는 카테고리로 묶어서 비정기적, 비형식적으로 간략히 정리하고 관련 소식을 업데이트 해보고자 합니다. 주로 모니터링 하는 메일은 메모리 매니지먼트 쪽과 rcu 관련 메일들이 될겁니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/kernel-text-addresses-removed-from-calltrace/">Kernel text addresses removed from calltrace</a></h2>
-    <div class="article-style">
-      
-      최근 커널은 stakc dump 에서 콜 트레이스(Call Trace) 에 각 코드의 메모리 어드레스를 찍어주지 않습니다. 이에 대해 포스팅을 해봅니다.
-Call Trace 커널은 문제가 발생하거나 하면 문제의 원인을 찾을 수 있는 다양한 정보를 담고 있는 stack dump 를 로그로 뿌려 줍니다. 문제의 원인을 찾는데 매우 소중한 정보입니다. 그 정보 중에서도 중요한 것 중 하나가 콜 트레이스로, 이 문제의 순간에 오기까지 어느 함수의 어느 지점에서 어느 함수를 호출해서 여기까지 왔는가를 담는 정보입니다.
       
     </div>
   </div>
