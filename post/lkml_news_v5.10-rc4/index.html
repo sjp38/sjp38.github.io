@@ -29,7 +29,9 @@
     
   
   <meta name="description" content="[PATCH -V3 0/2] autonuma: Migrate on fault among multiple bound nodes (Huang Ying) https://lkml.kernel.org/r/20201110055951.85085-1-ying.huang@intel.com
-This patchset makes AutoNUMA&rsquo;s cross-socket memory access optimization possible even if the application&rsquo;s memory is bound to multiple NUMA nodes.">
+This patchset makes AutoNUMA&rsquo;s cross-socket memory access optimization possible even if the application&rsquo;s memory is bound to multiple NUMA nodes.
+[PATCH] kfence: Avoid stalling work queue task without allocations (Marco Elver) https://lkml.kernel.org/r/20201110135320.3309507-1-elver@google.com
+This commit makes the toggle allocation gate of kfence to have 1 second timeout, to be prepared for allocation stallings.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/lkml_news_v5.10-rc4/">
@@ -152,7 +154,9 @@ This patchset makes AutoNUMA&rsquo;s cross-socket memory access optimization pos
   <meta property="og:url" content="/post/lkml_news_v5.10-rc4/">
   <meta property="og:title" content="LKML News v5.10-rc4 | hacklog">
   <meta property="og:description" content="[PATCH -V3 0/2] autonuma: Migrate on fault among multiple bound nodes (Huang Ying) https://lkml.kernel.org/r/20201110055951.85085-1-ying.huang@intel.com
-This patchset makes AutoNUMA&rsquo;s cross-socket memory access optimization possible even if the application&rsquo;s memory is bound to multiple NUMA nodes."><meta property="og:image" content="/img/tux.png">
+This patchset makes AutoNUMA&rsquo;s cross-socket memory access optimization possible even if the application&rsquo;s memory is bound to multiple NUMA nodes.
+[PATCH] kfence: Avoid stalling work queue task without allocations (Marco Elver) https://lkml.kernel.org/r/20201110135320.3309507-1-elver@google.com
+This commit makes the toggle allocation gate of kfence to have 1 second timeout, to be prepared for allocation stallings."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -204,7 +208,7 @@ This patchset makes AutoNUMA&rsquo;s cross-socket memory access optimization pos
       "url": "/img/icon-512.png"
     }
   },
-  "description": "[PATCH -V3 0/2] autonuma: Migrate on fault among multiple bound nodes (Huang Ying) https://lkml.kernel.org/r/20201110055951.85085-1-ying.huang@intel.com\nThis patchset makes AutoNUMA\u0026rsquo;s cross-socket memory access optimization possible even if the application\u0026rsquo;s memory is bound to multiple NUMA nodes."
+  "description": "[PATCH -V3 0/2] autonuma: Migrate on fault among multiple bound nodes (Huang Ying) https://lkml.kernel.org/r/20201110055951.85085-1-ying.huang@intel.com\nThis patchset makes AutoNUMA\u0026rsquo;s cross-socket memory access optimization possible even if the application\u0026rsquo;s memory is bound to multiple NUMA nodes.\n[PATCH] kfence: Avoid stalling work queue task without allocations (Marco Elver) https://lkml.kernel.org/r/20201110135320.3309507-1-elver@google.com\nThis commit makes the toggle allocation gate of kfence to have 1 second timeout, to be prepared for allocation stallings."
 }
 </script>
 
@@ -614,6 +618,10 @@ This patchset makes AutoNUMA&rsquo;s cross-socket memory access optimization pos
 <p><a href="https://lkml.kernel.org/r/20201110055951.85085-1-ying.huang@intel.com">https://lkml.kernel.org/r/20201110055951.85085-1-ying.huang@intel.com</a></p>
 <p>This patchset makes AutoNUMA&rsquo;s cross-socket memory access optimization possible
 even if the application&rsquo;s memory is bound to multiple NUMA nodes.</p>
+<h2 id="patch-kfence-avoid-stalling-work-queue-task-without-allocations-marco-elver">[PATCH] kfence: Avoid stalling work queue task without allocations (Marco Elver)</h2>
+<p><a href="https://lkml.kernel.org/r/20201110135320.3309507-1-elver@google.com">https://lkml.kernel.org/r/20201110135320.3309507-1-elver@google.com</a></p>
+<p>This commit makes the toggle allocation gate of kfence to have 1 second
+timeout, to be prepared for allocation stallings.</p>
 
     </div>
 

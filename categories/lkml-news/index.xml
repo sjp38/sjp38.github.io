@@ -21,6 +21,10 @@
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20201110055951.85085-1-ying.huang@intel.com&#34;&gt;https://lkml.kernel.org/r/20201110055951.85085-1-ying.huang@intel.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;This patchset makes AutoNUMA&amp;rsquo;s cross-socket memory access optimization possible
 even if the application&amp;rsquo;s memory is bound to multiple NUMA nodes.&lt;/p&gt;
+&lt;h2 id=&#34;patch-kfence-avoid-stalling-work-queue-task-without-allocations-marco-elver&#34;&gt;[PATCH] kfence: Avoid stalling work queue task without allocations (Marco Elver)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20201110135320.3309507-1-elver@google.com&#34;&gt;https://lkml.kernel.org/r/20201110135320.3309507-1-elver@google.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This commit makes the toggle allocation gate of kfence to have 1 second
+timeout, to be prepared for allocation stallings.&lt;/p&gt;
 </description>
     </item>
     
