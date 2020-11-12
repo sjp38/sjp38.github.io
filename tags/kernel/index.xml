@@ -25,6 +25,11 @@ even if the application&amp;rsquo;s memory is bound to multiple NUMA nodes.&lt;/
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20201110135320.3309507-1-elver@google.com&#34;&gt;https://lkml.kernel.org/r/20201110135320.3309507-1-elver@google.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;This commit makes the toggle allocation gate of kfence to have 1 second
 timeout, to be prepared for allocation stallings.&lt;/p&gt;
+&lt;h2 id=&#34;rfc-patch-06-split-huge-pages-to-any-lower-order-pages-zi-yan&#34;&gt;[RFC PATCH 0/6] Split huge pages to any lower order pages. (Zi Yan)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20201111204008.21332-1-zi.yan@sent.com&#34;&gt;https://lkml.kernel.org/r/20201111204008.21332-1-zi.yan@sent.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Now pagecache can handle any size of THP, however the &lt;code&gt;split_huge_page()&lt;/code&gt;
+splits a THP to only order-0 pages.  For the reason, this patchset supports the
+function to be able to split a THP into any size smaller pages.&lt;/p&gt;
 </description>
     </item>
     
