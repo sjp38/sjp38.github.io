@@ -29,7 +29,9 @@
     
   
   <meta name="description" content="[PATCH v9 0/9] mm: introduce memfd_secret system call to create &ldquo;secret&rdquo; memory areas (Mike Rapoport) https://lkml.kernel.org/r/20201117162932.13649-1-rppt@kernel.org
-The 9th version of the memfd_secret patchset.">
+The 9th version of the memfd_secret patchset.
+[patch V4 0/8] mm/highmem: Preemptible variant of kmap_atomic &amp; friends (Thomas Gleixner) https://lkml.kernel.org/r/20201118194838.753436396@linutronix.de
+As the name suggests, this patchset allow the code using kmap_atomic and similar things to be preemptible. This incur some overhead to highmem, but Thomas claims highmem was always slow.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/lkml_news_v5.10-rc5/">
@@ -152,7 +154,9 @@ The 9th version of the memfd_secret patchset.">
   <meta property="og:url" content="/post/lkml_news_v5.10-rc5/">
   <meta property="og:title" content="Lkml_news_v5 | hacklog">
   <meta property="og:description" content="[PATCH v9 0/9] mm: introduce memfd_secret system call to create &ldquo;secret&rdquo; memory areas (Mike Rapoport) https://lkml.kernel.org/r/20201117162932.13649-1-rppt@kernel.org
-The 9th version of the memfd_secret patchset."><meta property="og:image" content="/img/tux.png">
+The 9th version of the memfd_secret patchset.
+[patch V4 0/8] mm/highmem: Preemptible variant of kmap_atomic &amp; friends (Thomas Gleixner) https://lkml.kernel.org/r/20201118194838.753436396@linutronix.de
+As the name suggests, this patchset allow the code using kmap_atomic and similar things to be preemptible. This incur some overhead to highmem, but Thomas claims highmem was always slow."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -204,7 +208,7 @@ The 9th version of the memfd_secret patchset."><meta property="og:image" content
       "url": "/img/icon-512.png"
     }
   },
-  "description": "[PATCH v9 0/9] mm: introduce memfd_secret system call to create \u0026ldquo;secret\u0026rdquo; memory areas (Mike Rapoport) https://lkml.kernel.org/r/20201117162932.13649-1-rppt@kernel.org\nThe 9th version of the memfd_secret patchset."
+  "description": "[PATCH v9 0/9] mm: introduce memfd_secret system call to create \u0026ldquo;secret\u0026rdquo; memory areas (Mike Rapoport) https://lkml.kernel.org/r/20201117162932.13649-1-rppt@kernel.org\nThe 9th version of the memfd_secret patchset.\n[patch V4 0/8] mm/highmem: Preemptible variant of kmap_atomic \u0026amp; friends (Thomas Gleixner) https://lkml.kernel.org/r/20201118194838.753436396@linutronix.de\nAs the name suggests, this patchset allow the code using kmap_atomic and similar things to be preemptible. This incur some overhead to highmem, but Thomas claims highmem was always slow."
 }
 </script>
 
@@ -613,6 +617,11 @@ The 9th version of the memfd_secret patchset."><meta property="og:image" content
       <h2 id="patch-v9-09-mm-introduce-memfd_secret-system-call-to-create-secret-memory-areas-mike-rapoport">[PATCH v9 0/9] mm: introduce memfd_secret system call to create &ldquo;secret&rdquo; memory areas (Mike Rapoport)</h2>
 <p><a href="https://lkml.kernel.org/r/20201117162932.13649-1-rppt@kernel.org">https://lkml.kernel.org/r/20201117162932.13649-1-rppt@kernel.org</a></p>
 <p>The 9th version of the memfd_secret patchset.</p>
+<h2 id="patch-v4-08-mmhighmem-preemptible-variant-of-kmap_atomic--friends-thomas-gleixner">[patch V4 0/8] mm/highmem: Preemptible variant of kmap_atomic &amp; friends (Thomas Gleixner)</h2>
+<p><a href="https://lkml.kernel.org/r/20201118194838.753436396@linutronix.de">https://lkml.kernel.org/r/20201118194838.753436396@linutronix.de</a></p>
+<p>As the name suggests, this patchset allow the code using <code>kmap_atomic</code> and
+similar things to be preemptible.  This incur some overhead to highmem, but
+Thomas claims highmem was always slow.</p>
 
     </div>
 
