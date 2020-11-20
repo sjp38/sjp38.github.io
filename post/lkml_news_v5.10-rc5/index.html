@@ -31,7 +31,8 @@
   <meta name="description" content="[PATCH v9 0/9] mm: introduce memfd_secret system call to create &ldquo;secret&rdquo; memory areas (Mike Rapoport) https://lkml.kernel.org/r/20201117162932.13649-1-rppt@kernel.org
 The 9th version of the memfd_secret patchset.
 [patch V4 0/8] mm/highmem: Preemptible variant of kmap_atomic &amp; friends (Thomas Gleixner) https://lkml.kernel.org/r/20201118194838.753436396@linutronix.de
-As the name suggests, this patchset allow the code using kmap_atomic and similar things to be preemptible. This incur some overhead to highmem, but Thomas claims highmem was always slow.">
+As the name suggests, this patchset allow the code using kmap_atomic and similar things to be preemptible. This incur some overhead to highmem, but Thomas claims highmem was always slow.
+[PATCH 0/7] Split huge pages to any lower order pages and selftests.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/lkml_news_v5.10-rc5/">
@@ -156,7 +157,8 @@ As the name suggests, this patchset allow the code using kmap_atomic and similar
   <meta property="og:description" content="[PATCH v9 0/9] mm: introduce memfd_secret system call to create &ldquo;secret&rdquo; memory areas (Mike Rapoport) https://lkml.kernel.org/r/20201117162932.13649-1-rppt@kernel.org
 The 9th version of the memfd_secret patchset.
 [patch V4 0/8] mm/highmem: Preemptible variant of kmap_atomic &amp; friends (Thomas Gleixner) https://lkml.kernel.org/r/20201118194838.753436396@linutronix.de
-As the name suggests, this patchset allow the code using kmap_atomic and similar things to be preemptible. This incur some overhead to highmem, but Thomas claims highmem was always slow."><meta property="og:image" content="/img/tux.png">
+As the name suggests, this patchset allow the code using kmap_atomic and similar things to be preemptible. This incur some overhead to highmem, but Thomas claims highmem was always slow.
+[PATCH 0/7] Split huge pages to any lower order pages and selftests."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -208,7 +210,7 @@ As the name suggests, this patchset allow the code using kmap_atomic and similar
       "url": "/img/icon-512.png"
     }
   },
-  "description": "[PATCH v9 0/9] mm: introduce memfd_secret system call to create \u0026ldquo;secret\u0026rdquo; memory areas (Mike Rapoport) https://lkml.kernel.org/r/20201117162932.13649-1-rppt@kernel.org\nThe 9th version of the memfd_secret patchset.\n[patch V4 0/8] mm/highmem: Preemptible variant of kmap_atomic \u0026amp; friends (Thomas Gleixner) https://lkml.kernel.org/r/20201118194838.753436396@linutronix.de\nAs the name suggests, this patchset allow the code using kmap_atomic and similar things to be preemptible. This incur some overhead to highmem, but Thomas claims highmem was always slow."
+  "description": "[PATCH v9 0/9] mm: introduce memfd_secret system call to create \u0026ldquo;secret\u0026rdquo; memory areas (Mike Rapoport) https://lkml.kernel.org/r/20201117162932.13649-1-rppt@kernel.org\nThe 9th version of the memfd_secret patchset.\n[patch V4 0/8] mm/highmem: Preemptible variant of kmap_atomic \u0026amp; friends (Thomas Gleixner) https://lkml.kernel.org/r/20201118194838.753436396@linutronix.de\nAs the name suggests, this patchset allow the code using kmap_atomic and similar things to be preemptible. This incur some overhead to highmem, but Thomas claims highmem was always slow.\n[PATCH 0/7] Split huge pages to any lower order pages and selftests."
 }
 </script>
 
@@ -622,6 +624,9 @@ As the name suggests, this patchset allow the code using kmap_atomic and similar
 <p>As the name suggests, this patchset allow the code using <code>kmap_atomic</code> and
 similar things to be preemptible.  This incur some overhead to highmem, but
 Thomas claims highmem was always slow.</p>
+<h2 id="patch-07-split-huge-pages-to-any-lower-order-pages-and-selftests-zi-yan">[PATCH 0/7] Split huge pages to any lower order pages and selftests. (Zi Yan)</h2>
+<p>The patchset adds support for any order pages that could be used as a pagecache
+THP after Matthew&rsquo;s work.</p>
 
     </div>
 
