@@ -576,7 +576,7 @@ As the name suggests, this patchset allow the code using kmap_atomic and similar
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -627,6 +627,23 @@ Thomas claims highmem was always slow.</p>
 <h2 id="patch-07-split-huge-pages-to-any-lower-order-pages-and-selftests-zi-yan">[PATCH 0/7] Split huge pages to any lower order pages and selftests. (Zi Yan)</h2>
 <p>The patchset adds support for any order pages that could be used as a pagecache
 THP after Matthew&rsquo;s work.</p>
+<h2 id="linux-510-rc5-linus-torvalds">Linux 5.10-rc5 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wiYHcVOuZo8LNn__OgqY_ePW3BSPW8FxZbfChrT8SHnuw@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wiYHcVOuZo8LNn__OgqY_ePW3BSPW8FxZbfChrT8SHnuw@mail.gmail.com</a></p>
+<p>This is the biggest rc5 in the 5.x series.  The changes looks normal to Linus,
+but the rc5 releases are normally supposed to start calmdown and shrink.  Linus
+also note that he hope things to calm down.  If not, the 5.10 release might
+come out in the holiday season.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v4.20-rc5..v5.10-rc5.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2018-11-23 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc5 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.10-rc5-only.png" alt="rc2 release stat"></p>
 
     </div>
 
