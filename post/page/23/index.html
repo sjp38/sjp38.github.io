@@ -31,9 +31,9 @@
   <meta name="description" content="Kernel / Hypervisor Engineer">
 
   
-  <link rel="alternate" hreflang="ko" href="/ko/tags/linux/">
+  <link rel="alternate" hreflang="ko" href="/ko/post/">
   
-  <link rel="alternate" hreflang="en-us" href="/tags/linux/">
+  <link rel="alternate" hreflang="en-us" href="/post/">
 
   
 
@@ -58,14 +58,6 @@
     
       
     
-    
-      
-      
-        
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/github.min.css" crossorigin="anonymous" title="hl-light">
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
-        
-      
     
 
     
@@ -133,14 +125,14 @@
 
 
   
-  <link rel="alternate" href="/tags/linux/index.xml" type="application/rss+xml" title="hacklog">
+  <link rel="alternate" href="/post/index.xml" type="application/rss+xml" title="hacklog">
   
 
   <link rel="manifest" href="/index.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon-32.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="/tags/linux/">
+  <link rel="canonical" href="/post/">
 
   
   
@@ -152,12 +144,12 @@
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="hacklog">
-  <meta property="og:url" content="/tags/linux/">
-  <meta property="og:title" content="linux | hacklog">
+  <meta property="og:url" content="/post/">
+  <meta property="og:title" content="Posts | hacklog">
   <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2020-12-08T07:10:59&#43;01:00">
+    <meta property="og:updated_time" content="2017-01-01T00:00:00&#43;01:00">
   
 
   
@@ -174,7 +166,7 @@
 
 
 
-  <title>linux | hacklog</title>
+  <title>Posts | hacklog</title>
 
 </head>
 
@@ -396,7 +388,7 @@
         
 
         <li class="nav-item">
-          <a class="nav-link  active" href="/tags"><span>Tags</span></a>
+          <a class="nav-link " href="/tags"><span>Tags</span></a>
         </li>
 
         
@@ -475,7 +467,7 @@
             <span>English</span>
           </div>
           
-          <a class="dropdown-item" href="/ko/tags/linux/">
+          <a class="dropdown-item" href="/ko/post/">
             <span>한국어</span>
           </a>
           
@@ -510,7 +502,7 @@
     
   
 <div class="universal-wrapper pt-3">
-  <h1>linux</h1>
+  <h1>Posts</h1>
 
   
 
@@ -520,145 +512,111 @@
 
 
 <div class="universal-wrapper">
+
   
 
   
   
-  <div>
-    <h2><a href="/post/lkml_news_v5.7-rc6/">LKML News v5.7-rc6</a></h2>
-    <div class="article-style">
+    
       
-      [PATCH v4 00/36] Large pages in the page cache (Matthew Wilcox) https://lkml.kernel.org/r/20200515131656.12890-1-willy@infradead.org
-This is the fourth version of the patchset for the huge pages in the page cache. Still it fails xfstests.
-Maintainers / Kernel Summit 2020 planning kick-off (Theodore Y. Ts&rsquo;o) https://lkml.kernel.org/r/20200515163956.GA2158595@mit.edu
-Ted annouced that the Maintainers / Kernel Summit will be held in virtual this year, of course due to the COVID19. With this announcement, the CFP for the kernel summit is also opened.
-      
-    </div>
-  </div>
+
+
+
+
+
+
+
+
+
+
+
+
   
-  <div>
-    <h2><a href="/post/lkml_news_v5.7-rc5/">LKML News v5.7-rc5</a></h2>
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0">
+      <a href="/post/perfbook-kokr/" >&#34;Is Parallel Programming Hard, And, If So, What Can You Do About It?&#34; Translation</a>
+    </h3>
+
+    
     <div class="article-style">
-      
-      [RFC 00/43] PKRAM: Preserved-over-Kexec RAM (Anthony Yznaga) https://lkml.kernel.org/r/1588812129-8596-1-git-send-email-anthony.yznaga@oracle.com
-This patchset introduces special memory called PKRAM. It can be used to preserve VM guest memory across kexec boot for fast restart (VMM Fast Restart). Compared to DRAM based PMEM simulation, PKRAM is more flexible as the memory size is not need to be previously fixed.
-[PATCH] mm: Replace zero-length array with flexible-array (Gustavo A. R. Silva) https://lkml.kernel.org/r/20200507185942.GA15193@embeddedor
-The zero-length array of C90 are widely used in the kernel code base, but the flexible array member of C99 would be better choice.
-      
+      &ldquo;Is Parallel Programming is Hard, And, If So, What Can You Do About It?&quot;[1] 은 parallel programming 분야에서 대가라 불릴만한 분으로, 이쪽 분야에 …
     </div>
-  </div>
+    
+
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
+
+<div class="article-metadata">
+
   
-  <div>
-    <h2><a href="/post/lkml_news_v5.7-rc4/">LKML News v5.7-rc4</a></h2>
-    <div class="article-style">
-      
-      [PATCH 0/7] Record the mm_struct in the page table pages (Matthew Wilcox) https://lkml.kernel.org/r/20200428194449.22615-1-willy@infradead.org
-Literally, this patchset adds the mm_struct pointer to struct page if it is used for page tables. This will be useful for several cases usch as uncorrectable errors handling and task-page table relation checking, etc.
-[PATCH v4] mm: Proactive compaction (Nitin Gupta) https://lkml.kernel.org/r/20200428221055.598-1-nigupta@nvidia.com
-This patchset makes the compaction to be more proactively done for better THP allocation success and makes user to be able to control the proactiveness using a sysfs file, /sys/kernel/mm/compaction/proactiveness.
-      
-    </div>
-  </div>
   
-  <div>
-    <h2><a href="/post/lkml_news_v5.7-rc3/">LKML News v5.7-rc3</a></h2>
-    <div class="article-style">
-      
-      LSFMMBPF 2020 Cancellation announcement (Josef Bacik) https://lkml.kernel.org/r/0b6d3d6f-99de-3603-4b42-c3db5113633d@toxicpanda.com
-Due to the COVID-19, LSFMM, which was supposed to be help April, has delayed before, and now it has just canceled. What a shame, but this might be the right thing to do. This mail also announce the schedule of next year LSFMM. It will be held in Palm Springs, on May 12-14, 2021 at the Riviera Palm Springs.
-[PATCH 2/2] mm: support vector address ranges for process_madvise (Minchan Kim) https://lkml.
-      
-    </div>
-  </div>
+
   
-  <div>
-    <h2><a href="/post/lkml_news_v5.7-rc2/">LKML News after v5.7-rc2</a></h2>
-    <div class="article-style">
+  <span class="article-date">
+    
+    
       
-      [RFC] autonuma: Support to scan page table asynchronously (Huang Ying) https://lkml.kernel.org/r/20200414081951.297676-1-ying.huang@intel.com
-AutoNUMA is currently scanning page tables of the processes in the process context and therefore this can increase the latency of the process. This RFC thus makes the page table scanning asynchronous if there are idle CPUs.
-[PATCH v4 00/10] Add a new mmap locking API wrapping mmap_sem calls https://lkml.kernel.org/r/20200415004353.130248-1-walken@google.com
-This is just a repost of the patch series rebased on v5.
-      
-    </div>
-  </div>
+    
+    Tue, Jan 10, 2017
+  </span>
   
-  <div>
-    <h2><a href="/post/lkml_news_v5.7-rc1/">LKML News v5.7-rc1</a></h2>
-    <div class="article-style">
-      
-      [GIT PULL] XArray for 5.7-rc1 https://lkml.kernel.org/r/20200331141749.GB21484@bombadil.infradead.org
-Matthew&rsquo;s XArray pull request for 5.7 merge window. Quickly merged by Torvald.
-[PATCH v5 00/10] workingset protection/detection on the anonymous LRU list https://lkml.kernel.org/r/1585892447-32059-1-git-send-email-iamjoonsoo.kim@lge.com
-The fifth version of the workingset protection.
-[PATCH v4 0/2] mm: using CMA for 1 GB hugepages allocation https://lkml.kernel.org/r/20200407010431.1286488-1-guro@fb.com
-This patchset make hugetlb to use CMA for 1GB hugepage allocations.
-[PATCH RFC] mm: compaction: avoid migrating non-cma pages to a cma area The compaction algorithm doesn&rsquo;t distinguish CMA from other movable pageblocks.
-      
-    </div>
-  </div>
+
   
-  <div>
-    <h2><a href="/post/lkml_news_v5.6/">LKML News v5.6</a></h2>
-    <div class="article-style">
-      
-      [PATCH v5 00/38] Add KernelMemorySanitizer infrastructure (glider) https://lkml.kernel.org/r/20200325161249.55095-1-glider@google.com
-This is the fifth official patchset for kernel uninitialized memory related error detector, KMSAN.
-[PATCH 1/2] mm: cma: NUMA node interface (Aslan Barikov) https://lkml.kernel.org/r/20200326212718.3798742-1-aslan@fb.com
-CMA provides no way to specify what NUMA node the memory area to be allocated. This commit adds the interface to specify the NUMA node to use for the allocation.
-[PATCH v3 00/10] Add a new mmap locking API wrapping mmap_sem calls (Michel Lespinasse) https://lkml.
-      
-    </div>
-  </div>
+
   
-  <div>
-    <h2><a href="/post/lkml_news_v5.6-rc7/">LKML News v5.6-rc7</a></h2>
-    <div class="article-style">
-      
-      Linux 5.6-rc7 https://lkml.kernel.org/r/CAHk-=wipv1y2Z7=CDQ5ajb2OvSyq-0BL9yLRPm1YqW+sjcSDzQ@mail.gmail.com
-The world is struggling due to the COVID-19, but kernel development seems quite normal. Torvalds released the 7th rc for the Linux 5.6. There is nothing strange or worrysome here. We will get the v5.6 next week, unless something bad happens.
-      
-    </div>
-  </div>
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
   
-  <div>
-    <h2><a href="/post/lkml_news_v5.6-rc6/">LKML News v5.6-rc6</a></h2>
-    <div class="article-style">
-      
-      LSF/MM/BPF 2020: Postponement announcement (Josef Bacik) https://lkml.kernel.org/r/e4f390c7-3b25-67c8-5d6d-d7e87ba1c072@toxicpanda.com
-COVID-19 outbreak has finally delayed the LSF/MM/BPF of this year.
-Linux 5.6-rc6 https://lkml.kernel.org/r/CAHk-=whcVTGVPtvdb9SdCcjLawG6tLvbNWfWB_Y6=QhovFy2rg@mail.gmail.com
-Sixth rc release, Torvalds says things looks quite normal. I&rsquo;m looking forward for 5.6 official release.
-      
-    </div>
-  </div>
+
   
-  <div>
-    <h2><a href="/post/lkml_news_v5.6-rc5/">LKML News v5.6-rc5</a></h2>
-    <div class="article-style">
-      
-      [PATCH v1 00/11] virtio-mem: paravirtualized memory https://lkml.kernel.org/r/20200302134941.315212-1-david@redhat.com
-At KVM Forum 2018, virtio-mem&rsquo;s basic idea has presented and now this patchset introduces it. This provides a flexible, cross-architecture memory hot(un)plug solution.
-[PATCH v7 0/7] introduce memory hinting API for external process https://lkml.kernel.org/r/20200302193630.68771-1-minchan@kernel.org
-Finally, this patchset has accepted by Andrew Morton.
-[PATCH v2] mm: Proactive compaction https://lkml.kernel.org/r/20200302213343.2712-1-nigupta@nvidia.com
-This patchset makes kernel to do compaction proactively instead of THP allocation failures, to minimize the latency spike which comes from the compaction.
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/categories/projects/">projects</a></span>
+  
+
+</div>
+
       
     </div>
+
+    
+
   </div>
+  <div class="ml-3">
+    
+    
+  </div>
+</div>
+
+    
   
 
   
 <nav>
   <ul class="pagination justify-content-center">
     
-    <li class="page-item"><a class="page-link" href="/tags/linux/page/3/">&laquo;</a></li>
+    <li class="page-item"><a class="page-link" href="/post/page/22/">&laquo;</a></li>
     
-    
-    <li class="page-item"><a class="page-link" href="/tags/linux/page/5/">&raquo;</a></li>
     
   </ul>
 </nav>
+
 
 
 </div>
@@ -679,14 +637,6 @@ This patchset makes kernel to do compaction proactively instead of THP allocatio
       
 
       
-        
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js" integrity="sha256-1zu+3BnLYV9LdiY85uXMzii3bdrkelyp37e0ZyTAQh0=" crossorigin="anonymous"></script>
-        
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/languages/c.min.js"></script>
-        
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/languages/bash.min.js"></script>
-        
-      
 
       
       
@@ -698,8 +648,6 @@ This patchset makes kernel to do compaction proactively instead of THP allocatio
     
 
     
-    
-    <script>const code_highlighting = true;</script>
     
 
     
