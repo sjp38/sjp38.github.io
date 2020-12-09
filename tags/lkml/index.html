@@ -530,6 +530,8 @@
       
       [RFC V2 00/37] Enhance memory utilization with DMEMFS (Yuley Zhang) https://lkml.kernel.org/r/cover.1607332046.git.yuleixzhang@tencent.com
 This patchset aims to remove the &lsquo;struct page&rsquo; from user-sepcified region of memory and use a file system called &lsquo;dmemfs&rsquo; to minimize the memory region dedicated for &lsquo;struct page&rsquo;s.
+[PATCH] mm: don&rsquo;t SetPageWorkingset unconditionally during swapin (Yu Zhao) https://lkml.kernel.org/r/20201209012400.1771150-1-yuzhao@google.com
+Unconditional &lsquo;SetPageWorkingset&rsquo; miscategorizes read-ahead pages or pages that never belong to the working set as working set because it&rsquo;s called unconditionally.
       
     </div>
   </div>

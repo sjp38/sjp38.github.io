@@ -29,7 +29,9 @@
     
   
   <meta name="description" content="[RFC V2 00/37] Enhance memory utilization with DMEMFS (Yuley Zhang) https://lkml.kernel.org/r/cover.1607332046.git.yuleixzhang@tencent.com
-This patchset aims to remove the &lsquo;struct page&rsquo; from user-sepcified region of memory and use a file system called &lsquo;dmemfs&rsquo; to minimize the memory region dedicated for &lsquo;struct page&rsquo;s.">
+This patchset aims to remove the &lsquo;struct page&rsquo; from user-sepcified region of memory and use a file system called &lsquo;dmemfs&rsquo; to minimize the memory region dedicated for &lsquo;struct page&rsquo;s.
+[PATCH] mm: don&rsquo;t SetPageWorkingset unconditionally during swapin (Yu Zhao) https://lkml.kernel.org/r/20201209012400.1771150-1-yuzhao@google.com
+Unconditional &lsquo;SetPageWorkingset&rsquo; miscategorizes read-ahead pages or pages that never belong to the working set as working set because it&rsquo;s called unconditionally.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/lkml_news_v5.10/">
@@ -152,7 +154,9 @@ This patchset aims to remove the &lsquo;struct page&rsquo; from user-sepcified r
   <meta property="og:url" content="/post/lkml_news_v5.10/">
   <meta property="og:title" content="LKML News v5.10 | hacklog">
   <meta property="og:description" content="[RFC V2 00/37] Enhance memory utilization with DMEMFS (Yuley Zhang) https://lkml.kernel.org/r/cover.1607332046.git.yuleixzhang@tencent.com
-This patchset aims to remove the &lsquo;struct page&rsquo; from user-sepcified region of memory and use a file system called &lsquo;dmemfs&rsquo; to minimize the memory region dedicated for &lsquo;struct page&rsquo;s."><meta property="og:image" content="/img/tux.png">
+This patchset aims to remove the &lsquo;struct page&rsquo; from user-sepcified region of memory and use a file system called &lsquo;dmemfs&rsquo; to minimize the memory region dedicated for &lsquo;struct page&rsquo;s.
+[PATCH] mm: don&rsquo;t SetPageWorkingset unconditionally during swapin (Yu Zhao) https://lkml.kernel.org/r/20201209012400.1771150-1-yuzhao@google.com
+Unconditional &lsquo;SetPageWorkingset&rsquo; miscategorizes read-ahead pages or pages that never belong to the working set as working set because it&rsquo;s called unconditionally."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -204,7 +208,7 @@ This patchset aims to remove the &lsquo;struct page&rsquo; from user-sepcified r
       "url": "/img/icon-512.png"
     }
   },
-  "description": "[RFC V2 00/37] Enhance memory utilization with DMEMFS (Yuley Zhang) https://lkml.kernel.org/r/cover.1607332046.git.yuleixzhang@tencent.com\nThis patchset aims to remove the \u0026lsquo;struct page\u0026rsquo; from user-sepcified region of memory and use a file system called \u0026lsquo;dmemfs\u0026rsquo; to minimize the memory region dedicated for \u0026lsquo;struct page\u0026rsquo;s."
+  "description": "[RFC V2 00/37] Enhance memory utilization with DMEMFS (Yuley Zhang) https://lkml.kernel.org/r/cover.1607332046.git.yuleixzhang@tencent.com\nThis patchset aims to remove the \u0026lsquo;struct page\u0026rsquo; from user-sepcified region of memory and use a file system called \u0026lsquo;dmemfs\u0026rsquo; to minimize the memory region dedicated for \u0026lsquo;struct page\u0026rsquo;s.\n[PATCH] mm: don\u0026rsquo;t SetPageWorkingset unconditionally during swapin (Yu Zhao) https://lkml.kernel.org/r/20201209012400.1771150-1-yuzhao@google.com\nUnconditional \u0026lsquo;SetPageWorkingset\u0026rsquo; miscategorizes read-ahead pages or pages that never belong to the working set as working set because it\u0026rsquo;s called unconditionally."
 }
 </script>
 
@@ -615,6 +619,11 @@ This patchset aims to remove the &lsquo;struct page&rsquo; from user-sepcified r
 <p>This patchset aims to remove the &lsquo;struct page&rsquo; from user-sepcified region of
 memory and use a file system called &lsquo;dmemfs&rsquo; to minimize the memory region
 dedicated for &lsquo;struct page&rsquo;s.</p>
+<h2 id="patch-mm-dont-setpageworkingset-unconditionally-during-swapin-yu-zhao">[PATCH] mm: don&rsquo;t SetPageWorkingset unconditionally during swapin (Yu Zhao)</h2>
+<p><a href="https://lkml.kernel.org/r/20201209012400.1771150-1-yuzhao@google.com">https://lkml.kernel.org/r/20201209012400.1771150-1-yuzhao@google.com</a></p>
+<p>Unconditional &lsquo;SetPageWorkingset&rsquo; miscategorizes read-ahead pages or pages that
+never belong to the working set as working set because it&rsquo;s called
+unconditionally.  This patch simply remove the unconditional call.</p>
 
     </div>
 
