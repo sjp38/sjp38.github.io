@@ -624,6 +624,11 @@ dedicated for &lsquo;struct page&rsquo;s.</p>
 <p>Unconditional &lsquo;SetPageWorkingset&rsquo; miscategorizes read-ahead pages or pages that
 never belong to the working set as working set because it&rsquo;s called
 unconditionally.  This patch simply remove the unconditional call.</p>
+<h2 id="patch-v2-08-prohibit-pinning-pages-in-zone_movable-pavel-tatashin">[PATCH v2 0/8] prohibit pinning pages in ZONE_MOVABLE (Pavel Tatashin)</h2>
+<p><a href="https://lkml.kernel.org/r/20201210004335.64634-1-pasha.tatashin@soleen.com">https://lkml.kernel.org/r/20201210004335.64634-1-pasha.tatashin@soleen.com</a></p>
+<p>This pathset makes pages in &lsquo;ZONE_MOVABLE&rsquo; really movable by forcing new
+allocations during page pinning to omit the zone and migrate pages away when
+pinning.</p>
 
     </div>
 
