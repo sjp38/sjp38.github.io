@@ -32,6 +32,18 @@ unconditionally.  This patch simply remove the unconditional call.&lt;/p&gt;
 &lt;p&gt;This pathset makes pages in &amp;lsquo;ZONE_MOVABLE&amp;rsquo; really movable by forcing new
 allocations during page pinning to omit the zone and migrate pages away when
 pinning.&lt;/p&gt;
+&lt;h2 id=&#34;patch-0028-rfc-mm-introducing-the-maple-tree-liam-r-howlett&#34;&gt;[PATCH 00/28] RFC mm: Introducing the Maple Tree (Liam R. Howlett)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20201210170402.3468568-1-Liam.Howlett@Oracle.com&#34;&gt;https://lkml.kernel.org/r/20201210170402.3468568-1-Liam.Howlett@Oracle.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Maple tree is a range based B-tree designed to use modern processor cache
+efficiently.  It&amp;rsquo;s design presented in several venues before, and the RFC code
+is finally available.  It initially designed for replacement of vma tree for
+reduction of the &amp;lsquo;mmap_sem&amp;rsquo; contention.  This patchset also does some of the
+replacement and shows impressive performance with benchmarks.&lt;/p&gt;
+&lt;h2 id=&#34;zoom-call-about-page-folios-tomorrow-matthew-wilcox&#34;&gt;Zoom call about Page Folios tomorrow (Matthew Wilcox)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20201210210519.GC7338@casper.infradead.org&#34;&gt;https://lkml.kernel.org/r/20201210210519.GC7338@casper.infradead.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Matthew wants to have a zoom call to share his idea called Page Folios.  He
+decided to use Zoom call because in-person conference is not there anywhere for
+now.&lt;/p&gt;
 </description>
     </item>
     
