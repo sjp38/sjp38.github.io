@@ -633,9 +633,17 @@ This makes per-memcg lru lock.</p>
 <p>This is the patchset for the page folios, which Matthew proposed a few days ago
 and discussed via zoom.</p>
 <h2 id="do-we-still-need-skip-swapcache-logic-in-do_swap_page-for-swp_synchronous_io-huang-ying">Do we still need skip swapcache logic in do_swap_page() for SWP_SYNCHRONOUS_IO? (Huang Ying)</h2>
+<p><a href="https://lkml.kernel.org/r/87y2hxgpo7.fsf@yhuang-dev.intel.com">https://lkml.kernel.org/r/87y2hxgpo7.fsf@yhuang-dev.intel.com</a></p>
 <p>A commit made swap cache logic for fast swap devices to be skipped, but a later
 commit uses the swap cache for workingset detection.  Huang asks if the
 skipping is still necessary.</p>
+<h2 id="patch-v10-0011-free-some-vmemmap-pages-of-hugetlb-page-muchun-song">[PATCH v10 00/11] Free some vmemmap pages of HugeTLB page (Muchun Song)</h2>
+<p><a href="https://lkml.kernel.org/r/20201217121303.13386-1-songmuchun@bytedance.com">https://lkml.kernel.org/r/20201217121303.13386-1-songmuchun@bytedance.com</a></p>
+<p>This patchset saves memory by freeing some vmemmap pages for hugetlbpage.  LWN
+also covers this: <a href="https://lwn.net/Articles/839737/">https://lwn.net/Articles/839737/</a></p>
+<h2 id="patch-v4-0010-prohibit-pinning-pages-in-zone_movable-pavel-tatashin">[PATCH v4 00/10] prohibit pinning pages in ZONE_MOVABLE (Pavel Tatashin)</h2>
+<p><a href="https://lkml.kernel.org/r/20201217185243.3288048-1-pasha.tatashin@soleen.com">https://lkml.kernel.org/r/20201217185243.3288048-1-pasha.tatashin@soleen.com</a></p>
+<p>4th version of the patchset for making ZONE_MOVABLE movable.</p>
 
     </div>
 
