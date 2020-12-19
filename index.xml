@@ -5,12 +5,36 @@
     <link>/</link>
       <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <description>hacklog</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 15 Dec 2020 07:32:20 +0100</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sat, 19 Dec 2020 22:35:27 +0100</lastBuildDate>
     <image>
       <url>/img/tux.png</url>
       <title>hacklog</title>
       <link>/</link>
     </image>
+    
+    <item>
+      <title>Watching OSDI 2020 presentation videos</title>
+      <link>/post/osdi2020_videos_review/</link>
+      <pubDate>Sat, 19 Dec 2020 22:35:27 +0100</pubDate>
+      <guid>/post/osdi2020_videos_review/</guid>
+      <description>&lt;p&gt;I set watching at least one OSDI&#39;20 presentation video per day during the
+long vacation as one of my plans.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;a-large-scale-analysis-of-hundreds-of-in-memory-cache-clusters-at-twitter&#34;&gt;A large scale analysis of hundreds of in-memory cache clusters at Twitter&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=OQtMM5vdhlI&amp;amp;feature=emb_title&#34;&gt;https://www.youtube.com/watch?v=OQtMM5vdhlI&amp;amp;feature=emb_title&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The authors traced and analyzed the workloads on the Twitter&amp;rsquo;s in-memory cache
+systems.  To me, below findings were interesting.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;There are many write requests.&lt;/li&gt;
+&lt;li&gt;Size of each object is not so big (median 200 bytes), so metadata, which
+sizes 64 bytes per each object, is a burden&lt;/li&gt;
+&lt;li&gt;Size of each key is not small compared to the size of each value.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The trace data is available via github[1].  It&amp;rsquo;s 2.8TB for compressed version,
+and 14TB for uncompressed version.&lt;/p&gt;
+&lt;p&gt;[1] &lt;a href=&#34;https://github.com/twitter/cache-trace&#34;&gt;https://github.com/twitter/cache-trace&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>LKML News v5.10-rc1</title>
