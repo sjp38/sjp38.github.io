@@ -648,6 +648,16 @@ sizes 64 bytes per each object, is a burden</li>
 <p>The trace data is available via github[1].  It&rsquo;s 2.8TB for compressed version,
 and 14TB for uncompressed version.</p>
 <p>[1] <a href="https://github.com/twitter/cache-trace">https://github.com/twitter/cache-trace</a></p>
+<h2 id="aifm-high-performance-application-integrated-far-memory">AIFM: High-Performance, Application-Integrated Far Memory</h2>
+<p><a href="https://www.youtube.com/watch?v=xHhaniGXTUg&amp;feature=emb_title">https://www.youtube.com/watch?v=xHhaniGXTUg&amp;feature=emb_title</a></p>
+<p>OS-level fast-network-based far memory approaches provide transparency to the
+application but wastes performance due to the semantic gap due to the
+fixed-size page abstraction and the kernel space time consumption.  AIFM solves
+the semantic gap using new data structure abstraction and provides user space
+runtime that don&rsquo;t need kernel space time consumption.  As a result, the
+application is required to be modified, but the authors argue it&rsquo;s only modest
+change.  Compared to other state-of-the-art (FastSwap from EuroSys'20), it
+achieved 13x speedup.</p>
 
     </div>
 
