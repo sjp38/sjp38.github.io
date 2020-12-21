@@ -43,6 +43,20 @@ runtime that don&amp;rsquo;t need kernel space time consumption.  As a result, t
 application is required to be modified, but the authors argue it&amp;rsquo;s only modest
 change.  Compared to other state-of-the-art (FastSwap from EuroSys&#39;20), it
 achieved 13x speedup.&lt;/p&gt;
+&lt;h2 id=&#34;linnos-predictability-on-unpredictable-flash-storage-with-a-light-neural-network&#34;&gt;LinnOS: Predictability on Unpredictable Flash Storage with a Light Neural Network&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=yzv9lcjxhAg&amp;amp;feature=emb_title&#34;&gt;https://www.youtube.com/watch?v=yzv9lcjxhAg&amp;amp;feature=emb_title&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s not easy to predict each I/O speed of modern fast storage devices, due to
+their complex internals like the caching, the wear-leveling and the garbage
+collection.  One well-known solution is hedging.  It prepare an array of SSDs,
+issue I/O to one of them, and if the response doesn&amp;rsquo;t made until a timeout,
+revoke the request and try with another SSD.  The wait time limit bounds the
+latency.  LinnOS uses an approach similar to the hedging, but it uses a neural
+network that can predict if each I/O to each SSD will be served fast or not.
+For this, the neural network receives current I/O queue depth and queue depths
+and latencies of last few I/Os as input.  Then, it predicts if the latency will
+be only fast or slow.  To mitigate with the effect from wrong predictions, it
+uses biased learning and adaptive hedging based on the prediction accuracy.
+The network is learned offline.&lt;/p&gt;
 </description>
     </item>
     

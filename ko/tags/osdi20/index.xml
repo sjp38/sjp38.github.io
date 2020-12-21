@@ -43,6 +43,19 @@
 낭비를 제거했습니다.  결과적으로 어플리케이션은 수정이 필요하지만 저자들은
 약간의 수정일 뿐이라 주자합니다.  또다른 state-of-the-art (FastSwap,
 EuroSys&#39;20) 대비 13배 성능 향상을 이뤘다는군요.&lt;/p&gt;
+&lt;h2 id=&#34;linnos-predictability-on-unpredictable-flash-storage-with-a-light-neural-network&#34;&gt;LinnOS: Predictability on Unpredictable Flash Storage with a Light Neural Network&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=yzv9lcjxhAg&amp;amp;feature=emb_title&#34;&gt;https://www.youtube.com/watch?v=yzv9lcjxhAg&amp;amp;feature=emb_title&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;최신 고속 저장장치는 캐싱, 웨어레벨링, 가비지 콜렉션 등의 복잡한 내부 구조를
+가지고 있어서, 각 I/O 에 대한 응답시간을 예측하기가 어렵습니다.  이에 대한 잘
+알려진 해결책은 Hedging 입니다.  여러 SSD 를 준비해 두고, I/O 요청을 그 중
+하나의 SSD 에 일단 던지고, 그 응답이 미리 지정된 한계치를 넘도록 돌아오지
+않으면 해당 요청을 취소하고 다른 SSD 를 쓰는 것이죠.  한계치 만큼은 기다려야
+한다는 게 약점입니다.  LinnOS 는 Hedging 과 유사하지만 각 SSD 로의 각 I/O 가
+빠르게 처리될지 예측하는 신경망을 이용합니다.  이를 위해, 해당 신경망은 현재
+I/O queue depth, 최근의 몇개 I/O 시 queue depth 와 latency 를 입력으로 받고 그
+결과 레이턴시가 빠를지 느릴지만 예측합니다.  잘못된 예측으로 인한 문제를
+처리하기 위해선 biased learning 과 예측 정확도에 따른 adaptive hedging 을
+사용합니다.  신경망의 학습은 오프라인으로 이루어집니다.&lt;/p&gt;
 </description>
     </item>
     
