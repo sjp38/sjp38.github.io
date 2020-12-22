@@ -41,6 +41,16 @@ also covers this: &lt;a href=&#34;https://lwn.net/Articles/839737/&#34;&gt;https
 &lt;h2 id=&#34;patch-v4-0010-prohibit-pinning-pages-in-zone_movable-pavel-tatashin&#34;&gt;[PATCH v4 00/10] prohibit pinning pages in ZONE_MOVABLE (Pavel Tatashin)&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20201217185243.3288048-1-pasha.tatashin@soleen.com&#34;&gt;https://lkml.kernel.org/r/20201217185243.3288048-1-pasha.tatashin@soleen.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;4th version of the patchset for making ZONE_MOVABLE movable.&lt;/p&gt;
+&lt;h2 id=&#34;rfc-v2-patch-14-mm-make-page-reporing-worker-works-better-for-low-order-page&#34;&gt;[RFC v2 PATCH 1/4] mm: make page reporing worker works better for low order page&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20201221162806.GA22524@open-light-1.localdomain&#34;&gt;https://lkml.kernel.org/r/20201221162806.GA22524@open-light-1.localdomain&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This commit makes the free page reporting to release the zone lock
+periodically, to avoid the free page reporting feature holds the lock too long,
+due to huge number of low-order pages that need to be reported.&lt;/p&gt;
+&lt;h2 id=&#34;rfc-patch-03-add-support-for-free-hugepage-reporting&#34;&gt;[RFC PATCH 0/3] add support for free hugepage reporting&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20201222074538.GA30029@open-light-1.localdomain&#34;&gt;https://lkml.kernel.org/r/20201222074538.GA30029@open-light-1.localdomain&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The free pages reporting feature reports only buddy pages, but the hugetlb
+pages are not buddy pages because those are managed in the reservation scheme.
+This RFC adds support for reporting of the hugetlb pages.&lt;/p&gt;
 </description>
     </item>
     
