@@ -681,6 +681,18 @@ is quite complicated.  For the reason, some manufacturers provide some FPGA
 shells providing some of the OS abstractions.  The authors developed a FPGA
 shell called Coyote, which provides full abstraction sets of the OS and
 experimented if it works well for the systems.  The result was very positive.</p>
+<h2 id="fast-rdma-based-ordered-key-value-store-using-remote-learned-cache">Fast RDMA-based Ordered Key-Value Store using Remote Learned Cache</h2>
+<p><a href="https://www.youtube.com/watch?v=Qv-0YL_SII4&amp;feature=emb_title">https://www.youtube.com/watch?v=Qv-0YL_SII4&amp;feature=emb_title</a></p>
+<p>Because server-centric key-value store (KVS) performance bound to the server
+CPUs, RDMA-based approaches were proposed.  Because one RTT is required for one
+RDMA, the approaches require many round trips and therefore doesn&rsquo;t show high
+performance.  Caching the index in client is one solution, but it makes huge
+client memory footage.  The authors propose to use neural network as the index
+cache.  They train neural network to receive key and provide logical address of
+the value for the key in server.  The network retrained for dynamci updates and
+copyied to clients.  Then, client use the nerual network, which is much smaller
+than the full index tree to know the address of the value and fetch it via the
+RDMA.</p>
 
     </div>
 
