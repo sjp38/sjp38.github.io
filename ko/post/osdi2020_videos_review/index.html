@@ -690,6 +690,17 @@ I/O queue depth, 최근의 몇개 I/O 시 queue depth 와 latency 를 입력으�
 주소를 내놓는 신경망을 서버 측에서 학습시키고, 전체 인덱스에 비해 훨씬 작은 이
 신경망을 클라이언트로 전송, 각 클라이언트가 이 신경망을 캐시로 사용해 밸류의
 서버내 주소를 알아내고, RDMA 로 한번에 밸류를 얻어오는 방법입니다.</p>
+<h2 id="a-simpler-and-faster-nic-driver-model-for-network-functions">A Simpler and Faster NIC Driver Model for Network Functions</h2>
+<p><a href="https://www.youtube.com/watch?v=zKJIY4vbBDA&amp;feature=emb_title">https://www.youtube.com/watch?v=zKJIY4vbBDA&amp;feature=emb_title</a></p>
+<p>Bridge, router, firewall 등의 기능을 소프트웨어로 구현하려는 software-defined
+network 방식이 널리 사용되고 있습니다.  이 과정에서 성능과 유연성을 위해
+소프트웨어 복잡도를 높이는 경향이 있었습니다.  결과, software-defined network
+stack 의 안정성을 검증하기도 어려워졌습니다.  저자팀은 약간의 유연성을
+희생함으로써 단순하면서 성능 높은 network stack 구현이 가능함을 주장하며,
+자신들의 새로운 네트워크 드라이버 모델, tinynf 로 이를 증명합니다.  이 드라이버
+모델을 바탕으로 구현된 Intel 82599 드라이버는 550줄밖에 안되는 코드로 기존
+state-of-the-art 드라이버보다 7배 빨리 formal verification 을 마칠 수 있었고,
+성능 역시 1.6배 높았습니다.</p>
 
     </div>
 

@@ -78,6 +78,18 @@ the value for the key in server.  The network retrained for dynamci updates and
 copyied to clients.  Then, client use the nerual network, which is much smaller
 than the full index tree to know the address of the value and fetch it via the
 RDMA.&lt;/p&gt;
+&lt;h2 id=&#34;a-simpler-and-faster-nic-driver-model-for-network-functions&#34;&gt;A Simpler and Faster NIC Driver Model for Network Functions&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=zKJIY4vbBDA&amp;amp;feature=emb_title&#34;&gt;https://www.youtube.com/watch?v=zKJIY4vbBDA&amp;amp;feature=emb_title&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Software-defined network approach, which implements functionality of appliances
+like bridege, router, firewall is widespread.  For better performance and
+flexibility, the software complexity has increased so that it&amp;rsquo;s hard to do
+formal verification of the network stacks.  The authors argue that by
+sacrificing some of the fliexibility, it&amp;rsquo;s available to implement simple and
+fast network stack.  They prove their idea with a new network driver model,
+tinynf.  They implemented a driver for Intel 82599 based on the driver model
+with only 550 lines of code.  It was able to finish formal verification 7x
+faster than a state-of-the-art driver.  Also, it achieved 1.6x performance
+compared to the state-of-the-art.&lt;/p&gt;
 </description>
     </item>
     
