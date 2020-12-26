@@ -92,6 +92,13 @@ state-of-the-art 드라이버보다 7배 빨리 formal verification 을 마칠 �
 설계된 운영체제를 선보입니다.  해당 문제의 해결을 위해 &amp;lsquo;cell&amp;rsquo; 이라 불리는
 다수의 작은 컴포넌트로 운영체제를 구성시켰으며, Rust 와 같은 언어 수준에서의
 안전성 보장 메커니즘들을 운영체제 단계에 적용시켰습니다.&lt;/p&gt;
+&lt;h2 id=&#34;specification-and-verification-in-the-field-applying-formal-methods-to-bpf-just-in-time-compilers-in-the-linux-kernel&#34;&gt;Specification and verification in the field: Applying formal methods to BPF just-in-time compilers in the Linux kernel&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=2V3ts5-W_9g&amp;amp;feature=emb_title&#34;&gt;https://www.youtube.com/watch?v=2V3ts5-W_9g&amp;amp;feature=emb_title&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;BPF 프로그램은 수행되기 전에 검증되지만, 그 검증 이후에 JIT 를 통해 컴파일 된
+후에 수행됩니다.  따라서, JIT 에 버그가 있다면 문제가 생길 수 있습니다.  이
+논문의 저자들은 JIT 의 정확성 명세 프레임웍, jitterbug 를 사용해 RISC-V 를 위한
+새로운 BPF JIT 를 개발했습니다.  이 과정에서 만들어진 커널 변경사항은 메인라인
+리눅스 커널에 머지되었습니다.&lt;/p&gt;
 </description>
     </item>
     

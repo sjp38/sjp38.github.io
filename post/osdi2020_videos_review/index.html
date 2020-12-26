@@ -711,6 +711,13 @@ compared to the state-of-the-art.</p>
 spill problem.  For this, they made it to composed with many tiny components
 called &lsquo;cell&rsquo;, and applied rust-like language level safe guaranteeness
 mechanisms in the OS level.</p>
+<h2 id="specification-and-verification-in-the-field-applying-formal-methods-to-bpf-just-in-time-compilers-in-the-linux-kernel">Specification and verification in the field: Applying formal methods to BPF just-in-time compilers in the Linux kernel</h2>
+<p><a href="https://www.youtube.com/watch?v=2V3ts5-W_9g&amp;feature=emb_title">https://www.youtube.com/watch?v=2V3ts5-W_9g&amp;feature=emb_title</a></p>
+<p>BPF program is verified before run, but it runs after compiled via JIT, after
+the verification.  Therefore, if there is a bug in the JIT, real problem
+occurs.  The authors of this paper devloped a new BPF JIT for RISC-V with a JIT
+correctness specification framework, jitterbug.  The changes made to the kernel
+are merged into the mainline kernel.</p>
 
     </div>
 
