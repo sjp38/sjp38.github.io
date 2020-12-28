@@ -727,6 +727,19 @@ verification methodologies for distributed systems to the storage systems after
 making it more general.  Based on this, they implemented a verifiable key-value
 storage, VeriSafeKV.  The performance of it was similar to unverified DB
 systems.</p>
+<h2 id="caladan-mitigating-interference-at-microsecond-timescales">Caladan: Mitigating Interference at Microsecond Timescales</h2>
+<p><a href="https://www.youtube.com/watch?v=G-v3ndwixOI&amp;feature=emb_title">https://www.youtube.com/watch?v=G-v3ndwixOI&amp;feature=emb_title</a></p>
+<p>On a system, multiple workloads that has different requirements co-scheduled.
+For example, some workloads only need best-effort resources while others
+require strict tail latency.  Because the workloads share some hardware
+resources like LLC and memory bandwidth, it&rsquo;s hard to fulfill all the
+requirements.  Well know solution is resource partitioning.  Because static
+partitioning could result in low resource utilization, dynamic partitioning
+solutions were previously proposed.  However, the dynamic partitioning doesn&rsquo;t
+provide microsecond granularity decision, while 100 microseconds is the
+marginal timewindow to guarantee the tail latency problem, according to the
+authors&rsquo; arguments.  The authors propose to use different interference signals
+and design the system to work in micro-second level.</p>
 
     </div>
 
