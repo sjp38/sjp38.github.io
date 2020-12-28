@@ -654,6 +654,23 @@ due to huge number of low-order pages that need to be reported.</p>
 <p>The free pages reporting feature reports only buddy pages, but the hugetlb
 pages are not buddy pages because those are managed in the reservation scheme.
 This RFC adds support for reporting of the hugetlb pages.</p>
+<h2 id="linux-511-rc1-linus-torvalds">Linux 5.11-rc1 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wg1+kf1AVzXA-RQX0zjM6t9J2Kay9xyuNqcFHWV-y5ZYw@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wg1+kf1AVzXA-RQX0zjM6t9J2Kay9xyuNqcFHWV-y5ZYw@mail.gmail.com</a></p>
+<p>After two weeks, merge window finished with Christmas and 5.11-rc1 released.
+Things worked well as expected.  Most pull requests received to Torvalds in the
+first week, so that he could get the holiday week peaceful.  The size of the
+rc1 is not so big, not so little, just as usual.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.0-rc2..v5.11-rc1.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2020-12-28 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc1 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.11-rc1-only.png" alt="rc2 release stat"></p>
 
     </div>
 
