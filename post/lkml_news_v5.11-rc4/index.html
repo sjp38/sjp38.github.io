@@ -29,7 +29,9 @@
     
   
   <meta name="description" content="[PATCH] mm: thp: introduce NR_PARTIAL_THPS (Bin Wang) https://lkml.kernel.org/r/20210112021208.1875-1-wangbin224@huawei.com
-Because partially unmapped THP is not split, the memory stat becomes confusing. This patch add another counter called NR_PARTIAL_THPS in node_stat_item to reduce such confusions.">
+Because partially unmapped THP is not split, the memory stat becomes confusing. This patch add another counter called NR_PARTIAL_THPS in node_stat_item to reduce such confusions.
+[PATCH v2 00/70] RFC mm: Introducing the Maple Tree https://lkml.kernel.org/r/20210112161240.2024684-1-Liam.Howlett@Oracle.com
+Second RFC of the Maple tree. It is an RCU-safe B-tree that aims to be used as the vma tree with better scalability.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/lkml_news_v5.11-rc4/">
@@ -152,7 +154,9 @@ Because partially unmapped THP is not split, the memory stat becomes confusing. 
   <meta property="og:url" content="/post/lkml_news_v5.11-rc4/">
   <meta property="og:title" content="LKML News v5.11-rc4 | hacklog">
   <meta property="og:description" content="[PATCH] mm: thp: introduce NR_PARTIAL_THPS (Bin Wang) https://lkml.kernel.org/r/20210112021208.1875-1-wangbin224@huawei.com
-Because partially unmapped THP is not split, the memory stat becomes confusing. This patch add another counter called NR_PARTIAL_THPS in node_stat_item to reduce such confusions."><meta property="og:image" content="/img/tux.png">
+Because partially unmapped THP is not split, the memory stat becomes confusing. This patch add another counter called NR_PARTIAL_THPS in node_stat_item to reduce such confusions.
+[PATCH v2 00/70] RFC mm: Introducing the Maple Tree https://lkml.kernel.org/r/20210112161240.2024684-1-Liam.Howlett@Oracle.com
+Second RFC of the Maple tree. It is an RCU-safe B-tree that aims to be used as the vma tree with better scalability."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -204,7 +208,7 @@ Because partially unmapped THP is not split, the memory stat becomes confusing. 
       "url": "/img/icon-512.png"
     }
   },
-  "description": "[PATCH] mm: thp: introduce NR_PARTIAL_THPS (Bin Wang) https://lkml.kernel.org/r/20210112021208.1875-1-wangbin224@huawei.com\nBecause partially unmapped THP is not split, the memory stat becomes confusing. This patch add another counter called NR_PARTIAL_THPS in node_stat_item to reduce such confusions."
+  "description": "[PATCH] mm: thp: introduce NR_PARTIAL_THPS (Bin Wang) https://lkml.kernel.org/r/20210112021208.1875-1-wangbin224@huawei.com\nBecause partially unmapped THP is not split, the memory stat becomes confusing. This patch add another counter called NR_PARTIAL_THPS in node_stat_item to reduce such confusions.\n[PATCH v2 00/70] RFC mm: Introducing the Maple Tree https://lkml.kernel.org/r/20210112161240.2024684-1-Liam.Howlett@Oracle.com\nSecond RFC of the Maple tree. It is an RCU-safe B-tree that aims to be used as the vma tree with better scalability."
 }
 </script>
 
@@ -615,6 +619,10 @@ Because partially unmapped THP is not split, the memory stat becomes confusing. 
 <p>Because partially unmapped THP is not split, the memory stat becomes confusing.
 This patch add another counter called <code>NR_PARTIAL_THPS</code> in <code>node_stat_item</code> to
 reduce such confusions.</p>
+<h2 id="patch-v2-0070-rfc-mm-introducing-the-maple-tree">[PATCH v2 00/70] RFC mm: Introducing the Maple Tree</h2>
+<p><a href="https://lkml.kernel.org/r/20210112161240.2024684-1-Liam.Howlett@Oracle.com">https://lkml.kernel.org/r/20210112161240.2024684-1-Liam.Howlett@Oracle.com</a></p>
+<p>Second RFC of the Maple tree.  It is an RCU-safe B-tree that aims to be used as
+the vma tree with better scalability.</p>
 
     </div>
 
