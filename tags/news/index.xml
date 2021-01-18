@@ -34,6 +34,21 @@ the vma tree with better scalability.&lt;/p&gt;
 &lt;p&gt;This patch adds a library that can be used for error report from debugging
 tools, and make KASAN and KFENCE to use the library for error report.  The
 error report can be accessed from the user space via the sysfs.&lt;/p&gt;
+&lt;h2 id=&#34;linux-511-rc4-linus-torvalds&#34;&gt;Linux 5.11-rc4 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wjGqX0BFV0eH9R=9m2Xezib0w8Ty2zEc6XDJ73zNRPuPQ@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wjGqX0BFV0eH9R=9m2Xezib0w8Ty2zEc6XDJ73zNRPuPQ@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The fourth release candidate for v5.11 is out with normal shape.  No big, no
+small, just average.  This also includes NVIDIA ampere support.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v5.0-rc4..v5.11-rc4.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
+below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2019-01-18 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And, below is the diffstat of the -rc2 releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v5.11-rc4-only.png&#34; alt=&#34;rc2 release stat&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     

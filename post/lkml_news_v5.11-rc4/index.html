@@ -576,7 +576,7 @@ Second RFC of the Maple tree. It is an RCU-safe B-tree that aims to be used as t
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -633,6 +633,21 @@ the vma tree with better scalability.</p>
 <p>This patch adds a library that can be used for error report from debugging
 tools, and make KASAN and KFENCE to use the library for error report.  The
 error report can be accessed from the user space via the sysfs.</p>
+<h2 id="linux-511-rc4-linus-torvalds">Linux 5.11-rc4 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wjGqX0BFV0eH9R=9m2Xezib0w8Ty2zEc6XDJ73zNRPuPQ@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wjGqX0BFV0eH9R=9m2Xezib0w8Ty2zEc6XDJ73zNRPuPQ@mail.gmail.com</a></p>
+<p>The fourth release candidate for v5.11 is out with normal shape.  No big, no
+small, just average.  This also includes NVIDIA ampere support.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.0-rc4..v5.11-rc4.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2019-01-18 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc2 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.11-rc4-only.png" alt="rc2 release stat"></p>
 
     </div>
 
