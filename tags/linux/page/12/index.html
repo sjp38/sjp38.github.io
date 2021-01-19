@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2021-01-12T07:18:48&#43;01:00">
+    <meta property="og:updated_time" content="2021-01-19T07:46:00&#43;01:00">
   
 
   
@@ -525,6 +525,17 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v4.20-rc2/">LKML News by v4.20-rc2</a></h2>
+    <div class="article-style">
+      
+      [PATCH 0/5] Fragmentation avoidance improvements v2 https://lkml.kernel.org/r/20181107183822.15567-1-mgorman@techsingularity.net
+장시간 운영되는 시스템은 결국 메모리가 단편화 (fragmentation) 되게 되어 있습니다. 페이징을 사용하면 단일 페이지 단위 할당은 문제가 없지만, 물리적으로 연속적인 페이지를 할당받기가 어려워지죠. Mel Gorman 의 이 패치는 이런 메모리 분절화를 좀 더 잘 막을 수 있는 방법을 포함하고 있습니다.
+첫번째 패치는 단일 페이지 또는 적은 물리적 연속 페이지들의 할당 시에 불필요하게 higher order free page zone 을 사용하지 않게 하고, 두번째와 세번째 패치는 kswapd 와 kcompactd 를 사용한 defragmentation 을 좀 더 적극적으로 하게 합니다.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/ksummit2018_talk/">I will have a talk at the kernel summit</a></h2>
     <div class="article-style">
       
@@ -622,16 +633,6 @@ THP 를 한방에 swap out / swap in 하는 Huang Ying 의 패치, 여섯번째 
 세번째 rc 릴리즈입니다. 어느새 이번 안정화 기간도 중반을 향하는군요. 시간 참 빠릅니다. 전체적으로 평범한 릴리즈입니다. 딱히 언급할 거리가 없군요.
 [RFC PATCH v2 0/8] lru_lock scalability and SMP list functions https://lkml.kernel.org/r/20180911004240.4758-1-daniel.m.jordan@oracle.com
 올해 LSF/MM 서밋에서도 이야기되었던, lru_lock 의 확장성을 개선하기 위한 노력의 정리입니다. LRU 리스트에 여러 쓰레드가 실제 데이터를 겹쳐 쓰지 않는다면 동시에 접근할 수 있는 새로운 오퍼레이션 세개 (smp_list_del(), smp_list_splice(), smp_list_add())을 추가했구요. 두번째로, lru_lock 을 spinlock 에서 rwlock 으로 교체했군요.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/linux-kernel-build/">Linux Kernel Build</a></h2>
-    <div class="article-style">
-      
-      제가 새 기계에서 리눅스 커널 빌드 환경을 셋업하고 실제 빌드, 설치하는 과정을 정리해 봅니다. 글 작성 과정에서 실제 커맨드를 수행한 환경은 Ubuntu 16.04.3 Server OS 를 설치한 x86_64 가상머신입니다.
-Install Dependent Packages $ sudo apt install build-essential libncurses5-dev libssl-dev bc bison flex \ libelf-dev 커널을 빌드하려면 컴파일러와 라이브러리 등이 필요하겠죠. 위 커맨드는 우분투에서 커널 빌드에 필요한 패키지들을 깔아줍니다. 커널 트리의 Documentation/process/changes.rst 에도 커널 빌드에 필요한 패키지들이 나열되어 있으므로, 다른 환경이라면 이를 참고해 필요한 패키지를 설치합시다.
       
     </div>
   </div>
