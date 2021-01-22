@@ -574,7 +574,7 @@ This patch make optimization of cross-socket memory accesses for AutoNUMA in cas
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -626,6 +626,20 @@ case of application is bound to multiple NUMA nodes possible.</p>
 <h2 id="patch-11-process_madvise2-add-process_madvise-man-page-suren-baghdasaryan">[PATCH 1/1] process_madvise.2: Add process_madvise man page (Suren Baghdasaryan)</h2>
 <p><a href="https://lkml.kernel.org/r/20210120202337.1481402-1-surenb@google.com">https://lkml.kernel.org/r/20210120202337.1481402-1-surenb@google.com</a></p>
 <p>This patch is for the man page of the <code>process_madvise()</code> system call.</p>
+<h2 id="patch-v2-05-create-hugetlb-flags-to-consolidate-state-mike-kravetz">[PATCH v2 0/5] create hugetlb flags to consolidate state (Mike Kravetz)</h2>
+<p><a href="https://lkml.kernel.org/r/20210120013049.311822-1-mike.kravetz@oracle.com">https://lkml.kernel.org/r/20210120013049.311822-1-mike.kravetz@oracle.com</a></p>
+<p>Hugetlb specific page state information is stored in hard to
+read/understand/maintain way.  This patch series store hugetlb specific page
+flags in the &lsquo;private&rsquo; field of &lsquo;struct page&rsquo; to mitigate the problem.</p>
+<h2 id="patch-v6-0014-prohibit-pinning-pages-in-zone_movable-pavel-tatashin">[PATCH v6 00/14] prohibit pinning pages in ZONE_MOVABLE (Pavel Tatashin)</h2>
+<p><a href="https://lkml.kernel.org/r/20210120014333.222547-1-pasha.tatashin@soleen.com">https://lkml.kernel.org/r/20210120014333.222547-1-pasha.tatashin@soleen.com</a></p>
+<p>This patch makes movable pages really movable by prohibiting pinning them in
+<code>ZONE_MOVABLE</code>.</p>
+<h2 id="patch-rfc-06-fix-the-negative-dentres-bloating-system-memory-usage-gautham-ananthakrishna">[PATCH RFC 0/6] fix the negative dentres bloating system memory usage (Gautham Ananthakrishna)</h2>
+<p><a href="https://lkml.kernel.org/r/1611235185-1685-1-git-send-email-gautham.ananthakrishna@oracle.com">https://lkml.kernel.org/r/1611235185-1685-1-git-send-email-gautham.ananthakrishna@oracle.com</a></p>
+<p>This commit mitigates the memory bloat caused by &lsquo;negative dentries&rsquo; by moving
+those to end of siblings list and keep dcache at most three unreferenced
+negative dentries in each hash bucket.</p>
 
     </div>
 
