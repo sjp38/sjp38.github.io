@@ -28,12 +28,11 @@
   
     
   
-  <meta name="description" content="Kernel / Hypervisor Engineer">
+  <meta name="description" content="[RFC][PATCH 00/13] [v5] Migrate Pages in lieu of discard (Dave Hansen) https://lkml.kernel.org/r/20210126003411.2AC51464@viggo.jf.intel.com
+If a system has a small DRAM and a large persistent memory (PMEM), reclamation starts when DRAM fills up, and newer allocations will done on PMEM. This patchset makes the reclaim logic to migrate pages to PMEM instead of just discarding it.">
 
   
-  <link rel="alternate" hreflang="ko" href="/ko/post/">
-  
-  <link rel="alternate" hreflang="en-us" href="/post/">
+  <link rel="alternate" hreflang="en-us" href="/post/lkml_news_v5.11-rc6/">
 
   
 
@@ -58,6 +57,14 @@
     
       
     
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
     
 
     
@@ -125,14 +132,12 @@
 
 
   
-  <link rel="alternate" href="/post/index.xml" type="application/rss+xml" title="hacklog">
-  
 
   <link rel="manifest" href="/index.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon-32.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="/post/">
+  <link rel="canonical" href="/post/lkml_news_v5.11-rc6/">
 
   
   
@@ -144,18 +149,66 @@
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="hacklog">
-  <meta property="og:url" content="/post/">
-  <meta property="og:title" content="Posts | hacklog">
-  <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
+  <meta property="og:url" content="/post/lkml_news_v5.11-rc6/">
+  <meta property="og:title" content="LKML News v5.11-rc6 | hacklog">
+  <meta property="og:description" content="[RFC][PATCH 00/13] [v5] Migrate Pages in lieu of discard (Dave Hansen) https://lkml.kernel.org/r/20210126003411.2AC51464@viggo.jf.intel.com
+If a system has a small DRAM and a large persistent memory (PMEM), reclamation starts when DRAM fills up, and newer allocations will done on PMEM. This patchset makes the reclaim logic to migrate pages to PMEM instead of just discarding it."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2017-01-01T00:00:00&#43;01:00">
+    
+      <meta property="article:published_time" content="2021-01-26T07:14:55&#43;01:00">
+    
+    <meta property="article:modified_time" content="2021-01-26T07:14:55&#43;01:00">
   
 
   
 
 
+    
 
+
+
+
+
+
+  
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/post/lkml_news_v5.11-rc6/"
+  },
+  "headline": "LKML News v5.11-rc6",
+  
+  "datePublished": "2021-01-26T07:14:55+01:00",
+  "dateModified": "2021-01-26T07:14:55+01:00",
+  
+  "author": {
+    "@type": "Person",
+    "name": "SeongJae Park"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "hacklog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/img/icon-512.png"
+    }
+  },
+  "description": "[RFC][PATCH 00/13] [v5] Migrate Pages in lieu of discard (Dave Hansen) https://lkml.kernel.org/r/20210126003411.2AC51464@viggo.jf.intel.com\nIf a system has a small DRAM and a large persistent memory (PMEM), reclamation starts when DRAM fills up, and newer allocations will done on PMEM. This patchset makes the reclaim logic to migrate pages to PMEM instead of just discarding it."
+}
+</script>
+
+  
 
   
 
@@ -163,10 +216,13 @@
   
 
 
+  
 
 
 
-  <title>Posts | hacklog</title>
+
+
+  <title>LKML News v5.11-rc6 | hacklog</title>
 
 </head>
 
@@ -458,22 +514,6 @@
       
 
       
-      <li class="nav-item dropdown i18n-dropdown">
-        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true">
-          <i class="fas fa-globe mr-1" aria-hidden="true"></i><span class="d-none d-lg-inline">English</span>
-        </a>
-        <div class="dropdown-menu">
-          <div class="dropdown-item i18n-active font-weight-bold">
-            <span>English</span>
-          </div>
-          
-          <a class="dropdown-item" href="/ko/post/">
-            <span>한국어</span>
-          </a>
-          
-        </div>
-      </li>
-      
 
     </ul>
 
@@ -481,78 +521,33 @@
 </nav>
 
 
-  
-
-
-
-
-
-
-
-
-
-
-
+  <article class="article">
 
   
 
+
+
+
+
+
+
+
+
+
+
+
+  
+
   
   
+  
+<div class="article-container pt-3">
+  <h1>LKML News v5.11-rc6</h1>
+
+  
+
   
     
-  
-<div class="universal-wrapper pt-3">
-  <h1>Posts</h1>
-
-  
-
-  
-</div>
-
-
-
-<div class="universal-wrapper">
-
-  
-
-  
-  
-    
-      
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="/post/osse2017_03/" >OSSummit 2017 Attendence - 03</a>
-    </h3>
-
-    
-    <div class="article-style">
-      OSSummit 등록도 마쳤고, 남은 하루는 프라하 성 쪽을 둘러보기로 했습니다. 내일부터는 OSSummit 발표를 아침부터 오후까지 들어야 하므로, 프라하 관광을 해가 떠있을 때 하는건 오늘이 마지막이니 부지런히 걸어야 합니다. 어떻게 생각 …
-    </div>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
-      
-        
 
 
 <div class="article-metadata">
@@ -566,189 +561,7 @@
     
       
     
-    Sat, Nov 4, 2017
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    5 min read
-  </span>
-  
-
-  
-  
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fas fa-folder mr-1"></i><a href="/categories/trip/">trip</a></span>
-  
-
-</div>
-
-      
-    </div>
-
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="/post/osse2017_02/" >OSSummit 2017 Attendence - 02</a>
-    </h3>
-
-    
-    <div class="article-style">
-      Immigration ![immigration] (/img/osse_02/14.jpg)
-먼저 공항에서 입국심사를 거쳐야 합니다. 한글 표지판이 많이 있어서 영어에 익숙지 않은 분들도 비교적 쉽게 적응할 수 있겠다 싶었습니다.
-제가 가장 많이  …
-    </div>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
-      
-        
-
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    Sat, Nov 4, 2017
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    8 min read
-  </span>
-  
-
-  
-  
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fas fa-folder mr-1"></i><a href="/categories/trip/">trip</a></span>
-  
-
-</div>
-
-      
-    </div>
-
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="/post/lkml_news_v4.14-rc7/" >LKML News after v4.14-rc7</a>
-    </h3>
-
-    
-    <div class="article-style">
-      Linux 4.14-rc7 https://lkml.kernel.org/r/CA+55aFwhgxivTE3k88nshbrH9nd-4nhmhXGzw-MxRVGxf-R8Eg@mail.gmail.com
-일곱번째 rc 버전의 릴리즈입니다.
-OSSE …
-    </div>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
-      
-        
-
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    Fri, Nov 3, 2017
+    Tue, Jan 26, 2021
   </span>
   
 
@@ -774,658 +587,263 @@ OSSE …
 
 </div>
 
-      
-    </div>
-
     
 
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 </div>
 
-    
-  
-    
-      
 
 
+  <div class="article-container">
 
-
-
-
-
-
-
-
-
-
-  
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="/post/osse2017_01/" >OSSummit 2017 Attendence - 01</a>
-    </h3>
-
-    
     <div class="article-style">
-      ![pargue!] (/img/osse_01/8.jpg)
-Open Source Summit Europe 과 Embedded Linux Conference Europe, 그리고 Annual Kernel Summit 이 합동으로 열린 프라하에 다 …
+      <h2 id="rfcpatch-0013-v5-migrate-pages-in-lieu-of-discard-dave-hansen">[RFC][PATCH 00/13] [v5] Migrate Pages in lieu of discard (Dave Hansen)</h2>
+<p><a href="https://lkml.kernel.org/r/20210126003411.2AC51464@viggo.jf.intel.com">https://lkml.kernel.org/r/20210126003411.2AC51464@viggo.jf.intel.com</a></p>
+<p>If a system has a small DRAM and a large persistent memory (PMEM), reclamation
+starts when DRAM fills up, and newer allocations will done on PMEM.  This
+patchset makes the reclaim logic to migrate pages to PMEM instead of just
+discarding it.</p>
+
     </div>
+
     
 
-    <div class="stream-meta article-metadata">
 
+
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/linux/">linux</a>
+  
+  <a class="badge badge-light" href="/tags/kernel/">kernel</a>
+  
+  <a class="badge badge-light" href="/tags/lkml/">lkml</a>
+  
+  <a class="badge badge-light" href="/tags/news/">news</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
       
-
+      
       
         
-
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=/post/lkml_news_v5.11-rc6/&amp;text=LKML%20News%20v5.11-rc6" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
     
       
-    
-    Sun, Oct 29, 2017
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    4 min read
-  </span>
-  
-
-  
-  
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fas fa-folder mr-1"></i><a href="/categories/trip/">trip</a></span>
-  
-
-</div>
-
       
-    </div>
-
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="/post/lkml_news_v4.14-rc6/" >LKML News after v4.14-rc6</a>
-    </h3>
-
-    
-    <div class="article-style">
-      Linux 4.14-rc6 https://lkml.kernel.org/r/CA+55aFxSJGeN=2X-uX-on1Uq2Nb8+v1aiMDz5H1+tKW_N5Q+6g@mail.gmail.com
-여섯번째 rc 버전의 릴리즈입니다.
-토발즈 집 인 …
-    </div>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
       
         
-
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=/post/lkml_news_v5.11-rc6/&amp;t=LKML%20News%20v5.11-rc6" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
     
       
-    
-    Wed, Oct 25, 2017
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
-  
-
-</div>
-
       
-    </div>
-
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="/post/lkml_news_v4.14-rc5/" >LKML News after v4.14-rc5</a>
-    </h3>
-
-    
-    <div class="article-style">
-      Linux 4.14-rc5 https://lkml.kernel.org/r/CA+55aFyKgEL3dj7XGYsPQd8y_z0GWx91TLZPSQAxjrua1aWOLw@mail.gmail.com
-다섯번째 rc 버전의 릴리즈입니다.
-Lazy …
-    </div>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
       
         
-
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=LKML%20News%20v5.11-rc6&amp;body=/post/lkml_news_v5.11-rc6/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
     
       
-    
-    Tue, Oct 17, 2017
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
-  
-
-</div>
-
       
-    </div>
-
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="/post/lkml_news_0000/" >LKML News - Intro</a>
-    </h3>
-
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
       
         
-
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=/post/lkml_news_v5.11-rc6/&amp;title=LKML%20News%20v5.11-rc6" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
     
       
-    
-    Tue, Oct 10, 2017
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
-  
-
-</div>
-
       
-    </div>
-
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="/post/idle_page_tracking/" >Idle Page Tracking Tools</a>
-    </h3>
-
-    
-    <div class="article-style">
-      idle_page_tracking[1] is a simple, stupid toolbox for idle pages tracking. It can be used to get real working set size of a process. …
-    </div>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
       
         
-
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=LKML%20News%20v5.11-rc6%20/post/lkml_news_v5.11-rc6/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
     
       
-    
-    Wed, Sep 13, 2017
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fas fa-folder mr-1"></i><a href="/categories/projects/">projects</a></span>
-  
-
-</div>
-
       
-    </div>
-
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="/post/tpch-on-mariadb/" >TPC-H on MariaDB (MySQL)</a>
-    </h3>
-
-    
-    <div class="article-style">
-      Benchmarks for Database can be roughly divided into two kinds, OLTP and OLAP[1]. One of the most popular OLTP benchamrks is TPC-C, …
-    </div>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
       
         
-
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
       
-    
-    Sun, Sep 10, 2017
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    7 min read
-  </span>
-  
-
-  
-  
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fas fa-folder mr-1"></i><a href="/categories/tip/">tip</a></span>
-  
-
-</div>
-
       
-    </div>
-
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
-</div>
-
-    
-  
-    
       
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="/post/mariadb_setup/" >Ubuntu 16.04 Server 위에 MariaDB 설치/사용하기</a>
-    </h3>
-
-    
-    <div class="article-style">
-      악의 조직 Oracle 에서 Sun 을 인수한 후 이어진 반 open source 적 행보에 MySQL 개발자는 MySQL 을 fork 해서 MariaDB 를 개발하고 있습니다. 저작권을 악용해 중요한 기능은 천천히 릴리즈 하거나 유료 라이센 …
-    </div>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
-      
-        
-
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    Thu, Aug 31, 2017
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    5 min read
-  </span>
-  
-
-  
-  
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fas fa-folder mr-1"></i><a href="/categories/tip/">tip</a></span>
-  
-
-</div>
-
-      
-    </div>
-
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
-</div>
-
-    
-  
-
-  
-<nav>
-  <ul class="pagination justify-content-center">
-    
-    <li class="page-item"><a class="page-link" href="/post/page/20/">&laquo;</a></li>
-    
-    
-    <li class="page-item"><a class="page-link" href="/post/page/22/">&raquo;</a></li>
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=/post/lkml_news_v5.11-rc6/&amp;title=LKML%20News%20v5.11-rc6" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
     
   </ul>
-</nav>
-
-
-
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      <img class="portrait mr-3" src="https://s.gravatar.com/avatar/43dc5645c78e68fda997138380dfaaf4?s=200')" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="/">SeongJae Park</a></h5>
+      <h6 class="card-subtitle">Kernel / Hypervisor Engineer</h6>
+      <p class="card-text">SeongJae Park is a programmer who loves to analyze and develop systems.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/log/?qt=author&amp;q=seongjae&#43;park" target="_blank" rel="noopener">
+        <i class="fab fa-linux"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/sjp38" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.com/citations?user=jJIiF3AAAAAJ" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  
+  
+  <div class="article-widget content-widget-hr">
+    <h3>Related</h3>
+    <ul>
+      
+      <li><a href="/post/lkml_news_v5.11-rc5/">LKML News v5.11-rc5</a></li>
+      
+      <li><a href="/post/lkml_news_v5.11-rc4/">LKML News v5.11-rc4</a></li>
+      
+      <li><a href="/post/lkml_news_v5.11-rc3/">LKML News v5.11-rc3</a></li>
+      
+      <li><a href="/post/lkml_news_v5.11-rc2/">LKML News v5.11-rc2</a></li>
+      
+      <li><a href="/post/lkml_news_v5.11-rc1/">LKML News v5.10-rc1</a></li>
+      
+    </ul>
+  </div>
+  
+
+
+
+  </div>
+</article>
 
       
 
@@ -1443,6 +861,14 @@ Lazy …
       
 
       
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js" integrity="sha256-1zu+3BnLYV9LdiY85uXMzii3bdrkelyp37e0ZyTAQh0=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/languages/c.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/languages/bash.min.js"></script>
+        
+      
 
       
       
@@ -1454,6 +880,8 @@ Lazy …
     
 
     
+    
+    <script>const code_highlighting = true;</script>
     
 
     
