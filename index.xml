@@ -23,6 +23,11 @@
 starts when DRAM fills up, and newer allocations will done on PMEM.  This
 patchset makes the reclaim logic to migrate pages to PMEM instead of just
 discarding it.&lt;/p&gt;
+&lt;h2 id=&#34;patch-v3-0025-page-folios-matthew-wilcox&#34;&gt;[PATCH v3 00/25] Page folios (Matthew Wilcox)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20210128070404.1922318-1-willy@infradead.org&#34;&gt;https://lkml.kernel.org/r/20210128070404.1922318-1-willy@infradead.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This patchset introduces a new data structure called page folio.  It helps
+functions to handle compound pages without having to check if a given page is a
+head or a tail.&lt;/p&gt;
 </description>
     </item>
     
@@ -2567,7 +2572,7 @@ show boot log and login prompt.&lt;/p&gt;
 &lt;h1 id=&#34;return-to-vm-monitor-console&#34;&gt;Return to VM Monitor Console&lt;/h1&gt;
 &lt;p&gt;If you want to go back to the VM monitor console, which you have seen before
 connecting the QEMU executed terminal to the VM&amp;rsquo;s console, press &lt;code&gt;Ctrl+a c&lt;/code&gt;.
-If you want to go back to the guest console again, press &lt;code&gt;Ctr+a c enter&lt;/code&gt;.&lt;/p&gt;
+If you want to go back to the guest console again, press &lt;code&gt;Ctrl+a c enter&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Reference:
 &lt;a href=&#34;https://serverfault.com/questions/471719/how-to-start-qemu-directly-in-the-console-not-in-curses-or-sdl&#34;&gt;https://serverfault.com/questions/471719/how-to-start-qemu-directly-in-the-console-not-in-curses-or-sdl&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&#34;boot-with-kernel-in-host&#34;&gt;Boot with Kernel in Host&lt;/h1&gt;
