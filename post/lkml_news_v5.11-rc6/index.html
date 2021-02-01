@@ -625,6 +625,21 @@ discarding it.</p>
 <p>This patchset introduces a new data structure called page folio.  It helps
 functions to handle compound pages without having to check if a given page is a
 head or a tail.</p>
+<h2 id="linux-511-rc6-linus-torvalds">Linux 5.11-rc6 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wiOjOh4gNkg==Tyjho98cea06UtnZ4ePwMP3uK-9VLCNA@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wiOjOh4gNkg==Tyjho98cea06UtnZ4ePwMP3uK-9VLCNA@mail.gmail.com</a></p>
+<p>Things keep going calm.  v5.11-rc6 is in average of the series, and the commits
+spread to subsystems as usual.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.0-rc6..v5.11-rc6.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2019-02-01 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc2 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.11-rc5-only.png" alt="rc2 release stat"></p>
 
     </div>
 
