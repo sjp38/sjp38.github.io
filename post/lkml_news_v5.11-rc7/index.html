@@ -31,7 +31,9 @@
   <meta name="description" content="[RFC 00/20] TLB batching consolidation and enhancements (Nadav Amit) https://lkml.kernel.org/r/20210131001132.3368247-1-namit@vmware.com
 This patchset prepares more aggressive TLB flushing batching by consolidating a few TLB batching methods.
 [PATCH v9 00/14] prohibit pinning pages in ZONE_MOVABLE (Pavel Tatashin) https://lkml.kernel.org/r/20210201153827.444374-1-pasha.tatashin@soleen.com
-This patchset makes ZONE_MOVABLE really movable by prohibiting pinning of pages in the zone.">
+This patchset makes ZONE_MOVABLE really movable by prohibiting pinning of pages in the zone.
+Augmented Page Reclaim (Yu Zhao) https://lkml.kernel.org/r/YBkT6175GmMWBvw3@google.com
+This mail shares a part of decade researh/experimentation in memory overcommit at Google. The author wants to start submitting patch based on responses.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/lkml_news_v5.11-rc7/">
@@ -156,7 +158,9 @@ This patchset makes ZONE_MOVABLE really movable by prohibiting pinning of pages 
   <meta property="og:description" content="[RFC 00/20] TLB batching consolidation and enhancements (Nadav Amit) https://lkml.kernel.org/r/20210131001132.3368247-1-namit@vmware.com
 This patchset prepares more aggressive TLB flushing batching by consolidating a few TLB batching methods.
 [PATCH v9 00/14] prohibit pinning pages in ZONE_MOVABLE (Pavel Tatashin) https://lkml.kernel.org/r/20210201153827.444374-1-pasha.tatashin@soleen.com
-This patchset makes ZONE_MOVABLE really movable by prohibiting pinning of pages in the zone."><meta property="og:image" content="/img/tux.png">
+This patchset makes ZONE_MOVABLE really movable by prohibiting pinning of pages in the zone.
+Augmented Page Reclaim (Yu Zhao) https://lkml.kernel.org/r/YBkT6175GmMWBvw3@google.com
+This mail shares a part of decade researh/experimentation in memory overcommit at Google. The author wants to start submitting patch based on responses."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -208,7 +212,7 @@ This patchset makes ZONE_MOVABLE really movable by prohibiting pinning of pages 
       "url": "/img/icon-512.png"
     }
   },
-  "description": "[RFC 00/20] TLB batching consolidation and enhancements (Nadav Amit) https://lkml.kernel.org/r/20210131001132.3368247-1-namit@vmware.com\nThis patchset prepares more aggressive TLB flushing batching by consolidating a few TLB batching methods.\n[PATCH v9 00/14] prohibit pinning pages in ZONE_MOVABLE (Pavel Tatashin) https://lkml.kernel.org/r/20210201153827.444374-1-pasha.tatashin@soleen.com\nThis patchset makes ZONE_MOVABLE really movable by prohibiting pinning of pages in the zone."
+  "description": "[RFC 00/20] TLB batching consolidation and enhancements (Nadav Amit) https://lkml.kernel.org/r/20210131001132.3368247-1-namit@vmware.com\nThis patchset prepares more aggressive TLB flushing batching by consolidating a few TLB batching methods.\n[PATCH v9 00/14] prohibit pinning pages in ZONE_MOVABLE (Pavel Tatashin) https://lkml.kernel.org/r/20210201153827.444374-1-pasha.tatashin@soleen.com\nThis patchset makes ZONE_MOVABLE really movable by prohibiting pinning of pages in the zone.\nAugmented Page Reclaim (Yu Zhao) https://lkml.kernel.org/r/YBkT6175GmMWBvw3@google.com\nThis mail shares a part of decade researh/experimentation in memory overcommit at Google. The author wants to start submitting patch based on responses."
 }
 </script>
 
@@ -622,6 +626,14 @@ few TLB batching methods.</p>
 <p><a href="https://lkml.kernel.org/r/20210201153827.444374-1-pasha.tatashin@soleen.com">https://lkml.kernel.org/r/20210201153827.444374-1-pasha.tatashin@soleen.com</a></p>
 <p>This patchset makes <code>ZONE_MOVABLE</code> really movable by prohibiting pinning of
 pages in the zone.</p>
+<h2 id="augmented-page-reclaim-yu-zhao">Augmented Page Reclaim (Yu Zhao)</h2>
+<p><a href="https://lkml.kernel.org/r/YBkT6175GmMWBvw3@google.com">https://lkml.kernel.org/r/YBkT6175GmMWBvw3@google.com</a></p>
+<p>This mail shares a part of decade researh/experimentation in memory overcommit
+at Google.  The author wants to start submitting patch based on responses.  It
+allows userspace to trigger aging and eviction via debugfs for working set
+estimation, proactive reclaim, far memory tiering, NUMA-aware job scheduling,
+and more.  The work adopted for mobile (Android), warehouse-scale computers
+(Borg), and desktop (Chrome OS) and achieved impressive results.</p>
 
     </div>
 
