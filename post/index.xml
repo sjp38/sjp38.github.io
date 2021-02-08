@@ -38,6 +38,22 @@ and more.  The work adopted for mobile (Android), warehouse-scale computers
 &lt;p&gt;This RFC patchset makes hot pages to placed in DRAM and cold pages in PMEM.
 For hot pages identification, this patchset reuses the mechanism of AutoNUMA.
 IOW, recently used pages are identified as hot.&lt;/p&gt;
+&lt;h2 id=&#34;linux-511-rc7-linus-torvalds&#34;&gt;Linux 5.11-rc7 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wgxhBkWH0D6chYcwqDvdh2rB5ZVpToxodz5Q6qaFd_qyg@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wgxhBkWH0D6chYcwqDvdh2rB5ZVpToxodz5Q6qaFd_qyg@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The release candidate that is supposed to be the last one before the v5.11 is
+released.  No surprise is there, so unless some scary things happen later,
+v5.11 will be released next week.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v5.0-rc7..v5.11-rc7.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
+below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2019-02-08 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And, below is the diffstat of the -rc2 releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v5.11-rc7-only.png&#34; alt=&#34;rc2 release stat&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -71,7 +87,7 @@ below command:&lt;/p&gt;
     --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;And, below is the diffstat of the -rc2 releases in the last two years.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v5.11-rc5-only.png&#34; alt=&#34;rc2 release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v5.11-rc6-only.png&#34; alt=&#34;rc2 release stat&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     
