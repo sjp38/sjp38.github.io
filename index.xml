@@ -24,6 +24,20 @@ of CMA allocation attempts and failures.&lt;/p&gt;
 &lt;h2 id=&#34;patch-v10-0014-prohibit-pinning-pages-in-zone_movable-pavel-tatashin&#34;&gt;[PATCH v10 00/14] prohibit pinning pages in ZONE_MOVABLE (Pavel Tatashin)&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20210211162427.618913-1-pasha.tatashin@soleen.com&#34;&gt;https://lkml.kernel.org/r/20210211162427.618913-1-pasha.tatashin@soleen.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;The 10th version of the patchset making &lt;code&gt;ZONE_MOVABLE&lt;/code&gt; really movable.&lt;/p&gt;
+&lt;h2 id=&#34;linux-511-linus-torvalds&#34;&gt;Linux 5.11 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wg8LpRi9+P2_V+ehJ2_EoJifNh2QmVf47aLXfkCd-1UAQ@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wg8LpRi9+P2_V+ehJ2_EoJifNh2QmVf47aLXfkCd-1UAQ@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Nothing strange happened last week, so Linus released v5.11 as expected.  The
+number of changes from the rc7 to this release is actually even smaller than
+average.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v5.0-rc8..v5.11.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
+below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2019-02-15 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     

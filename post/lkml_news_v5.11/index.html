@@ -31,7 +31,9 @@
   <meta name="description" content="[PATCH v2] mm: cma: support sysfs (Minchan Kim) https://lkml.kernel.org/r/20210208180142.2765456-1-minchan@kernel.org
 This patch introduces sysfs interface for CMA that shows stats including number of CMA allocation attempts and failures.
 [PATCH v10 00/14] prohibit pinning pages in ZONE_MOVABLE (Pavel Tatashin) https://lkml.kernel.org/r/20210211162427.618913-1-pasha.tatashin@soleen.com
-The 10th version of the patchset making ZONE_MOVABLE really movable.">
+The 10th version of the patchset making ZONE_MOVABLE really movable.
+Linux 5.11 (Linus Torvalds) https://lkml.kernel.org/r/CAHk-=wg8LpRi9&#43;P2_V&#43;ehJ2_EoJifNh2QmVf47aLXfkCd-1UAQ@mail.gmail.com
+Nothing strange happened last week, so Linus released v5.11 as expected. The number of changes from the rc7 to this release is actually even smaller than average.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/lkml_news_v5.11/">
@@ -156,7 +158,9 @@ The 10th version of the patchset making ZONE_MOVABLE really movable.">
   <meta property="og:description" content="[PATCH v2] mm: cma: support sysfs (Minchan Kim) https://lkml.kernel.org/r/20210208180142.2765456-1-minchan@kernel.org
 This patch introduces sysfs interface for CMA that shows stats including number of CMA allocation attempts and failures.
 [PATCH v10 00/14] prohibit pinning pages in ZONE_MOVABLE (Pavel Tatashin) https://lkml.kernel.org/r/20210211162427.618913-1-pasha.tatashin@soleen.com
-The 10th version of the patchset making ZONE_MOVABLE really movable."><meta property="og:image" content="/img/tux.png">
+The 10th version of the patchset making ZONE_MOVABLE really movable.
+Linux 5.11 (Linus Torvalds) https://lkml.kernel.org/r/CAHk-=wg8LpRi9&#43;P2_V&#43;ehJ2_EoJifNh2QmVf47aLXfkCd-1UAQ@mail.gmail.com
+Nothing strange happened last week, so Linus released v5.11 as expected. The number of changes from the rc7 to this release is actually even smaller than average."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -208,7 +212,7 @@ The 10th version of the patchset making ZONE_MOVABLE really movable."><meta prop
       "url": "/img/icon-512.png"
     }
   },
-  "description": "[PATCH v2] mm: cma: support sysfs (Minchan Kim) https://lkml.kernel.org/r/20210208180142.2765456-1-minchan@kernel.org\nThis patch introduces sysfs interface for CMA that shows stats including number of CMA allocation attempts and failures.\n[PATCH v10 00/14] prohibit pinning pages in ZONE_MOVABLE (Pavel Tatashin) https://lkml.kernel.org/r/20210211162427.618913-1-pasha.tatashin@soleen.com\nThe 10th version of the patchset making ZONE_MOVABLE really movable."
+  "description": "[PATCH v2] mm: cma: support sysfs (Minchan Kim) https://lkml.kernel.org/r/20210208180142.2765456-1-minchan@kernel.org\nThis patch introduces sysfs interface for CMA that shows stats including number of CMA allocation attempts and failures.\n[PATCH v10 00/14] prohibit pinning pages in ZONE_MOVABLE (Pavel Tatashin) https://lkml.kernel.org/r/20210211162427.618913-1-pasha.tatashin@soleen.com\nThe 10th version of the patchset making ZONE_MOVABLE really movable.\nLinux 5.11 (Linus Torvalds) https://lkml.kernel.org/r/CAHk-=wg8LpRi9+P2_V+ehJ2_EoJifNh2QmVf47aLXfkCd-1UAQ@mail.gmail.com\nNothing strange happened last week, so Linus released v5.11 as expected. The number of changes from the rc7 to this release is actually even smaller than average."
 }
 </script>
 
@@ -621,6 +625,20 @@ of CMA allocation attempts and failures.</p>
 <h2 id="patch-v10-0014-prohibit-pinning-pages-in-zone_movable-pavel-tatashin">[PATCH v10 00/14] prohibit pinning pages in ZONE_MOVABLE (Pavel Tatashin)</h2>
 <p><a href="https://lkml.kernel.org/r/20210211162427.618913-1-pasha.tatashin@soleen.com">https://lkml.kernel.org/r/20210211162427.618913-1-pasha.tatashin@soleen.com</a></p>
 <p>The 10th version of the patchset making <code>ZONE_MOVABLE</code> really movable.</p>
+<h2 id="linux-511-linus-torvalds">Linux 5.11 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wg8LpRi9+P2_V+ehJ2_EoJifNh2QmVf47aLXfkCd-1UAQ@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wg8LpRi9+P2_V+ehJ2_EoJifNh2QmVf47aLXfkCd-1UAQ@mail.gmail.com</a></p>
+<p>Nothing strange happened last week, so Linus released v5.11 as expected.  The
+number of changes from the rc7 to this release is actually even smaller than
+average.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.0-rc8..v5.11.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2019-02-15 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
 
     </div>
 
