@@ -31,9 +31,9 @@
   <meta name="description" content="Kernel / Hypervisor Engineer">
 
   
-  <link rel="alternate" hreflang="ko" href="/ko/tags/news/">
+  <link rel="alternate" hreflang="ko" href="/ko/post/">
   
-  <link rel="alternate" hreflang="en-us" href="/tags/news/">
+  <link rel="alternate" hreflang="en-us" href="/post/">
 
   
 
@@ -58,14 +58,6 @@
     
       
     
-    
-      
-      
-        
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/github.min.css" crossorigin="anonymous" title="hl-light">
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
-        
-      
     
 
     
@@ -133,14 +125,14 @@
 
 
   
-  <link rel="alternate" href="/tags/news/index.xml" type="application/rss+xml" title="hacklog">
+  <link rel="alternate" href="/post/index.xml" type="application/rss+xml" title="hacklog">
   
 
   <link rel="manifest" href="/index.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon-32.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="/tags/news/">
+  <link rel="canonical" href="/post/">
 
   
   
@@ -152,12 +144,12 @@
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="hacklog">
-  <meta property="og:url" content="/tags/news/">
-  <meta property="og:title" content="news | hacklog">
+  <meta property="og:url" content="/post/">
+  <meta property="og:title" content="Posts | hacklog">
   <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2021-02-16T07:17:38&#43;01:00">
+    <meta property="og:updated_time" content="2017-01-01T00:00:00&#43;01:00">
   
 
   
@@ -174,7 +166,7 @@
 
 
 
-  <title>news | hacklog</title>
+  <title>Posts | hacklog</title>
 
 </head>
 
@@ -396,7 +388,7 @@
         
 
         <li class="nav-item">
-          <a class="nav-link  active" href="/tags"><span>Tags</span></a>
+          <a class="nav-link " href="/tags"><span>Tags</span></a>
         </li>
 
         
@@ -475,7 +467,7 @@
             <span>English</span>
           </div>
           
-          <a class="dropdown-item" href="/ko/tags/news/">
+          <a class="dropdown-item" href="/ko/post/">
             <span>한국어</span>
           </a>
           
@@ -510,7 +502,7 @@
     
   
 <div class="universal-wrapper pt-3">
-  <h1>news</h1>
+  <h1>Posts</h1>
 
   
 
@@ -520,144 +512,111 @@
 
 
 <div class="universal-wrapper">
+
   
 
   
   
-  <div>
-    <h2><a href="/post/lkml_news_v4.15-rc7/">LKML News after v4.15-rc7</a></h2>
-    <div class="article-style">
+    
       
-      Linux 4.15-rc7 https://lkml.kernel.org/r/CA+55aFwbmKznuQZe_VemxXJPSmB-9yy8uyWsMZcrkA4T=m8xkw@mail.gmail.com
-Meltdown 과 Spectre 로 떠들썩했던 시간을 지나 4.15 의 일곱번째 rc 버전이 릴리즈 되었습니다. 지난 여섯번째 릴리즈 때도 상당히 안정화에 신경써야 할 시점임에도 x86 pti (page table isolation) 업데이트 패치가 많이 머지되어 의아했는데, 이게 Meltdown 과 Spectre 버그 때문이었음도 밝혀졌죠. 그렇다곤 해도 그 외의 부분은 예상대로 상당히 안정화 되어가고 있다고 합니다.
-더불어, Thomas Geixner 등의 인텔쪽 커널 개발자들의 노력 덕에 pti 등 Meltdown 과 Spectre 버그를 위한 패치가 잘 관리되어 비교적 쉽게 머지될 수 있었음에 리누스가 감사를 표하네요.
-      
-    </div>
-  </div>
+
+
+
+
+
+
+
+
+
+
+
+
   
-  <div>
-    <h2><a href="/post/lkml_news_v4.15-rc6/">LKML News after v4.15-rc6</a></h2>
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0">
+      <a href="/post/perfbook-kokr/" >&#34;Is Parallel Programming Hard, And, If So, What Can You Do About It?&#34; Translation</a>
+    </h3>
+
+    
     <div class="article-style">
-      
-      Linux 4.15-rc6 https://lkml.kernel.org/r/CA+55aFzU_Q04CVEABo50x24yeTaP-yzzrB1wTPeOiOgAbSKiDA@mail.gmail.com
-한국시간으로는 1월 1일, 토발즈의 현지 시각으로는 2017년의 마지막날, 4.15 의 여섯번째 rc 버전이 릴리즈 되었습니다.
-지난주는 크리스마스 등의 연휴 때문인지 참 조용했죠. 덕분에 이번 릴리즈의 변경사항도 많지 않습니다. 다만 x86 pti 쪽 업데이트가 있었기 때문에 이번엔 rc8 까지 릴리즈 할수도 있을 것 같다고 하는군요.
-      
+      &ldquo;Is Parallel Programming is Hard, And, If So, What Can You Do About It?&quot;[1] 은 parallel programming 분야에서 대가라 불릴만한 분으로, 이쪽 분야에 …
     </div>
-  </div>
+    
+
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
+
+<div class="article-metadata">
+
   
-  <div>
-    <h2><a href="/post/lkml_news_v4.14-rc4/">LKML News after v4.15-rc5</a></h2>
-    <div class="article-style">
-      
-      Linux 4.15-rc5 https://lkml.kernel.org/r/CA+55aFy1U+uBLEAoCWU3=BqEbROW6rsbaHUdYJArR6iYQQWo_A@mail.gmail.com
-4.15 의 다섯번째 rc 버전이 평소 스케쥴보다 하루 일찍 릴리즈 되었습니다. 원래대로라면 내일일텐데, 미국 시간으로는 크리스마스 이브라서 그냥 오늘 릴리즈 한다는군요.
-이번 rc5 의 변경 사항들도 지난 릴리즈의 rc5 와 비슷했다고 하는데, 다만 x86 의 커널 페이지 테이블 격리화 관련 작업이 진행 중인 게 좀 예외라고 하는군요.
-[RFC v3 PATCH 0/5] Eliminate zone-&gt;lock contention for will-it-scale/page_fault1 and parallel free https://lkml.kernel.org/r/20180509085450.3524-1-aaron.lu@intel.com
-패치셋 저자는 112개 CPU를 갖는 Intel Skylake 서버에서 will-it-scale/page_fult1 워크로드를 돌려보았고 80% CPU 가 zone-&gt;lock 에서 스핀하며 시간을 보내고 있음을 파악했습니다.
-      
-    </div>
-  </div>
   
-  <div>
-    <h2><a href="/post/lkml_news_v4.15-rc5/">LKML News after v4.15-rc5</a></h2>
-    <div class="article-style">
-      
-      Linux 4.15-rc5 https://lkml.kernel.org/r/CA+55aFy1U+uBLEAoCWU3=BqEbROW6rsbaHUdYJArR6iYQQWo_A@mail.gmail.com
-4.15 의 다섯번째 rc 버전이 평소 스케쥴보다 하루 일찍 릴리즈 되었습니다. 원래대로라면 내일일텐데, 미국 시간으로는 크리스마스 이브라서 그냥 오늘 릴리즈 한다는군요.
-이번 rc5 의 변경 사항들도 지난 릴리즈의 rc5 와 비슷했다고 하는데, 다만 x86 의 커널 페이지 테이블 격리화 관련 작업이 진행 중인 게 좀 예외라고 하는군요.
-Re: About the try to remove cross-release feature entirely by Ingo https://lkml.kernel.org/r/20171229014736.GA10341@X58A-UD3R
-Lockdep 의 cross release 기능은 너무 느렸고, false positive 가 많다는 이유로, 특히 false positive 가 너무 많다는 이유로 Ingo Molnar 에 의해 제거되려 하고 있습니다.
-      
-    </div>
-  </div>
+
   
-  <div>
-    <h2><a href="/post/lkml_news_v4.15-rc4/">LKML News after v4.15-rc4</a></h2>
-    <div class="article-style">
+  <span class="article-date">
+    
+    
       
-      Linux 4.15-rc4 https://lkml.kernel.org/r/CA+55aFysmVGm_shBvK4kmaS+_PsMEt3Mz_b+Dm0SDrmVtUofbA@mail.gmail.com
-4.15 의 네번째 rc 버전입니다. 지난 rc 버전들이 생각보다 커서 토발즈가 좀 걱정했는데, 이번 릴리즈에 들어서는 평범한 네번째 rc 만큼이나 변화가 많이 없어 충분히 안정화 되기 시작한 것 같다고 하는군요.
-이번에 가장 눈에 띌만한 변화는 suspend/resume 처리를 정리하고 고친 것이라고 합니다. 크로스 락킹 디버깅 기능은 부팅 시간을 늘리는 문제 등도 있어선지 이번에 일단 제거되었네요. 나중에 다시 되살릴 계획은 있는 것 같습니다.
-[PATCH v2 1/1] Move kfree_call_rcu() to slab_common.
-      
-    </div>
-  </div>
+    
+    Tue, Jan 10, 2017
+  </span>
   
-  <div>
-    <h2><a href="/post/lkml_news_v4.15-rc3/">LKML News after v4.15-rc3</a></h2>
-    <div class="article-style">
-      
-      Linux 4.15-rc3 https://lkml.kernel.org/r/CA+55aFz9O9R8u3ori-QNPz4ALU+0B=Es0gd+oWmsce5qxugxXA@mail.gmail.com
-4.15 의 세번째 rc 버전입니다. 지난주보단 조금 늦게 릴리즈 되었네요.
-일반적으로 rc3 릴리즈는 좀 변경사항이 많지만 이번엔 그중에서도 변경사항이 많은 편이라 걱정된다고 하는군요. 대부분은 드라이버쪽 변경인데 perf 쪽 변경도 꽤 있고 core, networking, kvm, arch, 문서 업데이트도 물론 있습니다. 어쨌든 토발즈는 이제는 정말 안정화가 되어가길 바라는 마음이라는군요.
-[PATCH v2] mm/slab: Do not hash pointers when debugging slab https://lkml.kernel.org/r/1513179267-2509-1-git-send-email-geert+renesas@glider.be
-이번 버전에 들어와 포인터 값을 기반으로 한 예측을 통해 공격이 들어오는 걸 방지하기 위해 &lsquo;%p&rsquo; 가 포인터를 그냥 출력하는게 아니라 hash 한 다음에 출력하도록 바뀌었죠.
-      
-    </div>
-  </div>
+
   
-  <div>
-    <h2><a href="/post/lkml_news_v4.15-rc2/">LKML News after v4.15-rc2</a></h2>
-    <div class="article-style">
-      
-      Linux 4.15-rc2 https://lkml.kernel.org/r/CA+55aFxPBszFBt91KRNBrsQdJ10b+6fh9ySNzSKSX7JOq4WRPw@mail.gmail.com
-4.15 의 두번째 rc 버전이 나왔습니다.
-동부 지방을 여행 중인가 보군요. 평소보다 좀 이른 시간에 릴리즈가 됐습니다. 원하던 것보단 큰 릴리즈가 되어버렸지만 대부분 fixup 이기에 큰 문제는 없는 것 같다는군요. Kernel ASLR leak 을 막기 위해 모든 &ldquo;%P&rdquo; 로 프린트되는 어드레스 주소를 해시해 버린다고 하네요. 이럼 디버깅할 때 좀 짜증날 수 있긴 하겠지만 다른 방법이 별로 없었다고&hellip;
-[RFC PATCH v3 0/7] ktask: multithread CPU-intensive kernel work https://lkml.kernel.org/r/20171205195220.28208-1-daniel.m.jordan@oracle.com
-      
-    </div>
-  </div>
+
   
-  <div>
-    <h2><a href="/post/lkml_news_v4.15-rc1/">LKML News after v4.15-rc1</a></h2>
-    <div class="article-style">
-      
-      Linux 4.15-rc1 https://lkml.kernel.org/r/CA+55aFzcudOPSwbD9XfVxBgFsQOhBjyncyYnGDYwZUEHOGUwcw@mail.gmail.com
-예정대로 2주만에 4.15 의 첫번째 rc 버전이 나왔습니다.
-지난주는 추수감사절이라 다들 휴가인 사람이 많았기에 첫번째 주에 최대한 많이 풀리퀘스트를 받았고 지난주는 좀 더 까다롭게 풀리퀘스트를 검사했군요. 토발즈는 두번째 주 동안 랩톱 들고 여행중이었고, 랩톱에서는 전체 모듈 빌드를 하지 않기 때문이라 합니다. 메인테이너들도 가능한 첫번째 주에 중요 플리퀘스트를 보내는 식으로 협조를 해줬다고 합니다. 그네들도 두번째주는 휴가가고 싶었을테니&hellip; ;)
-4.14 가 LTS 였기에 이번 머지윈도우에는 변화가 크지 않을 것으로 예상했는데 생각보다 많은 풀리퀘스트가 있었다고 합니다.
-      
-    </div>
-  </div>
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
   
-  <div>
-    <h2><a href="/post/lkml_news_v4.14/">LKML News after v4.14</a></h2>
-    <div class="article-style">
-      
-      Linux 4.14 htpps://lkml.kernel.org/r/CA+55aFwqXh4rgJJ3T98k8wa-JYF7t8mWuwUjdxkbZyOyDEcGzQ@mail.gmail.com
-드디어 v4.14 의 릴리즈입니다. 이번 버전은 또하나의 LTS 커널이 될 예정이군요.
-동시에, v4.15 를 위한 머지 윈도우가 열렸습니다. 이번 머지 윈도우는 thanks giving 이랑 겹치게 되었는데, 이때문에 머지 윈도우를 연장할지 아니면 아예 1주일 줄일지 토발즈는 고민중인 것 같네요.
-[RFC PATCH v11 for 4.15 01/24] Restartable sequences system call https://lkml.kernel.org/r/20171114200414.2188-2-mathieu.desnoyers@efficios.com
-몇년전부터 올라오고 있으나 아직 머지되지 못한, restartable sequence 패치의 최신 버전이 또 올라왔습니다. 유저스페이스의 크리티컬 섹션을 커널에게 제어할 수 있도록 도와주는 기능입니다.
-      
-    </div>
-  </div>
+
   
-  <div>
-    <h2><a href="/post/lkml_news_v4.14-rc8/">LKML News after v4.14-rc8</a></h2>
-    <div class="article-style">
-      
-      Linux 4.14-rc8 https://lwn.net/Articles/738207/
-v4.14 를 향한 (아마도) 마지막 rc 버전의 릴리즈입니다.
-정말로 별다른 일 없었다면 그냥 이번에 v4.14 릴리즈를 할 계획이었지만 그정도는 아니었다고 하는군요. 어쨌든 rc8 덕분에 v4.15 merge window 는 thanksgiving week 를 포함하게 되었는데 토발즈는 이때 가족과 휴가를 갈 계획이라 랩톱 가지고 휴가다니는 동안에도 머지를 잘 할 수 있길 바라지만 문제가 생기면 merge window 를 연장할 수도 있겠다고 하네요. 일단 어떻게 될지 두고보자는군요.
-이번 릴리즈에 포함된 변경은 대부분 드라이버 쪽 변경이고, SPDK 관련 소스코드에 라이센스 추가 등을 한 사소하지만 커다란 양의 변경이 있습니다.
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/categories/projects/">projects</a></span>
+  
+
+</div>
+
       
     </div>
+
+    
+
   </div>
+  <div class="ml-3">
+    
+    
+  </div>
+</div>
+
+    
   
 
   
 <nav>
   <ul class="pagination justify-content-center">
     
-    <li class="page-item"><a class="page-link" href="/tags/news/page/14/">&laquo;</a></li>
+    <li class="page-item"><a class="page-link" href="/post/page/23/">&laquo;</a></li>
     
-    
-    <li class="page-item"><a class="page-link" href="/tags/news/page/16/">&raquo;</a></li>
     
   </ul>
 </nav>
+
 
 
 </div>
@@ -678,14 +637,6 @@ v4.14 를 향한 (아마도) 마지막 rc 버전의 릴리즈입니다.
       
 
       
-        
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js" integrity="sha256-1zu+3BnLYV9LdiY85uXMzii3bdrkelyp37e0ZyTAQh0=" crossorigin="anonymous"></script>
-        
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/languages/c.min.js"></script>
-        
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/languages/bash.min.js"></script>
-        
-      
 
       
       
@@ -697,8 +648,6 @@ v4.14 를 향한 (아마도) 마지막 rc 버전의 릴리즈입니다.
     
 
     
-    
-    <script>const code_highlighting = true;</script>
     
 
     
