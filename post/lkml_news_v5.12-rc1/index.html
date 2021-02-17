@@ -31,7 +31,8 @@
   <meta name="description" content="[PATCH v11 00/14] prohibit pinning pages in ZONE_MOVABLE (Pavel Tatashin) https://lkml.kernel.org/r/20210215161349.246722-1-pasha.tatashin@soleen.com
 The 11th version of the patchset making ZONE_MOVABLE really movable. In this version, a build error on i386 is fixed.
 [RFC PATCH] mm, oom: introduce vm.sacrifice_hugepage_on_oom https://lkml.kernel.org/r/20210216030713.79101-1-eiichi.tsukata@nutanix.com
-This RFC patch introduces yet another sysctl knob called vm.sacrifice_hugepage_on_oom. When it is turned on, it tries to free available hugepages before waking oom-killer up.">
+This RFC patch introduces yet another sysctl knob called vm.sacrifice_hugepage_on_oom. When it is turned on, it tries to free available hugepages before waking oom-killer up.
+[RFC] Hugepage collapse in process context (David Rientjes) https://lkml.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/lkml_news_v5.12-rc1/">
@@ -156,7 +157,8 @@ This RFC patch introduces yet another sysctl knob called vm.sacrifice_hugepage_o
   <meta property="og:description" content="[PATCH v11 00/14] prohibit pinning pages in ZONE_MOVABLE (Pavel Tatashin) https://lkml.kernel.org/r/20210215161349.246722-1-pasha.tatashin@soleen.com
 The 11th version of the patchset making ZONE_MOVABLE really movable. In this version, a build error on i386 is fixed.
 [RFC PATCH] mm, oom: introduce vm.sacrifice_hugepage_on_oom https://lkml.kernel.org/r/20210216030713.79101-1-eiichi.tsukata@nutanix.com
-This RFC patch introduces yet another sysctl knob called vm.sacrifice_hugepage_on_oom. When it is turned on, it tries to free available hugepages before waking oom-killer up."><meta property="og:image" content="/img/tux.png">
+This RFC patch introduces yet another sysctl knob called vm.sacrifice_hugepage_on_oom. When it is turned on, it tries to free available hugepages before waking oom-killer up.
+[RFC] Hugepage collapse in process context (David Rientjes) https://lkml."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -208,7 +210,7 @@ This RFC patch introduces yet another sysctl knob called vm.sacrifice_hugepage_o
       "url": "/img/icon-512.png"
     }
   },
-  "description": "[PATCH v11 00/14] prohibit pinning pages in ZONE_MOVABLE (Pavel Tatashin) https://lkml.kernel.org/r/20210215161349.246722-1-pasha.tatashin@soleen.com\nThe 11th version of the patchset making ZONE_MOVABLE really movable. In this version, a build error on i386 is fixed.\n[RFC PATCH] mm, oom: introduce vm.sacrifice_hugepage_on_oom https://lkml.kernel.org/r/20210216030713.79101-1-eiichi.tsukata@nutanix.com\nThis RFC patch introduces yet another sysctl knob called vm.sacrifice_hugepage_on_oom. When it is turned on, it tries to free available hugepages before waking oom-killer up."
+  "description": "[PATCH v11 00/14] prohibit pinning pages in ZONE_MOVABLE (Pavel Tatashin) https://lkml.kernel.org/r/20210215161349.246722-1-pasha.tatashin@soleen.com\nThe 11th version of the patchset making ZONE_MOVABLE really movable. In this version, a build error on i386 is fixed.\n[RFC PATCH] mm, oom: introduce vm.sacrifice_hugepage_on_oom https://lkml.kernel.org/r/20210216030713.79101-1-eiichi.tsukata@nutanix.com\nThis RFC patch introduces yet another sysctl knob called vm.sacrifice_hugepage_on_oom. When it is turned on, it tries to free available hugepages before waking oom-killer up.\n[RFC] Hugepage collapse in process context (David Rientjes) https://lkml."
 }
 </script>
 
@@ -623,6 +625,18 @@ version, a build error on i386 is fixed.</p>
 <p>This RFC patch introduces yet another sysctl knob called
 <code>vm.sacrifice_hugepage_on_oom</code>.  When it is turned on, it tries to free
 available hugepages before waking oom-killer up.</p>
+<h2 id="rfc-hugepage-collapse-in-process-context-david-rientjes">[RFC] Hugepage collapse in process context (David Rientjes)</h2>
+<p><a href="https://lkml.kernel.org/r/d098c392-273a-36a4-1a29-59731cdf5d3d@google.com">https://lkml.kernel.org/r/d098c392-273a-36a4-1a29-59731cdf5d3d@google.com</a></p>
+<p>When a THP request via <code>madvise()</code> is made, the system call only mark the
+memory region as a candidate of the promotion but does not do the promotion
+synchronously.  The THP daemon, khugepaged, scans virtual address spaces and
+collapse regular pages of such regions to huge pages transparently.  However,
+because the scanning works very slowly (at most 4096 pages every 10 seconds) to
+not consume CPU resource too much, it doesn&rsquo;t show immediate effect to
+short-living workloads.  My DAMOS-based efficient THP implementation also
+showed this problem before.</p>
+<p>In this mail, David is proposing making a synchronous compaction can be
+requested from process context, via <code>madvise_process()</code> like system call.</p>
 
     </div>
 
