@@ -576,7 +576,7 @@ This RFC patch introduces yet another sysctl knob called vm.sacrifice_hugepage_o
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -637,6 +637,14 @@ short-living workloads.  My DAMOS-based efficient THP implementation also
 showed this problem before.</p>
 <p>In this mail, David is proposing making a synchronous compaction can be
 requested from process context, via <code>madvise_process()</code> like system call.</p>
+<h2 id="patch-rfc-mmmadvise-introduce-madv_populate-to-prefaultprealloc-memory-david-hildenbrand">[PATCH RFC] mm/madvise: introduce MADV_POPULATE to prefault/prealloc memory (David Hildenbrand)</h2>
+<p><a href="https://lkml.kernel.org/r/20210217154844.12392-1-david@redhat.com">https://lkml.kernel.org/r/20210217154844.12392-1-david@redhat.com</a></p>
+<p>Dynamic populactions and discards of memory is required in user space when it
+needs to do sparse memory mappings management.  Hypervisors are the good
+example.  Though the discardings are available using <code>MADV_DONTNEED</code> and
+<code>FALLOC_FL_PUNCH_HOLE</code>, there is no appropriate way to do the pre-population.
+<code>mmap()</code> with <code>MAP_POPULATE</code> might be used, but it is not applicable for the
+dynamic remappings.  This patch introduces <code>MADV_POPULATE</code> for the purpose.</p>
 
     </div>
 

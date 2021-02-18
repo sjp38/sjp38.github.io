@@ -38,6 +38,14 @@ short-living workloads.  My DAMOS-based efficient THP implementation also
 showed this problem before.&lt;/p&gt;
 &lt;p&gt;In this mail, David is proposing making a synchronous compaction can be
 requested from process context, via &lt;code&gt;madvise_process()&lt;/code&gt; like system call.&lt;/p&gt;
+&lt;h2 id=&#34;patch-rfc-mmmadvise-introduce-madv_populate-to-prefaultprealloc-memory-david-hildenbrand&#34;&gt;[PATCH RFC] mm/madvise: introduce MADV_POPULATE to prefault/prealloc memory (David Hildenbrand)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20210217154844.12392-1-david@redhat.com&#34;&gt;https://lkml.kernel.org/r/20210217154844.12392-1-david@redhat.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Dynamic populactions and discards of memory is required in user space when it
+needs to do sparse memory mappings management.  Hypervisors are the good
+example.  Though the discardings are available using &lt;code&gt;MADV_DONTNEED&lt;/code&gt; and
+&lt;code&gt;FALLOC_FL_PUNCH_HOLE&lt;/code&gt;, there is no appropriate way to do the pre-population.
+&lt;code&gt;mmap()&lt;/code&gt; with &lt;code&gt;MAP_POPULATE&lt;/code&gt; might be used, but it is not applicable for the
+dynamic remappings.  This patch introduces &lt;code&gt;MADV_POPULATE&lt;/code&gt; for the purpose.&lt;/p&gt;
 </description>
     </item>
     
