@@ -46,6 +46,10 @@ example.  Though the discardings are available using &lt;code&gt;MADV_DONTNEED&l
 &lt;code&gt;FALLOC_FL_PUNCH_HOLE&lt;/code&gt;, there is no appropriate way to do the pre-population.
 &lt;code&gt;mmap()&lt;/code&gt; with &lt;code&gt;MAP_POPULATE&lt;/code&gt; might be used, but it is not applicable for the
 dynamic remappings.  This patch introduces &lt;code&gt;MADV_POPULATE&lt;/code&gt; for the purpose.&lt;/p&gt;
+&lt;h2 id=&#34;patch-mm-vmstat-add-cma-statistics-minchan-kim&#34;&gt;[PATCH] mm: vmstat: add cma statistics (Minchan Kim)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20210217170025.512704-1-minchan@kernel.org&#34;&gt;https://lkml.kernel.org/r/20210217170025.512704-1-minchan@kernel.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This patch adds CMA statistics in vmstat, so people can more easily understand
+how aggressively CMA is used and how much allocations fail.&lt;/p&gt;
 </description>
     </item>
     

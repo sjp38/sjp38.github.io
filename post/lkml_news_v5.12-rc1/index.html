@@ -645,6 +645,10 @@ example.  Though the discardings are available using <code>MADV_DONTNEED</code> 
 <code>FALLOC_FL_PUNCH_HOLE</code>, there is no appropriate way to do the pre-population.
 <code>mmap()</code> with <code>MAP_POPULATE</code> might be used, but it is not applicable for the
 dynamic remappings.  This patch introduces <code>MADV_POPULATE</code> for the purpose.</p>
+<h2 id="patch-mm-vmstat-add-cma-statistics-minchan-kim">[PATCH] mm: vmstat: add cma statistics (Minchan Kim)</h2>
+<p><a href="https://lkml.kernel.org/r/20210217170025.512704-1-minchan@kernel.org">https://lkml.kernel.org/r/20210217170025.512704-1-minchan@kernel.org</a></p>
+<p>This patch adds CMA statistics in vmstat, so people can more easily understand
+how aggressively CMA is used and how much allocations fail.</p>
 
     </div>
 
