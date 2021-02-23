@@ -576,7 +576,7 @@ This RFC patch introduces yet another sysctl knob called vm.sacrifice_hugepage_o
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    2 min read
+    3 min read
   </span>
   
 
@@ -657,6 +657,14 @@ Hanjun Guo from Huawei came up and told Huawei will support it by using the
 kernel in their product, run tests continuously, and provide backporting of
 upstream fixes.  Greg welcomes the reaction.  So v5.10.y might be officially
 supported 6 years soon.</p>
+<h2 id="patch-v6-11-mmpage_allocc-refactor-initialization-of-struct-page-for-holes-in-memory-layout-mike-rapoport">[PATCH v6 1/1] mm/page_alloc.c: refactor initialization of struct page for holes in memory layout (Mike Rapoport)</h2>
+<p>In case of real memory bank is not a multiple of <code>SECTION_SIZE</code> or the
+architecture does not register memory holes reserved by the firmware as
+<code>memblock.memory</code>, there could be <code>struct page</code>s that are not backed by real
+physical memory.</p>
+<p>Those had proper links to proper zone and node before, but after commit
+73a6e474cb37, it doesn&rsquo;t.  This patch makes those to have proper links to zone
+and node again.</p>
 
     </div>
 

@@ -58,6 +58,14 @@ Hanjun Guo from Huawei came up and told Huawei will support it by using the
 kernel in their product, run tests continuously, and provide backporting of
 upstream fixes.  Greg welcomes the reaction.  So v5.10.y might be officially
 supported 6 years soon.&lt;/p&gt;
+&lt;h2 id=&#34;patch-v6-11-mmpage_allocc-refactor-initialization-of-struct-page-for-holes-in-memory-layout-mike-rapoport&#34;&gt;[PATCH v6 1/1] mm/page_alloc.c: refactor initialization of struct page for holes in memory layout (Mike Rapoport)&lt;/h2&gt;
+&lt;p&gt;In case of real memory bank is not a multiple of &lt;code&gt;SECTION_SIZE&lt;/code&gt; or the
+architecture does not register memory holes reserved by the firmware as
+&lt;code&gt;memblock.memory&lt;/code&gt;, there could be &lt;code&gt;struct page&lt;/code&gt;s that are not backed by real
+physical memory.&lt;/p&gt;
+&lt;p&gt;Those had proper links to proper zone and node before, but after commit
+73a6e474cb37, it doesn&amp;rsquo;t.  This patch makes those to have proper links to zone
+and node again.&lt;/p&gt;
 </description>
     </item>
     
