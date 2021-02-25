@@ -29,8 +29,10 @@
     
   
   <meta name="description" content="I realized I didn&rsquo;t introduce a good, intuitive example use case of DAMON[0] for profiling so far, though DAMON is not for only profiling. One straightforward and realistic usage of DAMON as a profiling tool would be recording the monitoring results with callstack and visualize those by timeline together.
-For example, below shows that visualization for a realistic workload, namely &lsquo;fft&rsquo; in SPLASH-2X benchmark suite. From that, you can know there are three memory access bursting phases in the workload and &lsquo;FFT1DOnce.">
+For example, below shows that visualization for a realistic workload, namely &lsquo;fft&rsquo; in SPLASH-2X benchmark suite. From that, you can know there are three memory access bursting phases in the workload and FFT1DOnce.">
 
+  
+  <link rel="alternate" hreflang="ko" href="/ko/post/damon_profile_callstack_example/">
   
   <link rel="alternate" hreflang="en-us" href="/post/damon_profile_callstack_example/">
 
@@ -152,7 +154,7 @@ For example, below shows that visualization for a realistic workload, namely &ls
   <meta property="og:url" content="/post/damon_profile_callstack_example/">
   <meta property="og:title" content="An example of DAMON usage for profiling | hacklog">
   <meta property="og:description" content="I realized I didn&rsquo;t introduce a good, intuitive example use case of DAMON[0] for profiling so far, though DAMON is not for only profiling. One straightforward and realistic usage of DAMON as a profiling tool would be recording the monitoring results with callstack and visualize those by timeline together.
-For example, below shows that visualization for a realistic workload, namely &lsquo;fft&rsquo; in SPLASH-2X benchmark suite. From that, you can know there are three memory access bursting phases in the workload and &lsquo;FFT1DOnce."><meta property="og:image" content="/img/tux.png">
+For example, below shows that visualization for a realistic workload, namely &lsquo;fft&rsquo; in SPLASH-2X benchmark suite. From that, you can know there are three memory access bursting phases in the workload and FFT1DOnce."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -204,7 +206,7 @@ For example, below shows that visualization for a realistic workload, namely &ls
       "url": "/img/icon-512.png"
     }
   },
-  "description": "I realized I didn\u0026rsquo;t introduce a good, intuitive example use case of DAMON[0] for profiling so far, though DAMON is not for only profiling. One straightforward and realistic usage of DAMON as a profiling tool would be recording the monitoring results with callstack and visualize those by timeline together.\nFor example, below shows that visualization for a realistic workload, namely \u0026lsquo;fft\u0026rsquo; in SPLASH-2X benchmark suite. From that, you can know there are three memory access bursting phases in the workload and \u0026lsquo;FFT1DOnce."
+  "description": "I realized I didn\u0026rsquo;t introduce a good, intuitive example use case of DAMON[0] for profiling so far, though DAMON is not for only profiling. One straightforward and realistic usage of DAMON as a profiling tool would be recording the monitoring results with callstack and visualize those by timeline together.\nFor example, below shows that visualization for a realistic workload, namely \u0026lsquo;fft\u0026rsquo; in SPLASH-2X benchmark suite. From that, you can know there are three memory access bursting phases in the workload and FFT1DOnce."
 }
 </script>
 
@@ -514,6 +516,22 @@ For example, below shows that visualization for a realistic workload, namely &ls
       
 
       
+      <li class="nav-item dropdown i18n-dropdown">
+        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true">
+          <i class="fas fa-globe mr-1" aria-hidden="true"></i><span class="d-none d-lg-inline">English</span>
+        </a>
+        <div class="dropdown-menu">
+          <div class="dropdown-item i18n-active font-weight-bold">
+            <span>English</span>
+          </div>
+          
+          <a class="dropdown-item" href="/ko/post/damon_profile_callstack_example/">
+            <span>한국어</span>
+          </a>
+          
+        </div>
+      </li>
+      
 
     </ul>
 
@@ -617,10 +635,10 @@ recording the monitoring results with callstack and visualize those by timeline
 together.</p>
 <p>For example, below shows that visualization for a realistic workload, namely
 &lsquo;fft&rsquo; in SPLASH-2X benchmark suite.  From that, you can know there are three
-memory access bursting phases in the workload and &lsquo;FFT1DOnce.cons::prop.2()&rsquo;
-looks responsible for the first and second hot phase, while &lsquo;Transpose()&rsquo; is
+memory access bursting phases in the workload and <code>FFT1DOnce.cons::prop.2()</code>
+looks responsible for the first and second hot phase, while <code>Transpose()</code> is
 responsible for the last one.  Now the programmer can take a deep look in the
-functions and optimize the code (e.g., adding madvise() or mlock() calls).</p>
+functions and optimize the code (e.g., adding <code>madvise()</code> or <code>mlock()</code> calls).</p>
 <p><img src="/img/damon_callstack.png" alt="dasmon_callstack_visualization"></p>
 <p>We used the approach for &lsquo;mlock()'-based optimization of a range of other
 realistic benchmark workloads.  The optimized versions achieved up to about

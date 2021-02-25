@@ -24,10 +24,10 @@ recording the monitoring results with callstack and visualize those by timeline
 together.&lt;/p&gt;
 &lt;p&gt;For example, below shows that visualization for a realistic workload, namely
 &amp;lsquo;fft&amp;rsquo; in SPLASH-2X benchmark suite.  From that, you can know there are three
-memory access bursting phases in the workload and &amp;lsquo;FFT1DOnce.cons::prop.2()&amp;rsquo;
-looks responsible for the first and second hot phase, while &amp;lsquo;Transpose()&amp;rsquo; is
+memory access bursting phases in the workload and &lt;code&gt;FFT1DOnce.cons::prop.2()&lt;/code&gt;
+looks responsible for the first and second hot phase, while &lt;code&gt;Transpose()&lt;/code&gt; is
 responsible for the last one.  Now the programmer can take a deep look in the
-functions and optimize the code (e.g., adding madvise() or mlock() calls).&lt;/p&gt;
+functions and optimize the code (e.g., adding &lt;code&gt;madvise()&lt;/code&gt; or &lt;code&gt;mlock()&lt;/code&gt; calls).&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;/img/damon_callstack.png&#34; alt=&#34;dasmon_callstack_visualization&#34;&gt;&lt;/p&gt;
 &lt;p&gt;We used the approach for &amp;lsquo;mlock()&#39;-based optimization of a range of other
 realistic benchmark workloads.  The optimized versions achieved up to about
