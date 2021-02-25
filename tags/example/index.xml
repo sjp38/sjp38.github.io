@@ -39,8 +39,8 @@ and speedscope[3].  We have no descent and totally automated tool for that yet
 (will be implemented soon, maybe under perf as a perf-script[4]), but you could
 reproduce that with below commands.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ # run the workload
-$ sudo damo record $(pidof ) &amp;amp;
-$ sudo perf record -g $(pidof )
+$ sudo damo record $(pidof &amp;lt;the workload&amp;gt;) &amp;amp;
+$ sudo perf record -g --pid $(pidof &amp;lt;the workload&amp;gt;)
 $ # after your workload finished (you should also finish perf on your own)
 $ damo report wss --sortby time --plot wss.pdf
 $ damo report heats --heatmap freq.pdf

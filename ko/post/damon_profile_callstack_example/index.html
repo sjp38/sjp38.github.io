@@ -649,8 +649,8 @@
 perf 아래에 perf-script[4] 의 형태로요), 여러분도 아래의 커맨드를 이용해 직접
 만들어 보실 수 있습니다.</p>
 <pre><code>$ # run the workload
-$ sudo damo record $(pidof ) &amp;
-$ sudo perf record -g $(pidof )
+$ sudo damo record $(pidof &lt;the workload&gt;) &amp;
+$ sudo perf record -g --pid $(pidof &lt;the workload&gt;)
 $ # after your workload finished (you should also finish perf on your own)
 $ damo report wss --sortby time --plot wss.pdf
 $ damo report heats --heatmap freq.pdf
