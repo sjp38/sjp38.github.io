@@ -5,12 +5,55 @@
     <link>/tags/kernel/</link>
       <atom:link href="/tags/kernel/index.xml" rel="self" type="application/rss+xml" />
     <description>kernel</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 16 Feb 2021 07:17:38 +0100</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 25 Feb 2021 07:20:30 +0100</lastBuildDate>
     <image>
       <url>/img/tux.png</url>
       <title>kernel</title>
       <link>/tags/kernel/</link>
     </image>
+    
+    <item>
+      <title>An example of DAMON usage for profiling</title>
+      <link>/post/damon_profile_callstack_example/</link>
+      <pubDate>Thu, 25 Feb 2021 07:20:30 +0100</pubDate>
+      <guid>/post/damon_profile_callstack_example/</guid>
+      <description>&lt;p&gt;I realized I didn&amp;rsquo;t introduce a good, intuitive example use case of DAMON[0]
+for profiling so far, though DAMON is not for only profiling.  One
+straightforward and realistic usage of DAMON as a profiling tool would be
+recording the monitoring results with callstack and visualize those by timeline
+together.&lt;/p&gt;
+&lt;p&gt;For example, below shows that visualization for a realistic workload, namely
+&amp;lsquo;fft&amp;rsquo; in SPLASH-2X benchmark suite.  From that, you can know there are three
+memory access bursting phases in the workload and &amp;lsquo;FFT1DOnce.cons::prop.2()&amp;rsquo;
+looks responsible for the first and second hot phase, while &amp;lsquo;Transpose()&amp;rsquo; is
+responsible for the last one.  Now the programmer can take a deep look in the
+functions and optimize the code (e.g., adding madvise() or mlock() calls).&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/damon_callstack.png&#34; alt=&#34;dasmon_callstack_visualization&#34;&gt;&lt;/p&gt;
+&lt;p&gt;We used the approach for &amp;lsquo;mlock()&#39;-based optimization of a range of other
+realistic benchmark workloads.  The optimized versions achieved up to about
+2.5x performance improvement under memory pressure[1].&lt;/p&gt;
+&lt;p&gt;Note: I made the uppermost two figures in above &amp;lsquo;fft&amp;rsquo; visualization (working
+set size and access frequency of each memory region by time) via the DAMON user
+space tool[2], while the lowermost one (callstack by time) is made using perf
+and speedscope[3].  We have no descent and totally automated tool for that yet
+(will be implemented soon, maybe under perf as a perf-script[4]), but you could
+reproduce that with below commands.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ # run the workload
+$ sudo damo record $(pidof ) &amp;amp;
+$ sudo perf record -g $(pidof )
+$ # after your workload finished (you should also finish perf on your own)
+$ damo report wss --sortby time --plot wss.pdf
+$ damo report heats --heatmap freq.pdf
+$ sudo perf script | speedscope -
+$ # open wss.pdf and freq.pdf with our favorite pdf viewer
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;[0] &lt;a href=&#34;https://damonitor.github.io&#34;&gt;https://damonitor.github.io&lt;/a&gt;&lt;br&gt;
+[1] &lt;a href=&#34;https://linuxplumbersconf.org/event/4/contributions/548/attachments/311/590/damon_ksummit19.pdf&#34;&gt;https://linuxplumbersconf.org/event/4/contributions/548/attachments/311/590/damon_ksummit19.pdf&lt;/a&gt;&lt;br&gt;
+[2] &lt;a href=&#34;https://lore.kernel.org/linux-mm/20201215115448.25633-8-sjpark@amazon.com/&#34;&gt;https://lore.kernel.org/linux-mm/20201215115448.25633-8-sjpark@amazon.com/&lt;/a&gt;&lt;br&gt;
+[3] &lt;a href=&#34;https://www.speedscope.app/&#34;&gt;https://www.speedscope.app/&lt;/a&gt;&lt;br&gt;
+[4] &lt;a href=&#34;https://lore.kernel.org/linux-mm/20210107120729.22328-1-sjpark@amazon.com/&#34;&gt;https://lore.kernel.org/linux-mm/20210107120729.22328-1-sjpark@amazon.com/&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>LKML News v5.12-rc1</title>
