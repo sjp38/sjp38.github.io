@@ -113,6 +113,15 @@ and node again.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20210222135137.25717-1-osalvador@suse.de&#34;&gt;https://lkml.kernel.org/r/20210222135137.25717-1-osalvador@suse.de&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;This is third version of the patchset making CMA to be usable for HugeTLB.
 Non-minor changes are mande from v2.&lt;/p&gt;
+&lt;h2 id=&#34;rfc-patch-v3-0049-1gb-pud-thp-support-on-x86_64-zi-yan&#34;&gt;[RFC PATCH v3 00/49] 1GB PUD THP support on x86_64 (Zi Yan)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20210224223536.803765-1-zi.yan@sent.com&#34;&gt;https://lkml.kernel.org/r/20210224223536.803765-1-zi.yan@sent.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This RFC is for 1GB THP support on &lt;code&gt;x86_64&lt;/code&gt;.  Nevertheless, Zi Yan posted only
+the cover letter to discuss about his two concerns first.  The first concern is
+how to allocate the 1GB memory.  Current implementation uses CMA.  This means
+someone could wrongly tune the kernel so that too large or too small CMA area
+could be configured.  Second concern is the large amount of code.  He tried to
+make the code as small as possible for convenient review, but failed and
+looking for a better way.&lt;/p&gt;
 </description>
     </item>
     
