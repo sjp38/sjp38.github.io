@@ -22,6 +22,12 @@
 &lt;p&gt;Because the vmstat data is only cumulated, users should calculate the diff
 manually or just reboot.  This commit adds a procfs file that can be used to
 clear all vmstat counters.&lt;/p&gt;
+&lt;h2 id=&#34;patch-05-introduce-a-bulk-order-0-page-allocator-with-two-in-tree-users-mel-gorman&#34;&gt;[PATCH 0/5] Introduce a bulk order-0 page allocator with two in-tree users (Mel Gorman)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20210301161200.18852-1-mgorman@techsingularity.net&#34;&gt;https://lkml.kernel.org/r/20210301161200.18852-1-mgorman@techsingularity.net&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This patchset introduces a bulk order-0 page allocator.  It also makes the
+sunrpc and the network page pool to use that.  Mel says current implementation
+would not particularly efficient, but the performance report shows
+improvements.&lt;/p&gt;
 </description>
     </item>
     

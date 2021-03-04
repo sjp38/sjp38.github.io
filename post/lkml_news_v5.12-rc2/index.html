@@ -29,7 +29,9 @@
     
   
   <meta name="description" content="[PATCH] mm: introduce clear all vm events counters (Pintu Kumar) https://lkml.kernel.org/r/1614595766-7640-1-git-send-email-pintu@codeaurora.org
-Because the vmstat data is only cumulated, users should calculate the diff manually or just reboot. This commit adds a procfs file that can be used to clear all vmstat counters.">
+Because the vmstat data is only cumulated, users should calculate the diff manually or just reboot. This commit adds a procfs file that can be used to clear all vmstat counters.
+[PATCH 0/5] Introduce a bulk order-0 page allocator with two in-tree users (Mel Gorman) https://lkml.kernel.org/r/20210301161200.18852-1-mgorman@techsingularity.net
+This patchset introduces a bulk order-0 page allocator. It also makes the sunrpc and the network page pool to use that.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/lkml_news_v5.12-rc2/">
@@ -152,7 +154,9 @@ Because the vmstat data is only cumulated, users should calculate the diff manua
   <meta property="og:url" content="/post/lkml_news_v5.12-rc2/">
   <meta property="og:title" content="LKML News v5.12-rc2 | hacklog">
   <meta property="og:description" content="[PATCH] mm: introduce clear all vm events counters (Pintu Kumar) https://lkml.kernel.org/r/1614595766-7640-1-git-send-email-pintu@codeaurora.org
-Because the vmstat data is only cumulated, users should calculate the diff manually or just reboot. This commit adds a procfs file that can be used to clear all vmstat counters."><meta property="og:image" content="/img/tux.png">
+Because the vmstat data is only cumulated, users should calculate the diff manually or just reboot. This commit adds a procfs file that can be used to clear all vmstat counters.
+[PATCH 0/5] Introduce a bulk order-0 page allocator with two in-tree users (Mel Gorman) https://lkml.kernel.org/r/20210301161200.18852-1-mgorman@techsingularity.net
+This patchset introduces a bulk order-0 page allocator. It also makes the sunrpc and the network page pool to use that."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -204,7 +208,7 @@ Because the vmstat data is only cumulated, users should calculate the diff manua
       "url": "/img/icon-512.png"
     }
   },
-  "description": "[PATCH] mm: introduce clear all vm events counters (Pintu Kumar) https://lkml.kernel.org/r/1614595766-7640-1-git-send-email-pintu@codeaurora.org\nBecause the vmstat data is only cumulated, users should calculate the diff manually or just reboot. This commit adds a procfs file that can be used to clear all vmstat counters."
+  "description": "[PATCH] mm: introduce clear all vm events counters (Pintu Kumar) https://lkml.kernel.org/r/1614595766-7640-1-git-send-email-pintu@codeaurora.org\nBecause the vmstat data is only cumulated, users should calculate the diff manually or just reboot. This commit adds a procfs file that can be used to clear all vmstat counters.\n[PATCH 0/5] Introduce a bulk order-0 page allocator with two in-tree users (Mel Gorman) https://lkml.kernel.org/r/20210301161200.18852-1-mgorman@techsingularity.net\nThis patchset introduces a bulk order-0 page allocator. It also makes the sunrpc and the network page pool to use that."
 }
 </script>
 
@@ -615,6 +619,12 @@ Because the vmstat data is only cumulated, users should calculate the diff manua
 <p>Because the vmstat data is only cumulated, users should calculate the diff
 manually or just reboot.  This commit adds a procfs file that can be used to
 clear all vmstat counters.</p>
+<h2 id="patch-05-introduce-a-bulk-order-0-page-allocator-with-two-in-tree-users-mel-gorman">[PATCH 0/5] Introduce a bulk order-0 page allocator with two in-tree users (Mel Gorman)</h2>
+<p><a href="https://lkml.kernel.org/r/20210301161200.18852-1-mgorman@techsingularity.net">https://lkml.kernel.org/r/20210301161200.18852-1-mgorman@techsingularity.net</a></p>
+<p>This patchset introduces a bulk order-0 page allocator.  It also makes the
+sunrpc and the network page pool to use that.  Mel says current implementation
+would not particularly efficient, but the performance report shows
+improvements.</p>
 
     </div>
 
