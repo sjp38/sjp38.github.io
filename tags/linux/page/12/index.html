@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2021-03-02T07:07:51&#43;01:00">
+    <meta property="og:updated_time" content="2021-03-07T11:19:27&#43;01:00">
   
 
   
@@ -525,6 +525,16 @@
   
   
   <div>
+    <h2><a href="/post/perf_symbol_problem_4.19/">Perf symbol problem on Linux 4.19</a></h2>
+    <div class="article-style">
+      
+      4.19 커널에서 오랫만에 perf 를 다시 빌드하고 써보려고 하니, perf report 가 아래와 같이 제대로 된 symbol name 을 찾질 못합니다.
+$ sudo perf record -g ls arch builtin-ftrace.c builtin-report.c Documentation perf.data.old bench builtin.h builtin-sched.c examples perf.h Build builtin-help.c builtin-script.c include perf-read-vdso.c builtin-annotate.c builtin-inject.c builtin-stat.c jvmti perf-sys.h builtin-bench.c builtin-kallsyms.c builtin-timechart.c Makefile perf-with-kcore.sh builtin-buildid-cache.c builtin-kmem.c builtin-top.c Makefile.config pmu-events builtin-buildid-list.c builtin-kvm.c builtin-trace.c Makefile.perf python builtin-c2c.c builtin-list.c builtin-version.c MANIFEST scripts builtin-config.c builtin-lock.c check-headers.sh perf-archive.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v4.20/">LKML News for v4.20</a></h2>
     <div class="article-style">
       
@@ -626,17 +636,6 @@ Transparent Huge Page 를 쪼개지 않고 swap out / swap in 함으로써 스�
       
       리눅스 커널은 Formalised and executable memory consistent model 을 제공합니다. 줄여서 linux kernel memory model (LKMM) 이라고 하죠. 이 글은 4.19 버전을 기준으로 LKMM 을 실제로 수행해 보기 위한 환경 셋업 과정과 간단한 실행 방법을 정리해 봅니다. 글 작성을 위한 테스트는 Ubuntu 16.04 서버가 설치된 가상머신에서 진행되었습니다.
 herd7 install LKMM 은 버전 7.49 의 &ldquo;herd7&rdquo; 과 &ldquo;klitmus7&rdquo; 을 필요로 합니다. 하지만 herd7 은 또 Ocaml 을 위한 패키지 매니저인 OPAM 을 설치할 것을 필요로 하죠.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.20-rc1/">LKML News by v4.20-rc1</a></h2>
-    <div class="article-style">
-      
-      리눅스 4.19 버전 릴리즈 후부터 4.20-rc1 버전의 릴리즈까지 LKML 에 오간 메일 중 흥미로운 메일들을 소개합니다.
-[RFC PATCH v4 00/13] ktask: multithread CPU-intensive kernel work https://lkml.kernel.org/r/20181105165558.11698-1-daniel.m.jordan@oracle.com
-CPU intensive 한 커널의 일을 여러 work queue 를 이용해 병렬화 시키기 위한 새로운 프레임웍, ktask 구현 및 적용 패치입니다. 이 프레임웍을 이용해 병렬화 시킬 일은 여러가지가 있을텐데, 이 패치는 ktask 프레임웍의 구현과 함께 VFIO 페이지 pinning, 부팅 시점에서의 struct page 초기화, gigantic page 의 초기화, 그리고 HugeTLB 페이지의 할당에 ktask 를 적용하고 있습니다.
       
     </div>
   </div>

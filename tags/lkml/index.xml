@@ -5,12 +5,29 @@
     <link>/tags/lkml/</link>
       <atom:link href="/tags/lkml/index.xml" rel="self" type="application/rss+xml" />
     <description>lkml</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 02 Mar 2021 07:07:51 +0100</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sun, 07 Mar 2021 11:19:27 +0100</lastBuildDate>
     <image>
       <url>/img/tux.png</url>
       <title>lkml</title>
       <link>/tags/lkml/</link>
     </image>
+    
+    <item>
+      <title>LKML News v5.12-rc3</title>
+      <link>/post/lkml_news_v5.12-rc3/</link>
+      <pubDate>Sun, 07 Mar 2021 11:19:27 +0100</pubDate>
+      <guid>/post/lkml_news_v5.12-rc3/</guid>
+      <description>&lt;h2 id=&#34;patch-0010-v6-migrate-pages-in-lieu-of-discard-dave-hansen&#34;&gt;[PATCH 00/10] [v6] Migrate Pages in lieu of discard (Dave Hansen)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20210304235949.7922C1C3@viggo.jf.intel.com&#34;&gt;https://lkml.kernel.org/r/20210304235949.7922C1C3@viggo.jf.intel.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;When the system configured with both DRAM and persistent memory, current kernel
+starts reclamation when DRAM fulls even though there are some space in
+persistent memory.  And from some point, all page allocation is done on the
+persistent memory only, even though DRAM has some free slots now.&lt;/p&gt;
+&lt;p&gt;This patchset mitigates the problem by migrating pages that about to be
+reclaimed to persistent memory.  The migration destination could be any slow
+tier memory.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>LKML News v5.12-rc2</title>
