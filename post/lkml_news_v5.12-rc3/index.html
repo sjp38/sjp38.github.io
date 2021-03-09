@@ -621,6 +621,12 @@ persistent memory only, even though DRAM has some free slots now.</p>
 <p>This patchset mitigates the problem by migrating pages that about to be
 reclaimed to persistent memory.  The migration destination could be any slow
 tier memory.</p>
+<h2 id="patch-rfcv2-mmmadvise-introduce-madv_populate_readwrite-to-prefaultprealloc-memory-david-hildenbrand">[PATCH RFCv2] mm/madvise: introduce <code>MADV_POPULATE_(READ|WRITE)</code> to prefault/prealloc memory (David Hildenbrand)</h2>
+<p><a href="https://lkml.kernel.org/r/20210308164520.18323-1-david@redhat.com">https://lkml.kernel.org/r/20210308164520.18323-1-david@redhat.com</a></p>
+<p>For user space sparse memory mappings management (e.g., hypervisors for memory
+ballooning or similar techniques or memory allocators), dynamic population and
+discard of such a sparse memory region is beneficial.  This commit implements
+two new <code>madvise()</code> hints for the purpose.</p>
 
     </div>
 
