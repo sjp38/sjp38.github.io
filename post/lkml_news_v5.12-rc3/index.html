@@ -627,6 +627,14 @@ tier memory.</p>
 ballooning or similar techniques or memory allocators), dynamic population and
 discard of such a sparse memory region is beneficial.  This commit implements
 two new <code>madvise()</code> hints for the purpose.</p>
+<h2 id="patch-v4-05-allocate-memmap-from-hotadded-memory-per-device-oscar-salvador">[PATCH v4 0/5] Allocate memmap from hotadded memory (per device) (Oscar Salvador)</h2>
+<p><a href="https://lkml.kernel.org/r/20210309175546.5877-1-osalvador@suse.de">https://lkml.kernel.org/r/20210309175546.5877-1-osalvador@suse.de</a></p>
+<p>This patchset reduces memory overhead due to hot-added memory, for
+<code>SPARSEMEM_VMEMMAP</code> memory model.  The main three problems are, we are
+consuming additional memory even before hot-added memory is onlined, <code>memmap</code>
+could located on a different numa node, and <code>memmap</code> could populated with base
+pages only if the memory is fragmented.  This patchset mitigates the problems
+by allocating the <code>memmap</code> from the hot-added memory itself.</p>
 
     </div>
 
