@@ -40,6 +40,14 @@ consuming additional memory even before hot-added memory is onlined, &lt;code&gt
 could located on a different numa node, and &lt;code&gt;memmap&lt;/code&gt; could populated with base
 pages only if the memory is fragmented.  This patchset mitigates the problems
 by allocating the &lt;code&gt;memmap&lt;/code&gt; from the hot-added memory itself.&lt;/p&gt;
+&lt;h2 id=&#34;patch-05-introduce-a-bulk-order-0-page-allocator-with-two-in-tree-users-mel-gorman&#34;&gt;[PATCH 0/5] Introduce a bulk order-0 page allocator with two in-tree users (Mel Gorman)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20210310104618.22750-1-mgorman@techsingularity.net&#34;&gt;https://lkml.kernel.org/r/20210310104618.22750-1-mgorman@techsingularity.net&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This patchset introduces a bulk order-0 page allocator and make sunrpc and
+network pagepool to be the users of it.&lt;/p&gt;
+&lt;h2 id=&#34;patch-v4-04-make-alloc_contig_range-handle-hugetlb-pages-oscar-salvador&#34;&gt;[PATCH v4 0/4] Make alloc_contig_range handle Hugetlb pages (Oscar Salvador)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20210310150853.13541-1-osalvador@suse.de&#34;&gt;https://lkml.kernel.org/r/20210310150853.13541-1-osalvador@suse.de&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This commit let &lt;code&gt;alloc_contig_range()&lt;/code&gt; which allocates physically contiguous
+memory, to handle HugeTLB pages for better flexibility.&lt;/p&gt;
 </description>
     </item>
     
