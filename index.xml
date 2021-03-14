@@ -53,6 +53,15 @@ memory, to handle HugeTLB pages for better flexibility.&lt;/p&gt;
 &lt;p&gt;This is a followup of not-yet-merged patchset, &amp;lsquo;Migrate Pages in lieu of
 discard&amp;rsquo;.  These are part of the pmem-based numa balancing. That is, placing
 hot pages in DRAM and cold pages in pmem node.&lt;/p&gt;
+&lt;h2 id=&#34;patch-v1-0014-multigenerational-lru-yu-zhao&#34;&gt;[PATCH v1 00/14] Multigenerational LRU (Yu Zhao)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20210313075747.3781593-1-yuzhao@google.com&#34;&gt;https://lkml.kernel.org/r/20210313075747.3781593-1-yuzhao@google.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This patchset makes the page reclamation logic to make finer-grained eviction
+target decision, by maintaining multiple LRU lists based on their age.  The
+aging is done by finding newly referenced pages via page table scanning.  After
+that, when eviction is needed, it selects the eviction target pages from the
+oldest lru list.&lt;/p&gt;
+&lt;p&gt;They used this approach on Chrome OS and achieved 96% fewer low-memory tab
+discards and 59% fewer OOM kills.&lt;/p&gt;
 </description>
     </item>
     
