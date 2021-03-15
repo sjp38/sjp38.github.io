@@ -572,7 +572,7 @@ This patchset mitigates the problem by migrating pages that about to be reclaime
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    2 min read
+    3 min read
   </span>
   
 
@@ -657,6 +657,23 @@ that, when eviction is needed, it selects the eviction target pages from the
 oldest lru list.</p>
 <p>They used this approach on Chrome OS and achieved 96% fewer low-memory tab
 discards and 59% fewer OOM kills.</p>
+<h2 id="linux-512-rc3-linus-torvalds">Linux 5.12-rc3 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wgAr4Z2deEQs+5L6bJb68FouwBZUSURh+m-47TBnEsGZg@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wgAr4Z2deEQs+5L6bJb68FouwBZUSURh+m-47TBnEsGZg@mail.gmail.com</a></p>
+<p>This round of the release is pretty big compared to other rc3, but it&rsquo;s due to
+early release of rc2.  There are also many rebased commits that made due to the
+swap file bug in rc1, which marked as recent unnecessarily.  Excluding such
+things, this release is actually smaller than usual, Torvalds says.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.1-rc2..v5.12-rc3.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2019-03-15 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc3 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.12-rc3-only.png" alt="rc2 release stat"></p>
 
     </div>
 
