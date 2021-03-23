@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2021-03-17T07:11:15&#43;01:00">
+    <meta property="og:updated_time" content="2021-03-23T07:11:57&#43;01:00">
   
 
   
@@ -525,6 +525,16 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.12-rc5/">LKML News v5.12-rc5</a></h2>
+    <div class="article-style">
+      
+      [PATCH 0/3 v5] Introduce a bulk order-0 page allocator (Mel Gorman) https://lkml.kernel.org/r/20210322091845.16437-1-mgorman@techsingularity.net
+Fifth version of the order-0 pages bulk allocator. In this version, the API users are dropped from the patchset, because the callers are not confirmed if they prefer an array or list interface.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.12-rc4/">LKML News v5.12-rc4</a></h2>
     <div class="article-style">
       
@@ -635,20 +645,6 @@ Because partially unmapped THP is not split, the memory stat becomes confusing. 
 [PATCH v2 00/70] RFC mm: Introducing the Maple Tree (Liam R. Howlett) https://lkml.kernel.org/r/20210112161240.2024684-1-Liam.Howlett@Oracle.com
 Second RFC of the Maple tree. It is an RCU-safe B-tree that aims to be used as the vma tree with better scalability.
 [PATCH] mm/debug: Improve memcg debugging (Matthew Wilcox) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.11-rc3/">LKML News v5.11-rc3</a></h2>
-    <div class="article-style">
-      
-      [PATCH] mm: vmscan: support complete shrinker reclaim (Sudarshan Rajagopalan) https://lkml.kernel.org/r/2d1f1dbb7e018ad02a9e7af36a8c86397a1598a7.1609892546.git.sudaraja@codeaurora.org
-This patch makes caches can dropped even when those are smaller than the batch size.
-[PATCH 0/6] hugetlbfs: support free page reporting (Liang Li) https://lkml.kernel.org/r/20210106034623.GA1128@open-light-1.localdomain
-Because hugetlbfs is using reserved memory, it&rsquo;s not reported by the free page reporting feature. This patch makes it able to be reported.
-Linux 5.11-rc3 (Linus Torvalds) https://lkml.kernel.org/r/CAHk-=wizR7--Ub-rasYx2S5XURkooCQ63Sat23BpvTAuN0scQA@mail.gmail.com
-The prediction of Linus for this release was wrong.
       
     </div>
   </div>

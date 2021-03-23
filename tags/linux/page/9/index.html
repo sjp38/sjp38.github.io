@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2021-03-17T07:11:15&#43;01:00">
+    <meta property="og:updated_time" content="2021-03-23T07:11:57&#43;01:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.3-rc4/">LKML News v5.3-rc4</a></h2>
+    <div class="article-style">
+      
+      [RFC PATCH v6 00/92] VM introspection https://lkml.kernel.org/r/20190809160047.8319-1-alazar@bitdefender.com
+호스트 또는 별도 VM 에서 돌아가는 어플리케이션이 다른 VM들을 제어하거나 상태를 알아보거나 shadow 페이지 테이블을 조정하거나 특정 이벤트 발생시 알림을 받거나 할 수 있게 해주는 KVM introspection 서브시스템을 제안하는 패치입니다. 무려 92개짜리의 거대한 패치군요.
+[PATCH v4 1/5] mm/page_idle: Add per-pid idle page tracking using virtual indexing https://lkml.kernel.org/r/20190805170451.26009-1-joel@joelfernandes.org
+페이지 액세스 여부를 알아볼 수 있는 page_idle 기능을 프로세스별로 트래킹 하기 편하게 만들어 주는 패치의 네번째 버전입니다.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.3-rc3/">LKML News v5.3-rc3</a></h2>
     <div class="article-style">
       
@@ -632,20 +644,6 @@ Linux 5.2-rc6 https://lkml.kernel.org/r/CAHk-=wg+nPKhdn=vKSgJQkfOSGhauTO4jyt=0FH
 uprobe 는 THP 로 되어있는 페이지를 쪼갭니다. 이로 인해 성능 향상 효과가 사라지죠. 이 패치셋은 uprobe 가 THP 를 인식하게 해서 이런 문제를 제거합니다.
 [PATCH v2 0/5] Introduce MADV_COLD and MADV_PAGEOUT https://lkml.kernel.org/r/20190610111252.239156-1-minchan@kernel.org
 기존에도 소개한 MADV_COLD 와 MADV_PAGEOUT 을 madvise() 에 추가하는 패치셋의 두번째 버전입니다. 이 패치셋을 ChromeOS 팀의 Brian Geffon 은 가져다가 탭이 백그라운드로 들어가고 45초 이상 그 상태를 유지하면 이 기능을 사용해서 페이지를 proactively swap out 시켰는데, 그 결과 tab 전환 속도가 25% 나 빨라졌다고 합니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.2-rc4/">LKML News v5.2-rc4</a></h2>
-    <div class="article-style">
-      
-      [PATCH 00/15] Slab Movable Objects (SMO) https://lkml.kernel.org/r/20190603042637.2018-1-tobin@kernel.org
-전에도 RFC 패치셋은 여기서도 소개했었죠. Slab 할당자에 할당받은 객체들의 이동이 가능하게끔 하는 패치셋의 정식 패치 버전이 나왔습니다. 변경된 인터페이스는 XArray 와 dcache 에 적용되는군요.
-[PATCH v1 0/4] Introduce MADV_COLD and MADV_PAGEOUT https://lkml.kernel.org/r/20190603053655.127730-1-minchan@kernel.org
-바로 지난주에도 소개한 external madvise 패치셋이 쪼개졌네요. MADV_COLD 와 MADV_PAGEOUT 두개의 새로운 advice 기능 추가 버전만 담은 패치셋입니다. 이게 더 일찍 머지될 가능성이 생겼군요.
-Linux 5.2-rc4 https://lkml.kernel.org/r/CAHk-=wjm7FQxdF=RKa8Xe23CLNNpbGDOACewgo8e-hwDJ8TyQg@mail.gmail.com
-메일을 받고 깜짝 놀랐습니다, 평소보다 빨랐기 때문이죠.
       
     </div>
   </div>
