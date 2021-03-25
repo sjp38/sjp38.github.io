@@ -29,7 +29,9 @@
     
   
   <meta name="description" content="[PATCH 0/3 v5] Introduce a bulk order-0 page allocator (Mel Gorman) https://lkml.kernel.org/r/20210322091845.16437-1-mgorman@techsingularity.net
-Fifth version of the order-0 pages bulk allocator. In this version, the API users are dropped from the patchset, because the callers are not confirmed if they prefer an array or list interface.">
+Fifth version of the order-0 pages bulk allocator. In this version, the API users are dropped from the patchset, because the callers are not confirmed if they prefer an array or list interface.
+[PATCH] mm: cma: add trace events for CMA alloc perf testing (Georgi Djakov) https://lkml.kernel.org/r/20210324160740.15901-1-georgi.djakov@linaro.org
+This patch adds tracepoints for CMA and page migrations. Those aims to be used for performance debugging of CMA.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/lkml_news_v5.12-rc5/">
@@ -152,7 +154,9 @@ Fifth version of the order-0 pages bulk allocator. In this version, the API user
   <meta property="og:url" content="/post/lkml_news_v5.12-rc5/">
   <meta property="og:title" content="LKML News v5.12-rc5 | hacklog">
   <meta property="og:description" content="[PATCH 0/3 v5] Introduce a bulk order-0 page allocator (Mel Gorman) https://lkml.kernel.org/r/20210322091845.16437-1-mgorman@techsingularity.net
-Fifth version of the order-0 pages bulk allocator. In this version, the API users are dropped from the patchset, because the callers are not confirmed if they prefer an array or list interface."><meta property="og:image" content="/img/tux.png">
+Fifth version of the order-0 pages bulk allocator. In this version, the API users are dropped from the patchset, because the callers are not confirmed if they prefer an array or list interface.
+[PATCH] mm: cma: add trace events for CMA alloc perf testing (Georgi Djakov) https://lkml.kernel.org/r/20210324160740.15901-1-georgi.djakov@linaro.org
+This patch adds tracepoints for CMA and page migrations. Those aims to be used for performance debugging of CMA."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -204,7 +208,7 @@ Fifth version of the order-0 pages bulk allocator. In this version, the API user
       "url": "/img/icon-512.png"
     }
   },
-  "description": "[PATCH 0/3 v5] Introduce a bulk order-0 page allocator (Mel Gorman) https://lkml.kernel.org/r/20210322091845.16437-1-mgorman@techsingularity.net\nFifth version of the order-0 pages bulk allocator. In this version, the API users are dropped from the patchset, because the callers are not confirmed if they prefer an array or list interface."
+  "description": "[PATCH 0/3 v5] Introduce a bulk order-0 page allocator (Mel Gorman) https://lkml.kernel.org/r/20210322091845.16437-1-mgorman@techsingularity.net\nFifth version of the order-0 pages bulk allocator. In this version, the API users are dropped from the patchset, because the callers are not confirmed if they prefer an array or list interface.\n[PATCH] mm: cma: add trace events for CMA alloc perf testing (Georgi Djakov) https://lkml.kernel.org/r/20210324160740.15901-1-georgi.djakov@linaro.org\nThis patch adds tracepoints for CMA and page migrations. Those aims to be used for performance debugging of CMA."
 }
 </script>
 
@@ -615,6 +619,10 @@ Fifth version of the order-0 pages bulk allocator. In this version, the API user
 <p>Fifth version of the order-0 pages bulk allocator.  In this version, the API
 users are dropped from the patchset, because the callers are not confirmed if
 they prefer an array or list interface.</p>
+<h2 id="patch-mm-cma-add-trace-events-for-cma-alloc-perf-testing-georgi-djakov">[PATCH] mm: cma: add trace events for CMA alloc perf testing (Georgi Djakov)</h2>
+<p><a href="https://lkml.kernel.org/r/20210324160740.15901-1-georgi.djakov@linaro.org">https://lkml.kernel.org/r/20210324160740.15901-1-georgi.djakov@linaro.org</a></p>
+<p>This patch adds tracepoints for CMA and page migrations.  Those aims to be used
+for performance debugging of CMA.</p>
 
     </div>
 
