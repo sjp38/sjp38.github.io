@@ -30,6 +30,22 @@ for performance debugging of CMA.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/1616751898-58393-1-git-send-email-xlpang@linux.alibaba.com&#34;&gt;https://lkml.kernel.org/r/1616751898-58393-1-git-send-email-xlpang@linux.alibaba.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;This commit adds some counters for debugging and fix of a problem in the page
 reporting feature.&lt;/p&gt;
+&lt;h2 id=&#34;linux-512-rc5-linus-torvalds&#34;&gt;Linux 5.12-rc5 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wg89U6PLp1AGhaqUx4KAZtkvKS6kuNmb+zObQhf1jez+g@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wg89U6PLp1AGhaqUx4KAZtkvKS6kuNmb+zObQhf1jez+g@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Unlike previous week&amp;rsquo;s release, rc5 is bigger than average.  It&amp;rsquo;s not hitting
+any record, though.  Torvalds says he doesn&amp;rsquo;t overly worrying, but thinking
+about rc8.  &lt;code&gt;io_uring&lt;/code&gt; is pointed out as one of the sources of noises.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v5.1-rc4..v5.12-rc5.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
+below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2019-03-29 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And, below is the diffstat of the -rc5 releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v5.12-rc5-only.png&#34; alt=&#34;rc2 release stat&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     

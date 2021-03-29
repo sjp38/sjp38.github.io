@@ -627,6 +627,22 @@ for performance debugging of CMA.</p>
 <p><a href="https://lkml.kernel.org/r/1616751898-58393-1-git-send-email-xlpang@linux.alibaba.com">https://lkml.kernel.org/r/1616751898-58393-1-git-send-email-xlpang@linux.alibaba.com</a></p>
 <p>This commit adds some counters for debugging and fix of a problem in the page
 reporting feature.</p>
+<h2 id="linux-512-rc5-linus-torvalds">Linux 5.12-rc5 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wg89U6PLp1AGhaqUx4KAZtkvKS6kuNmb+zObQhf1jez+g@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wg89U6PLp1AGhaqUx4KAZtkvKS6kuNmb+zObQhf1jez+g@mail.gmail.com</a></p>
+<p>Unlike previous week&rsquo;s release, rc5 is bigger than average.  It&rsquo;s not hitting
+any record, though.  Torvalds says he doesn&rsquo;t overly worrying, but thinking
+about rc8.  <code>io_uring</code> is pointed out as one of the sources of noises.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.1-rc4..v5.12-rc5.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2019-03-29 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc5 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.12-rc5-only.png" alt="rc2 release stat"></p>
 
     </div>
 
