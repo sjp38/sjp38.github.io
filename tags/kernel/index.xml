@@ -5,12 +5,27 @@
     <link>/tags/kernel/</link>
       <atom:link href="/tags/kernel/index.xml" rel="self" type="application/rss+xml" />
     <description>kernel</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 23 Mar 2021 07:11:57 +0100</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 30 Mar 2021 07:35:52 +0200</lastBuildDate>
     <image>
       <url>/img/tux.png</url>
       <title>kernel</title>
       <link>/tags/kernel/</link>
     </image>
+    
+    <item>
+      <title>LKML News v5.12-rc6</title>
+      <link>/post/lkml_news_v5.12-rc6/</link>
+      <pubDate>Tue, 30 Mar 2021 07:35:52 +0200</pubDate>
+      <guid>/post/lkml_news_v5.12-rc6/</guid>
+      <description>&lt;h2 id=&#34;rfc-numa-balancing-reduce-tlb-flush-via-delaying-mapping-on-hint-page-fault-huang-ying&#34;&gt;[RFC] NUMA balancing: reduce TLB flush via delaying mapping on hint page fault (Huang Ying)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20210329062651.2487905-1-ying.huang@intel.com&#34;&gt;https://lkml.kernel.org/r/20210329062651.2487905-1-ying.huang@intel.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;NUMA balancing shots down TLBs on all CPUs that recently run hint-faulted
+process during the migration of the hint-faulted page to appropriate node.
+This commit delays the TLB shootdown to reduce the overhead.  With pmbench, it
+reduced TLB shooting IPI up to 99%, though it didn&amp;rsquo;t makde visible benchmark
+score changes.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>LKML News v5.12-rc5</title>
