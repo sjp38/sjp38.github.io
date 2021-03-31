@@ -29,7 +29,8 @@
     
   
   <meta name="description" content="[RFC] NUMA balancing: reduce TLB flush via delaying mapping on hint page fault (Huang Ying) https://lkml.kernel.org/r/20210329062651.2487905-1-ying.huang@intel.com
-NUMA balancing shots down TLBs on all CPUs that recently run hint-faulted process during the migration of the hint-faulted page to appropriate node. This commit delays the TLB shootdown to reduce the overhead. With pmbench, it reduced TLB shooting IPI up to 99%, though it didn&rsquo;t makde visible benchmark score changes.">
+NUMA balancing shots down TLBs on all CPUs that recently run hint-faulted process during the migration of the hint-faulted page to appropriate node. This commit delays the TLB shootdown to reduce the overhead. With pmbench, it reduced TLB shooting IPI up to 99%, though it didn&rsquo;t makde visible benchmark score changes.
+[RFC v2 00/43] PKRAM: Preserved-over-Kexec RAM (Anthony Yznaga) https://lkml.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/lkml_news_v5.12-rc6/">
@@ -152,7 +153,8 @@ NUMA balancing shots down TLBs on all CPUs that recently run hint-faulted proces
   <meta property="og:url" content="/post/lkml_news_v5.12-rc6/">
   <meta property="og:title" content="LKML News v5.12-rc6 | hacklog">
   <meta property="og:description" content="[RFC] NUMA balancing: reduce TLB flush via delaying mapping on hint page fault (Huang Ying) https://lkml.kernel.org/r/20210329062651.2487905-1-ying.huang@intel.com
-NUMA balancing shots down TLBs on all CPUs that recently run hint-faulted process during the migration of the hint-faulted page to appropriate node. This commit delays the TLB shootdown to reduce the overhead. With pmbench, it reduced TLB shooting IPI up to 99%, though it didn&rsquo;t makde visible benchmark score changes."><meta property="og:image" content="/img/tux.png">
+NUMA balancing shots down TLBs on all CPUs that recently run hint-faulted process during the migration of the hint-faulted page to appropriate node. This commit delays the TLB shootdown to reduce the overhead. With pmbench, it reduced TLB shooting IPI up to 99%, though it didn&rsquo;t makde visible benchmark score changes.
+[RFC v2 00/43] PKRAM: Preserved-over-Kexec RAM (Anthony Yznaga) https://lkml."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -204,7 +206,7 @@ NUMA balancing shots down TLBs on all CPUs that recently run hint-faulted proces
       "url": "/img/icon-512.png"
     }
   },
-  "description": "[RFC] NUMA balancing: reduce TLB flush via delaying mapping on hint page fault (Huang Ying) https://lkml.kernel.org/r/20210329062651.2487905-1-ying.huang@intel.com\nNUMA balancing shots down TLBs on all CPUs that recently run hint-faulted process during the migration of the hint-faulted page to appropriate node. This commit delays the TLB shootdown to reduce the overhead. With pmbench, it reduced TLB shooting IPI up to 99%, though it didn\u0026rsquo;t makde visible benchmark score changes."
+  "description": "[RFC] NUMA balancing: reduce TLB flush via delaying mapping on hint page fault (Huang Ying) https://lkml.kernel.org/r/20210329062651.2487905-1-ying.huang@intel.com\nNUMA balancing shots down TLBs on all CPUs that recently run hint-faulted process during the migration of the hint-faulted page to appropriate node. This commit delays the TLB shootdown to reduce the overhead. With pmbench, it reduced TLB shooting IPI up to 99%, though it didn\u0026rsquo;t makde visible benchmark score changes.\n[RFC v2 00/43] PKRAM: Preserved-over-Kexec RAM (Anthony Yznaga) https://lkml."
 }
 </script>
 
@@ -617,6 +619,13 @@ process during the migration of the hint-faulted page to appropriate node.
 This commit delays the TLB shootdown to reduce the overhead.  With pmbench, it
 reduced TLB shooting IPI up to 99%, though it didn&rsquo;t makde visible benchmark
 score changes.</p>
+<h2 id="rfc-v2-0043-pkram-preserved-over-kexec-ram-anthony-yznaga">[RFC v2 00/43] PKRAM: Preserved-over-Kexec RAM (Anthony Yznaga)</h2>
+<p><a href="https://lkml.kernel.org/r/1617140178-8773-1-git-send-email-anthony.yznaga@oracle.com">https://lkml.kernel.org/r/1617140178-8773-1-git-send-email-anthony.yznaga@oracle.com</a></p>
+<p>Second revision after a while.  This patchset makes a part of memory to be
+exported as a file system to user space and let the content of the memory
+preserved while the system is rebooted using kexec.  The user space programs
+could restart fast regardless of system reboot by using that as a temporary
+place to put their data.</p>
 
     </div>
 

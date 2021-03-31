@@ -24,6 +24,13 @@ process during the migration of the hint-faulted page to appropriate node.
 This commit delays the TLB shootdown to reduce the overhead.  With pmbench, it
 reduced TLB shooting IPI up to 99%, though it didn&amp;rsquo;t makde visible benchmark
 score changes.&lt;/p&gt;
+&lt;h2 id=&#34;rfc-v2-0043-pkram-preserved-over-kexec-ram-anthony-yznaga&#34;&gt;[RFC v2 00/43] PKRAM: Preserved-over-Kexec RAM (Anthony Yznaga)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/1617140178-8773-1-git-send-email-anthony.yznaga@oracle.com&#34;&gt;https://lkml.kernel.org/r/1617140178-8773-1-git-send-email-anthony.yznaga@oracle.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Second revision after a while.  This patchset makes a part of memory to be
+exported as a file system to user space and let the content of the memory
+preserved while the system is rebooted using kexec.  The user space programs
+could restart fast regardless of system reboot by using that as a temporary
+place to put their data.&lt;/p&gt;
 </description>
     </item>
     
