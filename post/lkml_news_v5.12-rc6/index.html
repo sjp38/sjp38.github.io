@@ -572,7 +572,7 @@ NUMA balancing shots down TLBs on all CPUs that recently run hint-faulted proces
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -626,6 +626,16 @@ exported as a file system to user space and let the content of the memory
 preserved while the system is rebooted using kexec.  The user space programs
 could restart fast regardless of system reboot by using that as a temporary
 place to put their data.</p>
+<h2 id="patch-v2-12-kunit-add-a-kunit-test-for-slub-debugging-functionality-oliver-glitta">[PATCH v2 1/2] kunit: add a KUnit test for SLUB debugging functionality (Oliver Glitta)</h2>
+<p><a href="https://lkml.kernel.org/r/20210330120436.4591-1-glittao@gmail.com">https://lkml.kernel.org/r/20210330120436.4591-1-glittao@gmail.com</a></p>
+<p>This commit makes <code>SLUB_RESILIENCY_TEST</code> macro, which is hardcoded as not
+defined and therefore couldn&rsquo;t be used in normal case without kernel
+modification, to be able to be defined with kernel configuration so that the
+code hidden behind the macro could be used in kunit.</p>
+<h2 id="patch-v6-0027-memory-folios-mattew-wilcox">[PATCH v6 00/27] Memory Folios (Mattew Wilcox)</h2>
+<p><a href="https://lkml.kernel.org/r/20210331184728.1188084-1-willy@infradead.org">https://lkml.kernel.org/r/20210331184728.1188084-1-willy@infradead.org</a></p>
+<p>This is the sixth version of the page folio patchset.  This helps handling
+complex compound pages in simpler way.</p>
 
     </div>
 
