@@ -41,6 +41,16 @@ code hidden behind the macro could be used in kunit.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20210331184728.1188084-1-willy@infradead.org&#34;&gt;https://lkml.kernel.org/r/20210331184728.1188084-1-willy@infradead.org&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;This is the sixth version of the page folio patchset.  This helps handling
 complex compound pages in simpler way.&lt;/p&gt;
+&lt;h2 id=&#34;patch-0010-v7resend-migrate-pages-in-lieu-of-discard-dave-hansen&#34;&gt;[PATCH 00/10] [v7][RESEND] Migrate Pages in lieu of discard (Dave Hansen)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20210401183216.443C4443@viggo.jf.intel.com&#34;&gt;https://lkml.kernel.org/r/20210401183216.443C4443@viggo.jf.intel.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This patchset is for the usual tieremed memory system, which configured with
+DRAM and a slower auxiliary memory such as persistent memory.  The system
+starts allocation with DRAM and do reclamation once DRAM is filled up.  Then,
+from a point, it starts falling over to the slower auxiliary memory.  As a
+result, new allocations could result in slow auxiliary memory while there is a
+space in DRAM, and the data reclaimed from DRAM is discarded even though there
+was a space in the auxiliary memory.  This patchset makes the DRAM reclaimation
+to migrate the pages to the auxiliary memory instead.&lt;/p&gt;
 </description>
     </item>
     
