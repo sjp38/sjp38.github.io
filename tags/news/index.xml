@@ -5,12 +5,32 @@
     <link>/tags/news/</link>
       <atom:link href="/tags/news/index.xml" rel="self" type="application/rss+xml" />
     <description>news</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 30 Mar 2021 07:35:52 +0200</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 06 Apr 2021 07:17:14 +0200</lastBuildDate>
     <image>
       <url>/img/tux.png</url>
       <title>news</title>
       <link>/tags/news/</link>
     </image>
+    
+    <item>
+      <title>LKML News v5.12-rc7</title>
+      <link>/post/lkml_news_v5.12-rc7/</link>
+      <pubDate>Tue, 06 Apr 2021 07:17:14 +0200</pubDate>
+      <guid>/post/lkml_news_v5.12-rc7/</guid>
+      <description>&lt;h2 id=&#34;rfc-patch-v1-0011-manage-the-top-tier-memory-in-a-tiered-memory-tim-chen&#34;&gt;[RFC PATCH v1 00/11] Manage the top tier memory in a tiered memory (Tim Chen)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/cover.1617642417.git.tim.c.chen@linux.intel.com&#34;&gt;https://lkml.kernel.org/r/cover.1617642417.git.tim.c.chen@linux.intel.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;There are two patchsets for better handling of tiered-memory.  &lt;code&gt;[PATCH 00/10] [v7] Migrate Pages in lieu of discard&lt;/code&gt;
+(&lt;a href=&#34;https://lore.kernel.org/linux-mm/20210401183216.443C4443@viggo.jf.intel.com/&#34;&gt;https://lore.kernel.org/linux-mm/20210401183216.443C4443@viggo.jf.intel.com/&lt;/a&gt;)
+makes cold pages to be placed in PMEM instead of DRAM, and &lt;code&gt;[PATCH 0/6] [RFC v6] NUMA balancing: optimize memory placement for memory tiering system&lt;/code&gt;
+(&lt;a href=&#34;https://lore.kernel.org/linux-mm/20210311081821.138467-1-ying.huang@intel.com/&#34;&gt;https://lore.kernel.org/linux-mm/20210311081821.138467-1-ying.huang@intel.com/&lt;/a&gt;)
+allows hot pages to be placed in DRAM instead of PMEM.&lt;/p&gt;
+&lt;p&gt;This patchset further improves the situation, by providing memory monitors on
+the top tier memory that each cgroup is using, and enables kswapd to demote top
+tier memory from cgroups when excess top tier memory usage is observed.  In
+other words, this allows provisioning of different amount of top tier memory
+for each cgroup, depending on each cgroup&amp;rsquo;s needs.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>LKML News v5.12-rc6</title>
