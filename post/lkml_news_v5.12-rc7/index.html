@@ -570,7 +570,7 @@ There are two patchsets for better handling of tiered-memory. [PATCH 00/10] [v7]
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -622,6 +622,26 @@ the top tier memory that each cgroup is using, and enables kswapd to demote top
 tier memory from cgroups when excess top tier memory usage is observed.  In
 other words, this allows provisioning of different amount of top tier memory
 for each cgroup, depending on each cgroup&rsquo;s needs.</p>
+<h2 id="patch-v7-0028-memory-folios-matthew-wilcox">[PATCH v7 00/28] Memory Folios (Matthew Wilcox)</h2>
+<p><a href="https://lkml.kernel.org/r/20210409185105.188284-1-willy@infradead.org">https://lkml.kernel.org/r/20210409185105.188284-1-willy@infradead.org</a></p>
+<p>Seventh version of the page folio patchset.  It makes THP handling simpler.</p>
+<h2 id="linux-512-rc7-linus-torvalds">Linux 5.12-rc7 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wiHGchP=V=a4DbDN+imjGEc=2nvuLQVoeNXNxjpU1T8pg@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wiHGchP=V=a4DbDN+imjGEc=2nvuLQVoeNXNxjpU1T8pg@mail.gmail.com</a></p>
+<p>Unlike the sixth rc, which shrinked as expected, this time it became bigger
+than usual.  It&rsquo;s biggest rc7 for 5.x series.  Torvalds says it&rsquo;s due to the
+networking fixes that didn&rsquo;t arrive in last release but this release.  So we
+will see rc8 next week unless the it is calm enough like dead.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.1-rc6..v5.12-rc7.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2019-03-29 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc5 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.12-rc7-only.png" alt="rc2 release stat"></p>
 
     </div>
 
