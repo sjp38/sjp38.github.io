@@ -5,12 +5,28 @@
     <link>/tags/kernel/</link>
       <atom:link href="/tags/kernel/index.xml" rel="self" type="application/rss+xml" />
     <description>kernel</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 06 Apr 2021 07:17:14 +0200</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 13 Apr 2021 07:37:08 +0200</lastBuildDate>
     <image>
       <url>/img/tux.png</url>
       <title>kernel</title>
       <link>/tags/kernel/</link>
     </image>
+    
+    <item>
+      <title>LKML NEws v5.12-rc8</title>
+      <link>/post/lkml_news_v5.12-rc8/</link>
+      <pubDate>Tue, 13 Apr 2021 07:37:08 +0200</pubDate>
+      <guid>/post/lkml_news_v5.12-rc8/</guid>
+      <description>&lt;h2 id=&#34;patch-v2-05-mmmemcg-reduce-kmemcache-memory-accounting-overhead-waiman-long&#34;&gt;[PATCH v2 0/5] mm/memcg: Reduce kmemcache memory accounting overhead (Waiman Long)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20210412225503.15119-1-longman@redhat.com&#34;&gt;https://lkml.kernel.org/r/20210412225503.15119-1-longman@redhat.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Recently introduced new slab memory controller eliminates the need for separate
+kmemcaches for each memory cgroup and therefore reduce kernel memory usage.
+However, it also increases memory accouning overhead in kmem cache alloc and
+free functions.  This patchset reduces unnecessary &lt;code&gt;local_irq_save()&lt;/code&gt; and
+&lt;code&gt;local_irq_restore()&lt;/code&gt; sequences in the code path as much as possible for
+minimal overhead.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>LKML News v5.12-rc7</title>
