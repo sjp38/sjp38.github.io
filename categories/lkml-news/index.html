@@ -530,6 +530,7 @@
       
       [PATCH v2 0/5] mm/memcg: Reduce kmemcache memory accounting overhead (Waiman Long) https://lkml.kernel.org/r/20210412225503.15119-1-longman@redhat.com
 Recently introduced new slab memory controller eliminates the need for separate kmemcaches for each memory cgroup and therefore reduce kernel memory usage. However, it also increases memory accouning overhead in kmem cache alloc and free functions. This patchset reduces unnecessary local_irq_save() and local_irq_restore() sequences in the code path as much as possible for minimal overhead.
+[PATCH v7 0/7] Make alloc_contig_range handle Hugetlb pages (Oscar Salvador) https://lkml.
       
     </div>
   </div>

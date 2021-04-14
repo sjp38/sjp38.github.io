@@ -25,6 +25,10 @@ However, it also increases memory accouning overhead in kmem cache alloc and
 free functions.  This patchset reduces unnecessary &lt;code&gt;local_irq_save()&lt;/code&gt; and
 &lt;code&gt;local_irq_restore()&lt;/code&gt; sequences in the code path as much as possible for
 minimal overhead.&lt;/p&gt;
+&lt;h2 id=&#34;patch-v7-07-make-alloc_contig_range-handle-hugetlb-pages-oscar-salvador&#34;&gt;[PATCH v7 0/7] Make alloc_contig_range handle Hugetlb pages (Oscar Salvador)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20210413104747.12177-1-osalvador@suse.de&#34;&gt;https://lkml.kernel.org/r/20210413104747.12177-1-osalvador@suse.de&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This patchset makes Hugetlb pages to be able to be allocated via
+&lt;code&gt;alloc_contig_range()&lt;/code&gt;, which is also used by CMA.&lt;/p&gt;
 </description>
     </item>
     

@@ -29,7 +29,8 @@
     
   
   <meta name="description" content="[PATCH v2 0/5] mm/memcg: Reduce kmemcache memory accounting overhead (Waiman Long) https://lkml.kernel.org/r/20210412225503.15119-1-longman@redhat.com
-Recently introduced new slab memory controller eliminates the need for separate kmemcaches for each memory cgroup and therefore reduce kernel memory usage. However, it also increases memory accouning overhead in kmem cache alloc and free functions. This patchset reduces unnecessary local_irq_save() and local_irq_restore() sequences in the code path as much as possible for minimal overhead.">
+Recently introduced new slab memory controller eliminates the need for separate kmemcaches for each memory cgroup and therefore reduce kernel memory usage. However, it also increases memory accouning overhead in kmem cache alloc and free functions. This patchset reduces unnecessary local_irq_save() and local_irq_restore() sequences in the code path as much as possible for minimal overhead.
+[PATCH v7 0/7] Make alloc_contig_range handle Hugetlb pages (Oscar Salvador) https://lkml.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/lkml_news_v5.12-rc8/">
@@ -152,7 +153,8 @@ Recently introduced new slab memory controller eliminates the need for separate 
   <meta property="og:url" content="/post/lkml_news_v5.12-rc8/">
   <meta property="og:title" content="LKML NEws v5.12-rc8 | hacklog">
   <meta property="og:description" content="[PATCH v2 0/5] mm/memcg: Reduce kmemcache memory accounting overhead (Waiman Long) https://lkml.kernel.org/r/20210412225503.15119-1-longman@redhat.com
-Recently introduced new slab memory controller eliminates the need for separate kmemcaches for each memory cgroup and therefore reduce kernel memory usage. However, it also increases memory accouning overhead in kmem cache alloc and free functions. This patchset reduces unnecessary local_irq_save() and local_irq_restore() sequences in the code path as much as possible for minimal overhead."><meta property="og:image" content="/img/tux.png">
+Recently introduced new slab memory controller eliminates the need for separate kmemcaches for each memory cgroup and therefore reduce kernel memory usage. However, it also increases memory accouning overhead in kmem cache alloc and free functions. This patchset reduces unnecessary local_irq_save() and local_irq_restore() sequences in the code path as much as possible for minimal overhead.
+[PATCH v7 0/7] Make alloc_contig_range handle Hugetlb pages (Oscar Salvador) https://lkml."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -204,7 +206,7 @@ Recently introduced new slab memory controller eliminates the need for separate 
       "url": "/img/icon-512.png"
     }
   },
-  "description": "[PATCH v2 0/5] mm/memcg: Reduce kmemcache memory accounting overhead (Waiman Long) https://lkml.kernel.org/r/20210412225503.15119-1-longman@redhat.com\nRecently introduced new slab memory controller eliminates the need for separate kmemcaches for each memory cgroup and therefore reduce kernel memory usage. However, it also increases memory accouning overhead in kmem cache alloc and free functions. This patchset reduces unnecessary local_irq_save() and local_irq_restore() sequences in the code path as much as possible for minimal overhead."
+  "description": "[PATCH v2 0/5] mm/memcg: Reduce kmemcache memory accounting overhead (Waiman Long) https://lkml.kernel.org/r/20210412225503.15119-1-longman@redhat.com\nRecently introduced new slab memory controller eliminates the need for separate kmemcaches for each memory cgroup and therefore reduce kernel memory usage. However, it also increases memory accouning overhead in kmem cache alloc and free functions. This patchset reduces unnecessary local_irq_save() and local_irq_restore() sequences in the code path as much as possible for minimal overhead.\n[PATCH v7 0/7] Make alloc_contig_range handle Hugetlb pages (Oscar Salvador) https://lkml."
 }
 </script>
 
@@ -618,6 +620,10 @@ However, it also increases memory accouning overhead in kmem cache alloc and
 free functions.  This patchset reduces unnecessary <code>local_irq_save()</code> and
 <code>local_irq_restore()</code> sequences in the code path as much as possible for
 minimal overhead.</p>
+<h2 id="patch-v7-07-make-alloc_contig_range-handle-hugetlb-pages-oscar-salvador">[PATCH v7 0/7] Make alloc_contig_range handle Hugetlb pages (Oscar Salvador)</h2>
+<p><a href="https://lkml.kernel.org/r/20210413104747.12177-1-osalvador@suse.de">https://lkml.kernel.org/r/20210413104747.12177-1-osalvador@suse.de</a></p>
+<p>This patchset makes Hugetlb pages to be able to be allocated via
+<code>alloc_contig_range()</code>, which is also used by CMA.</p>
 
     </div>
 
