@@ -624,6 +624,12 @@ minimal overhead.</p>
 <p><a href="https://lkml.kernel.org/r/20210413104747.12177-1-osalvador@suse.de">https://lkml.kernel.org/r/20210413104747.12177-1-osalvador@suse.de</a></p>
 <p>This patchset makes Hugetlb pages to be able to be allocated via
 <code>alloc_contig_range()</code>, which is also used by CMA.</p>
+<h2 id="rfc-mm-support-multi_freearea-to-the-reduction-of-external-fragmentation-lipeifeng">[RFC] mm: support multi_freearea to the reduction of external fragmentation (lipeifeng)</h2>
+<p><a href="https://lkml.kernel.org/r/20210414023803.937-1-lipeifeng@oppo.com">https://lkml.kernel.org/r/20210414023803.937-1-lipeifeng@oppo.com</a></p>
+<p>This patch sorts sorts the free pages in buddy so that low-order pages
+allocation done in the front area of memory while the high-order pages
+allocation done in the back area of memory.  As a result, the high-order pages
+allocation could success more easily.</p>
 
     </div>
 

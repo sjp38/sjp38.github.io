@@ -29,6 +29,12 @@ minimal overhead.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20210413104747.12177-1-osalvador@suse.de&#34;&gt;https://lkml.kernel.org/r/20210413104747.12177-1-osalvador@suse.de&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;This patchset makes Hugetlb pages to be able to be allocated via
 &lt;code&gt;alloc_contig_range()&lt;/code&gt;, which is also used by CMA.&lt;/p&gt;
+&lt;h2 id=&#34;rfc-mm-support-multi_freearea-to-the-reduction-of-external-fragmentation-lipeifeng&#34;&gt;[RFC] mm: support multi_freearea to the reduction of external fragmentation (lipeifeng)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20210414023803.937-1-lipeifeng@oppo.com&#34;&gt;https://lkml.kernel.org/r/20210414023803.937-1-lipeifeng@oppo.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This patch sorts sorts the free pages in buddy so that low-order pages
+allocation done in the front area of memory while the high-order pages
+allocation done in the back area of memory.  As a result, the high-order pages
+allocation could success more easily.&lt;/p&gt;
 </description>
     </item>
     
