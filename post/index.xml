@@ -41,6 +41,18 @@ allocation could success more easily.&lt;/p&gt;
 &lt;h2 id=&#34;patch-0013-rfc-rust-support-miguel-ojeda&#34;&gt;[PATCH 00/13] [RFC] Rust support (Miguel Ojeda)&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lore.kernel.org/lkml/20210414184604.23473-1-ojeda@kernel.org/&#34;&gt;https://lore.kernel.org/lkml/20210414184604.23473-1-ojeda@kernel.org/&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;This is the RFC for Rust support in Linux build system.&lt;/p&gt;
+&lt;h2 id=&#34;patch-12-mmvmscan-add-sync_shrinkers-function-christian-koenig&#34;&gt;[PATCH 1/2] mm/vmscan: add sync_shrinkers function (Christian Koenig)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20210415115624.2904-1-christian.koenig@amd.com&#34;&gt;https://lkml.kernel.org/r/20210415115624.2904-1-christian.koenig@amd.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This patchset adds a new function &lt;code&gt;sync_shrinkers()&lt;/code&gt;, which prevents a race
+between, for example, shrinkers trying to free pages and hotplug trying to
+remove the device which having the pages.&lt;/p&gt;
+&lt;h2 id=&#34;patch-v2-mmcompactionlet-proactive-compaction-order-configurable-chukaiping&#34;&gt;[PATCH v2] mm/compaction:let proactive compaction order configurable (chukaiping)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/1618593751-32148-1-git-send-email-chukaiping@baidu.com&#34;&gt;https://lkml.kernel.org/r/1618593751-32148-1-git-send-email-chukaiping@baidu.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The proactive compaction has fixed value &amp;lsquo;9&amp;rsquo; for &lt;code&gt;COMPACTION_HPAGE_ORDER&lt;/code&gt;.
+This doesn&amp;rsquo;t make sense for machines having less than 9 max order of free
+pages, because it would trigger compactions too frequently.  For example,
+machines configured with 1GB hugetlbfs huge pages.  This patch exports the
+order to procfs so that admins could configure it.&lt;/p&gt;
 </description>
     </item>
     

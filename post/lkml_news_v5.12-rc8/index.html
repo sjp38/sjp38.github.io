@@ -572,7 +572,7 @@ Recently introduced new slab memory controller eliminates the need for separate 
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -636,6 +636,18 @@ allocation could success more easily.</p>
 <h2 id="patch-0013-rfc-rust-support-miguel-ojeda">[PATCH 00/13] [RFC] Rust support (Miguel Ojeda)</h2>
 <p><a href="https://lore.kernel.org/lkml/20210414184604.23473-1-ojeda@kernel.org/">https://lore.kernel.org/lkml/20210414184604.23473-1-ojeda@kernel.org/</a></p>
 <p>This is the RFC for Rust support in Linux build system.</p>
+<h2 id="patch-12-mmvmscan-add-sync_shrinkers-function-christian-koenig">[PATCH 1/2] mm/vmscan: add sync_shrinkers function (Christian Koenig)</h2>
+<p><a href="https://lkml.kernel.org/r/20210415115624.2904-1-christian.koenig@amd.com">https://lkml.kernel.org/r/20210415115624.2904-1-christian.koenig@amd.com</a></p>
+<p>This patchset adds a new function <code>sync_shrinkers()</code>, which prevents a race
+between, for example, shrinkers trying to free pages and hotplug trying to
+remove the device which having the pages.</p>
+<h2 id="patch-v2-mmcompactionlet-proactive-compaction-order-configurable-chukaiping">[PATCH v2] mm/compaction:let proactive compaction order configurable (chukaiping)</h2>
+<p><a href="https://lkml.kernel.org/r/1618593751-32148-1-git-send-email-chukaiping@baidu.com">https://lkml.kernel.org/r/1618593751-32148-1-git-send-email-chukaiping@baidu.com</a></p>
+<p>The proactive compaction has fixed value &lsquo;9&rsquo; for <code>COMPACTION_HPAGE_ORDER</code>.
+This doesn&rsquo;t make sense for machines having less than 9 max order of free
+pages, because it would trigger compactions too frequently.  For example,
+machines configured with 1GB hugetlbfs huge pages.  This patch exports the
+order to procfs so that admins could configure it.</p>
 
     </div>
 
