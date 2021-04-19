@@ -648,6 +648,21 @@ This doesn&rsquo;t make sense for machines having less than 9 max order of free
 pages, because it would trigger compactions too frequently.  For example,
 machines configured with 1GB hugetlbfs huge pages.  This patch exports the
 order to procfs so that admins could configure it.</p>
+<h2 id="linux-512-rc8-linus-torvalds">Linux 5.12-rc8 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wjgVFDhX60fxwDobHoqJvVkuxf=JgSTtGnGMa5r-1u4Yw@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wjgVFDhX60fxwDobHoqJvVkuxf=JgSTtGnGMa5r-1u4Yw@mail.gmail.com</a></p>
+<p>The last week was calm, but not calm enough to avoid rc8 release.  This is
+fifth rc8 release for 5.x series.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.1-rc7..v5.12-rc8.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2019-04-19 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc5 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.12-rc8-only.png" alt="rc2 release stat"></p>
 
     </div>
 

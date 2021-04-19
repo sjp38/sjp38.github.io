@@ -53,6 +53,21 @@ This doesn&amp;rsquo;t make sense for machines having less than 9 max order of f
 pages, because it would trigger compactions too frequently.  For example,
 machines configured with 1GB hugetlbfs huge pages.  This patch exports the
 order to procfs so that admins could configure it.&lt;/p&gt;
+&lt;h2 id=&#34;linux-512-rc8-linus-torvalds&#34;&gt;Linux 5.12-rc8 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wjgVFDhX60fxwDobHoqJvVkuxf=JgSTtGnGMa5r-1u4Yw@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wjgVFDhX60fxwDobHoqJvVkuxf=JgSTtGnGMa5r-1u4Yw@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The last week was calm, but not calm enough to avoid rc8 release.  This is
+fifth rc8 release for 5.x series.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v5.1-rc7..v5.12-rc8.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
+below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2019-04-19 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And, below is the diffstat of the -rc5 releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v5.12-rc8-only.png&#34; alt=&#34;rc2 release stat&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     
