@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko-kr">
+<html lang="en-us">
 
 <head>
 
@@ -28,14 +28,14 @@
   
     
   
-  <meta name="description" content="Linux 4.15-rc7 https://lkml.kernel.org/r/CA&#43;55aFwbmKznuQZe_VemxXJPSmB-9yy8uyWsMZcrkA4T=m8xkw@mail.gmail.com
-Meltdown 과 Spectre 로 떠들썩했던 시간을 지나 4.15 의 일곱번째 rc 버전이 릴리즈 되었습니다. 지난 여섯번째 릴리즈 때도 상당히 안정화에 신경써야 할 시점임에도 x86 pti (page table isolation) 업데이트 패치가 많이 머지되어 의아했는데, 이게 Meltdown 과 Spectre 버그 때문이었음도 밝혀졌죠. 그렇다곤 해도 그 외의 부분은 예상대로 상당히 안정화 되어가고 있다고 합니다.
-더불어, Thomas Geixner 등의 인텔쪽 커널 개발자들의 노력 덕에 pti 등 Meltdown 과 Spectre 버그를 위한 패치가 잘 관리되어 비교적 쉽게 머지될 수 있었음에 리누스가 감사를 표하네요.">
+  <meta name="description" content="[PATCH -next v3 1/2] mm/debug_vm_pgtable: Move {pmd/pud}_huge_tests out of CONFIG_TRANSPARENT_HUGEPAGE (Liu Shixin) The functions are not THP dependent in real, but made dependent. This patch moves it out.
+[PATCH v10 0/7] Make alloc_contig_range handle Hugetlb pages (Oscar Salvador) https://lkml.kernel.org/r/20210419075413.1064-1-osalvador@suse.de
+The 10th version of the patchset which allows Hugetlb pages allocated via alloc_contig_range(), dynamically.
+[PATCH v2 0/5] mm/madvise: introduce MADV_POPULATE_(READ|WRITE) to prefault page tables (David Hildenbrand) https://lkml.kernel.org/r/20210419135443.12822-1-david@redhat.com
+This is the second version of the patchset implementing MADV_POPULATE_(READ|WRITE) for madvise() system call.">
 
   
-  <link rel="alternate" hreflang="en" href="/post/lkml_news_v4.15-rc7/">
-  
-  <link rel="alternate" hreflang="ko-kr" href="/ko/post/lkml_news_v4.15-rc7/">
+  <link rel="alternate" hreflang="en-us" href="/post/lkml_news_v5.12/">
 
   
 
@@ -136,11 +136,11 @@ Meltdown 과 Spectre 로 떠들썩했던 시간을 지나 4.15 의 일곱번째 
 
   
 
-  <link rel="manifest" href="/ko/index.webmanifest">
+  <link rel="manifest" href="/index.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon-32.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="/ko/post/lkml_news_v4.15-rc7/">
+  <link rel="canonical" href="/post/lkml_news_v5.12/">
 
   
   
@@ -152,17 +152,19 @@ Meltdown 과 Spectre 로 떠들썩했던 시간을 지나 4.15 의 일곱번째 
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="hacklog">
-  <meta property="og:url" content="/ko/post/lkml_news_v4.15-rc7/">
-  <meta property="og:title" content="LKML News after v4.15-rc7 | hacklog">
-  <meta property="og:description" content="Linux 4.15-rc7 https://lkml.kernel.org/r/CA&#43;55aFwbmKznuQZe_VemxXJPSmB-9yy8uyWsMZcrkA4T=m8xkw@mail.gmail.com
-Meltdown 과 Spectre 로 떠들썩했던 시간을 지나 4.15 의 일곱번째 rc 버전이 릴리즈 되었습니다. 지난 여섯번째 릴리즈 때도 상당히 안정화에 신경써야 할 시점임에도 x86 pti (page table isolation) 업데이트 패치가 많이 머지되어 의아했는데, 이게 Meltdown 과 Spectre 버그 때문이었음도 밝혀졌죠. 그렇다곤 해도 그 외의 부분은 예상대로 상당히 안정화 되어가고 있다고 합니다.
-더불어, Thomas Geixner 등의 인텔쪽 커널 개발자들의 노력 덕에 pti 등 Meltdown 과 Spectre 버그를 위한 패치가 잘 관리되어 비교적 쉽게 머지될 수 있었음에 리누스가 감사를 표하네요."><meta property="og:image" content="/img/tux.png">
-  <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="ko-kr">
+  <meta property="og:url" content="/post/lkml_news_v5.12/">
+  <meta property="og:title" content="LKML News v5.12 | hacklog">
+  <meta property="og:description" content="[PATCH -next v3 1/2] mm/debug_vm_pgtable: Move {pmd/pud}_huge_tests out of CONFIG_TRANSPARENT_HUGEPAGE (Liu Shixin) The functions are not THP dependent in real, but made dependent. This patch moves it out.
+[PATCH v10 0/7] Make alloc_contig_range handle Hugetlb pages (Oscar Salvador) https://lkml.kernel.org/r/20210419075413.1064-1-osalvador@suse.de
+The 10th version of the patchset which allows Hugetlb pages allocated via alloc_contig_range(), dynamically.
+[PATCH v2 0/5] mm/madvise: introduce MADV_POPULATE_(READ|WRITE) to prefault page tables (David Hildenbrand) https://lkml.kernel.org/r/20210419135443.12822-1-david@redhat.com
+This is the second version of the patchset implementing MADV_POPULATE_(READ|WRITE) for madvise() system call."><meta property="og:image" content="/img/tux.png">
+  <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
     
-      <meta property="article:published_time" content="2018-01-13T10:30:13&#43;09:00">
+      <meta property="article:published_time" content="2021-04-20T07:19:28&#43;02:00">
     
-    <meta property="article:modified_time" content="2018-01-13T10:30:13&#43;09:00">
+    <meta property="article:modified_time" content="2021-04-20T07:19:28&#43;02:00">
   
 
   
@@ -188,12 +190,12 @@ Meltdown 과 Spectre 로 떠들썩했던 시간을 지나 4.15 의 일곱번째 
   "@type": "BlogPosting",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "/ko/post/lkml_news_v4.15-rc7/"
+    "@id": "/post/lkml_news_v5.12/"
   },
-  "headline": "LKML News after v4.15-rc7",
+  "headline": "LKML News v5.12",
   
-  "datePublished": "2018-01-13T10:30:13+09:00",
-  "dateModified": "2018-01-13T10:30:13+09:00",
+  "datePublished": "2021-04-20T07:19:28+02:00",
+  "dateModified": "2021-04-20T07:19:28+02:00",
   
   "author": {
     "@type": "Person",
@@ -208,7 +210,7 @@ Meltdown 과 Spectre 로 떠들썩했던 시간을 지나 4.15 의 일곱번째 
       "url": "/img/icon-512.png"
     }
   },
-  "description": "Linux 4.15-rc7 https://lkml.kernel.org/r/CA+55aFwbmKznuQZe_VemxXJPSmB-9yy8uyWsMZcrkA4T=m8xkw@mail.gmail.com\nMeltdown 과 Spectre 로 떠들썩했던 시간을 지나 4.15 의 일곱번째 rc 버전이 릴리즈 되었습니다. 지난 여섯번째 릴리즈 때도 상당히 안정화에 신경써야 할 시점임에도 x86 pti (page table isolation) 업데이트 패치가 많이 머지되어 의아했는데, 이게 Meltdown 과 Spectre 버그 때문이었음도 밝혀졌죠. 그렇다곤 해도 그 외의 부분은 예상대로 상당히 안정화 되어가고 있다고 합니다.\n더불어, Thomas Geixner 등의 인텔쪽 커널 개발자들의 노력 덕에 pti 등 Meltdown 과 Spectre 버그를 위한 패치가 잘 관리되어 비교적 쉽게 머지될 수 있었음에 리누스가 감사를 표하네요."
+  "description": "[PATCH -next v3 1/2] mm/debug_vm_pgtable: Move {pmd/pud}_huge_tests out of CONFIG_TRANSPARENT_HUGEPAGE (Liu Shixin) The functions are not THP dependent in real, but made dependent. This patch moves it out.\n[PATCH v10 0/7] Make alloc_contig_range handle Hugetlb pages (Oscar Salvador) https://lkml.kernel.org/r/20210419075413.1064-1-osalvador@suse.de\nThe 10th version of the patchset which allows Hugetlb pages allocated via alloc_contig_range(), dynamically.\n[PATCH v2 0/5] mm/madvise: introduce MADV_POPULATE_(READ|WRITE) to prefault page tables (David Hildenbrand) https://lkml.kernel.org/r/20210419135443.12822-1-david@redhat.com\nThis is the second version of the patchset implementing MADV_POPULATE_(READ|WRITE) for madvise() system call."
 }
 </script>
 
@@ -226,7 +228,7 @@ Meltdown 과 Spectre 로 떠들썩했던 시간을 지나 4.15 의 일곱번째 
 
 
 
-  <title>LKML News after v4.15-rc7 | hacklog</title>
+  <title>LKML News v5.12 | hacklog</title>
 
 </head>
 
@@ -271,12 +273,12 @@ Meltdown 과 Spectre 로 떠들썩했던 시간을 지나 4.15 의 일곱번째 
     
     
     
-      <a class="navbar-brand" href="/ko">hacklog</a>
+      <a class="navbar-brand" href="/">hacklog</a>
     
 
     
     <button type="button" class="navbar-toggler" data-toggle="collapse"
-            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="네비게이션">
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
     <span><i class="fas fa-bars"></i></span>
     </button>
     
@@ -312,7 +314,7 @@ Meltdown 과 Spectre 로 떠들썩했던 시간을 지나 4.15 의 일곱번째 
         
 
         <li class="nav-item">
-          <a class="nav-link " href="/ko/#about"><span>Home</span></a>
+          <a class="nav-link " href="/#about"><span>Home</span></a>
         </li>
 
         
@@ -341,7 +343,7 @@ Meltdown 과 Spectre 로 떠들썩했던 시간을 지나 4.15 의 일곱번째 
         
 
         <li class="nav-item">
-          <a class="nav-link " href="/ko/#posts"><span>Posts</span></a>
+          <a class="nav-link " href="/#posts"><span>Posts</span></a>
         </li>
 
         
@@ -370,7 +372,7 @@ Meltdown 과 Spectre 로 떠들썩했던 시간을 지나 4.15 의 일곱번째 
         
 
         <li class="nav-item">
-          <a class="nav-link " href="/ko/#projects"><span>Projects</span></a>
+          <a class="nav-link " href="/#projects"><span>Projects</span></a>
         </li>
 
         
@@ -399,7 +401,7 @@ Meltdown 과 Spectre 로 떠들썩했던 시간을 지나 4.15 의 일곱번째 
         
 
         <li class="nav-item">
-          <a class="nav-link " href="/ko/#publications"><span>Publications</span></a>
+          <a class="nav-link " href="/#publications"><span>Publications</span></a>
         </li>
 
         
@@ -428,7 +430,7 @@ Meltdown 과 Spectre 로 떠들썩했던 시간을 지나 4.15 의 일곱번째 
         
 
         <li class="nav-item">
-          <a class="nav-link " href="/ko/#contact"><span>Contact</span></a>
+          <a class="nav-link " href="/#contact"><span>Contact</span></a>
         </li>
 
         
@@ -448,29 +450,7 @@ Meltdown 과 Spectre 로 떠들썩했던 시간을 지나 4.15 의 일곱번째 
         
 
         <li class="nav-item">
-          <a class="nav-link " href="/ko/tags"><span>Tags</span></a>
-        </li>
-
-        
-        
-
-        
-
-        
-        
-        
-          
-        
-
-        
-        
-        
-        
-        
-        
-
-        <li class="nav-item">
-          <a class="nav-link " href="/ko/categories"><span>Categories</span></a>
+          <a class="nav-link " href="/tags"><span>Tags</span></a>
         </li>
 
         
@@ -492,7 +472,29 @@ Meltdown 과 Spectre 로 떠들썩했던 시간을 지나 4.15 의 일곱번째 
         
 
         <li class="nav-item">
-          <a class="nav-link " href="/ko/post/about"><span>CV</span></a>
+          <a class="nav-link " href="/categories"><span>Categories</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/post/about"><span>CV</span></a>
         </li>
 
         
@@ -517,22 +519,6 @@ Meltdown 과 Spectre 로 떠들썩했던 시간을 지나 4.15 의 일곱번째 
       </li>
       
 
-      
-      <li class="nav-item dropdown i18n-dropdown">
-        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true">
-          <i class="fas fa-globe mr-1" aria-hidden="true"></i><span class="d-none d-lg-inline">한국어</span>
-        </a>
-        <div class="dropdown-menu">
-          <div class="dropdown-item i18n-active font-weight-bold">
-            <span>한국어</span>
-          </div>
-          
-          <a class="dropdown-item" href="/post/lkml_news_v4.15-rc7/">
-            <span>English</span>
-          </a>
-          
-        </div>
-      </li>
       
 
     </ul>
@@ -562,7 +548,7 @@ Meltdown 과 Spectre 로 떠들썩했던 시간을 지나 4.15 의 일곱번째 
   
   
 <div class="article-container pt-3">
-  <h1>LKML News after v4.15-rc7</h1>
+  <h1>LKML News v5.12</h1>
 
   
 
@@ -581,7 +567,7 @@ Meltdown 과 Spectre 로 떠들썩했던 시간을 지나 4.15 의 일곱번째 
     
       
     
-    Sat, Jan 13, 2018
+    Tue, Apr 20, 2021
   </span>
   
 
@@ -602,7 +588,7 @@ Meltdown 과 Spectre 로 떠들썩했던 시간을 지나 4.15 의 일곱번째 
   
   <span class="middot-divider"></span>
   <span class="article-categories">
-    <i class="fas fa-folder mr-1"></i><a href="/ko/categories/lkml-news/">lkml news</a></span>
+    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
   
 
 </div>
@@ -630,25 +616,26 @@ Meltdown 과 Spectre 로 떠들썩했던 시간을 지나 4.15 의 일곱번째 
   <div class="article-container">
 
     <div class="article-style">
-      <h2 id="linux-415-rc7">Linux 4.15-rc7</h2>
-<p><a href="https://lkml.kernel.org/r/CA+55aFwbmKznuQZe_VemxXJPSmB-9yy8uyWsMZcrkA4T=m8xkw@mail.gmail.com">https://lkml.kernel.org/r/CA+55aFwbmKznuQZe_VemxXJPSmB-9yy8uyWsMZcrkA4T=m8xkw@mail.gmail.com</a></p>
-<p>Meltdown 과 Spectre 로 떠들썩했던 시간을 지나 4.15 의 일곱번째 rc 버전이 릴리즈
-되었습니다.  지난 여섯번째 릴리즈 때도 상당히 안정화에 신경써야 할 시점임에도
-x86 pti (page table isolation) 업데이트 패치가 많이 머지되어 의아했는데, 이게
-Meltdown 과 Spectre 버그 때문이었음도 밝혀졌죠.
-그렇다곤 해도 그 외의 부분은 예상대로 상당히 안정화 되어가고 있다고 합니다.</p>
-<p>더불어, Thomas Geixner 등의 인텔쪽 커널 개발자들의 노력 덕에 pti 등 Meltdown 과
-Spectre 버그를 위한 패치가 잘 관리되어 비교적 쉽게 머지될 수 있었음에 리누스가
-감사를 표하네요.  욕할땐 욕하고 칭찬할 땐 칭찬하고. ;)</p>
-<p>아무튼, 이때문에 4.15 는 rc8 까지 릴리즈 할 계획이라고 합니다.  4.15 는 2주일
-후에나 릴리즈 되겠군요.</p>
-<h2 id="lsfmm-2018-call-for-proposals">LSF/MM 2018: Call for Proposals</h2>
-<p><a href="https://lkml.kernel.org/r/20180115163952.GB26120@cmpxchg.org">https://lkml.kernel.org/r/20180115163952.GB26120@cmpxchg.org</a></p>
-<p>리눅스 스토리지, 파일 시스템, 메모리 관리 쪽 개발자들의 모임인 LSFMM 서밋 2018
-을 위한 CFP 가 공개되었습니다.  올해도 4월에 하네요.  장소는 유타입니다.  1월
-31일까지 토론하고 싶은 주제를 메일로 보내면 흥미로운 주제를 바탕으로 주제를
-꾸미고, 그 외에도 그냥 참가하고 싶은 사람도 메일 보내면 내부적으로 심사 후
-초대를 해주는 것 같네요.</p>
+      <h2 id="patch--next-v3-12-mmdebug_vm_pgtable-move-pmdpud_huge_tests-out-of-config_transparent_hugepage-liu-shixin">[PATCH -next v3 1/2] mm/debug_vm_pgtable: Move {pmd/pud}_huge_tests out of CONFIG_TRANSPARENT_HUGEPAGE (Liu Shixin)</h2>
+<p>The functions are not THP dependent in real, but made dependent.  This patch
+moves it out.</p>
+<h2 id="patch-v10-07-make-alloc_contig_range-handle-hugetlb-pages-oscar-salvador">[PATCH v10 0/7] Make alloc_contig_range handle Hugetlb pages (Oscar Salvador)</h2>
+<p><a href="https://lkml.kernel.org/r/20210419075413.1064-1-osalvador@suse.de">https://lkml.kernel.org/r/20210419075413.1064-1-osalvador@suse.de</a></p>
+<p>The 10th version of the patchset which allows Hugetlb pages allocated via
+<code>alloc_contig_range()</code>, dynamically.</p>
+<h2 id="patch-v2-05-mmmadvise-introduce-madv_populate_readwrite-to-prefault-page-tables-david-hildenbrand">[PATCH v2 0/5] mm/madvise: introduce <code>MADV_POPULATE_(READ|WRITE)</code> to prefault page tables (David Hildenbrand)</h2>
+<p><a href="https://lkml.kernel.org/r/20210419135443.12822-1-david@redhat.com">https://lkml.kernel.org/r/20210419135443.12822-1-david@redhat.com</a></p>
+<p>This is the second version of the patchset implementing
+<code>MADV_POPULATE_(READ|WRITE)</code> for <code>madvise()</code> system call.  It could be used for
+prefaulting pages.</p>
+<h2 id="maintainers--kernel-summit-2021-planning-kick-off-theodore-tso">Maintainers / Kernel Summit 2021 planning kick-off (Theodore Ts&rsquo;o)</h2>
+<p><a href="https://lkml.kernel.org/r/YH2hs6EsPTpDAqXc@mit.edu">https://lkml.kernel.org/r/YH2hs6EsPTpDAqXc@mit.edu</a></p>
+<p>The plan for maintainers/kernel summit 2021 is announced.  Those will be
+co-located with LPC on Dublin, Ireland, from September 27th to 29th.  The
+schedule could be changed depend on the vaccination situation, though.</p>
+<h2 id="rfc-memory-reserve-for-userspace-oom-killer-shakeel-butt">[RFC] memory reserve for userspace oom-killer (Shakeel Butt)</h2>
+<p><a href="https://lkml.kernel.org/r/CALvZod7vtDxJZtNhn81V=oE-EPOf=4KZB2Bv6Giz+u3bFFyOLg@mail.gmail.com">https://lkml.kernel.org/r/CALvZod7vtDxJZtNhn81V=oE-EPOf=4KZB2Bv6Giz+u3bFFyOLg@mail.gmail.com</a></p>
+<p>This is a RFC proposing making userspace oom-killer has guaranteed memory.</p>
 
     </div>
 
@@ -660,13 +647,13 @@ Spectre 버그를 위한 패치가 잘 관리되어 비교적 쉽게 머지될 �
 
 <div class="article-tags">
   
-  <a class="badge badge-light" href="/ko/tags/linux/">linux</a>
+  <a class="badge badge-light" href="/tags/linux/">linux</a>
   
-  <a class="badge badge-light" href="/ko/tags/kernel/">kernel</a>
+  <a class="badge badge-light" href="/tags/kernel/">kernel</a>
   
-  <a class="badge badge-light" href="/ko/tags/lkml/">lkml</a>
+  <a class="badge badge-light" href="/tags/lkml/">lkml</a>
   
-  <a class="badge badge-light" href="/ko/tags/news/">news</a>
+  <a class="badge badge-light" href="/tags/news/">news</a>
   
 </div>
 
@@ -683,7 +670,7 @@ Spectre 버그를 위한 패치가 잘 관리되어 비교적 쉽게 머지될 �
       
       
       <li>
-        <a href="https://twitter.com/intent/tweet?url=/ko/post/lkml_news_v4.15-rc7/&amp;text=LKML%20News%20after%20v4.15-rc7" target="_blank" rel="noopener" class="share-btn-twitter">
+        <a href="https://twitter.com/intent/tweet?url=/post/lkml_news_v5.12/&amp;text=LKML%20News%20v5.12" target="_blank" rel="noopener" class="share-btn-twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
@@ -696,7 +683,7 @@ Spectre 버그를 위한 패치가 잘 관리되어 비교적 쉽게 머지될 �
       
       
       <li>
-        <a href="https://www.facebook.com/sharer.php?u=/ko/post/lkml_news_v4.15-rc7/&amp;t=LKML%20News%20after%20v4.15-rc7" target="_blank" rel="noopener" class="share-btn-facebook">
+        <a href="https://www.facebook.com/sharer.php?u=/post/lkml_news_v5.12/&amp;t=LKML%20News%20v5.12" target="_blank" rel="noopener" class="share-btn-facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
@@ -709,7 +696,7 @@ Spectre 버그를 위한 패치가 잘 관리되어 비교적 쉽게 머지될 �
       
       
       <li>
-        <a href="mailto:?subject=LKML%20News%20after%20v4.15-rc7&amp;body=/ko/post/lkml_news_v4.15-rc7/" target="_blank" rel="noopener" class="share-btn-email">
+        <a href="mailto:?subject=LKML%20News%20v5.12&amp;body=/post/lkml_news_v5.12/" target="_blank" rel="noopener" class="share-btn-email">
           <i class="fas fa-envelope"></i>
         </a>
       </li>
@@ -722,7 +709,7 @@ Spectre 버그를 위한 패치가 잘 관리되어 비교적 쉽게 머지될 �
       
       
       <li>
-        <a href="https://www.linkedin.com/shareArticle?url=/ko/post/lkml_news_v4.15-rc7/&amp;title=LKML%20News%20after%20v4.15-rc7" target="_blank" rel="noopener" class="share-btn-linkedin">
+        <a href="https://www.linkedin.com/shareArticle?url=/post/lkml_news_v5.12/&amp;title=LKML%20News%20v5.12" target="_blank" rel="noopener" class="share-btn-linkedin">
           <i class="fab fa-linkedin-in"></i>
         </a>
       </li>
@@ -735,7 +722,7 @@ Spectre 버그를 위한 패치가 잘 관리되어 비교적 쉽게 머지될 �
       
       
       <li>
-        <a href="https://web.whatsapp.com/send?text=LKML%20News%20after%20v4.15-rc7%20/ko/post/lkml_news_v4.15-rc7/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+        <a href="https://web.whatsapp.com/send?text=LKML%20News%20v5.12%20/post/lkml_news_v5.12/" target="_blank" rel="noopener" class="share-btn-whatsapp">
           <i class="fab fa-whatsapp"></i>
         </a>
       </li>
@@ -748,7 +735,7 @@ Spectre 버그를 위한 패치가 잘 관리되어 비교적 쉽게 머지될 �
       
       
       <li>
-        <a href="https://service.weibo.com/share/share.php?url=/ko/post/lkml_news_v4.15-rc7/&amp;title=LKML%20News%20after%20v4.15-rc7" target="_blank" rel="noopener" class="share-btn-weibo">
+        <a href="https://service.weibo.com/share/share.php?url=/post/lkml_news_v5.12/&amp;title=LKML%20News%20v5.12" target="_blank" rel="noopener" class="share-btn-weibo">
           <i class="fab fa-weibo"></i>
         </a>
       </li>
@@ -859,15 +846,15 @@ Spectre 버그를 위한 패치가 잘 관리되어 비교적 쉽게 머지될 �
     <h3>Related</h3>
     <ul>
       
-      <li><a href="/ko/post/lkml_news_v4.15-rc6/">LKML News after v4.15-rc6</a></li>
+      <li><a href="/post/lkml_news_v5.12-rc8/">LKML NEws v5.12-rc8</a></li>
       
-      <li><a href="/ko/post/lkml_news_v4.14-rc4/">LKML News after v4.15-rc5</a></li>
+      <li><a href="/post/lkml_news_v5.12-rc7/">LKML News v5.12-rc7</a></li>
       
-      <li><a href="/ko/post/lkml_news_v4.15-rc5/">LKML News after v4.15-rc5</a></li>
+      <li><a href="/post/lkml_news_v5.12-rc6/">LKML News v5.12-rc6</a></li>
       
-      <li><a href="/ko/post/lkml_news_v4.15-rc4/">LKML News after v4.15-rc4</a></li>
+      <li><a href="/post/lkml_news_v5.12-rc5/">LKML News v5.12-rc5</a></li>
       
-      <li><a href="/ko/post/lkml_news_v4.15-rc3/">LKML News after v4.15-rc3</a></li>
+      <li><a href="/post/lkml_news_v5.12-rc4/">LKML News v5.12-rc4</a></li>
       
     </ul>
   </div>
@@ -924,13 +911,13 @@ Spectre 버그를 위한 패치가 잘 관리되어 비교적 쉽게 머지될 �
     
     
     <script>
-      const search_config = {"indexURI":"/ko/index.json","minLength":1,"threshold":0.3};
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
       const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
       const content_type = {
-        'post': "포스트",
+        'post': "Posts",
         'project': "Projects",
-        'publication' : "논문",
-        'talk' : "강연"
+        'publication' : "Publications",
+        'talk' : "Talks"
         };
     </script>
     
