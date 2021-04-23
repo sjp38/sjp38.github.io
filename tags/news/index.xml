@@ -48,6 +48,13 @@ malicious patches that don&amp;rsquo;t fix real problems but introduce new secur
 and flaws into the Linux kernel, and a number of such patches merged in both
 mainline and the stable trees.  This patchset is reverting all patches from
 umn.edu as a reaction.&lt;/p&gt;
+&lt;h2 id=&#34;patch-mm-compaction-improve-proc-trigger-for-full-node-memory-compaction-charan-teja-reddy&#34;&gt;[PATCH] mm: compaction: improve /proc trigger for full node memory compaction (Charan Teja Reddy)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/1619098678-8501-1-git-send-email-charante@codeaurora.org&#34;&gt;https://lkml.kernel.org/r/1619098678-8501-1-git-send-email-charante@codeaurora.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;/proc/sys/vm/compact_memory&lt;/code&gt; file triggers full node compaction and don&amp;rsquo;t stop
+even though the trigger application now suffice with progress.  This patch adds
+&lt;code&gt;/proc/sys/vm/proactive_compact_memory&lt;/code&gt; file, which triggers full node
+compaction when an arbitrary value is written on it, but it can be stopped in
+middle if &lt;code&gt;COMPACTION_HPAGE_ORDER&lt;/code&gt; pages become available.&lt;/p&gt;
 </description>
     </item>
     
