@@ -576,7 +576,7 @@ This is the second version of the patchset implementing MADV_POPULATE_(READ|WRIT
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    2 min read
+    3 min read
   </span>
   
 
@@ -658,6 +658,20 @@ middle if <code>COMPACTION_HPAGE_ORDER</code> pages become available.</p>
 <p><a href="https://lkml.kernel.org/r/afc5664dc2b60f912dd97abfa818b3f7c4237b92.camel@HansenPartnership.com">https://lkml.kernel.org/r/afc5664dc2b60f912dd97abfa818b3f7c4237b92.camel@HansenPartnership.com</a></p>
 <p>As a followup of the University of Minnesota event, James proposed a maintainer
 summit topic for trivial patches acceptance policy.</p>
+<h2 id="linux-512-linus-torvalds">Linux 5.12 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wj3ANm8QrkC7GTAxQyXyurS0_yxMR3WwjhD9r7kTiOSTw@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wj3ANm8QrkC7GTAxQyXyurS0_yxMR3WwjhD9r7kTiOSTw@mail.gmail.com</a></p>
+<p>I personally worried how the University of Minnesota happening affect the
+release schedule.  Unlike concerns, v5.12 released as expected, after only one
+extra rc.  This means the merge window for v5.13 started.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.1..v5.12.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2019-04-26 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
 
     </div>
 
