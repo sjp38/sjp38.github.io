@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2021-04-20T07:19:28&#43;02:00">
+    <meta property="og:updated_time" content="2021-04-27T07:01:06&#43;02:00">
   
 
   
@@ -525,6 +525,21 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.2-rc3/">LKML News v5.2-rc3</a></h2>
+    <div class="article-style">
+      
+      [PATCH tip/core/rcu 0/12] https://lkml.kernel.org/r/20190530145204.GA28526@linux.ibm.com
+Paul E. McKenney 로부터의 RCU flavor consolidation 관련 추가 작업과 코드 정리를 위한 패치셋입니다.
+[PATCH tip/core/rcu 0/2] Documentation updates for v5.3 https://lkml.kernel.org/r/20190530145504.GA29820@linux.ibm.com
+RCU 문서 업데이트를 담고 있는 패치셋입니다. rcuref 의 실제 예제와 rcu_task_stall_timeout 의 정의에 대한 내용이 추가되었군요!
+[PATCH tip/core/rcu 0/21] Torture-test updates for v5.3 https://lkml.kernel.org/r/20190530151650.GA422@linux.ibm.com
+RCU 와 spinlock 등을 위해 사용되는 torture 테스트 업데이트를 담은 패치셋입니다. 무려 21개 패치네요!
+[RFCv2 0/6] introduce memory hinting API for external process https://lkml.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.2-rc2/">LKML News v5.2-rc2</a></h2>
     <div class="article-style">
       
@@ -634,20 +649,6 @@ v5.2 를 위한 torture test 의 업데이트 패치셋입니다. LKMM 이라던
 이 패치셋은 walk_page_range() 가 커널의 페이지 테이블을 만질 수 있도록 확장함으로써 그런 불필요한 아키텍쳐별 파편화를 줄이려 합니다.
 [PATCH v6 0/7] psi: pressure stall monitors v6 https://lkml.kernel.org/r/20190319235619.260832-1-surenb@google.com
 시스템이 어떤 부분의 pressure 를 받는지 쉽게 확인하기 위한 pressure stall monitor 구현 패치의 여섯 번째 버전입니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.1-rc1/">LKML News v5.1-rc1</a></h2>
-    <div class="article-style">
-      
-      Linux v5.0 릴리즈 (2019-03-03) 부터 v5.1-rc1 릴리즈 (2019-03-17) 사이의 머지 윈도우 기간 LKML 에 올라온 흥미로운 메일들을 소개합니다.
-CMA allocation failure https://lkml.kernel.org/r/57e0bc63-0be9-498b-8ffc-3b073e01e299@email.android.com
-제게도 GCMA 레이턴시 관련 문의를 보냈던 분인데, LKML 에도 관련 도움을 요청하는 메일을 보냈군요.
-왜 CMA 가 할당에 실패하는지 이유를 묻는 메일인데요, 답은 없습니다.
-[LSF/MM TOPIC] Using XArray to manage the VMA https://lkml.kernel.org/r/7da20892-f92a-68d8-4804-c72c1cb0d090@linux.ibm.com
-MM 의 오랜 숙원 중 하나는 mmap_sem 으로 인한 확장성 문제 해결이죠. 기존의 RB tree 대신 XArray 를 사용하는 것으로 새로운 시도를 시작해 보는건 어떨지 LSFMM 에서 토의해보자는, speculative page fault 의 최근 메인테이너인 Laurent 의 메일입니다.
       
     </div>
   </div>
