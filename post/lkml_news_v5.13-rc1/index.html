@@ -629,6 +629,12 @@ using 1GB hugetlbfs huge pages could be an example user of this feature.</p>
 <p><a href="https://lkml.kernel.org/r/20210428153542.2814175-1-Liam.Howlett@Oracle.com">https://lkml.kernel.org/r/20210428153542.2814175-1-Liam.Howlett@Oracle.com</a></p>
 <p>This huge patchset introduces an RCU-safe range based B-tree called maple tree.
 It is mainly designed to be used for scalable virtual memory areas management.</p>
+<h2 id="patch-v3-mm-improve-mprotectrw-efficiency-on-pages-referenced-once-peter-collingbourne">[PATCH v3] mm: improve mprotect(R|W) efficiency on pages referenced once (Peter Collingbourne)</h2>
+<p><a href="https://lkml.kernel.org/r/20210429214801.2583336-1-pcc@google.com">https://lkml.kernel.org/r/20210429214801.2583336-1-pcc@google.com</a></p>
+<p>After removing write protection of a page using <code>mprotect()</code>, any writes to the
+page result in page faults and copy-on-write, even though the page is
+referenced by only a single PTE, which incur some performance overhead.  This
+patch optimizes this problem.</p>
 
     </div>
 
