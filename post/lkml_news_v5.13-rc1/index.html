@@ -652,6 +652,23 @@ This helps managing non-4KiB pages cleanly and efficiently.</p>
 <h2 id="incoming-andrew-morton-1">incoming (Andrew Morton)</h2>
 <p><a href="https://lkml.kernel.org/r/20210506180126.03e1baee7ca52bedb6cc6003@linux-foundation.org">https://lkml.kernel.org/r/20210506180126.03e1baee7ca52bedb6cc6003@linux-foundation.org</a></p>
 <p>Pull request for every remaining paches in -mm tree.</p>
+<h2 id="linux-513-rc1-linus-torvalds">Linux 5.13-rc1 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wiWTU+=wK9pv_YG01rXSqApCS_oY+78Ztz5-ORH5a-kvg@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wiWTU+=wK9pv_YG01rXSqApCS_oY+78Ztz5-ORH5a-kvg@mail.gmail.com</a></p>
+<p>After the two weeks of merge window, first rc1 for v5.13 released.  Fairly big
+merge window compared to last one.  Most changes are spread over all
+subsystems, though some subsystems show big, but not so important changes that
+makes the picture overshadowed.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.2-rc2..v5.13-rc1.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2019-03-01 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc1 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.13-rc1-only.png" alt="rc2 release stat"></p>
 
     </div>
 
