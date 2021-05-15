@@ -13,6 +13,387 @@
     </image>
     
     <item>
+      <title>리눅스 30주년 맞이 리누스 토발즈 인터뷰 번역 - 파트 1</title>
+      <link>/ko/post/torvalds_interview_ko/</link>
+      <pubDate>Sat, 08 May 2021 11:00:02 +0200</pubDate>
+      <guid>/ko/post/torvalds_interview_ko/</guid>
+      <description>&lt;p&gt;리눅스 커널이 처음 공개된지 올해로 30년이 되었습니다.  한 매체에서 이를 맞아
+리누스 토발즈와
+&lt;a href=&#34;https://www.tag1consulting.com/blog/interview-linus-torvalds-linux-and-git&#34;&gt;인터뷰&lt;/a&gt;
+를 했군요.  해당 매체에 허락을 받고 이곳에 번역을 올립니다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;리눅스 커널 개발&lt;/p&gt;
+&lt;p&gt;Jeremy Andrews: 리눅스는 어디에나 있고, 오픈소스 세계 전체에 영감을 줬습니다.
+물론, 처음부터 그런 건 아니었습니다.  당신은 comp.os.minix 의 Usenet 메일링
+리스트에 겸손한 메일을 보냄으로써 1991년에 리눅스 커널을 릴리즈 했고 이는 무척
+유명해졌죠.
+10년 후, 당신은 그 역사를 이야기 하는&amp;rdquo;&lt;a href=&#34;https://bookshop.org/books/just-for-fun-the-story-of-an-accidental-revolutionary/9780066620732&#34;&gt;Just for Fun: The Story of an Accidental
+Revolutionary&lt;/a&gt;&amp;rdquo; 라는 매력적이고도 개인적인 책을 냈죠.
+올해 8월, 리눅스는 30주년을 맞이하게 되었습니다!
+대단해요, 축하합니다!
+이 여정 가운데 언제쯤부터 당신은 리눅스가 &amp;ldquo;그저 취미 (just a hobby)&amp;rdquo; 보다는
+더한 무엇이 되었음을 깨달았나요?&lt;/p&gt;
+&lt;p&gt;Linus Torvalds: This may sound a bit ridiculous, but that actually happened
+very early. Already by late &amp;lsquo;91 (and certainly by early &amp;lsquo;92) Linux had already
+become much bigger than I had expected.&lt;/p&gt;
+&lt;p&gt;Linus Torvalds: 이건 좀 웃기게 들리겠지만, 그건 무척 초반부터였습니다.
+이미 1991년 말부터 (그리고 1992년 초부터는 분명히) 리눅스는 이미 제가 예상한
+것보다 훨씬 커져 있었습니다.&lt;/p&gt;
+&lt;p&gt;그리고 맞아요, 그때 아마 수백명의 사용자가 있었는데 (&amp;ldquo;사용자&amp;rdquo; 라고 하는 것도
+너무 어감이 강할지도요 - 사람들은 그걸 고쳐대고 있었습니다), 리눅스가 나중에는
+그보다 훨씬 거대해졌다는 점을 생각해 보면 이건 좀 이상하게 들릴 거예요.
+하지만 제게 개인적으로는 여러 방면에서, 다른 사람들이 활발하게 그걸 사용하고
+있음을, 그리고 그것이 스스로의 삶을 시작했음을 깨달은 때가 바로 큰
+변곡점이었습니다.
+사람들은 패치를 보내기 시작했고, 시스템은 제가 초반에 정말로 상상했던 것보다
+훨씬 많은 것들을 하기 시작했죠.&lt;/p&gt;
+&lt;p&gt;제가 생각하기로 X11 은 92년 4월에 리눅스로 포팅되었고 (날짜는 틀릴 수 있어요 -
+그건 오오래전 일이예요), 이는 GUI 와 모든 새로운 기능들이 생겨난, 또다른 큰
+한걸음이었습니다.&lt;/p&gt;
+&lt;p&gt;이 모든걸 넣고 보면 - 나는 높은 기대치의 큰 계획을 가지고 시작하지 않았습니다.
+그건 새로운 운영체제를 만들어내기 위한 어떤 큰 꿈으로부터 시작된 게 아니라 말
+그대로 그저 제 새 PC 하드웨어가 어떻게 작동하는지 알아보려 시작한데서 사고처럼
+시작된 개인적 프로젝트였습니다.&lt;/p&gt;
+&lt;p&gt;그래서 제가 최초 버전을 릴리즈 했을 때, 그건 정말 &amp;ldquo;내가 뭘 만들었는지 보세요&amp;rdquo;
+에 더 가까웠고, 다른 사람들이 거기에 흥미를 갖길 제가 원했던 건 분명하지만,
+그건 정말 진지하고 사용할 수 있는 OS 는 아니었습니다.
+그건 그보단 컨셉의 증명에 가까웠고 제가 몇달의 시간동안 일한 개인적 프로젝트에
+불과했습니다.&lt;/p&gt;
+&lt;p&gt;그리고 그 &amp;ldquo;개인 프로젝트&amp;rdquo; 로부터 다른 사람들이 사용하고 피드백 (과 버그
+레포트), 그리고 마침내 패치를 보내는 것이 되어가는 과정은 제게 큰 변화였습니다.&lt;/p&gt;
+&lt;p&gt;단지, 정말 기본적인 무언가의 예를 주기 위해서: 원래의 카피라이트 라이센스는
+&amp;ldquo;당신은 이걸 소스 형태로 배포할 수 있습니다만, 상업적으로는 안됩니다&amp;rdquo; 같은
+것이었습니다.&lt;/p&gt;
+&lt;p&gt;그건 왜냐하면 제게 있어 큰 문제들 중 하나는 말 그대로 상업용 유닉스는 비쌌다는
+것이고 (글쎄요, 자기 돈을 모두 새로운 PC 사는데 쓴 가난한 학생에게는 말이죠),
+때문에 제게 있어 소스코드가 사용 가능해야 한다는 건 (사람들이 그걸 고칠 수
+있게끔) 크고 중요한 일 중 하나였습니다, 그리고 전 대안을 살 돈이 없는 바로
+저같은 사람들에게 열려 있기를 바랬어요.&lt;/p&gt;
+&lt;p&gt;그리고 전 그 라이센스를 91년 말 (또는 92년 초일지도) GPLv2 로 바꿨는데, 그걸
+지역 유닉스 사용자 그룹에 플로피 디스크를 사용해 배포하고자 하는데 최소한 그
+플로피 디스크와 그들의 복사본 만드는데 든 시간을 보상받고 싶어하는 사람들이
+있었기 때문입니다.
+그리고 저는 그건 분명 완전 합리적인 일임을, 그리고 정말 중요한 건 &amp;ldquo;비상업성&amp;rdquo; 이
+아니라 &amp;ldquo;소스코드는 개방되어야 한다&amp;rdquo; 부분임을 깨달았습니다.&lt;/p&gt;
+&lt;p&gt;결과: 사람들은 그걸 유닉스 사용자 그룹 모임에 배포할 뿐만 아니라, SLS 와
+Slackware 같은 플로피 디스크 기반 배포판들이 몇달만에 만들었습니다.&lt;/p&gt;
+&lt;p&gt;초기의 정말 기본적인 변화들에 비교해서, 다른 모든 것은 &amp;ldquo;점진적&amp;rdquo; 이었습니다.
+맞아요, 그런 점진적 변화 가운데 일부는 정말 거대했습니다 (IBM 이 참여하고,
+오라클 DB 가 포팅되고, 레드햇이 상장하고, 안드로이드가 전화기 등에서
+거대해지고), 하지만 그것들은 정말 초기의 &amp;ldquo;내가 알지도 못하는 사람들이 리눅스를
+사용한다&amp;rdquo; 에 비하면 제 개인적으로는 덜 혁명적이었어요.&lt;/p&gt;
+&lt;p&gt;JA: 라이센스 선택을 후회하거나 당신이 만든 것을 이용해 다른 사람이나 회사가 얼마나 많은 돈을 벌어들이는지에 대해 후회한 적은 없습니까?&lt;/p&gt;
+&lt;p&gt;LT: 전혀요.&lt;/p&gt;
+&lt;p&gt;일단, 전 꽤 잘 지내고 있습니다.
+전 미친듯이 부자는 아닙니다만, 좋은 보수를 받는 소프트웨어 엔지니어이고, 제가
+좋아하는 걸 제 스스로의 스케쥴에 맞춰 하고 있습니다.
+전혀 상처받지 않아요.&lt;/p&gt;
+&lt;p&gt;하지만 이와 똑같이 중요한게, 그 라이센스가 리눅스 (그리고 Git) 의 성공에 큰
+부분이 되었음에 100% 반족하고 있습니다.
+저는 연관된 모두가 모든 사람이 동일한 권리를 가졌고, 누구도 라이센스에 관해선
+특별하지 않음을 깨달을 때 훨씬 행복해진다고 생각합니다.&lt;/p&gt;
+&lt;p&gt;원래 소유자가 상업성 라이센스를 소유하며 (&amp;ldquo;우리에게 라이센스 비용을 지불하면
+당신은 이걸 당신의 독점 상품에 사용할 수 있습니다&amp;rdquo;) 다른 한편으로는 오픈소스의
+경우엔 GPL 같은 무언가 하에 사용될 수도 있는 많은 수의 &amp;ldquo;듀얼 라이센스&amp;rdquo;
+프로젝트들이 존재합니다.&lt;/p&gt;
+&lt;p&gt;그리고 전 그런 종류의 상황 하에서는 커뮤니티를 만들기가 정말 어렵다고
+생각하는데, 오픈소스 쪽은 그게 &amp;ldquo;두번째 클래스&amp;rdquo; 임을 항상 알기 때문입니다.
+또한 이는 특수한 집단이 항상 특수한 권리를 유지하기 위해 그저 라이센스 서류
+작업을 많이 해야 하게 합니다.
+때문에 이는 프로젝트에 많은 마찰을 일으킵니다.&lt;/p&gt;
+&lt;p&gt;다른 한편으로, 전 여러 BSD (또는 MIT 나 비슷한 것들) 라이센스를 사용하는
+오픈소스 프로젝트들이 상업적으로 중요해질 만큼 거대해지는 순간 쪼개지고, 관련된
+회사들이 자신들의 부분들을 독점화 하기로 결정해야만 하게 되는 것을 봤습니다.&lt;/p&gt;
+&lt;p&gt;따라서 저는 GPLv2 가 &amp;ldquo;모두가 같은 규칙 아래 일한다&amp;rdquo;, 그리고 그 사람들은
+커뮤니티에 이익을 돌려준다 (&amp;ldquo;팃포탯&amp;rdquo;) 의 완벽한 밸런스라고 생각합니다.
+그리고 모두가 연관된 사람들이 같은 규칙 아래 있음을 알게 되므로, 매우 공평하고
+정당합니다.&lt;/p&gt;
+&lt;p&gt;물론, 이것의 다른 부분은 여러분 또한 투자한 만큼 받아간다는 겁니다.
+맞아요, 여러분은 프로젝트 변방에 머무르고 단순한 사용자가 될수도 있습니다,
+그리고 그래도 되요.
+하지만 그런다면, 여러분에겐 해당 프로젝트에 대한 제어권이 없습니다.
+이것 역시 완전히 괜찮을 수 있어요, 여러분이 정말 기본적인 운영체제를 원할
+뿐이라면 말이죠, 그리고 리눅스는 이미 여러분이 필요한 모든걸 하고 있습니다.
+하지만 여러분에게 특수한 요구사항이 있다면, 프로젝트에 영향을 끼치는 유일한
+방법은 참여하는 겁니다.&lt;/p&gt;
+&lt;p&gt;이게 모두를 정직하게 만듭니다.
+저를 포함해서요.
+누구나 프로젝트를 포크 (fork) 해서 스스로의 방법으로 나아가고 &amp;ldquo;안녕히 리누스,
+난 내 버전의 리눅스의 관리권을 가져갑니다&amp;rdquo; 라고 할 수 있습니다.
+전 그저 사람들이 제가 일을 잘 할거라 믿기 때문에 - 그리고 그 믿음이 지속되는
+동안만 - &amp;ldquo;특별&amp;rdquo; 합니다.
+그리고 정말 그래야만 합니다.&lt;/p&gt;
+&lt;p&gt;이 &amp;ldquo;누구나 스스로의 버전을 관리할 수 있다&amp;rdquo; 부분이 어떤 사람들을 GPLv2 에 대해
+걱정하게 만듭니다, 하지만 전 정말로 그건 강점이지 약점이 아니라 생각해요.
+어떤 면에선 의도된 바는 아니지만, 전 그게 리눅스의 쪼개짐을 정말로 막아준
+것이라고 생각합니다: 모두가 각자의 포크 (fork) 를 소유할 수 있고, 그래도 되요.
+사실, 그건 &amp;ldquo;Git&amp;rdquo; 의 핵심 설계 철학 중 하나입니다 - 저장소의 모든 복사본은 그
+자체로 작은 포크 (fork) 이고, 사람들 (그리고 회사들) 이 그들 스스로의 포크를
+만드는 것이 바로 개발 이 이루어지는 과정입니다.&lt;/p&gt;
+&lt;p&gt;그러므로 포크 (fork) 를 하는 건 문제가 아니예요, 그들로부터 좋은 부분들을 다시
+머지할 수 있는 한 말이죠.
+그리고 이게 GPLv2 가 해주는 일입니다.
+포크하고 여러분 스스로의 일을 할 수 있는 권한을 갖는 건 중요합니다, 하지만
+동전의 반대면도 똑같이 중요합니다 - 어떤 포크가 성공했을 때 다시 원본으로
+돌아갈 수 있는 권리.&lt;/p&gt;
+&lt;p&gt;또다른 문제는 여러분이 이 작업흐름을 지원하는 도구를 정말 원하지만, 이를 위한
+마음가짐 또한 가져야만 한다는 점입니다.
+포크를 원본으로 돌리는 일의 큰 장애물 중 하나는 단순한 라이센스 문제만이 아니라
+&amp;ldquo;나쁜 혈통&amp;rdquo; 입니다.
+해당 포크가 적대적 이유로 시작되었다면, 두개의 포크를 하나로 합치는 건 무척
+어려울 수 있습니다 - 라이센스나 기술적 이유가 아니라 그 포크가 무척 험악했기
+때문에요.
+다시 말하지만, 전 리눅스가 그걸 방지했으며, 이는 우리가 항상 포크 하는 행위를
+자연적인 것이라 봤고, 그럼 어떤 작업이 스스로 성공적이었다 여길 때 원본에
+되돌리고자 하는 행위 역시 자연적이 된다는 점 때문이 크다고 생각합니다.&lt;/p&gt;
+&lt;p&gt;그러니까, 답변이 좀 옆길로 샜습니다만, 전 이게 중요한 점이라고 생각합니다 - 전
+그 라이센스 선택을 전혀 후회하지 않아요, 왜냐하면 전 정말로 GPLv2 가 리눅스가
+성공적인 이유 중 큰 부분이라고 생각하거든요.&lt;/p&gt;
+&lt;p&gt;돈은 정말 그렇게나 대단한 동기부여장치는 아닙니다.
+그건 사람들을 끌어모으지 않아요.
+공동의 프로젝트를 가지고 해당 프로젝트에 있어 여러분이 정말로 완전한 파트너가
+될 수 있다고 정말로 느끼는 것, 그것이 사람들을 동기부여 시킵니다, 제
+생각에는요.&lt;/p&gt;
+&lt;p&gt;JA: 요즘 사람들이 소스코드를 GPLv2 아래 릴리즈 하면, 그건 보통 리눅스
+때문입니다.
+당신은 그 라이센스를 어떻게 발견했고, 다른 라이센스들을 검토해 보는데는 얼마나
+많은 시간과 노력을 기울였나요?&lt;/p&gt;
+&lt;p&gt;LT: 그당시, 사람들은 여전히 BSD vs GPL 에 대한 대단한 전쟁을 벌이고 있었습니다
+(부분적으로는 rms 가 사람들을 욕하는데 가진 재능이 이를 부추겼다고 생각합니다),
+따라서 저는 제가 구독중이던 일부 usenet 뉴스그룹을 통해 (comp.arch 나
+comp.os.minix 등) 라이센스 토론 중 일부를 봤습니다.&lt;/p&gt;
+&lt;p&gt;하지만 두가지 주요 이유는 분명 그저 gcc - 리눅스가 돌아가게 하는데 매우 주된
+역할을 하던, 왜냐면 전 당연히 C 컴파일러가 필요했으니까요 - 와 제가 당시 다니던
+대학교의 스웨덴말을 하는 (핀란드에서 스웨덴어는 작은 비주류층을 형성합니다)
+컴퓨터학과 학생이었던 Lars Wirzenius (&amp;ldquo;Lasu&amp;rdquo;) 때문이었습니다.&lt;/p&gt;
+&lt;p&gt;Lasu 는 저보다 훨씬 라이센스 토론 등에 빠져 있었습니다.&lt;/p&gt;
+&lt;p&gt;제게 있어, GPLv2 의 선택은 큰 정치적 문제가 아니었습니다, 그건 주로 제 원래
+라이센스가 임시 변통적 것이었고 업데이트되어야 할 필요가 있었다는 것에 대한
+것이었고, 전 제가 gcc 에 신세를 졌고 GPLv2 는 저의 &amp;ldquo;당신은 소스코드를
+되돌려줘야 합니다&amp;rdquo; 기대에 부합하는 것이었습니다.&lt;/p&gt;
+&lt;p&gt;따라서 다른 라이센스를 만드는 것보다는 (또는 원래의 것을 수정하는 것 - 그저
+&amp;ldquo;상업적으로 쓰이면 안됨&amp;rdquo; 부분만 제거하는 게 하나의 선택이 될 수 있었을 겁니다 -
+보다는), 전 다른 사람들이 이미 알고 있는것을 고르고 일부 법률가들을 참여하게
+하고 싶었습니다.&lt;/p&gt;
+&lt;p&gt;JA: 당신의 평범한 하루는 어떻습니까?
+얼마나 많은 시간을 코딩, 코드 리뷰, 이메일 읽고 쓰기에 사용하나요?
+그리고 개인적 삶과 리눅스 커널을 위해 일하는 사이의 밸러스를 어떻게 잡습니까?&lt;/p&gt;
+&lt;p&gt;LT: 요즘 저는 매우 적은 코드만을 작성합니다, 그리고 오랫동안 그랬어요.
+그리고 제가 코드를 작성할 때는, 가장 흔한 상황은 어떤 특정한 문제에 대한 토론이
+있을때 제가 제안하는 해결책을 설명하기 위한 것을 주목적으로 하는 패치를 만들어
+보내는 것입니다.&lt;/p&gt;
+&lt;p&gt;달리 말하면, 제가 작성하는 대부분의 코드는 &amp;ldquo;보세요, 이렇게 하면 어떨까요&amp;rdquo;
+하는데 매우 구체적인 예를 드는 패치에 가깝습니다.
+무언가를 어떻게 해결하는가에 대한 고수준의 이론적 토론에 빨려들어가기는
+쉽습니다, 그리고 어떤 해결책을 설명하는 최선의 방법은 많은 경우 전체가 아니라
+약간의 코드를 작성하고 그걸 무척 구체적으로 만드는 것임을 알았습니다.&lt;/p&gt;
+&lt;p&gt;저의 진짜 작업시간은 이메일을 읽고 쓰는데 쓰이기 때문입니다.
+그건 대부분 소통을 하는 것이지, 코딩하는 게 아닙니다.
+사실, 저는 지금과 같이 저널리스트나 기술 블로거들 등과 대화하는 종류의 것들을
+말 그대로 제 업무시간의 한 부분으로 여깁니다 - 실제 기술적 토론에 비해 낮은
+우선순위를 가질 수 있겠지만, 전 이런 종류의 일에도 적지 않은 시간을 사용합니다.&lt;/p&gt;
+&lt;p&gt;그리고, 맞습니다, 전 코드리뷰에도 시간을 씁니다만, 솔직히 제가 풀리퀘스트를
+받는 시점에서는 해당 코드는 일반적으로 이미 여러 사람들에게 리뷰가 되어 있어야
+합니다.
+따라서 저는 여전히 패치들을 들여다 보긴 합니다만, 실제로는 그 패치에 대한
+설명과 그 패치가 어떻게 제게 오게 되었는지에 대한 역사를 더 보는 경향이
+있습니다.
+그리고 제가 오랫동안 함께 일한 사람들에 대해서는 그것조차 하지 않습니다: 그들은
+그들의 서브시스템의 메인테이너이고, 전 그들의 일을 마이크로매니징 하기 위해
+존재하지 않습니다.&lt;/p&gt;
+&lt;p&gt;따라서 상당히 자주, 제 주된 일은 &amp;ldquo;거기 있는 것&amp;rdquo;, 취합 지점이 되는것, 그리고
+릴리즈를 관리하고 강제하는 사람이 되는 것입니다.
+달리 말하자면, 제 일은 일반적으로 낮은 수준의 코드보다는 관리 프로세스에 대한
+것입니다.&lt;/p&gt;
+&lt;p&gt;JA: 당신의 작업 환경은 어떤가요?
+예를 들어, 방해 없는 어두운 방을, 아니면 경치가 좋은 방을 선호하나요?
+주로 조용한 곳에서 일합니까, 아니면 음악을 들으며 일합니까?
+어떤 하드웨어를 주로 사용하나요?
+터미널에서 &amp;lsquo;vi&amp;rsquo; 를 사용해 코드리뷰를 하나요, 아니면 예쁜 IDE 를 사용하나요?
+그리고, 이 일을 위해 선호하는 리눅스 배포판이 있나요?&lt;/p&gt;
+&lt;p&gt;LT: 제 방은 완전히 어둡지는 않습니다만 제 책상 옆 창문에 블라인드를 닫아두고
+있는데, 밝은 태양빛을 (오레곤의 이맘때에는 흔치 않지만요) 원치 않기 때문입니다.
+그러니 경치는 없어요, 그저 (혼잡한) 책상과 두개의 4k 모니터 그리고 책상 아래
+고성능 데스크탑 컴퓨터만 있습니다.
+그리고 제가 밖에 있을 때 테스트를 하기 위해 두개의 랩탑이 있습니다.&lt;/p&gt;
+&lt;p&gt;그리고 저는 조용한데서 일하길 바랍니다.
+전 기계식 디스크 드라이브의 - 지금으로부터 10년도 전에 SSD 만을 사용했기에
+행복하게도 쓰레기통에 버렸죠 - 소음을 싫어해왔고 시끄러운 CPU fan 도 받아들일
+수 없어요.&lt;/p&gt;
+&lt;p&gt;그리고 모든 일은 전통적인 터미널에서 합니다, &amp;lsquo;vi&amp;rsquo; 를 사용하진 않지만요.
+저는 &amp;ldquo;micro-emacs&amp;rdquo; 라고 불리는, 일부 키 바인딩이 비슷하단 점을 제외하면 GNU
+emacs 와 전혀 관련없는 혐오스런 것을 사용합니다.
+전 헬싱키 대학에 있던 어린 시절부터 이것에 익숙해졌고, 이로부터 아직 졸업하지
+못했어요, 조만간 그래야만 한다고 생각하지만요.
+저는 몇년 전에 이 에디터에 (매우 약간의) utf-8 지원 기능을 추가했습니다만, 이젠
+정말 이 도구의 나이가 보이기 시작하고, 80년대에 만들어졌다는 모든 징표를 보이고
+있으며 제가 사용하는 버전은 90년대 중반부터 관리되지 않고 있는 한 fork 입니다.&lt;/p&gt;
+&lt;p&gt;헬싱키 대학은 이게 DOS, VAX/VMS 와 유닉스에서 동작한다는 이유로 이걸 사용했고,
+그게 제가 이걸 소개받은 이유입니다.
+이제 제 손가락은 이것에 너무 익숙해졌습니다.
+전 이제 정말 관리되고 있고 utf-8 을 올바르게 지원하는 무언가로 옮겨타야만
+합니다.
+아마도 &amp;lsquo;nano&amp;rsquo; 로 넘어갈 수 있겠죠.
+하지만 제 과거의 쓰레기 작업물들은 제 늙은 손가락들에게 새로운 기술을
+가르치도록 강제할 만한 것이 되진 않았죠.&lt;/p&gt;
+&lt;p&gt;그러니 제 데스크탑 환경은 매우 간단합니다: 몇개의 텍스트 기반 터미널이 열려
+있고, 웹브라우저에 이메일이 (그리고 몇개 더 탭이 있는데, 대부분 뉴스와 기술
+사이트를 열어둡니다) 열려 있죠.
+전 충분한 데스크탑 공간을 갖길 원하는데, 충분히 큰 터미널 윈도우들에 (전
+터미널을 100x40 크기로 일단 띄웁니다) 익숙하고, 여러 터미널을 나란히 띄워두기
+때문입니다.
+그래서 두개의 4k 모니터를 사용하죠.&lt;/p&gt;
+&lt;p&gt;전 제 컴퓨터에 페도라를 사용합니다, 그게 &amp;ldquo;선호&amp;rdquo; 되기 때문은 아니고, 제가 거기
+익숙하기 때문입니다.
+전 배포판에 대해선 크게 신경쓰지 않습니다 - 제게 있어 그건 대부분 어떤 기계에
+커널을 교체하고 그 위에서 일할 수 있게끔 리눅스를 설치하고 제 도구들을 셋업하기
+위한 방법입니다.&lt;/p&gt;
+&lt;p&gt;JA: 리눅스 커널 메일링 리스트는 커널 개발이 공개적으로 일어나는 곳이고, 매우
+소통량이 많습니다.
+그 수많은 이메일을 어떻게 다루시나요?
+메일링 리스트 외부에서 협업하고 소통하기 위한 다른 방법들을 알아보셨나요, 또는
+당신이 하는 일을 위해 완벽한 간단한 메일링 리스트 같은게 있나요?&lt;/p&gt;
+&lt;p&gt;LT: 오, 전 커널 메일링 리스트를 직접 읽지 않아요, 수년째 그래왔어요.
+그건 너무 너무 많아요.&lt;/p&gt;
+&lt;p&gt;아니오, 커널 메일링 리스트의 핵심은 그게 모든 토론에 참조인으로 붙는다는 (음 -
+여러개의 커널 메일링 리스트들 가운데 하나가요, 그리고 전통적인 lkml 리스트는 더
+적당한 리스트가 없을 때 사용됩니다) 점입니다.
+그리고 그런 방법으로, 새로운 사람이 토론에 참여하게 될 때, 그들은 커널 메일링
+리스트를 봄으로써 과거 기록과 배경을 알 수 있는 거죠.&lt;/p&gt;
+&lt;p&gt;그러므로 저는 이 리스트를 구독하지만 제가 개인적으로 cc 되지 않은 모든 lkml
+이메일은 자동으로 기록함으로 가게 해서 기본적으로는 전 그것들을 읽지 않게
+해왔습니다.
+하지만 이후에 어떤 문제가 제게 올라오면, 그 모든 토론은 필요해지기 전까지는 제
+인박스에 있진 않았지만 제 이메일에 있었기 때문에, 제게 보이게 되는 거죠.&lt;/p&gt;
+&lt;p&gt;요즘은 저는 lore.kernel.org 기능을 대신 사용하는데, 그게 잘 작동하기도 하고
+그걸 바탕으로 만들어진 도구들도 몇가지 있기 때문입니다.
+따라서 제 메일 저장함으로 자동으로 옮겨지도록 하는 대신, 토론들이 그 방법으로
+보여지게 되는 겁니다.
+하지만 이 기본적인 워크플로우는 개념적으로는 동일합니다.&lt;/p&gt;
+&lt;p&gt;전 여전히 상당한 양의 이메일을 받습니다, 분명히요 - 하지만 여러 측면에서 수년간
+상황이 좋아져 가고 있습니다.
+그 중 큰 부분은 Git 과 커널 릴리즈 플로우가 잘 동작하고 있다는 점입니다: 우린
+코드 플로우와 도구들에 대한 많은 문제들을 가져왔습니다.
+제 이메일 상황은 20세기에서 21세기로 넘어오던 시절, 여전히 거대한 패치 폭단을
+다뤄야 하고 개발 플로우에 큰 확장성 문제를 가지고 있던 때에는 정말 훨씬 훨씬
+나빴습니다.&lt;/p&gt;
+&lt;p&gt;그리고 이 메일링 리스트 (와 이를 둘러싼 도구 사용) 모델은 정말 잘 동작했습니다.
+이는 사람들이 이메일 (1대1 메일과 메일링 리스트)에 더해 다른 소통 수단을
+사용하지 않는다는 말이 아닙니다: 다양한 실시간 채팅을 (IRC 가 전통적인
+수단이죠) 좋아하는 사람들이 있습니다.
+전 그걸 사용하지 않았지만, 어떤 사람들은 브레인스토밍에 그걸 사용하기
+좋아하는게 분명합니다.
+하지만 &amp;ldquo;저장소로써의 메일링 리스트&amp;rdquo; 모델은 매우 잘 동작하며, 모든 &amp;ldquo;개발자간에
+패치를 이메일로 보내기&amp;rdquo; 와 &amp;ldquo;문제 보고서를 이메일로 보내기&amp;rdquo; 와 함께 매끄럽게 잘
+동작합니다.&lt;/p&gt;
+&lt;p&gt;그러므로 이메일은 주요 소통 채널로 남아있고, 기술 문제를 이메일에 패치를
+포함시킴으로써 토론하기 쉽게 합니다.
+그리고 이건 여러 시간대에서도 잘 동작하는데, 이는 사람들이 지리적으로 흩어져
+있을 때 매우 중요합니다.&lt;/p&gt;
+&lt;p&gt;JA: 전 대략 10년간 커널 개발 동향을 자세히 들여다보며 이를 KernelTrap 에
+블로깅하고 새로운 기능이 발전할 때마다 그에 대해서도 글을 써왔습니다.
+전 이를 8년간 이어진 2.6.x 버전을 뒤이어 3.0 커널이 릴리즈 되던 즈음부터
+그만뒀습니다.
+3.0 릴리즈 후 커널에 일어난 더 흥미로운 일들 몇가지를 요약해 주실 수 있을까요?&lt;/p&gt;
+&lt;p&gt;LT: 헤헤.  그건 제가 요약을 시작할수도 없을 만큼 오래 전 일입니다.
+3.0 이후 10년이 지났습니다, 그리고 그 시간 동안 많은 기술적 변화가 있었습니다.
+ARM 이 성장했고 ARM64 는 우리의 주요 아키텍쳐 중 하나가 되었습니다.
+무척 많은 새로운 드라이버들과 핵심 기능들이 추가되었습니다.&lt;/p&gt;
+&lt;p&gt;지난 10년간 흥미로은 것이 있다면 우리가 실제 개발 모델을 정말 부드럽게 어떻게
+유지했는가, 그리고 무엇이 변화되지 않았는가일 겁니다.&lt;/p&gt;
+&lt;p&gt;우린 수십년간 여러 버전명 규칙과 개발 모델들을 사용해 왔지만, 3.0 릴리즈는
+우리가 그간 사용해온 모델을 마무리 지은 것이었습니다.
+그 모든 &amp;ldquo;릴리즈는 시간 기반의 것임, 버전명의 숫자는 그저 숫자일 뿐이며 어떤
+기능에 종속적이지 않음&amp;rdquo; 원칙을 공식적이게 만든 것이죠.&lt;/p&gt;
+&lt;p&gt;우리는 이 시간 기반 릴리즈를 2.6.x 시대 머지 윈도우부터 시작했으므로, 그 부분은
+새로운 건 아니었습니다.
+하지만 3.0 은 &amp;ldquo;숫자가 의미를 가지는&amp;rdquo; 것에 대한 마지막 흔적을 치워버렸습니다.&lt;/p&gt;
+&lt;p&gt;우린 무작위 숫자 규칙을 가졌었고 (주로 1.0 전), &amp;ldquo;홀수 마이너 버전 숫자는 개발
+커널을 의미하고 짝수 마이너 버전 숫자는 안정화된 제품 커널을 의미&amp;rdquo; 모델을
+사용했고, 그 이후 2.6.ㅌ 시작과 함께 시간 기반 릴리즈 모델을 사용했습니다.
+하지만 사람들은 여전히 &amp;ldquo;메이저 버전 숫자를 올리는 건 무슨 의미를 가질까&amp;rdquo; 라는
+질문을 가지고 있었죠.
+그리고 3.0 은 메이저 버전 숫자 또한 의미가 없음을, 우린 그저 숫자들이 쉽게 다룰
+수 있도록, 너무 커지지 않도록 노력함을 공식화 했습니다.&lt;/p&gt;
+&lt;p&gt;지난 10년간, 우린 분명 거대한 변화들을 만들었습니다 (Git 이 통계 숫자를 쉽게 볼
+수 있게 해줍니다: 17,000여명의 개발자에 의해 만들어진 75만여개의 커밋).
+하지만 그 개발 모델 자체는 정말로 상당히 부드럽고 안정적이었습니다.&lt;/p&gt;
+&lt;p&gt;그리고 항상 그랬던 건 아닙니다.
+커널 개발의 처음 20년간은 무척 고통스런 개발 모델 변화로 가득했습니다.
+최근 10년은 릴리즈 측면에서 훨씬 예측 가능하게 되었습니다.&lt;/p&gt;
+&lt;p&gt;JA: As of now, the latest release is 5.12-rc5. How standardized is the release process? For example, what sorts of changes go into an -rc1, versus an -rc2 and so on? And at what point do you decide a given release is ready to be officially released? What happens if you&amp;rsquo;re wrong and a large regression is found after the final release, and how often does this happen? How has this process evolved over the years?&lt;/p&gt;
+&lt;p&gt;LT: So I alluded to this earlier: the process itself really is pretty standard, and has stayed so for the last decade. It went through several upheavals before that, but it&amp;rsquo;s actually been almost like clock-work since 3.0 (and in fact a few years before that - the switch to Git in many ways was the beginning of the modern process, and it took a while before everybody got used to it).&lt;/p&gt;
+&lt;p&gt;So we&amp;rsquo;ve had this cadence of &amp;ldquo;two weeks of merge window&amp;rdquo; followed by roughly 6-8 weekly release candidates before final release for almost 15 years by now, I think.&lt;/p&gt;
+&lt;p&gt;And the rules have always been the same, although they haven&amp;rsquo;t always been entirely strictly enforced: the merge window is for new code that is supposedly &amp;ldquo;tested and ready&amp;rdquo;, and then the subsequent roughly two months are for fixes and to actually make sure all the problems are shaken out. Which doesn&amp;rsquo;t always happen, and sometimes that supposedly &amp;ldquo;ready&amp;rdquo; code gets disabled or outright reverted before the release.&lt;/p&gt;
+&lt;p&gt;And then it repeats - so we have a release roughly every 10 weeks or so.&lt;/p&gt;
+&lt;p&gt;And the release criteria is me feeling confident enough, which obviously in turn is based on what kinds of problem reports are still coming in. If some area still shows issues late in the rc game, I&amp;rsquo;m fairly aggressive about just reverting things, and saying &amp;ldquo;we&amp;rsquo;ll deal with this in a later release once we&amp;rsquo;ve figured the thing out fully&amp;rdquo;, but on the whole it&amp;rsquo;s fairly rare that that is needed.&lt;/p&gt;
+&lt;p&gt;Does it always work out? No. Once the kernel is released - and particularly once a distro picks it up - you get new users, you get people who didn&amp;rsquo;t test it during development that find things that didn&amp;rsquo;t work and we didn&amp;rsquo;t catch during the rc series. That&amp;rsquo;s pretty much inevitable. It&amp;rsquo;s part of why we have the whole &amp;ldquo;stable kernel&amp;rdquo; trees, which continue to add fixes after the release. And some stable kernels are maintained for longer than others, and get called LTS (&amp;ldquo;Long Term Support&amp;rdquo;) kernels.&lt;/p&gt;
+&lt;p&gt;All of this has remained fairly unchanged in the last ten years, although we do end up having a lot more automation in place. Kernel testing automation is hard in general - partly because so much of the kernel is drivers which then obviously depends on hardware availability - but there are several farms doing both boot and performance testing, and do various randomized load testing. And that has improved a lot over the years.&lt;/p&gt;
+&lt;p&gt;JA: Last November you were quoted as being impressed by Apple&amp;rsquo;s new ARM64 chips found in some of their new computers. Are you following the development effort to support them with Linux? I see work was merged into for-next. Is it likely Linux will boot on Apple&amp;rsquo;s MacBook hardware as early as the upcoming 5.13 kernel? Are you likely to be an early adopter? What is the significance of ARM64?&lt;/p&gt;
+&lt;p&gt;Apple M1 ARM64 Chip
+LT: I&amp;rsquo;m checking in on it very occasionally, but it&amp;rsquo;s early days yet. As you note, the very early support will likely be merged into 5.13, but you need to realize that that is really only the beginning, and doesn&amp;rsquo;t make Apple hardware useful with Linux yet.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s not the arm64 part that ends up being the problem, but all the drivers for the hardware around it (the SSD and GPU in particular). The early work so far gets some of the really low-level stuff working, but doesn&amp;rsquo;t result in anything useful outside of early hardware enablement. It will take some time for it to be a real option for people to try out.&lt;/p&gt;
+&lt;p&gt;But it&amp;rsquo;s not just the Apple hardware that has improved - the infrastructure for arm64 in general has grown up a lot, and the cores have gone from &amp;ldquo;Meh&amp;rdquo; to being much more competitive in the server space. The arm64 server space was pretty sad not that long ago, but Amazon&amp;rsquo;s Graviton2 and Ampere&amp;rsquo;s Altra processors - both based on the much improved ARM Neoverse IP - are much better than what the offerings were a few years ago.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ve been waiting to have a usable ARM machine for over a decade by now, and it&amp;rsquo;s not there yet, but it&amp;rsquo;s clearly much closer than it used to be.&lt;/p&gt;
+&lt;p&gt;In fact, I guess I could say that I&amp;rsquo;ve been wanting an ARM machine for much longer than that - back when I was a teenager, the machine I really wanted was an Acorn Archimedes, but availability and price made me go with a Sinclair QL (M68008 processor) and then obviously a few years later a i386 PC instead.&lt;/p&gt;
+&lt;p&gt;So it&amp;rsquo;s been kind of brewing for decades, but they still haven&amp;rsquo;t been widely available and price/performance competitive as computers for me. One day. Hopefully in the not too distant future.&lt;/p&gt;
+&lt;p&gt;JA: Is there anything in the kernel which is not optimal, but would require a complete rewrite to address properly? In other words, the kernel is 30 years old and knowledge, languages and hardware have changed a lot in these 30 years: if you rewrote it from scratch now, what would you change?&lt;/p&gt;
+&lt;p&gt;LT: We&amp;rsquo;ve actually been really good about even completely rewriting things if necessary, so anything that would have been an unmitigated disaster has long since been rewritten.&lt;/p&gt;
+&lt;p&gt;Sure, we have a fair amount of &amp;ldquo;compatibility&amp;rdquo; layers, but they are usually not horrendous. And it&amp;rsquo;s unclear if even those compatibility layers would really go away if rewriting from scratch - they are about backwards compatibility with older binaries (and often backwards compatibility with older architectures, e.g. running 32-bit x86 apps on x86-64). Since I consider backwards compatibility to be very important, I&amp;rsquo;d want to keep those even in a rewrite.&lt;/p&gt;
+&lt;p&gt;So there are obviously lots of things that are &amp;ldquo;not optimal&amp;rdquo; in the sense that anything can be improved, but the way you phrase the question, I&amp;rsquo;d have to say that no, there&amp;rsquo;s nothing there that I despise. There&amp;rsquo;s legacy drivers that nobody is ever going to care about enough to clean up, and so they may do ugly things, but a key part of that is &amp;ldquo;nobody cares enough&amp;rdquo;. It hasn&amp;rsquo;t been a problem, and when it does become a problem we tend to fairly actively remove true legacy support that we can&amp;rsquo;t find anybody that cares about. So we&amp;rsquo;ve gotten rid of lots of drivers over the years, and we&amp;rsquo;ve gotten rid of whole architecture support when it no longer makes any sense at all to maintain.&lt;/p&gt;
+&lt;p&gt;No, the only major reason for a &amp;ldquo;rewrite&amp;rdquo; would be if you end up having some use-case where the whole structure no longer makes sense. The most likely scenario would be some small embedded system that just doesn&amp;rsquo;t want everything that Linux offers, and has a hardware footprint so small that it simply wants something smaller and simpler than what Linux has become over the years.&lt;/p&gt;
+&lt;p&gt;Because Linux has grown a lot. Even small hardware (think cell phones etc) today is much more capable than the original machine Linux was developed on was.&lt;/p&gt;
+&lt;p&gt;JA: What about rewriting at least parts with Rust, a language that was specifically designed for performance and safety? Is there room for improvement in this way? Do you feel it’s ever possible for another language like Rust to replace C in the kernel?&lt;/p&gt;
+&lt;p&gt;Ferris the crab, unofficial mascot for Rust
+LT: We&amp;rsquo;ll see. I don&amp;rsquo;t think Rust will take over the core kernel, but doing individual drivers (and maybe whole driver subsystems) in it doesn&amp;rsquo;t sound entirely unlikely. Maybe filesystems too. So it&amp;rsquo;s not &amp;ldquo;replace C&amp;rdquo;, but more of &amp;ldquo;augment our C code where it makes sense&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;Of course, drivers in particular is about half of the actual kernel code, so there&amp;rsquo;s a lot of room for that, but I don&amp;rsquo;t think anybody is really expecting to rewrite existing drivers in Rust wholesale, more of a &amp;ldquo;some people will do new drivers in Rust, and a couple of drivers might be rewritten where it makes sense&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;But right now that&amp;rsquo;s more of a &amp;ldquo;people are trying it out and playing with it&amp;rdquo; rather than anything more than that. It&amp;rsquo;s easy to point to advantages, but there are certainly complexities too, so I&amp;rsquo;m very much taking a wait-and-see approach to see if the promised advantages really do pan out.&lt;/p&gt;
+&lt;p&gt;JA: Are there any specific parts of the kernel that you are personally most proud of?&lt;/p&gt;
+&lt;p&gt;LT: The stand-out parts I tend to point to are the VFS (&amp;ldquo;virtual filesystem&amp;rdquo;) layer (and the pathname lookup in particular) and our VM code. The former because Linux just does some of those fundamental things (looking up a filename really is such a core operation in an operating system) so much better than anything else out there. And the latter mainly because we support 20+ architectures, and we still do it with a largely unified VM layer, which I think is pretty impressive.&lt;/p&gt;
+&lt;p&gt;But at the same time, this is very much a function of &amp;ldquo;what part of the kernel do you care about&amp;rdquo;. The kernel is big enough that different developers (and different users) will simply have different opinions of what matters most. Some people think scheduling is the most exciting part of the kernel. Others like the nitty-gritty of device drivers (and we have a lot of those). I personally tend to be more involved in the VM and VFS areas, so I then naturally point to those.&lt;/p&gt;
+&lt;p&gt;JA: I found this description of pathname lookup, and it&amp;rsquo;s more complex than I expected. What makes the Linux implementation so much better than what is done in other operating systems? And what do you mean by &amp;ldquo;better&amp;rdquo;?&lt;/p&gt;
+&lt;p&gt;LT: Pathname lookup is really such a common and fundamental thing that most people outside of kernel developers don&amp;rsquo;t even think about it as a problem: they just open files, and take it all for granted.&lt;/p&gt;
+&lt;p&gt;But it&amp;rsquo;s actually fairly complicated to do really well. Exactly because absolutely everything does pathname lookups all the time, it&amp;rsquo;s hugely performance-critical, and it&amp;rsquo;s very much one of those areas where you also want to scale well in SMP environments, and it has lots of complexity in locking. And you very much do not want to do any IO, so caching is very important. In fact, pathname lookup is so important that you can&amp;rsquo;t leave it to the low-level filesystem, because we have 20+ different filesystems, and having each of them do their own caching and their own locking would be a complete disaster.&lt;/p&gt;
+&lt;p&gt;So one of the main things the VFS layer does is really handle all the locking and caching of pathname components, and handle all the serialization and the mount point traversal, and do it all with mostly lock-free algorithms (RCU), but also with some really clever lock-like things (the Linux kernel &amp;ldquo;lockref&amp;rdquo; lock is a very special &amp;ldquo;spinlock with reference count&amp;rdquo; which was literally designed for the dcache caching, and it&amp;rsquo;s basically a specialized lock-aware reference count that can do lock elision for certain common situations).&lt;/p&gt;
+&lt;p&gt;End result: the low-level file systems still need to do the actual lookup for things that aren&amp;rsquo;t cached, but they don&amp;rsquo;t need to worry about caching and all the coherency rules and the atomicity rules that go along with pathname lookups. The VFS handles all that for them.&lt;/p&gt;
+&lt;p&gt;And it all outperforms anything any other operating system has done, while basically scaling perfectly to even machines with thousands of CPU&amp;rsquo;s. And it does that even when those machines all end up touching the same directories (because things like the root directory, or a project home directory, are things that even heavily threaded applications all touch at the same time, and that don&amp;rsquo;t get distributed to any kind of per-thread behavior).&lt;/p&gt;
+&lt;p&gt;So it&amp;rsquo;s not just &amp;ldquo;better&amp;rdquo;, it&amp;rsquo;s &amp;ldquo;Better&amp;rdquo; with a capital &amp;lsquo;B&amp;rsquo;. Nothing else out there comes even close. The Linux dcache is simply in a class all its own.&lt;/p&gt;
+&lt;p&gt;JA: The past year has been difficult all around the world. How has the COVID-19 pandemic affected the kernel development process?&lt;/p&gt;
+&lt;p&gt;LT: It actually has had very minimal effect, because of how we always worked. Email really ends up being a wonderful tool, and we didn&amp;rsquo;t rely on face-to-face meetings.&lt;/p&gt;
+&lt;p&gt;Yes, it did affect the yearly kernel summit last year (and this year is still up in the air), and most conferences got cancelled or turned virtual. And people who worked in offices before mostly started working from home (but a lot of the core kernel maintainers already did so). So a lot of things around it changed, but the core development itself worked exactly as before.&lt;/p&gt;
+&lt;p&gt;And it obviously affected all our lives in other ways - just the social ramifications in general. But on the whole, being a kernel developer who already interacted with people almost entirely over email, we were probably some of the least affected.&lt;/p&gt;
+&lt;p&gt;Git Distributed Version Control System
+JA: Linux is only one of your ubiquitous contributions to open source. In 2005 you also created Git, the extremely popular distributed source control system. You quickly migrated the Linux kernel source tree out of the proprietary Bitkeeper and into the newly created and open sourced Git, and in the same year handed off maintainership to Junio Hamano. There&amp;rsquo;s a lot of fascinating history there, what led you to handing off leadership on this project so quickly, and how did you find and select Junio?&lt;/p&gt;
+&lt;p&gt;LT: So there&amp;rsquo;s two parts to this answer.&lt;/p&gt;
+&lt;p&gt;Git Logo
+The first part is that I very much did not want to create a new source control system. Linux was created because I find the low-level interface between hardware and software fascinating - it&amp;rsquo;s basically a labor of love and personal interest. In contrast, Git was created out of necessity: not because I found source control interesting, but because I absolutely despised most source control systems out there, and the one that I found most palatable and had really worked fairly well in the Linux development model (BitKeeper) had become untenable.&lt;/p&gt;
+&lt;p&gt;End result: I&amp;rsquo;ve been doing Linux over 30 years (the anniversary of the first release is still a few months away, but I had started on what would become Linux already 30 years ago), and I&amp;rsquo;ve been maintaining it the whole time. But Git? I did not ever think I&amp;rsquo;d really want to maintain it long-term. I love using it, and I obviously think it&amp;rsquo;s the best SCM out there by a huge amount, but it&amp;rsquo;s not my fundamental passion and interest, if you see what I&amp;rsquo;m trying to say.&lt;/p&gt;
+&lt;p&gt;So I always wanted somebody else to maintain the SCM for me - in fact I would have been happiest had I not had to write one in the first place.&lt;/p&gt;
+&lt;p&gt;That&amp;rsquo;s kind of the background.&lt;/p&gt;
+&lt;p&gt;As to Junio - he was actually one of the very first people who came in as Git developers. His first change came in within days after I had made the very first (and very rough) version of Git public. So Junio has actually been around some since pretty much the beginning of Git.&lt;/p&gt;
+&lt;p&gt;But it&amp;rsquo;s not like I handed the project off to the first random person to show up. I did maintain Git for a few months, and the thing that made me ask Junio if he wanted to be the maintainer is that very-hard-to-describe notion of &amp;ldquo;good taste&amp;rdquo;. I don&amp;rsquo;t really have a better description for it: programming is about solving technical problems, but how you solve them, and how you think about them is important too, and it&amp;rsquo;s one of those things you start to recognize over time: certain people have that &amp;ldquo;good taste&amp;rdquo; thing and pick the &amp;ldquo;right&amp;rdquo; solution.&lt;/p&gt;
+&lt;p&gt;I don&amp;rsquo;t want to claim that programming is an art, because it really is mostly just about &amp;ldquo;good engineering&amp;rdquo;. I&amp;rsquo;m a big believer in Thomas Edison&amp;rsquo;s &amp;ldquo;one percent inspiration and ninety-nine percent perspiration&amp;rdquo; mantra: it&amp;rsquo;s almost all about the little details and the everyday grunt-work. But there is that occasional &amp;ldquo;inspiration&amp;rdquo; part, that &amp;ldquo;good taste&amp;rdquo; thing that is about more than just solving some problem - solving it cleanly and nicely and yes, even beautifully.&lt;/p&gt;
+&lt;p&gt;And Junio had that &amp;ldquo;good taste&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;And every time Git comes up, I try to remember to really make it very very clear: I may have started and designed the core ideas in Git, but I often get too much credit for that part. It&amp;rsquo;s been 15+ years, and I was really only involved with Git in that first year. Junio has been an exemplary maintainer, and he&amp;rsquo;s the one who has made Git what it is today.&lt;/p&gt;
+&lt;p&gt;Btw, this whole &amp;ldquo;good taste&amp;rdquo; thing and finding people who have it, and trusting them - that&amp;rsquo;s very much not just about Git. It&amp;rsquo;s very much the history of Linux too. Unlike Git, Linux is obviously a project that I still do actively maintain, but very much like Git, it&amp;rsquo;s also a project with lots of other people involved, and I think one of the big successes of Linux is having literally hundreds of maintainers around, all with that hard-to-define &amp;ldquo;good taste&amp;rdquo;, and all people who maintain parts of the kernel.&lt;/p&gt;
+&lt;p&gt;JA: Have you ever given control to a maintainer only to later determine it was the wrong decision?&lt;/p&gt;
+&lt;p&gt;LT: Our maintainership structure has never been so black-and-white and inflexible that that would ever have been an issue. In fact, it&amp;rsquo;s not like we even make maintainership control be something very documented: we do have a MAINTAINERS file, but that&amp;rsquo;s so that you can find the right people, it&amp;rsquo;s not really a sign of some exclusive ownership.&lt;/p&gt;
+&lt;p&gt;So the whole &amp;ldquo;who owns what&amp;rdquo; is more of a fluid guideline, and a &amp;ldquo;this person is active and is doing a good job&amp;rdquo; than some &amp;ldquo;oops, now we gave that person ownership and then he screwed up&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;And it&amp;rsquo;s fluid also in the sense that maybe you are the maintainer of one subsystem, but if there&amp;rsquo;s something you then need from another subsystem, you can often cross borders. Usually it&amp;rsquo;s something that people talk about extensively before doing, of course, but the point is that it does happen and it&amp;rsquo;s not some hard &amp;ldquo;you&amp;rsquo;re only supposed to touch that file&amp;rdquo; kind of rule.&lt;/p&gt;
+&lt;p&gt;In fact, this is actually somewhat related to the earlier discussion about the licensing, and another example of how one of the design principles of &amp;ldquo;Git&amp;rdquo; was that whole &amp;ldquo;everybody has their own tree, and no tree is technically special&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;Because a lot of other projects have used tooling - like CVS or SVN - that fundamentally does make some people special, and that fundamentally does have a &amp;ldquo;ownership&amp;rdquo; that goes along with it. In the BSD world, they call it the &amp;ldquo;commit bit&amp;rdquo;: giving a maintainer the &amp;ldquo;commit bit&amp;rdquo; means that he&amp;rsquo;s now allowed to commit to the central repository (or at least parts of it).&lt;/p&gt;
+&lt;p&gt;I always detested that model, because it inevitably results in politics and the &amp;ldquo;clique&amp;rdquo; model of development, where some people are special and implicitly trusted. And the problem isn&amp;rsquo;t even the &amp;ldquo;implicitly trusted&amp;rdquo; part - it&amp;rsquo;s really that the other side of the coin is that other people are not trusted, and are by definition outsiders, and have to go through one of the guardians.&lt;/p&gt;
+&lt;p&gt;Again, in Git that kind of situation doesn&amp;rsquo;t exist. Everybody is equal. Anybody can do a clone, do their own development, and if they do a good job they can get merged back (and if they do an outstanding job, they become maintainers, and they end up being the ones doing the merging into their trees ;).&lt;/p&gt;
+&lt;p&gt;So there&amp;rsquo;s no need to give people special privileges - no need for that &amp;ldquo;commit bit&amp;rdquo;. And that also means that you avoid the politics around it, and you don&amp;rsquo;t need to trust people implicitly. If they end up doing a bad job - or more commonly, just end up fading away and finding another interest - they don&amp;rsquo;t get merged back, and they also don&amp;rsquo;t stand in the way of other people who have fresh new ideas.&lt;/p&gt;
+&lt;p&gt;JA: Do new features of Git ever impress you, and become part of your workflow? Are there features you&amp;rsquo;d still like to see added?&lt;/p&gt;
+&lt;p&gt;LT: My use cases were obviously the first ones to be fulfilled, so for me it has seldom been about new features.&lt;/p&gt;
+&lt;p&gt;Over the years, Git has certainly improved, and some of it has been noticeable in my workflow too. For example, Git has always been fairly fast - it was one of my design goals, after all - but a lot of it was originally done as shell-script around some core helper programs. Over the years, most of that shell scripting has gone away, and it means that I can apply patch-bombs from Andrew Morton even faster than I could originally. Which is very gratifying, as that was actually one of the early benchmarks I used for performance testing.&lt;/p&gt;
+&lt;p&gt;So Git has always been good for me, but it&amp;rsquo;s gotten better.&lt;/p&gt;
+&lt;p&gt;The big improvements have been about how much better it has become to use as a &amp;ldquo;regular user&amp;rdquo;. A lot of that has been people learning the Git workflow and just getting used to it (it is very different from CVS and other things that people used to be used to), but a lot of it is Git itself having become a lot more pleasant to use.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>perfbook 번역 재시작</title>
       <link>/ko/post/perfbook_translate_restart/</link>
       <pubDate>Sat, 27 Mar 2021 13:01:07 +0100</pubDate>
