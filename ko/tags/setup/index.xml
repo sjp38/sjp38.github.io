@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>setup | hacklog</title>
+    <link>/ko/tags/setup/</link>
+      <atom:link href="/ko/tags/setup/index.xml" rel="self" type="application/rss+xml" />
+    <description>setup</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>ko-kr</language><lastBuildDate>Thu, 12 Dec 2019 00:46:05 +0100</lastBuildDate>
+    <image>
+      <url>/img/tux.png</url>
+      <title>setup</title>
+      <link>/ko/tags/setup/</link>
+    </image>
+    
+    <item>
+      <title>Ubuntu 환경에서 QEMU 빌드 / 설치 / 사용하는 법</title>
+      <link>/ko/post/qemu_setup_on_ubuntu/</link>
+      <pubDate>Thu, 12 Dec 2019 00:46:05 +0100</pubDate>
+      <guid>/ko/post/qemu_setup_on_ubuntu/</guid>
+      <description>&lt;p&gt;Ubuntu 에서 QEMU 를 빌드, 설치, 사용하는 법을 설명합니다.
+기본적으로 &lt;a href=&#34;http://wiki.qemu.org/Hosts/Linux&#34;&gt;http://wiki.qemu.org/Hosts/Linux&lt;/a&gt; 문서를 참고했습니다.
+테스트는 Ubuntu 18.04 머신 위에서 진행되었습니다.&lt;/p&gt;
+&lt;h1 id=&#34;qemu-build&#34;&gt;QEMU Build&lt;/h1&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt install libglib2.0-dev libfdt-dev libpixman-1-dev zlib1g-dev \
+		libgtk-3-dev
+git clone git://git.qemu-project.org/qemu.git
+cd qemu
+git checkout v4.2.0
+mkdir -p $HOME/qemu.sandbox/bin
+cd $HOME/qemu.sandbox/bin
+../../qemu/configure --enable-debug --enable-gtk
+time make -j143
+./x86_64-softmmu/qemu-system-x86_64 -L pc-bios
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;guest-os-install&#34;&gt;Guest OS Install&lt;/h1&gt;
+&lt;p&gt;Ubuntu 서버 이미지를 가져오고,&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ wget http://releases.ubuntu.com/18.04/ubuntu-18.04.3-live-server-amd64.iso
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;qcow2 포맷으로 스토리지를 만들고,&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cd ..
+$ ./bin/qemu-img create -f qcow2 qc2img 32G
+Formatting &#39;qc2img&#39;, fmt=qcow2 size=34359738368 encryption=off cluster_size=65536 lazy_refcounts=off refcount_bits=16
+$ ls -alh
+total 830M
+drwxrwxr-x  3 sjpark sjpark 4.0K Jun  1 20:34 .
+drwxr-xr-x 28 sjpark sjpark 4.0K Jun  1 20:15 ..
+drwxrwxr-x 94 sjpark sjpark  12K Jun  1 20:19 bin
+-rw-r--r--  1 sjpark sjpark 193K Jun  1 20:34 qc2img
+-rw-rw-r--  1 sjpark sjpark 848M Feb 16 05:37 ubuntu-18.04.3-live-server-amd64.iso
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;다운로드 받은 서버 이미지로 부팅을 합니다:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ sudo ./bin/x86_64-softmmu/qemu-system-x86_64 -m 8G -enable-kvm \
+	-drive if=virtio,file=qc2img,cache=none \
+	-cdrom ubuntu-18.04.3-live-server-amd64.iso
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;X 연결이 되어있다면 곧바로 qemu GUI 가 뜨며, 여기에 우분투 서버 이미지로 부팅된
+화면이 나옵니다.  여기서 평소에 하던대로 ubuntu 서버 설치를 진행하면 됩니다.
+OpenSSH 패키지도 이 과정에서 미리 설치해 줍시다.&lt;/p&gt;
+&lt;p&gt;이제, 다음과 같이 우분투 가상머신을 가동할 수 있습니다.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ sudo ./bin/x86_64-softmmu/qemu-system-x86_64 -m 20G -smp 32 -enable-kvm \
+	-drive if=virtio,file=qc2img,cache=none \
+	-net user,hostfwd=tcp::2242-:22 -net nic \
+	-nographic
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;여기선 &lt;code&gt;-nographic&lt;/code&gt; 옵션을 줬으므로 GUI 인터페이스가 뜨지 않으며, &lt;code&gt;Booting from Hard Disk...&lt;/code&gt; 라는 메세지 후로 화면에 아무것도 나오지 않습니다.  하지만 잘
+부팅되어 있습니다.  2242 포트에 ssh 로 접속할 수 있습니다:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ ssh localhost -p 2242
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;호스트에서 qemu 를 수행한 터미널은 그대로 심심하게 있으므로, 여기에 VM 의
+콘솔을 붙이겠습니다.
+VM 에 설치된 grub 설정을 수정해 부팅 시 커널에 줄 옵션을 바꿔 줍니다.
+Guest os 의 &lt;code&gt;/etc/default/grub&lt;/code&gt; 의 &lt;code&gt;GRUB_CMDLINE_LINUX_DEFAULT&lt;/code&gt; 를
+&lt;code&gt;&amp;quot;console=ttyS0 earlyprintk=ttyS0 ftrace_dump_on_oops&amp;quot;&lt;/code&gt;
+로 바꿔주고 다음 명령을 수행합니다.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ sudo update-grub
+$ sudo shutdown -h now
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;이후 다시 qemu 를 통해 시작하면 qemu 커맨드 날린 호스트의 터미널에 콘솔이
+연결되어 부팅 로그 등이 뜨고 로그인 프롬프트까지 나옵니다.&lt;/p&gt;
+&lt;h1 id=&#34;monitor-console-돌아가기&#34;&gt;Monitor Console 돌아가기&lt;/h1&gt;
+&lt;p&gt;VM 의 콘솔에서 QEMU 모니터 콘솔로 돌아가고자 한다면 &lt;code&gt;Ctrl+a c&lt;/code&gt; 를 입력합니다.
+다시 게스트 콘솔로 돌아가려면 &lt;code&gt;Ctrl+a c enter&lt;/code&gt; 를 입력합니다.&lt;/p&gt;
+&lt;p&gt;참고:  &lt;a href=&#34;https://serverfault.com/questions/471719/how-to-start-qemu-directly-in-the-console-not-in-curses-or-sdl&#34;&gt;https://serverfault.com/questions/471719/how-to-start-qemu-directly-in-the-console-not-in-curses-or-sdl&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;boot-with-kernel-in-host&#34;&gt;Boot with Kernel in Host&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;-kernel&lt;/code&gt;, &lt;code&gt;-append&lt;/code&gt; 옵션을 주면 호스트 머신의 파일시스템 상에 존재하는 커널을
+이용해 vm을 부팅시킬 수 있습니다.  호스트에서 개발과 빌드를 하고자 하면 이게
+간편합니다.  &lt;code&gt;-kernel&lt;/code&gt; 옵션은 커널 이미지 파일을, &lt;code&gt;-append&lt;/code&gt; 옵션은 커널
+패러미터를 넣어주면 되며, 패러미터중 &lt;code&gt;root=&lt;/code&gt; 을 통해 게스트 vm 의 파일시스템을
+사용하도록 하면 됩니다.  예를 들면 다음과 같습니다:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ sudo ../qemu/build/x86_64-softmmu/qemu-system-x86_64 -m 2048 -smp 2 \
+-enable-kvm -drive if=virtio,file=debian.img,cache=none \
+-net user,hostfwd=tcp::2242-:22 -net nic -nographic
+-kernel /linux.out/arch/x86/boot/bzImage \
+-append “root=/dev/vda1 console=ttyS0 earlyprintk=ttyS0 debug ignore_loglevel ftrace_dump_on_oops”
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;커널 패러미터의 &lt;code&gt;root=&lt;/code&gt; 값은 실제 게스트 OS가 어떤 디바이스 파일을 마운트
+하고 있는지 미리 확인하고 적어줍시다.&lt;/p&gt;
+&lt;p&gt;또한, 이렇게 부팅되면 module 을 사용할 수가 없습니다.  주요한 모듈은 static
+으로 빌드하도록 합시다.  이 글에서는 ssh 로 붙는걸 가정하고 있으므로, 이더넷
+드라이버를 static 으로 빌드해야 합니다.&lt;/p&gt;
+&lt;h1 id=&#34;image-resize&#34;&gt;Image Resize&lt;/h1&gt;
+&lt;p&gt;뭐 이거저거 하다보면 guest os 디스크 용량이 금방 꽉차버립니다.  아래 커맨드는 기존에 사용하던 qcow2 이미지의 크기를 키워줍니다.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ qemu-img resize qc2img +160G
+$ sudo apt install libguestfs-tools
+$ cp qc2img qc2img.bak
+$ sudo virt-resize --expand /dev/sda1 qc2img.bak qc2img
+$ sudo virt-resize --expand /dev/sda1 qc2img.bak qc2img
+[   0.0] Examining qc2img.bak
+◓ 25% ⟦▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒═════════════════════════════════════════════════════════════════════⟧ --:--
+ 100% ⟦▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒⟧ 00:00
+******
+
+Summary of changes:
+
+/dev/sda1: This partition will be resized from 24.0G to 184.0G.  The
+filesystem ext4 on /dev/sda1 will be expanded using the &#39;resize2fs&#39; method.
+
+/dev/sda2: This partition will be left alone.
+
+******
+[  49.9] Setting up initial partition table on qc2img
+[  56.7] Copying /dev/sda1
+ 100% ⟦▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒⟧ 00:00
+[ 594.9] Copying /dev/sda2
+ 100% ⟦▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒⟧ 00:00
+ 100% ⟦▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒⟧ 00:00
+[ 767.4] Expanding /dev/sda1 using the &#39;resize2fs&#39; method
+
+Resize operation completed with no errors.  Before deleting the old disk,
+carefully check that the resized disk boots and works correctly.
+$
+$
+$ ./bin/qemu-img info qc2img
+image: qc2img
+file format: qcow2
+virtual size: 192G (206158430208 bytes)
+disk size: 32G
+cluster_size: 65536
+Format specific information:
+    compat: 1.1
+    lazy refcounts: false
+    refcount bits: 16
+    corrupt: false
+$ 
+$
+$ virt-filesystems --long -h --all -a qc2img
+libguestfs: warning: current user is not a member of the KVM group (group ID 117). This user cannot access /dev/kvm, so libguestfs may run very slowly. It is recommended that you &#39;chmod 0666 /dev/kvm&#39; or add the current user to the KVM group (you might need to log out and log in again).
+Name       Type        VFS      Label  MBR  Size  Parent
+/dev/sda1  filesystem  ext4     -      -    184G  -
+/dev/sda2  filesystem  unknown  -      -    1.0K  -
+/dev/sda5  filesystem  swap     -      -    8.0G  -
+/dev/sda1  partition   -        -      83   184G  /dev/sda
+/dev/sda2  partition   -        -      05   1.0K  /dev/sda
+/dev/sda5  partition   -        -      82   8.0G  /dev/sda
+/dev/sda   device      -        -      -    192G  -
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;그러고나서 guest vm 을 다시 켜고 확인해 보면, 용량이 넉넉해져 있습니다:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ df -h
+Filesystem      Size  Used Avail Use% Mounted on
+udev            9.7G     0  9.7G   0% /dev
+tmpfs           2.0G  8.6M  2.0G   1% /run
+/dev/vda1       181G   24G  149G  14% /
+tmpfs           9.8G     0  9.8G   0% /dev/shm
+tmpfs           5.0M     0  5.0M   0% /run/lock
+tmpfs           9.8G     0  9.8G   0% /sys/fs/cgroup
+tmpfs           2.0G     0  2.0G   0% /run/user/1000
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;참고 사이트: &lt;a href=&#34;https://fatmin.com/2016/12/20/how-to-resize-a-qcow2-image-and-filesystem-with-virt-resize/&#34;&gt;https://fatmin.com/2016/12/20/how-to-resize-a-qcow2-image-and-filesystem-with-virt-resize/&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;qcow2-image-mount&#34;&gt;QCOW2 Image Mount&lt;/h1&gt;
+&lt;p&gt;이런저런 이유로 host 에서 qcow2 이미지에 직접 접근하고자 할 때가 있습니다.
+qemu 의 qemu-nbd 도구를 사용해 곧바로 host system 에서 mount 해 접근할 수
+있습니다.&lt;/p&gt;
+&lt;p&gt;먼저, nbd 커널 모듈을 로드하고 qemu-nbd 로 qcow2 이미지를 디바이스로
+연결합니다.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ cd qemu.sandbox
+$ sudo modprobe nbd max_part=8
+$ sudo ./bin/qemu-nbd --connect=/dev/nbd0 ./qc2img.bak
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;이제 fdisk 로 해당 이미지 파일의 파티션을 볼 수 있습니다:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ sudo fdisk -l /dev/nbd0
+Disk /dev/nbd0: 192 GiB, 206158430208 bytes, 402653184 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: dos
+Disk identifier: 0xe513ef69
+
+Device      Boot     Start       End   Sectors  Size Id Type
+/dev/nbd0p1 *         2048 385877631 385875584  184G 83 Linux
+/dev/nbd0p2      385877632 402650753  16773122    8G  5 Extended
+/dev/nbd0p5      385877634 402650753  16773120    8G 82 Linux swap / Solaris
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;원하는 파티션을 다음과 같이 마운트합니다.  여기선 리눅스가 설치된 root 파티션을
+마운트 합니다:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ sudo mount /dev/nbd0p1 ./mnt/
+$ cd mnt/
+$ ls
+bin   etc         initrd.img.old  lib64       media  proc  sbin  sys  var
+boot  home        lib             libx32      mnt    root  snap  tmp  vmlinuz
+dev   initrd.img  lib32           lost+found  opt    run   srv   usr  vmlinuz.old
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;사용이 끝났다면 언마운트, qemu-nbd 를 통한 디바이스 연결 해제 순서로
+정리합니다.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ sudo umount ./mnt
+$ sudo ./bin/qemu-nbd --disconnect /dev/nbd
+nbd0    nbd0p2  nbd1    nbd11   nbd13   nbd15   nbd3    nbd5    nbd7    nbd9
+nbd0p1  nbd0p5  nbd10   nbd12   nbd14   nbd2    nbd4    nbd6    nbd8
+$ sudo ./bin/qemu-nbd --disconnect /dev/nbd0
+/dev/nbd0 disconnected
+$
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+    <item>
+      <title>Linux Kernel Build</title>
+      <link>/ko/post/linux-kernel-build/</link>
+      <pubDate>Fri, 07 Sep 2018 16:00:23 +0900</pubDate>
+      <guid>/ko/post/linux-kernel-build/</guid>
+      <description>&lt;p&gt;제가 새 기계에서 리눅스 커널 빌드 환경을 셋업하고 실제 빌드, 설치하는 과정을
+정리해 봅니다.  글 작성 과정에서 실제 커맨드를 수행한 환경은 Ubuntu 16.04.3
+Server OS 를 설치한 &lt;code&gt;x86_64&lt;/code&gt; 가상머신입니다.&lt;/p&gt;
+&lt;h1 id=&#34;install-dependent-packages&#34;&gt;Install Dependent Packages&lt;/h1&gt;
+&lt;pre&gt;&lt;code&gt;$ sudo apt install build-essential libncurses5-dev libssl-dev bc bison flex \
+		libelf-dev
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;커널을 빌드하려면 컴파일러와 라이브러리 등이 필요하겠죠.  위 커맨드는
+우분투에서 커널 빌드에 필요한 패키지들을 깔아줍니다.  커널 트리의
+&lt;code&gt;Documentation/process/changes.rst&lt;/code&gt; 에도 커널 빌드에 필요한 패키지들이 나열되어
+있으므로, 다른 환경이라면 이를 참고해 필요한 패키지를 설치합시다.&lt;/p&gt;
+&lt;p&gt;페도라라면 아래와 같이 패키지를 깔면 됩니다:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ sudo dnf install ncurses-devel bison-devel bison flex-devel flex \
+		elfutils-libelf-devel openssl-devel
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;fetch-linux-kernel-source-code&#34;&gt;Fetch Linux Kernel Source Code&lt;/h1&gt;
+&lt;pre&gt;&lt;code&gt;$ git clone git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;빌드를 하려면 소스코드를 가져와야죠.  위 커맨드를 통해 토발즈의 리눅스
+소스코드를 가져올 수 있습니다.  네트워크를 통해 가져오는데, 소스코드는 물론이고
+개발 이력 정보를 모두 담고 있으므로 많은 데이터를 가져와야해 시간이 상당히
+걸립니다.  이 글을 쓰는 2018년 9월 초 기준, 버전정보만 약 1.2 GiB 군요.&lt;/p&gt;
+&lt;p&gt;토발즈는 github 에 [미러] (&lt;a href=&#34;https://github.com/torvalds/linux&#34;&gt;https://github.com/torvalds/linux&lt;/a&gt;) 를 두고 있으므로,
+여길 이용하는 것도 생각해 볼 수 있고, 굳이 버전 정보는 필요하지 않다면
+[&lt;code&gt;kernel.org&lt;/code&gt;] (&lt;a href=&#34;https://kernel.org&#34;&gt;https://kernel.org&lt;/a&gt;) 에서 tarball 로 소스코드만 받는것도 한
+방법입니다.&lt;/p&gt;
+&lt;p&gt;저는 아예 &lt;code&gt;.git&lt;/code&gt; 디렉토리를 압축해서 별도 저장소에
+보관하기도 합니다.&lt;/p&gt;
+&lt;h1 id=&#34;make-configuration-file&#34;&gt;Make Configuration File&lt;/h1&gt;
+&lt;pre&gt;&lt;code&gt;$ cd linux
+$ cp /boot/config-$(uname -r) ./.config
+$ make menuconfig
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;리눅스 빌드 설정 파일을 만들어야 합니다.  앞의 커맨드를 통해 배포판에서 제공한
+커널을 빌드하는데 사용된 설정 파일을 기반으로 gui 환경에서 필요한 설정을
+추가/제거 할 수 있습니다.  별달리 변경할 게 없다면 그냥 저장하고 나오면 됩니다.&lt;/p&gt;
+&lt;p&gt;저는 빌드에 많은 시간이 걸리지 않고 저장 공간이 큰 시스템에서는 이 방법을
+사용하고, 작은 가상머신 등의 환경에서는 &lt;code&gt;localmodconfig&lt;/code&gt; 빌드 타겟을 사용해
+가벼운 설정 파일을 만드는 편입니다.&lt;/p&gt;
+&lt;h2 id=&#34;seperated-build-directory&#34;&gt;Seperated Build Directory&lt;/h2&gt;
+&lt;p&gt;이렇게 빌드를 하면 컴파일된 파일들이 소스코드와 같은 디렉토리에 위치하게
+되는데, &lt;code&gt;grep&lt;/code&gt; 등을 할때 성가시고, 실수로 git 에 이렇게 만들어진 파일들을
+추가하는 실수도 흔합니다.  리눅스 커널 빌드 시스템은 &lt;code&gt;make&lt;/code&gt; 커맨드에 &lt;code&gt;O&lt;/code&gt; 옵션을
+제공하는데, 이 옵션의 인자로 빌드 디렉토리를 지정할 수 있습니다.  빌드 과정에서
+만들어진 파일들은 이 디렉토리로 저장되므로, 소스코드 디렉토리를 깨끗하게 유지할
+수 있습니다.  예를 들어 &lt;code&gt;/foo&lt;/code&gt; 라는 디렉토리에 빌드 과정에서 만들어진 파일을
+저장하고 싶다면 다음과 같습니다.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ make O=/foo menuconfig
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;build&#34;&gt;Build&lt;/h1&gt;
+&lt;pre&gt;&lt;code&gt;$ make -j $(grep &amp;quot;^processor&amp;quot; /proc/cpuinfo | wc -l)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;이 커맨드는 리눅스 커널을 빌드합니다.  이 때 뒤의 &lt;code&gt;-j&lt;/code&gt; 옵션을 통해 빌드 과정
+작업을 한순간에 최대 몇개까지 수행해도 되는지 지정해주는데, 이 커맨드에선
+빌드를 수행하는 시스템에 장착된 논리적 코어의 갯수를 줬습니다.  커널 빌드엔 긴
+시간이 걸립니다.  프로세서 3개를 준 제 가상머신에서는 12분 30초 정도 걸렸군요.
+이것도 &lt;code&gt;localmodconfig&lt;/code&gt; 를 해줬기 때문이고, 이런저런 모듈 다 빌드하라고 했다면
+훨씬 많이 걸렸을 겁니다.&lt;/p&gt;
+&lt;h1 id=&#34;install&#34;&gt;Install&lt;/h1&gt;
+&lt;pre&gt;&lt;code&gt;$ sudo make modules_install install
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;이 커맨드는 빌드한 모듈들과 커널 자체를 설치합니다.  커널 빌드 시스템은 이
+과정에서 가장 최신의 커널로 grub 의 디폴트 부트 대상도 바꿔줍니다.  이제 기계를
+껐다 켜되, grub 등에서 부트할 커널 버전을 해당 버전으로 선택하면 빌드한 커널로
+부팅됩니다.  현재 시스템이 사용중인 커널의 버전은 &lt;code&gt;uname -r&lt;/code&gt; 로 알 수 있습니다.&lt;/p&gt;
+&lt;h1 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h1&gt;
+&lt;p&gt;이상으로 Ubuntu 16.04.3 을 기본으로 리눅스 커널을 빌드하고 설치하는 방법을
+알아봤습니다.  총 일곱개의 커맨드 뿐.   쉽죠?&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Raspberry Pi 3 Serial Connection</title>
+      <link>/ko/post/rasp3-serial/</link>
+      <pubDate>Mon, 27 Aug 2018 17:16:35 +0900</pubDate>
+      <guid>/ko/post/rasp3-serial/</guid>
+      <description>&lt;p&gt;라즈베리 파이를 메인 컴퓨터로 사용하려는게 아니라면, 라즈베리 파이에 모니터와
+키보드, 마우스를 연결하고 사용하는게 아무래도 번거롭습니다.  ssh 로 붙어서
+작업하는 것도 한 방법이지만, 그게 여의치 않은 상황도 있습니다.  그저 터미널만
+연결되면 되는 상황이라면, 가장 간단한 건 UART Serial 통신을 사용하는 겁니다.&lt;/p&gt;
+&lt;p&gt;라즈베리 파이는 UART 통신을 지원하고 있는데, GPIO 핀 중 14번과 15번이[2] 각각
+TX, RX 입니다.  호스트 컴퓨터와 이 두개의 핀을 연결하면 UART 통신을 할 수
+있어서 라즈베리 파이의 터미널에 바로 접근할 수 있습니다.&lt;/p&gt;
+&lt;p&gt;호스트 머신에 핀을 연결하는게 번거로울 수 있는데, 시리얼-USB 젠더를 여기저기서
+저렴한 가격에 팝니다[1].  이걸 이용해 TX/RX 핀을 라즈베리 파이의 GPIO 14, 15번에
+각각 연결하고 USB 를 호스트 머신에 연결합니다.&lt;/p&gt;
+&lt;p&gt;이제 호스트 머신의 &lt;code&gt;/dev/&lt;/code&gt; 디렉토리에 &lt;code&gt;ttyUSB&lt;/code&gt; 로 시작하는 파일이 생겼을
+겁니다.  제 경우 &lt;code&gt;ttyUSB0&lt;/code&gt; 라는 이름의 파일이 생겼군요.  이제, 시리얼 통신
+프로그램인 &lt;code&gt;minicom&lt;/code&gt; 을 사용해서 이 포트로 연결해서 UART 통신을 합시다:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ sudo minicom -D /dev/ttyUSB0
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;이제 라즈베리 파이를 부팅 시키면 부팅 로그부터 터미널에 나오고, 로그인 화면까지
+뜹니다.&lt;/p&gt;
+&lt;h1 id=&#34;라즈베리파이3-시리얼-문제와-해결법&#34;&gt;라즈베리파이3 시리얼 문제와 해결법&lt;/h1&gt;
+&lt;p&gt;하지만, 라즈베리 파이 3 에서는 내장으로 블루투스와 WiFi 가 들어가면서 GPIO 핀이
+겹치게 되어 앞의 과정만으로는 시리얼 통신을 할 수 없습니다.  블루투스를 끄고
+시리얼을 켜줘야 합니다.&lt;/p&gt;
+&lt;p&gt;먼저, 다음과 같이 &lt;code&gt;/boot/config.txt&lt;/code&gt; 파일에 다음 두줄을 추가합니다:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ sudo echo &amp;quot;enable_uart=1&amp;quot; &amp;gt;&amp;gt; /boot/config.txt
+$ sudo echo &amp;quot;dtoverlay=pi3-miniuart-bt&amp;quot; &amp;gt;&amp;gt; /boot/config.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;그리고 /boot/cmdline.txt 를 열어서 &lt;code&gt;console=tty1&lt;/code&gt; 이라는 내용을 추가해줍니다.&lt;/p&gt;
+&lt;p&gt;준비가 끝났습니다.  재부팅 하면 &lt;code&gt;minicom&lt;/code&gt; 에 라즈비안 콘솔이 연결됩니다.&lt;/p&gt;
+&lt;p&gt;[1] &lt;a href=&#34;https://www.devicemart.co.kr/29565&#34;&gt;https://www.devicemart.co.kr/29565&lt;/a&gt;&lt;br&gt;
+[2] &lt;a href=&#34;https://www.raspberrypi.org/documentation/usage/gpio/&#34;&gt;https://www.raspberrypi.org/documentation/usage/gpio/&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Raspberry Pi 3 Model B Setup</title>
+      <link>/ko/post/rasp3-modelb-setup/</link>
+      <pubDate>Mon, 27 Aug 2018 16:03:42 +0900</pubDate>
+      <guid>/ko/post/rasp3-modelb-setup/</guid>
+      <description>&lt;p&gt;OSSE 2016 에서 받아온 라즈베리 파이3 셋업을 해봅니다.
+셋업에 사용된 호스트 환경은 Ubuntu 16.04 데스크탑입니다.&lt;/p&gt;
+&lt;p&gt;라즈베리 파이는 SD 카드를 저장소로 사용합니다.  따라서 여기에 운영체제를 깔아야
+합니다.  다만, 라즈베리 파이를 구매하면 SD 카드는 따라오지 않습니다.  각자
+알아서 사야 합니다.  전 예전에 사둔 16 GiB 짜리 SD 카드를 사용하겠습니다.&lt;/p&gt;
+&lt;p&gt;라즈베리 파이를 지원하는 운영체제는 여러가지 있는데, 데비안 계열의 Raspbian 이
+공식 운영체제입니다.  &lt;a href=&#34;https://www.raspberrypi.org/downloads/&#34;&gt;다운로드 페이지&lt;/a&gt;
+에서 Raspbian stretch lite 를 다운받고 압축을 풀어줍니다.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ ls
+2018-06-27-raspbian-stretch-lite.zip
+$ unzip 2018-06-27-raspbian-stretch-lite.zip 
+Archive:  2018-06-27-raspbian-stretch-lite.zip
+  inflating: 2018-06-27-raspbian-stretch-lite.img  
+
+$ ls
+2018-06-27-raspbian-stretch-lite.img  2018-06-27-raspbian-stretch-lite.zip
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;압축 파일이 350 MiB, 압축 푼 이미지는 1.8 GiB 나 하는군요.&lt;/p&gt;
+&lt;p&gt;이제 요걸 SD 카드에 써야하는데요, 일단 SD 카드를 데스크탑에 연결하고, &lt;code&gt;df&lt;/code&gt; 명령을 이용해 이게 어떤 디바이스 파일로 인식되었는지 봅시다:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ df -h
+Filesystem      Size  Used Avail Use% Mounted on
+udev            7.8G     0  7.8G   0% /dev
+tmpfs           1.6G  174M  1.4G  11% /run
+/dev/sda1       222G  127G   84G  61% /
+tmpfs           7.8G  161M  7.7G   3% /dev/shm
+tmpfs           5.0M  4.0K  5.0M   1% /run/lock
+tmpfs           7.8G     0  7.8G   0% /sys/fs/cgroup
+tmpfs           1.6G   68K  1.6G   1% /run/user/1000
+/dev/sdb        917G  541G  330G  63% /media/sjpark/47f422d0-445f-4dfc-86ca-559b801eb9d3
+/dev/sdc2        15G  4.7G  9.3G  34% /media/sjpark/f24a4949-f4b2-4cad-a780-a138695079ec
+/dev/sdc1        56M   24M   33M  42% /media/sjpark/boot
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;제가 사용한 SD 카드는 기존에 라즈베리파이2 모델 B+ 운영체제가 설치되어
+있었습니다.  /&lt;code&gt;dev/sdc&lt;/code&gt; 로 SD 카드가 잡혔고, &lt;code&gt;/dev/sdc1&lt;/code&gt; 으로 부팅 파티션이,
+&lt;code&gt;/dev/sdc2&lt;/code&gt; 로 데이터 파티션이 잡힌 것 같군요.&lt;/p&gt;
+&lt;p&gt;이제 마운트된 파티션들을 언마운트하고, &lt;code&gt;dd&lt;/code&gt; 명령으로 이미지를 덮어씌웁시다:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ sudo umount /media/sjpark/f24a4949-f4b2-4cad-a780-a138695079ec
+$ sudo umount /media/sjpark/boot
+$ sudo dd bs=4M if=./2018-06-27-raspbian-stretch-lite.img of=/dev/sdc
+444+0 records in
+444+0 records out
+1862270976 bytes (1.9 GB, 1.7 GiB) copied, 199.44 s, 9.3 MB/s
+$ sync
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;처음 두개 커맨드가 언마운트를 하고, 세번째 커맨드가 이미지를 덮어씌우는
+커맨드입니다.  혹시 모르니 네번째 커맨드에서 &lt;code&gt;sync&lt;/code&gt; 해서 데이터가 확실히
+씌워지게 했습니다.&lt;/p&gt;
+&lt;p&gt;이제 라즈베리 파이의 HDMI 단자에 모니터를 연결하고 micro USB 포트에 스마트폰
+충전하듯이 USB 를 연결해 전원을 인가해주면 라즈베리 파이가 라즈비안으로
+부팅됩니다.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Golang 1.9 install on Fedora 26</title>
+      <link>/ko/post/golang1.9_fedora26/</link>
+      <pubDate>Sat, 26 Aug 2017 10:54:24 +0900</pubDate>
+      <guid>/ko/post/golang1.9_fedora26/</guid>
+      <description>&lt;p&gt;현재 사용중인 랩탑에 설치한 OS 는 Fedora 24 였는데, 너무 오래되었고 지원도
+얼마전 끝났기에[0] 이번에 Fedora 26 으로 새로 설치했습니다.  마침 go 언어도 1.9 가
+최근에 릴리즈 되었기에 개인적으로 go 언어를 설치하는 방법을 기록해 둡니다.&lt;/p&gt;
+&lt;p&gt;여기선 소스 코드만 가지고 빌드, 설치하는 방법을 기록합니다.&lt;/p&gt;
+&lt;h1 id=&#34;get-source-code&#34;&gt;Get Source Code&lt;/h1&gt;
+&lt;p&gt;go 언어는 오픈소스입니다.  다음 커맨드를 통해 구글로부터 소스코드를 받아올 수
+있습니다.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git clone https://go.googlesource.com/go
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;기다리면 &lt;code&gt;go/&lt;/code&gt; 디렉토리에 소스코드가 딸려옵니다.&lt;/p&gt;
+&lt;h1 id=&#34;golang-14-build--install&#34;&gt;golang 1.4 Build &amp;amp; Install&lt;/h1&gt;
+&lt;p&gt;go 언어를 빌드한다는 건 go 언어 컴파일러와 기본 라이브러리 등과 같은, go 언어로
+짠 프로그램을 빌드하고 수행하는데 필요한 도구들을 빌드한다는 이야기입니다.
+이런 기본 도구는 go 언어로 짜여져 있기 때문에 go 언어를 소스코드로부터
+빌드하려면 go 언어가 미리 설치되어 있어야 합니다.  따라서 1.4 버전의 go 언어를
+먼저 빌드, 설치합니다.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ cp -R go go1.4
+$ cd go1.4/src
+$ git checkout go1.4.3
+$ CGO_ENABLED=0 ./all.bash
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;앞서 받아온 소스코드를 &lt;code&gt;go1.4/&lt;/code&gt; 디렉토리로 복사하고 (line 1) 그리로 이동해서
+(line 2) git 을 사용해 1.4 버전들 중 가장 마지막 버전인 1.4.3 버전의 코드를
+꺼낸 후 (line 3) 마지막 줄에서 빌드를 하는 명령들입니다.&lt;/p&gt;
+&lt;p&gt;참고로 CGO_ENABLED=0 를 빼먹으면 빌드에 실패합니다[1].  go 개발팀에선 그냥
+바이너리로 최신 go 를 짜기 위한 go 를 설치하길 권장하지만[2], 전 소스
+코드만으로 설치를 하고 싶으므로 이렇게 합니다.&lt;/p&gt;
+&lt;h1 id=&#34;golang-19-build--install&#34;&gt;golang 1.9 Build &amp;amp; Install&lt;/h1&gt;
+&lt;p&gt;역시 간단합니다.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cd ../go/src
+git checkout go1.9
+./all.bash
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;앞서 받아둔 go 소스 코드로 돌아가서 (line 1), 1.9 버전의 소스코드를 꺼내고
+(line 2), 마지막으로 빌드 / 설치를 진행합니다 (line 3).&lt;/p&gt;
+&lt;p&gt;다음과 같은 메세지를 보게 되면 빌드 / 설치에 성공한 겁니다.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;
+ALL TESTS PASSED
+
+---
+Installed Go for linux/amd64 in /home/sjpark/go
+Installed commands in /home/sjpark/go/bin
+*** You need to add /home/sjpark/go/bin to your PATH.
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;test-installation&#34;&gt;Test Installation&lt;/h2&gt;
+&lt;p&gt;설치가 잘 되었는지 마지막으로 테스트 해봅시다.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ go version
+go version devel +bad6b6fa91 Fri Aug 25 23:29:55 2017 +0000 linux/amd64
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;위와 같이 결과가 나오면 잘 설치된 것입니다.&lt;/p&gt;
+&lt;h1 id=&#34;additional-configuration&#34;&gt;Additional Configuration&lt;/h1&gt;
+&lt;p&gt;추가적으로 go 바이너리의 위치를 PATH 에 넣어주고, 사용할 GOPATH 를 지정해
+줍니다.  golang 은 개발 코드의 위치와 go 언어로 짜여진 프로그램의 설치 위치
+규칙을 기본적으로 권장하는 규칙이 있는데, 이를 위해 사용되는 디렉토리의
+꼭대기가 GOPATH 입니다.  나만의 방식으로 go 언어를 다루겠다면 굳이 지정할 필요
+없지만, 전 그정도 규칙은 따르는 편이므로 다음 내용을 홈 디렉토리의 .bashrc 에
+추가해 이를 지정해 줍니다.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;export GOPATH=$HOME/gopath
+export PATH=$PATH:$HOME/go/bin
+export PATH=$PATH:$GOPATH/bin
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;GOPATH 아래 &lt;code&gt;bin/&lt;/code&gt; 디렉토리는 일반적으로 설치한 go 언어 프로그램의 실행파일을
+위치시키는 곳이므로 역시 PATH 에 추가해줬습니다 (line 3).&lt;/p&gt;
+&lt;p&gt;이 규칙을 이해하기 쉽게 다음과 같이 제가 만든 &lt;code&gt;hn&lt;/code&gt; 이라는 프로그램을 설치해
+보고, 이 명령이 GOPATH 를 어떻게 사용하는지 보면 다음과 같습니다.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ go get github.com/sjp38/hn
+$ tree gopath/
+gopath/
+├── bin
+│   └── hn
+└── src
+    └── github.com
+        └── sjp38
+            └── hn
+                ├── hn.go
+                ├── LICENSE
+                └── README.md
+
+5 directories, 4 files
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;references&#34;&gt;References&lt;/h1&gt;
+&lt;p&gt;[0] &lt;a href=&#34;https://fedoramagazine.org/fedora-24-eol/&#34;&gt;https://fedoramagazine.org/fedora-24-eol/&lt;/a&gt;&lt;br&gt;
+[1] &lt;a href=&#34;https://github.com/golang/go/issues/18156#issuecomment-264389887&#34;&gt;https://github.com/golang/go/issues/18156#issuecomment-264389887&lt;/a&gt;&lt;br&gt;
+[2] &lt;a href=&#34;https://github.com/golang/go/issues/18156#issuecomment-264492152&#34;&gt;https://github.com/golang/go/issues/18156#issuecomment-264492152&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

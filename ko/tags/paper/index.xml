@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>paper | hacklog</title>
+    <link>/ko/tags/paper/</link>
+      <atom:link href="/ko/tags/paper/index.xml" rel="self" type="application/rss+xml" />
+    <description>paper</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>ko-kr</language><lastBuildDate>Sat, 19 Dec 2020 22:35:27 +0100</lastBuildDate>
+    <image>
+      <url>/img/tux.png</url>
+      <title>paper</title>
+      <link>/ko/tags/paper/</link>
+    </image>
+    
+    <item>
+      <title>OSDI 2020 발표 영상 감상</title>
+      <link>/ko/post/osdi2020_videos_review/</link>
+      <pubDate>Sat, 19 Dec 2020 22:35:27 +0100</pubDate>
+      <guid>/ko/post/osdi2020_videos_review/</guid>
+      <description>&lt;p&gt;차일 피일 미루고 있던 OSDI&#39;20 발표 영상 비디오를 휴가 기간동안 하루 한편이라도
+보기로 했습니다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;a-large-scale-analysis-of-hundreds-of-in-memory-cache-clusters-at-twitter&#34;&gt;A large scale analysis of hundreds of in-memory cache clusters at Twitter&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=OQtMM5vdhlI&amp;amp;feature=emb_title&#34;&gt;https://www.youtube.com/watch?v=OQtMM5vdhlI&amp;amp;feature=emb_title&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;트위터의 in-memory 캐시 시스템의 워크로드를 트레이스하고 그 특성을 분석한
+논문입니다.  개인적으로 아래 내용이 흥미로웠습니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;쓰기 리퀘스트가 많음.&lt;/li&gt;
+&lt;li&gt;각 오브젝트의 크기는 작아서 (중간값이 200 바이트), 오브젝트별 메타데이터 (64
+바이트) 가 공간을 많이 차지함.&lt;/li&gt;
+&lt;li&gt;키의 크기가 밸류의 크기보다 그렇게 작지 않음.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;트레이스 데이터는 github[1] 통해 받을 수 있습니다.  압축해도 2.8TB, 압출 풀면
+14TB 군요.&lt;/p&gt;
+&lt;p&gt;[1] &lt;a href=&#34;https://github.com/twitter/cache-trace&#34;&gt;https://github.com/twitter/cache-trace&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;aifm-high-performance-application-integrated-far-memory&#34;&gt;AIFM: High-Performance, Application-Integrated Far Memory&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=xHhaniGXTUg&amp;amp;feature=emb_title&#34;&gt;https://www.youtube.com/watch?v=xHhaniGXTUg&amp;amp;feature=emb_title&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;OS 수준에서의 fast network 기반 far memory 접근법은 어플리케이션의 수정이
+필요없다는 장점을 갖지만 고정된 크기의 페이지 abstraction 에 따른 semantic
+차이와 어플리케이션에 대한 지식이 없는 커널에서의 주요 오퍼레이션 수행으로 인해
+성능이 떨어집니다.  AIFM 은 새로운 데이터 구조 abstraction 을 사용해 semantic
+차이를 해결하고 user space 런타임 시스템을 사용해 kernel space 에서의 시간
+낭비를 제거했습니다.  결과적으로 어플리케이션은 수정이 필요하지만 저자들은
+약간의 수정일 뿐이라 주자합니다.  또다른 state-of-the-art (FastSwap,
+EuroSys&#39;20) 대비 13배 성능 향상을 이뤘다는군요.&lt;/p&gt;
+&lt;h2 id=&#34;linnos-predictability-on-unpredictable-flash-storage-with-a-light-neural-network&#34;&gt;LinnOS: Predictability on Unpredictable Flash Storage with a Light Neural Network&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=yzv9lcjxhAg&amp;amp;feature=emb_title&#34;&gt;https://www.youtube.com/watch?v=yzv9lcjxhAg&amp;amp;feature=emb_title&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;최신 고속 저장장치는 캐싱, 웨어레벨링, 가비지 콜렉션 등의 복잡한 내부 구조를
+가지고 있어서, 각 I/O 에 대한 응답시간을 예측하기가 어렵습니다.  이에 대한 잘
+알려진 해결책은 Hedging 입니다.  여러 SSD 를 준비해 두고, I/O 요청을 그 중
+하나의 SSD 에 일단 던지고, 그 응답이 미리 지정된 한계치를 넘도록 돌아오지
+않으면 해당 요청을 취소하고 다른 SSD 를 쓰는 것이죠.  한계치 만큼은 기다려야
+한다는 게 약점입니다.  LinnOS 는 Hedging 과 유사하지만 각 SSD 로의 각 I/O 가
+빠르게 처리될지 예측하는 신경망을 이용합니다.  이를 위해, 해당 신경망은 현재
+I/O queue depth, 최근의 몇개 I/O 시 queue depth 와 latency 를 입력으로 받고 그
+결과 레이턴시가 빠를지 느릴지만 예측합니다.  잘못된 예측으로 인한 문제를
+처리하기 위해선 biased learning 과 예측 정확도에 따른 adaptive hedging 을
+사용합니다.  신경망의 학습은 오프라인으로 이루어집니다.&lt;/p&gt;
+&lt;h2 id=&#34;do-os-abstractions-make-sense-on-fpgas&#34;&gt;Do OS abstractions make sense on FPGAs?&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=k-cp4U3JKug&amp;amp;feature=emb_title&#34;&gt;https://www.youtube.com/watch?v=k-cp4U3JKug&amp;amp;feature=emb_title&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Heterogeneous computing system 이라고도 불리는, FPGA 를 내장한 컴퓨터 시스템이
+널리 사용되고 있습니다.  이런 시스템에는 운영 복잡성이 높게 마련이며, 특히 FPGA
+용 어플리케이션의 개발과 배포가 복잡합니다.  때문에 FPGA 관리를 위해 운영체제의
+추상화 개념이 일부 사용되고 있습니다.  저자는 Coyote 라고 하는, 운영체제의
+일반적 추상화 개념을 모두 지원하는 FPGA 관리 도구를 만들어 운영체제 추상화
+개념이 FPGA 에 잘 적용되는지 실험했고, 그에 대한 긍정적 결과를 얻었습니다.&lt;/p&gt;
+&lt;h2 id=&#34;fast-rdma-based-ordered-key-value-store-using-remote-learned-cache&#34;&gt;Fast RDMA-based Ordered Key-Value Store using Remote Learned Cache&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=Qv-0YL_SII4&amp;amp;feature=emb_title&#34;&gt;https://www.youtube.com/watch?v=Qv-0YL_SII4&amp;amp;feature=emb_title&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;서버 중심적 key-value store (KVS) 는 서버의 CPU 에 성능이 제한되므로, RDMA
+기반의 방법들이 제안되어왔습니다.  한번의 RDMA 에 한번의 RTT 가 소요되므로, 이
+방법은 여러번 네트워크 순회를 해야 하는 문제가 있어 성능이 떨어지는 문제가
+있습니다.  인덱스를 클라이언트 내에 캐시해 두는 해결책도 있습니다만,
+클라이언트의 메모리 사용량을 급격하게 늘린다는 문제가 있습니다.  이 논문의
+저자들은 신경망을 인덱스로 사용하자는 제안을 합니다.  키를 입력으로 받아 밸류의
+주소를 내놓는 신경망을 서버 측에서 학습시키고, 전체 인덱스에 비해 훨씬 작은 이
+신경망을 클라이언트로 전송, 각 클라이언트가 이 신경망을 캐시로 사용해 밸류의
+서버내 주소를 알아내고, RDMA 로 한번에 밸류를 얻어오는 방법입니다.&lt;/p&gt;
+&lt;h2 id=&#34;a-simpler-and-faster-nic-driver-model-for-network-functions&#34;&gt;A Simpler and Faster NIC Driver Model for Network Functions&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=zKJIY4vbBDA&amp;amp;feature=emb_title&#34;&gt;https://www.youtube.com/watch?v=zKJIY4vbBDA&amp;amp;feature=emb_title&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Bridge, router, firewall 등의 기능을 소프트웨어로 구현하려는 software-defined
+network 방식이 널리 사용되고 있습니다.  이 과정에서 성능과 유연성을 위해
+소프트웨어 복잡도를 높이는 경향이 있었습니다.  결과, software-defined network
+stack 의 안정성을 검증하기도 어려워졌습니다.  저자팀은 약간의 유연성을
+희생함으로써 단순하면서 성능 높은 network stack 구현이 가능함을 주장하며,
+자신들의 새로운 네트워크 드라이버 모델, tinynf 로 이를 증명합니다.  이 드라이버
+모델을 바탕으로 구현된 Intel 82599 드라이버는 550줄밖에 안되는 코드로 기존
+state-of-the-art 드라이버보다 7배 빨리 formal verification 을 마칠 수 있었고,
+성능 역시 1.6배 높았습니다.&lt;/p&gt;
+&lt;h2 id=&#34;theseus-an-experiment-in-operating-system-structure-and-state-management&#34;&gt;Theseus: an experiment in operating system structure and state management&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=i1pLDZKtlBI&#34;&gt;https://www.youtube.com/watch?v=i1pLDZKtlBI&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;이 논문에서 저자들은 Theseus 라는 이름의, state spill 문제를 해결할 수 있도록
+설계된 운영체제를 선보입니다.  해당 문제의 해결을 위해 &amp;lsquo;cell&amp;rsquo; 이라 불리는
+다수의 작은 컴포넌트로 운영체제를 구성시켰으며, Rust 와 같은 언어 수준에서의
+안전성 보장 메커니즘들을 운영체제 단계에 적용시켰습니다.&lt;/p&gt;
+&lt;h2 id=&#34;specification-and-verification-in-the-field-applying-formal-methods-to-bpf-just-in-time-compilers-in-the-linux-kernel&#34;&gt;Specification and verification in the field: Applying formal methods to BPF just-in-time compilers in the Linux kernel&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=2V3ts5-W_9g&amp;amp;feature=emb_title&#34;&gt;https://www.youtube.com/watch?v=2V3ts5-W_9g&amp;amp;feature=emb_title&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;BPF 프로그램은 수행되기 전에 검증되지만, 그 검증 이후에 JIT 를 통해 컴파일 된
+후에 수행됩니다.  따라서, JIT 에 버그가 있다면 문제가 생길 수 있습니다.  이
+논문의 저자들은 JIT 의 정확성 명세 프레임웍, jitterbug 를 사용해 RISC-V 를 위한
+새로운 BPF JIT 를 개발했습니다.  이 과정에서 만들어진 커널 변경사항은 메인라인
+리눅스 커널에 머지되었습니다.&lt;/p&gt;
+&lt;h2 id=&#34;storage-systems-are-distributed-systems-so-verify-them-that-way&#34;&gt;Storage Systems are Distributed Systems (So Verify Them That Way!)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=4s8EeXcu_8Y&amp;amp;feature=emb_title&#34;&gt;https://www.youtube.com/watch?v=4s8EeXcu_8Y&amp;amp;feature=emb_title&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;스토리지 시스템도 높은 복잡도를 갖기에 기계적으로 검증을 하기 까다롭습니다.  이
+논문의 저자들은 그런 스토리지 시스템의 구조가 분산 시스템과 비슷한 측면이
+있음을 발견하고 분산 시스템의 기계적 검증을 위해 제안된 방법을 보다 범용화 해서
+스토리지 시스템에 적용합니다.  이를 바탕으로 저자팀은 VeriSafeKV 라는 검증
+가능한 key-value storage 를 만들었습니다.  VeriSafeKV 는 검증이 되지 않는 DB
+들과 비슷한 수준의 성능을 보였습니다.&lt;/p&gt;
+&lt;h2 id=&#34;caladan-mitigating-interference-at-microsecond-timescales&#34;&gt;Caladan: Mitigating Interference at Microsecond Timescales&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=G-v3ndwixOI&amp;amp;feature=emb_title&#34;&gt;https://www.youtube.com/watch?v=G-v3ndwixOI&amp;amp;feature=emb_title&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;시스템 상에는 서로 다른 요구사항을 가진 워크로드들이 함께 스케쥴링 됩니다.
+예를 들어, 어떤 워크로드는 최선의 리소스만 주어지면 되지만 어떤 것들은 tail
+latency 에 민감하죠.  워크로드들이 LLC 나 memory bandwidth 같은 하드웨어
+리소스를 공유하므로, 모든 요구사항을 지켜주기가 어렵습니다.  이에 대한 잘
+알려진 해결책은 리소스 파티셔닝입니다.  하지만 정적 파티셔닝은 리소스 사용률을
+낮출 수 있기 때문에 동적 파티셔닝이 제안되어왔습니다.  하지만 저자들의 주장에
+따르면 tail latency 문제를 위해선 100 마이크로세컨드 내에 동적 파티셔닝이
+이루어져야 하는데 기존 해결책들은 그정도로 빠르지 않습니다.  때문에 저자들은
+간섭을 알아채기 위해 다른 시그널을 사용하면서 시스템 전체를 마이크로세컨드
+레벨로 재설계 했습니다.&lt;/p&gt;
+&lt;h2 id=&#34;semeru-a-memory-disaggregated-managed-runtime&#34;&gt;Semeru: A Memory-Disaggregated Managed Runtime&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=MFA3MmNDKaM&amp;amp;feature=emb_title&#34;&gt;https://www.youtube.com/watch?v=MFA3MmNDKaM&amp;amp;feature=emb_title&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;CPU 작업과 메모리 작업들 같이 다른 일을 위한 분산된 기계들을 가지고 시스템을
+구축하는 resource-disaggregated 아키텍쳐가 널리 사용되어가고 있습니다.  하지만,
+이 구조는 보통 native 어플리케이션을 위해 만들어졌지, GC 기반 어플리케이션을
+위해 만들어지진 않았습니다.  이 논문은 resource-disaggregation 구조를 위해
+설계된 JVM, Semeru 를 소개합니다.&lt;/p&gt;
+&lt;h2 id=&#34;panic-a-high-performance-programmable-nic-for-multi-tenant-networks&#34;&gt;PANIC: A High-Performance Programmable NIC for Multi-tenant Networks&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=EB6dK3L8Jzg&amp;amp;feature=emb_title&#34;&gt;https://www.youtube.com/watch?v=EB6dK3L8Jzg&amp;amp;feature=emb_title&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Multi-tenant 네트웍은 programmable NIC 에게 범용성, 유연한 chaining, isolation,
+그리고 성능을 요구합니다.  하지만 현재의 programmable NIC 들은 그걸 제공하지
+않고 있죠.  이 논문의 저자들은 이를 위한 새로운 programmable NIC 설계를
+제안하고 PANIC 이라는 이름의 FPGA 기반 구현을 소개합니다.&lt;/p&gt;
+&lt;h2 id=&#34;serving-dnns-like-clockwork-performance-predictability-from-the-bottom-up&#34;&gt;Serving DNNs like Clockwork: Performance Predictability from the Bottom Up&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=wHOpY_MY57Y&amp;amp;feature=emb_title&#34;&gt;https://www.youtube.com/watch?v=wHOpY_MY57Y&amp;amp;feature=emb_title&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;오늘날 데이터 센터는 수많은 머신러닝 모델을 다른 사용자들을 위해 수행해 주고
+있습니다.  각각의 인퍼런스는 조건적 실행 분기문 같은게 없으므로 그 응답시간을
+쉽게 예측 가능합니다만 모델 서빙 시스템 자체의 복잡도로 인해 끝단 사이의
+응답시간을 예측 불가능하게 만들고 있습니다.  이 논문은 이 문제를 해결하기 위해
+응답시간을 고려해 재설계된 머신러닝 모델 서빙 스케쥴러 시스템을 소개합니다.&lt;/p&gt;
+&lt;h2 id=&#34;teting-configuration-changes-in-context-to-prevent-production-failures&#34;&gt;Teting Configuration Changes in Context to Prevent Production Failures&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=QrGKmp3ALKQ&amp;amp;feature=emb_title&#34;&gt;https://www.youtube.com/watch?v=QrGKmp3ALKQ&amp;amp;feature=emb_title&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;이 논문은 &amp;lsquo;ctest&amp;rsquo; 라는, 제품 환경에서의 설정 변경이 옳은지 검증할 수 있는
+테스트 프레임웍을 제안합니다.  형태는 Junit 등의 다른 테스트 프레임웍과
+비슷합니다.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>My paper has accepted to appear in the EuroSys2020</title>
+      <link>/ko/post/eurosys2020_talk/</link>
+      <pubDate>Fri, 14 Feb 2020 19:44:36 +0100</pubDate>
+      <guid>/ko/post/eurosys2020_talk/</guid>
+      <description>&lt;p&gt;지금 회사에 합류하기 전에 마지막으로 쓴 제 연구 논문이
+&lt;a href=&#34;https://www.eurosys2020.org/&#34;&gt;EuroSys&#39;20&lt;/a&gt; 에 액셉되었습니다. 논문의 제목은
+&lt;strong&gt;“An HTM-Based Update-side Synchronization for RCU on NUMA systems”&lt;/strong&gt; 입니다.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>I will have a talk at the Hotstorage&#39;19</title>
+      <link>/ko/post/hotstorage2019_talk/</link>
+      <pubDate>Thu, 18 Apr 2019 09:37:04 +0900</pubDate>
+      <guid>/ko/post/hotstorage2019_talk/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://www.usenix.org/conference//hotstorage19&#34;&gt;HotStorage&#39;19&lt;/a&gt; 에 제출한 제
+최근 연구에 대한 논문이 accept 되어 7월에 해당 워크샵에서 이에 대한 내용을
+발표하게 되었습니다.  논문 제목은 &amp;ldquo;Automating Context Based Access Pattern Hint
+Injection for System Performance and Swap Storage Durability&amp;rdquo; 입니다.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>The Paper about GCMA Accepted to TC</title>
+      <link>/ko/post/gcma_accepted_to_tc/</link>
+      <pubDate>Wed, 29 Aug 2018 21:53:56 +0900</pubDate>
+      <guid>/ko/post/gcma_accepted_to_tc/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;/ko/post/gcma/&#34;&gt;GCMA&lt;/a&gt; 에 대한 논문이 컴퓨터 과학계의 최고 수준 저널인
+Transactions on Computers[1] 에 Accept 되었습니다.  조만간 이를 통해 출간될
+예정입니다.&lt;/p&gt;
+&lt;p&gt;[1] &lt;a href=&#34;https://www.computer.org/web/tc&#34;&gt;https://www.computer.org/web/tc&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

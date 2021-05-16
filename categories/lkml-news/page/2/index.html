@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.6.2">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="SeongJae Park">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Kernel / Hypervisor Engineer">
+
+  
+  <link rel="alternate" hreflang="ko" href="/ko/categories/lkml-news/">
+  
+  <link rel="alternate" hreflang="en-us" href="/categories/lkml-news/">
+
+  
+
+
+  
+  
+  
+  <meta name="theme-color" content="#2962ff">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css" integrity="sha256-SHMGCYmST46SoyGgo4YR/9AlK1vf3ff84Aq9yK4hdqM=" crossorigin="anonymous">
+    
+
+    
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap">
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.css">
+
+  
+
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-30621335-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           document.location = url;
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target);  
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'UA-30621335-1', {});
+
+  
+  document.addEventListener('click', onClickCallback, false);
+</script>
+
+
+  
+
+
+  
+  <link rel="alternate" href="/categories/lkml-news/index.xml" type="application/rss+xml" title="hacklog">
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon-32.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/categories/lkml-news/">
+
+  
+  
+  
+  
+    
+  
+  
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="og:site_name" content="hacklog">
+  <meta property="og:url" content="/categories/lkml-news/">
+  <meta property="og:title" content="lkml news | hacklog">
+  <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
+  <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
+  
+    <meta property="og:updated_time" content="2021-05-11T21:11:05&#43;02:00">
+  
+
+  
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>lkml news | hacklog</title>
+
+</head>
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+    
+    
+      <a class="navbar-brand" href="/">hacklog</a>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#about"><span>Home</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#projects"><span>Projects</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#publications"><span>Publications</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/tags"><span>Tags</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link  active" href="/categories"><span>Categories</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/post/about"><span>CV</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      <li class="nav-item">
+        <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      <li class="nav-item dropdown i18n-dropdown">
+        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true">
+          <i class="fas fa-globe mr-1" aria-hidden="true"></i><span class="d-none d-lg-inline">English</span>
+        </a>
+        <div class="dropdown-menu">
+          <div class="dropdown-item i18n-active font-weight-bold">
+            <span>English</span>
+          </div>
+          
+          <a class="dropdown-item" href="/ko/categories/lkml-news/">
+            <span>한국어</span>
+          </a>
+          
+        </div>
+      </li>
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+    
+  
+<div class="universal-wrapper pt-3">
+  <h1>lkml news</h1>
+
+  
+
+  
+</div>
+
+
+
+<div class="universal-wrapper">
+  
+
+  
+  
+  <div>
+    <h2><a href="/post/lkml_news_v5.12-rc1/">LKML News v5.12-rc1</a></h2>
+    <div class="article-style">
+      
+      [PATCH v11 00/14] prohibit pinning pages in ZONE_MOVABLE (Pavel Tatashin) https://lkml.kernel.org/r/20210215161349.246722-1-pasha.tatashin@soleen.com
+The 11th version of the patchset making ZONE_MOVABLE really movable. In this version, a build error on i386 is fixed.
+[RFC PATCH] mm, oom: introduce vm.sacrifice_hugepage_on_oom https://lkml.kernel.org/r/20210216030713.79101-1-eiichi.tsukata@nutanix.com
+This RFC patch introduces yet another sysctl knob called vm.sacrifice_hugepage_on_oom. When it is turned on, it tries to free available hugepages before waking oom-killer up.
+[RFC] Hugepage collapse in process context (David Rientjes) https://lkml.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v5.11/">LKML News v5.11</a></h2>
+    <div class="article-style">
+      
+      [PATCH v2] mm: cma: support sysfs (Minchan Kim) https://lkml.kernel.org/r/20210208180142.2765456-1-minchan@kernel.org
+This patch introduces sysfs interface for CMA that shows stats including number of CMA allocation attempts and failures.
+[PATCH v10 00/14] prohibit pinning pages in ZONE_MOVABLE (Pavel Tatashin) https://lkml.kernel.org/r/20210211162427.618913-1-pasha.tatashin@soleen.com
+The 10th version of the patchset making ZONE_MOVABLE really movable.
+Linux 5.11 (Linus Torvalds) https://lkml.kernel.org/r/CAHk-=wg8LpRi9+P2_V+ehJ2_EoJifNh2QmVf47aLXfkCd-1UAQ@mail.gmail.com
+Nothing strange happened last week, so Linus released v5.11 as expected. The number of changes from the rc7 to this release is actually even smaller than average.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v5.11-rc7/">LKML News v5.11-rc7</a></h2>
+    <div class="article-style">
+      
+      [RFC 00/20] TLB batching consolidation and enhancements (Nadav Amit) https://lkml.kernel.org/r/20210131001132.3368247-1-namit@vmware.com
+This patchset prepares more aggressive TLB flushing batching by consolidating a few TLB batching methods.
+[PATCH v9 00/14] prohibit pinning pages in ZONE_MOVABLE (Pavel Tatashin) https://lkml.kernel.org/r/20210201153827.444374-1-pasha.tatashin@soleen.com
+This patchset makes ZONE_MOVABLE really movable by prohibiting pinning of pages in the zone.
+Augmented Page Reclaim (Yu Zhao) https://lkml.kernel.org/r/YBkT6175GmMWBvw3@google.com
+This mail shares a part of decade researh/experimentation in memory overcommit at Google. The author wants to start submitting patch based on responses.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v5.11-rc6/">LKML News v5.11-rc6</a></h2>
+    <div class="article-style">
+      
+      [RFC][PATCH 00/13] [v5] Migrate Pages in lieu of discard (Dave Hansen) https://lkml.kernel.org/r/20210126003411.2AC51464@viggo.jf.intel.com
+If a system has a small DRAM and a large persistent memory (PMEM), reclamation starts when DRAM fills up, and newer allocations will done on PMEM. This patchset makes the reclaim logic to migrate pages to PMEM instead of just discarding it.
+[PATCH v3 00/25] Page folios (Matthew Wilcox) https://lkml.kernel.org/r/20210128070404.1922318-1-willy@infradead.org
+This patchset introduces a new data structure called page folio.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v5.11-rc5/">LKML News v5.11-rc5</a></h2>
+    <div class="article-style">
+      
+      [PATCH v2 00/27] Page folios (Matthew Wilcox) https://lkml.kernel.org/r/20210118170148.3126186-1-willy@infradead.org
+This is the second version of the page folios patchset. This introduces a new struct named folio. Functions that receive folio as an argument always receives head page, so the function don&rsquo;t need to do compound_head().
+[PATCH -V9 0/3] numa balancing: Migrate on fault among multiple bound nodes (Huang Ying) https://lkml.kernek.org/r/20210120061235.148637-1-ying.huang@intel.com
+This patch make optimization of cross-socket memory accesses for AutoNUMA in case of application is bound to multiple NUMA nodes possible.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v5.11-rc4/">LKML News v5.11-rc4</a></h2>
+    <div class="article-style">
+      
+      [PATCH] mm: thp: introduce NR_PARTIAL_THPS (Bin Wang) https://lkml.kernel.org/r/20210112021208.1875-1-wangbin224@huawei.com
+Because partially unmapped THP is not split, the memory stat becomes confusing. This patch add another counter called NR_PARTIAL_THPS in node_stat_item to reduce such confusions.
+[PATCH v2 00/70] RFC mm: Introducing the Maple Tree (Liam R. Howlett) https://lkml.kernel.org/r/20210112161240.2024684-1-Liam.Howlett@Oracle.com
+Second RFC of the Maple tree. It is an RCU-safe B-tree that aims to be used as the vma tree with better scalability.
+[PATCH] mm/debug: Improve memcg debugging (Matthew Wilcox) https://lkml.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v5.11-rc3/">LKML News v5.11-rc3</a></h2>
+    <div class="article-style">
+      
+      [PATCH] mm: vmscan: support complete shrinker reclaim (Sudarshan Rajagopalan) https://lkml.kernel.org/r/2d1f1dbb7e018ad02a9e7af36a8c86397a1598a7.1609892546.git.sudaraja@codeaurora.org
+This patch makes caches can dropped even when those are smaller than the batch size.
+[PATCH 0/6] hugetlbfs: support free page reporting (Liang Li) https://lkml.kernel.org/r/20210106034623.GA1128@open-light-1.localdomain
+Because hugetlbfs is using reserved memory, it&rsquo;s not reported by the free page reporting feature. This patch makes it able to be reported.
+Linux 5.11-rc3 (Linus Torvalds) https://lkml.kernel.org/r/CAHk-=wizR7--Ub-rasYx2S5XURkooCQ63Sat23BpvTAuN0scQA@mail.gmail.com
+The prediction of Linus for this release was wrong.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v5.11-rc2/">LKML News v5.11-rc2</a></h2>
+    <div class="article-style">
+      
+      Linux 5.11-rc2 (Linus Torvalds) https://lkml.kernel.org/r/CAHk-=whS+rzNMSsU6vRoLMzrm0JPN-OVg+BxhybMet3NpqpR-Q@mail.gmail.com
+Due to the holiday season, rc2 ends up fairly small. Maybe we will see rc8 for v5.11, but Torvalds just saying let&rsquo;s watch more.
+Below is the diffstat of the releases in the last two years.
+Note that the y-axis is in logarithm. I draw it using https://github.com/sjp38/relstat and https://github.com/sjp38/lazybox using below command:
+$ relstat.py --since 2019-01-04 | ~/lazybox/gnuplot/plot.py \ --data_fmt table --type labeled-lines --xtics_rotate -90 \ --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v5.11-rc1/">LKML News v5.10-rc1</a></h2>
+    <div class="article-style">
+      
+      incoming (Andrew Morton) https://lkml.kernel.org/r/20201214190237.a17b70ae14f129e2dca3d204@linux-foundation.org
+The pull request for v5.11 from Andrew Morton. The mmap_lock tracepoint patchset series is included in here.
+incoming (Andrew Morton) https://lkml.kernel.org/r/20201215123253.954eca9a5ef4c0d52fd381fa@linux-foundation.org
+Another pull request from Andrew Morton for memcg scalability improvement. This makes per-memcg lru lock.
+[PATCH 00/25] Page folios (Matthew Wilcox) https://lkml.kernel.org/r/20201216182335.27227-1-willy@infradead.org
+This is the patchset for the page folios, which Matthew proposed a few days ago and discussed via zoom.
+Do we still need skip swapcache logic in do_swap_page() for SWP_SYNCHRONOUS_IO?
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v5.10/">LKML News v5.10</a></h2>
+    <div class="article-style">
+      
+      [RFC V2 00/37] Enhance memory utilization with DMEMFS (Yuley Zhang) https://lkml.kernel.org/r/cover.1607332046.git.yuleixzhang@tencent.com
+This patchset aims to remove the &lsquo;struct page&rsquo; from user-sepcified region of memory and use a file system called &lsquo;dmemfs&rsquo; to minimize the memory region dedicated for &lsquo;struct page&rsquo;s.
+[PATCH] mm: don&rsquo;t SetPageWorkingset unconditionally during swapin (Yu Zhao) https://lkml.kernel.org/r/20201209012400.1771150-1-yuzhao@google.com
+Unconditional &lsquo;SetPageWorkingset&rsquo; miscategorizes read-ahead pages or pages that never belong to the working set as working set because it&rsquo;s called unconditionally.
+      
+    </div>
+  </div>
+  
+
+  
+<nav>
+  <ul class="pagination justify-content-center">
+    
+    <li class="page-item"><a class="page-link" href="/categories/lkml-news/">&laquo;</a></li>
+    
+    
+    <li class="page-item"><a class="page-link" href="/categories/lkml-news/page/3/">&raquo;</a></li>
+    
+  </ul>
+</nav>
+
+
+</div>
+
+      
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js" integrity="sha256-1zu+3BnLYV9LdiY85uXMzii3bdrkelyp37e0ZyTAQh0=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/languages/c.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/languages/bash.min.js"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js" integrity="sha256-EErZamuLefUnbMBQbsEqu1USa+btR2oIlCpBJbyD4/g=" crossorigin="anonymous"></script>
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.bcfae8267aba63cc55af53a503896bd9.js"></script>
+
+    
+
+
+
+
+
+
+  
+  
+  <div class="container">
+    <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" class="back-to-top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

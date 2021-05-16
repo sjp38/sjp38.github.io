@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.6.2">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="SeongJae Park">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Kernel / Hypervisor Engineer">
+
+  
+  <link rel="alternate" hreflang="ko" href="/ko/categories/lkml-news/">
+  
+  <link rel="alternate" hreflang="en-us" href="/categories/lkml-news/">
+
+  
+
+
+  
+  
+  
+  <meta name="theme-color" content="#2962ff">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css" integrity="sha256-SHMGCYmST46SoyGgo4YR/9AlK1vf3ff84Aq9yK4hdqM=" crossorigin="anonymous">
+    
+
+    
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap">
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.css">
+
+  
+
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-30621335-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           document.location = url;
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target);  
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'UA-30621335-1', {});
+
+  
+  document.addEventListener('click', onClickCallback, false);
+</script>
+
+
+  
+
+
+  
+  <link rel="alternate" href="/categories/lkml-news/index.xml" type="application/rss+xml" title="hacklog">
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon-32.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/categories/lkml-news/">
+
+  
+  
+  
+  
+    
+  
+  
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="og:site_name" content="hacklog">
+  <meta property="og:url" content="/categories/lkml-news/">
+  <meta property="og:title" content="lkml news | hacklog">
+  <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
+  <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
+  
+    <meta property="og:updated_time" content="2021-05-11T21:11:05&#43;02:00">
+  
+
+  
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>lkml news | hacklog</title>
+
+</head>
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+    
+    
+      <a class="navbar-brand" href="/">hacklog</a>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#about"><span>Home</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#projects"><span>Projects</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#publications"><span>Publications</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/tags"><span>Tags</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link  active" href="/categories"><span>Categories</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/post/about"><span>CV</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      <li class="nav-item">
+        <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      <li class="nav-item dropdown i18n-dropdown">
+        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true">
+          <i class="fas fa-globe mr-1" aria-hidden="true"></i><span class="d-none d-lg-inline">English</span>
+        </a>
+        <div class="dropdown-menu">
+          <div class="dropdown-item i18n-active font-weight-bold">
+            <span>English</span>
+          </div>
+          
+          <a class="dropdown-item" href="/ko/categories/lkml-news/">
+            <span>한국어</span>
+          </a>
+          
+        </div>
+      </li>
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+    
+  
+<div class="universal-wrapper pt-3">
+  <h1>lkml news</h1>
+
+  
+
+  
+</div>
+
+
+
+<div class="universal-wrapper">
+  
+
+  
+  
+  <div>
+    <h2><a href="/post/lkml_news_v4.19-rc6/">LKML News after v4.19-rc6</a></h2>
+    <div class="article-style">
+      
+      Linux 4.19-rc6 https://lkml.kernel.org/r/20180930150308.GA5010@kroah.com
+이번주도 Greg 에 의해 여섯번째 rc 버전이 릴리즈 되었습니다. 평소 일정대로면 2주일 후 4.19 정식 버전이 릴리즈 될텐데, 아마도 그때까지도 Greg 이 릴리즈 하지 않을까 싶기도 하군요. 전체적으로 특이사항은 없고 Greg 의 시스템에서는 잘 동작하고 있으며 별다른 이슈를 보고받지도 못했다는군요.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v4.19-rc5/">LKML News after v4.19-rc5</a></h2>
+    <div class="article-style">
+      
+      Linux 4.19-rc5 https://lkml.kernel.org/r/20180923175547.GA4462@kroah.com
+지난주 토발즈가 휴식을 선언한 이유로 한동안 릴리즈는 Greg 이 맡게 되었죠. 이번 릴리즈는 그래서 Greg 이 합니다.
+사회적으로야 이런저런 일이 많았지만 (토발즈의 휴가, Code of Conduct 머지에 관련해 갑론을박이 많군요.) 기술적으로는 별 일 없었던 한주라 평가되는군요.
+사소하지만 재밌는 건 Greg 의 자기 서명. greg &quot;keeping the seat warm for a few weeks&quot; k-h 라고 하는군요. 토발즈가 휴가 가있는 동안 의자를 뎁혀 두는 역할이라는 겸손함이 눈에 띄네요.
+[PATCH -V5 RESEND 00/21] swap: Swapout/swapin THP in one piece https://lkml.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v4.19-rc4/">LKML News after v4.19-rc4</a></h2>
+    <div class="article-style">
+      
+      Linux 4.19-rc4 released, an apology, and a maintainership note https://lkml.kernel.org/r/CA+55aFy+Hv9O5citAawS+mVZO+ywCKd9NQ2wxUmGsz9ZJzqgJQ@mail.gmail.com
+한국시간 새벽 네시 좀 넘어 이 메일을 받았습니다. 평범한 릴리즈 메일이겠거니 했는데 제목이 뭔가 심상치 않군요.
+일단 4.19를 위한 네번째 release candidate 릴리즈가 되었습니다. 약 3주 후 정식 4.19 버전이 릴리즈 되겠군요. 하지만 이 메일은 그보다 많은 내용을 담고 있습니다.
+자유분방하고 형식에 구애되지 않는 해커 문화에 기원을 두고 있는 리눅스 커뮤니티는 조금 거친 언어 문화로 유명했습니다. 예를 들어 이상한 코드를 보내면 리누스 토발즈와 커뮤니티의 일부 사람들이 이 코드를 꾸짖을 수 있는데 그 과정에서 욕설도 있을 수 있다는 거죠.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v4.19-rc3/">LKML News after v4.19-rc3</a></h2>
+    <div class="article-style">
+      
+      Linux 4.19-rc3 https://lkml.kernel.org/r/CA+55aFwSxCt0aKkTxcBstthYXqJ5LtxRbO-CDyqgNwU94Ldq+w@mail.gmail.com
+세번째 rc 릴리즈입니다. 어느새 이번 안정화 기간도 중반을 향하는군요. 시간 참 빠릅니다. 전체적으로 평범한 릴리즈입니다. 딱히 언급할 거리가 없군요.
+[RFC PATCH v2 0/8] lru_lock scalability and SMP list functions https://lkml.kernel.org/r/20180911004240.4758-1-daniel.m.jordan@oracle.com
+올해 LSF/MM 서밋에서도 이야기되었던, lru_lock 의 확장성을 개선하기 위한 노력의 정리입니다. LRU 리스트에 여러 쓰레드가 실제 데이터를 겹쳐 쓰지 않는다면 동시에 접근할 수 있는 새로운 오퍼레이션 세개 (smp_list_del(), smp_list_splice(), smp_list_add())을 추가했구요. 두번째로, lru_lock 을 spinlock 에서 rwlock 으로 교체했군요.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v4.19-rc2/">LKML News after v4.19-rc2</a></h2>
+    <div class="article-style">
+      
+      Linux 4.19-rc2 https://lkml.kernel.org/r/CA+55aFyG0GbDfoghEhAmKBPcZCiPu6CCpPRz9GwjCzLuP_Vv5Q@mail.gmail.com
+리눅스 4.19 두번째 릴리즈 후보 버전의 릴리즈입니다. 첫번째 릴리즈 후보 버전 릴리즈 후엔 사람들이 좀 쉬게 마련이고 버그를 찾기엔 시간이 많지 않았기에 큰 변화는 없었습니다. 유럽사람들의 경우 아직 휴가기간인 사람도 많구요. 미국 OSSummit 이 지난주 진행된 것도 한 영향이겠네요.
+[PATCH -V5 00/21] swap: Swapout/swapin THP in one piece https://lkml.kernel.org/r/20180903072214.24602-1-ying.huang@intel.com
+관심있게 지켜보고 있는, THP swapout/in 패치입니다. 다음 머지 윈도우에선 들어갈 수 있을까요?
+Plumbers 2018 - Performance and Scalability Microconference https://lkml.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v4.19-rc1/">LKML News after v4.19-rc1</a></h2>
+    <div class="article-style">
+      
+      Linux 4.19-rc1 https://lkml.kernel.org/r/CA+55aFw9mxNPX6OtOp-aoUMdXSg=gBkQudGGamo__sh_ts_LdQ@mail.gmail.com
+이주일의 머지 윈도우가 끝나고 리눅스 4.19 버전을 향한 안정화 단계가 시작되었습니다.
+토발즈에겐 결코 즐겁지 않은 머지 윈도우였습니다 (frustrating merge window 였다고 표현하는군요). 일단 머지 윈도우 초기부터 L1TF 취약점 이슈가 나왔죠. 하지만 이슈가 처음 발견된 건 아니고 공식 보고된 거다보니 그 전부터 수정은 하고 있었기에 머지만 하면 됐습니다. 토발즈는 -next 트리와 다양한 커널 테스트 시스템들이 잘 갖추어져 있다는 증거라고 이야기 합니다.
+또, TLB 슛다운 버그에 대한 보고가 있었군요. 결국은 큰 문제는 아니었다고 결론났음에도 토발즈의 신경을 많이 긁었다고 합니다.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v4.18/">Lkml_news_v4.18</a></h2>
+    <div class="article-style">
+      
+      Linux 4.18 https://lkml.kernel.org/r/CA+55aFzos7tr=OLju10Oe-z7r=eB2dSaFa7vwz2ApGO13B=z_g@mail.gmail.com
+자, 오랫만에 rc 버전을 8개나 내며 긴 안정화 기간을 거친 4.18 버전이 릴리즈 되었습니다. 따라서 지난주는 조용해야 했고 실제로 조용했지만 그럼에도 불구하고 vfs 레이스 컨디션 문제 수정 등의 변경도 있긴 했습니다. 이번 정식 릴리즈로 포함된 기능 중 개인적으로는 Restartable Sequence 가 눈에 띄고 흥미롭군요. 아마 2015년? 인가에 서울에서 커널 서밋 열려서 거기서 발표 들었을 때부터 관심있었거든요. 유저스페이스에서 이 기능을 잘 사용하면 멀티코어 성능확장성에 큰 개선이 가능할 것 같습니다.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v4.18-rc8/">LKML News after v4.18-rc8</a></h2>
+    <div class="article-style">
+      
+      Linux 4.18-rc8 https://lkml.kernel.org/r/CA+55aFw49Bh9u3KvGsMbnSLfHvevpWPuqgrWQT0tC0XCajNwzA@mail.gmail.com
+원래대로라면 오늘 4.18 정식 릴리즈가 있어야 했지만, 지난주 동안 여러 일이 있었고, 결국 여덟번째 rc 버전이 나오고 말았습니다. VM 쪽 이슈가 큰 이유였고, 그것만 문제였으면 그냥 정식 릴리즈를 하려 했지만 네트워킹 쪽에서도 뒤늦은 문제가 터지고 VFS 쪽에도 이슈가 있었던 관계로 정식 릴리즈를 미루기로 결심했다고 합니다.
+8월에 휴가를 많이 떠나는 유럽 개발자들을 고려해서 토발즈는 휴가가 예정되어 있다면 그냥 원래 예상된 스케쥴대로 이번주부터 머지 윈도우 열렸다고 생각하고 풀리퀘스트 보내고 휴가 가라고 대인배라면 대인배 같은 면모를 보이는군요.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v4.18-rc7/">LKML News after v4.18-rc7</a></h2>
+    <div class="article-style">
+      
+      Linux 4.18-rc7 https://lkml.kernel.org/r/CA+55aFxpFefwVdTGVML99PSFUqwpJXPx5LVCA3D=g2t2_QLNsA@mail.gmail.com
+일곱번째 rc 릴리즈입니다. 별다른 일 없으면 다음주에 4.18이 릴리즈 되겠다고 토발즈도 이야기 하는군요.
+[PATCH v4 0/6] kmalloc-reclaimable caches https://lkml.kernel.org/r/20180731090649.16028-1-vbabka@suse.cz
+내부적으로 SLAB 할당자를 사용하는 kmem cache 들은 SLAB_RECLAIM_ACCOUNT 플래그를 가지고 생성될 경우에 시스템 메모리가 부족한 경우 기존에 할당받은 오브젝트들을 회수해도 좋다고 알리게 됩니다.
+일반적인 kmem cache 들은 이 플래그 없이 생성되서는 시스템의 메모리가 부족한 경우에 회수되어도 좋은 오브젝트의 할당에 사용되기도 하는데, 다양한 크기의 오브젝트들은 SLAB_RECLAIM_ACCOUNT 플래그를 가진 하나의 kmem cache 에서 처리될 수 없기 때문이죠.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v4.18-rc6/">LKML News after v4.18-rc6</a></h2>
+    <div class="article-style">
+      
+      Linux 4.18-rc6 https://lkml.kernel.org/r/CA+55aFzMheDA-2z=MdGgJrz-REcrknb+4OEvRKaJipm+x6xEhw@mail.gmail.com
+이번 rc는 평소보다 조금 크게 되었는데, 네트워킹 쪽 메인테이너인 David 가 많은 수정사항을 아직 보내지 않았다가 이번에 모아서 보냈기 때문이라는군요. 그렇다 해도 그렇게 큰 양까진 아니라는 토발즈의 설명입니다.
+지난 rc5 작업 주간을 귀찮게 했던 VM 버그에 대한 두줄의 수정이 rc5 에 들어갔었지만 32비트 환경에 대한 고려가 없었기에 이번에 그 수정이 들어갔다는군요.
+[PATCH 0/7] memory management documentation updates https://lkml.kernel.org/r/1532517970-16409-1-git-send-email-rppt@linux.vnet.ibm.com
+메모리 관리 부분 문서화 업데이트입니다. sphinx 기반 문서화 업데이트를 일부 메인테이너들은 반기지 않는 것도 사실이지만, 확실히 가독성이 좋아진 덕에 이런 문서화 노력이 더 활발해 지는 것 아닌가 하는 생각도 드는군요.
+      
+    </div>
+  </div>
+  
+
+  
+<nav>
+  <ul class="pagination justify-content-center">
+    
+    <li class="page-item"><a class="page-link" href="/categories/lkml-news/page/12/">&laquo;</a></li>
+    
+    
+    <li class="page-item"><a class="page-link" href="/categories/lkml-news/page/14/">&raquo;</a></li>
+    
+  </ul>
+</nav>
+
+
+</div>
+
+      
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js" integrity="sha256-1zu+3BnLYV9LdiY85uXMzii3bdrkelyp37e0ZyTAQh0=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/languages/c.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/languages/bash.min.js"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js" integrity="sha256-EErZamuLefUnbMBQbsEqu1USa+btR2oIlCpBJbyD4/g=" crossorigin="anonymous"></script>
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.bcfae8267aba63cc55af53a503896bd9.js"></script>
+
+    
+
+
+
+
+
+
+  
+  
+  <div class="container">
+    <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" class="back-to-top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

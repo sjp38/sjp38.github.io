@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>golang | hacklog</title>
+    <link>/tags/golang/</link>
+      <atom:link href="/tags/golang/index.xml" rel="self" type="application/rss+xml" />
+    <description>golang</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sat, 26 Aug 2017 10:54:24 +0900</lastBuildDate>
+    <image>
+      <url>/img/tux.png</url>
+      <title>golang</title>
+      <link>/tags/golang/</link>
+    </image>
+    
+    <item>
+      <title>Golang 1.9 install on Fedora 26</title>
+      <link>/post/golang1.9_fedora26/</link>
+      <pubDate>Sat, 26 Aug 2017 10:54:24 +0900</pubDate>
+      <guid>/post/golang1.9_fedora26/</guid>
+      <description>&lt;p&gt;현재 사용중인 랩탑에 설치한 OS 는 Fedora 24 였는데, 너무 오래되었고 지원도
+얼마전 끝났기에[0] 이번에 Fedora 26 으로 새로 설치했습니다.  마침 go 언어도 1.9 가
+최근에 릴리즈 되었기에 개인적으로 go 언어를 설치하는 방법을 기록해 둡니다.&lt;/p&gt;
+&lt;p&gt;여기선 소스 코드만 가지고 빌드, 설치하는 방법을 기록합니다.&lt;/p&gt;
+&lt;h1 id=&#34;get-source-code&#34;&gt;Get Source Code&lt;/h1&gt;
+&lt;p&gt;go 언어는 오픈소스입니다.  다음 커맨드를 통해 구글로부터 소스코드를 받아올 수
+있습니다.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git clone https://go.googlesource.com/go
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;기다리면 &lt;code&gt;go/&lt;/code&gt; 디렉토리에 소스코드가 딸려옵니다.&lt;/p&gt;
+&lt;h1 id=&#34;golang-14-build--install&#34;&gt;golang 1.4 Build &amp;amp; Install&lt;/h1&gt;
+&lt;p&gt;go 언어를 빌드한다는 건 go 언어 컴파일러와 기본 라이브러리 등과 같은, go 언어로
+짠 프로그램을 빌드하고 수행하는데 필요한 도구들을 빌드한다는 이야기입니다.
+이런 기본 도구는 go 언어로 짜여져 있기 때문에 go 언어를 소스코드로부터
+빌드하려면 go 언어가 미리 설치되어 있어야 합니다.  따라서 1.4 버전의 go 언어를
+먼저 빌드, 설치합니다.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ cp -R go go1.4
+$ cd go1.4/src
+$ git checkout go1.4.3
+$ CGO_ENABLED=0 ./all.bash
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;앞서 받아온 소스코드를 &lt;code&gt;go1.4/&lt;/code&gt; 디렉토리로 복사하고 (line 1) 그리로 이동해서
+(line 2) git 을 사용해 1.4 버전들 중 가장 마지막 버전인 1.4.3 버전의 코드를
+꺼낸 후 (line 3) 마지막 줄에서 빌드를 하는 명령들입니다.&lt;/p&gt;
+&lt;p&gt;참고로 CGO_ENABLED=0 를 빼먹으면 빌드에 실패합니다[1].  go 개발팀에선 그냥
+바이너리로 최신 go 를 짜기 위한 go 를 설치하길 권장하지만[2], 전 소스
+코드만으로 설치를 하고 싶으므로 이렇게 합니다.&lt;/p&gt;
+&lt;h1 id=&#34;golang-19-build--install&#34;&gt;golang 1.9 Build &amp;amp; Install&lt;/h1&gt;
+&lt;p&gt;역시 간단합니다.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cd ../go/src
+git checkout go1.9
+./all.bash
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;앞서 받아둔 go 소스 코드로 돌아가서 (line 1), 1.9 버전의 소스코드를 꺼내고
+(line 2), 마지막으로 빌드 / 설치를 진행합니다 (line 3).&lt;/p&gt;
+&lt;p&gt;다음과 같은 메세지를 보게 되면 빌드 / 설치에 성공한 겁니다.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;
+ALL TESTS PASSED
+
+---
+Installed Go for linux/amd64 in /home/sjpark/go
+Installed commands in /home/sjpark/go/bin
+*** You need to add /home/sjpark/go/bin to your PATH.
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;test-installation&#34;&gt;Test Installation&lt;/h2&gt;
+&lt;p&gt;설치가 잘 되었는지 마지막으로 테스트 해봅시다.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ go version
+go version devel +bad6b6fa91 Fri Aug 25 23:29:55 2017 +0000 linux/amd64
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;위와 같이 결과가 나오면 잘 설치된 것입니다.&lt;/p&gt;
+&lt;h1 id=&#34;additional-configuration&#34;&gt;Additional Configuration&lt;/h1&gt;
+&lt;p&gt;추가적으로 go 바이너리의 위치를 PATH 에 넣어주고, 사용할 GOPATH 를 지정해
+줍니다.  golang 은 개발 코드의 위치와 go 언어로 짜여진 프로그램의 설치 위치
+규칙을 기본적으로 권장하는 규칙이 있는데, 이를 위해 사용되는 디렉토리의
+꼭대기가 GOPATH 입니다.  나만의 방식으로 go 언어를 다루겠다면 굳이 지정할 필요
+없지만, 전 그정도 규칙은 따르는 편이므로 다음 내용을 홈 디렉토리의 .bashrc 에
+추가해 이를 지정해 줍니다.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;export GOPATH=$HOME/gopath
+export PATH=$PATH:$HOME/go/bin
+export PATH=$PATH:$GOPATH/bin
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;GOPATH 아래 &lt;code&gt;bin/&lt;/code&gt; 디렉토리는 일반적으로 설치한 go 언어 프로그램의 실행파일을
+위치시키는 곳이므로 역시 PATH 에 추가해줬습니다 (line 3).&lt;/p&gt;
+&lt;p&gt;이 규칙을 이해하기 쉽게 다음과 같이 제가 만든 &lt;code&gt;hn&lt;/code&gt; 이라는 프로그램을 설치해
+보고, 이 명령이 GOPATH 를 어떻게 사용하는지 보면 다음과 같습니다.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ go get github.com/sjp38/hn
+$ tree gopath/
+gopath/
+├── bin
+│   └── hn
+└── src
+    └── github.com
+        └── sjp38
+            └── hn
+                ├── hn.go
+                ├── LICENSE
+                └── README.md
+
+5 directories, 4 files
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;references&#34;&gt;References&lt;/h1&gt;
+&lt;p&gt;[0] &lt;a href=&#34;https://fedoramagazine.org/fedora-24-eol/&#34;&gt;https://fedoramagazine.org/fedora-24-eol/&lt;/a&gt;&lt;br&gt;
+[1] &lt;a href=&#34;https://github.com/golang/go/issues/18156#issuecomment-264389887&#34;&gt;https://github.com/golang/go/issues/18156#issuecomment-264389887&lt;/a&gt;&lt;br&gt;
+[2] &lt;a href=&#34;https://github.com/golang/go/issues/18156#issuecomment-264492152&#34;&gt;https://github.com/golang/go/issues/18156#issuecomment-264492152&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>lkml livestream</title>
+      <link>/post/lkml_go/</link>
+      <pubDate>Sun, 28 May 2017 17:51:43 +0900</pubDate>
+      <guid>/post/lkml_go/</guid>
+      <description>&lt;p&gt;I wrote a simple, stupid program[1] that showing LKML[2] mails in terminal
+briefly like twitter livestream in Go language.  It is just an early version
+and so many things to be complemented exists, though.  Nevertheless, now it
+just works as I wanted at first.&lt;/p&gt;
+&lt;h1 id=&#34;references&#34;&gt;References&lt;/h1&gt;
+&lt;p&gt;[1] &lt;a href=&#34;https://github.com/sjp38/lkml&#34;&gt;https://github.com/sjp38/lkml&lt;/a&gt;&lt;br&gt;
+[2] &lt;a href=&#34;https://en.wikipedia.org/wiki/Linux_kernel_mailing_list&#34;&gt;https://en.wikipedia.org/wiki/Linux_kernel_mailing_list&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Golang kakaotalk chat bot making</title>
+      <link>/post/kakaobot/</link>
+      <pubDate>Wed, 15 Mar 2017 22:40:32 +0900</pubDate>
+      <guid>/post/kakaobot/</guid>
+      <description>&lt;p&gt;I have developed a chat bot [1] for Kakaotalk [2] using Go language because I
+have been curious about the process of Kakaotalk chat bot development process.
+Implementation to major version has consumed only two hours owing to power of
+Go language, simpleness of Kakaotalk auto-reply API, and simple simple
+functionality requirement of my bot.  It has coded really simply and in
+brute-force manner, do only simple echoing.  However, for the reason, the code
+could be helpful for beginner of Kakaotalk chat bot or Go language Restful API
+server programmer.  That&amp;rsquo;s why I am introducing it here.  You can get the code
+from below link:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/sjp38/kakaobot&#34;&gt;https://github.com/sjp38/kakaobot&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;references&#34;&gt;References&lt;/h1&gt;
+&lt;p&gt;[1] &lt;a href=&#34;https://en.wikipedia.org/wiki/Chatbot&#34;&gt;https://en.wikipedia.org/wiki/Chatbot&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;[2] &lt;a href=&#34;http://www.kakao.com/services/8&#34;&gt;http://www.kakao.com/services/8&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

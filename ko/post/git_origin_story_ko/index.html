@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="ko-kr">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.6.2">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="SeongJae Park">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="최근 흥미롭게 보았던 Git Origin Story 라는 제목의 LinuxJournal.com 기사를 번역해 봅니다. 원본 기사는 https://www.linuxjournal.com/content/git-origin-story 에서 보실 수 있습니다.
+ 수년간 리눅스 커널 개발자들이 사용해온 다양한 리비전 컨트롤 방법, Linus Torvalds가 Bit keeper 를 사용하기로 한 결정과 그에 뒤따른 논쟁, 그리고 어떻게 Git 이 만들어졌는가에 대한 글입니다.
+처음에, Linus Torvalds는 리비전 컨트롤을 아예 사용하지 않았습니다. 커널에 코드를 기여하고자 하는 사람은 Usenet 그룹에, 나중에는 메일링 리스트에 패치를 올렸고, Linus는 자신의 소스 트리에 그걸 적용했습니다.">
+
+  
+  <link rel="alternate" hreflang="en" href="/post/git_origin_story_ko/">
+  
+  <link rel="alternate" hreflang="ko-kr" href="/ko/post/git_origin_story_ko/">
+
+  
+
+
+  
+  
+  
+  <meta name="theme-color" content="#2962ff">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css" integrity="sha256-SHMGCYmST46SoyGgo4YR/9AlK1vf3ff84Aq9yK4hdqM=" crossorigin="anonymous">
+    
+
+    
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap">
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.css">
+
+  
+
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-30621335-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           document.location = url;
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target);  
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'UA-30621335-1', {});
+
+  
+  document.addEventListener('click', onClickCallback, false);
+</script>
+
+
+  
+
+
+  
+
+  <link rel="manifest" href="/ko/index.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon-32.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/ko/post/git_origin_story_ko/">
+
+  
+  
+  
+  
+    
+  
+  
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="og:site_name" content="hacklog">
+  <meta property="og:url" content="/ko/post/git_origin_story_ko/">
+  <meta property="og:title" content="Git Origin Story in Korean | hacklog">
+  <meta property="og:description" content="최근 흥미롭게 보았던 Git Origin Story 라는 제목의 LinuxJournal.com 기사를 번역해 봅니다. 원본 기사는 https://www.linuxjournal.com/content/git-origin-story 에서 보실 수 있습니다.
+ 수년간 리눅스 커널 개발자들이 사용해온 다양한 리비전 컨트롤 방법, Linus Torvalds가 Bit keeper 를 사용하기로 한 결정과 그에 뒤따른 논쟁, 그리고 어떻게 Git 이 만들어졌는가에 대한 글입니다.
+처음에, Linus Torvalds는 리비전 컨트롤을 아예 사용하지 않았습니다. 커널에 코드를 기여하고자 하는 사람은 Usenet 그룹에, 나중에는 메일링 리스트에 패치를 올렸고, Linus는 자신의 소스 트리에 그걸 적용했습니다."><meta property="og:image" content="/img/tux.png">
+  <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="ko-kr">
+  
+    
+      <meta property="article:published_time" content="2018-08-29T21:15:13&#43;09:00">
+    
+    <meta property="article:modified_time" content="2018-08-29T21:15:13&#43;09:00">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/ko/post/git_origin_story_ko/"
+  },
+  "headline": "Git Origin Story in Korean",
+  
+  "datePublished": "2018-08-29T21:15:13+09:00",
+  "dateModified": "2018-08-29T21:15:13+09:00",
+  
+  "author": {
+    "@type": "Person",
+    "name": "SeongJae Park"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "hacklog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/img/icon-512.png"
+    }
+  },
+  "description": "최근 흥미롭게 보았던 Git Origin Story 라는 제목의 LinuxJournal.com 기사를 번역해 봅니다. 원본 기사는 https://www.linuxjournal.com/content/git-origin-story 에서 보실 수 있습니다.\n 수년간 리눅스 커널 개발자들이 사용해온 다양한 리비전 컨트롤 방법, Linus Torvalds가 Bit keeper 를 사용하기로 한 결정과 그에 뒤따른 논쟁, 그리고 어떻게 Git 이 만들어졌는가에 대한 글입니다.\n처음에, Linus Torvalds는 리비전 컨트롤을 아예 사용하지 않았습니다. 커널에 코드를 기여하고자 하는 사람은 Usenet 그룹에, 나중에는 메일링 리스트에 패치를 올렸고, Linus는 자신의 소스 트리에 그걸 적용했습니다."
+}
+</script>
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>Git Origin Story in Korean | hacklog</title>
+
+</head>
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+    
+    
+      <a class="navbar-brand" href="/ko">hacklog</a>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="네비게이션">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/ko/#about"><span>Home</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/ko/#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/ko/#projects"><span>Projects</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/ko/#publications"><span>Publications</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/ko/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/ko/tags"><span>Tags</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/ko/categories"><span>Categories</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/ko/post/about"><span>CV</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      <li class="nav-item">
+        <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      <li class="nav-item dropdown i18n-dropdown">
+        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true">
+          <i class="fas fa-globe mr-1" aria-hidden="true"></i><span class="d-none d-lg-inline">한국어</span>
+        </a>
+        <div class="dropdown-menu">
+          <div class="dropdown-item i18n-active font-weight-bold">
+            <span>한국어</span>
+          </div>
+          
+          <a class="dropdown-item" href="/post/git_origin_story_ko/">
+            <span>English</span>
+          </a>
+          
+        </div>
+      </li>
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+  <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1>Git Origin Story in Korean</h1>
+
+  
+
+  
+    
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Wed, Aug 29, 2018
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    6 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/ko/categories/translations/">translations</a></span>
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      <hr>
+<p>최근 흥미롭게 보았던 <code>Git Origin Story</code> 라는 제목의 LinuxJournal.com 기사를
+번역해 봅니다.  원본 기사는
+<a href="https://www.linuxjournal.com/content/git-origin-story">https://www.linuxjournal.com/content/git-origin-story</a> 에서 보실 수 있습니다.</p>
+<hr>
+<p><em>수년간 리눅스 커널 개발자들이 사용해온 다양한 리비전 컨트롤 방법, Linus
+Torvalds가 Bit keeper 를 사용하기로 한 결정과 그에 뒤따른 논쟁, 그리고 어떻게 Git
+이 만들어졌는가에 대한 글입니다.</em></p>
+<p>처음에, Linus Torvalds는 리비전 컨트롤을 아예 사용하지 않았습니다.  커널에
+코드를 기여하고자 하는 사람은 Usenet 그룹에, 나중에는 메일링 리스트에 패치를
+올렸고, Linus는 자신의 소스 트리에 그걸 적용했습니다.  나중에 Linus는
+릴리즈를 통해 패치들 사이의 구분 없이 전체 소스 트리를 공개하는 식이었습니다.
+Torvalds의 작업 이력을 알아낼 수 있는 유일한 방법은 전체 릴리즈 버전 사이의
+거대한 diff 를 통하는 것 뿐이었습니다.</p>
+<p>이는 오픈소스 리비전 컨트롤 시스템이 없기 때문은 아니었습니다.  1980년대부터
+CVS 가 있었고, 그 당시에도 가장 유명한 시스템이었습니다.  그 핵심 기능을
+사용해서 기여자들이 패치를 중앙 저장소에 보낼 수 있었고 그 저장소로 들어가는
+패치의 기록을 조사할 수 있었습니다.</p>
+<p>하지만 CVS 에 대한 많은 불만이 있었습니다.  그 중 하나는 변경 사항을 파일별로
+제공하고 커다란 패치는 하나의 버전으로 인식할 수 없어서, 다른 개발자들로부터의
+과거의 기여를 해석하기가 어려웠습니다.  또한, 두개의 같은 파일을 수정하는
+패치가 동시에 보내졌을 때 발생하는 레이스 컨디션 같은 고치기 어려운 버그들도
+일부 있었습니다.</p>
+<p>Linus는 CVS 를 좋아하지 않았는데, 부분적으로는 다른 사람들의 불만과 같은 이유
+때문이었고 부분적으로는 후에야 명확해진 그만의 이유 때문이었습니다.  그는 CVS
+의 버그와 이상한 기능들을 해결하려는 목표를 가지고 2000년대 초부터 발전되어온
+오픈소스 프로젝트인 SVN 도 좋아하지 않았습니다.</p>
+<p>많은 리눅스 커널 개발자들이 적당한 리비전 컨트롤의 부재에 불만족스러 했으며,
+따라서 Linus가 사용 가능한 리비전 컨트롤 중에서 뭐든 하나를 고르길 바라는
+커뮤니티로부터의 압력이 항상 있었습니다.  그리고, 2002년, Linus는 그렇게
+했습니다.  충격적이고 당황스럽게도, Linus는 Larry McVoy 에 의해 운영되는
+BitMover 라는 회사에 의해 개발된, 소스코드가 공개되어있지 않은 상업용 시스템인
+BitKeeper 를 선택했습니다.</p>
+<p>리눅스 커널은 역사상 가장 중요한 오픈소스 프로젝트였고, Linus 그 스스로가
+수십년간 다른 오픈소스 프로젝트들이 따라하게 되었고 지금까지도 그렇게 하고 있는
+오픈소스 개발 방법을 처음으로 발견한 사람이었습니다.  Linus가 무슨 생각을 하는
+거지?  어떻게 그가 그의 커뮤니티와 오픈소스 세계를 이렇게 배신할수가 있지?
+이게 Linus가 처음 커널 개발에 BitKeeper 를 사용했을 때 대부분의
+반응이었습니다.</p>
+<p>또한, BitMover 는 돈을 받지 않고 BitKeeper 를 사용할 수 있는 라이센스를
+제공하는데 대한 대가로 리눅스 커뮤니티에 제한을 걸었습니다.  첫째, 리눅스
+개발자들은 BitKeeper 를 사용하는 동안 다른 경쟁 리비전 컨트롤 시스템 개발
+프로젝트에 참여할 수 없었습니다.  둘째, BitMover 는 라이센스에 대한 악용을 막기
+위해 커널 프로젝트에 관계된 일부 메타데이터를 제어할 수 있었습니다.  이
+메타데이터에 대한 접근이 불가능하면, 커널 개발자들은 다른 리비전 컨트롤
+시스템에서의 중요한 표준적 기능인, 과거의 커널 버전들 사이의 비교를 할 수
+없었습니다.</p>
+<p>Linus가 BitKeeper 를 사용한지 수년이 지나도 논쟁은 줄어들지 않았습니다.  그의
+기본적 주장은, 그는 프리 소프트웨어 (Free Software) 광신도가 아니라는
+것이었습니다.  그는 오픈소스 도구들이 같은 일을 하는 상업용 도구들에 비해
+낫다면 그걸 사용할 거라고 했습니다.  하지만 상업용 도구가 더 낫다면, 그는 다른
+도구를 고려하지 않을 거라고요.</p>
+<p>하지만, 많은 커널 개발자들이 실제로 프리 소프트웨어 광신도였습니다.  커뮤니티에
+손상을 입히고 리눅스 커널 프로젝트의 fork 를 일으킬 만큼은 아니지만 Linus와
+다른 개발자들간의 분노와 긴장이 심해졌습니다.  Alan Cox, Al Viro, David Miller,
+Andrea Arcangeli, Andrew Morton 과 많은 수의 다른 사람들이 경쟁 프로젝트를
+이끌만한 기술력을 가지고 있음이 분명했고, 심지어 일부는 상당수 커널 개발자들을
+그들 쪽으로 끌어갈 명성을 가지고 있었습니다.  하지만 아무도 그러지 않았습니다.
+이 긴장과 적대는 계속 유지되었습니다.</p>
+<p>BitKeeper 의 무엇이 그리 대단했을까요?  BitKeeper 에서 자랑한 건 분산시스템을
+제공한다는 것으로, 모든 저장소가 쉽게 fork 되고 merge 될 수 있었습니다.  이게
+핵심이었습니다.  이를 통해, 특정 하위 그룹의 커널 개발자들은 리비전 컨트롤의
+이득을 얻으면서 그룹끼리 독자적으로 협업하고, 준비된 다음에 그들의 변경 사항을
+Linus에게 전달할 수 있었습니다.  이를 통해, 전에는 Linus 한명의 어깨에 완전히
+매여있던 수많은 작업이 Linus가 믿는 개발자들, 또는 그렇게 작업하기로 한
+그룹들에게 분산될 수 있었습니다.  아키텍쳐별 코드, 드라이버, 그리고 커널의 하위
+시스템들이 모두 어떻게든 독립적으로 개발되고, 이후 적절한 시점에 한번에 메인
+커널에 병합될 수 있었습니다.</p>
+<p>슬슬 하는 이야기가 익숙하게 들릴 겁니다만, 2002년에 이건 새로운
+아이디어였습니다.  CVS 와 Subversion 같은 당시 존재하던 프로젝트들에서 fork 와
+merge 는 주인만 할 수 있고, 죽고 싶도록 시간이 오래 걸리는 작업이었습니다.
+BitKeeper 를 통해, 이게 사소한 작업이 되었습니다.</p>
+<p>커널 개발 도구의 핵심부에 독점 소프트웨어를 사용하려는 Linus의 의지는 많은
+사람들이 대안을 만드는데 더욱 노력하게 만들었습니다.  CVS 와 Subversion
+프로젝트는 너무 많은 기초적 설계 오류가 있었고, 이미 너무 많이 개발이 진행되어
+변경하기가 쉽지 않았습니다.  다른 프로젝트들 모두 마찬가지였습니다.  하지만
+이제 그들은 Linus가 정말 원하는걸 알거나 안다고 생각했으므로, 정말로 코딩을
+시작할 수 있었습니다.  그 결과 분산 개발 기능을 제공하는 많은 수의 리비전
+컨트롤 시스템이 나왔습니다.</p>
+<p>그런 시스템들 중에 arch, darcs, 그리고 monotone 등이 있었습니다.  그들은
+Bitkeeper 를 경쟁 상대라고 함으로써, Linus가 Bitkeeper 에 대한 대안으로 그들을
+선택하라고 설득했습니다.</p>
+<p>많은 사람들이 시도했지만, 아무도 성공하지 못했습니다.  이는 부분적으로는
+Linus가 CVS 와 Subversion 에 뭐가 빠져있는지 모두 이야기 하지 않았듯, 그
+프로젝트들에 Linus가 더 필요로 하는 것이 무엇인지 모두 말하지 않았기
+때문입니다.  그리고, Linus가 소스가 폐쇄된 도구를 사용하는것도 개의치 않는 것
+같았으므로, 어떤 대안이 그에게 받아들여질만 하려면 그 대안은 BitKeeper 보다
+훨씬 기술적으로 향상되어 있어야만 할 것이었습니다.  따라서, BitKeeper 전에도
+오픈소스 툴의 기능은 충분하지 않았지만, BitKeeper 가 나타남으로써 오픈소스 툴이
+맞춰야 할 기능의 목표가 더욱 높아진 셈입니다.</p>
+<p>수년간의 많은 노력 후에도, 어떤 오픈소스 대안도 Linus의 필요를 맞추기엔 CVS 나
+Subversion 보다도 크게 나아지지 못했습니다.  만약 Samba 를 만들었고 rsync 의
+공동 창시자인 Andrew Tridgell 이 아니었더라면 이 상황은 훨씬 오래 지속될 수
+있었을 겁니다.  2005년, Andrew는 프리 소프트웨어인 대안을 만들기 위해 BitKeeper
+네트워킹 프로토콜을 리버스 엔지니어링 하려 했습니다.  그가 아니었더라도,
+누군가는 시도했을 겁니다 - 그건 그저 시간 문제였습니다.  Larry McVoy 는 누구든
+이 시도를 했다면 당장 지원을 끊겠다고 리눅스 개발자들에게 경고했고, 실제로
+그렇게 했습니다.  결국, 급작스럽게 BitKeeper 를 커널 개발에 사용될 수 없게
+되었습니다.  전체 개발 도구와 분산 버전 컨트롤로부터 생겨난 개발 문화는 앞날을
+알 수 없는 상황에 놓였습니다.</p>
+<p>이게 무슨 의미일까요?  Linus는 그의 과거 방식의 개발로 돌아가서 모든 패치를 그
+자신에게 보내라고 했을까요?  그렇지 않다면, BitKeeper 의 오픈소스 대안들 가운데
+하나를 선택했을까요?  만약 그가 그랬다면, 어떤 대안을 골랐을까요?</p>
+<p>이 시점에서, 놀라운 일이 발생했습니다.  Linus가 리눅스 커널 개발을 1991년
+시작한 후 처음으로 작업을 완전히 멈췄습니다.  현존하는 어떤 도구도 그가 원하는
+일을 해주지 못했으므로, 그는 자신의 것을 만들기로 결정했습니다.</p>
+<p>Linus의 주요 관심은, 사실 속도였습니다.  이것이 그가 기존에는 완전히, 적어도
+현존하는 프로젝트들이 이해할 수 있는 방식으로는 이야기하지 않은 부분이었습니다.
+전세계에서 전력을 다해 패치를 보내오는 수천명의 커널 개발자들을 위해, 그는
+기존에는 상상할 수 없는 속도로 동작하는 무언가가 필요했습니다.  그는 가장
+거대하고 가장 복잡한 작업이라 해도 완료하는데 몇초 이상 기다리는 걸 참을 수
+없었습니다.  Arch 도, darcs, monotone 도, 그리고 어떤 다른 프로젝트도 이
+요구사항을 맞추지 못했습니다.</p>
+<p>Linus는 잠시 은둔한 채 코딩을 했고, 그 후에 그의 새로운 계획을 세상에
+알렸습니다.  2005년 6월에 그 프로젝트를 시작한 이래 몇일만에, Linus의 git
+리비전 컨트롤 시스템은 git 소스코드의 리비전 컨트롤을 완전히 할 수 있게
+되었습니다.  몇주 후, git 은 리눅스 커널 개발의 리비전 컨트롤을 맡을 준비가
+되었습니다.  몇달 후, 완전한 기능을 갖추었습니다.  이 시점에서, Linus는 이
+프로젝트의 관리 권한을 해당 프로젝트의 가장 열정적인 기여자, Junio C. Hamano
+에게 넘기고 리눅스 개발에 다시 전념했습니다.</p>
+<p>이 도구에 놀란 프리 소프트웨어 개발자 커뮤니티는 이 괴상한 작업물을 이해하려
+노력했습니다.  이것은 리비전 컨트롤 소프트웨어의 어떤 것도 닮지 않았습니다.
+사실, 이것은 리비전 컨트롤 시스템보다는 낮은 단계의 파일시스템 오퍼레이션들의
+집합에 가까워 보였습니다.  그리고 다른 시스템들이 패치를 저장하는 것과 달리,
+이것은 각각의 변경된 파일의 버전을 모두 저장했습니다.  어떻게 이런 방식이
+괜찮을 수 있을까요?  하지만, 이 도구는 fork 와 merge 를 번개같은 속도로 처리할
+수 있고, 패치를 요청하자마자 만들어낼 수 있었습니다.</p>
+<p>점진적으로, Junio는 CVS 와 Subversion 의 것들을 닮은 높은 수준의 커맨드 집합을
+만들었습니다.  Git 의 원래 커맨드들이 &ldquo;배관&rdquo; 이었다면, 새로운 커맨드들은
+&ldquo;도자기 제품&rdquo; 이었습니다.  그리고, 결국 사용되게 되었습니다.</p>
+<p>BitKeeper 에 대한 논쟁과 분노가 있었던 만큼이나, git 의 계속된 개발을 향한
+열망과 참여 의지가 많았습니다.  포팅, 확장 기능, 그리고 웹사이트들이 모든 것을
+현재 상태로 끌어올렸습니다.  몇년만에, 거의 모든 사람들이 git 을 사용하게
+되었습니다.  리눅스처럼, git 이 세상을 집어삼켰습니다.</p>
+
+    </div>
+
+    
+
+
+
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/ko/tags/git/">git</a>
+  
+  <a class="badge badge-light" href="/ko/tags/open-source/">open source</a>
+  
+  <a class="badge badge-light" href="/ko/tags/version-control/">version control</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=/ko/post/git_origin_story_ko/&amp;text=Git%20Origin%20Story%20in%20Korean" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=/ko/post/git_origin_story_ko/&amp;t=Git%20Origin%20Story%20in%20Korean" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Git%20Origin%20Story%20in%20Korean&amp;body=/ko/post/git_origin_story_ko/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=/ko/post/git_origin_story_ko/&amp;title=Git%20Origin%20Story%20in%20Korean" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=Git%20Origin%20Story%20in%20Korean%20/ko/post/git_origin_story_ko/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=/ko/post/git_origin_story_ko/&amp;title=Git%20Origin%20Story%20in%20Korean" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      <img class="portrait mr-3" src="https://s.gravatar.com/avatar/43dc5645c78e68fda997138380dfaaf4?s=200')" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="/">SeongJae Park</a></h5>
+      <h6 class="card-subtitle">Kernel / Hypervisor Engineer</h6>
+      <p class="card-text">SeongJae Park is a programmer who loves to analyze and develop systems.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/log/?qt=author&amp;q=seongjae&#43;park" target="_blank" rel="noopener">
+        <i class="fab fa-linux"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/sjp38" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.com/citations?user=jJIiF3AAAAAJ" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  
+  
+  <div class="article-widget content-widget-hr">
+    <h3>Related</h3>
+    <ul>
+      
+      <li><a href="/ko/post/fetching-linux-source-code/">Fetching linux kernel source code</a></li>
+      
+      <li><a href="/ko/post/beautifulhugo_contribute/">beautifulhugo 테마 tags 기능 구현</a></li>
+      
+    </ul>
+  </div>
+  
+
+
+
+  </div>
+</article>
+
+      
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js" integrity="sha256-1zu+3BnLYV9LdiY85uXMzii3bdrkelyp37e0ZyTAQh0=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/languages/c.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/languages/bash.min.js"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js" integrity="sha256-EErZamuLefUnbMBQbsEqu1USa+btR2oIlCpBJbyD4/g=" crossorigin="anonymous"></script>
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/ko/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "포스트",
+        'project': "Projects",
+        'publication' : "논문",
+        'talk' : "강연"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.bcfae8267aba63cc55af53a503896bd9.js"></script>
+
+    
+
+
+
+
+
+
+  
+  
+  <div class="container">
+    <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" class="back-to-top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

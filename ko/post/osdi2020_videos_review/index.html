@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="ko-kr">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.6.2">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="SeongJae Park">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="차일 피일 미루고 있던 OSDI&#39;20 발표 영상 비디오를 휴가 기간동안 하루 한편이라도 보기로 했습니다.
+ A large scale analysis of hundreds of in-memory cache clusters at Twitter https://www.youtube.com/watch?v=OQtMM5vdhlI&amp;feature=emb_title
+트위터의 in-memory 캐시 시스템의 워크로드를 트레이스하고 그 특성을 분석한 논문입니다. 개인적으로 아래 내용이 흥미로웠습니다.
+ 쓰기 리퀘스트가 많음. 각 오브젝트의 크기는 작아서 (중간값이 200 바이트), 오브젝트별 메타데이터 (64 바이트) 가 공간을 많이 차지함. 키의 크기가 밸류의 크기보다 그렇게 작지 않음.  트레이스 데이터는 github[1] 통해 받을 수 있습니다.">
+
+  
+  <link rel="alternate" hreflang="en" href="/post/osdi2020_videos_review/">
+  
+  <link rel="alternate" hreflang="ko-kr" href="/ko/post/osdi2020_videos_review/">
+
+  
+
+
+  
+  
+  
+  <meta name="theme-color" content="#2962ff">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css" integrity="sha256-SHMGCYmST46SoyGgo4YR/9AlK1vf3ff84Aq9yK4hdqM=" crossorigin="anonymous">
+    
+
+    
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap">
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.css">
+
+  
+
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-30621335-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           document.location = url;
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target);  
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'UA-30621335-1', {});
+
+  
+  document.addEventListener('click', onClickCallback, false);
+</script>
+
+
+  
+
+
+  
+
+  <link rel="manifest" href="/ko/index.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon-32.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/ko/post/osdi2020_videos_review/">
+
+  
+  
+  
+  
+    
+  
+  
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="og:site_name" content="hacklog">
+  <meta property="og:url" content="/ko/post/osdi2020_videos_review/">
+  <meta property="og:title" content="OSDI 2020 발표 영상 감상 | hacklog">
+  <meta property="og:description" content="차일 피일 미루고 있던 OSDI&#39;20 발표 영상 비디오를 휴가 기간동안 하루 한편이라도 보기로 했습니다.
+ A large scale analysis of hundreds of in-memory cache clusters at Twitter https://www.youtube.com/watch?v=OQtMM5vdhlI&amp;feature=emb_title
+트위터의 in-memory 캐시 시스템의 워크로드를 트레이스하고 그 특성을 분석한 논문입니다. 개인적으로 아래 내용이 흥미로웠습니다.
+ 쓰기 리퀘스트가 많음. 각 오브젝트의 크기는 작아서 (중간값이 200 바이트), 오브젝트별 메타데이터 (64 바이트) 가 공간을 많이 차지함. 키의 크기가 밸류의 크기보다 그렇게 작지 않음.  트레이스 데이터는 github[1] 통해 받을 수 있습니다."><meta property="og:image" content="/img/tux.png">
+  <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="ko-kr">
+  
+    
+      <meta property="article:published_time" content="2020-12-19T22:35:27&#43;01:00">
+    
+    <meta property="article:modified_time" content="2020-12-19T22:35:27&#43;01:00">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/ko/post/osdi2020_videos_review/"
+  },
+  "headline": "OSDI 2020 발표 영상 감상",
+  
+  "datePublished": "2020-12-19T22:35:27+01:00",
+  "dateModified": "2020-12-19T22:35:27+01:00",
+  
+  "author": {
+    "@type": "Person",
+    "name": "SeongJae Park"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "hacklog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/img/icon-512.png"
+    }
+  },
+  "description": "차일 피일 미루고 있던 OSDI'20 발표 영상 비디오를 휴가 기간동안 하루 한편이라도 보기로 했습니다.\n A large scale analysis of hundreds of in-memory cache clusters at Twitter https://www.youtube.com/watch?v=OQtMM5vdhlI\u0026amp;feature=emb_title\n트위터의 in-memory 캐시 시스템의 워크로드를 트레이스하고 그 특성을 분석한 논문입니다. 개인적으로 아래 내용이 흥미로웠습니다.\n 쓰기 리퀘스트가 많음. 각 오브젝트의 크기는 작아서 (중간값이 200 바이트), 오브젝트별 메타데이터 (64 바이트) 가 공간을 많이 차지함. 키의 크기가 밸류의 크기보다 그렇게 작지 않음.  트레이스 데이터는 github[1] 통해 받을 수 있습니다."
+}
+</script>
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>OSDI 2020 발표 영상 감상 | hacklog</title>
+
+</head>
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+    
+    
+      <a class="navbar-brand" href="/ko">hacklog</a>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="네비게이션">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/ko/#about"><span>Home</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/ko/#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/ko/#projects"><span>Projects</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/ko/#publications"><span>Publications</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/ko/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/ko/tags"><span>Tags</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/ko/categories"><span>Categories</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/ko/post/about"><span>CV</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      <li class="nav-item">
+        <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      <li class="nav-item dropdown i18n-dropdown">
+        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true">
+          <i class="fas fa-globe mr-1" aria-hidden="true"></i><span class="d-none d-lg-inline">한국어</span>
+        </a>
+        <div class="dropdown-menu">
+          <div class="dropdown-item i18n-active font-weight-bold">
+            <span>한국어</span>
+          </div>
+          
+          <a class="dropdown-item" href="/post/osdi2020_videos_review/">
+            <span>English</span>
+          </a>
+          
+        </div>
+      </li>
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+  <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1>OSDI 2020 발표 영상 감상</h1>
+
+  
+
+  
+    
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Sat, Dec 19, 2020
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    5 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/ko/categories/researches-review/">researches review</a></span>
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      <p>차일 피일 미루고 있던 OSDI'20 발표 영상 비디오를 휴가 기간동안 하루 한편이라도
+보기로 했습니다.</p>
+<hr>
+<h2 id="a-large-scale-analysis-of-hundreds-of-in-memory-cache-clusters-at-twitter">A large scale analysis of hundreds of in-memory cache clusters at Twitter</h2>
+<p><a href="https://www.youtube.com/watch?v=OQtMM5vdhlI&amp;feature=emb_title">https://www.youtube.com/watch?v=OQtMM5vdhlI&amp;feature=emb_title</a></p>
+<p>트위터의 in-memory 캐시 시스템의 워크로드를 트레이스하고 그 특성을 분석한
+논문입니다.  개인적으로 아래 내용이 흥미로웠습니다.</p>
+<ul>
+<li>쓰기 리퀘스트가 많음.</li>
+<li>각 오브젝트의 크기는 작아서 (중간값이 200 바이트), 오브젝트별 메타데이터 (64
+바이트) 가 공간을 많이 차지함.</li>
+<li>키의 크기가 밸류의 크기보다 그렇게 작지 않음.</li>
+</ul>
+<p>트레이스 데이터는 github[1] 통해 받을 수 있습니다.  압축해도 2.8TB, 압출 풀면
+14TB 군요.</p>
+<p>[1] <a href="https://github.com/twitter/cache-trace">https://github.com/twitter/cache-trace</a></p>
+<h2 id="aifm-high-performance-application-integrated-far-memory">AIFM: High-Performance, Application-Integrated Far Memory</h2>
+<p><a href="https://www.youtube.com/watch?v=xHhaniGXTUg&amp;feature=emb_title">https://www.youtube.com/watch?v=xHhaniGXTUg&amp;feature=emb_title</a></p>
+<p>OS 수준에서의 fast network 기반 far memory 접근법은 어플리케이션의 수정이
+필요없다는 장점을 갖지만 고정된 크기의 페이지 abstraction 에 따른 semantic
+차이와 어플리케이션에 대한 지식이 없는 커널에서의 주요 오퍼레이션 수행으로 인해
+성능이 떨어집니다.  AIFM 은 새로운 데이터 구조 abstraction 을 사용해 semantic
+차이를 해결하고 user space 런타임 시스템을 사용해 kernel space 에서의 시간
+낭비를 제거했습니다.  결과적으로 어플리케이션은 수정이 필요하지만 저자들은
+약간의 수정일 뿐이라 주자합니다.  또다른 state-of-the-art (FastSwap,
+EuroSys'20) 대비 13배 성능 향상을 이뤘다는군요.</p>
+<h2 id="linnos-predictability-on-unpredictable-flash-storage-with-a-light-neural-network">LinnOS: Predictability on Unpredictable Flash Storage with a Light Neural Network</h2>
+<p><a href="https://www.youtube.com/watch?v=yzv9lcjxhAg&amp;feature=emb_title">https://www.youtube.com/watch?v=yzv9lcjxhAg&amp;feature=emb_title</a></p>
+<p>최신 고속 저장장치는 캐싱, 웨어레벨링, 가비지 콜렉션 등의 복잡한 내부 구조를
+가지고 있어서, 각 I/O 에 대한 응답시간을 예측하기가 어렵습니다.  이에 대한 잘
+알려진 해결책은 Hedging 입니다.  여러 SSD 를 준비해 두고, I/O 요청을 그 중
+하나의 SSD 에 일단 던지고, 그 응답이 미리 지정된 한계치를 넘도록 돌아오지
+않으면 해당 요청을 취소하고 다른 SSD 를 쓰는 것이죠.  한계치 만큼은 기다려야
+한다는 게 약점입니다.  LinnOS 는 Hedging 과 유사하지만 각 SSD 로의 각 I/O 가
+빠르게 처리될지 예측하는 신경망을 이용합니다.  이를 위해, 해당 신경망은 현재
+I/O queue depth, 최근의 몇개 I/O 시 queue depth 와 latency 를 입력으로 받고 그
+결과 레이턴시가 빠를지 느릴지만 예측합니다.  잘못된 예측으로 인한 문제를
+처리하기 위해선 biased learning 과 예측 정확도에 따른 adaptive hedging 을
+사용합니다.  신경망의 학습은 오프라인으로 이루어집니다.</p>
+<h2 id="do-os-abstractions-make-sense-on-fpgas">Do OS abstractions make sense on FPGAs?</h2>
+<p><a href="https://www.youtube.com/watch?v=k-cp4U3JKug&amp;feature=emb_title">https://www.youtube.com/watch?v=k-cp4U3JKug&amp;feature=emb_title</a></p>
+<p>Heterogeneous computing system 이라고도 불리는, FPGA 를 내장한 컴퓨터 시스템이
+널리 사용되고 있습니다.  이런 시스템에는 운영 복잡성이 높게 마련이며, 특히 FPGA
+용 어플리케이션의 개발과 배포가 복잡합니다.  때문에 FPGA 관리를 위해 운영체제의
+추상화 개념이 일부 사용되고 있습니다.  저자는 Coyote 라고 하는, 운영체제의
+일반적 추상화 개념을 모두 지원하는 FPGA 관리 도구를 만들어 운영체제 추상화
+개념이 FPGA 에 잘 적용되는지 실험했고, 그에 대한 긍정적 결과를 얻었습니다.</p>
+<h2 id="fast-rdma-based-ordered-key-value-store-using-remote-learned-cache">Fast RDMA-based Ordered Key-Value Store using Remote Learned Cache</h2>
+<p><a href="https://www.youtube.com/watch?v=Qv-0YL_SII4&amp;feature=emb_title">https://www.youtube.com/watch?v=Qv-0YL_SII4&amp;feature=emb_title</a></p>
+<p>서버 중심적 key-value store (KVS) 는 서버의 CPU 에 성능이 제한되므로, RDMA
+기반의 방법들이 제안되어왔습니다.  한번의 RDMA 에 한번의 RTT 가 소요되므로, 이
+방법은 여러번 네트워크 순회를 해야 하는 문제가 있어 성능이 떨어지는 문제가
+있습니다.  인덱스를 클라이언트 내에 캐시해 두는 해결책도 있습니다만,
+클라이언트의 메모리 사용량을 급격하게 늘린다는 문제가 있습니다.  이 논문의
+저자들은 신경망을 인덱스로 사용하자는 제안을 합니다.  키를 입력으로 받아 밸류의
+주소를 내놓는 신경망을 서버 측에서 학습시키고, 전체 인덱스에 비해 훨씬 작은 이
+신경망을 클라이언트로 전송, 각 클라이언트가 이 신경망을 캐시로 사용해 밸류의
+서버내 주소를 알아내고, RDMA 로 한번에 밸류를 얻어오는 방법입니다.</p>
+<h2 id="a-simpler-and-faster-nic-driver-model-for-network-functions">A Simpler and Faster NIC Driver Model for Network Functions</h2>
+<p><a href="https://www.youtube.com/watch?v=zKJIY4vbBDA&amp;feature=emb_title">https://www.youtube.com/watch?v=zKJIY4vbBDA&amp;feature=emb_title</a></p>
+<p>Bridge, router, firewall 등의 기능을 소프트웨어로 구현하려는 software-defined
+network 방식이 널리 사용되고 있습니다.  이 과정에서 성능과 유연성을 위해
+소프트웨어 복잡도를 높이는 경향이 있었습니다.  결과, software-defined network
+stack 의 안정성을 검증하기도 어려워졌습니다.  저자팀은 약간의 유연성을
+희생함으로써 단순하면서 성능 높은 network stack 구현이 가능함을 주장하며,
+자신들의 새로운 네트워크 드라이버 모델, tinynf 로 이를 증명합니다.  이 드라이버
+모델을 바탕으로 구현된 Intel 82599 드라이버는 550줄밖에 안되는 코드로 기존
+state-of-the-art 드라이버보다 7배 빨리 formal verification 을 마칠 수 있었고,
+성능 역시 1.6배 높았습니다.</p>
+<h2 id="theseus-an-experiment-in-operating-system-structure-and-state-management">Theseus: an experiment in operating system structure and state management</h2>
+<p><a href="https://www.youtube.com/watch?v=i1pLDZKtlBI">https://www.youtube.com/watch?v=i1pLDZKtlBI</a></p>
+<p>이 논문에서 저자들은 Theseus 라는 이름의, state spill 문제를 해결할 수 있도록
+설계된 운영체제를 선보입니다.  해당 문제의 해결을 위해 &lsquo;cell&rsquo; 이라 불리는
+다수의 작은 컴포넌트로 운영체제를 구성시켰으며, Rust 와 같은 언어 수준에서의
+안전성 보장 메커니즘들을 운영체제 단계에 적용시켰습니다.</p>
+<h2 id="specification-and-verification-in-the-field-applying-formal-methods-to-bpf-just-in-time-compilers-in-the-linux-kernel">Specification and verification in the field: Applying formal methods to BPF just-in-time compilers in the Linux kernel</h2>
+<p><a href="https://www.youtube.com/watch?v=2V3ts5-W_9g&amp;feature=emb_title">https://www.youtube.com/watch?v=2V3ts5-W_9g&amp;feature=emb_title</a></p>
+<p>BPF 프로그램은 수행되기 전에 검증되지만, 그 검증 이후에 JIT 를 통해 컴파일 된
+후에 수행됩니다.  따라서, JIT 에 버그가 있다면 문제가 생길 수 있습니다.  이
+논문의 저자들은 JIT 의 정확성 명세 프레임웍, jitterbug 를 사용해 RISC-V 를 위한
+새로운 BPF JIT 를 개발했습니다.  이 과정에서 만들어진 커널 변경사항은 메인라인
+리눅스 커널에 머지되었습니다.</p>
+<h2 id="storage-systems-are-distributed-systems-so-verify-them-that-way">Storage Systems are Distributed Systems (So Verify Them That Way!)</h2>
+<p><a href="https://www.youtube.com/watch?v=4s8EeXcu_8Y&amp;feature=emb_title">https://www.youtube.com/watch?v=4s8EeXcu_8Y&amp;feature=emb_title</a></p>
+<p>스토리지 시스템도 높은 복잡도를 갖기에 기계적으로 검증을 하기 까다롭습니다.  이
+논문의 저자들은 그런 스토리지 시스템의 구조가 분산 시스템과 비슷한 측면이
+있음을 발견하고 분산 시스템의 기계적 검증을 위해 제안된 방법을 보다 범용화 해서
+스토리지 시스템에 적용합니다.  이를 바탕으로 저자팀은 VeriSafeKV 라는 검증
+가능한 key-value storage 를 만들었습니다.  VeriSafeKV 는 검증이 되지 않는 DB
+들과 비슷한 수준의 성능을 보였습니다.</p>
+<h2 id="caladan-mitigating-interference-at-microsecond-timescales">Caladan: Mitigating Interference at Microsecond Timescales</h2>
+<p><a href="https://www.youtube.com/watch?v=G-v3ndwixOI&amp;feature=emb_title">https://www.youtube.com/watch?v=G-v3ndwixOI&amp;feature=emb_title</a></p>
+<p>시스템 상에는 서로 다른 요구사항을 가진 워크로드들이 함께 스케쥴링 됩니다.
+예를 들어, 어떤 워크로드는 최선의 리소스만 주어지면 되지만 어떤 것들은 tail
+latency 에 민감하죠.  워크로드들이 LLC 나 memory bandwidth 같은 하드웨어
+리소스를 공유하므로, 모든 요구사항을 지켜주기가 어렵습니다.  이에 대한 잘
+알려진 해결책은 리소스 파티셔닝입니다.  하지만 정적 파티셔닝은 리소스 사용률을
+낮출 수 있기 때문에 동적 파티셔닝이 제안되어왔습니다.  하지만 저자들의 주장에
+따르면 tail latency 문제를 위해선 100 마이크로세컨드 내에 동적 파티셔닝이
+이루어져야 하는데 기존 해결책들은 그정도로 빠르지 않습니다.  때문에 저자들은
+간섭을 알아채기 위해 다른 시그널을 사용하면서 시스템 전체를 마이크로세컨드
+레벨로 재설계 했습니다.</p>
+<h2 id="semeru-a-memory-disaggregated-managed-runtime">Semeru: A Memory-Disaggregated Managed Runtime</h2>
+<p><a href="https://www.youtube.com/watch?v=MFA3MmNDKaM&amp;feature=emb_title">https://www.youtube.com/watch?v=MFA3MmNDKaM&amp;feature=emb_title</a></p>
+<p>CPU 작업과 메모리 작업들 같이 다른 일을 위한 분산된 기계들을 가지고 시스템을
+구축하는 resource-disaggregated 아키텍쳐가 널리 사용되어가고 있습니다.  하지만,
+이 구조는 보통 native 어플리케이션을 위해 만들어졌지, GC 기반 어플리케이션을
+위해 만들어지진 않았습니다.  이 논문은 resource-disaggregation 구조를 위해
+설계된 JVM, Semeru 를 소개합니다.</p>
+<h2 id="panic-a-high-performance-programmable-nic-for-multi-tenant-networks">PANIC: A High-Performance Programmable NIC for Multi-tenant Networks</h2>
+<p><a href="https://www.youtube.com/watch?v=EB6dK3L8Jzg&amp;feature=emb_title">https://www.youtube.com/watch?v=EB6dK3L8Jzg&amp;feature=emb_title</a></p>
+<p>Multi-tenant 네트웍은 programmable NIC 에게 범용성, 유연한 chaining, isolation,
+그리고 성능을 요구합니다.  하지만 현재의 programmable NIC 들은 그걸 제공하지
+않고 있죠.  이 논문의 저자들은 이를 위한 새로운 programmable NIC 설계를
+제안하고 PANIC 이라는 이름의 FPGA 기반 구현을 소개합니다.</p>
+<h2 id="serving-dnns-like-clockwork-performance-predictability-from-the-bottom-up">Serving DNNs like Clockwork: Performance Predictability from the Bottom Up</h2>
+<p><a href="https://www.youtube.com/watch?v=wHOpY_MY57Y&amp;feature=emb_title">https://www.youtube.com/watch?v=wHOpY_MY57Y&amp;feature=emb_title</a></p>
+<p>오늘날 데이터 센터는 수많은 머신러닝 모델을 다른 사용자들을 위해 수행해 주고
+있습니다.  각각의 인퍼런스는 조건적 실행 분기문 같은게 없으므로 그 응답시간을
+쉽게 예측 가능합니다만 모델 서빙 시스템 자체의 복잡도로 인해 끝단 사이의
+응답시간을 예측 불가능하게 만들고 있습니다.  이 논문은 이 문제를 해결하기 위해
+응답시간을 고려해 재설계된 머신러닝 모델 서빙 스케쥴러 시스템을 소개합니다.</p>
+<h2 id="teting-configuration-changes-in-context-to-prevent-production-failures">Teting Configuration Changes in Context to Prevent Production Failures</h2>
+<p><a href="https://www.youtube.com/watch?v=QrGKmp3ALKQ&amp;feature=emb_title">https://www.youtube.com/watch?v=QrGKmp3ALKQ&amp;feature=emb_title</a></p>
+<p>이 논문은 &lsquo;ctest&rsquo; 라는, 제품 환경에서의 설정 변경이 옳은지 검증할 수 있는
+테스트 프레임웍을 제안합니다.  형태는 Junit 등의 다른 테스트 프레임웍과
+비슷합니다.</p>
+
+    </div>
+
+    
+
+
+
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/ko/tags/osdi/">osdi</a>
+  
+  <a class="badge badge-light" href="/ko/tags/osdi20/">osdi20</a>
+  
+  <a class="badge badge-light" href="/ko/tags/paper/">paper</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=/ko/post/osdi2020_videos_review/&amp;text=OSDI%202020%20%eb%b0%9c%ed%91%9c%20%ec%98%81%ec%83%81%20%ea%b0%90%ec%83%81" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=/ko/post/osdi2020_videos_review/&amp;t=OSDI%202020%20%eb%b0%9c%ed%91%9c%20%ec%98%81%ec%83%81%20%ea%b0%90%ec%83%81" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=OSDI%202020%20%eb%b0%9c%ed%91%9c%20%ec%98%81%ec%83%81%20%ea%b0%90%ec%83%81&amp;body=/ko/post/osdi2020_videos_review/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=/ko/post/osdi2020_videos_review/&amp;title=OSDI%202020%20%eb%b0%9c%ed%91%9c%20%ec%98%81%ec%83%81%20%ea%b0%90%ec%83%81" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=OSDI%202020%20%eb%b0%9c%ed%91%9c%20%ec%98%81%ec%83%81%20%ea%b0%90%ec%83%81%20/ko/post/osdi2020_videos_review/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=/ko/post/osdi2020_videos_review/&amp;title=OSDI%202020%20%eb%b0%9c%ed%91%9c%20%ec%98%81%ec%83%81%20%ea%b0%90%ec%83%81" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      <img class="portrait mr-3" src="https://s.gravatar.com/avatar/43dc5645c78e68fda997138380dfaaf4?s=200')" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="/">SeongJae Park</a></h5>
+      <h6 class="card-subtitle">Kernel / Hypervisor Engineer</h6>
+      <p class="card-text">SeongJae Park is a programmer who loves to analyze and develop systems.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/log/?qt=author&amp;q=seongjae&#43;park" target="_blank" rel="noopener">
+        <i class="fab fa-linux"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/sjp38" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.com/citations?user=jJIiF3AAAAAJ" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  
+  
+  <div class="article-widget content-widget-hr">
+    <h3>Related</h3>
+    <ul>
+      
+      <li><a href="/ko/post/eurosys2020_talk/">My paper has accepted to appear in the EuroSys2020</a></li>
+      
+      <li><a href="/ko/post/hotstorage2019_talk/">I will have a talk at the Hotstorage&#39;19</a></li>
+      
+      <li><a href="/ko/post/gcma_accepted_to_tc/">The Paper about GCMA Accepted to TC</a></li>
+      
+    </ul>
+  </div>
+  
+
+
+
+  </div>
+</article>
+
+      
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js" integrity="sha256-1zu+3BnLYV9LdiY85uXMzii3bdrkelyp37e0ZyTAQh0=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/languages/c.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/languages/bash.min.js"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js" integrity="sha256-EErZamuLefUnbMBQbsEqu1USa+btR2oIlCpBJbyD4/g=" crossorigin="anonymous"></script>
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/ko/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "포스트",
+        'project': "Projects",
+        'publication' : "논문",
+        'talk' : "강연"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.bcfae8267aba63cc55af53a503896bd9.js"></script>
+
+    
+
+
+
+
+
+
+  
+  
+  <div class="container">
+    <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" class="back-to-top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

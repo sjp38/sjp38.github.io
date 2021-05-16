@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>backtrace | hacklog</title>
+    <link>/ko/tags/backtrace/</link>
+      <atom:link href="/ko/tags/backtrace/index.xml" rel="self" type="application/rss+xml" />
+    <description>backtrace</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>ko-kr</language><lastBuildDate>Tue, 09 Apr 2019 17:33:50 +0900</lastBuildDate>
+    <image>
+      <url>/img/tux.png</url>
+      <title>backtrace</title>
+      <link>/ko/tags/backtrace/</link>
+    </image>
+    
+    <item>
+      <title>Backtrace on C language program</title>
+      <link>/ko/post/backtrace_c_language/</link>
+      <pubDate>Tue, 09 Apr 2019 17:33:50 +0900</pubDate>
+      <guid>/ko/post/backtrace_c_language/</guid>
+      <description>&lt;p&gt;디버깅 과정에선 현재 어떤 코드가 어떤 함수를 거쳐 수행됐는지를 통한 컨텍스트
+파악이 중요합니다.  Java, Python, Go 등 대부분의 언어가 이를 위해 콜스택을 뽑을
+수 있는 기능을 제공하죠.  C 언어의 경우 gdb 등을 사용하면 쉽게 이를 볼 수
+있지만 경우에 따라선 gdb 를 포기하고 &lt;code&gt;printf()&lt;/code&gt; 등에만 의존해야 하기도 합니다.
+이를 위한 기능이 c 라이브러리에도 있습니다, &lt;code&gt;backtrace()&lt;/code&gt; 함수입니다.
+&lt;a href=&#34;http://man7.org/linux/man-pages/man3/backtrace.3.html&#34;&gt;&lt;code&gt;man&lt;/code&gt;&lt;/a&gt; 에도 이에 대한
+설명이 있습니다만, 여기서도 간단히 소개해 봅니다.&lt;/p&gt;
+&lt;h2 id=&#34;example-source-code&#34;&gt;Example Source Code&lt;/h2&gt;
+&lt;p&gt;예제로 설명하는게 가장 쉽죠.  간단한 사용법은 아래와 같습니다.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#include &amp;lt;stdio.h&amp;gt;
+#include &amp;lt;execinfo.h&amp;gt;
+
+void baz(void)
+{
+	void *callstack[128];
+	int i, frames;
+	char **strs;
+
+	frames = backtrace(callstack, 128);
+	strs = backtrace_symbols(callstack, frames);
+	for (i = 0; i &amp;lt; frames; i++)
+		printf(&amp;quot;%s\n&amp;quot;, strs[i]);
+	free(strs);
+}
+
+void bar(void)
+{
+	baz();
+}
+
+void foo(void)
+{
+	bar();
+}
+
+int main(void)
+{
+	foo();
+	return 0;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;compile&#34;&gt;Compile&lt;/h2&gt;
+&lt;p&gt;아래와 같이 컴파일 합니다:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ gcc -rdynamic -g -o hello ./hello.c
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;code&gt;-rdynamic&lt;/code&gt; 과 &lt;code&gt;-g&lt;/code&gt; 옵션을 잊지 맙시다.&lt;/p&gt;
+&lt;p&gt;이제 프로그램을 실행해 보면:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ ./hello
+
+./hello(baz+0x2e) [0x400964]
+./hello(bar+0x9) [0x4009fd]
+./hello(foo+0x9) [0x400a09]
+./hello(main+0x9) [0x400a15]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf0) [0x7f87c51e6830]
+./hello(_start+0x29) [0x400869]
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;code&gt;main()&lt;/code&gt;, &lt;code&gt;foo()&lt;/code&gt;, &lt;code&gt;bar()&lt;/code&gt;, 를 거쳐 &lt;code&gt;baz()&lt;/code&gt; 가 수행되었음을 보입니다.  더
+나아가서 어떤 소스파일의 몇번 라인인지를 보고 싶다면 &lt;code&gt;addr2line&lt;/code&gt; 커맨드를
+사용할 수 있습니다.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ addr2line -e hello 0x400964
+./hello.c:10
+$ addr2line -e hello 0x4009fd
+./hello.c:20
+$ addr2line -e hello 0x400a09
+./hello.c:25
+$ addr2line -e hello 0x400a15
+./hello.c:30
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;쉽죠? ;)&lt;/p&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;C 프로그램에서 backtrace 를 떠보는 방법을 알아보았습니다.
+위의 내용을 여러분의 환경에서도 쉽게 테스트 해 볼 수 있게끔 제 [Github repo]
+(&lt;a href=&#34;https://github.com/sjp38/backtrace_example&#34;&gt;https://github.com/sjp38/backtrace_example&lt;/a&gt;) 에도 정리해 두었습니다.
+클론하고, &lt;code&gt;$ make run&lt;/code&gt; 해주시면 예제가 자동으로 빌드되고 돌아갈 겁니다.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>github | hacklog</title>
+    <link>/tags/github/</link>
+      <atom:link href="/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    <description>github</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 19 May 2020 06:27:47 +0200</lastBuildDate>
+    <image>
+      <url>/img/tux.png</url>
+      <title>github</title>
+      <link>/tags/github/</link>
+    </image>
+    
+    <item>
+      <title>Sphynx document on Github pages Needs `.nojekyll` File</title>
+      <link>/post/sphynx_doc_on_github_pages_needs_nojekyll/</link>
+      <pubDate>Wed, 13 May 2020 06:40:03 +0200</pubDate>
+      <guid>/post/sphynx_doc_on_github_pages_needs_nojekyll/</guid>
+      <description>&lt;p&gt;I recently tried to upload the Linux kernel document which is generated in html
+form using the Sphynx build system[1] on a Github page[2] so that people can
+read DAMON[3] document from everywhere.  The upload was very easy.  I simply
+created the repo, put the generated html doc at &lt;code&gt;Documentation/output/&lt;/code&gt; into
+the repo and pushed.  However, the theme was not applied.&lt;/p&gt;
+&lt;p&gt;Github assumes every Github pages to be based on Jekyll[4], and because every
+files and directories starting with underscores are handled special in Jekyll,
+some directories Sphynx created were ignored.&lt;/p&gt;
+&lt;p&gt;You can simply let Github pages to know your site is not generated with Jekyll
+by putting &lt;code&gt;.nojekyll&lt;/code&gt; file with no content on your root of the repo and push.
+For example,&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ cd &amp;lt;your github page repo&amp;gt;
+$ touch .nojekyll
+$ git add .nojekyll; git commit -m &amp;quot;Add .nojekyll&amp;quot;; git push
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Note that the file should be located in the root of the repo, not somewhere
+else.&lt;/p&gt;
+&lt;p&gt;After this fix, my document[5] also works :)&lt;/p&gt;
+&lt;p&gt;[1] &lt;a href=&#34;https://www.kernel.org/doc/html/latest/doc-guide/sphinx.html#sphinx-build&#34;&gt;https://www.kernel.org/doc/html/latest/doc-guide/sphinx.html#sphinx-build&lt;/a&gt;&lt;br&gt;
+[2] &lt;a href=&#34;https://pages.github.com/&#34;&gt;https://pages.github.com/&lt;/a&gt;&lt;br&gt;
+[3] &lt;a href=&#34;https://sjp38.github.io/post/damon/&#34;&gt;https://sjp38.github.io/post/damon/&lt;/a&gt;&lt;br&gt;
+[4] &lt;a href=&#34;https://jekyllrb.com/&#34;&gt;https://jekyllrb.com/&lt;/a&gt;&lt;br&gt;
+[5] &lt;a href=&#34;https://damonitor.github.io/doc/html/latest/admin-guide/mm/data_access_monitor.html&#34;&gt;https://damonitor.github.io/doc/html/latest/admin-guide/mm/data_access_monitor.html&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

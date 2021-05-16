@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.6.2">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="SeongJae Park">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="SPEC, which is a standard corporation for the benchmark[1], makes and shares various benchmark suites. SPEC CPU 2006[1] is one of those benchmark suites. It has made to measure performance of computation intensive workload and widely being used now. It has released v1.0 in 2006, 1.1 in 2008, and 1.2 in 2011. This post briefly describes the way to install and execute the SPEC CPU 2006 v1.1 on Ubuntu 16.04 servers.">
+
+  
+  <link rel="alternate" hreflang="ko" href="/ko/post/spec_cpu2006_install/">
+  
+  <link rel="alternate" hreflang="en-us" href="/post/spec_cpu2006_install/">
+
+  
+
+
+  
+  
+  
+  <meta name="theme-color" content="#2962ff">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css" integrity="sha256-SHMGCYmST46SoyGgo4YR/9AlK1vf3ff84Aq9yK4hdqM=" crossorigin="anonymous">
+    
+
+    
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap">
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.css">
+
+  
+
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-30621335-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           document.location = url;
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target);  
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'UA-30621335-1', {});
+
+  
+  document.addEventListener('click', onClickCallback, false);
+</script>
+
+
+  
+
+
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon-32.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/post/spec_cpu2006_install/">
+
+  
+  
+  
+  
+    
+  
+  
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="og:site_name" content="hacklog">
+  <meta property="og:url" content="/post/spec_cpu2006_install/">
+  <meta property="og:title" content="Install / execute spec cpu2006 benchmark | hacklog">
+  <meta property="og:description" content="SPEC, which is a standard corporation for the benchmark[1], makes and shares various benchmark suites. SPEC CPU 2006[1] is one of those benchmark suites. It has made to measure performance of computation intensive workload and widely being used now. It has released v1.0 in 2006, 1.1 in 2008, and 1.2 in 2011. This post briefly describes the way to install and execute the SPEC CPU 2006 v1.1 on Ubuntu 16.04 servers."><meta property="og:image" content="/img/tux.png">
+  <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2017-03-29T05:10:55&#43;09:00">
+    
+    <meta property="article:modified_time" content="2017-03-29T05:10:55&#43;09:00">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/post/spec_cpu2006_install/"
+  },
+  "headline": "Install / execute spec cpu2006 benchmark",
+  
+  "datePublished": "2017-03-29T05:10:55+09:00",
+  "dateModified": "2017-03-29T05:10:55+09:00",
+  
+  "author": {
+    "@type": "Person",
+    "name": "SeongJae Park"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "hacklog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/img/icon-512.png"
+    }
+  },
+  "description": "SPEC, which is a standard corporation for the benchmark[1], makes and shares various benchmark suites. SPEC CPU 2006[1] is one of those benchmark suites. It has made to measure performance of computation intensive workload and widely being used now. It has released v1.0 in 2006, 1.1 in 2008, and 1.2 in 2011. This post briefly describes the way to install and execute the SPEC CPU 2006 v1.1 on Ubuntu 16.04 servers."
+}
+</script>
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>Install / execute spec cpu2006 benchmark | hacklog</title>
+
+</head>
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+    
+    
+      <a class="navbar-brand" href="/">hacklog</a>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#about"><span>Home</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#projects"><span>Projects</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#publications"><span>Publications</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/tags"><span>Tags</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/categories"><span>Categories</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/post/about"><span>CV</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      <li class="nav-item">
+        <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      <li class="nav-item dropdown i18n-dropdown">
+        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true">
+          <i class="fas fa-globe mr-1" aria-hidden="true"></i><span class="d-none d-lg-inline">English</span>
+        </a>
+        <div class="dropdown-menu">
+          <div class="dropdown-item i18n-active font-weight-bold">
+            <span>English</span>
+          </div>
+          
+          <a class="dropdown-item" href="/ko/post/spec_cpu2006_install/">
+            <span>한국어</span>
+          </a>
+          
+        </div>
+      </li>
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+  <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1>Install / execute spec cpu2006 benchmark</h1>
+
+  
+
+  
+    
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Wed, Mar 29, 2017
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    6 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/categories/tip/">tip</a></span>
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      <p>SPEC, which is a standard corporation for the benchmark[1], makes and shares
+various benchmark suites.  SPEC CPU 2006[1] is one of those benchmark suites.
+It has made to measure performance of computation intensive workload and widely
+being used now.  It has released v1.0 in 2006, 1.1 in 2008, and 1.2 in 2011.
+This post briefly describes the way to install and execute the SPEC CPU 2006
+v1.1 on Ubuntu 16.04 servers.</p>
+<h1 id="automated-toolbox">Automated Toolbox</h1>
+<p>For those who might say <code>TL; DR</code>, I wrote a script that can install and execute
+the SPEC CPU 2006 with one command[1].  If you have no time to read further,
+just use it, please.</p>
+<p>[1] <a href="https://github.com/sjp38/spec_on_ubuntu_xenial">https://github.com/sjp38/spec_on_ubuntu_xenial</a></p>
+<h1 id="test-environment">Test Environment</h1>
+<p>The test machine I used for this post has:</p>
+<ul>
+<li>Intel Xeon E7-8870 v3</li>
+<li>Linux 4.10 kernel</li>
+<li>Ubuntu 16.04.1 Server version</li>
+</ul>
+<h1 id="get-the-source-code">Get The Source Code</h1>
+<p>You should get the source code first.  You can buy SPEC CPU 2006 in DVD or
+<code>.iso</code> file format (As of March 2017, the cost of the SPEC CPU 2006 v1.2 is
+$800).
+There are source code of the benchmarks, source code of tool programs that
+helps compile, execution, and verification of the benchmarks, pre-compiled tool
+programs, rule files for the execution of the benchmarks, and documents.
+This post is written basedon SPEC CPU 2006 v1.1.
+If you got the <code>.iso</code> file, you can access to the files in it by mounting it as
+below:</p>
+<pre><code>$ mkdir tmnt
+$ sudo mount -o loop SPEC_CPU2006v1.1.iso ./tmnt
+$ ls tmnt
+</code></pre><p>It is ok to directly install and execute the benchmarks, but I prefer to first
+copy the files outside of the mounted dir.
+The <code>owner</code> of the files is <code>root</code>, as the above command mounted the file via
+the <code>sudo</code> command.
+Change the owner to you as below:</p>
+<pre><code>$ mkdir SPEC_CPU2006v1.1
+$ cp -R ./tmnt/* SPEC_CPU2006v1.1/
+$ sudo umount ./tmnt &amp;&amp; rm -fr ./tmnt
+$ sudo chown -R &lt;username&gt; SPEC_CPU2006v1.1
+$ sudo chmod -R 755 SPEC_CPU2006v1.1
+$ cd SPEC_CPU2006v1.1
+</code></pre><h1 id="build-the-tools">Build The Tools</h1>
+<p>The <code>.iso</code> file has executable binaries for the tools, which is built for
+various platforms such as redhat and suse.
+But, there is no binary for Ubuntu.
+Therefore, you should build the tools from the source code as below:</p>
+<pre><code>$ cd tools/src
+$ ./buildtools
+</code></pre><p><code>buildtools</code> is a shell script which builds tools under <code>tools/src</code>.
+But, you may encounter some errors.  Following sections describe the errors and
+how you can solve it.</p>
+<h2 id="conflicting-types-for-getline">Conflicting types for &lsquo;getline&rsquo;</h2>
+<p>Build of <code>md5sum</code> will show you following error message:</p>
+<pre><code>gcc -DHAVE_CONFIG_H    -I/home/sjpark/SPEC_CPU2006v1.1/tools/output/include   -I. -Ilib  -c -o md5sum.o md5sum.c
+In file included from md5sum.c:38:0:
+lib/getline.h:31:1: error: conflicting types for 'getline'
+ getline PARAMS ((char **_lineptr, size_t *_n, FILE *_stream));
+ ^
+</code></pre><p>Type conflict is occurred because <code>getline()</code> and <code>getdelim()</code> functions are
+declared in <code>stdio.h</code>, but those are declared again in <code>getline.h</code> file.
+You can fix this as below, by checking <code>GLIBC</code> version.</p>
+<pre><code>--- a/tools/src/specmd5sum/lib/getline.h
++++ b/tools/src/specmd5sum/lib/getline.h
+@@ -27,10 +27,14 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.  */
+ #  endif
+ # endif
+
++# if __GLIBC__ &lt; 2
++
+ int
+ getline PARAMS ((char **_lineptr, size_t *_n, FILE *_stream));
+
+ int
+ getdelim PARAMS ((char **_lineptr, size_t *_n, int _delimiter, FILE *_stream));
+
++#endif
++
+ #endif /* not GETLINE_H_ */
+</code></pre><h2 id="undefined-reference-to-pow">Undefined reference to <code>pow</code></h2>
+<p>I referenced an internet post[3] to solve this and following two problems.</p>
+<p>Now, you will see below error message while building <code>perl</code>.</p>
+<pre><code>cc -L/home/sjpark/SPEC_CPU2006v1.1/tools/output/lib -L/usr/local/lib -o miniperl \
+            miniperlmain.o opmini.o libperl.a
+libperl.a(pp.o): In function `Perl_pp_pow':
+pp.c:(.text+0x2a76): undefined reference to `pow'
+</code></pre><p>It failed to find <code>pow</code> functiona.  You should modify it to link <code>libm</code>
+library.
+You can solve this problem by setting <code>PERLFLAGS</code> env variable and executing
+<code>buildtools</code> again:</p>
+<p><code>$ PERLFLAGS=&quot;-A libs=-lm -A libs=-ldl&quot; ./buildtools</code></p>
+<h2 id="you-havent-done-a-make-depend-yet">You haven&rsquo;t done a &ldquo;make depend&rdquo; yet!</h2>
+<p>Now, you see below error message.</p>
+<pre><code>You haven't done a &quot;make depend&quot; yet!
+make[1]: *** [hash.o] Error 1
+</code></pre><p>The <code>bin/sh</code> which is used while building <code>perl</code> directs to <code>/bin/dash</code>.
+This problem made by <code>dash</code>.
+Simply modify the symbolic link so that it can use <code>bash</code> instead.</p>
+<pre><code>$ sudo rm /bin/sh
+$ sudo ln -s /bin/bash /bin/sh
+</code></pre><p>If you want it to revert this change, simply restore the symbolic link again.</p>
+<h2 id="asmpageh-file-not-found"><code>asm/page.h</code> file not found</h2>
+<p><code>tools/src/perl-5.8.8/ext/IPC/SysV/SysV.xs</code> is including a kernel header file,
+<code>asm/page.h</code>.</p>
+<pre><code>cc -c   -I/home/sjpark/SPEC_CPU2006v1.1/tools/output/include -fno-strict-aliasing -pipe -Wdeclaration-after-statement -I/usr/local/include -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -O2   -DVERSION=\&quot;1.04\&quot; -DXS_VERSION=\&quot;1.04\&quot; -fpic &quot;-I../../..&quot;   SysV.c
+SysV.xs:7:25: fatal error: asm/page.h: No such file or directory
+</code></pre><p>Block the <code>include</code> statement in the <code>SysV.xs</code> file and define <code>PAGE_SIZE</code> as
+below.</p>
+<pre><code>--- a/tools/src/perl-5.8.8/ext/IPC/SysV/SysV.xs
++++ b/tools/src/perl-5.8.8/ext/IPC/SysV/SysV.xs
+@@ -4,7 +4,7 @@
+
+ #include &lt;sys/types.h&gt;
+ #ifdef __linux__
+-#   include &lt;asm/page.h&gt;
++#define PAGE_SIZE      4096
+ #endif
+</code></pre><h2 id="perl-test-fail"><code>perl</code> test fail</h2>
+<p>If you apply every solution above and run <code>$ PERLFLAGS=&quot;-A libs=-lm -A libs=-ldl&quot; ./buildtools</code>, about 9 of 900 tests for the perl fails.
+Because those tests are ignorable, just answer to ignore (Simply enter <code>y</code> as
+the prompt explains).</p>
+<pre><code>Failed 9 test scripts out of 907, 99.01% okay.
+### Since not all tests were successful, you may want to run some of
+### them individually and examine any diagnostic messages they produce.
+### See the INSTALL document's section on &quot;make test&quot;.
+### You have a good chance to get more information by running
+###   ./perl harness
+### in the 't' directory since most (&gt;=80%) of the tests succeeded.
+### You may have to set your dynamic library search path,
+### LD_LIBRARY_PATH, to point to the build directory:
+###   setenv LD_LIBRARY_PATH `pwd`:$LD_LIBRARY_PATH; cd t; ./perl harness
+###   LD_LIBRARY_PATH=`pwd`:$LD_LIBRARY_PATH; export LD_LIBRARY_PATH; cd t; ./perl harness
+###   export LD_LIBRARY_PATH=`pwd`:$LD_LIBRARY_PATH; cd t; ./perl harness
+### for csh-style shells, like tcsh; or for traditional/modern
+### Bourne-style shells, like bash, ksh, and zsh, respectively.
+u=0.92  s=0.69  cu=89.23  cs=5.47  scripts=907  tests=112394
+make[2]: *** [_test_tty] Error 1
+make[2]: Leaving directory `/home/sjpark/SPEC_CPU2006v1.1/tools/src/perl-5.8.8'
+make[1]: *** [_test] Error 2
+make[1]: Leaving directory `/home/sjpark/SPEC_CPU2006v1.1/tools/src/perl-5.8.8'
+make: *** [test] Error 2
++ '[' 2 -ne 0 ']'
++ set +x
+
+
+Hey!  Some of the Perl tests failed!  If you think this is okay, enter y now:
+</code></pre><h2 id="build-success">Build success</h2>
+<p>Finally, the build step completes.</p>
+<pre><code>Tools built successfully.  Go to the top of the tree and
+source the shrc file.  Then you should be ready.
+$
+</code></pre><h1 id="execution">Execution</h1>
+<h2 id="configuration-file">Configuration File</h2>
+<p>Now you can execute the benchmarks.
+For this, you should configure the execution environemnts of the benchmarks.
+There are example configuration files under <code>config/</code> dir.<br>
+<code>Example-linux64-amd64-gcc43.cfg</code> would be appropriate for the test system I
+use for this post.
+You can modify this file as you want.
+In my test, I just copied the file to <code>config/config.cfg</code> file.</p>
+<h2 id="environment-setup">Environment Setup</h2>
+<p>For execution of SPEC CPU benchmarks, you should set various environemnt
+variables.  Below simple one command do that for you.</p>
+<pre><code>$ source ./shrc
+</code></pre><h2 id="running-workload">Running Workload</h2>
+<p><code>runspec</code> program is used for the execution of each benchmark.
+This program is located under <code>bin/</code> dir of the SPEC CPU source code, but you
+can use it directly without entering path, as the above envrionment variables
+setting has registered it as <code>$PATH</code>.
+For example, if you want to execute <code>mcf</code> benchmark, you can use below command:</p>
+<pre><code>$ runspec --iterations 1 --size ref --action onlyrun --config config.cfg --noreportable mcf
+</code></pre><p>This command executes <code>mcf</code> benchmark and prints the path to the log file
+describing the execution results.</p>
+<pre><code>...
+
+Run Complete
+
+The log for this run is in /home/username/spec/spec_src/result/CPU2006.003.log
+
+runspec finished at Sun Sep 24 13:55:14 2017; 290 total seconds elapsed
+</code></pre><p>To do some experiments for your particular use case, you should understand the
+usage of <code>runspec</code>.
+Because it is an out of scope of this post, reference to other documents,
+please.</p>
+<h1 id="conclusion">Conclusion</h1>
+<p>This post described the way to run SPEC CPU 2006 on an Ubuntu 16.04 system.</p>
+<h2 id="references">References</h2>
+<p>[0] <a href="http://spec.org/">http://spec.org/</a><br>
+[1] <a href="http://spec.org/benchmarks.html#cpu">http://spec.org/benchmarks.html#cpu</a><br>
+[2] <a href="http://spec.org/order.html">http://spec.org/order.html</a><br>
+[3] <a href="https://wiki.linaro.org/MichaelHope/Sandbox/BuildingSPECTools">https://wiki.linaro.org/MichaelHope/Sandbox/BuildingSPECTools</a></p>
+
+    </div>
+
+    
+
+
+
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/spec/">spec</a>
+  
+  <a class="badge badge-light" href="/tags/benchmark/">benchmark</a>
+  
+  <a class="badge badge-light" href="/tags/spec_cpu/">spec_cpu</a>
+  
+  <a class="badge badge-light" href="/tags/spec_cpu2006/">spec_cpu2006</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=/post/spec_cpu2006_install/&amp;text=Install%20/%20execute%20spec%20cpu2006%20benchmark" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=/post/spec_cpu2006_install/&amp;t=Install%20/%20execute%20spec%20cpu2006%20benchmark" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Install%20/%20execute%20spec%20cpu2006%20benchmark&amp;body=/post/spec_cpu2006_install/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=/post/spec_cpu2006_install/&amp;title=Install%20/%20execute%20spec%20cpu2006%20benchmark" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=Install%20/%20execute%20spec%20cpu2006%20benchmark%20/post/spec_cpu2006_install/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=/post/spec_cpu2006_install/&amp;title=Install%20/%20execute%20spec%20cpu2006%20benchmark" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      <img class="portrait mr-3" src="https://s.gravatar.com/avatar/43dc5645c78e68fda997138380dfaaf4?s=200')" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="/">SeongJae Park</a></h5>
+      <h6 class="card-subtitle">Kernel / Hypervisor Engineer</h6>
+      <p class="card-text">SeongJae Park is a programmer who loves to analyze and develop systems.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/log/?qt=author&amp;q=seongjae&#43;park" target="_blank" rel="noopener">
+        <i class="fab fa-linux"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/sjp38" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.com/citations?user=jJIiF3AAAAAJ" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+  </div>
+</article>
+
+      
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js" integrity="sha256-1zu+3BnLYV9LdiY85uXMzii3bdrkelyp37e0ZyTAQh0=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/languages/c.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/languages/bash.min.js"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js" integrity="sha256-EErZamuLefUnbMBQbsEqu1USa+btR2oIlCpBJbyD4/g=" crossorigin="anonymous"></script>
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.bcfae8267aba63cc55af53a503896bd9.js"></script>
+
+    
+
+
+
+
+
+
+  
+  
+  <div class="container">
+    <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" class="back-to-top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

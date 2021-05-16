@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.6.2">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="SeongJae Park">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Kernel / Hypervisor Engineer">
+
+  
+  <link rel="alternate" hreflang="ko" href="/ko/categories/lkml-news/">
+  
+  <link rel="alternate" hreflang="en-us" href="/categories/lkml-news/">
+
+  
+
+
+  
+  
+  
+  <meta name="theme-color" content="#2962ff">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css" integrity="sha256-SHMGCYmST46SoyGgo4YR/9AlK1vf3ff84Aq9yK4hdqM=" crossorigin="anonymous">
+    
+
+    
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap">
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.css">
+
+  
+
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-30621335-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           document.location = url;
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target);  
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'UA-30621335-1', {});
+
+  
+  document.addEventListener('click', onClickCallback, false);
+</script>
+
+
+  
+
+
+  
+  <link rel="alternate" href="/categories/lkml-news/index.xml" type="application/rss+xml" title="hacklog">
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon-32.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/categories/lkml-news/">
+
+  
+  
+  
+  
+    
+  
+  
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="og:site_name" content="hacklog">
+  <meta property="og:url" content="/categories/lkml-news/">
+  <meta property="og:title" content="lkml news | hacklog">
+  <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
+  <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
+  
+    <meta property="og:updated_time" content="2021-05-11T21:11:05&#43;02:00">
+  
+
+  
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>lkml news | hacklog</title>
+
+</head>
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+    
+    
+      <a class="navbar-brand" href="/">hacklog</a>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#about"><span>Home</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#projects"><span>Projects</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#publications"><span>Publications</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/tags"><span>Tags</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link  active" href="/categories"><span>Categories</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/post/about"><span>CV</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      <li class="nav-item">
+        <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      <li class="nav-item dropdown i18n-dropdown">
+        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true">
+          <i class="fas fa-globe mr-1" aria-hidden="true"></i><span class="d-none d-lg-inline">English</span>
+        </a>
+        <div class="dropdown-menu">
+          <div class="dropdown-item i18n-active font-weight-bold">
+            <span>English</span>
+          </div>
+          
+          <a class="dropdown-item" href="/ko/categories/lkml-news/">
+            <span>한국어</span>
+          </a>
+          
+        </div>
+      </li>
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+    
+  
+<div class="universal-wrapper pt-3">
+  <h1>lkml news</h1>
+
+  
+
+  
+</div>
+
+
+
+<div class="universal-wrapper">
+  
+
+  
+  
+  <div>
+    <h2><a href="/post/lkml_news_v5.9-rc6/">LKML News v5.9-rc6</a></h2>
+    <div class="article-style">
+      
+      [PATCH v14 0/5] KASAN-KUnit Integration (David Gow) https://lkml.kernel.org/r/20200915035828.570483-1-davidgow@google.com
+The 14th patchset for the KASAN and KUnit integration. From the v13, compile warnings in test_kasan_module fixed.
+[PATCH v2 00/10] KFENCE: A low-overhead sampling-based memory safety error detector (Marco Elver) https://lkml.kernel.org/r/20200915132046.3332537-1-elver@google.com
+The second version of the KFENCE posted.
+[PATCH 1/2] fs: Add a filesystem flag for THPs (Matthew Wilcox) https://lkml.kernel.org/r/20200916032717.22917-1-willy@infradead.org
+This patchset caches whether the backing filesystem support THP or not in an address space flags, so that the page cache can determine if it can send THP to the backing filesystem or not.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v5.9-rc5/">LKML News v5.9-rc5</a></h2>
+    <div class="article-style">
+      
+      [PATCH RFC 00/10] KFENCE: A low-overhead sampling-based memory safety error detector (Marco Elver) https://lkml.kernel.org/r/20200907134055.2878499-1-elver@google.com
+This patchset introduces another kernel use-after-free detection infrastructure, called Kernel Electric-Fence (KFENCE). Unlike KASAN, this trades the performance for precision and as a result it incurs near zero performance overhead so that it can be enabled in the production.
+[PATCH 00/11] Remove assumptions of THP size (Matthew Wilcox) https://lkml.kernel.org/r/20200908195539.25896-1-willy@infradead.org
+Matthew is working for variable sized THP. For start of the work, this patchset changes the assumption that THP will be PMD size by introducing thp_nr_pages() and let the other VM code to use it.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v5.9-rc4/">LKML News v5.9-rc4</a></h2>
+    <div class="article-style">
+      
+      [PATCH v9 0/3] introduce memory hinting API for external process (Minchan Kim) https://lkml.kernel.org/r/20200901000633.1920247-1-minchan@kernel.org
+After the rejection, this patchset posted again. Linus&rsquo;s opinion about dropping the task_struct to do_madvise and Christian&rsquo;s comment regarding compat syscall entry has resolved.
+And, this patchset merged in the &lsquo;-mm&rsquo; tree again. Hopefully it will be merged in mainline by 5.10!
+[PATCH v6 0/3] Anonymous VMA naming patches (Sumit Semwal) https://lkml.kernel.org/r/20200901091901.19779-1-sumit.semwal@linaro.org
+This is reposting of old patchset which Colin Cross sent before.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v5.9-rc3/">LkML New v5.9-rc3</a></h2>
+    <div class="article-style">
+      
+      [RFC -V3 0/5] autonuma: Optimize memory placement for memory tiering system (Huang Ying) https://lkml.kernel.org/r/20200825002354.17038-1-ying.huang@intel.com
+The third RFC of autonuma for help placing of data items on systems utilizing both DRAM and PMEM as different NUMA nodes.
+Linux 5.9-rc3 https://lkml.kernel.org/r/CAHk-=wiD1yujm_WvWLYL7gZsWMvZyWMg1rfU7dWmnYYc3a7Gsg@mail.gmail.com
+This week rc release is also quite normal. The &lsquo;fallthought&rsquo; comment conversion made fairly evenly distributed changes. Torvalds says it was quite calm. Indeed, only one patchset got my interest this week.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v5.9-rc2/">LKML News v5.9-rc2</a></h2>
+    <div class="article-style">
+      
+      PROBLEM: Long Workqueue delays. (Jim Baxter) https://lkml.kernel.org/r/71aafe68-7fe0-6b77-ea8e-83edd3f16c8d@mentor.com
+Jim Baxter encountered 6.5 seconds delay due to long workqueue delay. He want to ask if this is normal or real problem.
+[RFC PATCH 0/8] memcg: Enable fine-grained per process memory control (Waiman Long) https://lkml.kernel.org/r/20200817140831.30260-1-longman@redhat.com
+The memory cgroup v2 start reclamation if the amount of the memory of the cgroup exceeds &lsquo;memory.high&rsquo; and start OOM killing if if exceeds &lsquo;memory.max&rsquo;. Problem is, the OOM killer can kill any process.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v5.9-rc1/">LKML News v5.9-rc1</a></h2>
+    <div class="article-style">
+      
+      mm: sort freelist by rank number (Cho KyongHo) https://lkml.kernel.org/r/1596435031-41837-1-git-send-email-pullip.cho@samsung.com
+LPDDR5 has severan ranks and there are ranks switching delay. Therefore, it would be better to do accesses in same ranks if possible. This patch sorts freelist by the rank number so that near future allocation can be done in same rank.
+[RFC-PROTOTYPE 1/1] mm: Add __GFP_FAST_TRY flag (Uladzislau Rezki) https://lkml.kernel.org/r/20200803163029.1997-1-urezki@gmail.com
+This is the rfc of the patch for the Paul&rsquo;s last ask.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v5.8/">LKML News v5.8</a></h2>
+    <div class="article-style">
+      
+      [PATCH v2 0/7] mm: introduce memfd_secret system call to create &ldquo;secret&rdquo; memory areas (Mike Rapoport) https://lkml.kernel.org/r/20200727162935.31714-1-rppt@kernel.org
+This is the second version of the secretmemfd. In this version, the system call has renamed to &lsquo;memfd_secret&rsquo;.
+[RFC PATCH 0/5] madvise MADV_DOEXEC (Anthony Yznaga) https://lkml.kernel.org/r/1595869887-23307-1-git-send-email-anthony.yznaga@oracle.com
+This patch introduces another madvise hint, MADV_DOEXEC. It preserves an anonymous memory range across exec.
+[RFC PATCH 0/6] decrease unnecessary gap due to pmem kmem alignment (Jia He) https://lkml.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v5.8-rc7/">LKML News v5.8-rc7</a></h2>
+    <div class="article-style">
+      
+      [PATCH 0/6] mm: introduce secretmemfd system call to create &ldquo;secret&rdquo; memory areas (Mike Rapoport) https://lkml.kernel.org/r/20200720092435.17469-1-rppt@kernel.org
+This patchset make another special kind of file for secret memory areas. The file can be opened using secretmemfd(). mmap() of the file creates the secret memory mapping. The mapped pages are marked as not present in the direct map and will have desired protection bits (e..g, uncached).
+[PATCH v7 0/6] workingset protection/detection on the anonymous LRU list (js1304@gmail.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v5.8-rc6/">LKML News v5.8-rc6</a></h2>
+    <div class="article-style">
+      
+      [PATCH v3] x86/mm: use max memory block size on bare metal (Daniel Jordan) https://lkml.kernel.org/r/20200714205450.945834-1-daniel.m.jordan@oracle.com
+On x86, smallest supported block size is 128MiB. This means it needs to create 16,288 sysfs directories for 2TiB memory system. This sysfs creation takes significant amount of the boot time. As the memory hotplug is frequenlty used for the virtualized systems, this commit makes the kernels that aren&rsquo;t running on a hypervisor to use largest block size (2GiB) on big machines.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v5.8-rc5/">LKML News v5.8-rc5</a></h2>
+    <div class="article-style">
+      
+      [PATCH 0/2] KUnit-Kmemleak Integration (Uriel Guajardo) https://lkml.kernel.org/r/20200706210327.3313498-1-urielguajardojr@gmail.com
+This patchset makes kunit to use kmemleak to catch memory leak in the test code.
+[PATCH] CodingStyle: Inclusive Terminology (Dan Williams) https://lkml.kernel.org/r/159389297140.2210796.13590142254668787525.stgit@dwillia2-desk3.amr.corp.intel.com
+This patch adds a new document for inclusive term usage in the kernel tree. It suggests to stop using the terms, &lsquo;slave&rsquo; and &lsquo;blacklist&rsquo; anymore. This patch was revised two times and the third revision is merged in Torvalds&rsquo; tree by the Friday.
+      
+    </div>
+  </div>
+  
+
+  
+<nav>
+  <ul class="pagination justify-content-center">
+    
+    <li class="page-item"><a class="page-link" href="/categories/lkml-news/page/3/">&laquo;</a></li>
+    
+    
+    <li class="page-item"><a class="page-link" href="/categories/lkml-news/page/5/">&raquo;</a></li>
+    
+  </ul>
+</nav>
+
+
+</div>
+
+      
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js" integrity="sha256-1zu+3BnLYV9LdiY85uXMzii3bdrkelyp37e0ZyTAQh0=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/languages/c.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/languages/bash.min.js"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js" integrity="sha256-EErZamuLefUnbMBQbsEqu1USa+btR2oIlCpBJbyD4/g=" crossorigin="anonymous"></script>
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.bcfae8267aba63cc55af53a503896bd9.js"></script>
+
+    
+
+
+
+
+
+
+  
+  
+  <div class="container">
+    <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" class="back-to-top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

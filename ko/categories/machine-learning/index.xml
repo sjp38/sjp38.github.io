@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Machine Learning | hacklog</title>
+    <link>/ko/categories/machine-learning/</link>
+      <atom:link href="/ko/categories/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    <description>Machine Learning</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>ko-kr</language><lastBuildDate>Mon, 28 May 2018 19:51:49 +0900</lastBuildDate>
+    <image>
+      <url>/img/tux.png</url>
+      <title>Machine Learning</title>
+      <link>/ko/categories/machine-learning/</link>
+    </image>
+    
+    <item>
+      <title>머신러닝 학습/실습 환경 (Jupyter Notebook &amp; Google Colab)</title>
+      <link>/ko/post/ml-study-env/</link>
+      <pubDate>Mon, 28 May 2018 19:51:49 +0900</pubDate>
+      <guid>/ko/post/ml-study-env/</guid>
+      <description>&lt;p&gt;이 글은 머신러닝 학습 환경으로도 널리 사용되는 Jupyter Notebook 과 Google Colab
+에 대해 간단히 설명합니다.&lt;/p&gt;
+&lt;h1 id=&#34;jupyter-notebook&#34;&gt;Jupyter Notebook&lt;/h1&gt;
+&lt;p&gt;Jupyter Notebook [1] 은 대화형으로 프로그래밍 언어를 공부하고 실습해 볼 수
+있도록 만들어진 개발 / 학습 환경입니다.  이 환경은 크게 노트북 문서, Jupyter
+Notebook App, Notebook kernel, 그리고 Notebook Dashboard 로 구성됩니다.&lt;/p&gt;
+&lt;h2 id=&#34;노트북-문서&#34;&gt;노트북 문서&lt;/h2&gt;
+&lt;p&gt;노트북 문서는 프로그램 코드 조각들과 Rich text (이걸 한글로 뭐라 해야 할지&amp;hellip;),
+그리고 각 코드 조각의 수행 결과 로 구성됩니다.  백문이 불여일견, 이
+&lt;a href=&#34;https://colab.research.google.com/github/sjp38/jupyternb_hello/blob/master/jupyternb_hello.ipynb&#34;&gt;링크&lt;/a&gt;
+를 따라가 보시기 바랍니다.  링크는 간단한 파이썬 교육을 위해 만들어진 노트북
+문서로,  코드를 수정하고 수행해 볼 수 있습니다.  텍스트도 수정할 수 있습니다.
+문서에 코드 또는 텍스트 셀을 추가해 코드 셀에는 코드를, 텍스트 셀에는 텍스트를
+작성할 수 있으며, 텍스트 셀에 작성할 수 있는 텍스트는 단순한 평문이 아니라
+강조, 이탤릭 등의 효과를 포함할 수 있습니다.  Jupyter Notebook 환경은 노트북
+문서들을 읽어들여 Rich Text 를 저자가 의도한 모습대로 렌더링 해주고, 코드 셀을
+사용자가 원하면 셀별로 수행시켜줍니다.  코드 셀의 좌측에 수행 버튼이 떠서, 이를
+클릭하면 해당 셀을 수행하는 형태입니다.  문서 상의 모든 코드 셀의 일괄 수행
+역시 가능합니다.  이 때, 앞서 수행된 코드 셀의 수행 결과는 다음에 수행되는 코드
+셀에 영향을 끼칩니다.  예를 들어 특정 셀에서 전역 변수의 값을 변경했다면 다음에
+수행하는 셀에 변경된 전역 변수의 값이 보입니다.&lt;/p&gt;
+&lt;p&gt;이를 통해 Jupyter Notebook 사용자는 노트북 문서를 사용해 타인에게 학습시킬
+문서를 작성하고 학습자가 곧바로 하나씩 수행해 볼 수 있게 해줄 수 있으며, 스스로
+공부하는 사람도 자신이 공부한 내용을 쉽게 정리할 수 있게 해줍니다.&lt;/p&gt;
+&lt;h2 id=&#34;jupyter-notebook-app&#34;&gt;Jupyter Notebook App&lt;/h2&gt;
+&lt;p&gt;Jupyter Notebook App 은 Jupyter 노트북 문서를 읽어들여 작성자가 원한 모습으로
+보여주고 코드의 수행 등을 대신해 주고, 또한 노트북 문서를 새로 작성할 수 있는
+에디터 역할을 합니다.  서버-클라이언트 구조로 되어 있어 로컬 컴퓨터에 서버를
+띄우고 웹브라우저로 접속해서 작업할 수도, 다른 컴퓨터에 띄워진 서버에
+웹브라우저로 접속해 작업할 수도 있습니다.  일부 공개 Jupyter Notebook 서버도
+서비스 되고 있습니다.  Google Colab 역시 그런 형태입니다.&lt;/p&gt;
+&lt;p&gt;Github 은 웹인터페이스 상에서 Notebook 문서를 렌더링 해 보여주는 기능을
+제공하고 있습니다.&lt;/p&gt;
+&lt;h2 id=&#34;notebook-kernel-과-notebook-dashboard&#34;&gt;Notebook kernel 과 Notebook Dashboard&lt;/h2&gt;
+&lt;p&gt;실제 코드의 수행을 담당하는게 Notebook kernel, 각 노트북 문서의 관리를 담당해
+주는 인터페이스가 Dashboard 입니다.  커널은 프로그램이 언어별로 존재하며,
+Jupyter Notebook 에서는 다양한 언어의 커널을 지원하고 있습니다.&lt;/p&gt;
+&lt;h1 id=&#34;google-colab&#34;&gt;Google Colab&lt;/h1&gt;
+&lt;p&gt;Jupyter Notebook 은 앞서 설명했듯 자신의 컴퓨터에 설치하고 서버를 띄울수도,
+다른 컴퓨터에 설치하고 서버를 띄울 수도 있습니다.  &lt;code&gt;...  as a Service&lt;/code&gt; 의
+시대인 만큼, Jupyter Notebook Server 를 서비스하는 회사들이 많습니다.  Google
+Colab[2] 은 그런 서비스 중 하나입니다.  이 프로젝트는 머신러닝 교육과 연구를
+돕기 위해 만들어진 Google 의 연구 프로젝트로, 결국은 하나의 Jupyter notebook
+환경일 뿐인데, 어떠한 셋업도 필요 없고 구글 클라우드 위에서 동작합니다.&lt;/p&gt;
+&lt;p&gt;노트북 문서는 구글 드라이브에 저장하고 불러올 수 있으며, Github 에 있는 노트북
+문서도 읽어올 수 있습니다.  참고로 노트북 문서는 &lt;code&gt;.ipynb&lt;/code&gt; 라는 확장자를
+사용하는 텍스트 파일입니다.  Colab 에서 작성한 노트북 문서를 &lt;code&gt;.ipynb&lt;/code&gt; 확장자
+파일로 곧바로 다운받을 수 있으므로 구글 드라이브로 공유하기 부담스러운 경우는
+github 을 통해 공유해도 좋겠습니다.  뿐만 아니라 읽기만 하므로 다른 사람의
+Jupyter Notebook 문서도 공개되어 있다면 얼마든지 불러올 수 있습니다.&lt;/p&gt;
+&lt;h2 id=&#34;github-의-노트북-문서-불러오기&#34;&gt;Github 의 노트북 문서 불러오기&lt;/h2&gt;
+&lt;p&gt;Github 의 노트북 파일을 불러오는 방법은 간단합니다.  먼저 Github 웹
+인터페이스에 들어가 Google Colab 에서 읽고자 하는 문서의 github 상에서의 주소를
+파악합니다.  대략
+&lt;a href=&#34;https://github.com/sjp38/jupyternb_hello/blob/master/jupyternb_hello.ipynb&#34;&gt;https://github.com/sjp38/jupyternb_hello/blob/master/jupyternb_hello.ipynb&lt;/a&gt; 와
+같은 형태가 될겁니다.  여기서 &lt;code&gt;https://&lt;/code&gt; 를 제거하고 &lt;code&gt;github.com&lt;/code&gt; 에서 &lt;code&gt;./com&lt;/code&gt;
+을 제거한 후, &lt;a href=&#34;https://colab.research.google.com/&#34;&gt;https://colab.research.google.com/&lt;/a&gt; 뒤에 붙여줍니다.  그러면 대략
+&lt;a href=&#34;https://colab.research.google.com/github/sjp38/jupyternb_hello/blob/master/jupyternb_hello.ipynb&#34;&gt;https://colab.research.google.com/github/sjp38/jupyternb_hello/blob/master/jupyternb_hello.ipynb&lt;/a&gt;
+같은 모습이 되겠죠.  이 주소를 웹브라우저에 입력하면, Colab 에 해당 노트북이
+열리고 수행도 해볼 수 있습니다.&lt;/p&gt;
+&lt;h1 id=&#34;summary&#34;&gt;Summary&lt;/h1&gt;
+&lt;p&gt;머신러닝 학습에 많이 사용되는 Jupyter Notebook 과 머신러닝을 위한 Jupyter
+Notebook 서비스 중 하나인 Google Colab 에 대해 알아봤습니다.  저도 최근에야
+알게 된 프로젝트인데, 코드와 그에 대한 설명을 정말 쉽고 효과적으로 공유할 수
+있는 획기적 방법 같습니다.  다른 분야에도 널리 퍼지면 좋겠군요.&lt;/p&gt;
+&lt;p&gt;[1] &lt;a href=&#34;http://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/what_is_jupyter.html&#34;&gt;http://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/what_is_jupyter.html&lt;/a&gt;&lt;br&gt;
+[2] &lt;a href=&#34;https://colab.research.google.com/notebooks/welcome.ipynb&#34;&gt;https://colab.research.google.com/notebooks/welcome.ipynb&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

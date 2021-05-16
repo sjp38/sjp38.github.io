@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>damon | hacklog</title>
+    <link>/ko/tags/damon/</link>
+      <atom:link href="/ko/tags/damon/index.xml" rel="self" type="application/rss+xml" />
+    <description>damon</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>ko-kr</language><lastBuildDate>Thu, 25 Feb 2021 07:20:30 +0100</lastBuildDate>
+    <image>
+      <url>/img/tux.png</url>
+      <title>damon</title>
+      <link>/ko/tags/damon/</link>
+    </image>
+    
+    <item>
+      <title>DAMON 을 이용한 프로파일링의 한 예</title>
+      <link>/ko/post/damon_profile_callstack_example/</link>
+      <pubDate>Thu, 25 Feb 2021 07:20:30 +0100</pubDate>
+      <guid>/ko/post/damon_profile_callstack_example/</guid>
+      <description>&lt;p&gt;DAMON[0] 이 프로파일링만을 위한 건 아니지만, DAMON 을 프로파일링에 활용하는
+방법에 대한 괜찮은 직관적 예를 여태 소개한 적이 없다는 걸 깨달았습니다.
+간단하지만 현실적인 DAMON 의 프로파일링 도구로써의 사용법은 모니터링 결과를
+콜스택과 함께 기록한 후 시간대에 맞춰 시각화 하는 것입니다.&lt;/p&gt;
+&lt;p&gt;예를 들어, 아래 그림은 SPLASH-2X 벤치마크의 &amp;lsquo;fft&amp;rsquo; 라는 워크로드에 대한 그런
+시각화 결과입니다.  여기서, 우린 이 워크로드에 세개의 폭발적 메모리 액세스가
+이루어지는 구간이 있는 것을 알 수 있으며, &lt;code&gt;FFT1DOnce.cons::prop.2()&lt;/code&gt; 가 그
+첫번째와 두번째 구간에, 그리고 &lt;code&gt;Transpose()&lt;/code&gt; 는 세번째 구간에 연관되어 있음을
+알 수 있습니다.  이제 프로그래머는 이 함수들을 깊게 들여다보고 코드를 최적화
+(ex: &lt;code&gt;madvise()&lt;/code&gt; 나 &lt;code&gt;mlock()&lt;/code&gt; 을 호출하기) 할 수 있을 겁니다.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/damon_callstack.png&#34; alt=&#34;dasmon_callstack_visualization&#34;&gt;&lt;/p&gt;
+&lt;p&gt;우린 이 기법을 다양한 실제에 가까운 벤치마크 워크로드들의 &lt;code&gt;mlock()&lt;/code&gt; 기반
+최적화에 사용해 보았습니다.  그렇게 최적화 되 버전은 메모리 부족 상태에서 최대
+2.5배까지의 성능 향상을 기록했습니다[1].&lt;/p&gt;
+&lt;p&gt;주의: 위의 &amp;lsquo;fft&amp;rsquo; 시각화에서 위쪽 두개의 그림 (시간에 따른 워킹셋 크기와 메모리
+영역별 접근 빈도) 는 DAMON 유저 스페이스 툴[2] 을 이용해서 그렸고, 가장 아래의
+그림 (시간에 따른 콜스택) 은 perf 와 speedscope[3] 을 이용해 그렸습니다.  아직
+이걸 완전히 자동화 하는 도구는 없습니다만 (조만간 구현할 계획입니다, 아마도
+perf 아래에 perf-script[4] 의 형태로요), 여러분도 아래의 커맨드를 이용해 직접
+만들어 보실 수 있습니다.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ # run the workload
+$ sudo damo record $(pidof &amp;lt;the workload&amp;gt;) &amp;amp;
+$ sudo perf record -g --pid $(pidof &amp;lt;the workload&amp;gt;)
+$ # after your workload finished (you should also finish perf on your own)
+$ damo report wss --sortby time --plot wss.pdf
+$ damo report heats --heatmap freq.pdf
+$ sudo perf script | speedscope -
+$ # open wss.pdf and freq.pdf with our favorite pdf viewer
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;[0] &lt;a href=&#34;https://damonitor.github.io&#34;&gt;https://damonitor.github.io&lt;/a&gt;&lt;br&gt;
+[1] &lt;a href=&#34;https://linuxplumbersconf.org/event/4/contributions/548/attachments/311/590/damon_ksummit19.pdf&#34;&gt;https://linuxplumbersconf.org/event/4/contributions/548/attachments/311/590/damon_ksummit19.pdf&lt;/a&gt;&lt;br&gt;
+[2] &lt;a href=&#34;https://lore.kernel.org/linux-mm/20201215115448.25633-8-sjpark@amazon.com/&#34;&gt;https://lore.kernel.org/linux-mm/20201215115448.25633-8-sjpark@amazon.com/&lt;/a&gt;&lt;br&gt;
+[3] &lt;a href=&#34;https://www.speedscope.app/&#34;&gt;https://www.speedscope.app/&lt;/a&gt;&lt;br&gt;
+[4] &lt;a href=&#34;https://lore.kernel.org/linux-mm/20210107120729.22328-1-sjpark@amazon.com/&#34;&gt;https://lore.kernel.org/linux-mm/20210107120729.22328-1-sjpark@amazon.com/&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>DAMON 테스트 패키지가 GPL v2 로 릴리즈 되었습니다</title>
+      <link>/ko/post/damon-tests_open_sourced/</link>
+      <pubDate>Sat, 26 Sep 2020 08:47:12 +0200</pubDate>
+      <guid>/ko/post/damon-tests_open_sourced/</guid>
+      <description>&lt;p&gt;DAMON 은 kselftest 와 kunit 에 기반한 여러 테스트를 자신의 패치셋에 포함시켜
+두고 있습니다.  커널 트리에 위치하는 테스트는 짧은 수행시간만 가지는게
+바람직하므로, 시간을 오래 소요하는 테스트들을 패키지화 해서 저희 회사 내에서만
+사용해 오고 있었습니다.  테스트는 좋은 문서로 사용될 수 있고 컨트리뷰터들에게도
+필요하죠.  그런 이유로, 이 패키지를 오픈소스로 만들겠다고 지난 커널 서밋
+발표에서 이야기 했었습니다
+(&lt;a href=&#34;https://linuxplumbersconf.org/event/7/contributions/659/)&#34;&gt;https://linuxplumbersconf.org/event/7/contributions/659/)&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;어제, 이 &lt;a href=&#34;https://github.com/awslabs/damon-tests&#34;&gt;패키지&lt;/a&gt; 를 마침내 GPL v2
+라이센스의 오픈소스로 릴리즈 했습니다.  이제 DAMON 인터페이스를 이해하고
+여러분의 기계 위에서 스스로 DAMON 을 테스트 하는데 이 패키지를 사용하실 수
+있습니다.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>DAMON 쇼케이스 웹사이트를 열었습니다</title>
+      <link>/ko/post/damon_github_page/</link>
+      <pubDate>Sat, 16 May 2020 13:25:55 +0200</pubDate>
+      <guid>/ko/post/damon_github_page/</guid>
+      <description>&lt;p&gt;DAMON 소개를 위한 웹사이트[1] 를 열었습니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;DAMON 공식 문서[2],&lt;/li&gt;
+&lt;li&gt;실제에 가까운 여러 워크로드의 힙[3], mmap() 된 영역[4], 그리고 스택[5] 에
+대한 히트맵 포맷의 동적 액세스 패턴들,&lt;/li&gt;
+&lt;li&gt;동적 워킹셋 사이즈의 분포[6] 와 시간대에 따른 워킹셋 사이즈의 변화양상[7],
+그리고&lt;/li&gt;
+&lt;li&gt;성능 테스트 결과[8]&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;를 확인해 보실 수 있습니다.&lt;/p&gt;
+&lt;p&gt;[1] &lt;a href=&#34;https://damonitor.github.io&#34;&gt;https://damonitor.github.io&lt;/a&gt;&lt;br&gt;
+[2] &lt;a href=&#34;https://damonitor.github.io/doc/html/latest&#34;&gt;https://damonitor.github.io/doc/html/latest&lt;/a&gt;&lt;br&gt;
+[3] &lt;a href=&#34;https://damonitor.github.io/test/result/visual/latest/heatmap.0.html&#34;&gt;https://damonitor.github.io/test/result/visual/latest/heatmap.0.html&lt;/a&gt;&lt;br&gt;
+[4] &lt;a href=&#34;https://damonitor.github.io/test/result/visual/latest/heatmap.1.html&#34;&gt;https://damonitor.github.io/test/result/visual/latest/heatmap.1.html&lt;/a&gt;&lt;br&gt;
+[5] &lt;a href=&#34;https://damonitor.github.io/test/result/visual/latest/heatmap.2.html&#34;&gt;https://damonitor.github.io/test/result/visual/latest/heatmap.2.html&lt;/a&gt;&lt;br&gt;
+[6] &lt;a href=&#34;https://damonitor.github.io/test/result/visual/latest/wss_sz.html&#34;&gt;https://damonitor.github.io/test/result/visual/latest/wss_sz.html&lt;/a&gt;&lt;br&gt;
+[7] &lt;a href=&#34;https://damonitor.github.io/test/result/visual/latest/wss_time.html&#34;&gt;https://damonitor.github.io/test/result/visual/latest/wss_time.html&lt;/a&gt;&lt;br&gt;
+[8] &lt;a href=&#34;https://damonitor.github.io/test/result/perf/latest/html/index.html&#34;&gt;https://damonitor.github.io/test/result/perf/latest/html/index.html&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>DAMON: Data Access Monitor</title>
+      <link>/ko/post/damon/</link>
+      <pubDate>Fri, 27 Dec 2019 18:21:07 +0100</pubDate>
+      <guid>/ko/post/damon/</guid>
+      <description>&lt;p&gt;Modern workloads tend to have huge working sets and low locality.  Despite this
+trend, the capacity of DRAM has not been increased enough to accommodate such
+huge working sets. Therefore, memory management mechanisms optimized for such
+modern workloads are widely required today. For such optimizations, knowing the
+data access pattern of given workloads is essential. However, manually
+extracting such patterns from huge and complex workloads is exhaustive. Worse
+yet, existing memory access analysis tools incur unacceptably high overheads
+for unnecessarily detailed analysis results.&lt;/p&gt;
+&lt;p&gt;To mitigate this situation, we introduce a tool that is designed for data
+access pattern tracing. Two core mechanisms in this tool, a region-based
+sampling and an adaptive region adjustment, allow users to limit the tracing
+overhead in a bounded range regardless of the size and complexity of target
+workloads, while preserving the quality of results. Our empirical evaluations
+that conducted with 20 realistic workloads show the high quality, low overhead,
+and a potential use case of this tool.&lt;/p&gt;
+&lt;h2 id=&#34;demo-video&#34;&gt;Demo Video&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;/img/damo_monitor_water_nsquared.gif&#34; alt=&#34;damo monitor for water_nsquared&#34;&gt;&lt;/p&gt;
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;https://www.youtube.com/embed/l63eqbVBZRY&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&#34;demo-screenshot&#34;&gt;Demo Screenshot&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;/img/masim_stairs_heatmap_ascii.png&#34; alt=&#34;masim stairs heatmap in ascii&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;recent-news&#34;&gt;Recent News&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;2021-05-12&lt;/em&gt;: DAMON user-space tool now supports realtime monitoring&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;2021-05-07&lt;/em&gt;: DAMON has merged in the public source tree for Amazon Linux
+v5.4.y
+&lt;a href=&#34;https://github.com/amazonlinux/linux/tree/amazon-5.4.y/master/mm/damon&#34;&gt;kernel&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;2021-04-05&lt;/em&gt;: &lt;code&gt;damo&lt;/code&gt; now supports heatmap visualization on the
+&lt;a href=&#34;https://raw.githubusercontent.com/awslabs/damo/master/for_doc/masim_zigzag_heatmap_ascii.png&#34;&gt;terminal&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;2021-03-31&lt;/em&gt;: DAMON user-space tool (&lt;code&gt;damo&lt;/code&gt;) is released as an
+&lt;a href=&#34;https://github.com/awslabs/damo&#34;&gt;individual open source project&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;2021-03-19&lt;/em&gt;: DAMON has merged in the public source tree for Amazon Linux
+v5.10.y
+&lt;a href=&#34;https://github.com/amazonlinux/linux/tree/amazon-5.10.y/master/mm/damon&#34;&gt;kernel&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;2021-03-04&lt;/em&gt;: DAMON supports for two latest LTS kernels
+&lt;a href=&#34;https://lore.kernel.org/linux-mm/20210304100732.7844-1-sjpark@amazon.com/&#34;&gt;announced&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;source-code&#34;&gt;Source Code&lt;/h2&gt;
+&lt;p&gt;There are a couple of trees for entire DAMON patchset series.  Those includes
+not only patches that posted to LKML, but also those for future postings.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/sjp38/linux/tree/damon/master&#34;&gt;damon/master&lt;/a&gt;
+contains the snapshot of the tree for the last release, and&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/sjp38/linux/tree/damon/next&#34;&gt;damon/next&lt;/a&gt; contains the
+changes for the next release.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For people who using LTS kernels as their baseline, there are another couple of
+trees that respectively based on two latest LTS kernels and has backported
+DAMON patches.  Currently, below two trees for v5.4.y and v5.10.y exist.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/sjp38/linux/tree/damon/for-v5.4.y&#34;&gt;damon/for-v5.4.y&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/sjp38/linux/tree/damon/for-v5.10.y&#34;&gt;damon/for-v5.10.y&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The source code of DAPTRACE, which is a prototype of DAMON, is also
+&lt;a href=&#34;https://github.com/daptrace&#34;&gt;available&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;official-document&#34;&gt;Official Document&lt;/h2&gt;
+&lt;p&gt;The DAMON official document for the
+&lt;a href=&#34;https://damonitor.github.io/doc/html/next/&#34;&gt;next&lt;/a&gt;
+and the
+&lt;a href=&#34;https://damonitor.github.io/doc/html/latest/&#34;&gt;latest&lt;/a&gt;
+releases are available online.&lt;/p&gt;
+&lt;h2 id=&#34;tests-package&#34;&gt;Tests Package&lt;/h2&gt;
+&lt;p&gt;There are &lt;a href=&#34;https://github.com/awslabs/damon-tests&#34;&gt;tests&lt;/a&gt; for correctness
+verification and performance evaluation of DAMON that used for DAMON
+development.  A package of the tets is available as open source under GPL v2
+license.  Using that, you can test DAMON on your machine with only a few simple
+commands or deeply understand the user interface of DAMON.&lt;/p&gt;
+&lt;h2 id=&#34;showcase-website&#34;&gt;Showcase Website&lt;/h2&gt;
+&lt;p&gt;There is a showcase web &lt;a href=&#34;https://damonitor.github.io/_index&#34;&gt;site&lt;/a&gt; that you can
+get more information of DAMON.
+The site hosts&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;the official &lt;a href=&#34;https://damonitor.github.io/doc/html/latest&#34;&gt;documentation&lt;/a&gt; of
+DAMON,&lt;/li&gt;
+&lt;li&gt;the heatmap format dynamic access pattern of various realistic workloads for
+&lt;a href=&#34;https://damonitor.github.io/test/result/visual/latest/rec.heatmap.0.png.html&#34;&gt;heap&lt;/a&gt;
+area,
+&lt;a href=&#34;https://damonitor.github.io/test/result/visual/latest/rec.heatmap.1.png.html&#34;&gt;mmap()-ed&lt;/a&gt;
+area,
+and
+&lt;a href=&#34;https://damonitor.github.io/test/result/visual/latest/rec.heatmap.2.png.html&#34;&gt;stack&lt;/a&gt;
+area,&lt;/li&gt;
+&lt;li&gt;the dynamic working set size
+&lt;a href=&#34;https://damonitor.github.io/test/result/visual/latest/rec.wss_sz.png.html&#34;&gt;distribution&lt;/a&gt;
+and chronological working set
+size &lt;a href=&#34;https://damonitor.github.io/test/result/visual/latest/rec.wss_time.png.html&#34;&gt;changes&lt;/a&gt;,
+and&lt;/li&gt;
+&lt;li&gt;the latest performance test
+&lt;a href=&#34;https://damonitor.github.io/test/result/perf/latest/html/index.html&#34;&gt;results&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;publications-and-presentations&#34;&gt;Publications and Presentations&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;SeongJae Park, &lt;strong&gt;DAMON: Data Access Monitoring Framework for Fun and Memory
+Management Optimizations,&lt;/strong&gt; In &lt;em&gt;The Linux Kernel Summit&lt;/em&gt;, August 2020.
+&lt;a href=&#34;https://www.linuxplumbersconf.org/event/7/contributions/659/attachments/503/1195/damon_ksummit_2020.pdf&#34;&gt;Slides&lt;/a&gt;,
+&lt;a href=&#34;https://youtu.be/jOBkKMA0uF0?t=10696&#34;&gt;Video&lt;/a&gt;,
+&lt;a href=&#34;https://www.linuxplumbersconf.org/event/7/contributions/659/&#34;&gt;Link&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Yunjae Lee, Yunhee Kim, and Heon. Y. Yeom, &lt;strong&gt;Lightweight Memory Tracing for
+Hot Data Identification,&lt;/strong&gt; In &lt;em&gt;Cluster computing&lt;/em&gt;, 2020.
+&lt;a href=&#34;https://link.springer.com/article/10.1007/s10586-020-03130-1&#34;&gt;Paper&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Jonathan Corbet, &lt;strong&gt;Memory-management optimization with DAMON.&lt;/strong&gt; In Linux
+Weekly News, February 2020.
+&lt;a href=&#34;https://lwn.net/Articles/812707/&#34;&gt;Article&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;SeongJae Park, Yunjae Lee, Heon Y. Yeom, &lt;strong&gt;Profiling Dynamic Data Access
+Patterns with Controlled Overhead and Quality.&lt;/strong&gt; In 20th ACM/IFIP
+International Middleware Conference Industry, December 2019.
+&lt;a href=&#34;https://dl.acm.org/citation.cfm?id=3368125&#34;&gt;Paper&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;SeongJae Park, &lt;strong&gt;Tracing Data Access Pattern with Bounded Overhead and
+Best-effort Accuracy.&lt;/strong&gt; In &lt;em&gt;The Linux Kernel Summit&lt;/em&gt;, September 2019.
+&lt;a href=&#34;https://linuxplumbersconf.org/event/4/contributions/548/attachments/311/590/damon_ksummit19.pdf&#34;&gt;Slides&lt;/a&gt;,
+&lt;a href=&#34;https://linuxplumbersconf.org/event/4/contributions/548/&#34;&gt;Link&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;SeongJae Park, Yunjae Lee, Yunhee Kim, Heon Y. Yeom, &lt;strong&gt;Profiling Dynamic Data
+Access Patterns with Bounded Overhead and Accuracy.&lt;/strong&gt; In IEEE International
+Workshop on Foundations and Applications of Self-* Systems (FAS* 2019),
+June 2019.
+&lt;a href=&#34;https://ieeexplore.ieee.org/abstract/document/8791992&#34;&gt;Paper&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;news&#34;&gt;News&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;2021-05-07&lt;/em&gt;: DAMON has merged in the public source tree for Amazon Linux
+v5.4.y
+&lt;a href=&#34;https://github.com/amazonlinux/linux/tree/amazon-5.4.y/master/mm/damon&#34;&gt;kernel&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;2021-04-05&lt;/em&gt;: &lt;code&gt;damo&lt;/code&gt; now supports heatmap visualization on the
+&lt;a href=&#34;https://raw.githubusercontent.com/awslabs/damo/master/for_doc/masim_zigzag_heatmap_ascii.png&#34;&gt;terminal&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;2021-03-31&lt;/em&gt;: DAMON user-space tool (&lt;code&gt;damo&lt;/code&gt;) is released as an
+&lt;a href=&#34;https://github.com/awslabs/damo&#34;&gt;individual open source project&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;2021-03-19&lt;/em&gt;: DAMON has merged in the public source tree for Amazon Linux
+v5.10.y
+&lt;a href=&#34;https://github.com/amazonlinux/linux/tree/amazon-5.10.y/master/mm/damon&#34;&gt;kernel&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;2021-03-04&lt;/em&gt;: DAMON supports for two latest LTS kernels
+&lt;a href=&#34;https://lore.kernel.org/linux-mm/20210304100732.7844-1-sjpark@amazon.com/&#34;&gt;announced&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;2021-03-03&lt;/em&gt;: DAMON is merged in v5.10 based public Amazon Linux kernel
+&lt;a href=&#34;https://github.com/amazonlinux/linux/commit/10e0ec07f9085a42f724b28912a1dadc0b5d3c80&#34;&gt;tree&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;2021-02-25&lt;/em&gt;: An example usage of DAMON for profiling is
+&lt;a href=&#34;https://twitter.com/sjpark0x00/status/1364591344300273666&#34;&gt;shared&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;2021-01-07&lt;/em&gt;: A runtime system for DAMON-based optimal operation scheme finding
+is &lt;a href=&#34;https://github.com/awslabs/damoos&#34;&gt;released&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;2020-12-03&lt;/em&gt;: Further plans around DAMON is
+&lt;a href=&#34;https://lore.kernel.org/linux-mm/20201202082731.24828-1-sjpark@amazon.com&#34;&gt;shared&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;2020-11-17&lt;/em&gt;: A real-world user story of DAMON is
+&lt;a href=&#34;https://lore.kernel.org/linux-mm/20201117143021.11883-1-sjpark@amazon.com/&#34;&gt;shared&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;2020-09-26&lt;/em&gt;: The tests package for DAMON is
+&lt;a href=&#34;https://github.com/awslabs/damon-tests&#34;&gt;released&lt;/a&gt; under GPL v2 license&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;2020-08-19&lt;/em&gt;: A demo video is &lt;a href=&#34;https://youtu.be/l63eqbVBZRY&#34;&gt;available&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;2020-08-05&lt;/em&gt;: DAMON will be
+&lt;a href=&#34;https://www.linuxplumbersconf.org/event/7/contributions/659/&#34;&gt;presented&lt;/a&gt; at
+the Kernel Summit 2020&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;2020-06-04&lt;/em&gt;: Physical Memory Monitoring is now
+&lt;a href=&#34;https://lore.kernel.org/linux-mm/20200603141135.10575-1-sjpark@amazon.com/&#34;&gt;available&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;2020-05-18&lt;/em&gt;: DAMON showcase website is announced&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;2020-05-13&lt;/em&gt;: DAMON official document is uploaded
+&lt;a href=&#34;https://damonitor.github.io/doc/html/latest/admin-guide/mm/damon/&#34;&gt;online&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;2020-02-20&lt;/em&gt;: DAMON has introduced by an LWN
+&lt;a href=&#34;https://lwn.net/Articles/812707/&#34;&gt;article&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;2020-02-10&lt;/em&gt;: The first RFC of Data Access Monitoring-based Operating Schemes
+(DAMOS) has posted to
+&lt;a href=&#34;https://lore.kernel.org/linux-mm/20200210150921.32482-1-sjpark@amazon.com/&#34;&gt;LKML&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;2020-01-23&lt;/em&gt;: The RFC of DAMON has introduced by LWN&amp;rsquo;s &lt;a href=&#34;https://lwn.net/Articles/809100/&#34;&gt;&amp;lsquo;Kernel patches of
+interest&amp;rsquo;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;2020-01-20&lt;/em&gt;: The first RFC patchset of DAMON has posted to
+&lt;a href=&#34;https://lore.kernel.org/linux-mm/20200110131522.29964-1-sjpark@amazon.com/&#34;&gt;LKML&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
