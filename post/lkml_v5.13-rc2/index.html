@@ -627,6 +627,22 @@ discuss about it in the LSFMM, if there are something to discuss more.</p>
 <p><a href="https://lkml.kernel.org/r/20210513122702.2245882-1-willy@infradead.org">https://lkml.kernel.org/r/20210513122702.2245882-1-willy@infradead.org</a></p>
 <p>This patch makes LRU code to use the page folio interface.  Owing to the
 reduced head/tail pages handling code, about 800 bytes of kernel text saved.</p>
+<h2 id="linux-513-rc2-linus-torvalds">Linux 5.13-rc2 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wgX-4PTGAH7kRvqHYiq9wPJ-zN6jhLsuOAj6cG__g9N9A@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wgX-4PTGAH7kRvqHYiq9wPJ-zN6jhLsuOAj6cG__g9N9A@mail.gmail.com</a></p>
+<p>Second release candidate for the 5.13 released.  Unlike the rc1, which was
+bigger than usual, this release is smaller than average, but still seems it&rsquo;s
+only in noise.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.2-rc2..v5.13-rc2.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2019-05-17 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc2 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.13-rc2-only.png" alt="rc2 release stat"></p>
 
     </div>
 
