@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2021-05-11T21:11:05&#43;02:00">
+    <meta property="og:updated_time" content="2021-05-18T07:11:13&#43;02:00">
   
 
   
@@ -525,6 +525,17 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.4-rc2/">LKML News v5.4-rc2</a></h2>
+    <div class="article-style">
+      
+      [PATCH v18 00/19] kunit: introduce KUnit, the Linux kernel unit testing framework https://lkml.kernel.org/r/20190923090249.127984-1-brendanhiggins@google.com
+어떻게 보면 별거 아닌 이유로 5.4 머지윈도우에서 튕겨나가고 만 kunit. 요청받은대로 파일 위치를 하위 디렉토리로 변경한 kunit 새 버전의 패치셋이 올라왔습니다. &lsquo;kunit/&rsquo; 디렉토리와 kunit 을 위한 &lsquo;Kconfig&rsquo; 파일을 &lsquo;lib/&rsquo; 아래로 옮겼군요.
+이후 벌어진 대화가 재미있는데요, 토발즈는 이걸 5.5에 넣을 예정인데, 가능하면 그동안 실제 테스트 코드도 추가되면 좋겠다고 했습니다. 근데 테스트 프레임웍이 머지안되었는데 테스트 코드를? 메인테이너 간에 일이 복잡해지고 컨플릭 날 확률이 높아지니 이걸로 꽤 많은 이야기가 있었습니다.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.4-rc1/">LKML News v5.4-rc1</a></h2>
     <div class="article-style">
       
@@ -626,19 +637,6 @@ sysctl 이나 procfs 를 통한 hugetlb 페이지 할당은 수분이나 수시�
  May 27, 2019
 이 기사는 Mike Rapoport 에 의해 기여되었습니다.
 컴퓨터 시스템에서 물리 메모리는 소중한 자원이어서, 이를 효율적으로 관리하기 위한 많은 노력이 기울여져왔습니다. 이 일은 현대의 시스템에서의 메모리 구조가 복잡해짐에 따라 더 어려워졌습니다. 물리 메모리가 실제로 어떻게 위치해 있는가를 다루기 위한 여러 계층의 추상화가 존재합니다; 그런 추상화 중 하나는 &ldquo;메모리 모델&rdquo; 이라고 불립니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.3-rc2/">LKML News v5.3-rc2</a></h2>
-    <div class="article-style">
-      
-      [PATCH v6 0/5] Introduce MADV_COLD and MADV_PAGEOUT https://lkml.kernel.org/r/20190723062539.198697-1-minchan@kernel.org
-어플리케이션의 메모리를 좀 더 적극적으로 reclaim 시킴으로써 반응성을 높이기 위한 패치셋의 일부를 따로 떼어낸, MADV_COLD 와 MADV_PAGEOUT 힌트를 madvise() 에 추가하는 패치의 여섯번째 버전입니다.
-일곱번째 버전도 빠르게 올라왔군요: https://lkml.kernel.org/r/20190726023435.214162-1-minchan@kernel.org 단순히 mmotm 최신 버전 위로 리베이스 한 것 같네요.
-[PATCH v9 00/21] Generic page walk and ptdump https://lkml.kernel.org/r/20190722154210.42799-1-steven.price@arm.com
-x86 과 arm64 가 범용적 페이지 테이블 워킹을 하도록 했던 해치셋을 조금 더 확장한 버전입니다. 기존 대비 페이지 테이블 덤프 기능도 일반화 시킨게 차이군요.
       
     </div>
   </div>
