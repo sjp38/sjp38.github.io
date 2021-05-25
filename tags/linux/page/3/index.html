@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2021-05-18T07:11:13&#43;02:00">
+    <meta property="og:updated_time" content="2021-05-25T07:24:13&#43;02:00">
   
 
   
@@ -525,6 +525,19 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.11-rc2/">LKML News v5.11-rc2</a></h2>
+    <div class="article-style">
+      
+      Linux 5.11-rc2 (Linus Torvalds) https://lkml.kernel.org/r/CAHk-=whS+rzNMSsU6vRoLMzrm0JPN-OVg+BxhybMet3NpqpR-Q@mail.gmail.com
+Due to the holiday season, rc2 ends up fairly small. Maybe we will see rc8 for v5.11, but Torvalds just saying let&rsquo;s watch more.
+Below is the diffstat of the releases in the last two years.
+Note that the y-axis is in logarithm. I draw it using https://github.com/sjp38/relstat and https://github.com/sjp38/lazybox using below command:
+$ relstat.py --since 2019-01-04 | ~/lazybox/gnuplot/plot.py \ --data_fmt table --type labeled-lines --xtics_rotate -90 \ --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.11-rc1/">LKML News v5.10-rc1</a></h2>
     <div class="article-style">
       
@@ -640,19 +653,6 @@ incoming (Andrew Morton) https://lkml.kernel.org/r/20201013164658.3bfd96cc224d89
 This is the pull request from Andrew Morton, the mm maintainer, for v5.10.
 [PATCH v4 0/5] Speed up mremap on large regions (Kalesh Singh) https://lkml.kernel.org/r/20201014005320.2233162-1-kaleshsingh@google.com)
 Repost fo the patch series.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.9/">LKML News v5.9</a></h2>
-    <div class="article-style">
-      
-      [PATCH RFC v2] Opportunistic memory reclaim (Andrea Righi) https://lkml.kernel.org/r/20201005081313.732745-1-andrea.righi@canonical.com
-This patch introduces new file under memcg, &lsquo;memory.swap.reclaim&rsquo; that allow users to incur Reclaim even before the memory pressure happens, to help reducing system memory footprint and speed up hibernation/VM migration time, etc.
-[PATCH v2 0/2] Add tracepoints around mmap_lock acquisition (Axel Rasmussen) https://lkml.kernel.org/r/20201007184403.1902111-1-axelrasmussen@google.com
-This patchset adds tracepoints for mmap_lock to use that for analysis of the contention.
-[RFC][PATCH 0/9] [v4][RESEND] Migrate Pages in lieu of discard (Dave Hansen) https://lkml.
       
     </div>
   </div>
