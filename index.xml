@@ -22,6 +22,12 @@
 &lt;p&gt;This patchset removes the page granularity mapping requirement for the KFENCE&amp;rsquo;s
 linear map, to achieve both arm64&amp;rsquo;s block level and contiguous mapping for
 non-KFENCE pool pages, by allocating the KFENCE pool before &lt;code&gt;paging_init()&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;patch-v2-0021-optimize-list-lru-memory-consumption-muchun-song&#34;&gt;[PATCH v2 00/21] Optimize list lru memory consumption (Muchun Song)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20210527062148.9361-1-songmuchun@bytedance.com&#34;&gt;https://lkml.kernel.org/r/20210527062148.9361-1-songmuchun@bytedance.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Muchun found kmalloc-32 slab cache consuming huge memory due to cgroups
+initialization, and posting this patchset which expected to fix the problem
+fundamentally.  This patchset reduced memory consumption of system under
+specific scenario from about 24GB to about 4GB.&lt;/p&gt;
 </description>
     </item>
     

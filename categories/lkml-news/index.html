@@ -530,6 +530,8 @@
       
       [PATCH 0/2] arm64: remove page granularity limitation from KFENCE (Jisheng Zhang) https://lkml.kernel.org/r/20210524172433.015b3b6b@xhacker.debian
 This patchset removes the page granularity mapping requirement for the KFENCE&rsquo;s linear map, to achieve both arm64&rsquo;s block level and contiguous mapping for non-KFENCE pool pages, by allocating the KFENCE pool before paging_init().
+[PATCH v2 00/21] Optimize list lru memory consumption (Muchun Song) https://lkml.kernel.org/r/20210527062148.9361-1-songmuchun@bytedance.com
+Muchun found kmalloc-32 slab cache consuming huge memory due to cgroups initialization, and posting this patchset which expected to fix the problem fundamentally.
       
     </div>
   </div>
