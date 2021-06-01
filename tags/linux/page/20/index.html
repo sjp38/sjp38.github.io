@@ -31,9 +31,9 @@
   <meta name="description" content="Kernel / Hypervisor Engineer">
 
   
-  <link rel="alternate" hreflang="ko" href="/ko/tags/kernel/">
+  <link rel="alternate" hreflang="ko" href="/ko/tags/linux/">
   
-  <link rel="alternate" hreflang="en-us" href="/tags/kernel/">
+  <link rel="alternate" hreflang="en-us" href="/tags/linux/">
 
   
 
@@ -133,14 +133,14 @@
 
 
   
-  <link rel="alternate" href="/tags/kernel/index.xml" type="application/rss+xml" title="hacklog">
+  <link rel="alternate" href="/tags/linux/index.xml" type="application/rss+xml" title="hacklog">
   
 
   <link rel="manifest" href="/index.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon-32.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="/tags/kernel/">
+  <link rel="canonical" href="/tags/linux/">
 
   
   
@@ -152,8 +152,8 @@
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="hacklog">
-  <meta property="og:url" content="/tags/kernel/">
-  <meta property="og:title" content="kernel | hacklog">
+  <meta property="og:url" content="/tags/linux/">
+  <meta property="og:title" content="linux | hacklog">
   <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
@@ -174,7 +174,7 @@
 
 
 
-  <title>kernel | hacklog</title>
+  <title>linux | hacklog</title>
 
 </head>
 
@@ -475,7 +475,7 @@
             <span>English</span>
           </div>
           
-          <a class="dropdown-item" href="/ko/tags/kernel/">
+          <a class="dropdown-item" href="/ko/tags/linux/">
             <span>한국어</span>
           </a>
           
@@ -510,7 +510,7 @@
     
   
 <div class="universal-wrapper pt-3">
-  <h1>kernel</h1>
+  <h1>linux</h1>
 
   
 
@@ -525,125 +525,12 @@
   
   
   <div>
-    <h2><a href="/post/lkml_news_v5.9-rc1/">LKML News v5.9-rc1</a></h2>
+    <h2><a href="/post/uninstall-kernel/">uninstall kernel</a></h2>
     <div class="article-style">
       
-      mm: sort freelist by rank number (Cho KyongHo) https://lkml.kernel.org/r/1596435031-41837-1-git-send-email-pullip.cho@samsung.com
-LPDDR5 has severan ranks and there are ranks switching delay. Therefore, it would be better to do accesses in same ranks if possible. This patch sorts freelist by the rank number so that near future allocation can be done in same rank.
-[RFC-PROTOTYPE 1/1] mm: Add __GFP_FAST_TRY flag (Uladzislau Rezki) https://lkml.kernel.org/r/20200803163029.1997-1-urezki@gmail.com
-This is the rfc of the patch for the Paul&rsquo;s last ask.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.8/">LKML News v5.8</a></h2>
-    <div class="article-style">
-      
-      [PATCH v2 0/7] mm: introduce memfd_secret system call to create &ldquo;secret&rdquo; memory areas (Mike Rapoport) https://lkml.kernel.org/r/20200727162935.31714-1-rppt@kernel.org
-This is the second version of the secretmemfd. In this version, the system call has renamed to &lsquo;memfd_secret&rsquo;.
-[RFC PATCH 0/5] madvise MADV_DOEXEC (Anthony Yznaga) https://lkml.kernel.org/r/1595869887-23307-1-git-send-email-anthony.yznaga@oracle.com
-This patch introduces another madvise hint, MADV_DOEXEC. It preserves an anonymous memory range across exec.
-[RFC PATCH 0/6] decrease unnecessary gap due to pmem kmem alignment (Jia He) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.8-rc7/">LKML News v5.8-rc7</a></h2>
-    <div class="article-style">
-      
-      [PATCH 0/6] mm: introduce secretmemfd system call to create &ldquo;secret&rdquo; memory areas (Mike Rapoport) https://lkml.kernel.org/r/20200720092435.17469-1-rppt@kernel.org
-This patchset make another special kind of file for secret memory areas. The file can be opened using secretmemfd(). mmap() of the file creates the secret memory mapping. The mapped pages are marked as not present in the direct map and will have desired protection bits (e..g, uncached).
-[PATCH v7 0/6] workingset protection/detection on the anonymous LRU list (js1304@gmail.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.8-rc6/">LKML News v5.8-rc6</a></h2>
-    <div class="article-style">
-      
-      [PATCH v3] x86/mm: use max memory block size on bare metal (Daniel Jordan) https://lkml.kernel.org/r/20200714205450.945834-1-daniel.m.jordan@oracle.com
-On x86, smallest supported block size is 128MiB. This means it needs to create 16,288 sysfs directories for 2TiB memory system. This sysfs creation takes significant amount of the boot time. As the memory hotplug is frequenlty used for the virtualized systems, this commit makes the kernels that aren&rsquo;t running on a hypervisor to use largest block size (2GiB) on big machines.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.8-rc5/">LKML News v5.8-rc5</a></h2>
-    <div class="article-style">
-      
-      [PATCH 0/2] KUnit-Kmemleak Integration (Uriel Guajardo) https://lkml.kernel.org/r/20200706210327.3313498-1-urielguajardojr@gmail.com
-This patchset makes kunit to use kmemleak to catch memory leak in the test code.
-[PATCH] CodingStyle: Inclusive Terminology (Dan Williams) https://lkml.kernel.org/r/159389297140.2210796.13590142254668787525.stgit@dwillia2-desk3.amr.corp.intel.com
-This patch adds a new document for inclusive term usage in the kernel tree. It suggests to stop using the terms, &lsquo;slave&rsquo; and &lsquo;blacklist&rsquo; anymore. This patch was revised two times and the third revision is merged in Torvalds&rsquo; tree by the Friday.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.8-rc4/">LKML News v5.8-rc4</a></h2>
-    <div class="article-style">
-      
-      [Ksummit-discuss] [TECH TOPIC] Inline Encryption Support and new related features (Satya Tangirala) https://lkml.kernel.org/r/20200629092551.GA673684@google.com
-Maybe the last kernel summit proposal. The inline encryption work was presented in the last year LPC and a part of it has merged in the v5.8, being tested in Android. The talk will discuss the todo list of the work.
-[PATCH] mm: define pte_add_end for consistency (Wei Yang) https://lkml.kernel.org/r/20200630031852.45383-1-richard.weiyang@linux.alibaba.com
-This patch adds a helper to get the address of the next boundary for pte level.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.8-rc3/">LKML News v5.8-rc3</a></h2>
-    <div class="article-style">
-      
-      [TECH TOPIC] restricted kernel address spaces (Mike Rapoport) https://lkml.kernel.org/r/20200621090539.GM6493@linux.ibm.com
-A new kernel summit talk proposal is made. This topic is recycled from the LSF/MM/BPF, which scheduled but canceled due to the COVID19.
-[PATCH] mm: filemap: clear idle flag for writes (Yang Shi) https://lkml.kernel.org/r/1593020612-13051-1-git-send-email-yang.shi@linux.alibaba.com
-This patch adds missed idle flag clearing in filemap writing.
-+ mm-madvise-introduce-process_madvise-syscall-an-external-memory-hinting-api-fix-2.patch added to -mm tree https://marc.info/?l=linux-mm-commits&amp;m=159303823314812&amp;w=2
-The process_madvise() patch has merged in the -mm tree again.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.8-rc2/">LKML News v5.8-rc2</a></h2>
-    <div class="article-style">
-      
-      [PATCH v7] mm: Proactive compaction (Nitin Gupta) https://lkml.kernel.org/r/20200615143614.15267-1-nigupta@nvidia.com
-7th version of the proactive compaction patchset. This version fixes compile error while THP is disabled.
-Maintainers / Kernel Summit 2020 submissions (Theodore Y. Ts&rsquo;o) https://lkml.kernel.org/r/20200615155839.GF2863913@mit.edu
-There were only 5 submissions for the kernel summit talk, and no submission for the maintainers summit. Ted asks people to submit until this week.
-[PATCH v6 0/6] workingset protection/detection on the anonymous LRU list https://lkml.kernel.org/r/1592371583-30672-1-git-send-email-iamjoonsoo.kim@lge.com
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.8-rc1/">LKML News v5.8-rc1</a></h2>
-    <div class="article-style">
-      
-      [PATCH v6] mm: Proactive compaction (Nitin Gupta) https://lkml.kernel.org/r/20200601194822.30252-1-nigupta@nvidia.com
-This is the sixth version of the proactive compaction patchset. It makes compaction to be able to triggered earlier than final memory pressure using knobs. The goal is better THP allocation success.
-[PATCH] vmalloc: Convert to XArray (Matthew Wilcox) https://lkml.kernel.org/r/20200603171448.5894-1-willy@infradead.org
-This patchset converts the radix tree for vmap blocks into XArray.
-incoming (Andrew Morton) https://lkml.kernel.org/r/20200608212922.5b7fa74ca3f4e2444441b7f9@linux-foundation.org
-MM-side pull request. It contains the &ldquo;mmap locking API: initial implementation as rwsem wrappers&rdquo; patchset.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.7/">LKML News v5.7</a></h2>
-    <div class="article-style">
-      
-      [PATCH v2 00/16] Introduce kvfree_rcu(1 or 2 arguments) (Uladzislau Rezki) https://lkml.kernel.org/r/20200525214800.93072-1-urezki@gmail.com
-This is the second version of the rcu-protected kvfree().
-[PATCH v2 0/7] Add histogram measuring mmap_lock contention latency (Axel Rasmussen) https://lkml.kernel.org/r/20200528235238.74233-1-axelrasmussen@google.com
-For further analysis of the mmap_sem overhead from both kernel space and user space, this commit adds the latency historgram for mmap_sem acquisition time. Actually, mmap_sem is now renamed into mmap_lock, thanks to Michel&rsquo;s patch.
-[PATCH -V4] swap: Reduce lock contention on swap cache from swap slots allocation (Huang, Ying) https://lkml.
+      테스트 등을 위해 소스코드로부터 커널을 직접 빌드, 설치하기 시작하면 어느새 수많은 커널이 설치되어 있는 것을 확인할 수 있다. 삭제를 위해선 make install 로 만들어진 파일들을 직접 제거하고 grub 을 업데이트 해줘야 한다.
+예를 들어 시스템이 현재 부팅되어 있는 버전의 커널을 언인스톨하고자 한다면 다음의 일련의 커맨드를 입력하면 된다:
+# rm /boot/vmlinuz-$(uname -r) # rm /boot/initrd.img-$(uname -r) # rm /boot/System.map-$(uname -r) # rm /boot/config-$(uname -r) # rm -fr /lib/modules/$(uname -r) # rm /var/lib/initramfs-tools/$(uname -r) # update-grub2 다른 버전의 설치되어있는 커널을 제거하고 싶다면 위의 $(uname -r) 부분을 제거하고자 하는 커널 버전으로 대체하면 된다.
       
     </div>
   </div>
@@ -653,10 +540,8 @@ For further analysis of the mmap_sem overhead from both kernel space and user sp
 <nav>
   <ul class="pagination justify-content-center">
     
-    <li class="page-item"><a class="page-link" href="/tags/kernel/page/4/">&laquo;</a></li>
+    <li class="page-item"><a class="page-link" href="/tags/linux/page/19/">&laquo;</a></li>
     
-    
-    <li class="page-item"><a class="page-link" href="/tags/kernel/page/6/">&raquo;</a></li>
     
   </ul>
 </nav>

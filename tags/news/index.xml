@@ -5,12 +5,34 @@
     <link>/tags/news/</link>
       <atom:link href="/tags/news/index.xml" rel="self" type="application/rss+xml" />
     <description>news</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 25 May 2021 07:24:13 +0200</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 01 Jun 2021 07:05:24 +0200</lastBuildDate>
     <image>
       <url>/img/tux.png</url>
       <title>news</title>
       <link>/tags/news/</link>
     </image>
+    
+    <item>
+      <title>LKML News v5.13-rc5</title>
+      <link>/post/lkml_news_v5.13-rc5/</link>
+      <pubDate>Tue, 01 Jun 2021 07:05:24 +0200</pubDate>
+      <guid>/post/lkml_news_v5.13-rc5/</guid>
+      <description>&lt;h2 id=&#34;patch-v3-02-mm-compaction-proactive-compaction-trigger-by-user-charan-teja-reddy&#34;&gt;[PATCH V3 0/2] mm: compaction: proactive compaction trigger by user (Charan Teja Reddy)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/cover.1622454385.git.charante@codeaurora.org&#34;&gt;https://lkml.kernel.org/r/cover.1622454385.git.charante@codeaurora.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This patchset introduces &lt;code&gt;/proc/sys/vm/compaction_proactiveness&lt;/code&gt; file, which
+can trigger proactive compaction by writing it.&lt;/p&gt;
+&lt;h2 id=&#34;rfc-patch-mmpage_reporting-adjust-threshold-according-to-max_order-gavin-shan&#34;&gt;[RFC PATCH] mm/page_reporting: Adjust threshold according to MAX_ORDER (Gavin Shan)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20210601033319.100737-1-gshan@redhat.com&#34;&gt;https://lkml.kernel.org/r/20210601033319.100737-1-gshan@redhat.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The free pages reporting feature doesn&amp;rsquo;t allow discontiguous pages that smaller
+than &lt;code&gt;PAGE_REPORTING_MIN_ORDER&lt;/code&gt;.  Current setting of it makes the feature to
+never work on specific environment, because it is set to be equal to
+&lt;code&gt;pageblock_order&lt;/code&gt;.  This patchset mitigates the situation.&lt;/p&gt;
+&lt;h2 id=&#34;lsfmm-topic-mmap-locking-topics-michel-lespinasse&#34;&gt;[LSF/MM TOPIC] mmap locking topics (Michel Lespinasse)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20210601044845.GA12713@lespinasse.org&#34;&gt;https://lkml.kernel.org/r/20210601044845.GA12713@lespinasse.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Two topics for mmap locking issue, specificallyt speculative page faults and
+fine grained locking are proposed.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>LKML News v5.13-rc4</title>

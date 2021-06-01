@@ -28,12 +28,13 @@
   
     
   
-  <meta name="description" content="Kernel / Hypervisor Engineer">
+  <meta name="description" content="[PATCH V3 0/2] mm: compaction: proactive compaction trigger by user (Charan Teja Reddy) https://lkml.kernel.org/r/cover.1622454385.git.charante@codeaurora.org
+This patchset introduces /proc/sys/vm/compaction_proactiveness file, which can trigger proactive compaction by writing it.
+[RFC PATCH] mm/page_reporting: Adjust threshold according to MAX_ORDER (Gavin Shan) https://lkml.kernel.org/r/20210601033319.100737-1-gshan@redhat.com
+The free pages reporting feature doesn&rsquo;t allow discontiguous pages that smaller than PAGE_REPORTING_MIN_ORDER. Current setting of it makes the feature to never work on specific environment, because it is set to be equal to pageblock_order.">
 
   
-  <link rel="alternate" hreflang="ko" href="/ko/tags/kernel/">
-  
-  <link rel="alternate" hreflang="en-us" href="/tags/kernel/">
+  <link rel="alternate" hreflang="en-us" href="/post/lkml_news_v5.13-rc5/">
 
   
 
@@ -133,14 +134,12 @@
 
 
   
-  <link rel="alternate" href="/tags/kernel/index.xml" type="application/rss+xml" title="hacklog">
-  
 
   <link rel="manifest" href="/index.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon-32.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="/tags/kernel/">
+  <link rel="canonical" href="/post/lkml_news_v5.13-rc5/">
 
   
   
@@ -152,18 +151,68 @@
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="hacklog">
-  <meta property="og:url" content="/tags/kernel/">
-  <meta property="og:title" content="kernel | hacklog">
-  <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
+  <meta property="og:url" content="/post/lkml_news_v5.13-rc5/">
+  <meta property="og:title" content="LKML News v5.13-rc5 | hacklog">
+  <meta property="og:description" content="[PATCH V3 0/2] mm: compaction: proactive compaction trigger by user (Charan Teja Reddy) https://lkml.kernel.org/r/cover.1622454385.git.charante@codeaurora.org
+This patchset introduces /proc/sys/vm/compaction_proactiveness file, which can trigger proactive compaction by writing it.
+[RFC PATCH] mm/page_reporting: Adjust threshold according to MAX_ORDER (Gavin Shan) https://lkml.kernel.org/r/20210601033319.100737-1-gshan@redhat.com
+The free pages reporting feature doesn&rsquo;t allow discontiguous pages that smaller than PAGE_REPORTING_MIN_ORDER. Current setting of it makes the feature to never work on specific environment, because it is set to be equal to pageblock_order."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2021-06-01T07:05:24&#43;02:00">
+    
+      <meta property="article:published_time" content="2021-06-01T07:05:24&#43;02:00">
+    
+    <meta property="article:modified_time" content="2021-06-01T07:05:24&#43;02:00">
   
 
   
 
 
+    
 
+
+
+
+
+
+  
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/post/lkml_news_v5.13-rc5/"
+  },
+  "headline": "LKML News v5.13-rc5",
+  
+  "datePublished": "2021-06-01T07:05:24+02:00",
+  "dateModified": "2021-06-01T07:05:24+02:00",
+  
+  "author": {
+    "@type": "Person",
+    "name": "SeongJae Park"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "hacklog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/img/icon-512.png"
+    }
+  },
+  "description": "[PATCH V3 0/2] mm: compaction: proactive compaction trigger by user (Charan Teja Reddy) https://lkml.kernel.org/r/cover.1622454385.git.charante@codeaurora.org\nThis patchset introduces /proc/sys/vm/compaction_proactiveness file, which can trigger proactive compaction by writing it.\n[RFC PATCH] mm/page_reporting: Adjust threshold according to MAX_ORDER (Gavin Shan) https://lkml.kernel.org/r/20210601033319.100737-1-gshan@redhat.com\nThe free pages reporting feature doesn\u0026rsquo;t allow discontiguous pages that smaller than PAGE_REPORTING_MIN_ORDER. Current setting of it makes the feature to never work on specific environment, because it is set to be equal to pageblock_order."
+}
+</script>
+
+  
 
   
 
@@ -171,10 +220,13 @@
   
 
 
+  
 
 
 
-  <title>kernel | hacklog</title>
+
+
+  <title>LKML News v5.13-rc5 | hacklog</title>
 
 </head>
 
@@ -396,7 +448,7 @@
         
 
         <li class="nav-item">
-          <a class="nav-link  active" href="/tags"><span>Tags</span></a>
+          <a class="nav-link " href="/tags"><span>Tags</span></a>
         </li>
 
         
@@ -466,22 +518,6 @@
       
 
       
-      <li class="nav-item dropdown i18n-dropdown">
-        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true">
-          <i class="fas fa-globe mr-1" aria-hidden="true"></i><span class="d-none d-lg-inline">English</span>
-        </a>
-        <div class="dropdown-menu">
-          <div class="dropdown-item i18n-active font-weight-bold">
-            <span>English</span>
-          </div>
-          
-          <a class="dropdown-item" href="/ko/tags/kernel/">
-            <span>한국어</span>
-          </a>
-          
-        </div>
-      </li>
-      
 
     </ul>
 
@@ -489,180 +525,337 @@
 </nav>
 
 
-  
-
-
-
-
-
-
-
-
-
-
-
+  <article class="article">
 
   
 
+
+
+
+
+
+
+
+
+
+
+
+  
+
   
   
+  
+<div class="article-container pt-3">
+  <h1>LKML News v5.13-rc5</h1>
+
+  
+
   
     
-  
-<div class="universal-wrapper pt-3">
-  <h1>kernel</h1>
+
+
+<div class="article-metadata">
 
   
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Tue, Jun 1, 2021
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   
 </div>
 
 
 
-<div class="universal-wrapper">
-  
+  <div class="article-container">
 
-  
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.9-rc1/">LKML News v5.9-rc1</a></h2>
     <div class="article-style">
-      
-      mm: sort freelist by rank number (Cho KyongHo) https://lkml.kernel.org/r/1596435031-41837-1-git-send-email-pullip.cho@samsung.com
-LPDDR5 has severan ranks and there are ranks switching delay. Therefore, it would be better to do accesses in same ranks if possible. This patch sorts freelist by the rank number so that near future allocation can be done in same rank.
-[RFC-PROTOTYPE 1/1] mm: Add __GFP_FAST_TRY flag (Uladzislau Rezki) https://lkml.kernel.org/r/20200803163029.1997-1-urezki@gmail.com
-This is the rfc of the patch for the Paul&rsquo;s last ask.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.8/">LKML News v5.8</a></h2>
-    <div class="article-style">
-      
-      [PATCH v2 0/7] mm: introduce memfd_secret system call to create &ldquo;secret&rdquo; memory areas (Mike Rapoport) https://lkml.kernel.org/r/20200727162935.31714-1-rppt@kernel.org
-This is the second version of the secretmemfd. In this version, the system call has renamed to &lsquo;memfd_secret&rsquo;.
-[RFC PATCH 0/5] madvise MADV_DOEXEC (Anthony Yznaga) https://lkml.kernel.org/r/1595869887-23307-1-git-send-email-anthony.yznaga@oracle.com
-This patch introduces another madvise hint, MADV_DOEXEC. It preserves an anonymous memory range across exec.
-[RFC PATCH 0/6] decrease unnecessary gap due to pmem kmem alignment (Jia He) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.8-rc7/">LKML News v5.8-rc7</a></h2>
-    <div class="article-style">
-      
-      [PATCH 0/6] mm: introduce secretmemfd system call to create &ldquo;secret&rdquo; memory areas (Mike Rapoport) https://lkml.kernel.org/r/20200720092435.17469-1-rppt@kernel.org
-This patchset make another special kind of file for secret memory areas. The file can be opened using secretmemfd(). mmap() of the file creates the secret memory mapping. The mapped pages are marked as not present in the direct map and will have desired protection bits (e..g, uncached).
-[PATCH v7 0/6] workingset protection/detection on the anonymous LRU list (js1304@gmail.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.8-rc6/">LKML News v5.8-rc6</a></h2>
-    <div class="article-style">
-      
-      [PATCH v3] x86/mm: use max memory block size on bare metal (Daniel Jordan) https://lkml.kernel.org/r/20200714205450.945834-1-daniel.m.jordan@oracle.com
-On x86, smallest supported block size is 128MiB. This means it needs to create 16,288 sysfs directories for 2TiB memory system. This sysfs creation takes significant amount of the boot time. As the memory hotplug is frequenlty used for the virtualized systems, this commit makes the kernels that aren&rsquo;t running on a hypervisor to use largest block size (2GiB) on big machines.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.8-rc5/">LKML News v5.8-rc5</a></h2>
-    <div class="article-style">
-      
-      [PATCH 0/2] KUnit-Kmemleak Integration (Uriel Guajardo) https://lkml.kernel.org/r/20200706210327.3313498-1-urielguajardojr@gmail.com
-This patchset makes kunit to use kmemleak to catch memory leak in the test code.
-[PATCH] CodingStyle: Inclusive Terminology (Dan Williams) https://lkml.kernel.org/r/159389297140.2210796.13590142254668787525.stgit@dwillia2-desk3.amr.corp.intel.com
-This patch adds a new document for inclusive term usage in the kernel tree. It suggests to stop using the terms, &lsquo;slave&rsquo; and &lsquo;blacklist&rsquo; anymore. This patch was revised two times and the third revision is merged in Torvalds&rsquo; tree by the Friday.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.8-rc4/">LKML News v5.8-rc4</a></h2>
-    <div class="article-style">
-      
-      [Ksummit-discuss] [TECH TOPIC] Inline Encryption Support and new related features (Satya Tangirala) https://lkml.kernel.org/r/20200629092551.GA673684@google.com
-Maybe the last kernel summit proposal. The inline encryption work was presented in the last year LPC and a part of it has merged in the v5.8, being tested in Android. The talk will discuss the todo list of the work.
-[PATCH] mm: define pte_add_end for consistency (Wei Yang) https://lkml.kernel.org/r/20200630031852.45383-1-richard.weiyang@linux.alibaba.com
-This patch adds a helper to get the address of the next boundary for pte level.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.8-rc3/">LKML News v5.8-rc3</a></h2>
-    <div class="article-style">
-      
-      [TECH TOPIC] restricted kernel address spaces (Mike Rapoport) https://lkml.kernel.org/r/20200621090539.GM6493@linux.ibm.com
-A new kernel summit talk proposal is made. This topic is recycled from the LSF/MM/BPF, which scheduled but canceled due to the COVID19.
-[PATCH] mm: filemap: clear idle flag for writes (Yang Shi) https://lkml.kernel.org/r/1593020612-13051-1-git-send-email-yang.shi@linux.alibaba.com
-This patch adds missed idle flag clearing in filemap writing.
-+ mm-madvise-introduce-process_madvise-syscall-an-external-memory-hinting-api-fix-2.patch added to -mm tree https://marc.info/?l=linux-mm-commits&amp;m=159303823314812&amp;w=2
-The process_madvise() patch has merged in the -mm tree again.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.8-rc2/">LKML News v5.8-rc2</a></h2>
-    <div class="article-style">
-      
-      [PATCH v7] mm: Proactive compaction (Nitin Gupta) https://lkml.kernel.org/r/20200615143614.15267-1-nigupta@nvidia.com
-7th version of the proactive compaction patchset. This version fixes compile error while THP is disabled.
-Maintainers / Kernel Summit 2020 submissions (Theodore Y. Ts&rsquo;o) https://lkml.kernel.org/r/20200615155839.GF2863913@mit.edu
-There were only 5 submissions for the kernel summit talk, and no submission for the maintainers summit. Ted asks people to submit until this week.
-[PATCH v6 0/6] workingset protection/detection on the anonymous LRU list https://lkml.kernel.org/r/1592371583-30672-1-git-send-email-iamjoonsoo.kim@lge.com
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.8-rc1/">LKML News v5.8-rc1</a></h2>
-    <div class="article-style">
-      
-      [PATCH v6] mm: Proactive compaction (Nitin Gupta) https://lkml.kernel.org/r/20200601194822.30252-1-nigupta@nvidia.com
-This is the sixth version of the proactive compaction patchset. It makes compaction to be able to triggered earlier than final memory pressure using knobs. The goal is better THP allocation success.
-[PATCH] vmalloc: Convert to XArray (Matthew Wilcox) https://lkml.kernel.org/r/20200603171448.5894-1-willy@infradead.org
-This patchset converts the radix tree for vmap blocks into XArray.
-incoming (Andrew Morton) https://lkml.kernel.org/r/20200608212922.5b7fa74ca3f4e2444441b7f9@linux-foundation.org
-MM-side pull request. It contains the &ldquo;mmap locking API: initial implementation as rwsem wrappers&rdquo; patchset.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.7/">LKML News v5.7</a></h2>
-    <div class="article-style">
-      
-      [PATCH v2 00/16] Introduce kvfree_rcu(1 or 2 arguments) (Uladzislau Rezki) https://lkml.kernel.org/r/20200525214800.93072-1-urezki@gmail.com
-This is the second version of the rcu-protected kvfree().
-[PATCH v2 0/7] Add histogram measuring mmap_lock contention latency (Axel Rasmussen) https://lkml.kernel.org/r/20200528235238.74233-1-axelrasmussen@google.com
-For further analysis of the mmap_sem overhead from both kernel space and user space, this commit adds the latency historgram for mmap_sem acquisition time. Actually, mmap_sem is now renamed into mmap_lock, thanks to Michel&rsquo;s patch.
-[PATCH -V4] swap: Reduce lock contention on swap cache from swap slots allocation (Huang, Ying) https://lkml.
-      
-    </div>
-  </div>
-  
+      <h2 id="patch-v3-02-mm-compaction-proactive-compaction-trigger-by-user-charan-teja-reddy">[PATCH V3 0/2] mm: compaction: proactive compaction trigger by user (Charan Teja Reddy)</h2>
+<p><a href="https://lkml.kernel.org/r/cover.1622454385.git.charante@codeaurora.org">https://lkml.kernel.org/r/cover.1622454385.git.charante@codeaurora.org</a></p>
+<p>This patchset introduces <code>/proc/sys/vm/compaction_proactiveness</code> file, which
+can trigger proactive compaction by writing it.</p>
+<h2 id="rfc-patch-mmpage_reporting-adjust-threshold-according-to-max_order-gavin-shan">[RFC PATCH] mm/page_reporting: Adjust threshold according to MAX_ORDER (Gavin Shan)</h2>
+<p><a href="https://lkml.kernel.org/r/20210601033319.100737-1-gshan@redhat.com">https://lkml.kernel.org/r/20210601033319.100737-1-gshan@redhat.com</a></p>
+<p>The free pages reporting feature doesn&rsquo;t allow discontiguous pages that smaller
+than <code>PAGE_REPORTING_MIN_ORDER</code>.  Current setting of it makes the feature to
+never work on specific environment, because it is set to be equal to
+<code>pageblock_order</code>.  This patchset mitigates the situation.</p>
+<h2 id="lsfmm-topic-mmap-locking-topics-michel-lespinasse">[LSF/MM TOPIC] mmap locking topics (Michel Lespinasse)</h2>
+<p><a href="https://lkml.kernel.org/r/20210601044845.GA12713@lespinasse.org">https://lkml.kernel.org/r/20210601044845.GA12713@lespinasse.org</a></p>
+<p>Two topics for mmap locking issue, specificallyt speculative page faults and
+fine grained locking are proposed.</p>
 
+    </div>
+
+    
+
+
+
+
+
+<div class="article-tags">
   
-<nav>
-  <ul class="pagination justify-content-center">
+  <a class="badge badge-light" href="/tags/linux/">linux</a>
+  
+  <a class="badge badge-light" href="/tags/kernel/">kernel</a>
+  
+  <a class="badge badge-light" href="/tags/lkml/">lkml</a>
+  
+  <a class="badge badge-light" href="/tags/news/">news</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
     
-    <li class="page-item"><a class="page-link" href="/tags/kernel/page/4/">&laquo;</a></li>
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=/post/lkml_news_v5.13-rc5/&amp;text=LKML%20News%20v5.13-rc5" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
     
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=/post/lkml_news_v5.13-rc5/&amp;t=LKML%20News%20v5.13-rc5" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
     
-    <li class="page-item"><a class="page-link" href="/tags/kernel/page/6/">&raquo;</a></li>
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=LKML%20News%20v5.13-rc5&amp;body=/post/lkml_news_v5.13-rc5/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=/post/lkml_news_v5.13-rc5/&amp;title=LKML%20News%20v5.13-rc5" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=LKML%20News%20v5.13-rc5%20/post/lkml_news_v5.13-rc5/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=/post/lkml_news_v5.13-rc5/&amp;title=LKML%20News%20v5.13-rc5" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
     
   </ul>
-</nav>
-
-
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      <img class="portrait mr-3" src="https://s.gravatar.com/avatar/43dc5645c78e68fda997138380dfaaf4?s=200')" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="/">SeongJae Park</a></h5>
+      <h6 class="card-subtitle">Kernel / Hypervisor Engineer</h6>
+      <p class="card-text">SeongJae Park is a programmer who loves to analyze and develop systems.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/log/?qt=author&amp;q=seongjae&#43;park" target="_blank" rel="noopener">
+        <i class="fab fa-linux"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/sjp38" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.com/citations?user=jJIiF3AAAAAJ" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  
+  
+  <div class="article-widget content-widget-hr">
+    <h3>Related</h3>
+    <ul>
+      
+      <li><a href="/post/lkml_news_v5.13-rc4/">LKML News v5.13-rc4</a></li>
+      
+      <li><a href="/post/lkml_news_v5.13-rc3/">LKML News v5.13-rc3</a></li>
+      
+      <li><a href="/post/lkml_news_v5.13-rc2/">LKML News v5.13-rc2</a></li>
+      
+      <li><a href="/post/lkml_news_v5.13-rc1/">LKML News v5.13-rc1</a></li>
+      
+      <li><a href="/post/lkml_news_v5.12/">LKML News v5.12</a></li>
+      
+    </ul>
+  </div>
+  
+
+
+
+  </div>
+</article>
 
       
 

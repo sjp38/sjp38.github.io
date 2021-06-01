@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2021-05-25T07:24:13&#43;02:00">
+    <meta property="og:updated_time" content="2021-06-01T07:05:24&#43;02:00">
   
 
   
@@ -525,6 +525,20 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.3-rc3/">LKML News v5.3-rc3</a></h2>
+    <div class="article-style">
+      
+      [PATCH v5 00/14] Provide generic top-down mmap layout functions https://lkml.kernel.org/r/20190730055113.23635-1-alex@ghiti.fr
+아키텍쳐별로 다르게 구현되어 있던 mmap 레이아웃 함수들을 범용화 시키는 패치셋, 다섯번째 버전입니다.
+[PATCH v10 00/22] Generic page walk and ptdump https://lkml.kernel.org/r/20190731154603.41797-1-steven.price@arm.com
+역시 아키텍쳐별로 다르게 구현되어 있던 page table walk 과 page table dump 기능을 범용화 시키는 패치입니다. 벌써 10번째 버전이군요.
+[PATCH 0/3] address hugetlb page allocation stalls https://lkml.kernel.org/r/20190802223930.30971-1-mike.kravetz@oracle.com
+sysctl 이나 procfs 를 통한 hugetlb 페이지 할당은 수분이나 수시간까지도 오래 걸릴 수 있습니다.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lwn_memory_flat_discontiguous_sparse/">Memory: the flat, the discontiguous, and the sparse (Korean)</a></h2>
     <div class="article-style">
       
@@ -632,18 +646,6 @@ uprobe 는 THP 로 되어있는 페이지를 쪼갭니다. 이로 인해 성능 
 바로 지난주에도 소개한 external madvise 패치셋이 쪼개졌네요. MADV_COLD 와 MADV_PAGEOUT 두개의 새로운 advice 기능 추가 버전만 담은 패치셋입니다. 이게 더 일찍 머지될 가능성이 생겼군요.
 Linux 5.2-rc4 https://lkml.kernel.org/r/CAHk-=wjm7FQxdF=RKa8Xe23CLNNpbGDOACewgo8e-hwDJ8TyQg@mail.gmail.com
 메일을 받고 깜짝 놀랐습니다, 평소보다 빨랐기 때문이죠.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/linux_develop_visualization_youtube/">Linux Development History Visualization Youtube Channel</a></h2>
-    <div class="article-style">
-      
-      I created a Youtube channel[1]. I will upload videos for the git history between each release of the Linux kernel, just for jun. I use gource[2] for the visualization for now. The scripts I use for these videos are available[3] under GPL v3. If you want, you may use the scripts for your own video generation.
-[1] https://www.youtube.com/channel/UCI7qoGt1hOfCsI8hFqriYCg
-[2] https://gource.io/
-[3] https://github.com/sjp38/linux_development_visualization
       
     </div>
   </div>

@@ -5,12 +5,34 @@
     <link>/</link>
       <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <description>hacklog</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 25 May 2021 07:24:13 +0200</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 01 Jun 2021 07:05:24 +0200</lastBuildDate>
     <image>
       <url>/img/tux.png</url>
       <title>hacklog</title>
       <link>/</link>
     </image>
+    
+    <item>
+      <title>LKML News v5.13-rc5</title>
+      <link>/post/lkml_news_v5.13-rc5/</link>
+      <pubDate>Tue, 01 Jun 2021 07:05:24 +0200</pubDate>
+      <guid>/post/lkml_news_v5.13-rc5/</guid>
+      <description>&lt;h2 id=&#34;patch-v3-02-mm-compaction-proactive-compaction-trigger-by-user-charan-teja-reddy&#34;&gt;[PATCH V3 0/2] mm: compaction: proactive compaction trigger by user (Charan Teja Reddy)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/cover.1622454385.git.charante@codeaurora.org&#34;&gt;https://lkml.kernel.org/r/cover.1622454385.git.charante@codeaurora.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This patchset introduces &lt;code&gt;/proc/sys/vm/compaction_proactiveness&lt;/code&gt; file, which
+can trigger proactive compaction by writing it.&lt;/p&gt;
+&lt;h2 id=&#34;rfc-patch-mmpage_reporting-adjust-threshold-according-to-max_order-gavin-shan&#34;&gt;[RFC PATCH] mm/page_reporting: Adjust threshold according to MAX_ORDER (Gavin Shan)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20210601033319.100737-1-gshan@redhat.com&#34;&gt;https://lkml.kernel.org/r/20210601033319.100737-1-gshan@redhat.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The free pages reporting feature doesn&amp;rsquo;t allow discontiguous pages that smaller
+than &lt;code&gt;PAGE_REPORTING_MIN_ORDER&lt;/code&gt;.  Current setting of it makes the feature to
+never work on specific environment, because it is set to be equal to
+&lt;code&gt;pageblock_order&lt;/code&gt;.  This patchset mitigates the situation.&lt;/p&gt;
+&lt;h2 id=&#34;lsfmm-topic-mmap-locking-topics-michel-lespinasse&#34;&gt;[LSF/MM TOPIC] mmap locking topics (Michel Lespinasse)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20210601044845.GA12713@lespinasse.org&#34;&gt;https://lkml.kernel.org/r/20210601044845.GA12713@lespinasse.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Two topics for mmap locking issue, specificallyt speculative page faults and
+fine grained locking are proposed.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>LKML News v5.13-rc4</title>
@@ -3158,6 +3180,8 @@ and a potential use case of this tool.&lt;/p&gt;
 &lt;h2 id=&#34;demo-screenshot&#34;&gt;Demo Screenshot&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;/img/masim_stairs_heatmap_ascii.png&#34; alt=&#34;masim stairs heatmap in ascii&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;recent-news&#34;&gt;Recent News&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;2021-05-31&lt;/em&gt;: DAMON-based proactive reclamation RFC patchset has
+&lt;a href=&#34;https://lore.kernel.org/linux-mm/20210531133816.12689-1-sj38.park@gmail.com/&#34;&gt;posted&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;2021-05-26&lt;/em&gt;: DAMON-enabled Amazon Linux 2 kernels have &lt;a href=&#34;https://twitter.com/sjpark0x00/status/1397484233413832705&#34;&gt;deployed to all
 users&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;2021-05-12&lt;/em&gt;: DAMON user-space tool now supports realtime monitoring&lt;/p&gt;
@@ -3249,6 +3273,8 @@ June 2019.
 &lt;a href=&#34;https://ieeexplore.ieee.org/abstract/document/8791992&#34;&gt;Paper&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;news&#34;&gt;News&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;2021-05-31&lt;/em&gt;: DAMON-based proactive reclamation RFC patchset has
+&lt;a href=&#34;https://lore.kernel.org/linux-mm/20210531133816.12689-1-sj38.park@gmail.com/&#34;&gt;posted&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;2021-05-26&lt;/em&gt;: DAMON-enabled Amazon Linux 2 kernels have &lt;a href=&#34;https://twitter.com/sjpark0x00/status/1397484233413832705&#34;&gt;deployed to all
 users&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;2021-05-07&lt;/em&gt;: DAMON has merged in the public source tree for Amazon Linux
