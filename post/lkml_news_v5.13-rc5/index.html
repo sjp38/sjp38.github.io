@@ -574,7 +574,7 @@ The free pages reporting feature doesn&rsquo;t allow discontiguous pages that sm
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -638,6 +638,10 @@ and how it could be used for the file systems in LSF/MM.</p>
 <p>Liam is proposing another LSF/MM topic for VMA scalability.  He points out
 current VMAs handling is unnecessarily complicated and therefore we need to
 revisit it.  He also says he will post more patches before the conference.</p>
+<h2 id="patch-02-allow-high-order-pages-to-be-stored-on-pcp-v2-mel-gorman">[PATCH 0/2] Allow high order pages to be stored on PCP v2 (Mel Gorman)</h2>
+<p><a href="https://lkml.kernel.org/r/20210603142220.10851-1-mgorman@techsingularity.net">https://lkml.kernel.org/r/20210603142220.10851-1-mgorman@techsingularity.net</a></p>
+<p>Only order-0 pages are handled by the per-cpu page allocator (PCP).  This
+patchset reduce PCP overhead and make it able to store high-order pages on PCP.</p>
 
     </div>
 
