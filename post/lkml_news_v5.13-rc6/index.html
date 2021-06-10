@@ -31,7 +31,8 @@
   <meta name="description" content="[RFC PATCH V3] zram:calculate available memory when zram is used (wangyong) https://lkml.kernel.org/r/1623080354-21453-1-git-send-email-yongw.pur@gmail.com
 This patchset adds a new entry called SwapAvailable in /proc/meminfo. It shows the memory savings when swap devices are used. If zram is used, it considers the compression ratio.
 [PATCH v3 0/9] Remove DISCONTIGMEM memory model (Mike Rapoport) https://lkml.kernel.org/r/20210608091316.3622-1-rppt@kernel.org
-This patchset removes DISCONTIGMEM memory model, finally. There are no more architectures requiring it.">
+This patchset removes DISCONTIGMEM memory model, finally. There are no more architectures requiring it.
+[LSF/MM/BPF TOPIC] Consolidating representations of the physical memory (Mike Rapoport) https://lkml.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/lkml_news_v5.13-rc6/">
@@ -156,7 +157,8 @@ This patchset removes DISCONTIGMEM memory model, finally. There are no more arch
   <meta property="og:description" content="[RFC PATCH V3] zram:calculate available memory when zram is used (wangyong) https://lkml.kernel.org/r/1623080354-21453-1-git-send-email-yongw.pur@gmail.com
 This patchset adds a new entry called SwapAvailable in /proc/meminfo. It shows the memory savings when swap devices are used. If zram is used, it considers the compression ratio.
 [PATCH v3 0/9] Remove DISCONTIGMEM memory model (Mike Rapoport) https://lkml.kernel.org/r/20210608091316.3622-1-rppt@kernel.org
-This patchset removes DISCONTIGMEM memory model, finally. There are no more architectures requiring it."><meta property="og:image" content="/img/tux.png">
+This patchset removes DISCONTIGMEM memory model, finally. There are no more architectures requiring it.
+[LSF/MM/BPF TOPIC] Consolidating representations of the physical memory (Mike Rapoport) https://lkml."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -208,7 +210,7 @@ This patchset removes DISCONTIGMEM memory model, finally. There are no more arch
       "url": "/img/icon-512.png"
     }
   },
-  "description": "[RFC PATCH V3] zram:calculate available memory when zram is used (wangyong) https://lkml.kernel.org/r/1623080354-21453-1-git-send-email-yongw.pur@gmail.com\nThis patchset adds a new entry called SwapAvailable in /proc/meminfo. It shows the memory savings when swap devices are used. If zram is used, it considers the compression ratio.\n[PATCH v3 0/9] Remove DISCONTIGMEM memory model (Mike Rapoport) https://lkml.kernel.org/r/20210608091316.3622-1-rppt@kernel.org\nThis patchset removes DISCONTIGMEM memory model, finally. There are no more architectures requiring it."
+  "description": "[RFC PATCH V3] zram:calculate available memory when zram is used (wangyong) https://lkml.kernel.org/r/1623080354-21453-1-git-send-email-yongw.pur@gmail.com\nThis patchset adds a new entry called SwapAvailable in /proc/meminfo. It shows the memory savings when swap devices are used. If zram is used, it considers the compression ratio.\n[PATCH v3 0/9] Remove DISCONTIGMEM memory model (Mike Rapoport) https://lkml.kernel.org/r/20210608091316.3622-1-rppt@kernel.org\nThis patchset removes DISCONTIGMEM memory model, finally. There are no more architectures requiring it.\n[LSF/MM/BPF TOPIC] Consolidating representations of the physical memory (Mike Rapoport) https://lkml."
 }
 </script>
 
@@ -623,6 +625,11 @@ considers the compression ratio.</p>
 <p><a href="https://lkml.kernel.org/r/20210608091316.3622-1-rppt@kernel.org">https://lkml.kernel.org/r/20210608091316.3622-1-rppt@kernel.org</a></p>
 <p>This patchset removes DISCONTIGMEM memory model, finally.  There are no more
 architectures requiring it.</p>
+<h2 id="lsfmmbpf-topic-consolidating-representations-of-the-physical-memory-mike-rapoport">[LSF/MM/BPF TOPIC] Consolidating representations of the physical memory (Mike Rapoport)</h2>
+<p><a href="https://lkml.kernel.org/r/YMBxeYHBY55Ddkpr@kernel.org">https://lkml.kernel.org/r/YMBxeYHBY55Ddkpr@kernel.org</a></p>
+<p>Mike says the physical memory layout is quite simple but the kernel has so many
+inconsistent structures for representation of it.  He suggests to use memblock
+as the basis for the abstraction and discuss about this in the LSF/MM/BPF.</p>
 
     </div>
 
