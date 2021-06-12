@@ -641,6 +641,20 @@ and Torvalds replied to him in this email.  Torvalds explains how vaccines
 work, especially for mRNA vaccines, and ask people to be vaccinated to protect
 their family and neighbors.  For someone insist on believing what anti-vax
 says, he asks to at least &lsquo;SHUT THE HELL UP&rsquo; on LKML.</p>
+<h2 id="lsfmmbpf-topic-improving-alloc_contig_range-david-hildenbrand">[LSF/MM/BPF TOPIC] Improving alloc_contig_range() (David Hildenbrand)</h2>
+<p><a href="https://lkml.kernel.org/r/c8e21ac4-ace7-3176-8782-535bd6590583@redhat.com">https://lkml.kernel.org/r/c8e21ac4-ace7-3176-8782-535bd6590583@redhat.com</a></p>
+<p>David proposes to discuss about <code>alloc_contig_range()</code> for <code>ZONE_NORMAL</code>, for
+problems of <code>MAX_ORDER</code>, slab shrinking, PCP handling, etc.</p>
+<h2 id="idle-thps-matthew-wilcox">Idle THPs (Matthew Wilcox)</h2>
+<p><a href="https://lkml.kernel.org/r/YMGKVmt8trMJ9kOP@casper.infradead.org">https://lkml.kernel.org/r/YMGKVmt8trMJ9kOP@casper.infradead.org</a></p>
+<p>While working for the memory folio, Matthew found all tail pages would not set
+as Idle.  He is asking if this is intended behavior.</p>
+<h2 id="patch-mm-mark-idle-page-tracking-as-broken-matthew-wilcox">[PATCH] mm: Mark idle page tracking as BROKEN (Matthew Wilcox)</h2>
+<p><a href="https://lkml.kernel.org/r/20210612000714.775825-1-willy@infradead.org">https://lkml.kernel.org/r/20210612000714.775825-1-willy@infradead.org</a></p>
+<p>As a followup of the Idle THPs question, Matthew and some MM developers
+concluded it is not working as expected, and trying to remove that entirely.
+As a first step, they are trying to mark it as <code>BROKEN</code>.  As an alternative, he
+suggests userfaultfd like mechanisms.</p>
 
     </div>
 

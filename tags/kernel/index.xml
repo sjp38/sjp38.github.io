@@ -42,6 +42,20 @@ and Torvalds replied to him in this email.  Torvalds explains how vaccines
 work, especially for mRNA vaccines, and ask people to be vaccinated to protect
 their family and neighbors.  For someone insist on believing what anti-vax
 says, he asks to at least &amp;lsquo;SHUT THE HELL UP&amp;rsquo; on LKML.&lt;/p&gt;
+&lt;h2 id=&#34;lsfmmbpf-topic-improving-alloc_contig_range-david-hildenbrand&#34;&gt;[LSF/MM/BPF TOPIC] Improving alloc_contig_range() (David Hildenbrand)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/c8e21ac4-ace7-3176-8782-535bd6590583@redhat.com&#34;&gt;https://lkml.kernel.org/r/c8e21ac4-ace7-3176-8782-535bd6590583@redhat.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;David proposes to discuss about &lt;code&gt;alloc_contig_range()&lt;/code&gt; for &lt;code&gt;ZONE_NORMAL&lt;/code&gt;, for
+problems of &lt;code&gt;MAX_ORDER&lt;/code&gt;, slab shrinking, PCP handling, etc.&lt;/p&gt;
+&lt;h2 id=&#34;idle-thps-matthew-wilcox&#34;&gt;Idle THPs (Matthew Wilcox)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/YMGKVmt8trMJ9kOP@casper.infradead.org&#34;&gt;https://lkml.kernel.org/r/YMGKVmt8trMJ9kOP@casper.infradead.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;While working for the memory folio, Matthew found all tail pages would not set
+as Idle.  He is asking if this is intended behavior.&lt;/p&gt;
+&lt;h2 id=&#34;patch-mm-mark-idle-page-tracking-as-broken-matthew-wilcox&#34;&gt;[PATCH] mm: Mark idle page tracking as BROKEN (Matthew Wilcox)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20210612000714.775825-1-willy@infradead.org&#34;&gt;https://lkml.kernel.org/r/20210612000714.775825-1-willy@infradead.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;As a followup of the Idle THPs question, Matthew and some MM developers
+concluded it is not working as expected, and trying to remove that entirely.
+As a first step, they are trying to mark it as &lt;code&gt;BROKEN&lt;/code&gt;.  As an alternative, he
+suggests userfaultfd like mechanisms.&lt;/p&gt;
 </description>
     </item>
     
