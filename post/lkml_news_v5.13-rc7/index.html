@@ -28,12 +28,13 @@
   
     
   
-  <meta name="description" content="Kernel / Hypervisor Engineer">
+  <meta name="description" content="[PATCH v11 00/33] Memory folios (&ldquo;Matthew Wilcox (Oracle)&quot;) (33&#43; msgs) (Matthew Wilcox) https://lkml.kernel.org/r/20210614201435.1379188-1-willy@infradead.org
+Eleventh version of the memory folios patchset. It helps easier handling of head and tails of compounded pages.
+[LSF/MM TOPIC] Tiered memory accounting and management (Tim Chen) https://lkml.kernel.org/r/475cbc62-a430-2c60-34cc-72ea8baebf2c@linux.intel.com
+Another LSF/MM topic for discussion of tiered memory accounting and management, including the DRAM to PMEM demotion and PMEM to DRAM promotion.">
 
   
-  <link rel="alternate" hreflang="ko" href="/ko/post/">
-  
-  <link rel="alternate" hreflang="en-us" href="/post/">
+  <link rel="alternate" hreflang="en-us" href="/post/lkml_news_v5.13-rc7/">
 
   
 
@@ -58,6 +59,14 @@
     
       
     
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
     
 
     
@@ -125,14 +134,12 @@
 
 
   
-  <link rel="alternate" href="/post/index.xml" type="application/rss+xml" title="hacklog">
-  
 
   <link rel="manifest" href="/index.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon-32.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="/post/">
+  <link rel="canonical" href="/post/lkml_news_v5.13-rc7/">
 
   
   
@@ -144,18 +151,68 @@
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="hacklog">
-  <meta property="og:url" content="/post/">
-  <meta property="og:title" content="Posts | hacklog">
-  <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
+  <meta property="og:url" content="/post/lkml_news_v5.13-rc7/">
+  <meta property="og:title" content="LKML News v5.13-rc7 | hacklog">
+  <meta property="og:description" content="[PATCH v11 00/33] Memory folios (&ldquo;Matthew Wilcox (Oracle)&quot;) (33&#43; msgs) (Matthew Wilcox) https://lkml.kernel.org/r/20210614201435.1379188-1-willy@infradead.org
+Eleventh version of the memory folios patchset. It helps easier handling of head and tails of compounded pages.
+[LSF/MM TOPIC] Tiered memory accounting and management (Tim Chen) https://lkml.kernel.org/r/475cbc62-a430-2c60-34cc-72ea8baebf2c@linux.intel.com
+Another LSF/MM topic for discussion of tiered memory accounting and management, including the DRAM to PMEM demotion and PMEM to DRAM promotion."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2017-01-01T00:00:00&#43;01:00">
+    
+      <meta property="article:published_time" content="2021-06-15T06:58:49&#43;02:00">
+    
+    <meta property="article:modified_time" content="2021-06-15T06:58:49&#43;02:00">
   
 
   
 
 
+    
 
+
+
+
+
+
+  
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/post/lkml_news_v5.13-rc7/"
+  },
+  "headline": "LKML News v5.13-rc7",
+  
+  "datePublished": "2021-06-15T06:58:49+02:00",
+  "dateModified": "2021-06-15T06:58:49+02:00",
+  
+  "author": {
+    "@type": "Person",
+    "name": "SeongJae Park"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "hacklog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/img/icon-512.png"
+    }
+  },
+  "description": "[PATCH v11 00/33] Memory folios (\u0026ldquo;Matthew Wilcox (Oracle)\u0026quot;) (33+ msgs) (Matthew Wilcox) https://lkml.kernel.org/r/20210614201435.1379188-1-willy@infradead.org\nEleventh version of the memory folios patchset. It helps easier handling of head and tails of compounded pages.\n[LSF/MM TOPIC] Tiered memory accounting and management (Tim Chen) https://lkml.kernel.org/r/475cbc62-a430-2c60-34cc-72ea8baebf2c@linux.intel.com\nAnother LSF/MM topic for discussion of tiered memory accounting and management, including the DRAM to PMEM demotion and PMEM to DRAM promotion."
+}
+</script>
+
+  
 
   
 
@@ -163,10 +220,13 @@
   
 
 
+  
 
 
 
-  <title>Posts | hacklog</title>
+
+
+  <title>LKML News v5.13-rc7 | hacklog</title>
 
 </head>
 
@@ -458,22 +518,6 @@
       
 
       
-      <li class="nav-item dropdown i18n-dropdown">
-        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true">
-          <i class="fas fa-globe mr-1" aria-hidden="true"></i><span class="d-none d-lg-inline">English</span>
-        </a>
-        <div class="dropdown-menu">
-          <div class="dropdown-item i18n-active font-weight-bold">
-            <span>English</span>
-          </div>
-          
-          <a class="dropdown-item" href="/ko/post/">
-            <span>한국어</span>
-          </a>
-          
-        </div>
-      </li>
-      
 
     </ul>
 
@@ -481,79 +525,33 @@
 </nav>
 
 
-  
-
-
-
-
-
-
-
-
-
-
-
+  <article class="article">
 
   
 
+
+
+
+
+
+
+
+
+
+
+
+  
+
   
   
+  
+<div class="article-container pt-3">
+  <h1>LKML News v5.13-rc7</h1>
+
+  
+
   
     
-  
-<div class="universal-wrapper pt-3">
-  <h1>Posts</h1>
-
-  
-
-  
-</div>
-
-
-
-<div class="universal-wrapper">
-
-  
-
-  
-  
-    
-      
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="/post/lkml_news_v4.14-rc4/" >LKML News after v4.15-rc5</a>
-    </h3>
-
-    
-    <div class="article-style">
-      Linux 4.15-rc5 https://lkml.kernel.org/r/CA+55aFy1U+uBLEAoCWU3=BqEbROW6rsbaHUdYJArR6iYQQWo_A@mail.gmail.com
-4.15 의 다섯번째 rc …
-    </div>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
-      
-        
 
 
 <div class="article-metadata">
@@ -567,97 +565,7 @@
     
       
     
-    Sun, Dec 24, 2017
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
-  
-
-</div>
-
-      
-    </div>
-
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="/post/lkml_news_v4.15-rc5/" >LKML News after v4.15-rc5</a>
-    </h3>
-
-    
-    <div class="article-style">
-      Linux 4.15-rc5 https://lkml.kernel.org/r/CA+55aFy1U+uBLEAoCWU3=BqEbROW6rsbaHUdYJArR6iYQQWo_A@mail.gmail.com
-4.15 의 다섯번째 rc …
-    </div>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
-      
-        
-
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    Sun, Dec 24, 2017
+    Tue, Jun 15, 2021
   </span>
   
 
@@ -683,758 +591,265 @@
 
 </div>
 
-      
-    </div>
-
     
 
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 </div>
 
-    
-  
-    
-      
 
 
+  <div class="article-container">
 
-
-
-
-
-
-
-
-
-
-  
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="/post/lkml_news_v4.15-rc4/" >LKML News after v4.15-rc4</a>
-    </h3>
-
-    
     <div class="article-style">
-      Linux 4.15-rc4 https://lkml.kernel.org/r/CA+55aFysmVGm_shBvK4kmaS+_PsMEt3Mz_b+Dm0SDrmVtUofbA@mail.gmail.com
-4.15 의 네번째 rc 버전입니다. 지난 rc  …
+      <h2 id="patch-v11-0033-memory-folios-matthew-wilcox-oracle-33-msgs-matthew-wilcox">[PATCH v11 00/33] Memory folios (&ldquo;Matthew Wilcox (Oracle)&quot;) (33+ msgs) (Matthew Wilcox)</h2>
+<p><a href="https://lkml.kernel.org/r/20210614201435.1379188-1-willy@infradead.org">https://lkml.kernel.org/r/20210614201435.1379188-1-willy@infradead.org</a></p>
+<p>Eleventh version of the memory folios patchset.  It helps easier handling of
+head and tails of compounded pages.</p>
+<h2 id="lsfmm-topic-tiered-memory-accounting-and-management-tim-chen">[LSF/MM TOPIC] Tiered memory accounting and management (Tim Chen)</h2>
+<p><a href="https://lkml.kernel.org/r/475cbc62-a430-2c60-34cc-72ea8baebf2c@linux.intel.com">https://lkml.kernel.org/r/475cbc62-a430-2c60-34cc-72ea8baebf2c@linux.intel.com</a></p>
+<p>Another LSF/MM topic for discussion of tiered memory accounting and management,
+including the DRAM to PMEM demotion and PMEM to DRAM promotion.</p>
+
     </div>
+
     
 
-    <div class="stream-meta article-metadata">
 
+
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/linux/">linux</a>
+  
+  <a class="badge badge-light" href="/tags/kernel/">kernel</a>
+  
+  <a class="badge badge-light" href="/tags/lkml/">lkml</a>
+  
+  <a class="badge badge-light" href="/tags/news/">news</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
       
-
+      
       
         
-
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=/post/lkml_news_v5.13-rc7/&amp;text=LKML%20News%20v5.13-rc7" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
     
       
-    
-    Mon, Dec 18, 2017
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
-  
-
-</div>
-
       
-    </div>
-
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="/post/lkml_news_v4.15-rc3/" >LKML News after v4.15-rc3</a>
-    </h3>
-
-    
-    <div class="article-style">
-      Linux 4.15-rc3 https://lkml.kernel.org/r/CA+55aFz9O9R8u3ori-QNPz4ALU+0B=Es0gd+oWmsce5qxugxXA@mail.gmail.com
-4.15 의 세번째 rc 버전입니다. 지난주보단  …
-    </div>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
       
         
-
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=/post/lkml_news_v5.13-rc7/&amp;t=LKML%20News%20v5.13-rc7" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
     
       
-    
-    Mon, Dec 11, 2017
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    3 min read
-  </span>
-  
-
-  
-  
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
-  
-
-</div>
-
       
-    </div>
-
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="/post/lkml_news_v4.15-rc2/" >LKML News after v4.15-rc2</a>
-    </h3>
-
-    
-    <div class="article-style">
-      Linux 4.15-rc2 https://lkml.kernel.org/r/CA+55aFxPBszFBt91KRNBrsQdJ10b+6fh9ySNzSKSX7JOq4WRPw@mail.gmail.com
-4.15 의 두번째 rc 버전이 나왔습니다. …
-    </div>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
       
         
-
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=LKML%20News%20v5.13-rc7&amp;body=/post/lkml_news_v5.13-rc7/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
     
       
-    
-    Mon, Dec 4, 2017
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
-  
-
-</div>
-
       
-    </div>
-
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="/post/lkml_news_v4.15-rc1/" >LKML News after v4.15-rc1</a>
-    </h3>
-
-    
-    <div class="article-style">
-      Linux 4.15-rc1 https://lkml.kernel.org/r/CA+55aFzcudOPSwbD9XfVxBgFsQOhBjyncyYnGDYwZUEHOGUwcw@mail.gmail.com
-예정대로 2주만에 4.15 의 첫번째 rc …
-    </div>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
       
         
-
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=/post/lkml_news_v5.13-rc7/&amp;title=LKML%20News%20v5.13-rc7" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
     
       
-    
-    Mon, Nov 27, 2017
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
-  
-
-</div>
-
       
-    </div>
-
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="/post/osse2017_05/" >OSSummit 2017 Attendence - 05</a>
-    </h3>
-
-    
-    <div class="article-style">
-      컨퍼런스 둘째날부터는 kernel summit track 이 시작됩니다. 이번 컨퍼런스 참가는 아무래도 kernel summit 에서의 시끄럽고 정신없는 토론에 참여하고 싶기 때문이었기에 오늘부터가 제게는 가장 재밌는 시간입니다.
-![foo] …
-    </div>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
       
         
-
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=LKML%20News%20v5.13-rc7%20/post/lkml_news_v5.13-rc7/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
     
       
-    
-    Sun, Nov 26, 2017
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    3 min read
-  </span>
-  
-
-  
-  
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fas fa-folder mr-1"></i><a href="/categories/trip/">trip</a></span>
-  
-
-</div>
-
       
-    </div>
-
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="/post/osse2017_04/" >OSSummit 2017 Attendence - 04</a>
-    </h3>
-
-    
-    <div class="article-style">
-      드디어 컨퍼런스 첫날입니다. 아침 8시부터 아침식사와 등록이 시작되므로, 7시에 숙소에서 나왔습니다.
-![foo] (/img/osse_04/1.jpg)
-어제는 날이 흐리더니, 오늘은 비도 옵니다. 우산을 챙겨 나옵니다. 그래도 어제 미리 학회 …
-    </div>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
       
         
-
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
       
-    
-    Sun, Nov 26, 2017
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fas fa-folder mr-1"></i><a href="/categories/trip/">trip</a></span>
-  
-
-</div>
-
       
-    </div>
-
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
-</div>
-
-    
-  
-    
       
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="/post/lkml_news_v4.14/" >LKML News after v4.14</a>
-    </h3>
-
-    
-    <div class="article-style">
-      Linux 4.14 htpps://lkml.kernel.org/r/CA+55aFwqXh4rgJJ3T98k8wa-JYF7t8mWuwUjdxkbZyOyDEcGzQ@mail.gmail.com
-드디어 v4.14 의 릴리즈입니다. …
-    </div>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
-      
-        
-
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    Mon, Nov 13, 2017
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
-  
-
-</div>
-
-      
-    </div>
-
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="/post/lkml_news_v4.14-rc8/" >LKML News after v4.14-rc8</a>
-    </h3>
-
-    
-    <div class="article-style">
-      Linux 4.14-rc8 https://lwn.net/Articles/738207/
-v4.14 를 향한 (아마도) 마지막 rc 버전의 릴리즈입니다.
-정말로 별다른 일 없었다면 그냥 이번에 v4.14 릴리즈를 할 계획이었지만 그정도는 아니었다 …
-    </div>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
-      
-        
-
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    Wed, Nov 8, 2017
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
-  
-
-</div>
-
-      
-    </div>
-
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
-</div>
-
-    
-  
-
-  
-<nav>
-  <ul class="pagination justify-content-center">
-    
-    <li class="page-item"><a class="page-link" href="/post/page/21/">&laquo;</a></li>
-    
-    
-    <li class="page-item"><a class="page-link" href="/post/page/23/">&raquo;</a></li>
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=/post/lkml_news_v5.13-rc7/&amp;title=LKML%20News%20v5.13-rc7" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
     
   </ul>
-</nav>
-
-
-
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      <img class="portrait mr-3" src="https://s.gravatar.com/avatar/43dc5645c78e68fda997138380dfaaf4?s=200')" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="/">SeongJae Park</a></h5>
+      <h6 class="card-subtitle">Kernel / Hypervisor Engineer</h6>
+      <p class="card-text">SeongJae Park is a programmer who loves to analyze and develop systems.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/log/?qt=author&amp;q=seongjae&#43;park" target="_blank" rel="noopener">
+        <i class="fab fa-linux"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/sjp38" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.com/citations?user=jJIiF3AAAAAJ" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  
+  
+  <div class="article-widget content-widget-hr">
+    <h3>Related</h3>
+    <ul>
+      
+      <li><a href="/post/lkml_news_v5.13-rc6/">LKML News v5.13-rc6</a></li>
+      
+      <li><a href="/post/lkml_news_v5.13-rc5/">LKML News v5.13-rc5</a></li>
+      
+      <li><a href="/post/lkml_news_v5.13-rc4/">LKML News v5.13-rc4</a></li>
+      
+      <li><a href="/post/lkml_news_v5.13-rc3/">LKML News v5.13-rc3</a></li>
+      
+      <li><a href="/post/lkml_news_v5.13-rc2/">LKML News v5.13-rc2</a></li>
+      
+    </ul>
+  </div>
+  
+
+
+
+  </div>
+</article>
 
       
 
@@ -1452,6 +867,14 @@ v4.14 를 향한 (아마도) 마지막 rc 버전의 릴리즈입니다.
       
 
       
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js" integrity="sha256-1zu+3BnLYV9LdiY85uXMzii3bdrkelyp37e0ZyTAQh0=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/languages/c.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/languages/bash.min.js"></script>
+        
+      
 
       
       
@@ -1463,6 +886,8 @@ v4.14 를 향한 (아마도) 마지막 rc 버전의 릴리즈입니다.
     
 
     
+    
+    <script>const code_highlighting = true;</script>
     
 
     
