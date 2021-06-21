@@ -576,7 +576,7 @@ Another LSF/MM topic for discussion of tiered memory accounting and management, 
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -638,6 +638,22 @@ email is to confirm key participants and gather more topics to discuss there.</p
 <p><a href="https://lkml.kernel.org/r/CAAPL-u8Xz=BkTzgyf1o4yh3T2usD=yRfBOUWdLez2AAqooox3A@mail.gmail.com">https://lkml.kernel.org/r/CAAPL-u8Xz=BkTzgyf1o4yh3T2usD=yRfBOUWdLez2AAqooox3A@mail.gmail.com</a></p>
 <p>Wei proposes to discuss userspace-managed memory tiering and the kernel support
 for that in the LSF/MM/BPF.</p>
+<h2 id="linux-513-rc7-linus-torvalds">Linux 5.13-rc7 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wjj38E8hW+unHZ9EaJrS6x+4Tnz0qffjvLcGf70dXkKnQ@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wjj38E8hW+unHZ9EaJrS6x+4Tnz0qffjvLcGf70dXkKnQ@mail.gmail.com</a></p>
+<p>Seventh release candidate for v5.13 released without remakable changes.  The
+last week was calm.  Networking has some changes, but most of those were just
+small.  If the trend goes on, we will get v5.13 next week.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.2-rc7..v5.13-rc7.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2019-06-21 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc7 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.13-rc7-only.png" alt="rc2 release stat"></p>
 
     </div>
 

@@ -39,6 +39,22 @@ email is to confirm key participants and gather more topics to discuss there.&lt
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAAPL-u8Xz=BkTzgyf1o4yh3T2usD=yRfBOUWdLez2AAqooox3A@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAAPL-u8Xz=BkTzgyf1o4yh3T2usD=yRfBOUWdLez2AAqooox3A@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Wei proposes to discuss userspace-managed memory tiering and the kernel support
 for that in the LSF/MM/BPF.&lt;/p&gt;
+&lt;h2 id=&#34;linux-513-rc7-linus-torvalds&#34;&gt;Linux 5.13-rc7 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wjj38E8hW+unHZ9EaJrS6x+4Tnz0qffjvLcGf70dXkKnQ@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wjj38E8hW+unHZ9EaJrS6x+4Tnz0qffjvLcGf70dXkKnQ@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Seventh release candidate for v5.13 released without remakable changes.  The
+last week was calm.  Networking has some changes, but most of those were just
+small.  If the trend goes on, we will get v5.13 next week.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v5.2-rc7..v5.13-rc7.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
+below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2019-06-21 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And, below is the diffstat of the -rc7 releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v5.13-rc7-only.png&#34; alt=&#34;rc2 release stat&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -96,12 +112,12 @@ would have 5.13 in timely manner if this trend continues.&lt;/p&gt;
 &lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
 &lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
 below command:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2019-06-07 | ~/lazybox/gnuplot/plot.py \
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2019-06-14 | ~/lazybox/gnuplot/plot.py \
     --data_fmt table --type labeled-lines --xtics_rotate -90 \
     --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;And, below is the diffstat of the -rc5 releases in the last two years.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v5.13-rc5-only.png&#34; alt=&#34;rc2 release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;And, below is the diffstat of the -rc6 releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v5.13-rc6-only.png&#34; alt=&#34;rc2 release stat&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     
