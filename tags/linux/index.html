@@ -530,6 +530,8 @@
       
       [PATCH v4] mm: introduce reference pages (Peter Collingbourne) https://lkml.kernel.org/r/20210619092002.1791322-1-pcc@google.com
 This patch introduces a new syscall, refpage_create(). This system creates a file descriptor which can be mmap-ed using mmap(), which will be similar to anonymous mapping but the memory will be backed by a reference page instead of the zero page.
+[PATCH 0/3] mm/page_reporting: Make page reporting work on arm64 with 64KB page size (Gavin Shan) https://lkml.kernel.org/r/20210621051152.305224-1-gshan@redhat.com
+This patchset makes the page reporting to work on ARM with more realistic threshold, which is 2MB instead of 512MB, when the system&rsquo;s page size is 64KB.
       
     </div>
   </div>

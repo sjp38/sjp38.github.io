@@ -23,6 +23,20 @@
 file descriptor which can be mmap-ed using &lt;code&gt;mmap()&lt;/code&gt;, which will be similar to
 anonymous mapping but the memory will be backed by a reference page instead of
 the zero page.&lt;/p&gt;
+&lt;h2 id=&#34;patch-03-mmpage_reporting-make-page-reporting-work-on-arm64-with-64kb-page-size-gavin-shan&#34;&gt;[PATCH 0/3] mm/page_reporting: Make page reporting work on arm64 with 64KB page size (Gavin Shan)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20210621051152.305224-1-gshan@redhat.com&#34;&gt;https://lkml.kernel.org/r/20210621051152.305224-1-gshan@redhat.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This patchset makes the page reporting to work on ARM with more realistic
+threshold, which is 2MB instead of 512MB, when the system&amp;rsquo;s page size is 64KB.
+This will be very helpful for memory-fragmented systems.&lt;/p&gt;
+&lt;h2 id=&#34;lsfmm-topic-impact-on-core-mm-from-new-hardware-features-dave-hansen&#34;&gt;[LSF/MM TOPIC] Impact on core mm from new hardware features (Dave Hansen)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/51d3010b-6324-2441-42c0-27bb536c897d@intel.com&#34;&gt;https://lkml.kernel.org/r/51d3010b-6324-2441-42c0-27bb536c897d@intel.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Dave is proposing a LSF/MM session for discussion on core mm changes for
+Intel&amp;rsquo;s new hardware features including shadow stack, linear address masking,
+supervisor protection key, and TDX.&lt;/p&gt;
+&lt;h2 id=&#34;patch-v12-0033-memory-folios-matthew-wilcox&#34;&gt;[PATCH v12 00/33] Memory folios (Matthew Wilcox)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20210622114118.3388190-1-willy@infradead.org&#34;&gt;https://lkml.kernel.org/r/20210622114118.3388190-1-willy@infradead.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This patchset introduces memory folio, which is a new abstraction for pages of
+different size.  This makes the handling of compound pages be easy.&lt;/p&gt;
 </description>
     </item>
     

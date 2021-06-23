@@ -29,7 +29,9 @@
     
   
   <meta name="description" content="[PATCH v4] mm: introduce reference pages (Peter Collingbourne) https://lkml.kernel.org/r/20210619092002.1791322-1-pcc@google.com
-This patch introduces a new syscall, refpage_create(). This system creates a file descriptor which can be mmap-ed using mmap(), which will be similar to anonymous mapping but the memory will be backed by a reference page instead of the zero page.">
+This patch introduces a new syscall, refpage_create(). This system creates a file descriptor which can be mmap-ed using mmap(), which will be similar to anonymous mapping but the memory will be backed by a reference page instead of the zero page.
+[PATCH 0/3] mm/page_reporting: Make page reporting work on arm64 with 64KB page size (Gavin Shan) https://lkml.kernel.org/r/20210621051152.305224-1-gshan@redhat.com
+This patchset makes the page reporting to work on ARM with more realistic threshold, which is 2MB instead of 512MB, when the system&rsquo;s page size is 64KB.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/lkml_news_v5.13/">
@@ -152,7 +154,9 @@ This patch introduces a new syscall, refpage_create(). This system creates a fil
   <meta property="og:url" content="/post/lkml_news_v5.13/">
   <meta property="og:title" content="LKML News v5.13 | hacklog">
   <meta property="og:description" content="[PATCH v4] mm: introduce reference pages (Peter Collingbourne) https://lkml.kernel.org/r/20210619092002.1791322-1-pcc@google.com
-This patch introduces a new syscall, refpage_create(). This system creates a file descriptor which can be mmap-ed using mmap(), which will be similar to anonymous mapping but the memory will be backed by a reference page instead of the zero page."><meta property="og:image" content="/img/tux.png">
+This patch introduces a new syscall, refpage_create(). This system creates a file descriptor which can be mmap-ed using mmap(), which will be similar to anonymous mapping but the memory will be backed by a reference page instead of the zero page.
+[PATCH 0/3] mm/page_reporting: Make page reporting work on arm64 with 64KB page size (Gavin Shan) https://lkml.kernel.org/r/20210621051152.305224-1-gshan@redhat.com
+This patchset makes the page reporting to work on ARM with more realistic threshold, which is 2MB instead of 512MB, when the system&rsquo;s page size is 64KB."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -204,7 +208,7 @@ This patch introduces a new syscall, refpage_create(). This system creates a fil
       "url": "/img/icon-512.png"
     }
   },
-  "description": "[PATCH v4] mm: introduce reference pages (Peter Collingbourne) https://lkml.kernel.org/r/20210619092002.1791322-1-pcc@google.com\nThis patch introduces a new syscall, refpage_create(). This system creates a file descriptor which can be mmap-ed using mmap(), which will be similar to anonymous mapping but the memory will be backed by a reference page instead of the zero page."
+  "description": "[PATCH v4] mm: introduce reference pages (Peter Collingbourne) https://lkml.kernel.org/r/20210619092002.1791322-1-pcc@google.com\nThis patch introduces a new syscall, refpage_create(). This system creates a file descriptor which can be mmap-ed using mmap(), which will be similar to anonymous mapping but the memory will be backed by a reference page instead of the zero page.\n[PATCH 0/3] mm/page_reporting: Make page reporting work on arm64 with 64KB page size (Gavin Shan) https://lkml.kernel.org/r/20210621051152.305224-1-gshan@redhat.com\nThis patchset makes the page reporting to work on ARM with more realistic threshold, which is 2MB instead of 512MB, when the system\u0026rsquo;s page size is 64KB."
 }
 </script>
 
@@ -616,6 +620,20 @@ This patch introduces a new syscall, refpage_create(). This system creates a fil
 file descriptor which can be mmap-ed using <code>mmap()</code>, which will be similar to
 anonymous mapping but the memory will be backed by a reference page instead of
 the zero page.</p>
+<h2 id="patch-03-mmpage_reporting-make-page-reporting-work-on-arm64-with-64kb-page-size-gavin-shan">[PATCH 0/3] mm/page_reporting: Make page reporting work on arm64 with 64KB page size (Gavin Shan)</h2>
+<p><a href="https://lkml.kernel.org/r/20210621051152.305224-1-gshan@redhat.com">https://lkml.kernel.org/r/20210621051152.305224-1-gshan@redhat.com</a></p>
+<p>This patchset makes the page reporting to work on ARM with more realistic
+threshold, which is 2MB instead of 512MB, when the system&rsquo;s page size is 64KB.
+This will be very helpful for memory-fragmented systems.</p>
+<h2 id="lsfmm-topic-impact-on-core-mm-from-new-hardware-features-dave-hansen">[LSF/MM TOPIC] Impact on core mm from new hardware features (Dave Hansen)</h2>
+<p><a href="https://lkml.kernel.org/r/51d3010b-6324-2441-42c0-27bb536c897d@intel.com">https://lkml.kernel.org/r/51d3010b-6324-2441-42c0-27bb536c897d@intel.com</a></p>
+<p>Dave is proposing a LSF/MM session for discussion on core mm changes for
+Intel&rsquo;s new hardware features including shadow stack, linear address masking,
+supervisor protection key, and TDX.</p>
+<h2 id="patch-v12-0033-memory-folios-matthew-wilcox">[PATCH v12 00/33] Memory folios (Matthew Wilcox)</h2>
+<p><a href="https://lkml.kernel.org/r/20210622114118.3388190-1-willy@infradead.org">https://lkml.kernel.org/r/20210622114118.3388190-1-willy@infradead.org</a></p>
+<p>This patchset introduces memory folio, which is a new abstraction for pages of
+different size.  This makes the handling of compound pages be easy.</p>
 
     </div>
 
