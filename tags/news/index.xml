@@ -40,6 +40,11 @@ different size.  This makes the handling of compound pages be easy.&lt;/p&gt;
 &lt;h2 id=&#34;patch-v2-0046-folio-enabling-the-page-cache-matthew-wilcox&#34;&gt;[PATCH v2 00/46] Folio-enabling the page cache (Matthew Wilcox)&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20210622121551.3398730-1-willy@infradead.org&#34;&gt;https://lkml.kernel.org/r/20210622121551.3398730-1-willy@infradead.org&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;This patchset converts filesystems to use memory folios.&lt;/p&gt;
+&lt;h2 id=&#34;patch-11-mm-introduce-process_reap-system-call-suren-baghdasaryan&#34;&gt;[PATCH 1/1] mm: introduce process_reap system call (Suren Baghdasaryan)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20210623192822.3072029-1-surenb@google.com&#34;&gt;https://lkml.kernel.org/r/20210623192822.3072029-1-surenb@google.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This patch introduces a new system call, &lt;code&gt;process_reap()&lt;/code&gt;, which reclaims
+memory of a dying process from the caller&amp;rsquo;s context.  This can be helpful for
+reclaiming memory consumed by other process in predictable time.&lt;/p&gt;
 </description>
     </item>
     

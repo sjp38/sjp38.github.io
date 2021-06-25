@@ -574,7 +574,7 @@ This patchset makes the page reporting to work on ARM with more realistic thresh
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -637,6 +637,11 @@ different size.  This makes the handling of compound pages be easy.</p>
 <h2 id="patch-v2-0046-folio-enabling-the-page-cache-matthew-wilcox">[PATCH v2 00/46] Folio-enabling the page cache (Matthew Wilcox)</h2>
 <p><a href="https://lkml.kernel.org/r/20210622121551.3398730-1-willy@infradead.org">https://lkml.kernel.org/r/20210622121551.3398730-1-willy@infradead.org</a></p>
 <p>This patchset converts filesystems to use memory folios.</p>
+<h2 id="patch-11-mm-introduce-process_reap-system-call-suren-baghdasaryan">[PATCH 1/1] mm: introduce process_reap system call (Suren Baghdasaryan)</h2>
+<p><a href="https://lkml.kernel.org/r/20210623192822.3072029-1-surenb@google.com">https://lkml.kernel.org/r/20210623192822.3072029-1-surenb@google.com</a></p>
+<p>This patch introduces a new system call, <code>process_reap()</code>, which reclaims
+memory of a dying process from the caller&rsquo;s context.  This can be helpful for
+reclaiming memory consumed by other process in predictable time.</p>
 
     </div>
 
