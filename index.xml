@@ -49,6 +49,20 @@ reclaiming memory consumed by other process in predictable time.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20210625073204.1005986-1-ying.huang@intel.com&#34;&gt;https://lkml.kernel.org/r/20210625073204.1005986-1-ying.huang@intel.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;A patchset for the tiered memory systems.  This patchset makes cold pages to be
 located in slower memory, like pmem.&lt;/p&gt;
+&lt;h2 id=&#34;linux-513-linus-torvalds&#34;&gt;Linux 5.13 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wj7E9iTGHbqfgtaTAM09WrVzwXjda2_D59MT8D_1=54Rg@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wj7E9iTGHbqfgtaTAM09WrVzwXjda2_D59MT8D_1=54Rg@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;After the seven release candidates, Linux v5.13 is out.  It is one of the
+bigger 5.x releases.  It has over 16k commits from over 2k people.  Obviously,
+this also means the merge window for 5.14 has opened.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v5.2..v5.13.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
+below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2019-06-28 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
