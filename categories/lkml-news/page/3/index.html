@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2021-06-29T07:11:39&#43;02:00">
+    <meta property="og:updated_time" content="2021-07-13T07:17:44&#43;02:00">
   
 
   
@@ -525,6 +525,20 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.11-rc7/">LKML News v5.11-rc7</a></h2>
+    <div class="article-style">
+      
+      [RFC 00/20] TLB batching consolidation and enhancements (Nadav Amit) https://lkml.kernel.org/r/20210131001132.3368247-1-namit@vmware.com
+This patchset prepares more aggressive TLB flushing batching by consolidating a few TLB batching methods.
+[PATCH v9 00/14] prohibit pinning pages in ZONE_MOVABLE (Pavel Tatashin) https://lkml.kernel.org/r/20210201153827.444374-1-pasha.tatashin@soleen.com
+This patchset makes ZONE_MOVABLE really movable by prohibiting pinning of pages in the zone.
+Augmented Page Reclaim (Yu Zhao) https://lkml.kernel.org/r/YBkT6175GmMWBvw3@google.com
+This mail shares a part of decade researh/experimentation in memory overcommit at Google. The author wants to start submitting patch based on responses.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.11-rc6/">LKML News v5.11-rc6</a></h2>
     <div class="article-style">
       
@@ -637,19 +651,6 @@ This commit allows user to account memory size used for page tables per node.
 This commit allows user-space driven OOM reaping using process_madvise(MADV_DONTNEED).
 [PATCH -V6 0/3] autonuma: Migrate on fault among multiple bound nodes (Huang Ying) https://lkml.kernel.org/r/20201126053219.234793-1-ying.huang@intel.com
 The 6th version for autonuma migration among multiple bound nodes. In this version, more benchmark data and example is added.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.10-rc5/">Lkml_news_v5</a></h2>
-    <div class="article-style">
-      
-      [PATCH v9 0/9] mm: introduce memfd_secret system call to create &ldquo;secret&rdquo; memory areas (Mike Rapoport) https://lkml.kernel.org/r/20201117162932.13649-1-rppt@kernel.org
-The 9th version of the memfd_secret patchset.
-[patch V4 0/8] mm/highmem: Preemptible variant of kmap_atomic &amp; friends (Thomas Gleixner) https://lkml.kernel.org/r/20201118194838.753436396@linutronix.de
-As the name suggests, this patchset allow the code using kmap_atomic and similar things to be preemptible. This incur some overhead to highmem, but Thomas claims highmem was always slow.
-[PATCH 0/7] Split huge pages to any lower order pages and selftests.
       
     </div>
   </div>

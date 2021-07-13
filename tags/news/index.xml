@@ -5,12 +5,27 @@
     <link>/tags/news/</link>
       <atom:link href="/tags/news/index.xml" rel="self" type="application/rss+xml" />
     <description>news</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 29 Jun 2021 07:11:39 +0200</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 13 Jul 2021 07:17:44 +0200</lastBuildDate>
     <image>
       <url>/img/tux.png</url>
       <title>news</title>
       <link>/tags/news/</link>
     </image>
+    
+    <item>
+      <title>LKML News v5.14-rc2</title>
+      <link>/post/lkml_news_v5.14-rc2/</link>
+      <pubDate>Tue, 13 Jul 2021 07:17:44 +0200</pubDate>
+      <guid>/post/lkml_news_v5.14-rc2/</guid>
+      <description>&lt;h2 id=&#34;patch-v6-06-introduce-multi-preference-mempolicy-feng-tang&#34;&gt;[PATCH v6 0/6] Introduce multi-preference mempolicy (Feng Tang)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/1626077374-81682-1-git-send-email-feng.tang@intel.com&#34;&gt;https://lkml.kernel.org/r/1626077374-81682-1-git-send-email-feng.tang@intel.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Six version of the patchset that allows applications to set multiple preferred
+memory policy.&lt;/p&gt;
+&lt;h2 id=&#34;patch-v1-madvise2-document-madv_populate_read-and-madv_populate_write-david-hildenbrand&#34;&gt;[PATCH v1] madvise.2: Document MADV_POPULATE_READ and MADV_POPULATE_WRITE (David Hildenbrand)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20210712083917.16361-1-david@redhat.com&#34;&gt;https://lkml.kernel.org/r/20210712083917.16361-1-david@redhat.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This patch documents the new &lt;code&gt;madvise()&lt;/code&gt; options, &lt;code&gt;MADV_POPULATE_(READ|WRITE)&lt;/code&gt;.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>LKML News v5.14-rc1</title>
@@ -43,6 +58,25 @@ AMD.&lt;/p&gt;
 &lt;li&gt;&amp;ldquo;mm: introduce memfd_secret system call to create &amp;ldquo;secret&amp;rdquo; memory areas&amp;rdquo;, v20&lt;/li&gt;
 &lt;li&gt;&amp;ldquo;Add build ID to stacktraces&amp;rdquo;, v6&lt;/li&gt;
 &lt;/ul&gt;
+&lt;h2 id=&#34;linux-514-rc1-linus-torvalds&#34;&gt;Linux 5.14-rc1 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wjB5XBk4obhMPfrU3mnOakV9VgHAYOo-ZGJnB2X0DnBWA@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wjB5XBk4obhMPfrU3mnOakV9VgHAYOo-ZGJnB2X0DnBWA@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Usual two weeks of the merge winodw has passed and now the first release
+candidate for 5.14 is ready.  This release is just usual in size, though the
+regular size doesn&amp;rsquo;t always means there will be only regular amount of issues.&lt;/p&gt;
+&lt;p&gt;Most of the changes are for AMD drivers headers.  Other than that, most changes
+are for drivers.  Remaining changes are well spread to architectures and
+various core kernel parts.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v5.3-rc2..v5.14-rc1.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
+below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2019-07-12 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And, below is the diffstat of the -rc1 releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v5.14-rc1-only.png&#34; alt=&#34;rc2 release stat&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     
