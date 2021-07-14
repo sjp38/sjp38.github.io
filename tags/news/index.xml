@@ -24,6 +24,21 @@ memory policy.&lt;/p&gt;
 &lt;h2 id=&#34;patch-v1-madvise2-document-madv_populate_read-and-madv_populate_write-david-hildenbrand&#34;&gt;[PATCH v1] madvise.2: Document MADV_POPULATE_READ and MADV_POPULATE_WRITE (David Hildenbrand)&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20210712083917.16361-1-david@redhat.com&#34;&gt;https://lkml.kernel.org/r/20210712083917.16361-1-david@redhat.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;This patch documents the new &lt;code&gt;madvise()&lt;/code&gt; options, &lt;code&gt;MADV_POPULATE_(READ|WRITE)&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;request-for-folios-david-howells&#34;&gt;Request for folios (David Howells)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/3398985.1626104609@warthog.procyon.org.uk&#34;&gt;https://lkml.kernel.org/r/3398985.1626104609@warthog.procyon.org.uk&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;David is working for improving local filesystem&amp;rsquo;s caching and network
+filesystem support library.  He thinks the folio work would make his work
+easier, though it also makes some of his work challenging.  Therefore, he is
+asking Andrew to merge it in the -mm tree.&lt;/p&gt;
+&lt;h2 id=&#34;patch-v13a-0032-memory-folios-matthew-wilcox&#34;&gt;[PATCH v13a 00/32] Memory folios (Matthew Wilcox)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20210712190204.80979-1-willy@infradead.org&#34;&gt;https://lkml.kernel.org/r/20210712190204.80979-1-willy@infradead.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This patchset adds a new type for managing pages, called folios.  It allows
+dealing with variable sized pages simpler.&lt;/p&gt;
+&lt;h2 id=&#34;patch-v13b-0018-convert-memcg-to-folios-matthew-wilcox&#34;&gt;[PATCH v13b 00/18] Convert memcg to folios (Matthew Wilcox)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20210712194551.91920-1-willy@infradead.org&#34;&gt;https://lkml.kernel.org/r/20210712194551.91920-1-willy@infradead.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This is the second part of memory folios.  On top of memofy folios
+introduction, this patchset converts memcg to use folios for better handling of
+variable-sized pages.&lt;/p&gt;
 </description>
     </item>
     
