@@ -48,6 +48,12 @@ further to PMD.&lt;/p&gt;
 &lt;h2 id=&#34;mmotm-2021-07-15-18-29-uploaded-andrew-morton&#34;&gt;mmotm 2021-07-15-18-29 uploaded (Andrew Morton)&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20210716012956.QCXYl0cgg%akpm@linux-foundation.org&#34;&gt;https://lkml.kernel.org/r/20210716012956.QCXYl0cgg%akpm@linux-foundation.org&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;mmotm has finally updated after the 5.14 mergewindow.&lt;/p&gt;
+&lt;h2 id=&#34;patch-v5-mm-introduce-reference-pages-peter-collingbourne&#34;&gt;[PATCH v5] mm: introduce reference pages (Peter Collingbourne)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20210717025757.3945742-1-pcc@google.com&#34;&gt;https://lkml.kernel.org/r/20210717025757.3945742-1-pcc@google.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;In case of anonymous pages allocations, the memory region is initially mapped
+to clean zero page.  This patch introduces a new syscall, &lt;code&gt;refpage_create()&lt;/code&gt;,
+which makes the memory regions to be initially mapped to a page containing
+user-specificed contents, instead of the zero page.&lt;/p&gt;
 </description>
     </item>
     

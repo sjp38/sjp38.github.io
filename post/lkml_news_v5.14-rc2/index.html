@@ -578,7 +578,7 @@ David is working for improving local filesystem&rsquo;s caching and network file
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -649,6 +649,12 @@ further to PMD.</p>
 <h2 id="mmotm-2021-07-15-18-29-uploaded-andrew-morton">mmotm 2021-07-15-18-29 uploaded (Andrew Morton)</h2>
 <p><a href="https://lkml.kernel.org/r/20210716012956.QCXYl0cgg%akpm@linux-foundation.org">https://lkml.kernel.org/r/20210716012956.QCXYl0cgg%akpm@linux-foundation.org</a></p>
 <p>mmotm has finally updated after the 5.14 mergewindow.</p>
+<h2 id="patch-v5-mm-introduce-reference-pages-peter-collingbourne">[PATCH v5] mm: introduce reference pages (Peter Collingbourne)</h2>
+<p><a href="https://lkml.kernel.org/r/20210717025757.3945742-1-pcc@google.com">https://lkml.kernel.org/r/20210717025757.3945742-1-pcc@google.com</a></p>
+<p>In case of anonymous pages allocations, the memory region is initially mapped
+to clean zero page.  This patch introduces a new syscall, <code>refpage_create()</code>,
+which makes the memory regions to be initially mapped to a page containing
+user-specificed contents, instead of the zero page.</p>
 
     </div>
 
