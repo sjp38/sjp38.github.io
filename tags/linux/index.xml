@@ -54,6 +54,23 @@ further to PMD.&lt;/p&gt;
 to clean zero page.  This patch introduces a new syscall, &lt;code&gt;refpage_create()&lt;/code&gt;,
 which makes the memory regions to be initially mapped to a page containing
 user-specificed contents, instead of the zero page.&lt;/p&gt;
+&lt;h2 id=&#34;linux-514-rc2&#34;&gt;Linux 5.14-rc2&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wjYghA5O+ZsWKVNApMK3j4V1EibO5P+c4MrHnqp8YhY=g@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wjYghA5O+ZsWKVNApMK3j4V1EibO5P+c4MrHnqp8YhY=g@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The second release candidate for Linux v5.14 is released.  This release is
+larger than expected.  It is largest rc2 during 5.x.  This might mean there are
+something wrong, but no certainly wrong things found, so it must be too early
+to say so.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v5.3-rc2..v5.14-rc2.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
+below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2019-07-19 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And, below is the diffstat of the -rc2 releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v5.14-rc2-only.png&#34; alt=&#34;rc2 release stat&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     

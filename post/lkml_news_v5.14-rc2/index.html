@@ -655,6 +655,23 @@ further to PMD.</p>
 to clean zero page.  This patch introduces a new syscall, <code>refpage_create()</code>,
 which makes the memory regions to be initially mapped to a page containing
 user-specificed contents, instead of the zero page.</p>
+<h2 id="linux-514-rc2">Linux 5.14-rc2</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wjYghA5O+ZsWKVNApMK3j4V1EibO5P+c4MrHnqp8YhY=g@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wjYghA5O+ZsWKVNApMK3j4V1EibO5P+c4MrHnqp8YhY=g@mail.gmail.com</a></p>
+<p>The second release candidate for Linux v5.14 is released.  This release is
+larger than expected.  It is largest rc2 during 5.x.  This might mean there are
+something wrong, but no certainly wrong things found, so it must be too early
+to say so.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.3-rc2..v5.14-rc2.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2019-07-19 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc2 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.14-rc2-only.png" alt="rc2 release stat"></p>
 
     </div>
 
