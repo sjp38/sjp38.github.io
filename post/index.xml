@@ -29,6 +29,15 @@ patchset further updates iomap to use folios.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/YPV27hDPZUoVsIZt@suse.de&#34;&gt;https://lkml.kernel.org/r/YPV27hDPZUoVsIZt@suse.de&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;This is a proposal mail describing how to implement runtime memory validation
 for confidential guests.&lt;/p&gt;
+&lt;h2 id=&#34;rfc--v7-06-numa-balancing-optimize-memory-placement-for-memory-tiering-system-huang-ying&#34;&gt;[RFC -V7 0/6] NUMA balancing: optimize memory placement for memory tiering system (Huang Ying)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20210722031819.3446711-1-ying.huang@intel.com&#34;&gt;https://lkml.kernel.org/r/20210722031819.3446711-1-ying.huang@intel.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Tiered-memory system usually uses RAM and PMEM.
+Commit c221c0b0308f (&amp;ldquo;device-dax: &amp;ldquo;Hotplug&amp;rdquo; persistent memory for use like
+normal RAM&amp;rdquo;) made PMEM could be accessed as simply a very slow NUMA node.
+After that, &amp;lsquo;[PATCH -V10 0/9] Migrate Pages in lieu of discard&amp;rsquo; made a
+mechanism to demote cold DRAM pages to PMEM node under memory pressure.  This
+patchset further optimizes the mechanism and achieves up to 119.1% improvement
+with pmbench.&lt;/p&gt;
 </description>
     </item>
     
