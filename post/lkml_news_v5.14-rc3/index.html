@@ -576,7 +576,7 @@ Runtime Memory Validation in Intel-TDX and AMD-SNP (Joerg Roedel) https://lkml."
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -637,6 +637,12 @@ After that, &lsquo;[PATCH -V10 0/9] Migrate Pages in lieu of discard&rsquo; made
 mechanism to demote cold DRAM pages to PMEM node under memory pressure.  This
 patchset further optimizes the mechanism and achieves up to 119.1% improvement
 with pmbench.</p>
+<h2 id="patch-v3-12-mm-introduce-process_mrelease-system-call-suren-baghdasaryan">[PATCH v3 1/2] mm: introduce process_mrelease system call (Suren Baghdasaryan)</h2>
+<p><a href="https://lkml.kernel.org/r/20210723011436.60960-1-surenb@google.com">https://lkml.kernel.org/r/20210723011436.60960-1-surenb@google.com</a></p>
+<p>Facebook&rsquo;s oomd or Android&rsquo;s lmkd uses a strategy of killing processes under
+memory pressure.  However, the time to free memory depends on each process.
+This patchset introduces a new system call that can be used for faster memory
+release.</p>
 
     </div>
 

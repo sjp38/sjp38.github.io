@@ -38,6 +38,12 @@ After that, &amp;lsquo;[PATCH -V10 0/9] Migrate Pages in lieu of discard&amp;rsq
 mechanism to demote cold DRAM pages to PMEM node under memory pressure.  This
 patchset further optimizes the mechanism and achieves up to 119.1% improvement
 with pmbench.&lt;/p&gt;
+&lt;h2 id=&#34;patch-v3-12-mm-introduce-process_mrelease-system-call-suren-baghdasaryan&#34;&gt;[PATCH v3 1/2] mm: introduce process_mrelease system call (Suren Baghdasaryan)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20210723011436.60960-1-surenb@google.com&#34;&gt;https://lkml.kernel.org/r/20210723011436.60960-1-surenb@google.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Facebook&amp;rsquo;s oomd or Android&amp;rsquo;s lmkd uses a strategy of killing processes under
+memory pressure.  However, the time to free memory depends on each process.
+This patchset introduces a new system call that can be used for faster memory
+release.&lt;/p&gt;
 </description>
     </item>
     
