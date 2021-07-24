@@ -643,6 +643,11 @@ with pmbench.</p>
 memory pressure.  However, the time to free memory depends on each process.
 This patchset introduces a new system call that can be used for faster memory
 release.</p>
+<h2 id="patch-resend-mm-compaction-optimize-proactive-compaction-deferrals-charan-teja-reddy">[PATCH resend] mm: compaction: optimize proactive compaction deferrals (Charan Teja Reddy)</h2>
+<p>When proactive compaction is making no progress, it waits some time before
+trying again.  For this, it repeatedly sleeps, awakes, and decrement a counter.
+If the counter becomes 0, it retries the compaction.  The wakeup for only
+counter decrement makes no sense, so this patch makes it unnecessary.</p>
 
     </div>
 
