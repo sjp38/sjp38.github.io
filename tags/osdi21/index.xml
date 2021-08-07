@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>osdi21 | hacklog</title>
+    <link>/tags/osdi21/</link>
+      <atom:link href="/tags/osdi21/index.xml" rel="self" type="application/rss+xml" />
+    <description>osdi21</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sat, 07 Aug 2021 09:27:55 +0200</lastBuildDate>
+    <image>
+      <url>/img/tux.png</url>
+      <title>osdi21</title>
+      <link>/tags/osdi21/</link>
+    </image>
+    
+    <item>
+      <title>Reading OSDI 2021 papers</title>
+      <link>/post/osdi2021_papers_review/</link>
+      <pubDate>Sat, 07 Aug 2021 09:27:55 +0200</pubDate>
+      <guid>/post/osdi2021_papers_review/</guid>
+      <description>&lt;p&gt;This post is for recording some notes from a few OSDI&#39;21 papers that I got fun.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;dmon-efficient-detection-and-correction-of-data-locality-problems-using-selective-profiling&#34;&gt;DMon: Efficient Detection and Correction of Data Locality Problems Using Selective Profiling&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.usenix.org/system/files/osdi21-khan.pdf&#34;&gt;https://www.usenix.org/system/files/osdi21-khan.pdf&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;DMon is a compiler-based data locality optimization system.  The approach is
+quite similar to that of &lt;a href=&#34;https://sjp38.github.io/post/daphicx/&#34;&gt;daphicx&lt;/a&gt; or
+similar things.  It injects data access profiling code in the target program,
+build and run it with some workload, collect the profiling code-generated
+results, analyze the profile results to figure out what kind of optimization
+can provide some benefit to the program, injects the optimization code in the
+program, built it again, and deploy the version to the production.&lt;/p&gt;
+&lt;p&gt;Biggest novelty of DMon is its selective profiling.  It first figure out for
+what resource (e.g., CPU, L1/L2/L3$, or memory) the program&amp;rsquo;s performance is
+bounded, and select what information to collect based on that.  It also uses
+a simple sampling technique.  The default sampling rate is 1 sample per 1000
+events, though it can be tuned by user.  In this way, DMon profile only
+necessary information and therefore incurs only small overhead (1.36% on
+average).  This allows DMon to do the profiling not only under production-like
+workloads but also real production.&lt;/p&gt;
+&lt;p&gt;For the optimization, it uses some existing well-known techniques including
+(in)direct prefetching, and structure merging, based on the analyzed profiling
+results.  The paper claims this provide 16.83% speedup on average.  For the
+evaluation, the authors use some benchmarks including PARSEC3/SPLASH-2X, NPB,
+TPC-H on PostgreSQL, and Renaissance benchmark suite.&lt;/p&gt;
+&lt;p&gt;The idea is novel and makes sense.  However, because this is a compiler-based
+approach, it has a limitation in language.  It supports only C and C++ for now.
+Also, though it claims it can be used on production, I unsure if real
+production people agrees.  Especially, the re-deployment of the optimized
+version would not be so easy for long-running systems.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
