@@ -576,7 +576,7 @@ This patchset introduces a new system call, namely process_mrelease(). It can be
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -644,6 +644,21 @@ process can use memory from multiple NUMA nodes.</p>
 <h2 id="patch-v2-02-add-ksm-performance-tests-zhansaya-bagdauletkyzy">[PATCH v2 0/2] add KSM performance tests (Zhansaya Bagdauletkyzy)</h2>
 <p><a href="https://lkml.kernel.org/r/cover.1628199399.git.zhansayabagdaulet@gmail.com">https://lkml.kernel.org/r/cover.1628199399.git.zhansayabagdaulet@gmail.com</a></p>
 <p>This patchset extends KSM self tests with a performance test.</p>
+<h2 id="linux-514-rc5-linus-torvalds">Linux 5.14-rc5 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wg8QmMMBCEYCV0gPM2GqRQObsQ__fK0r8C6SYAg3Upyjg@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wg8QmMMBCEYCV0gPM2GqRQObsQ__fK0r8C6SYAg3Upyjg@mail.gmail.com</a></p>
+<p>The fifth rc release is perfectly normal in terms of the size and the
+distribution of the changes.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.3-rc5..v5.14-rc5.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2019-08-09 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc5 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.14-rc5-only.png" alt="rc2 release stat"></p>
 
     </div>
 
