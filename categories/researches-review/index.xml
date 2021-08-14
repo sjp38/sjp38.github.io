@@ -13,7 +13,7 @@
     </image>
     
     <item>
-      <title>Reading OSDI 2021 papers</title>
+      <title>OSDI 2021 papers summary</title>
       <link>/post/osdi2021_papers_review/</link>
       <pubDate>Sat, 07 Aug 2021 09:27:55 +0200</pubDate>
       <guid>/post/osdi2021_papers_review/</guid>
@@ -46,6 +46,18 @@ approach, it has a limitation in language.  It supports only C and C++ for now.
 Also, though it claims it can be used on production, I unsure if real
 production people agrees.  Especially, the re-deployment of the optimized
 version would not be so easy for long-running systems.&lt;/p&gt;
+&lt;h2 id=&#34;rearchitecting-linux-storage-stack-for-µs-latency-and-high-throughput&#34;&gt;Rearchitecting Linux Storage Stack for µs Latency and High Throughput&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.usenix.org/conference/osdi21/presentation/hwang&#34;&gt;https://www.usenix.org/conference/osdi21/presentation/hwang&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;When latency-sensitive apps and throughput-bound apps are co-running, Linux
+kernel cannot achieve microseconds-scale latency and high throughput.  Both
+SPDK and advanced SPDK usage are same.  This paper finds the storage stack of
+Linux kernel is somewhat like network switch, because it routes I/O request
+from CPU cores to input queues of storage devices.  This paper introduces
+blk-switch, which modifies the stack to decouple request processing from the
+application cores and utilizing multiple egress queue having several advanced
+features including prioritization and steering.  It achieves microseconds-scale
+latency and high throughput under the situation, without modification of the
+application.&lt;/p&gt;
 </description>
     </item>
     
