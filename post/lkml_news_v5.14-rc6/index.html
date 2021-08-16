@@ -578,7 +578,7 @@ Some platforms like Intel TDX or AMD SEV-SNP require memory to be accepted befor
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -643,6 +643,20 @@ modified.</p>
 <p><a href="https://lkml.kernel.org/r/2408234.1628687271@warthog.procyon.org.uk">https://lkml.kernel.org/r/2408234.1628687271@warthog.procyon.org.uk</a></p>
 <p>This patchset makes netfs helper library and the afs filesystem to use memory
 folios.</p>
+<h2 id="linux-514-rc6-linus-torvalds">Linux 5.14-rc6 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wi8=9QbNFFZ1PwZ=J-3w6LkhF68_rEns-mN1DCJrYo1qQ@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wi8=9QbNFFZ1PwZ=J-3w6LkhF68_rEns-mN1DCJrYo1qQ@mail.gmail.com</a></p>
+<p>Another fairly normal rc release.  Changes spread over usual subsystems.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.3-rc6..v5.14-rc6.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2019-08-16 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc6 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.14-rc6-only.png" alt="rc2 release stat"></p>
 
     </div>
 
