@@ -5,12 +5,26 @@
     <link>/tags/lkml/</link>
       <atom:link href="/tags/lkml/index.xml" rel="self" type="application/rss+xml" />
     <description>lkml</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 10 Aug 2021 07:23:37 +0200</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 17 Aug 2021 07:07:40 +0200</lastBuildDate>
     <image>
       <url>/img/tux.png</url>
       <title>lkml</title>
       <link>/tags/lkml/</link>
     </image>
+    
+    <item>
+      <title>LKML News v5.14-rc7</title>
+      <link>/post/lkml_news_v5.14-rc7/</link>
+      <pubDate>Tue, 17 Aug 2021 07:07:40 +0200</pubDate>
+      <guid>/post/lkml_news_v5.14-rc7/</guid>
+      <description>&lt;h2 id=&#34;patch-v2-03-virtio-mem-disallow-mapping-virtio-mem-memory-via-devmem-david-hildenbrand&#34;&gt;[PATCH v2 0/3] virtio-mem: disallow mapping virtio-mem memory via /dev/mem (David Hildenbrand)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20210816142505.28359-1-david@redhat.com&#34;&gt;https://lkml.kernel.org/r/20210816142505.28359-1-david@redhat.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Once the virtio-mem driver is plugging/unplugging memory of virtual machines,
+accessing the memory region via &lt;code&gt;/dev/mem&lt;/code&gt; from the user space makes no sense.
+To avoid such insane use case, this patchset adds a basic infrastructure to
+exclude some physical memory regions completely from &lt;code&gt;/dev/mem&lt;/code&gt;.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>LKML News v5.14-rc6</title>
