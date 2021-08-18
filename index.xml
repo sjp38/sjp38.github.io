@@ -23,6 +23,11 @@
 accessing the memory region via &lt;code&gt;/dev/mem&lt;/code&gt; from the user space makes no sense.
 To avoid such insane use case, this patchset adds a basic infrastructure to
 exclude some physical memory regions completely from &lt;code&gt;/dev/mem&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;patch-v2-0061-introducing-the-maple-tree-liam-howlett&#34;&gt;[PATCH v2 00/61] Introducing the Maple Tree (Liam Howlett)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20210817154651.1570984-1-Liam.Howlett@oracle.com&#34;&gt;https://lkml.kernel.org/r/20210817154651.1570984-1-Liam.Howlett@oracle.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This patchset introduces a new data structure called maple tree, which intended
+to replace the rbtree for &lt;code&gt;vm_area_struct&lt;/code&gt;.  Because this is a range based
+B-tree, the author argues this can solve the locking scalability issue.&lt;/p&gt;
 </description>
     </item>
     
