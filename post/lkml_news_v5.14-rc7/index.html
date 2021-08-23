@@ -574,7 +574,7 @@ This patchset introduces a new data structure called maple tree, which intended 
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    2 min read
+    3 min read
   </span>
   
 
@@ -824,6 +824,21 @@ summary: 0 drop, 34 add, 31 modified
 <p><a href="https://lkml.kernel.org/r/611ff5df.1c69fb81.43234.a478@mx.google.com">https://lkml.kernel.org/r/611ff5df.1c69fb81.43234.a478@mx.google.com</a></p>
 <p>Unfortunately, LSF/MM/BPF for 2021 has canceled due to the COVID19 infection.
 So sad, but hopefully this could be continued in 2022!</p>
+<h2 id="linux-514-rc7-linus-torvalds">Linux 5.14-rc7 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wgZ_W7ZF84Mtq6KRjF4FEoYh14dnw+Oc0avZz_6WrCkfw@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wgZ_W7ZF84Mtq6KRjF4FEoYh14dnw+Oc0avZz_6WrCkfw@mail.gmail.com</a></p>
+<p>No strange things happened last week, so seventh rc is normal.  Unless we find
+something special this week, we will show 5.14 next week.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.3-rc7..v5.14-rc7.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2019-08-23 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc6 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.14-rc7-only.png" alt="rc2 release stat"></p>
 
     </div>
 

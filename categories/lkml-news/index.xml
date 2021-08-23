@@ -227,6 +227,21 @@ summary: 0 drop, 34 add, 31 modified
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/611ff5df.1c69fb81.43234.a478@mx.google.com&#34;&gt;https://lkml.kernel.org/r/611ff5df.1c69fb81.43234.a478@mx.google.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Unfortunately, LSF/MM/BPF for 2021 has canceled due to the COVID19 infection.
 So sad, but hopefully this could be continued in 2022!&lt;/p&gt;
+&lt;h2 id=&#34;linux-514-rc7-linus-torvalds&#34;&gt;Linux 5.14-rc7 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wgZ_W7ZF84Mtq6KRjF4FEoYh14dnw+Oc0avZz_6WrCkfw@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wgZ_W7ZF84Mtq6KRjF4FEoYh14dnw+Oc0avZz_6WrCkfw@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;No strange things happened last week, so seventh rc is normal.  Unless we find
+something special this week, we will show 5.14 next week.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v5.3-rc7..v5.14-rc7.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
+below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2019-08-23 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And, below is the diffstat of the -rc6 releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v5.14-rc7-only.png&#34; alt=&#34;rc2 release stat&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     
