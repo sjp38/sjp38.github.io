@@ -13,6 +13,60 @@
     </image>
     
     <item>
+      <title>LKML News v5.14</title>
+      <link>/post/lkml_news_v5.14/</link>
+      <pubDate>Tue, 24 Aug 2021 07:29:50 +0200</pubDate>
+      <guid>/post/lkml_news_v5.14/</guid>
+      <description>&lt;h2 id=&#34;git-pull-memory-folios-for-v515-matthew-wilcox&#34;&gt;[GIT PULL] Memory folios for v5.15 (Matthew Wilcox)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/YSPwmNNuuQhXNToQ@casper.infradead.org&#34;&gt;https://lkml.kernel.org/r/YSPwmNNuuQhXNToQ@casper.infradead.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Matthew Wilcox sent a pull request for his page folio works to Linus Torvalds.
+Linus Torvalds replied he wants this to work in reverse.  That is, calling head
+pages as normal pages but calling tail pages something other, as the term,
+page, is more common and de-facto standard in the industry.&lt;/p&gt;
+&lt;h2 id=&#34;mmotm-2021-08-23-16-42-uploaded-andrew-morton&#34;&gt;mmotm 2021-08-23-16-42 uploaded (Andrew Morton)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20210823234329.H9WD-du1K%akpm@linux-foundation.org&#34;&gt;https://lkml.kernel.org/r/20210823234329.H9WD-du1K%akpm@linux-foundation.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;MMOTM is rebased on v5.14-rc7 and uploaded.  In total, 10 patches dropped and
+16 added.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Dropped
+-------
+
+hugetlb-dont-pass-page-cache-pages-to-restore_reserve_on_error.patch
+kfence-fix-is_kfence_address-for-addresses-below-kfence_pool_size.patch
+maintainers-update-clangbuiltlinux-irc-chat.patch
+mm-hwpoison-retry-with-shake_page-for-unhandlable-pages.patch
+mm-memcontrol-fix-occasional-ooms-due-to-proportional-memorylow-reclaim.patch
+mm-page_alloc-dont-corrupt-pcppage_migratetype.patch
+mm-vmscan-fix-missing-psi-annotation-for-node_reclaim.patch
+mmflagsh-add-missing-__gfp_zerotags-and-__gfp_skip_kasan_poison-names.patch
+revert-mm-shmem-fix-shmem_swapin-race-with-swapoff.patch
+revert-mm-swap-check-if-swap-backing-device-is-congested-or-not.patch
+
+Added
+-----
+
+checkpatch-improve-git_commit_id-test-fix.patch
+checkpatch-improve-git_commit_id-test.patch
+compiler-attributes-add-__alloc_size-for-better-bounds-checking-fix.patch
+kernel-unexport-get_mmtask_exe_file.patch
+mm-memory_hotplug-fix-potential-permanent-lru-cache-disable.patch
+mm-memory_hotplug-make-hwpoisoned-dirty-swapcache-pages-unmovable.patch
+mm-memory_hotplug-use-helper-zone_is_zone_device-to-simplify-the-code.patch
+mm-migrate-change-to-use-bool-type-for-page_was_mapped.patch
+mm-migrate-fix-the-incorrect-function-name-in-comments.patch
+mm-migrate-introduce-a-local-variable-to-get-the-number-of-pages.patch
+mm-migrate-simplify-the-file-backed-pages-validation-when-migrating-its-mapping.patch
+mm-secretmem-use-refcount_t-instead-of-atomic_t.patch
+mm-unexport-folio_memcg_unlock.patch
+mm-unexport-unlock_page_memcg.patch
+mm-vmalloc-add-__alloc_size-attributes-for-better-bounds-checking.patch
+selftests-vm-use-kselftest-skip-code-for-skipped-tests.patch
+
+summary: 10 drop, 16 add, 49 modified
+# from 2021-08-20 07:38:07 +0200 to 2021-08-24 07:36:41 +0200
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+    <item>
       <title>LKML News v5.14-rc7</title>
       <link>/post/lkml_news_v5.14-rc7/</link>
       <pubDate>Tue, 17 Aug 2021 07:07:40 +0200</pubDate>
