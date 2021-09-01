@@ -13,6 +13,25 @@
     </image>
     
     <item>
+      <title>LKML News v5.15-rc1</title>
+      <link>/post/lkml_news_v5.15-rc1/</link>
+      <pubDate>Wed, 01 Sep 2021 07:28:13 +0200</pubDate>
+      <guid>/post/lkml_news_v5.15-rc1/</guid>
+      <description>&lt;h2 id=&#34;rfc-patch-mmoom-detect-and-kill-task-which-has-allocation-forbidden-by-cpuset-limit-feng-tang&#34;&gt;[RFC PATCH] mm/oom: detect and kill task which has allocation forbidden by cpuset limit (Feng Tang)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/1630399085-70431-1-git-send-email-feng.tang@intel.com&#34;&gt;https://lkml.kernel.org/r/1630399085-70431-1-git-send-email-feng.tang@intel.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Docker needs to allocate memory in non-movable zones for creation of an OS
+(e.g., &lt;code&gt;GFP_HIGHUSER&lt;/code&gt;).  However, if it is binded to a cpuset which has only
+movable zone, the allocation fails and OOM storm attacks other innocent
+processes.  This patch detects the case and kill only the allocation failing
+process.&lt;/p&gt;
+&lt;h2 id=&#34;folios-can-we-resolve-this-please-david-howells&#34;&gt;Folios: Can we resolve this please? (David Howells)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/3285174.1630448147@warthog.procyon.org.uk&#34;&gt;https://lkml.kernel.org/r/3285174.1630448147@warthog.procyon.org.uk&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;David Howells is trying to resolve the folio issue within this merge window, as
+his work also depend on the folio work.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>LKML News v5.14</title>
       <link>/post/lkml_news_v5.14/</link>
       <pubDate>Tue, 24 Aug 2021 07:29:50 +0200</pubDate>
