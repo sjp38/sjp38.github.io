@@ -627,6 +627,13 @@ his work also depend on the folio work.</p>
 <p><a href="https://lkml.kernel.org/r/20210902144820.78957dff93d7bea620d55a89@linux-foundation.org">https://lkml.kernel.org/r/20210902144820.78957dff93d7bea620d55a89@linux-foundation.org</a></p>
 <p>The first pull request from Andrew Morton for 212 patches is posted.</p>
 <p><code>Patch series &quot;Migrate Pages in lieu of discard&quot;, v11</code> is included here.</p>
+<h2 id="report-bug-to-linux-memory-management-nzyangxidianeducn">Report Bug to Linux Memory Management (<a href="mailto:nzyang@xidian.edu.cn">nzyang@xidian.edu.cn</a>)</h2>
+<p><a href="https://lkml.kernel.org/r/4f29a246.310.17bb4e8e686.Coremail.nzyang@stu.xidian.edu.cn">https://lkml.kernel.org/r/4f29a246.310.17bb4e8e686.Coremail.nzyang@stu.xidian.edu.cn</a></p>
+<p>If a system has too many dirty memory, Linux kernel tries to reduce the dirty
+ratio by running a background writeback daemon.  If it doesn&rsquo;t make progress,
+kernel makes all I/O write-through.  As a result, all I/O intensive processes
+will be slow.  This mail argues that a malicious user can make whole system
+slow by intensively dirtying its memory.</p>
 
     </div>
 

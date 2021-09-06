@@ -32,6 +32,13 @@ his work also depend on the folio work.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20210902144820.78957dff93d7bea620d55a89@linux-foundation.org&#34;&gt;https://lkml.kernel.org/r/20210902144820.78957dff93d7bea620d55a89@linux-foundation.org&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;The first pull request from Andrew Morton for 212 patches is posted.&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;Patch series &amp;quot;Migrate Pages in lieu of discard&amp;quot;, v11&lt;/code&gt; is included here.&lt;/p&gt;
+&lt;h2 id=&#34;report-bug-to-linux-memory-management-nzyangxidianeducn&#34;&gt;Report Bug to Linux Memory Management (&lt;a href=&#34;mailto:nzyang@xidian.edu.cn&#34;&gt;nzyang@xidian.edu.cn&lt;/a&gt;)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/4f29a246.310.17bb4e8e686.Coremail.nzyang@stu.xidian.edu.cn&#34;&gt;https://lkml.kernel.org/r/4f29a246.310.17bb4e8e686.Coremail.nzyang@stu.xidian.edu.cn&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;If a system has too many dirty memory, Linux kernel tries to reduce the dirty
+ratio by running a background writeback daemon.  If it doesn&amp;rsquo;t make progress,
+kernel makes all I/O write-through.  As a result, all I/O intensive processes
+will be slow.  This mail argues that a malicious user can make whole system
+slow by intensively dirtying its memory.&lt;/p&gt;
 </description>
     </item>
     
