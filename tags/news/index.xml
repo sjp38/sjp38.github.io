@@ -39,6 +39,12 @@ ratio by running a background writeback daemon.  If it doesn&amp;rsquo;t make pr
 kernel makes all I/O write-through.  As a result, all I/O intensive processes
 will be slow.  This mail argues that a malicious user can make whole system
 slow by intensively dirtying its memory.&lt;/p&gt;
+&lt;h2 id=&#34;re-patch-enable--werror-by-default-for-all-kernel-builds-guenter-roeck&#34;&gt;Re: [PATCH] Enable &amp;lsquo;-Werror&amp;rsquo; by default for all kernel builds (Guenter Roeck)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lore.kernel.org/all/20210906142615.GA1917503@roeck-us.net/&#34;&gt;https://lore.kernel.org/all/20210906142615.GA1917503@roeck-us.net/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Linus Torvalds recently enabled &lt;code&gt;-WError&lt;/code&gt; compile option, which treats every
+build warnings as error.  The intention is to make all kernel build clean.  Of
+course, it will cause many build failures.  With this mail, Guenter reports 64
+build failures among 153 builds due to this change.&lt;/p&gt;
 </description>
     </item>
     

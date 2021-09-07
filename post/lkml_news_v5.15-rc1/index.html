@@ -572,7 +572,7 @@ Folios: Can we resolve this please?"><meta property="og:image" content="/img/tux
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -634,6 +634,12 @@ ratio by running a background writeback daemon.  If it doesn&rsquo;t make progre
 kernel makes all I/O write-through.  As a result, all I/O intensive processes
 will be slow.  This mail argues that a malicious user can make whole system
 slow by intensively dirtying its memory.</p>
+<h2 id="re-patch-enable--werror-by-default-for-all-kernel-builds-guenter-roeck">Re: [PATCH] Enable &lsquo;-Werror&rsquo; by default for all kernel builds (Guenter Roeck)</h2>
+<p><a href="https://lore.kernel.org/all/20210906142615.GA1917503@roeck-us.net/">https://lore.kernel.org/all/20210906142615.GA1917503@roeck-us.net/</a></p>
+<p>Linus Torvalds recently enabled <code>-WError</code> compile option, which treats every
+build warnings as error.  The intention is to make all kernel build clean.  Of
+course, it will cause many build failures.  With this mail, Guenter reports 64
+build failures among 153 builds due to this change.</p>
 
     </div>
 
