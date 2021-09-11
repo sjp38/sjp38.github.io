@@ -116,7 +116,7 @@ $ # open wss.pdf and freq.pdf with our favorite pdf viewer
       <link>/ko/post/damon/</link>
       <pubDate>Fri, 27 Dec 2019 18:21:07 +0100</pubDate>
       <guid>/ko/post/damon/</guid>
-      <description>&lt;p&gt;Modern workloads tend to have huge working sets and low locality.  Despite this
+      <description>&lt;p&gt;Modern workloads tend to have huge working sets and low locality. Despite this
 trend, the capacity of DRAM has not been increased enough to accommodate such
 huge working sets. Therefore, memory management mechanisms optimized for such
 modern workloads are widely required today. For such optimizations, knowing the
@@ -124,13 +124,24 @@ data access pattern of given workloads is essential. However, manually
 extracting such patterns from huge and complex workloads is exhaustive. Worse
 yet, existing memory access analysis tools incur unacceptably high overheads
 for unnecessarily detailed analysis results.&lt;/p&gt;
-&lt;p&gt;To mitigate this situation, we introduce a tool that is designed for data
-access pattern tracing. Two core mechanisms in this tool, a region-based
-sampling and an adaptive region adjustment, allow users to limit the tracing
-overhead in a bounded range regardless of the size and complexity of target
-workloads, while preserving the quality of results. Our empirical evaluations
-that conducted with 20 realistic workloads show the high quality, low overhead,
-and a potential use case of this tool.&lt;/p&gt;
+&lt;p&gt;DAMON is a data access monitoring framework subsystem for the Linux kernel.  It
+mitigates the problems with its core mechanisms (refer to
+&lt;a href=&#34;https://damonitor.github.io/doc/html/latest/vm/damon/design.html&#34;&gt;Design&lt;/a&gt; for
+the detail), which make it&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;accurate (the monitoring output is useful enough for DRAM level memory
+management; It might not appropriate for CPU Cache levels, though),&lt;/li&gt;
+&lt;li&gt;light-weight (the monitoring overhead is low enough to be applied online),
+and&lt;/li&gt;
+&lt;li&gt;scalable (the upper-bound of the overhead is in constant range regardless of
+the size of target workloads).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Using this framework, therefore, the kernel’s memory management mechanisms can
+make advanced decisions. Experimental memory management optimization works that
+incurring high data accesses monitoring overhead could implemented again. In
+user space, meanwhile, users who have some special workloads can write
+personalized applications for better understanding and optimizations of their
+workloads and systems.&lt;/p&gt;
 &lt;h2 id=&#34;demo-video&#34;&gt;Demo Video&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;/img/damo_monitor_water_nsquared.gif&#34; alt=&#34;damo monitor for water_nsquared&#34;&gt;&lt;/p&gt;
 
@@ -155,36 +166,107 @@ packages system, &lt;a href=&#34;https://pypi.org/project/damo/&#34;&gt;PyPi&lt;
 in the -mm tree&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;2021-07-27&lt;/em&gt;: LWN published a second
 &lt;a href=&#34;https://lwn.net/Articles/863753/&#34;&gt;article&lt;/a&gt; introducing DAMON patchset series&lt;/p&gt;
+&lt;h2 id=&#34;getting-started&#34;&gt;Getting Started&lt;/h2&gt;
+&lt;p&gt;You can start using DAMON by&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;installing &lt;a href=&#34;#install&#34;&gt;DAMON-enabled kernel&lt;/a&gt; and its
+&lt;a href=&#34;#user-space-tool&#34;&gt;user-space tool&lt;/a&gt;,&lt;/li&gt;
+&lt;li&gt;following the &lt;a href=&#34;https://github.com/awslabs/damo#getting-started&#34;&gt;tutorial&lt;/a&gt; of
+the user-space tool, and&lt;/li&gt;
+&lt;li&gt;run the automated &lt;a href=&#34;#tests-package&#34;&gt;tests suite&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;By following those, you will be able to check if DAMON works on your machine
+and know how you can use it.&lt;/p&gt;
+&lt;h2 id=&#34;install&#34;&gt;Install&lt;/h2&gt;
+&lt;p&gt;DAMON is implemented in the Linux kernel, so you should install DAMON-enabled
+Linux kernel to use it.  To check if you&amp;rsquo;re already running DAMON-enabled
+kernel, you could:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ grep CONFIG_DAMON /boot/config-$(uname -r)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;If you are an &lt;a href=&#34;https://aws.amazon.com/amazon-linux-2/&#34;&gt;Amazon Linux 2&lt;/a&gt; user,
+you can install a DAMON-enabled Linux kernel which based on v5.4 or v5.10 using
+&lt;a href=&#34;https://aws.amazon.com/premiumsupport/knowledge-center/ec2-install-extras-library-software/&#34;&gt;amazon-linux-extras&lt;/a&gt;
+like below:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ sudo yum install -y amazon-linux-extras
+$ sudo amazon-linux-extras install kernel-&amp;lt;5.4 or 5.10&amp;gt;
+$ sudo reboot
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;If your package system doesn&amp;rsquo;t have DAMON-enabled kernel in the list, you can
+[fetch](#source code) a DAMON-merged Linux kernel source tree, build, and
+install it.  Note that you should enable kernel configuration options for
+DAMON, depending on your demands.  For example:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ cd $THE_FETCHED_DAMON_KERNEL_SOURCE_TREE
+$ make olddefconfig
+$ echo &#39;CONFIG_DAMON=y&#39; &amp;gt;&amp;gt; /.config
+$ echo &#39;CONFIG_DAMON_KUNIT_TEST=y&#39; &amp;gt;&amp;gt; /.config
+$ echo &#39;CONFIG_DAMON_VADDR=y&#39; &amp;gt;&amp;gt; /.config
+$ echo &#39;CONFIG_DAMON_PADDR=y&#39; &amp;gt;&amp;gt; /.config
+$ echo &#39;CONFIG_DAMON_PGIDLE=y&#39; &amp;gt;&amp;gt; /.config
+$ echo &#39;CONFIG_DAMON_VADDR_KUNIT_TEST=y&#39; &amp;gt;&amp;gt; /.config
+$ echo &#39;CONFIG_DAMON_DBGFS=y&#39; &amp;gt;&amp;gt; /.config
+$ echo &#39;CONFIG_DAMON_DBGFS_KUNIT_TEST=y&#39; &amp;gt;&amp;gt; /.config
+$ echo &#39;CONFIG_DAMON_RECLAIM=y&#39; &amp;gt;&amp;gt; /.config
+$ make -j$(nproc)
+# make modules_install install
+&lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;source-code&#34;&gt;Source Code&lt;/h2&gt;
-&lt;p&gt;There are a couple of trees for entire DAMON patchset series.  Those includes
-not only patches that posted to LKML, but also those for future postings.&lt;/p&gt;
+&lt;p&gt;There are several DAMON-merged Linux kernel source trees for different users.
+You may pick one among those based on your needs.&lt;/p&gt;
+&lt;p&gt;For users who want only a stable version of DAMON, below trees are available.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Linus Torvalds&amp;rsquo;
+&lt;a href=&#34;https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git&#34;&gt;mainline tree&lt;/a&gt;
+contains the latest stable version of DAMON.&lt;/li&gt;
+&lt;li&gt;Amazon Linux 2
+&lt;a href=&#34;https://github.com/amazonlinux/linux/tree/amazon-5.10.y/master&#34;&gt;v5.10.y tree&lt;/a&gt;
+and
+&lt;a href=&#34;https://github.com/amazonlinux/linux/tree/amazon-5.4.y/master&#34;&gt;v5.4.y tree&lt;/a&gt;
+contains more recent version of DAMON, which back-ported on v5.10.y and
+v5.4.y, respectively.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you have interest in DAMON features under development, below trees will be
+appropriate.  Those trees contain latest version of DAMON which having features
+under development.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/sjp38/linux/tree/damon/master&#34;&gt;damon/master&lt;/a&gt;
-contains the snapshot of the tree for the last release, and&lt;/li&gt;
+contains the snapshot of the tree for the last release, so relatively stable
+and only not so frequently updated.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/sjp38/linux/tree/damon/next&#34;&gt;damon/next&lt;/a&gt; contains the
-changes for the next release.&lt;/li&gt;
+changes for the next release, so likely unstable and frequently updated.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;For people who using LTS kernels as their baseline, there are another couple of
-trees that respectively based on two latest LTS kernels and has backported
-DAMON patches.  Currently, below two trees for v5.4.y and v5.10.y exist.&lt;/p&gt;
+&lt;p&gt;For people who have interst in DAMON features under development and use LTS
+kernels as their baseline, there are couple of trees that respectively based on
+two latest LTS kernels.  DAMON of the &lt;a href=&#34;https://github.com/sjp38/linux/tree/damon/master&#34;&gt;master
+tree&lt;/a&gt; is backported in there.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/sjp38/linux/tree/damon/for-v5.4.y&#34;&gt;damon/for-v5.4.y&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/sjp38/linux/tree/damon/for-v5.10.y&#34;&gt;damon/for-v5.10.y&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;The source code of DAPTRACE, which is a prototype of DAMON, is also
 &lt;a href=&#34;https://github.com/daptrace&#34;&gt;available&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;user-space-tool&#34;&gt;User-space Tool&lt;/h2&gt;
+&lt;p&gt;A user-space tool for DAMON, which is called
+&lt;a href=&#34;https://github.com/awslabs/damo&#34;&gt;DAMO&lt;/a&gt; is available.  It&amp;rsquo;s also available at
+&lt;a href=&#34;https://pypi.org/project/damo/&#34;&gt;PyPi&lt;/a&gt;.  You may start using DAMON by following
+the &lt;a href=&#34;https://github.com/awslabs/damo#getting-started&#34;&gt;Getting Started&lt;/a&gt; of the
+tool for start.&lt;/p&gt;
+&lt;h2 id=&#34;tests-package&#34;&gt;Tests Package&lt;/h2&gt;
+&lt;p&gt;There is an automated &lt;a href=&#34;https://github.com/awslabs/damon-tests&#34;&gt;tests suite&lt;/a&gt; for
+correctness verification and performance evaluation of DAMON.  Those are
+actively used for the development of DAMON.  Using that, you can test DAMON on
+your machine with only a few simple commands or deeply understand the user
+interface of DAMON.&lt;/p&gt;
+&lt;p&gt;So, if you finished the
+&lt;a href=&#34;https://github.com/awslabs/damo#getting-started&#34;&gt;tutorial&lt;/a&gt; but have no idea
+about what to do next, running the tests would be a good start.  If any test
+fails, please report that to the maintainer via mail (&lt;a href=&#34;mailto:sjpark@amazon.de&#34;&gt;sjpark@amazon.de&lt;/a&gt;) or
+&lt;a href=&#34;https://github.com/awslabs/damo/issues&#34;&gt;github&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;official-document&#34;&gt;Official Document&lt;/h2&gt;
 &lt;p&gt;The DAMON official document for the
 &lt;a href=&#34;https://damonitor.github.io/doc/html/next/&#34;&gt;next&lt;/a&gt;
 and the
 &lt;a href=&#34;https://damonitor.github.io/doc/html/latest/&#34;&gt;latest&lt;/a&gt;
 releases are available online.&lt;/p&gt;
-&lt;h2 id=&#34;tests-package&#34;&gt;Tests Package&lt;/h2&gt;
-&lt;p&gt;There are &lt;a href=&#34;https://github.com/awslabs/damon-tests&#34;&gt;tests&lt;/a&gt; for correctness
-verification and performance evaluation of DAMON that used for DAMON
-development.  A package of the tets is available as open source under GPL v2
-license.  Using that, you can test DAMON on your machine with only a few simple
-commands or deeply understand the user interface of DAMON.&lt;/p&gt;
 &lt;h2 id=&#34;showcase-website&#34;&gt;Showcase Website&lt;/h2&gt;
 &lt;p&gt;There is a showcase web &lt;a href=&#34;https://damonitor.github.io/_index&#34;&gt;site&lt;/a&gt; that you can
 get more information of DAMON.
@@ -210,6 +292,10 @@ and&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;publications-and-presentations&#34;&gt;Publications and Presentations&lt;/h2&gt;
 &lt;ul&gt;
+&lt;li&gt;SeongJae Park, &lt;strong&gt;Writing a fine-grained access pattern oriented lightweight
+kernel module using DAMON/DAMOS in 10 minutes.&lt;/strong&gt;
+In &lt;em&gt;The Linux Kernel Summit&lt;/em&gt;, September 2021.
+&lt;a href=&#34;https://linuxplumbersconf.org/event/11/contributions/984/&#34;&gt;Link&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Jonathan Corbet, &lt;strong&gt;Using DAMON for proactive reclaim.&lt;/strong&gt; In Linux Weekly News,
 July 2021.  &lt;a href=&#34;https://lwn.net/Articles/863753/&#34;&gt;Article&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;SeongJae Park, &lt;strong&gt;DAMON: Data Access Monitoring Framework for Fun and Memory
