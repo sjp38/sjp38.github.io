@@ -530,6 +530,8 @@
       
       [PATCH v1] vmpressure: wake up work only when there is registration event (wangyong) https://lkml.kernel.org/r/1631548441-2784-1-git-send-email-wang.yong12@zte.com.cn
 Currently, vmpressure works are awaken even though there are no vmpressure callbacks. This commit avoids such unnecessary wakeup by counting the number of registered events and skip waking up works if the number is zero.
+[PATCH v3 00/76] Optimize list lru memory consumption (Muchun Song) https://lkml.kernel.org/r/20210914072938.6440-1-songmuchun@bytedance.com
+Muchun found kmalloc-32 for list_lru_one allocation consuming 6 GiB of memory on their server.
       
     </div>
   </div>

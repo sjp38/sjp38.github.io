@@ -29,7 +29,9 @@
     
   
   <meta name="description" content="[PATCH v1] vmpressure: wake up work only when there is registration event (wangyong) https://lkml.kernel.org/r/1631548441-2784-1-git-send-email-wang.yong12@zte.com.cn
-Currently, vmpressure works are awaken even though there are no vmpressure callbacks. This commit avoids such unnecessary wakeup by counting the number of registered events and skip waking up works if the number is zero.">
+Currently, vmpressure works are awaken even though there are no vmpressure callbacks. This commit avoids such unnecessary wakeup by counting the number of registered events and skip waking up works if the number is zero.
+[PATCH v3 00/76] Optimize list lru memory consumption (Muchun Song) https://lkml.kernel.org/r/20210914072938.6440-1-songmuchun@bytedance.com
+Muchun found kmalloc-32 for list_lru_one allocation consuming 6 GiB of memory on their server.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/lkml_news_v5.15-rc2/">
@@ -152,7 +154,9 @@ Currently, vmpressure works are awaken even though there are no vmpressure callb
   <meta property="og:url" content="/post/lkml_news_v5.15-rc2/">
   <meta property="og:title" content="LKML News v5.15-rc2 | hacklog">
   <meta property="og:description" content="[PATCH v1] vmpressure: wake up work only when there is registration event (wangyong) https://lkml.kernel.org/r/1631548441-2784-1-git-send-email-wang.yong12@zte.com.cn
-Currently, vmpressure works are awaken even though there are no vmpressure callbacks. This commit avoids such unnecessary wakeup by counting the number of registered events and skip waking up works if the number is zero."><meta property="og:image" content="/img/tux.png">
+Currently, vmpressure works are awaken even though there are no vmpressure callbacks. This commit avoids such unnecessary wakeup by counting the number of registered events and skip waking up works if the number is zero.
+[PATCH v3 00/76] Optimize list lru memory consumption (Muchun Song) https://lkml.kernel.org/r/20210914072938.6440-1-songmuchun@bytedance.com
+Muchun found kmalloc-32 for list_lru_one allocation consuming 6 GiB of memory on their server."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -204,7 +208,7 @@ Currently, vmpressure works are awaken even though there are no vmpressure callb
       "url": "/img/icon-512.png"
     }
   },
-  "description": "[PATCH v1] vmpressure: wake up work only when there is registration event (wangyong) https://lkml.kernel.org/r/1631548441-2784-1-git-send-email-wang.yong12@zte.com.cn\nCurrently, vmpressure works are awaken even though there are no vmpressure callbacks. This commit avoids such unnecessary wakeup by counting the number of registered events and skip waking up works if the number is zero."
+  "description": "[PATCH v1] vmpressure: wake up work only when there is registration event (wangyong) https://lkml.kernel.org/r/1631548441-2784-1-git-send-email-wang.yong12@zte.com.cn\nCurrently, vmpressure works are awaken even though there are no vmpressure callbacks. This commit avoids such unnecessary wakeup by counting the number of registered events and skip waking up works if the number is zero.\n[PATCH v3 00/76] Optimize list lru memory consumption (Muchun Song) https://lkml.kernel.org/r/20210914072938.6440-1-songmuchun@bytedance.com\nMuchun found kmalloc-32 for list_lru_one allocation consuming 6 GiB of memory on their server."
 }
 </script>
 
@@ -615,6 +619,14 @@ Currently, vmpressure works are awaken even though there are no vmpressure callb
 <p>Currently, vmpressure works are awaken even though there are no vmpressure
 callbacks.  This commit avoids such unnecessary wakeup by counting the number
 of registered events and skip waking up works if the number is zero.</p>
+<h2 id="patch-v3-0076-optimize-list-lru-memory-consumption-muchun-song">[PATCH v3 00/76] Optimize list lru memory consumption (Muchun Song)</h2>
+<p><a href="https://lkml.kernel.org/r/20210914072938.6440-1-songmuchun@bytedance.com">https://lkml.kernel.org/r/20210914072938.6440-1-songmuchun@bytedance.com</a></p>
+<p>Muchun found <code>kmalloc-32</code> for <code>list_lru_one</code> allocation consuming 6 GiB of memory
+on their server.  That came from a large number of containers.  This patchset
+aims to optimize the memory consumption by adding the memcg to the list_lru at
+the first insert, rather than instantiating all at memcg init time.</p>
+<p>For creating 10,000 memcg and mounting 10,000 filesystems, this patchset
+reduced the memory consumption from 24 GiB to 4 GiB.</p>
 
     </div>
 
