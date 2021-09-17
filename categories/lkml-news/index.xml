@@ -36,6 +36,20 @@ reduced the memory consumption from 24 GiB to 4 GiB.&lt;/p&gt;
 developer he is eagerly looking forward to what Folios will enable.  For the
 reason, he suggests to have a maintainer summit topic for Folio.  In detail,
 take a place in a LPC BOF room in Friday.&lt;/p&gt;
+&lt;h2 id=&#34;patch-02-fix-numa-without-smp-geert-uytterhoeven&#34;&gt;[PATCH 0/2] Fix NUMA without SMP (Geert Uytterhoeven)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/cover.1631781495.git.geert+renesas@glider.be&#34;&gt;https://lkml.kernel.org/r/cover.1631781495.git.geert+renesas@glider.be&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;There are variables and functions which are used by the NUMA code for SMP-only
+case.  This causes build errors for SuperH architecture, which supports NUMA
+without SMP.  This patch fixes it.&lt;/p&gt;
+&lt;h2 id=&#34;patch-mm-add-ztree---new-allocator-for-use-via-zpool-api-ananda-badmaev&#34;&gt;[PATCH] mm: add ztree - new allocator for use via zpool API (Ananda Badmaev)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20210916085102.19310-1-a.badmaev@clicknet.pro&#34;&gt;https://lkml.kernel.org/r/20210916085102.19310-1-a.badmaev@clicknet.pro&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This patch provides a backend for zswap, which uses red-black trees for storing
+compressed objects blocks.  This might be able to be used by zram, either.&lt;/p&gt;
+&lt;h2 id=&#34;mmotm-2021-09-16-14-00-uploaded-andrew-morton&#34;&gt;mmotm 2021-09-16-14-00 uploaded (Andrew Morton)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20210916210058.KrWpsFx8b%akpm@linux-foundation.org&#34;&gt;https://lkml.kernel.org/r/20210916210058.KrWpsFx8b%akpm@linux-foundation.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Andrew updated the first mmotm after v5.15 merge window had opened.  Compared
+to the last mmotm before the merge window, 351 patches dropped, 74 patches
+added, and 23 patches modified.&lt;/p&gt;
 </description>
     </item>
     
