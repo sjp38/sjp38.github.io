@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2021-09-14T07:07:26&#43;02:00">
+    <meta property="og:updated_time" content="2021-09-20T07:48:48&#43;02:00">
   
 
   
@@ -525,6 +525,19 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.10-rc4/">LKML News v5.10-rc4</a></h2>
+    <div class="article-style">
+      
+      [PATCH -V3 0/2] autonuma: Migrate on fault among multiple bound nodes (Huang Ying) https://lkml.kernel.org/r/20201110055951.85085-1-ying.huang@intel.com
+This patchset makes AutoNUMA&rsquo;s cross-socket memory access optimization possible even if the application&rsquo;s memory is bound to multiple NUMA nodes.
+[PATCH] kfence: Avoid stalling work queue task without allocations (Marco Elver) https://lkml.kernel.org/r/20201110135320.3309507-1-elver@google.com
+This commit makes the toggle allocation gate of kfence to have 1 second timeout, to be prepared for allocation stallings.
+[RFC PATCH 0/6] Split huge pages to any lower order pages.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.10-rc3/">LKML News v5.10-rc3</a></h2>
     <div class="article-style">
       
@@ -640,18 +653,6 @@ After the rejection, this patchset posted again. Linus&rsquo;s opinion about dro
 And, this patchset merged in the &lsquo;-mm&rsquo; tree again. Hopefully it will be merged in mainline by 5.10!
 [PATCH v6 0/3] Anonymous VMA naming patches (Sumit Semwal) https://lkml.kernel.org/r/20200901091901.19779-1-sumit.semwal@linaro.org
 This is reposting of old patchset which Colin Cross sent before.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.9-rc3/">LkML New v5.9-rc3</a></h2>
-    <div class="article-style">
-      
-      [RFC -V3 0/5] autonuma: Optimize memory placement for memory tiering system (Huang Ying) https://lkml.kernel.org/r/20200825002354.17038-1-ying.huang@intel.com
-The third RFC of autonuma for help placing of data items on systems utilizing both DRAM and PMEM as different NUMA nodes.
-Linux 5.9-rc3 https://lkml.kernel.org/r/CAHk-=wiD1yujm_WvWLYL7gZsWMvZyWMg1rfU7dWmnYYc3a7Gsg@mail.gmail.com
-This week rc release is also quite normal. The &lsquo;fallthought&rsquo; comment conversion made fairly evenly distributed changes. Torvalds says it was quite calm. Indeed, only one patchset got my interest this week.
       
     </div>
   </div>

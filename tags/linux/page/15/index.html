@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2021-09-14T07:07:26&#43;02:00">
+    <meta property="og:updated_time" content="2021-09-20T07:48:48&#43;02:00">
   
 
   
@@ -525,6 +525,20 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v4.20-rc5/">LKML News by 4.20-rc5</a></h2>
+    <div class="article-style">
+      
+      [PATCH V12 00/20] block: support multi-page bvec https://lkml.kernel.org/r/20181126021720.19471-1-ming.lei@redhat.com
+struct bio_bvec 하나가 물리적으로 연속적인 여러개의 페이지를 담을 수 있게 해서 block layer 의 효율성을 높이기 위한 시도입니다.
+[PATCH] aio: Convert ioctx_table to XArray https://lkml.kernel.org/r/20181128183531.5139-1-willy@infradead.org
+aio 쪽의 ioctx_table 이라는 자료구조가 스펙터에 취약한 자료구조인데, 인덱스 오버플로 문제가 없는 XArray 로 교체하는 패치입니다. 정말 코드가 깔끔해지는군요.
+[PATCH 0/4][V4] drop the mmap_sem when doing IO in the fault path https://lkml.kernel.org/r/20181130195812.19536-1-josef@toxicpanda.com
+ps 등의 도구를 사용해 시스템 상황을 모니터링하는 커다란 어플리케이션을 사용 중인데, 이 과정에서 다른 task 의 mmap_sem 을 down_read() 해야 하는 경우가 종종 생긴다는군요.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v4.20-rc4/">LKML News by v4.20-rc4</a></h2>
     <div class="article-style">
       
@@ -618,19 +632,6 @@ THP 를 한방에 swap out / swap in 하는 Huang Ying 의 패치, 여섯번째 
       
       Linux 4.19-rc6 https://lkml.kernel.org/r/20180930150308.GA5010@kroah.com
 이번주도 Greg 에 의해 여섯번째 rc 버전이 릴리즈 되었습니다. 평소 일정대로면 2주일 후 4.19 정식 버전이 릴리즈 될텐데, 아마도 그때까지도 Greg 이 릴리즈 하지 않을까 싶기도 하군요. 전체적으로 특이사항은 없고 Greg 의 시스템에서는 잘 동작하고 있으며 별다른 이슈를 보고받지도 못했다는군요.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.19-rc5/">LKML News after v4.19-rc5</a></h2>
-    <div class="article-style">
-      
-      Linux 4.19-rc5 https://lkml.kernel.org/r/20180923175547.GA4462@kroah.com
-지난주 토발즈가 휴식을 선언한 이유로 한동안 릴리즈는 Greg 이 맡게 되었죠. 이번 릴리즈는 그래서 Greg 이 합니다.
-사회적으로야 이런저런 일이 많았지만 (토발즈의 휴가, Code of Conduct 머지에 관련해 갑론을박이 많군요.) 기술적으로는 별 일 없었던 한주라 평가되는군요.
-사소하지만 재밌는 건 Greg 의 자기 서명. greg &quot;keeping the seat warm for a few weeks&quot; k-h 라고 하는군요. 토발즈가 휴가 가있는 동안 의자를 뎁혀 두는 역할이라는 겸손함이 눈에 띄네요.
-[PATCH -V5 RESEND 00/21] swap: Swapout/swapin THP in one piece https://lkml.
       
     </div>
   </div>

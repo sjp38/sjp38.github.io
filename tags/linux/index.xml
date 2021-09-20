@@ -5,12 +5,24 @@
     <link>/tags/linux/</link>
       <atom:link href="/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     <description>linux</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 14 Sep 2021 07:07:26 +0200</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Mon, 20 Sep 2021 07:48:48 +0200</lastBuildDate>
     <image>
       <url>/img/tux.png</url>
       <title>linux</title>
       <link>/tags/linux/</link>
     </image>
+    
+    <item>
+      <title>LKML News v5.15-rc3</title>
+      <link>/post/lkml_news_v5.15-rc3/</link>
+      <pubDate>Mon, 20 Sep 2021 07:48:48 +0200</pubDate>
+      <guid>/post/lkml_news_v5.15-rc3/</guid>
+      <description>&lt;h2 id=&#34;rfc-patch-introducing-lockless-cache-built-on-top-of-slab-allocator-hyeonggon-yoo&#34;&gt;[RFC PATCH] Introducing lockless cache built on top of slab allocator (Hyeonggon Yoo)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20210919164239.49905-1-42.hyeyoo@gmail.com&#34;&gt;https://lkml.kernel.org/r/20210919164239.49905-1-42.hyeyoo@gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The block layer now has a lockless cache, which increased its IOPS.  This RFC
+generalizes it so that it can be used in some other area, such as NAPI.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>LKML News v5.15-rc2</title>
@@ -50,6 +62,23 @@ compressed objects blocks.  This might be able to be used by zram, either.&lt;/p
 &lt;p&gt;Andrew updated the first mmotm after v5.15 merge window had opened.  Compared
 to the last mmotm before the merge window, 351 patches dropped, 74 patches
 added, and 23 patches modified.&lt;/p&gt;
+&lt;h2 id=&#34;linux-515-rc2-linus-torvalds&#34;&gt;Linux 5.15-rc2 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wirexiZR+VO=H3xemGKOMkh8OasmXaKXTKUmAKYCzi8AQ@mail.gmail.com/&#34;&gt;https://lkml.kernel.org/r/CAHk-=wirexiZR+VO=H3xemGKOMkh8OasmXaKXTKUmAKYCzi8AQ@mail.gmail.com/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Due to the &lt;code&gt;Werror&lt;/code&gt; change, Linus spent lots of time for the build warning
+fixes.  Thouh the change has been not default, Linus apparently wants to
+eliminate all the warnings.  The work is not complete yet, but he really hopes
+the kernel to built without warning.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v5.4-rc2..v5.15-rc2.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
+below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2019-09-20 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And, below is the diffstat of the -rc2 releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v5.15-rc2-only.png&#34; alt=&#34;rc2 release stat&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     

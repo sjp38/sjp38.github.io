@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2021-09-14T07:07:26&#43;02:00">
+    <meta property="og:updated_time" content="2021-09-20T07:48:48&#43;02:00">
   
 
   
@@ -525,6 +525,16 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.15-rc3/">LKML News v5.15-rc3</a></h2>
+    <div class="article-style">
+      
+      [RFC PATCH] Introducing lockless cache built on top of slab allocator (Hyeonggon Yoo) https://lkml.kernel.org/r/20210919164239.49905-1-42.hyeyoo@gmail.com
+The block layer now has a lockless cache, which increased its IOPS. This RFC generalizes it so that it can be used in some other area, such as NAPI.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.15-rc2/">LKML News v5.15-rc2</a></h2>
     <div class="article-style">
       
@@ -633,20 +643,6 @@ This patchset frees user PTE page table pages when all PTE entries are empty, to
 [PATCH v15 00/17] Folio support in block + iomap layers (Matthew Wilcox) https://lkml.kernel.org/r/20210719184001.1750630-1-willy@infradead.org
 Seems memory folios patchset is now merged in -mm tree and -next tree. This patchset further updates iomap to use folios.
 Runtime Memory Validation in Intel-TDX and AMD-SNP (Joerg Roedel) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.14-rc2/">LKML News v5.14-rc2</a></h2>
-    <div class="article-style">
-      
-      [PATCH v6 0/6] Introduce multi-preference mempolicy (Feng Tang) https://lkml.kernel.org/r/1626077374-81682-1-git-send-email-feng.tang@intel.com
-Six version of the patchset that allows applications to set multiple preferred memory policy.
-[PATCH v1] madvise.2: Document MADV_POPULATE_READ and MADV_POPULATE_WRITE (David Hildenbrand) https://lkml.kernel.org/r/20210712083917.16361-1-david@redhat.com
-This patch documents the new madvise() options, MADV_POPULATE_(READ|WRITE).
-Request for folios (David Howells) https://lkml.kernel.org/r/3398985.1626104609@warthog.procyon.org.uk
-David is working for improving local filesystem&rsquo;s caching and network filesystem support library. He thinks the folio work would make his work easier, though it also makes some of his work challenging.
       
     </div>
   </div>
