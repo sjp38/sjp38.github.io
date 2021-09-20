@@ -64,6 +64,15 @@ application.&lt;/p&gt;
 on Google&amp;rsquo;s warehouse scale computing.  The optimization is mostly based on
 some model-based heuristics.  It&amp;rsquo;s description on TCMALLOC internal and the
 problem background is quite useful.&lt;/p&gt;
+&lt;h2 id=&#34;nap-a-black-box-approach-to-numa-aware-persistent-memory-indexes&#34;&gt;Nap: A Black-Box Approach to NUMA-Aware Persistent Memory Indexes&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.usenix.org/conference/osdi21/presentation/wang-qing&#34;&gt;https://www.usenix.org/conference/osdi21/presentation/wang-qing&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Intel released Optane PM DIMM, so real PM world has already started long time
+ago.  This paper explores the performance of the PM indexing on NUMA systems.
+It finds PM performance is degraded on NUMA systems, and current NUMA-aware PM
+indexing systems are not working good enough for NUMA systems.  Based on
+findings that most of the real world workloads have highly skewed access
+pattern, the authors implemented a system called Nap, which translates the PM
+indexing to be NUMA-awared.&lt;/p&gt;
 </description>
     </item>
     
