@@ -530,6 +530,8 @@
       
       [RFC PATCH] Introducing lockless cache built on top of slab allocator (Hyeonggon Yoo) https://lkml.kernel.org/r/20210919164239.49905-1-42.hyeyoo@gmail.com
 The block layer now has a lockless cache, which increased its IOPS. This RFC generalizes it so that it can be used in some other area, such as NAPI.
+[PATCH v5 0/3] virtio-mem: disallow mapping virtio-mem memory via /dev/mem (David Hildenbrand) https://lkml.kernel.org/r/20210920142856.17758-1-david@redhat.com
+This patchset makes a basic infrastructure to exclude some physical memory regions that marked as IORESOURCE_SYSTEM_RAM from /dev/mem access, even though they are not marked as IORESOURCE_BUSY.
       
     </div>
   </div>

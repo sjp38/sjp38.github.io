@@ -21,6 +21,11 @@
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20210919164239.49905-1-42.hyeyoo@gmail.com&#34;&gt;https://lkml.kernel.org/r/20210919164239.49905-1-42.hyeyoo@gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;The block layer now has a lockless cache, which increased its IOPS.  This RFC
 generalizes it so that it can be used in some other area, such as NAPI.&lt;/p&gt;
+&lt;h2 id=&#34;patch-v5-03-virtio-mem-disallow-mapping-virtio-mem-memory-via-devmem-david-hildenbrand&#34;&gt;[PATCH v5 0/3] virtio-mem: disallow mapping virtio-mem memory via /dev/mem (David Hildenbrand)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20210920142856.17758-1-david@redhat.com&#34;&gt;https://lkml.kernel.org/r/20210920142856.17758-1-david@redhat.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This patchset makes a basic infrastructure to exclude some physical memory
+regions that marked as &lt;code&gt;IORESOURCE_SYSTEM_RAM&lt;/code&gt; from &lt;code&gt;/dev/mem&lt;/code&gt; access, even
+though they are not marked as &lt;code&gt;IORESOURCE_BUSY&lt;/code&gt;.&lt;/p&gt;
 </description>
     </item>
     

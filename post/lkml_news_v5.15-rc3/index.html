@@ -29,7 +29,9 @@
     
   
   <meta name="description" content="[RFC PATCH] Introducing lockless cache built on top of slab allocator (Hyeonggon Yoo) https://lkml.kernel.org/r/20210919164239.49905-1-42.hyeyoo@gmail.com
-The block layer now has a lockless cache, which increased its IOPS. This RFC generalizes it so that it can be used in some other area, such as NAPI.">
+The block layer now has a lockless cache, which increased its IOPS. This RFC generalizes it so that it can be used in some other area, such as NAPI.
+[PATCH v5 0/3] virtio-mem: disallow mapping virtio-mem memory via /dev/mem (David Hildenbrand) https://lkml.kernel.org/r/20210920142856.17758-1-david@redhat.com
+This patchset makes a basic infrastructure to exclude some physical memory regions that marked as IORESOURCE_SYSTEM_RAM from /dev/mem access, even though they are not marked as IORESOURCE_BUSY.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/lkml_news_v5.15-rc3/">
@@ -152,7 +154,9 @@ The block layer now has a lockless cache, which increased its IOPS. This RFC gen
   <meta property="og:url" content="/post/lkml_news_v5.15-rc3/">
   <meta property="og:title" content="LKML News v5.15-rc3 | hacklog">
   <meta property="og:description" content="[RFC PATCH] Introducing lockless cache built on top of slab allocator (Hyeonggon Yoo) https://lkml.kernel.org/r/20210919164239.49905-1-42.hyeyoo@gmail.com
-The block layer now has a lockless cache, which increased its IOPS. This RFC generalizes it so that it can be used in some other area, such as NAPI."><meta property="og:image" content="/img/tux.png">
+The block layer now has a lockless cache, which increased its IOPS. This RFC generalizes it so that it can be used in some other area, such as NAPI.
+[PATCH v5 0/3] virtio-mem: disallow mapping virtio-mem memory via /dev/mem (David Hildenbrand) https://lkml.kernel.org/r/20210920142856.17758-1-david@redhat.com
+This patchset makes a basic infrastructure to exclude some physical memory regions that marked as IORESOURCE_SYSTEM_RAM from /dev/mem access, even though they are not marked as IORESOURCE_BUSY."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -204,7 +208,7 @@ The block layer now has a lockless cache, which increased its IOPS. This RFC gen
       "url": "/img/icon-512.png"
     }
   },
-  "description": "[RFC PATCH] Introducing lockless cache built on top of slab allocator (Hyeonggon Yoo) https://lkml.kernel.org/r/20210919164239.49905-1-42.hyeyoo@gmail.com\nThe block layer now has a lockless cache, which increased its IOPS. This RFC generalizes it so that it can be used in some other area, such as NAPI."
+  "description": "[RFC PATCH] Introducing lockless cache built on top of slab allocator (Hyeonggon Yoo) https://lkml.kernel.org/r/20210919164239.49905-1-42.hyeyoo@gmail.com\nThe block layer now has a lockless cache, which increased its IOPS. This RFC generalizes it so that it can be used in some other area, such as NAPI.\n[PATCH v5 0/3] virtio-mem: disallow mapping virtio-mem memory via /dev/mem (David Hildenbrand) https://lkml.kernel.org/r/20210920142856.17758-1-david@redhat.com\nThis patchset makes a basic infrastructure to exclude some physical memory regions that marked as IORESOURCE_SYSTEM_RAM from /dev/mem access, even though they are not marked as IORESOURCE_BUSY."
 }
 </script>
 
@@ -614,6 +618,11 @@ The block layer now has a lockless cache, which increased its IOPS. This RFC gen
 <p><a href="https://lkml.kernel.org/r/20210919164239.49905-1-42.hyeyoo@gmail.com">https://lkml.kernel.org/r/20210919164239.49905-1-42.hyeyoo@gmail.com</a></p>
 <p>The block layer now has a lockless cache, which increased its IOPS.  This RFC
 generalizes it so that it can be used in some other area, such as NAPI.</p>
+<h2 id="patch-v5-03-virtio-mem-disallow-mapping-virtio-mem-memory-via-devmem-david-hildenbrand">[PATCH v5 0/3] virtio-mem: disallow mapping virtio-mem memory via /dev/mem (David Hildenbrand)</h2>
+<p><a href="https://lkml.kernel.org/r/20210920142856.17758-1-david@redhat.com">https://lkml.kernel.org/r/20210920142856.17758-1-david@redhat.com</a></p>
+<p>This patchset makes a basic infrastructure to exclude some physical memory
+regions that marked as <code>IORESOURCE_SYSTEM_RAM</code> from <code>/dev/mem</code> access, even
+though they are not marked as <code>IORESOURCE_BUSY</code>.</p>
 
     </div>
 
