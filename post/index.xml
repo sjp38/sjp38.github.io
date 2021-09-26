@@ -41,6 +41,13 @@ pointers, so the memory overhead for &lt;code&gt;struct page&lt;/code&gt; object
 &lt;h2 id=&#34;incoming-andrew-morton&#34;&gt;incoming (Andrew Morton)&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20210924154257.1dbf6699ab8d88c0460f924f@linux-foundation.org&#34;&gt;https://lkml.kernel.org/r/20210924154257.1dbf6699ab8d88c0460f924f@linux-foundation.org&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Pull request from Andrew Morton for various fixes.&lt;/p&gt;
+&lt;h2 id=&#34;patch-02-mmmprotect-avoid-unnecessary-tlb-flushes-nadav-amit&#34;&gt;[PATCH 0/2] mm/mprotect: avoid unnecessary TLB flushes (Nadav Amit)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20210925205423.168858-1-namit@vmware.com&#34;&gt;https://lkml.kernel.org/r/20210925205423.168858-1-namit@vmware.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Memory-unprotect using usefaultfd (i.e., userfaultfd IOCTL) triggers a TLB
+flush even though no architectural data but only a software flag is updated.
+This patchset tries to solve the issue by not tailoring the specific scenario
+but consolidating the interfaces for TLB batching.  This patchset is based on
+an old RFC.&lt;/p&gt;
 </description>
     </item>
     

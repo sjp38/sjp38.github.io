@@ -574,7 +574,7 @@ This patchset makes a basic infrastructure to exclude some physical memory regio
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -638,6 +638,13 @@ pointers, so the memory overhead for <code>struct page</code> objects becomes on
 <h2 id="incoming-andrew-morton">incoming (Andrew Morton)</h2>
 <p><a href="https://lkml.kernel.org/r/20210924154257.1dbf6699ab8d88c0460f924f@linux-foundation.org">https://lkml.kernel.org/r/20210924154257.1dbf6699ab8d88c0460f924f@linux-foundation.org</a></p>
 <p>Pull request from Andrew Morton for various fixes.</p>
+<h2 id="patch-02-mmmprotect-avoid-unnecessary-tlb-flushes-nadav-amit">[PATCH 0/2] mm/mprotect: avoid unnecessary TLB flushes (Nadav Amit)</h2>
+<p><a href="https://lkml.kernel.org/r/20210925205423.168858-1-namit@vmware.com">https://lkml.kernel.org/r/20210925205423.168858-1-namit@vmware.com</a></p>
+<p>Memory-unprotect using usefaultfd (i.e., userfaultfd IOCTL) triggers a TLB
+flush even though no architectural data but only a software flag is updated.
+This patchset tries to solve the issue by not tailoring the specific scenario
+but consolidating the interfaces for TLB batching.  This patchset is based on
+an old RFC.</p>
 
     </div>
 
