@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2021-09-20T07:48:48&#43;02:00">
+    <meta property="og:updated_time" content="2021-09-28T07:31:38&#43;02:00">
   
 
   
@@ -525,6 +525,19 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.0/">LKML News v5.0</a></h2>
+    <div class="article-style">
+      
+      Linux v5.0-rc8 릴리즈 (2019-02-24) 부터 Linux v5.0 릴리즈 (2019-03-03) 사이 기간에 LKML 에 올라온 흥미로운 메일들을 소개합니다.
+[PATCH 0/5] [v5] Allow persistent memory to be used like normal RAM https://lkml.kernel.org/r/20190225185727.BCBD768C@viggo.jf.intel.com
+앞서 몇번 소개했던, persistent memory 를 좀 많이 느린 numa node 인 것처럼 해서 시스템이 사용할 수 있게 하는 접근법의 패치 다섯번째 버전입니다. 이제 개선은 어느정도 된 것 같으니 슬슬 머지되야하지 않겠냐고 주장하는군요.
+Linux v5.0 https://lkml.kernel.org/r/CAHk-=wjuG6HiGbD7DCGfvDvhr_1WZUR-eYF2qWGbYyn9k6unvg@mail.gmail.com
+마침내 5.0 릴리즈입니다! 제 랩톱에도 바로 받아다가 설치했습니다!
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.0-rc8/">LKML News v5.0-rc8</a></h2>
     <div class="article-style">
       
@@ -637,19 +650,6 @@ ppc64 에서는 guest os page table 을 CMA area 내에 할당하는데, VFIO �
 THP fault 로 인한 로컬 노드 thrashing 을 해결하기 위한 패치의 RFC 입니다. THP fault 성공률을 낮추는 부작용도 있긴 하군요. 아직 테스트도 안된 첫번째 RFC 이니, 이대로 머지되진 않겠지 싶긴 합니다만 재밌네요.
 Linux 4.20-rc76 https://lkml.kernel.org/r/CAHk-=whv9u9aTEPoCz8h83JJbVK4fmHELJF=GG01ht9=1_MaCQ@mail.gmail.com
 일곱번째 rc 버전의 릴리즈입니다&hellip; 만, 이번엔 릴리즈 메일 제목에 오타가 있었군요.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.20-rc6/">LKML News by v4.20-rc6</a></h2>
-    <div class="article-style">
-      
-      [PATCH memory-model 0/3] Updates to the formal memory model https://lkml.kernel.org/r/20181203230411.GA27476@linux.ibm.com
-리눅스 커널 메모리 모델의 업데이트 입니다.
-smp_mb__after_unlock_lock() 을 추가로 모델링했고, github 리트머스 테스트를 체크하기 위한 스크립트가 추가되었으며, -j 옵션을 서포트 하게 되었습니다.
-[tip:core/rcu] tracing: Replace synchronize_sched() and call_rcu_sched() https://lkml.kernel.org/r/tip-7440172974e85b1828bdd84ac6b23b5bcad9c5eb@git.kernel.org
-synchronize_rcu() 가 이제는 RCU read-side 크리티컬 섹션 만이 아니라 preempt-disable 코드 영역도 기다리므로, synchronize_sched() 를 대체할 수 있고, call_rcu_sched() 도 call_rcu() 로 대체될 수 있습니다. 이 패치는 이 대체를 진행하고 있습니다.
       
     </div>
   </div>

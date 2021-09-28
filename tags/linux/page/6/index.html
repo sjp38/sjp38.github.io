@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2021-09-20T07:48:48&#43;02:00">
+    <meta property="og:updated_time" content="2021-09-28T07:31:38&#43;02:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.9-rc7/">LKML News v5.9-rc7</a></h2>
+    <div class="article-style">
+      
+      [PATCH v3 00/10] KFENCE: A low-overhead sampling-based memory safety error detector (Marco Elver) https://lkml.kernel.org/r/20200921132611.1700350-1-elver@google.com
+The third version of KFENCE patchset is uploaded.
+Machine lockups on extreme memory pressure (Shakeel Butt) https://lkml.kernel.org/r/CALvZod4FWLsV9byrKQojeus7tMDhHjQHFF5J_JpNsyB0HkaERA@mail.gmail.com
+Shakeel reports a machine lockup due to extreme memory pressure. It&rsquo;s locked up on memcg&rsquo;s vmpressure sr_lock, which is irq-unsafe. And the lockup made in IRQ. He proposes a solution simply changing the lock with irq-safe one, but he also admits it&rsquo;s not a maintainable solution.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.9-rc6/">LKML News v5.9-rc6</a></h2>
     <div class="article-style">
       
@@ -628,16 +640,6 @@ This patch introduces another madvise hint, MADV_DOEXEC. It preserves an anonymo
       [PATCH 0/6] mm: introduce secretmemfd system call to create &ldquo;secret&rdquo; memory areas (Mike Rapoport) https://lkml.kernel.org/r/20200720092435.17469-1-rppt@kernel.org
 This patchset make another special kind of file for secret memory areas. The file can be opened using secretmemfd(). mmap() of the file creates the secret memory mapping. The mapped pages are marked as not present in the direct map and will have desired protection bits (e..g, uncached).
 [PATCH v7 0/6] workingset protection/detection on the anonymous LRU list (js1304@gmail.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.8-rc6/">LKML News v5.8-rc6</a></h2>
-    <div class="article-style">
-      
-      [PATCH v3] x86/mm: use max memory block size on bare metal (Daniel Jordan) https://lkml.kernel.org/r/20200714205450.945834-1-daniel.m.jordan@oracle.com
-On x86, smallest supported block size is 128MiB. This means it needs to create 16,288 sysfs directories for 2TiB memory system. This sysfs creation takes significant amount of the boot time. As the memory hotplug is frequenlty used for the virtualized systems, this commit makes the kernels that aren&rsquo;t running on a hypervisor to use largest block size (2GiB) on big machines.
       
     </div>
   </div>
