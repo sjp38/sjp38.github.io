@@ -31,7 +31,9 @@
   <meta name="description" content="[RFC PATCH 0/8] mm/madvise: support process_madvise(MADV_DONTNEED) (Nadav Amit) https://lkml.kernel.org/r/20210926161259.238054-1-namit@vmware.com
 This patchset makes process_madvise() to support MADV_DONTNEED hint.
 mmotm 2021-09-28-19-05 uploaded (Andrew Morton) https://lkml.kernel.org/r/20210929020604.DyNimbxao%akpm@linux-foundation.org
-The mm-of-the-moment snapshot has been updated. 13 drop, 45 add, 37 modified. 184 patches in the broken/ in total.">
+The mm-of-the-moment snapshot has been updated. 13 drop, 45 add, 37 modified. 184 patches in the broken/ in total.
+[PATCH 1/2] memcg: flush stats only if updated (Shakeel Butt) https://lkml.kernel.org/r/20210930044711.2892660-1-shakeelb@google.com
+This patchset makes memcg stats updated only when needed, as it is currently flushed on every refault and reclaim iteration.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/lkml_news_v5.15-rc4/">
@@ -156,7 +158,9 @@ The mm-of-the-moment snapshot has been updated. 13 drop, 45 add, 37 modified. 18
   <meta property="og:description" content="[RFC PATCH 0/8] mm/madvise: support process_madvise(MADV_DONTNEED) (Nadav Amit) https://lkml.kernel.org/r/20210926161259.238054-1-namit@vmware.com
 This patchset makes process_madvise() to support MADV_DONTNEED hint.
 mmotm 2021-09-28-19-05 uploaded (Andrew Morton) https://lkml.kernel.org/r/20210929020604.DyNimbxao%akpm@linux-foundation.org
-The mm-of-the-moment snapshot has been updated. 13 drop, 45 add, 37 modified. 184 patches in the broken/ in total."><meta property="og:image" content="/img/tux.png">
+The mm-of-the-moment snapshot has been updated. 13 drop, 45 add, 37 modified. 184 patches in the broken/ in total.
+[PATCH 1/2] memcg: flush stats only if updated (Shakeel Butt) https://lkml.kernel.org/r/20210930044711.2892660-1-shakeelb@google.com
+This patchset makes memcg stats updated only when needed, as it is currently flushed on every refault and reclaim iteration."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -208,7 +212,7 @@ The mm-of-the-moment snapshot has been updated. 13 drop, 45 add, 37 modified. 18
       "url": "/img/icon-512.png"
     }
   },
-  "description": "[RFC PATCH 0/8] mm/madvise: support process_madvise(MADV_DONTNEED) (Nadav Amit) https://lkml.kernel.org/r/20210926161259.238054-1-namit@vmware.com\nThis patchset makes process_madvise() to support MADV_DONTNEED hint.\nmmotm 2021-09-28-19-05 uploaded (Andrew Morton) https://lkml.kernel.org/r/20210929020604.DyNimbxao%akpm@linux-foundation.org\nThe mm-of-the-moment snapshot has been updated. 13 drop, 45 add, 37 modified. 184 patches in the broken/ in total."
+  "description": "[RFC PATCH 0/8] mm/madvise: support process_madvise(MADV_DONTNEED) (Nadav Amit) https://lkml.kernel.org/r/20210926161259.238054-1-namit@vmware.com\nThis patchset makes process_madvise() to support MADV_DONTNEED hint.\nmmotm 2021-09-28-19-05 uploaded (Andrew Morton) https://lkml.kernel.org/r/20210929020604.DyNimbxao%akpm@linux-foundation.org\nThe mm-of-the-moment snapshot has been updated. 13 drop, 45 add, 37 modified. 184 patches in the broken/ in total.\n[PATCH 1/2] memcg: flush stats only if updated (Shakeel Butt) https://lkml.kernel.org/r/20210930044711.2892660-1-shakeelb@google.com\nThis patchset makes memcg stats updated only when needed, as it is currently flushed on every refault and reclaim iteration."
 }
 </script>
 
@@ -621,6 +625,11 @@ The mm-of-the-moment snapshot has been updated. 13 drop, 45 add, 37 modified. 18
 <p><a href="https://lkml.kernel.org/r/20210929020604.DyNimbxao%akpm@linux-foundation.org">https://lkml.kernel.org/r/20210929020604.DyNimbxao%akpm@linux-foundation.org</a></p>
 <p>The mm-of-the-moment snapshot has been updated.  13 drop, 45 add, 37 modified.
 184 patches in the broken/ in total.</p>
+<h2 id="patch-12-memcg-flush-stats-only-if-updated-shakeel-butt">[PATCH 1/2] memcg: flush stats only if updated (Shakeel Butt)</h2>
+<p><a href="https://lkml.kernel.org/r/20210930044711.2892660-1-shakeelb@google.com">https://lkml.kernel.org/r/20210930044711.2892660-1-shakeelb@google.com</a></p>
+<p>This patchset makes memcg stats updated only when needed, as it is currently
+flushed on every refault and reclaim iteration.  For reading 8 GiB tmpfs file
+on zram-based swap device configured system, 63% of read time has reduced.</p>
 
     </div>
 

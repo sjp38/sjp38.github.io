@@ -532,6 +532,8 @@
 This patchset makes process_madvise() to support MADV_DONTNEED hint.
 mmotm 2021-09-28-19-05 uploaded (Andrew Morton) https://lkml.kernel.org/r/20210929020604.DyNimbxao%akpm@linux-foundation.org
 The mm-of-the-moment snapshot has been updated. 13 drop, 45 add, 37 modified. 184 patches in the broken/ in total.
+[PATCH 1/2] memcg: flush stats only if updated (Shakeel Butt) https://lkml.kernel.org/r/20210930044711.2892660-1-shakeelb@google.com
+This patchset makes memcg stats updated only when needed, as it is currently flushed on every refault and reclaim iteration.
       
     </div>
   </div>

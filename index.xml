@@ -24,6 +24,11 @@
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20210929020604.DyNimbxao%akpm@linux-foundation.org&#34;&gt;https://lkml.kernel.org/r/20210929020604.DyNimbxao%akpm@linux-foundation.org&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;The mm-of-the-moment snapshot has been updated.  13 drop, 45 add, 37 modified.
 184 patches in the broken/ in total.&lt;/p&gt;
+&lt;h2 id=&#34;patch-12-memcg-flush-stats-only-if-updated-shakeel-butt&#34;&gt;[PATCH 1/2] memcg: flush stats only if updated (Shakeel Butt)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20210930044711.2892660-1-shakeelb@google.com&#34;&gt;https://lkml.kernel.org/r/20210930044711.2892660-1-shakeelb@google.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This patchset makes memcg stats updated only when needed, as it is currently
+flushed on every refault and reclaim iteration.  For reading 8 GiB tmpfs file
+on zram-based swap device configured system, 63% of read time has reduced.&lt;/p&gt;
 </description>
     </item>
     
