@@ -630,6 +630,15 @@ This patchset makes memcg stats updated only when needed, as it is currently flu
 <p>This patchset makes memcg stats updated only when needed, as it is currently
 flushed on every refault and reclaim iteration.  For reading 8 GiB tmpfs file
 on zram-based swap device configured system, 63% of read time has reduced.</p>
+<h2 id="rfc-mm-optimise-put_pages_list-matthew-wilcox">[RFC] mm: Optimise <code>put_pages_list()</code> (Matthew Wilcox)</h2>
+<p><a href="https://lkml.kernel.org/r/20210930163258.3114404-1-willy@infradead.org">https://lkml.kernel.org/r/20210930163258.3114404-1-willy@infradead.org</a></p>
+<p>This RFC optimizes <code>put_pages_list()</code> by doing the operations in batch.
+Nevertheless, this is RFC mainly because the author didn&rsquo;t evaluated the
+performance.</p>
+<h2 id="mmotm-2021-09-30-19-36-uploaded-andrew-morton">mmotm 2021-09-30-19-36 uploaded (Andrew Morton)</h2>
+<p><a href="https://lkml.kernel.org/r/20211001023703.54h-iZdWT%akpm@linux-foundation.org">https://lkml.kernel.org/r/20211001023703.54h-iZdWT%akpm@linux-foundation.org</a></p>
+<p>New mmotm is uploaded.  No patch dropped, 39 new patches added, 8 patches
+modified.  223 patches in total.</p>
 
     </div>
 
