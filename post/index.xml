@@ -13,6 +13,21 @@
     </image>
     
     <item>
+      <title>LKML News v5.15-rc5</title>
+      <link>/post/lkml_news_v5.15-rc5/</link>
+      <pubDate>Tue, 05 Oct 2021 07:39:10 +0200</pubDate>
+      <guid>/post/lkml_news_v5.15-rc5/</guid>
+      <description>&lt;h2 id=&#34;patch-02-introduce-simple-pidfd-to-task-helper-christian-brauner&#34;&gt;[PATCH 0/2] Introduce simple pidfd to task helper (Christian Brauner)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20211004125050.1153693-1-christian.brauner@ubuntu.com&#34;&gt;https://lkml.kernel.org/r/20211004125050.1153693-1-christian.brauner@ubuntu.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This patchset adds a pidfd handling wrapper for removing duplications.&lt;/p&gt;
+&lt;h2 id=&#34;patch-0062-separate-struct-slab-from-struct-page-matthew-wilcox&#34;&gt;[PATCH 00/62] Separate struct slab from struct page (Matthew Wilcox)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20211004134650.4031813-1-willy@infradead.org&#34;&gt;https://lkml.kernel.org/r/20211004134650.4031813-1-willy@infradead.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This huge patchset separates &lt;code&gt;struct slab&lt;/code&gt; from &lt;code&gt;struct page&lt;/code&gt; to make
+&lt;code&gt;struct page&lt;/code&gt; simple and therefore easier to handle.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>LKML News v5.15-rc4</title>
       <link>/post/lkml_news_v5.15-rc4/</link>
       <pubDate>Tue, 28 Sep 2021 07:31:38 +0200</pubDate>
@@ -44,6 +59,22 @@ modified.  223 patches in total.&lt;/p&gt;
 allows users to manage their memory based on the real data access patterns.
 The patchset has quickly merged in -mm tree
 (&lt;a href=&#34;https://lore.kernel.org/mm-commits/20211001233339.SV5JeiSqb%25akpm@linux-foundation.org/)&#34;&gt;https://lore.kernel.org/mm-commits/20211001233339.SV5JeiSqb%25akpm@linux-foundation.org/)&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;linux-515-rc4-linus-torvalds&#34;&gt;Linux 5.15-rc4 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wifo=ocAVFtoutuLQvqYyNz1r014uJD8TRPJKpVaPLrRQ@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wifo=ocAVFtoutuLQvqYyNz1r014uJD8TRPJKpVaPLrRQ@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;There were hiccups due to the &lt;code&gt;-Werror&lt;/code&gt; at the beginning of the v5.15
+stabiliziation, but now seems it all stabled.  Normal rc4 release.  In this
+release &lt;code&gt;set_fs()&lt;/code&gt; has removed from &lt;code&gt;m68k&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v5.4-rc3..v5.15-rc4.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
+below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2019-10-04 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And, below is the diffstat of the -rc4 releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v5.15-rc4-only.png&#34; alt=&#34;rc4 release stat&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -88,7 +119,7 @@ an old RFC.&lt;/p&gt;
 &lt;p&gt;Partly because of the &lt;code&gt;Werror&lt;/code&gt; change, 5.15 rc2 was not so calm.  Now seems the
 things wound down and it became normal, Torvalds says.&lt;/p&gt;
 &lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v5.4-rc2..v5.15-rc2.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v5.4-rc2..v5.15-rc3.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
 &lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
 below command:&lt;/p&gt;
@@ -97,7 +128,7 @@ below command:&lt;/p&gt;
     --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;And, below is the diffstat of the -rc2 releases in the last two years.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v5.15-rc2-only.png&#34; alt=&#34;rc2 release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v5.15-rc3-only.png&#34; alt=&#34;rc2 release stat&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     

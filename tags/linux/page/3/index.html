@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2021-09-28T07:31:38&#43;02:00">
+    <meta property="og:updated_time" content="2021-10-05T07:39:10&#43;02:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.13-rc2/">LKML News v5.13-rc2</a></h2>
+    <div class="article-style">
+      
+      [RESEND] LSF/MM/BPF: 2021: Call for Proposals (Josef Bacik) https://lkml.kernel.org/r/60997079.1c69fb81.77f3f.a045@mx.google.com/
+CFG for LSF/MM/BPF 2021 posted. It will be held from 2021-12-06 to 2021-12-08 in Palm Springs, California. As of now, it is supposed to be an in-person conference!
+[LSF/MM/BPF TOPIC] Memory folios (Matthew Wilcox) https://lkml.kernel.org/r/YJlzwcADaxO/JHRE@casper.infradead.org
+Matthew expects the memory folios patchset will be merged soon, but he wants to discuss about it in the LSFMM, if there are something to discuss more.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.13-rc1/">LKML News v5.13-rc1</a></h2>
     <div class="article-style">
       
@@ -628,16 +640,6 @@ This patchset mitigates the problem by migrating pages that about to be reclaime
 Because the vmstat data is only cumulated, users should calculate the diff manually or just reboot. This commit adds a procfs file that can be used to clear all vmstat counters.
 [PATCH 0/5] Introduce a bulk order-0 page allocator with two in-tree users (Mel Gorman) https://lkml.kernel.org/r/20210301161200.18852-1-mgorman@techsingularity.net
 This patchset introduces a bulk order-0 page allocator. It also makes the sunrpc and the network page pool to use that.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/damon_profile_callstack_example/">An example of DAMON usage for profiling</a></h2>
-    <div class="article-style">
-      
-      I realized I didn&rsquo;t introduce a good, intuitive example use case of DAMON[0] for profiling so far, though DAMON is not for only profiling. One straightforward and realistic usage of DAMON as a profiling tool would be recording the monitoring results with callstack and visualize those by timeline together.
-For example, below shows that visualization for a realistic workload, namely &lsquo;fft&rsquo; in SPLASH-2X benchmark suite. From that, you can know there are three memory access bursting phases in the workload and FFT1DOnce.
       
     </div>
   </div>

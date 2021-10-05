@@ -578,7 +578,7 @@ This patchset makes memcg stats updated only when needed, as it is currently flu
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -645,6 +645,22 @@ modified.  223 patches in total.</p>
 allows users to manage their memory based on the real data access patterns.
 The patchset has quickly merged in -mm tree
 (<a href="https://lore.kernel.org/mm-commits/20211001233339.SV5JeiSqb%25akpm@linux-foundation.org/)">https://lore.kernel.org/mm-commits/20211001233339.SV5JeiSqb%25akpm@linux-foundation.org/)</a>.</p>
+<h2 id="linux-515-rc4-linus-torvalds">Linux 5.15-rc4 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wifo=ocAVFtoutuLQvqYyNz1r014uJD8TRPJKpVaPLrRQ@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wifo=ocAVFtoutuLQvqYyNz1r014uJD8TRPJKpVaPLrRQ@mail.gmail.com</a></p>
+<p>There were hiccups due to the <code>-Werror</code> at the beginning of the v5.15
+stabiliziation, but now seems it all stabled.  Normal rc4 release.  In this
+release <code>set_fs()</code> has removed from <code>m68k</code>.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.4-rc3..v5.15-rc4.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2019-10-04 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc4 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.15-rc4-only.png" alt="rc4 release stat"></p>
 
     </div>
 

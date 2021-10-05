@@ -28,12 +28,13 @@
   
     
   
-  <meta name="description" content="Kernel / Hypervisor Engineer">
+  <meta name="description" content="[PATCH 0/2] Introduce simple pidfd to task helper (Christian Brauner) https://lkml.kernel.org/r/20211004125050.1153693-1-christian.brauner@ubuntu.com
+This patchset adds a pidfd handling wrapper for removing duplications.
+[PATCH 00/62] Separate struct slab from struct page (Matthew Wilcox) https://lkml.kernel.org/r/20211004134650.4031813-1-willy@infradead.org
+This huge patchset separates struct slab from struct page to make struct page simple and therefore easier to handle.">
 
   
-  <link rel="alternate" hreflang="ko" href="/ko/tags/linux/">
-  
-  <link rel="alternate" hreflang="en-us" href="/tags/linux/">
+  <link rel="alternate" hreflang="en-us" href="/post/lkml_news_v5.15-rc5/">
 
   
 
@@ -133,14 +134,12 @@
 
 
   
-  <link rel="alternate" href="/tags/linux/index.xml" type="application/rss+xml" title="hacklog">
-  
 
   <link rel="manifest" href="/index.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon-32.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="/tags/linux/">
+  <link rel="canonical" href="/post/lkml_news_v5.15-rc5/">
 
   
   
@@ -152,18 +151,68 @@
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="hacklog">
-  <meta property="og:url" content="/tags/linux/">
-  <meta property="og:title" content="linux | hacklog">
-  <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
+  <meta property="og:url" content="/post/lkml_news_v5.15-rc5/">
+  <meta property="og:title" content="LKML News v5.15-rc5 | hacklog">
+  <meta property="og:description" content="[PATCH 0/2] Introduce simple pidfd to task helper (Christian Brauner) https://lkml.kernel.org/r/20211004125050.1153693-1-christian.brauner@ubuntu.com
+This patchset adds a pidfd handling wrapper for removing duplications.
+[PATCH 00/62] Separate struct slab from struct page (Matthew Wilcox) https://lkml.kernel.org/r/20211004134650.4031813-1-willy@infradead.org
+This huge patchset separates struct slab from struct page to make struct page simple and therefore easier to handle."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2021-10-05T07:39:10&#43;02:00">
+    
+      <meta property="article:published_time" content="2021-10-05T07:39:10&#43;02:00">
+    
+    <meta property="article:modified_time" content="2021-10-05T07:39:10&#43;02:00">
   
 
   
 
 
+    
 
+
+
+
+
+
+  
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/post/lkml_news_v5.15-rc5/"
+  },
+  "headline": "LKML News v5.15-rc5",
+  
+  "datePublished": "2021-10-05T07:39:10+02:00",
+  "dateModified": "2021-10-05T07:39:10+02:00",
+  
+  "author": {
+    "@type": "Person",
+    "name": "SeongJae Park"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "hacklog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/img/icon-512.png"
+    }
+  },
+  "description": "[PATCH 0/2] Introduce simple pidfd to task helper (Christian Brauner) https://lkml.kernel.org/r/20211004125050.1153693-1-christian.brauner@ubuntu.com\nThis patchset adds a pidfd handling wrapper for removing duplications.\n[PATCH 00/62] Separate struct slab from struct page (Matthew Wilcox) https://lkml.kernel.org/r/20211004134650.4031813-1-willy@infradead.org\nThis huge patchset separates struct slab from struct page to make struct page simple and therefore easier to handle."
+}
+</script>
+
+  
 
   
 
@@ -171,10 +220,13 @@
   
 
 
+  
 
 
 
-  <title>linux | hacklog</title>
+
+
+  <title>LKML News v5.15-rc5 | hacklog</title>
 
 </head>
 
@@ -396,7 +448,7 @@
         
 
         <li class="nav-item">
-          <a class="nav-link  active" href="/tags"><span>Tags</span></a>
+          <a class="nav-link " href="/tags"><span>Tags</span></a>
         </li>
 
         
@@ -466,22 +518,6 @@
       
 
       
-      <li class="nav-item dropdown i18n-dropdown">
-        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true">
-          <i class="fas fa-globe mr-1" aria-hidden="true"></i><span class="d-none d-lg-inline">English</span>
-        </a>
-        <div class="dropdown-menu">
-          <div class="dropdown-item i18n-active font-weight-bold">
-            <span>English</span>
-          </div>
-          
-          <a class="dropdown-item" href="/ko/tags/linux/">
-            <span>한국어</span>
-          </a>
-          
-        </div>
-      </li>
-      
 
     </ul>
 
@@ -489,178 +525,330 @@
 </nav>
 
 
-  
-
-
-
-
-
-
-
-
-
-
-
+  <article class="article">
 
   
 
+
+
+
+
+
+
+
+
+
+
+
+  
+
   
   
+  
+<div class="article-container pt-3">
+  <h1>LKML News v5.15-rc5</h1>
+
+  
+
   
     
-  
-<div class="universal-wrapper pt-3">
-  <h1>linux</h1>
+
+
+<div class="article-metadata">
 
   
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Tue, Oct 5, 2021
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   
 </div>
 
 
 
-<div class="universal-wrapper">
-  
+  <div class="article-container">
 
-  
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.6-rc4/">LKML News v5.6-rc4</a></h2>
     <div class="article-style">
-      
-      [LSF/MM ATTEND]: page fault and mmap_sem scalabity https://lkml.kernel.org/r/e67a9e90-5a64-b3cc-5014-2fd1e5bf3895@linux.ibm.com
-A short mail from Laurent saying he is interested in attending the discussions about the page fault and mmap_sem scalability issue.
-Linux 5.6-rc4 https://lkml.kernel.org/r/CAHk-=wgD3=ryAapzdpcZumMK2RQWBvWVE70qp_ft_cjdRX9htQ@mail.gmail.com
-Fourthe rc release. 5.6 official release is not so far. Torvalds says this is fairly reasonsable sized release.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.6-rc3/">LKML News v5.6-rc3</a></h2>
-    <div class="article-style">
-      
-      [PATCH 0/2] slabinfo: parse all NUMA attributes https://lkml.kernel.org/r/20200217084828.9092-1-tobin@kernel.org
-The author of this patchset found some information regarding NUMA is missed in slabinfo. This patchset adds the info.
-[PATCH v6 0/7] introduce memory hinting API for external process https://lkml.kernel.org/r/20200219014433.88424-1-minchan@kernel.org
-Sixth version of the patchset for new system call, &lsquo;madvise_process()'. Changes are not so big. Support null task argument and requestor&rsquo;s mm for &lsquo;io_madvise()'.
-[PATCH] mm: Stop kswapd early when nothing&rsquo;s waiting for it to free pages https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.6-rc2/">LKML News v5.6-rc2</a></h2>
-    <div class="article-style">
-      
-      [RFC PATCH 0/3] DAMON: Implement The Data Access Pattern Awared Memory Management Rules https://lkml.kernel.org/r/20200210150921.32482-1-sjpark@amazon.com
-This is an RFC patch from me that implementing simple way to run data access pattern awared memory system using DAMON. Proactive reclamation or access awared THP promotion/demotion will be easily available using this change.
-[PATCH 0/9] workingset protection/detection on the anonymous LRU list https://lkml.kernel.org/r/1581401993-20041-1-git-send-email-iamjoonsoo.kim@lge.com
-This patchset is for improving kernel&rsquo;s reclamation scheme in a corner case where pages which used only once evicting hot pages.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.6-rc1/">LKML News v5.6-rc1</a></h2>
-    <div class="article-style">
-      
-      [LSF/MM/BPF TOPIC] Memory Tiering discussion https://lkml.kernel.org/r/CAHbLzkqOKtM684SGnCaa9ObHj082KenoPmRXvxMJ1UjcdvrhMQ@mail.gmail.com
-The author, Yang Shi has posted a patchset for tiered memory management last year, but received no many comments. Meanwhile, Dave posted another similar patch. He wants to discuss about this in LSF/MM this year.
-Linux 5.6-rc1 https://lkml.kernel.org/r/CAHk-=wjVopuAm5Vwa1kK5O1tTzQAGFtCHm8_Hzy3Us1OC=PgUw@mail.gmail.com
-After the two weeks, the merge window for 5.6 has finished and therefore the 5.6-rc1 has released.
-This merge window was slightly smaller than usual. Torvalds think this is the slow effect from the year end holiday season.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.5/">LKML News v5.5</a></h2>
-    <div class="article-style">
-      
-      [PATCH 0/8] Introduce Data Access MONitor (DAMON) https://lkml.kernel.org/r/20200120162757.32375-1-sjpark@amazon.com
-This is the patchset for the DAMON.
-Paging out when free memory is low but not exhausted (and available memory remains high) https://lkml.kernel.org/r/e994b0a76099437b8edbae925e9ccac8@its-mail-p04.registry.otago.ac.nz
-This mail introduces an issue on 5.3 and 5.4 kernel that page out is occurred needlessly. The author uses stress and dd to stress memory but still leave some memory in the system. However, the system does swap excessively.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.5-rc7/">LKML News v5.5-rc7</a></h2>
-    <div class="article-style">
-      
-      REMINDER: LSF/MM/BPF: 2020: Call for Proposals https://lkml.kernel.org/r/20200115215409.5pd4fnoawqzs7rvw@jbacik-mbp
-This is reminder of the LSF/MM/BPF of this year. It underscores the submitters to also send the mail to the appropriate mailing list as before. Maybe a few of people are missing sending mail but only wite up their proposal to the google form.
-[LSF/MM TOPIC] Free Page Reporting https://lkml.kernel.org/r/4b8671d16573307da09afc56030c2a5f5a9c45bf.camel@linux.intel.com
-In case of KVM case, as each VM guest receives virtual memory from the host, only when host gets memory pressure the memory being used by guests will be reclaimed.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.5-rc6/">LKML News v5.5-rc6</a></h2>
-    <div class="article-style">
-      
-      OOM killer not nearly agressive enough? https://lkml.kernel.org/r/20200107204412.GA29562@amd
-The author if this mail, Pavel updated his userspace to x86-64 and encountered chromium&rsquo;s memory hogging. He was required to kill the chromium himself, because OOM killer didn&rsquo;t kill it. He asks whether this means OOM killer is not aggressive enough.
-[PATCH 0/4] introduce memory hinting API for external process https://lkml.kernel.org/r/20200110213433.94739-1-minchan@kernel.org
-Minchan has previously posted the patchset introducing the MADV_COLD, MADV_PAGEOUT and external madvise() able code change.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.5-rc5/">LKML News v5.5-rc5</a></h2>
-    <div class="article-style">
-      
-      [PATCH v16 QEMU 4/3 RFC] memory: Add support for MADV_FREE as mechanism to lazy discard pages https://lkml.kernel.org/r/20200103212339.29849.99817.stgit@localhost.localdomain
-This RFC patch modifies QEMU to able to use MADV_FREE for discard of pages to avoid the page zeroing cost.
-Linux 5.5-rc5 https://lkml/kernel.org/r/CAHk-=whwmJQwwMD06VfPapDmc52LFQhG3HP6VyVLXVA=nYi_ow@mail.gmail.com
-Time files, rc5 released. Last week was also another calm week due to the new year holidays, and thus this release is small. Linus expects it will be changed in this upcoming weeks, or 5.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.5-rc4/">LKML News v5.5-rc4</a></h2>
-    <div class="article-style">
-      
-      [PATCH V11 RESEND] mm/debug: Add tests validating architecture page table helpers https://lkml.kernel.org/r/1577162322-30303-1-git-send-email-anshuman.khandual@arm.com
-This patchset adds tests for the page table helpers. Those tests covers basic page table entry transformations including old, young, dirty, clean, write, write protect etc. The tests are not using the kselftest or kunit, but implemented as a kernel module with new file, mm/debug_vm_pgtable.c.
-Linux 5.5-rc4 https://lkml.kernel.org/r/CAHk-=wjq2b9GkLzpaDE-Xryu5c0zMM72BqkJKeZVsX+4ymH6aA@mail.gmail.com
-Due to the holidays, last week was unsurprisingly quiet. Torvalds says it was hardly even worth making an rc release.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.5-rc3/">LKML News v5.5-rc3</a></h2>
-    <div class="article-style">
-      
-      PROBLEM: Large (256MB) CMA allocation fails from time to time when using Intel VT-d https://lkml.kernel.org/r/5e75d900cb50457784ee1d2050b511ec@MAILER13.tech.ceia
-The author reports a CMA allocation failure that occurs time to time if the system is using Intel VT-d.
-[PATCHv2 0/3] Allow ZRAM to use any zpool-compatible backend https://lkml.kernel.org/r/20191219151928.ad4ccf732b64b7f8a26116db@gmail.com
-ZRAM is an in-memory block device that compresses the content. Currently, ZRAM is used only with zsmalloc. However, the zsmalloc is not an optimal selection in some environment.
-      
-    </div>
-  </div>
-  
+      <h2 id="patch-02-introduce-simple-pidfd-to-task-helper-christian-brauner">[PATCH 0/2] Introduce simple pidfd to task helper (Christian Brauner)</h2>
+<p><a href="https://lkml.kernel.org/r/20211004125050.1153693-1-christian.brauner@ubuntu.com">https://lkml.kernel.org/r/20211004125050.1153693-1-christian.brauner@ubuntu.com</a></p>
+<p>This patchset adds a pidfd handling wrapper for removing duplications.</p>
+<h2 id="patch-0062-separate-struct-slab-from-struct-page-matthew-wilcox">[PATCH 00/62] Separate struct slab from struct page (Matthew Wilcox)</h2>
+<p><a href="https://lkml.kernel.org/r/20211004134650.4031813-1-willy@infradead.org">https://lkml.kernel.org/r/20211004134650.4031813-1-willy@infradead.org</a></p>
+<p>This huge patchset separates <code>struct slab</code> from <code>struct page</code> to make
+<code>struct page</code> simple and therefore easier to handle.</p>
 
+    </div>
+
+    
+
+
+
+
+
+<div class="article-tags">
   
-<nav>
-  <ul class="pagination justify-content-center">
+  <a class="badge badge-light" href="/tags/linux/">linux</a>
+  
+  <a class="badge badge-light" href="/tags/kernel/">kernel</a>
+  
+  <a class="badge badge-light" href="/tags/lkml/">lkml</a>
+  
+  <a class="badge badge-light" href="/tags/news/">news</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
     
-    <li class="page-item"><a class="page-link" href="/tags/linux/page/8/">&laquo;</a></li>
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=/post/lkml_news_v5.15-rc5/&amp;text=LKML%20News%20v5.15-rc5" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
     
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=/post/lkml_news_v5.15-rc5/&amp;t=LKML%20News%20v5.15-rc5" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
     
-    <li class="page-item"><a class="page-link" href="/tags/linux/page/10/">&raquo;</a></li>
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=LKML%20News%20v5.15-rc5&amp;body=/post/lkml_news_v5.15-rc5/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=/post/lkml_news_v5.15-rc5/&amp;title=LKML%20News%20v5.15-rc5" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=LKML%20News%20v5.15-rc5%20/post/lkml_news_v5.15-rc5/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=/post/lkml_news_v5.15-rc5/&amp;title=LKML%20News%20v5.15-rc5" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
     
   </ul>
-</nav>
-
-
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      <img class="portrait mr-3" src="https://s.gravatar.com/avatar/43dc5645c78e68fda997138380dfaaf4?s=200')" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="/">SeongJae Park</a></h5>
+      <h6 class="card-subtitle">Kernel / Hypervisor Engineer</h6>
+      <p class="card-text">SeongJae Park is a programmer who loves to analyze and develop systems.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/log/?qt=author&amp;q=seongjae&#43;park" target="_blank" rel="noopener">
+        <i class="fab fa-linux"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/sjp38" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.com/citations?user=jJIiF3AAAAAJ" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  
+  
+  <div class="article-widget content-widget-hr">
+    <h3>Related</h3>
+    <ul>
+      
+      <li><a href="/post/lkml_news_v5.15-rc4/">LKML News v5.15-rc4</a></li>
+      
+      <li><a href="/post/lkml_news_v5.15-rc3/">LKML News v5.15-rc3</a></li>
+      
+      <li><a href="/post/lkml_news_v5.15-rc2/">LKML News v5.15-rc2</a></li>
+      
+      <li><a href="/post/lkml_news_v5.15-rc1/">LKML News v5.15-rc1</a></li>
+      
+      <li><a href="/post/lkml_news_v5.14/">LKML News v5.14</a></li>
+      
+    </ul>
+  </div>
+  
+
+
+
+  </div>
+</article>
 
       
 
