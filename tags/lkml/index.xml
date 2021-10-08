@@ -38,6 +38,14 @@ DAMOS also added here.&lt;/p&gt;
 &lt;h2 id=&#34;compaction--folios-ken-overstreet&#34;&gt;Compaction &amp;amp; folios (Ken Overstreet)&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/YV4o9SxfYuLm1i4d@moria.home.lan&#34;&gt;https://lkml.kernel.org/r/YV4o9SxfYuLm1i4d@moria.home.lan&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;This mail explains how folios can make compaction and hugepages easier.&lt;/p&gt;
+&lt;h2 id=&#34;patch-v2-mmhuge_memoryc-disable-thp-with-large-thp-size-on-small-present-memory-peng-hao&#34;&gt;[PATCH v2] mm/huge_memory.c: disable THP with large THP size on small present memory (Peng Hao)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAPm50aLPxJCiVTqqwiz00oMNiqHggB84sXB3x=tv_HUAd5UktQ@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAPm50aLPxJCiVTqqwiz00oMNiqHggB84sXB3x=tv_HUAd5UktQ@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;min_free_kbytes&lt;/code&gt; is calculated based on THP size.  Because THP size could be
+quite big depends on the system configuration, &lt;code&gt;min_free_kbytes&lt;/code&gt; could also be
+huge.  For example, on ARM64 with 64 KiB page size, THP is 512 MiB and the
+&lt;code&gt;min_free_kbytes&lt;/code&gt; is about 3 GiB.&lt;/p&gt;
+&lt;p&gt;This commit therefore judge if THP should be enabled or not by default using
+the THP size.&lt;/p&gt;
 </description>
     </item>
     

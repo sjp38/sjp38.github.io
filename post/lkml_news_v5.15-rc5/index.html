@@ -578,7 +578,7 @@ This patchset introduces Maple tree, which is intended to replace the rb tree fo
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -639,6 +639,14 @@ DAMOS also added here.</p>
 <h2 id="compaction--folios-ken-overstreet">Compaction &amp; folios (Ken Overstreet)</h2>
 <p><a href="https://lkml.kernel.org/r/YV4o9SxfYuLm1i4d@moria.home.lan">https://lkml.kernel.org/r/YV4o9SxfYuLm1i4d@moria.home.lan</a></p>
 <p>This mail explains how folios can make compaction and hugepages easier.</p>
+<h2 id="patch-v2-mmhuge_memoryc-disable-thp-with-large-thp-size-on-small-present-memory-peng-hao">[PATCH v2] mm/huge_memory.c: disable THP with large THP size on small present memory (Peng Hao)</h2>
+<p><a href="https://lkml.kernel.org/r/CAPm50aLPxJCiVTqqwiz00oMNiqHggB84sXB3x=tv_HUAd5UktQ@mail.gmail.com">https://lkml.kernel.org/r/CAPm50aLPxJCiVTqqwiz00oMNiqHggB84sXB3x=tv_HUAd5UktQ@mail.gmail.com</a></p>
+<p><code>min_free_kbytes</code> is calculated based on THP size.  Because THP size could be
+quite big depends on the system configuration, <code>min_free_kbytes</code> could also be
+huge.  For example, on ARM64 with 64 KiB page size, THP is 512 MiB and the
+<code>min_free_kbytes</code> is about 3 GiB.</p>
+<p>This commit therefore judge if THP should be enabled or not by default using
+the THP size.</p>
 
     </div>
 
