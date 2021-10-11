@@ -652,6 +652,26 @@ the THP size.</p>
 <p>Nineth revision of NUMA balancing for tiered memory system.  This patchset
 applies the basic NUMA balancing, hot page selection algorithm, and automatic
 threshold adjustment step by step.</p>
+<h2 id="patch-03-mm-thp-introduce-a-new-sysfs-interface-to-facilitate-file-thp-for-text-rongwei-wang">[PATCH 0/3] mm, thp: introduce a new sysfs interface to facilitate file THP for .text (Rongwei Wang)</h2>
+<p><a href="https://lkml.kernel.org/r/20211009092658.59665-1-rongwei.wang@linux.alibaba.com">https://lkml.kernel.org/r/20211009092658.59665-1-rongwei.wang@linux.alibaba.com</a></p>
+<p>This patchset adds a new THP interface called <code>hugetext_enabled</code> for easier
+enablement of THP for text sections of processes, and make binaries built with
+<code>--pie -fPIC</code> and LOAD alignment smaller than 2M, change <code>maximum_alignment</code> to
+2M, for making those better at applying THP.</p>
+<h2 id="linux-515-rc5-linus-torvalds">Linux 5.15-rc5 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wiTZxkHVg=Pz7XRd-9AEDp0qV5sWmQJWnQ4NrSPYRHNiA@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wiTZxkHVg=Pz7XRd-9AEDp0qV5sWmQJWnQ4NrSPYRHNiA@mail.gmail.com</a></p>
+<p>The fifth release candidate for v5.15 is released.  Just a normal one.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.4-rc4..v5.15-rc5.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2019-10-11 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc5 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.15-rc5-only.png" alt="rc5 release stat"></p>
 
     </div>
 
