@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2021-10-05T07:39:10&#43;02:00">
+    <meta property="og:updated_time" content="2021-10-11T10:21:51&#43;02:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.7-rc2/">LKML News after v5.7-rc2</a></h2>
+    <div class="article-style">
+      
+      [RFC] autonuma: Support to scan page table asynchronously (Huang Ying) https://lkml.kernel.org/r/20200414081951.297676-1-ying.huang@intel.com
+AutoNUMA is currently scanning page tables of the processes in the process context and therefore this can increase the latency of the process. This RFC thus makes the page table scanning asynchronous if there are idle CPUs.
+[PATCH v4 00/10] Add a new mmap locking API wrapping mmap_sem calls https://lkml.kernel.org/r/20200415004353.130248-1-walken@google.com
+This is just a repost of the patch series rebased on v5.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.7-rc1/">LKML News v5.7-rc1</a></h2>
     <div class="article-style">
       
@@ -634,18 +646,6 @@ The author, Yang Shi has posted a patchset for tiered memory management last yea
 Linux 5.6-rc1 https://lkml.kernel.org/r/CAHk-=wjVopuAm5Vwa1kK5O1tTzQAGFtCHm8_Hzy3Us1OC=PgUw@mail.gmail.com
 After the two weeks, the merge window for 5.6 has finished and therefore the 5.6-rc1 has released.
 This merge window was slightly smaller than usual. Torvalds think this is the slow effect from the year end holiday season.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.5/">LKML News v5.5</a></h2>
-    <div class="article-style">
-      
-      [PATCH 0/8] Introduce Data Access MONitor (DAMON) https://lkml.kernel.org/r/20200120162757.32375-1-sjpark@amazon.com
-This is the patchset for the DAMON.
-Paging out when free memory is low but not exhausted (and available memory remains high) https://lkml.kernel.org/r/e994b0a76099437b8edbae925e9ccac8@its-mail-p04.registry.otago.ac.nz
-This mail introduces an issue on 5.3 and 5.4 kernel that page out is occurred needlessly. The author uses stress and dd to stress memory but still leave some memory in the system. However, the system does swap excessively.
       
     </div>
   </div>
