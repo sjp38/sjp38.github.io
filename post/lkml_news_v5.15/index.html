@@ -28,12 +28,13 @@
   
     
   
-  <meta name="description" content="Kernel / Hypervisor Engineer">
+  <meta name="description" content="Dynamically allocated memory descriptors (Matthew Wilcox) https://lkml.kernel.org/r/YXcLqcFhDq3uUwIj@casper.infradead.org
+In this mail, Matthew explains his idea on making struct page only two words and how it could work with buddy allocator freelists.
+[RFC] mm: Disable NUMA_BALANCING_DEFAULT_ENABLED and TRANSPARENT_HUGEPAGE on PREEMPT_RT (Sebastian Andrzej Siewior) https://lkml.kernel.org/r/20211026165100.ahz5bkx44lrrw5pt@linutronix.de
+Mel told RT patchset could incur spikes on NUMA machines when NUMA_BALANCING and THP are turned on. Sebastian request comments on disabling those on RT enabled kernel by default, but still trying to find a good test for that.">
 
   
-  <link rel="alternate" hreflang="ko" href="/ko/categories/lkml-news/">
-  
-  <link rel="alternate" hreflang="en-us" href="/categories/lkml-news/">
+  <link rel="alternate" hreflang="en-us" href="/post/lkml_news_v5.15/">
 
   
 
@@ -133,14 +134,12 @@
 
 
   
-  <link rel="alternate" href="/categories/lkml-news/index.xml" type="application/rss+xml" title="hacklog">
-  
 
   <link rel="manifest" href="/index.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon-32.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="/categories/lkml-news/">
+  <link rel="canonical" href="/post/lkml_news_v5.15/">
 
   
   
@@ -152,18 +151,68 @@
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="hacklog">
-  <meta property="og:url" content="/categories/lkml-news/">
-  <meta property="og:title" content="lkml news | hacklog">
-  <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
+  <meta property="og:url" content="/post/lkml_news_v5.15/">
+  <meta property="og:title" content="LKML News v5.15 | hacklog">
+  <meta property="og:description" content="Dynamically allocated memory descriptors (Matthew Wilcox) https://lkml.kernel.org/r/YXcLqcFhDq3uUwIj@casper.infradead.org
+In this mail, Matthew explains his idea on making struct page only two words and how it could work with buddy allocator freelists.
+[RFC] mm: Disable NUMA_BALANCING_DEFAULT_ENABLED and TRANSPARENT_HUGEPAGE on PREEMPT_RT (Sebastian Andrzej Siewior) https://lkml.kernel.org/r/20211026165100.ahz5bkx44lrrw5pt@linutronix.de
+Mel told RT patchset could incur spikes on NUMA machines when NUMA_BALANCING and THP are turned on. Sebastian request comments on disabling those on RT enabled kernel by default, but still trying to find a good test for that."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2021-10-27T07:09:11&#43;02:00">
+    
+      <meta property="article:published_time" content="2021-10-27T07:09:11&#43;02:00">
+    
+    <meta property="article:modified_time" content="2021-10-27T07:09:11&#43;02:00">
   
 
   
 
 
+    
 
+
+
+
+
+
+  
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/post/lkml_news_v5.15/"
+  },
+  "headline": "LKML News v5.15",
+  
+  "datePublished": "2021-10-27T07:09:11+02:00",
+  "dateModified": "2021-10-27T07:09:11+02:00",
+  
+  "author": {
+    "@type": "Person",
+    "name": "SeongJae Park"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "hacklog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/img/icon-512.png"
+    }
+  },
+  "description": "Dynamically allocated memory descriptors (Matthew Wilcox) https://lkml.kernel.org/r/YXcLqcFhDq3uUwIj@casper.infradead.org\nIn this mail, Matthew explains his idea on making struct page only two words and how it could work with buddy allocator freelists.\n[RFC] mm: Disable NUMA_BALANCING_DEFAULT_ENABLED and TRANSPARENT_HUGEPAGE on PREEMPT_RT (Sebastian Andrzej Siewior) https://lkml.kernel.org/r/20211026165100.ahz5bkx44lrrw5pt@linutronix.de\nMel told RT patchset could incur spikes on NUMA machines when NUMA_BALANCING and THP are turned on. Sebastian request comments on disabling those on RT enabled kernel by default, but still trying to find a good test for that."
+}
+</script>
+
+  
 
   
 
@@ -171,10 +220,13 @@
   
 
 
+  
 
 
 
-  <title>lkml news | hacklog</title>
+
+
+  <title>LKML News v5.15 | hacklog</title>
 
 </head>
 
@@ -418,7 +470,7 @@
         
 
         <li class="nav-item">
-          <a class="nav-link  active" href="/categories"><span>Categories</span></a>
+          <a class="nav-link " href="/categories"><span>Categories</span></a>
         </li>
 
         
@@ -466,22 +518,6 @@
       
 
       
-      <li class="nav-item dropdown i18n-dropdown">
-        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true">
-          <i class="fas fa-globe mr-1" aria-hidden="true"></i><span class="d-none d-lg-inline">English</span>
-        </a>
-        <div class="dropdown-menu">
-          <div class="dropdown-item i18n-active font-weight-bold">
-            <span>English</span>
-          </div>
-          
-          <a class="dropdown-item" href="/ko/categories/lkml-news/">
-            <span>한국어</span>
-          </a>
-          
-        </div>
-      </li>
-      
 
     </ul>
 
@@ -489,176 +525,332 @@
 </nav>
 
 
-  
-
-
-
-
-
-
-
-
-
-
-
+  <article class="article">
 
   
 
+
+
+
+
+
+
+
+
+
+
+
+  
+
   
   
+  
+<div class="article-container pt-3">
+  <h1>LKML News v5.15</h1>
+
+  
+
   
     
-  
-<div class="universal-wrapper pt-3">
-  <h1>lkml news</h1>
+
+
+<div class="article-metadata">
 
   
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Wed, Oct 27, 2021
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   
 </div>
 
 
 
-<div class="universal-wrapper">
-  
+  <div class="article-container">
 
-  
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.15-rc9/">LKML News after v4.15-rc9</a></h2>
     <div class="article-style">
-      
-      Not final 4.15 this weekend https://lkml.kernel.org/r/CA+55aFxzQBH5gnG92ah-PREfOqb5_rjWriLH3fWHMWS1=BSQFw@mail.gmail.com
-원래대로라면 4.15 정식 버전의 릴리즈가 될 타이밍이었습니다만&hellip; 아직 충분히 안정화 되지 않은 것 같다는 토발즈의 판단 아래 이번주에도 rc 버전이 나왔습니다. rc9 입니다. 2011년의 3.1-rc9 이후 처음 나온 rc9 이네요.
-이번 릴리즈는 x86, arm powerpc, mips 쪽의 arch 업데이트, 드라이버, 그리고 네트워킹 핵심부 업데이트가 주된 변경이군요.
-다음주에는 꼭 4.15를 릴리즈 하고 싶다고 하는데, 아마도 다음주에는 4.15 정식 버전이 릴리즈되길 빕니다.
-[LSF/MM TOPIC] CMA and larger page sizes https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.15-rc8/">LKML News after v4.15-rc8</a></h2>
-    <div class="article-style">
-      
-      Linux 4.15-rc8 https://lkml.kernel.org/r/CA+55aFz=PcxdARFpCTyQCJKaJcBwVUB9y6XAXM8VyyxnbRD=bw@mail.gmail.com
-마침내 여덟번째 rc 버전의 릴리즈입니다. 스펙터 버그를 성능 저하 없이 막기 위한 구글의 해결책, Retpoline 지원이 들어갔군요. 그 외에는 드라이버 업데이트여서 일단 rc8 에 걸맞는 조용함이긴 하다고 토발즈는 평하네요. 자, 다음주에는 4.15 가 릴리즈될런지? 아니면 rc9 이 나오고 말런지?
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.15-rc7/">LKML News after v4.15-rc7</a></h2>
-    <div class="article-style">
-      
-      Linux 4.15-rc7 https://lkml.kernel.org/r/CA+55aFwbmKznuQZe_VemxXJPSmB-9yy8uyWsMZcrkA4T=m8xkw@mail.gmail.com
-Meltdown 과 Spectre 로 떠들썩했던 시간을 지나 4.15 의 일곱번째 rc 버전이 릴리즈 되었습니다. 지난 여섯번째 릴리즈 때도 상당히 안정화에 신경써야 할 시점임에도 x86 pti (page table isolation) 업데이트 패치가 많이 머지되어 의아했는데, 이게 Meltdown 과 Spectre 버그 때문이었음도 밝혀졌죠. 그렇다곤 해도 그 외의 부분은 예상대로 상당히 안정화 되어가고 있다고 합니다.
-더불어, Thomas Geixner 등의 인텔쪽 커널 개발자들의 노력 덕에 pti 등 Meltdown 과 Spectre 버그를 위한 패치가 잘 관리되어 비교적 쉽게 머지될 수 있었음에 리누스가 감사를 표하네요.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.15-rc6/">LKML News after v4.15-rc6</a></h2>
-    <div class="article-style">
-      
-      Linux 4.15-rc6 https://lkml.kernel.org/r/CA+55aFzU_Q04CVEABo50x24yeTaP-yzzrB1wTPeOiOgAbSKiDA@mail.gmail.com
-한국시간으로는 1월 1일, 토발즈의 현지 시각으로는 2017년의 마지막날, 4.15 의 여섯번째 rc 버전이 릴리즈 되었습니다.
-지난주는 크리스마스 등의 연휴 때문인지 참 조용했죠. 덕분에 이번 릴리즈의 변경사항도 많지 않습니다. 다만 x86 pti 쪽 업데이트가 있었기 때문에 이번엔 rc8 까지 릴리즈 할수도 있을 것 같다고 하는군요.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.14-rc4/">LKML News after v4.15-rc5</a></h2>
-    <div class="article-style">
-      
-      Linux 4.15-rc5 https://lkml.kernel.org/r/CA+55aFy1U+uBLEAoCWU3=BqEbROW6rsbaHUdYJArR6iYQQWo_A@mail.gmail.com
-4.15 의 다섯번째 rc 버전이 평소 스케쥴보다 하루 일찍 릴리즈 되었습니다. 원래대로라면 내일일텐데, 미국 시간으로는 크리스마스 이브라서 그냥 오늘 릴리즈 한다는군요.
-이번 rc5 의 변경 사항들도 지난 릴리즈의 rc5 와 비슷했다고 하는데, 다만 x86 의 커널 페이지 테이블 격리화 관련 작업이 진행 중인 게 좀 예외라고 하는군요.
-[RFC v3 PATCH 0/5] Eliminate zone-&gt;lock contention for will-it-scale/page_fault1 and parallel free https://lkml.kernel.org/r/20180509085450.3524-1-aaron.lu@intel.com
-패치셋 저자는 112개 CPU를 갖는 Intel Skylake 서버에서 will-it-scale/page_fult1 워크로드를 돌려보았고 80% CPU 가 zone-&gt;lock 에서 스핀하며 시간을 보내고 있음을 파악했습니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.15-rc5/">LKML News after v4.15-rc5</a></h2>
-    <div class="article-style">
-      
-      Linux 4.15-rc5 https://lkml.kernel.org/r/CA+55aFy1U+uBLEAoCWU3=BqEbROW6rsbaHUdYJArR6iYQQWo_A@mail.gmail.com
-4.15 의 다섯번째 rc 버전이 평소 스케쥴보다 하루 일찍 릴리즈 되었습니다. 원래대로라면 내일일텐데, 미국 시간으로는 크리스마스 이브라서 그냥 오늘 릴리즈 한다는군요.
-이번 rc5 의 변경 사항들도 지난 릴리즈의 rc5 와 비슷했다고 하는데, 다만 x86 의 커널 페이지 테이블 격리화 관련 작업이 진행 중인 게 좀 예외라고 하는군요.
-Re: About the try to remove cross-release feature entirely by Ingo https://lkml.kernel.org/r/20171229014736.GA10341@X58A-UD3R
-Lockdep 의 cross release 기능은 너무 느렸고, false positive 가 많다는 이유로, 특히 false positive 가 너무 많다는 이유로 Ingo Molnar 에 의해 제거되려 하고 있습니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.15-rc4/">LKML News after v4.15-rc4</a></h2>
-    <div class="article-style">
-      
-      Linux 4.15-rc4 https://lkml.kernel.org/r/CA+55aFysmVGm_shBvK4kmaS+_PsMEt3Mz_b+Dm0SDrmVtUofbA@mail.gmail.com
-4.15 의 네번째 rc 버전입니다. 지난 rc 버전들이 생각보다 커서 토발즈가 좀 걱정했는데, 이번 릴리즈에 들어서는 평범한 네번째 rc 만큼이나 변화가 많이 없어 충분히 안정화 되기 시작한 것 같다고 하는군요.
-이번에 가장 눈에 띌만한 변화는 suspend/resume 처리를 정리하고 고친 것이라고 합니다. 크로스 락킹 디버깅 기능은 부팅 시간을 늘리는 문제 등도 있어선지 이번에 일단 제거되었네요. 나중에 다시 되살릴 계획은 있는 것 같습니다.
-[PATCH v2 1/1] Move kfree_call_rcu() to slab_common.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.15-rc3/">LKML News after v4.15-rc3</a></h2>
-    <div class="article-style">
-      
-      Linux 4.15-rc3 https://lkml.kernel.org/r/CA+55aFz9O9R8u3ori-QNPz4ALU+0B=Es0gd+oWmsce5qxugxXA@mail.gmail.com
-4.15 의 세번째 rc 버전입니다. 지난주보단 조금 늦게 릴리즈 되었네요.
-일반적으로 rc3 릴리즈는 좀 변경사항이 많지만 이번엔 그중에서도 변경사항이 많은 편이라 걱정된다고 하는군요. 대부분은 드라이버쪽 변경인데 perf 쪽 변경도 꽤 있고 core, networking, kvm, arch, 문서 업데이트도 물론 있습니다. 어쨌든 토발즈는 이제는 정말 안정화가 되어가길 바라는 마음이라는군요.
-[PATCH v2] mm/slab: Do not hash pointers when debugging slab https://lkml.kernel.org/r/1513179267-2509-1-git-send-email-geert+renesas@glider.be
-이번 버전에 들어와 포인터 값을 기반으로 한 예측을 통해 공격이 들어오는 걸 방지하기 위해 &lsquo;%p&rsquo; 가 포인터를 그냥 출력하는게 아니라 hash 한 다음에 출력하도록 바뀌었죠.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.15-rc2/">LKML News after v4.15-rc2</a></h2>
-    <div class="article-style">
-      
-      Linux 4.15-rc2 https://lkml.kernel.org/r/CA+55aFxPBszFBt91KRNBrsQdJ10b+6fh9ySNzSKSX7JOq4WRPw@mail.gmail.com
-4.15 의 두번째 rc 버전이 나왔습니다.
-동부 지방을 여행 중인가 보군요. 평소보다 좀 이른 시간에 릴리즈가 됐습니다. 원하던 것보단 큰 릴리즈가 되어버렸지만 대부분 fixup 이기에 큰 문제는 없는 것 같다는군요. Kernel ASLR leak 을 막기 위해 모든 &ldquo;%P&rdquo; 로 프린트되는 어드레스 주소를 해시해 버린다고 하네요. 이럼 디버깅할 때 좀 짜증날 수 있긴 하겠지만 다른 방법이 별로 없었다고&hellip;
-[RFC PATCH v3 0/7] ktask: multithread CPU-intensive kernel work https://lkml.kernel.org/r/20171205195220.28208-1-daniel.m.jordan@oracle.com
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.15-rc1/">LKML News after v4.15-rc1</a></h2>
-    <div class="article-style">
-      
-      Linux 4.15-rc1 https://lkml.kernel.org/r/CA+55aFzcudOPSwbD9XfVxBgFsQOhBjyncyYnGDYwZUEHOGUwcw@mail.gmail.com
-예정대로 2주만에 4.15 의 첫번째 rc 버전이 나왔습니다.
-지난주는 추수감사절이라 다들 휴가인 사람이 많았기에 첫번째 주에 최대한 많이 풀리퀘스트를 받았고 지난주는 좀 더 까다롭게 풀리퀘스트를 검사했군요. 토발즈는 두번째 주 동안 랩톱 들고 여행중이었고, 랩톱에서는 전체 모듈 빌드를 하지 않기 때문이라 합니다. 메인테이너들도 가능한 첫번째 주에 중요 플리퀘스트를 보내는 식으로 협조를 해줬다고 합니다. 그네들도 두번째주는 휴가가고 싶었을테니&hellip; ;)
-4.14 가 LTS 였기에 이번 머지윈도우에는 변화가 크지 않을 것으로 예상했는데 생각보다 많은 풀리퀘스트가 있었다고 합니다.
-      
-    </div>
-  </div>
-  
+      <h2 id="dynamically-allocated-memory-descriptors-matthew-wilcox">Dynamically allocated memory descriptors (Matthew Wilcox)</h2>
+<p><a href="https://lkml.kernel.org/r/YXcLqcFhDq3uUwIj@casper.infradead.org">https://lkml.kernel.org/r/YXcLqcFhDq3uUwIj@casper.infradead.org</a></p>
+<p>In this mail, Matthew explains his idea on making <code>struct page</code> only two words
+and how it could work with buddy allocator freelists.</p>
+<h2 id="rfc-mm-disable-numa_balancing_default_enabled-and-transparent_hugepage-on-preempt_rt-sebastian-andrzej-siewior">[RFC] mm: Disable NUMA_BALANCING_DEFAULT_ENABLED and TRANSPARENT_HUGEPAGE on PREEMPT_RT (Sebastian Andrzej Siewior)</h2>
+<p><a href="https://lkml.kernel.org/r/20211026165100.ahz5bkx44lrrw5pt@linutronix.de">https://lkml.kernel.org/r/20211026165100.ahz5bkx44lrrw5pt@linutronix.de</a></p>
+<p>Mel told RT patchset could incur spikes on NUMA machines when <code>NUMA_BALANCING</code>
+and THP are turned on.  Sebastian request comments on disabling those on RT
+enabled kernel by default, but still trying to find a good test for that.</p>
 
+    </div>
+
+    
+
+
+
+
+
+<div class="article-tags">
   
-<nav>
-  <ul class="pagination justify-content-center">
+  <a class="badge badge-light" href="/tags/linux/">linux</a>
+  
+  <a class="badge badge-light" href="/tags/kernel/">kernel</a>
+  
+  <a class="badge badge-light" href="/tags/lkml/">lkml</a>
+  
+  <a class="badge badge-light" href="/tags/news/">news</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
     
-    <li class="page-item"><a class="page-link" href="/categories/lkml-news/page/17/">&laquo;</a></li>
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=/post/lkml_news_v5.15/&amp;text=LKML%20News%20v5.15" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
     
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=/post/lkml_news_v5.15/&amp;t=LKML%20News%20v5.15" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
     
-    <li class="page-item"><a class="page-link" href="/categories/lkml-news/page/19/">&raquo;</a></li>
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=LKML%20News%20v5.15&amp;body=/post/lkml_news_v5.15/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=/post/lkml_news_v5.15/&amp;title=LKML%20News%20v5.15" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=LKML%20News%20v5.15%20/post/lkml_news_v5.15/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=/post/lkml_news_v5.15/&amp;title=LKML%20News%20v5.15" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
     
   </ul>
-</nav>
-
-
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      <img class="portrait mr-3" src="https://s.gravatar.com/avatar/43dc5645c78e68fda997138380dfaaf4?s=200')" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="/">SeongJae Park</a></h5>
+      <h6 class="card-subtitle">Kernel / Hypervisor Engineer</h6>
+      <p class="card-text">SeongJae Park is a programmer who loves to analyze and develop systems.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/log/?qt=author&amp;q=seongjae&#43;park" target="_blank" rel="noopener">
+        <i class="fab fa-linux"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/sjp38" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.com/citations?user=jJIiF3AAAAAJ" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  
+  
+  <div class="article-widget content-widget-hr">
+    <h3>Related</h3>
+    <ul>
+      
+      <li><a href="/post/lkml_news_v5.15-rc7/">LKML News v5.15-rc7</a></li>
+      
+      <li><a href="/post/lkml_news_v5.15-rc6/">LKML News v5.15-rc6</a></li>
+      
+      <li><a href="/post/lkml_news_v5.15-rc5/">LKML News v5.15-rc5</a></li>
+      
+      <li><a href="/post/lkml_news_v5.15-rc4/">LKML News v5.15-rc4</a></li>
+      
+      <li><a href="/post/lkml_news_v5.15-rc3/">LKML News v5.15-rc3</a></li>
+      
+    </ul>
+  </div>
+  
+
+
+
+  </div>
+</article>
 
       
 

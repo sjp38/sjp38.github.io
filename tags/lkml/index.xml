@@ -5,12 +5,29 @@
     <link>/tags/lkml/</link>
       <atom:link href="/tags/lkml/index.xml" rel="self" type="application/rss+xml" />
     <description>lkml</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 19 Oct 2021 07:39:33 +0200</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 27 Oct 2021 07:09:11 +0200</lastBuildDate>
     <image>
       <url>/img/tux.png</url>
       <title>lkml</title>
       <link>/tags/lkml/</link>
     </image>
+    
+    <item>
+      <title>LKML News v5.15</title>
+      <link>/post/lkml_news_v5.15/</link>
+      <pubDate>Wed, 27 Oct 2021 07:09:11 +0200</pubDate>
+      <guid>/post/lkml_news_v5.15/</guid>
+      <description>&lt;h2 id=&#34;dynamically-allocated-memory-descriptors-matthew-wilcox&#34;&gt;Dynamically allocated memory descriptors (Matthew Wilcox)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/YXcLqcFhDq3uUwIj@casper.infradead.org&#34;&gt;https://lkml.kernel.org/r/YXcLqcFhDq3uUwIj@casper.infradead.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;In this mail, Matthew explains his idea on making &lt;code&gt;struct page&lt;/code&gt; only two words
+and how it could work with buddy allocator freelists.&lt;/p&gt;
+&lt;h2 id=&#34;rfc-mm-disable-numa_balancing_default_enabled-and-transparent_hugepage-on-preempt_rt-sebastian-andrzej-siewior&#34;&gt;[RFC] mm: Disable NUMA_BALANCING_DEFAULT_ENABLED and TRANSPARENT_HUGEPAGE on PREEMPT_RT (Sebastian Andrzej Siewior)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20211026165100.ahz5bkx44lrrw5pt@linutronix.de&#34;&gt;https://lkml.kernel.org/r/20211026165100.ahz5bkx44lrrw5pt@linutronix.de&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Mel told RT patchset could incur spikes on NUMA machines when &lt;code&gt;NUMA_BALANCING&lt;/code&gt;
+and THP are turned on.  Sebastian request comments on disabling those on RT
+enabled kernel by default, but still trying to find a good test for that.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>LKML News v5.15-rc7</title>
