@@ -5,12 +5,45 @@
     <link>/</link>
       <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <description>hacklog</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 27 Oct 2021 07:09:11 +0200</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sat, 30 Oct 2021 09:16:33 +0200</lastBuildDate>
     <image>
       <url>/img/tux.png</url>
       <title>hacklog</title>
       <link>/</link>
     </image>
+    
+    <item>
+      <title>Papers I read in 2021 Q4</title>
+      <link>/post/paper_reading_2021_q4/</link>
+      <pubDate>Sat, 30 Oct 2021 09:16:33 +0200</pubDate>
+      <guid>/post/paper_reading_2021_q4/</guid>
+      <description>&lt;h2 id=&#34;the-five-minute-rule-thirty-years-later-and-its-impact-on-the-storage-hierarchy&#34;&gt;The Five-minute Rule Thirty Years Later and its Impact on the Storage Hierarchy&lt;/h2&gt;
+&lt;p&gt;Appuswamy, Raja, et al. &amp;ldquo;The five minute rule thirty years later and its impact
+on the storage hierarchy.&amp;rdquo; Proceedings of the 7th International Workshop on
+Accelerating Analytics and Data Management Systems Using Modern Processor and
+Storage Architectures. No. CONF. 2017.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.renata.borovica-gajic.com/data/adms2017_5minuterule.pdf&#34;&gt;http://www.renata.borovica-gajic.com/data/adms2017_5minuterule.pdf&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;In 1987, five minute rule, which means data accessed for every 5 or less
+minutes are better to be in DRAM than HDD, has found.  As the storage devices
+emerge, the rule has revisited for every decade.  This paper revisits it again,
+in 2017.&lt;/p&gt;
+&lt;p&gt;This paper classifies storage devices in four tiers: performance, capacity,
+archival, and backup.&lt;/p&gt;
+&lt;p&gt;Data for latency-sensitive interactive analytics should be in the performance
+tier, while data for latency-insensitive batch analytics should be in the
+storage tier.&lt;/p&gt;
+&lt;p&gt;For state-of-the-art PCIe SSDs, the bread-even interval predicted by the
+five-minute rule is less than a minute.&lt;/p&gt;
+&lt;p&gt;The break-even interval between the devices are as below:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;DRAM-HDD: 5m in 1987, 5m in 1997, 1.5h in 2007, and 4h in 2017&lt;/li&gt;
+&lt;li&gt;DRAM-SSD: 15m in 2007, 7m for read / 24m for write in 2017 (a sentence in the
+paper says this is only 40 seconds in 2017, confusing&amp;hellip;  Maybe for 3D XPoint
+like things only)&lt;/li&gt;
+&lt;li&gt;SSD-HDD: 2.26h in 2007, 1d in 2017&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>LKML News v5.15</title>
