@@ -40,6 +40,22 @@ patches, drops no patch.  435 patches in total in the -mm tree.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/YX4RkYNNZtO9WL0L@casper.infradead.org&#34;&gt;https://lkml.kernel.org/r/YX4RkYNNZtO9WL0L@casper.infradead.org&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Matthew is sending the memory folios pull request again, for v5.16.  I
 personally curious what feedback will come for this time.&lt;/p&gt;
+&lt;h2 id=&#34;linux-515-linus-torvalds&#34;&gt;Linux 5.15 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wjfbfQobW2jygMvgfJXKmzZNB=UTzBrFs2vTEzVpBXA4Q@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wjfbfQobW2jygMvgfJXKmzZNB=UTzBrFs2vTEzVpBXA4Q@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The 5.15 of Linux has released in the normal 9 weeks cycle, with DAMON.  It
+started with pains due to the &lt;code&gt;-Werror&lt;/code&gt;, but the pace has been normal soon.
+This also means the merge window for 5.16 is open.  DAMON following patches for
+DAMOS and DAMON-based proactive reclamation are in -next tree.  Let&amp;rsquo;s see if
+those will be merged in this merge window.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v5.4-rc7..v5.15.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
+below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2019-11-01 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     

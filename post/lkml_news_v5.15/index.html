@@ -574,7 +574,7 @@ Mel told RT patchset could incur spikes on NUMA machines when NUMA_BALANCING and
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -637,6 +637,22 @@ patches, drops no patch.  435 patches in total in the -mm tree.</p>
 <p><a href="https://lkml.kernel.org/r/YX4RkYNNZtO9WL0L@casper.infradead.org">https://lkml.kernel.org/r/YX4RkYNNZtO9WL0L@casper.infradead.org</a></p>
 <p>Matthew is sending the memory folios pull request again, for v5.16.  I
 personally curious what feedback will come for this time.</p>
+<h2 id="linux-515-linus-torvalds">Linux 5.15 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wjfbfQobW2jygMvgfJXKmzZNB=UTzBrFs2vTEzVpBXA4Q@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wjfbfQobW2jygMvgfJXKmzZNB=UTzBrFs2vTEzVpBXA4Q@mail.gmail.com</a></p>
+<p>The 5.15 of Linux has released in the normal 9 weeks cycle, with DAMON.  It
+started with pains due to the <code>-Werror</code>, but the pace has been normal soon.
+This also means the merge window for 5.16 is open.  DAMON following patches for
+DAMOS and DAMON-based proactive reclamation are in -next tree.  Let&rsquo;s see if
+those will be merged in this merge window.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.4-rc7..v5.15.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2019-11-01 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
 
     </div>
 
