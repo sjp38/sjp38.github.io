@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2021-10-27T07:09:11&#43;02:00">
+    <meta property="og:updated_time" content="2021-11-02T07:10:11&#43;01:00">
   
 
   
@@ -525,6 +525,20 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.12-rc4/">LKML News v5.12-rc4</a></h2>
+    <div class="article-style">
+      
+      File THP and HWPoison (Matthew Wilcox) https://lkml.kernel.org/r/20210316140947.GA3420@casper.infradead.org
+THP is not splitted for file-backed pages when it got memory failure. This mail describes the problem in detail and propose some change to mitigate it.
+Issue with kfence and kmemleak (Luis Henriques) https://lkml.kernel.org/r/YFDf6iKH1p/jGnM0@suse.de
+Luis found a problem when kmemleak and kfence is used together. A fix is made by Marco.
+[PATCH v4 00/13] Introduced multi-preference mempolicy (Feng Tang) https://lkml.kernel.org/r/1615952410-36895-1-git-send-email-feng.tang@intel.com
+This is the fourth version of the patchset.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.12-rc3/">LKML News v5.12-rc3</a></h2>
     <div class="article-style">
       
@@ -635,19 +649,6 @@ This patch makes caches can dropped even when those are smaller than the batch s
 Because hugetlbfs is using reserved memory, it&rsquo;s not reported by the free page reporting feature. This patch makes it able to be reported.
 Linux 5.11-rc3 (Linus Torvalds) https://lkml.kernel.org/r/CAHk-=wizR7--Ub-rasYx2S5XURkooCQ63Sat23BpvTAuN0scQA@mail.gmail.com
 The prediction of Linus for this release was wrong.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.11-rc2/">LKML News v5.11-rc2</a></h2>
-    <div class="article-style">
-      
-      Linux 5.11-rc2 (Linus Torvalds) https://lkml.kernel.org/r/CAHk-=whS+rzNMSsU6vRoLMzrm0JPN-OVg+BxhybMet3NpqpR-Q@mail.gmail.com
-Due to the holiday season, rc2 ends up fairly small. Maybe we will see rc8 for v5.11, but Torvalds just saying let&rsquo;s watch more.
-Below is the diffstat of the releases in the last two years.
-Note that the y-axis is in logarithm. I draw it using https://github.com/sjp38/relstat and https://github.com/sjp38/lazybox using below command:
-$ relstat.py --since 2019-01-04 | ~/lazybox/gnuplot/plot.py \ --data_fmt table --type labeled-lines --xtics_rotate -90 \ --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.
       
     </div>
   </div>
