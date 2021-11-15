@@ -578,7 +578,7 @@ The first pull request for v5.16 from Andrew Morton. Patches for DAMON subsystem
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -641,6 +641,22 @@ v5.15 and having performance benchmark reports on the previous version.</p>
 <p><a href="https://lkml.kernel.org/r/cover.1636616548.git.baolin.wang@linux.alibaba.com">https://lkml.kernel.org/r/cover.1636616548.git.baolin.wang@linux.alibaba.com</a></p>
 <p>This patchset allows demoting multiple target nodes for systems having multiple
 slow memory nodes.</p>
+<h2 id="linux-516-rc1-linus-torvalds">Linux 5.16-rc1 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wjF=JzLkCi2wV+G=f8OWa5rNjPsZd2RMFG5MHwKZPgYvw@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wjF=JzLkCi2wV+G=f8OWa5rNjPsZd2RMFG5MHwKZPgYvw@mail.gmail.com</a></p>
+<p>After the two weeks, 5.16-rc1 is released.  It&rsquo;s not a huge, but also not
+small.  Just normal.  Linus mentions folios as one of the patches that applied
+in this release, as it changes the core.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.4..v5.16-rc1.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2019-11-15 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc1 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.16-rc1-only.png" alt="rc1 release stat"></p>
 
     </div>
 
