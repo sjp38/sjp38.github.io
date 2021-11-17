@@ -530,6 +530,8 @@
       
       [PATCH -V10 0/6] NUMA balancing: optimize memory placement for memory tiering system (Huang Ying) https://lkml.kernel.org/r/20211116013522.140575-1-ying.huang@intel.com
 This patchset optimizes the pages placement on tiered memory systems using DRAM and PMEM.
+[RFC 0/3] page table check (Pasha Tatashin) https://lkml.kernel.org/r/20211116220038.116484-1-pasha.tatashin@soleen.com
+Pasha found broken page ref issue in 4.14 kernel. The page was leaked into another process, so they were able to find the issue by examining the page tables. This patchset tries to prevent this kind of memory corruption issues by checking the page tables in time of inserting entries into user page tables.
       
     </div>
   </div>
