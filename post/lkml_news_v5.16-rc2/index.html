@@ -624,6 +624,10 @@ and PMEM.</p>
 another process, so they were able to find the issue by examining the page
 tables.  This patchset tries to prevent this kind of memory corruption issues
 by checking the page tables in time of inserting entries into user page tables.</p>
+<h2 id="patch-mm-discard-__gfp_atomic-neil-brown">[PATCH] MM: discard <code>__GFP_ATOMIC</code> (Neil Brown)</h2>
+<p><a href="https://lkml.kernel.org/r/163712397076.13692.4727608274002939094@noble.neil.brown.name">https://lkml.kernel.org/r/163712397076.13692.4727608274002939094@noble.neil.brown.name</a></p>
+<p>Neil Brown couldn&rsquo;t find real useful case for <code>__GFP_ATOMIC</code>.  This patch
+removes <code>__GFP_ATOMIC</code>, while leaving <code>GFP_ATOMIC</code> as is.</p>
 
     </div>
 
