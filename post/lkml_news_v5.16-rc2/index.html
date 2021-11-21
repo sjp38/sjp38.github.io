@@ -574,7 +574,7 @@ Pasha found broken page ref issue in 4.14 kernel. The page was leaked into anoth
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -641,6 +641,12 @@ patches are in the queue.</p>
 <p><a href="https://lkml.kernel.org/r/20211119164248.50feee07c5d2cc6cc4addf97@linux-foundation.org">https://lkml.kernel.org/r/20211119164248.50feee07c5d2cc6cc4addf97@linux-foundation.org</a></p>
 <p>A pull request of 15 patches for fix of various subsystems including DAMON has
 sent to Linus Torvalds.</p>
+<h2 id="patch-mm-split-thp-synchronously-on-madv_dontneed-shakeel-butt">[PATCH] mm: split thp synchronously on MADV_DONTNEED (Shakeel Butt)</h2>
+<p><a href="https://lkml.kernel.org/r/20211120201230.920082-1-shakeelb@google.com">https://lkml.kernel.org/r/20211120201230.920082-1-shakeelb@google.com</a></p>
+<p>Because the kernel defers THP split and release until memory pressure, freeing
+memory that backed by THP using <code>MADV_DONTNEED</code> is difficiult.  This patch
+makes <code>madvise()</code> with <code>MADV_DONTNEED</code> split THP of the target memory regions
+synchronously.</p>
 
     </div>
 

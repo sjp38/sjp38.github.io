@@ -44,6 +44,12 @@ patches are in the queue.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20211119164248.50feee07c5d2cc6cc4addf97@linux-foundation.org&#34;&gt;https://lkml.kernel.org/r/20211119164248.50feee07c5d2cc6cc4addf97@linux-foundation.org&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;A pull request of 15 patches for fix of various subsystems including DAMON has
 sent to Linus Torvalds.&lt;/p&gt;
+&lt;h2 id=&#34;patch-mm-split-thp-synchronously-on-madv_dontneed-shakeel-butt&#34;&gt;[PATCH] mm: split thp synchronously on MADV_DONTNEED (Shakeel Butt)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20211120201230.920082-1-shakeelb@google.com&#34;&gt;https://lkml.kernel.org/r/20211120201230.920082-1-shakeelb@google.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Because the kernel defers THP split and release until memory pressure, freeing
+memory that backed by THP using &lt;code&gt;MADV_DONTNEED&lt;/code&gt; is difficiult.  This patch
+makes &lt;code&gt;madvise()&lt;/code&gt; with &lt;code&gt;MADV_DONTNEED&lt;/code&gt; split THP of the target memory regions
+synchronously.&lt;/p&gt;
 </description>
     </item>
     
