@@ -50,6 +50,27 @@ sent to Linus Torvalds.&lt;/p&gt;
 memory that backed by THP using &lt;code&gt;MADV_DONTNEED&lt;/code&gt; is difficiult.  This patch
 makes &lt;code&gt;madvise()&lt;/code&gt; with &lt;code&gt;MADV_DONTNEED&lt;/code&gt; split THP of the target memory regions
 synchronously.&lt;/p&gt;
+&lt;h2 id=&#34;patch-v09-06-schedmmx86uaccess-implement-user-managed-concurrency-groups-peter-oskolkov&#34;&gt;[PATCH v0.9 0/6] sched,mm,x86/uaccess: implement User Managed Concurrency Groups (Peter Oskolkov)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20211121212040.8649-1-posk@google.com&#34;&gt;https://lkml.kernel.org/r/20211121212040.8649-1-posk@google.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This patchset implements user space managed m:n threading subsystem.&lt;/p&gt;
+&lt;h2 id=&#34;rfc-patch-mm-promote-slow-memory-in-advance-to-improve-performance-baolin-wang&#34;&gt;[RFC PATCH] mm: Promote slow memory in advance to improve performance (Baolin Wang)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/fc80ea7998a98274447cb3be84d5ef705438a3dc.1637571100.git.baolin.wang@linux.alibaba.com&#34;&gt;https://lkml.kernel.org/r/fc80ea7998a98274447cb3be84d5ef705438a3dc.1637571100.git.baolin.wang@linux.alibaba.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This patchset makes data in slow memory be promoted into RAM based on the
+spatial locality.&lt;/p&gt;
+&lt;h2 id=&#34;linux-516-rc2-linus-torvalds&#34;&gt;Linux 5.16-rc2 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wgMLMKjQUFoAA+chpZqaLJgpnUHsOJtBzWgFepT_DEwSw@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wgMLMKjQUFoAA+chpZqaLJgpnUHsOJtBzWgFepT_DEwSw@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Just a normal rc2 release having no noteworthy things.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v5.5-rc1..v5.16-rc2.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
+below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2019-11-23 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And, below is the diffstat of the -rc2 releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v5.16-rc2-only.png&#34; alt=&#34;rc2 release stat&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     
