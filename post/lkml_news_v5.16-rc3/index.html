@@ -28,12 +28,11 @@
   
     
   
-  <meta name="description" content="Kernel / Hypervisor Engineer">
+  <meta name="description" content="[PATCH 0/3] page table check (Pasha Tatashin) https://lkml.kernel.org/r/20211123214814.3756047-1-pasha.tatashin@soleen.com
+Due to reference count of struct page handling issue, some memory were leak from a process and moved in another process. This commit avoids such type of bugs by checking page table at the time of entrieds insertion.">
 
   
-  <link rel="alternate" hreflang="ko" href="/ko/tags/linux/">
-  
-  <link rel="alternate" hreflang="en-us" href="/tags/linux/">
+  <link rel="alternate" hreflang="en-us" href="/post/lkml_news_v5.16-rc3/">
 
   
 
@@ -133,14 +132,12 @@
 
 
   
-  <link rel="alternate" href="/tags/linux/index.xml" type="application/rss+xml" title="hacklog">
-  
 
   <link rel="manifest" href="/index.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon-32.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="/tags/linux/">
+  <link rel="canonical" href="/post/lkml_news_v5.16-rc3/">
 
   
   
@@ -152,18 +149,66 @@
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="hacklog">
-  <meta property="og:url" content="/tags/linux/">
-  <meta property="og:title" content="linux | hacklog">
-  <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
+  <meta property="og:url" content="/post/lkml_news_v5.16-rc3/">
+  <meta property="og:title" content="LKML News v5.16-rc3 | hacklog">
+  <meta property="og:description" content="[PATCH 0/3] page table check (Pasha Tatashin) https://lkml.kernel.org/r/20211123214814.3756047-1-pasha.tatashin@soleen.com
+Due to reference count of struct page handling issue, some memory were leak from a process and moved in another process. This commit avoids such type of bugs by checking page table at the time of entrieds insertion."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2021-11-24T07:20:51&#43;01:00">
+    
+      <meta property="article:published_time" content="2021-11-24T07:20:51&#43;01:00">
+    
+    <meta property="article:modified_time" content="2021-11-24T07:20:51&#43;01:00">
   
 
   
 
 
+    
 
+
+
+
+
+
+  
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/post/lkml_news_v5.16-rc3/"
+  },
+  "headline": "LKML News v5.16-rc3",
+  
+  "datePublished": "2021-11-24T07:20:51+01:00",
+  "dateModified": "2021-11-24T07:20:51+01:00",
+  
+  "author": {
+    "@type": "Person",
+    "name": "SeongJae Park"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "hacklog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/img/icon-512.png"
+    }
+  },
+  "description": "[PATCH 0/3] page table check (Pasha Tatashin) https://lkml.kernel.org/r/20211123214814.3756047-1-pasha.tatashin@soleen.com\nDue to reference count of struct page handling issue, some memory were leak from a process and moved in another process. This commit avoids such type of bugs by checking page table at the time of entrieds insertion."
+}
+</script>
+
+  
 
   
 
@@ -171,10 +216,13 @@
   
 
 
+  
 
 
 
-  <title>linux | hacklog</title>
+
+
+  <title>LKML News v5.16-rc3 | hacklog</title>
 
 </head>
 
@@ -396,7 +444,7 @@
         
 
         <li class="nav-item">
-          <a class="nav-link  active" href="/tags"><span>Tags</span></a>
+          <a class="nav-link " href="/tags"><span>Tags</span></a>
         </li>
 
         
@@ -466,22 +514,6 @@
       
 
       
-      <li class="nav-item dropdown i18n-dropdown">
-        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true">
-          <i class="fas fa-globe mr-1" aria-hidden="true"></i><span class="d-none d-lg-inline">English</span>
-        </a>
-        <div class="dropdown-menu">
-          <div class="dropdown-item i18n-active font-weight-bold">
-            <span>English</span>
-          </div>
-          
-          <a class="dropdown-item" href="/ko/tags/linux/">
-            <span>한국어</span>
-          </a>
-          
-        </div>
-      </li>
-      
 
     </ul>
 
@@ -489,175 +521,328 @@
 </nav>
 
 
-  
-
-
-
-
-
-
-
-
-
-
-
+  <article class="article">
 
   
 
+
+
+
+
+
+
+
+
+
+
+
+  
+
   
   
+  
+<div class="article-container pt-3">
+  <h1>LKML News v5.16-rc3</h1>
+
+  
+
   
     
-  
-<div class="universal-wrapper pt-3">
-  <h1>linux</h1>
+
+
+<div class="article-metadata">
 
   
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Wed, Nov 24, 2021
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   
 </div>
 
 
 
-<div class="universal-wrapper">
-  
+  <div class="article-container">
 
-  
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.14/">LKML News after v4.14</a></h2>
     <div class="article-style">
-      
-      Linux 4.14 htpps://lkml.kernel.org/r/CA+55aFwqXh4rgJJ3T98k8wa-JYF7t8mWuwUjdxkbZyOyDEcGzQ@mail.gmail.com
-드디어 v4.14 의 릴리즈입니다. 이번 버전은 또하나의 LTS 커널이 될 예정이군요.
-동시에, v4.15 를 위한 머지 윈도우가 열렸습니다. 이번 머지 윈도우는 thanks giving 이랑 겹치게 되었는데, 이때문에 머지 윈도우를 연장할지 아니면 아예 1주일 줄일지 토발즈는 고민중인 것 같네요.
-[RFC PATCH v11 for 4.15 01/24] Restartable sequences system call https://lkml.kernel.org/r/20171114200414.2188-2-mathieu.desnoyers@efficios.com
-몇년전부터 올라오고 있으나 아직 머지되지 못한, restartable sequence 패치의 최신 버전이 또 올라왔습니다. 유저스페이스의 크리티컬 섹션을 커널에게 제어할 수 있도록 도와주는 기능입니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.14-rc8/">LKML News after v4.14-rc8</a></h2>
-    <div class="article-style">
-      
-      Linux 4.14-rc8 https://lwn.net/Articles/738207/
-v4.14 를 향한 (아마도) 마지막 rc 버전의 릴리즈입니다.
-정말로 별다른 일 없었다면 그냥 이번에 v4.14 릴리즈를 할 계획이었지만 그정도는 아니었다고 하는군요. 어쨌든 rc8 덕분에 v4.15 merge window 는 thanksgiving week 를 포함하게 되었는데 토발즈는 이때 가족과 휴가를 갈 계획이라 랩톱 가지고 휴가다니는 동안에도 머지를 잘 할 수 있길 바라지만 문제가 생기면 merge window 를 연장할 수도 있겠다고 하네요. 일단 어떻게 될지 두고보자는군요.
-이번 릴리즈에 포함된 변경은 대부분 드라이버 쪽 변경이고, SPDK 관련 소스코드에 라이센스 추가 등을 한 사소하지만 커다란 양의 변경이 있습니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/osse2017_03/">OSSummit 2017 Attendence - 03</a></h2>
-    <div class="article-style">
-      
-      OSSummit 등록도 마쳤고, 남은 하루는 프라하 성 쪽을 둘러보기로 했습니다. 내일부터는 OSSummit 발표를 아침부터 오후까지 들어야 하므로, 프라하 관광을 해가 떠있을 때 하는건 오늘이 마지막이니 부지런히 걸어야 합니다. 어떻게 생각해 보면 꽤 강행군이기도 하고, 아침 일찍 도착하길 다행이다 싶습니다.
-Vltava[1] ![foo] (/img/osse_03/4.jpg)
-OSSummit 컨퍼런스 회장인 힐튼 프라하 호텔은 프라하 시내의 동북쪽에 위치해 있어서 조금만 걸으면 아침에 심카드 사고 나서 걸었던 블타바 강이 나옵니다. 아까 지나갔던 코스지만 한번 더 걸어가기로 합니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/osse2017_02/">OSSummit 2017 Attendence - 02</a></h2>
-    <div class="article-style">
-      
-      Immigration ![immigration] (/img/osse_02/14.jpg)
-먼저 공항에서 입국심사를 거쳐야 합니다. 한글 표지판이 많이 있어서 영어에 익숙지 않은 분들도 비교적 쉽게 적응할 수 있겠다 싶었습니다.
-제가 가장 많이 다녀온 외국은 미국인데요. 대한민국 여권 소지자는 미국에 갈 때 비자가 필요없지만 E-SATA 로 등록을 해야 하고, 언젠가부터 E-SATA 등록비도 몇만원 정도 생겼죠. 또, 미국은 입국심사가 왠지 날카롭다는 인상입니다. 입국할 때 입국심사 카드도 써야하고 여기 숙소 주소 등도 적어야 하고, 지문도 찍어야 하죠. 공항 보안검색대에선 투시카메라로 사진도 찍고.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.14-rc7/">LKML News after v4.14-rc7</a></h2>
-    <div class="article-style">
-      
-      Linux 4.14-rc7 https://lkml.kernel.org/r/CA+55aFwhgxivTE3k88nshbrH9nd-4nhmhXGzw-MxRVGxf-R8Eg@mail.gmail.com
-일곱번째 rc 버전의 릴리즈입니다.
-OSSE 와 kernel summit 으로 프라하를 방문했던 토발즈인데, 집에 잘 돌아왔다는군요. 이번 rc 버전은 기존의 rc7 보다도 작은 편에 가깝다고 합니다만, 다음 한주간이 정말 조용하지 않는한은 rc8 릴리즈를 할 생각이라는군요.
-Re: Page allocator bottleneck https://lkml.kernel.org/r/1c218381-067e-7757-ccc2-4e5befd2bfc3@mellanox.com
-멜라녹스의 빠른 네트워크 카드를 사용하는 환경에서는 page allocator 의 속도가 bottleneck 이 된다는 이야기에 대한 업데이트입니다. 여전히 해당 부분이 bottleneck 이며, queued_spin_lock_slowpath() 가 85 % 가까이 CPU 를 차지하고 있군요.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/osse2017_01/">OSSummit 2017 Attendence - 01</a></h2>
-    <div class="article-style">
-      
-      ![pargue!] (/img/osse_01/8.jpg)
-Open Source Summit Europe 과 Embedded Linux Conference Europe, 그리고 Annual Kernel Summit 이 합동으로 열린 프라하에 다녀왔습니다. 이에 대한 기록을 남겨봅니다.
-The Event 리눅스 재단에서는 다양한 컨퍼런스를 개최합니다. 2015년까지는 한국에서도 Korea Linux Forum 이라는 행사를 매년 열었죠. 특히 2015년에는 커널 서밋도 함께해서 특히 특별했던 기억입니다. 이런 이벤트들 중에서도 가장 큰 이벤트는 오픈소스 서밋이 아닐까 싶습니다. 이 이벤트는 기존의 리눅스콘 등 행사들이 합쳐진 행사입니다. 가장 큰 이벤트가 오픈소스 서밋이라면 가장 중요한 행사는 커널 서밋이라 할 수 있지 않을까 싶습니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.14-rc6/">LKML News after v4.14-rc6</a></h2>
-    <div class="article-style">
-      
-      Linux 4.14-rc6 https://lkml.kernel.org/r/CA+55aFxSJGeN=2X-uX-on1Uq2Nb8+v1aiMDz5H1+tKW_N5Q+6g@mail.gmail.com
-여섯번째 rc 버전의 릴리즈입니다.
-토발즈 집 인터넷 문제로 평소보다 늦은 릴리즈였군요. 이번 rc 버전은 기대보다는 좀 많은 내용이 추가되었는데, 때문에 어쩌면 rc8 까지 나올지도 모르겠다고 하는군요. 물론 확정되거나 한건 아니라고 합니다.
-Re: [GIT PULL rcu/next] RCU commits for 4.15 https://lkml.kernel.org/r/20171023204502.GA2776@linux.vnet.ibm.com
-4.15 에 들어가야 할 RCU 쪽 커밋들의 풀리퀘스트 입니다.
-문서, RCU CPU Stall warning 업데이트, rcutorture 쪽 업데이트가 포함되었네요.
-[GIT PULL de-alpha] Make core code not need to know about Alpha for v4.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.14-rc5/">LKML News after v4.14-rc5</a></h2>
-    <div class="article-style">
-      
-      Linux 4.14-rc5 https://lkml.kernel.org/r/CA+55aFyKgEL3dj7XGYsPQd8y_z0GWx91TLZPSQAxjrua1aWOLw@mail.gmail.com
-다섯번째 rc 버전의 릴리즈입니다.
-Lazy TLB flushing 변경은 지나치게 게으르게 TLB flushing 을 해서 AMD 칩 일부에서 문제를 일으키기도 했었다는군요.
-일부 서브시스템에서 fuzzing 을 통한 문제 발견과 수정이 있었는데 좋은 현상이라고도 언급합니다.
-전체적으로 x86, powerpc, mips 에의 arch 업데이트, gpu, networking, usb, sound, misc 드라이버 업데이트, lockdep, networking, mm 쪽 코어 커널 업데이트, 그리고 perf 와 selftest 에의 업데이트가 있었다고 이번 릴리즈를 정리하는군요.
-[PATCH 0/2] mm, thp: introduce dedicated transparent huge page https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_0000/">LKML News - Intro</a></h2>
-    <div class="article-style">
-      
-      LKML 을 모니터링 하면서 흥미가는 패치나 토론을 lkml news 라는 카테고리로 묶어서 비정기적, 비형식적으로 간략히 정리하고 관련 소식을 업데이트 해보고자 합니다. 주로 모니터링 하는 메일은 메모리 매니지먼트 쪽과 rcu 관련 메일들이 될겁니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/kernel-text-addresses-removed-from-calltrace/">Kernel text addresses removed from calltrace</a></h2>
-    <div class="article-style">
-      
-      최근 커널은 stakc dump 에서 콜 트레이스(Call Trace) 에 각 코드의 메모리 어드레스를 찍어주지 않습니다. 이에 대해 포스팅을 해봅니다.
-Call Trace 커널은 문제가 발생하거나 하면 문제의 원인을 찾을 수 있는 다양한 정보를 담고 있는 stack dump 를 로그로 뿌려 줍니다. 문제의 원인을 찾는데 매우 소중한 정보입니다. 그 정보 중에서도 중요한 것 중 하나가 콜 트레이스로, 이 문제의 순간에 오기까지 어느 함수의 어느 지점에서 어느 함수를 호출해서 여기까지 왔는가를 담는 정보입니다.
-      
-    </div>
-  </div>
-  
+      <h2 id="patch-03-page-table-check-pasha-tatashin">[PATCH 0/3] page table check (Pasha Tatashin)</h2>
+<p><a href="https://lkml.kernel.org/r/20211123214814.3756047-1-pasha.tatashin@soleen.com">https://lkml.kernel.org/r/20211123214814.3756047-1-pasha.tatashin@soleen.com</a></p>
+<p>Due to reference count of <code>struct page</code> handling issue, some memory were leak
+from a process and moved in another process.  This commit avoids such type of
+bugs by checking page table at the time of entrieds insertion.</p>
 
+    </div>
+
+    
+
+
+
+
+
+<div class="article-tags">
   
-<nav>
-  <ul class="pagination justify-content-center">
+  <a class="badge badge-light" href="/tags/linux/">linux</a>
+  
+  <a class="badge badge-light" href="/tags/kernel/">kernel</a>
+  
+  <a class="badge badge-light" href="/tags/lkml/">lkml</a>
+  
+  <a class="badge badge-light" href="/tags/news/">news</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
     
-    <li class="page-item"><a class="page-link" href="/tags/linux/page/20/">&laquo;</a></li>
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=/post/lkml_news_v5.16-rc3/&amp;text=LKML%20News%20v5.16-rc3" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
     
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=/post/lkml_news_v5.16-rc3/&amp;t=LKML%20News%20v5.16-rc3" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
     
-    <li class="page-item"><a class="page-link" href="/tags/linux/page/22/">&raquo;</a></li>
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=LKML%20News%20v5.16-rc3&amp;body=/post/lkml_news_v5.16-rc3/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=/post/lkml_news_v5.16-rc3/&amp;title=LKML%20News%20v5.16-rc3" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=LKML%20News%20v5.16-rc3%20/post/lkml_news_v5.16-rc3/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=/post/lkml_news_v5.16-rc3/&amp;title=LKML%20News%20v5.16-rc3" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
     
   </ul>
-</nav>
-
-
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      <img class="portrait mr-3" src="https://s.gravatar.com/avatar/43dc5645c78e68fda997138380dfaaf4?s=200')" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="/">SeongJae Park</a></h5>
+      <h6 class="card-subtitle">Kernel / Hypervisor Engineer</h6>
+      <p class="card-text">SeongJae Park is a programmer who loves to analyze and develop systems.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/log/?qt=author&amp;q=seongjae&#43;park" target="_blank" rel="noopener">
+        <i class="fab fa-linux"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/sjp38" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.com/citations?user=jJIiF3AAAAAJ" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  
+  
+  <div class="article-widget content-widget-hr">
+    <h3>Related</h3>
+    <ul>
+      
+      <li><a href="/post/lkml_news_v5.16-rc2/">LKML News v5.16-rc2</a></li>
+      
+      <li><a href="/post/lkml_news_v5.16-rc1/">LKML News v5.16-rc1</a></li>
+      
+      <li><a href="/post/lkml_news_v5.15/">LKML News v5.15</a></li>
+      
+      <li><a href="/post/lkml_news_v5.15-rc7/">LKML News v5.15-rc7</a></li>
+      
+      <li><a href="/post/lkml_news_v5.15-rc6/">LKML News v5.15-rc6</a></li>
+      
+    </ul>
+  </div>
+  
+
+
+
+  </div>
+</article>
 
       
 
