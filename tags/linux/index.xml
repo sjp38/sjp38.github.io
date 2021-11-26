@@ -22,6 +22,19 @@
 &lt;p&gt;Due to reference count of &lt;code&gt;struct page&lt;/code&gt; handling issue, some memory were leak
 from a process and moved in another process.  This commit avoids such type of
 bugs by checking page table at the time of entrieds insertion.&lt;/p&gt;
+&lt;h2 id=&#34;patch-05--transparent-page-placement-for-tiered-memory--hasan-al-maruf&#34;&gt;[PATCH 0/5] &lt;code&gt;*** Transparent Page Placement for Tiered-Memory ***&lt;/code&gt; (Hasan Al Maruf)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20211124163608.33015-1-hasanalmaruf@fb.com&#34;&gt;https://lkml.kernel.org/r/20211124163608.33015-1-hasanalmaruf@fb.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This patchset augment AutoNUMA mechanism to promote pages from slow tier nodes
+to toptier nodes.&lt;/p&gt;
+&lt;h2 id=&#34;mmotm-2021-11-24-15-49-uploaded-andrew-morton&#34;&gt;mmotm 2021-11-24-15-49 uploaded (Andrew Morton)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20211124234931.iDJQctzrQ%akpm@linux-foundation.org&#34;&gt;https://lkml.kernel.org/r/20211124234931.iDJQctzrQ%akpm@linux-foundation.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;MMOTM updated.  It is now based on v5.16-rc2.  Compared to the last update, it
+adds 75 new patches, modifies 43 existing patches, drops 18 patches.  In total,
+174 patches are in the queue.&lt;/p&gt;
+&lt;h2 id=&#34;patch-v2-mm-split-thp-synchronously-on-madv_dontneed-and-munmap-shakeel-butt&#34;&gt;[PATCH v2] mm: split thp synchronously on MADV_DONTNEED and munmap (Shakeel Butt)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20211125024523.2468946-1-shakeelb@google.com&#34;&gt;https://lkml.kernel.org/r/20211125024523.2468946-1-shakeelb@google.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This patch makes &lt;code&gt;madvise(MADV_DONTNEED)&lt;/code&gt; to split THP synchronously, so that
+memory usage drops as intended.  This version adds &lt;code&gt;munmap()&lt;/code&gt; support.&lt;/p&gt;
 </description>
     </item>
     

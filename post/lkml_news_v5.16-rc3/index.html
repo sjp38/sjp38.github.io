@@ -29,7 +29,9 @@
     
   
   <meta name="description" content="[PATCH 0/3] page table check (Pasha Tatashin) https://lkml.kernel.org/r/20211123214814.3756047-1-pasha.tatashin@soleen.com
-Due to reference count of struct page handling issue, some memory were leak from a process and moved in another process. This commit avoids such type of bugs by checking page table at the time of entrieds insertion.">
+Due to reference count of struct page handling issue, some memory were leak from a process and moved in another process. This commit avoids such type of bugs by checking page table at the time of entrieds insertion.
+[PATCH 0/5] *** Transparent Page Placement for Tiered-Memory *** (Hasan Al Maruf) https://lkml.kernel.org/r/20211124163608.33015-1-hasanalmaruf@fb.com
+This patchset augment AutoNUMA mechanism to promote pages from slow tier nodes to toptier nodes.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/lkml_news_v5.16-rc3/">
@@ -152,7 +154,9 @@ Due to reference count of struct page handling issue, some memory were leak from
   <meta property="og:url" content="/post/lkml_news_v5.16-rc3/">
   <meta property="og:title" content="LKML News v5.16-rc3 | hacklog">
   <meta property="og:description" content="[PATCH 0/3] page table check (Pasha Tatashin) https://lkml.kernel.org/r/20211123214814.3756047-1-pasha.tatashin@soleen.com
-Due to reference count of struct page handling issue, some memory were leak from a process and moved in another process. This commit avoids such type of bugs by checking page table at the time of entrieds insertion."><meta property="og:image" content="/img/tux.png">
+Due to reference count of struct page handling issue, some memory were leak from a process and moved in another process. This commit avoids such type of bugs by checking page table at the time of entrieds insertion.
+[PATCH 0/5] *** Transparent Page Placement for Tiered-Memory *** (Hasan Al Maruf) https://lkml.kernel.org/r/20211124163608.33015-1-hasanalmaruf@fb.com
+This patchset augment AutoNUMA mechanism to promote pages from slow tier nodes to toptier nodes."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -204,7 +208,7 @@ Due to reference count of struct page handling issue, some memory were leak from
       "url": "/img/icon-512.png"
     }
   },
-  "description": "[PATCH 0/3] page table check (Pasha Tatashin) https://lkml.kernel.org/r/20211123214814.3756047-1-pasha.tatashin@soleen.com\nDue to reference count of struct page handling issue, some memory were leak from a process and moved in another process. This commit avoids such type of bugs by checking page table at the time of entrieds insertion."
+  "description": "[PATCH 0/3] page table check (Pasha Tatashin) https://lkml.kernel.org/r/20211123214814.3756047-1-pasha.tatashin@soleen.com\nDue to reference count of struct page handling issue, some memory were leak from a process and moved in another process. This commit avoids such type of bugs by checking page table at the time of entrieds insertion.\n[PATCH 0/5] *** Transparent Page Placement for Tiered-Memory *** (Hasan Al Maruf) https://lkml.kernel.org/r/20211124163608.33015-1-hasanalmaruf@fb.com\nThis patchset augment AutoNUMA mechanism to promote pages from slow tier nodes to toptier nodes."
 }
 </script>
 
@@ -615,6 +619,19 @@ Due to reference count of struct page handling issue, some memory were leak from
 <p>Due to reference count of <code>struct page</code> handling issue, some memory were leak
 from a process and moved in another process.  This commit avoids such type of
 bugs by checking page table at the time of entrieds insertion.</p>
+<h2 id="patch-05--transparent-page-placement-for-tiered-memory--hasan-al-maruf">[PATCH 0/5] <code>*** Transparent Page Placement for Tiered-Memory ***</code> (Hasan Al Maruf)</h2>
+<p><a href="https://lkml.kernel.org/r/20211124163608.33015-1-hasanalmaruf@fb.com">https://lkml.kernel.org/r/20211124163608.33015-1-hasanalmaruf@fb.com</a></p>
+<p>This patchset augment AutoNUMA mechanism to promote pages from slow tier nodes
+to toptier nodes.</p>
+<h2 id="mmotm-2021-11-24-15-49-uploaded-andrew-morton">mmotm 2021-11-24-15-49 uploaded (Andrew Morton)</h2>
+<p><a href="https://lkml.kernel.org/r/20211124234931.iDJQctzrQ%akpm@linux-foundation.org">https://lkml.kernel.org/r/20211124234931.iDJQctzrQ%akpm@linux-foundation.org</a></p>
+<p>MMOTM updated.  It is now based on v5.16-rc2.  Compared to the last update, it
+adds 75 new patches, modifies 43 existing patches, drops 18 patches.  In total,
+174 patches are in the queue.</p>
+<h2 id="patch-v2-mm-split-thp-synchronously-on-madv_dontneed-and-munmap-shakeel-butt">[PATCH v2] mm: split thp synchronously on MADV_DONTNEED and munmap (Shakeel Butt)</h2>
+<p><a href="https://lkml.kernel.org/r/20211125024523.2468946-1-shakeelb@google.com">https://lkml.kernel.org/r/20211125024523.2468946-1-shakeelb@google.com</a></p>
+<p>This patch makes <code>madvise(MADV_DONTNEED)</code> to split THP synchronously, so that
+memory usage drops as intended.  This version adds <code>munmap()</code> support.</p>
 
     </div>
 
