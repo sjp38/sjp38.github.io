@@ -35,6 +35,13 @@ adds 75 new patches, modifies 43 existing patches, drops 18 patches.  In total,
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20211125024523.2468946-1-shakeelb@google.com&#34;&gt;https://lkml.kernel.org/r/20211125024523.2468946-1-shakeelb@google.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;This patch makes &lt;code&gt;madvise(MADV_DONTNEED)&lt;/code&gt; to split THP synchronously, so that
 memory usage drops as intended.  This version adds &lt;code&gt;munmap()&lt;/code&gt; support.&lt;/p&gt;
+&lt;h2 id=&#34;patch-v1-02-virtio-mem-prepare-for-granularity-smaller-than-max_order---1-david-hildenbrand&#34;&gt;[PATCH v1 0/2] virtio-mem: prepare for granularity smaller than MAX_ORDER - 1 (David Hildenbrand)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20211126134209.17332-1-david@redhat.com&#34;&gt;https://lkml.kernel.org/r/20211126134209.17332-1-david@redhat.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Currently, virtio-mem driver supports logical hot(un)plug in (&lt;code&gt;MAX_ORDER - 1&lt;/code&gt;)
+granularity (4 MiB on x86-64).  This makes hot(un)plug inflexible, and also
+fails more likely on &lt;code&gt;ZONE_NORMAL&lt;/code&gt;.  David is therefore planning to make it
+works in pageblock granularity, which is 2 MiB on x86-64.  This patchset
+prepares the work.&lt;/p&gt;
 </description>
     </item>
     
