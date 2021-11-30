@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2021-11-24T07:20:51&#43;01:00">
+    <meta property="og:updated_time" content="2021-11-30T07:20:32&#43;01:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.15-rc2/">LKML News v5.15-rc2</a></h2>
+    <div class="article-style">
+      
+      [PATCH v1] vmpressure: wake up work only when there is registration event (wangyong) https://lkml.kernel.org/r/1631548441-2784-1-git-send-email-wang.yong12@zte.com.cn
+Currently, vmpressure works are awaken even though there are no vmpressure callbacks. This commit avoids such unnecessary wakeup by counting the number of registered events and skip waking up works if the number is zero.
+[PATCH v3 00/76] Optimize list lru memory consumption (Muchun Song) https://lkml.kernel.org/r/20210914072938.6440-1-songmuchun@bytedance.com
+Muchun found kmalloc-32 for list_lru_one allocation consuming 6 GiB of memory on their server.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/kernelsummit2021_talk/">I will have a talk at the Linux Kernel Summit 2021</a></h2>
     <div class="article-style">
       
@@ -635,20 +647,6 @@ Six version of the patchset that allows applications to set multiple preferred m
 This patch documents the new madvise() options, MADV_POPULATE_(READ|WRITE).
 Request for folios (David Howells) https://lkml.kernel.org/r/3398985.1626104609@warthog.procyon.org.uk
 David is working for improving local filesystem&rsquo;s caching and network filesystem support library. He thinks the folio work would make his work easier, though it also makes some of his work challenging.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.14-rc1/">LKML News v5.14-rc1</a></h2>
-    <div class="article-style">
-      
-      incoming (Andrew Morton) https://lkml.kernel.org/r/20210628193256.008961950a714730751c1423@linux-foundation.org
-The first pull request from Andrew Morton for the v5.14 merge window.
-[PATCH v3 00/18] Folio conversion of memcg (Matthew Wilcox) https://lkml.kernel.org/r/20210630040034.1155892-1-willy@infradead.org
-This patchset was a part of the memory folio patchset, but has split out to individual patchset.
-incoming (Andrew Morton) https://lkml.kernel.org/r/20210630184624.9ca1937310b0dd5ce66b30e7@linux-foundation.org
-Rest of the -mm tree, which dependent on things in -next. Andrew will trickle that over next week, before the merge window is closed.
       
     </div>
   </div>
