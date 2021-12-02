@@ -31,7 +31,8 @@
   <meta name="description" content="mmotm 2021-11-29-18-58 uploaded (Andrew Morton) https://lkml.kernel.org/r/20211130025839.ZhVoO1W_7%akpm@linux-foundation.org
 mmotm has updated. It&rsquo;s based on v5.16-rc3, adds 52 new patches, modifies 18 existing patches, and drops 2 patches. In total, 224 patches in the queue.
 [QUESTION] “place pages to tail” regress memory read bandwidth about 10% under our test cases (liupeng) https://lkml.kernel.org/r/3c6349ddd9a34732a251467b7fa4fe93@huawei.com
-Liu Peng found David&rsquo;s patch 7fef431be9c9(mm/page_alloc: place pages to tail in __free_pages_core()) incurring performance regression, and asking some suggestions.">
+Liu Peng found David&rsquo;s patch 7fef431be9c9(mm/page_alloc: place pages to tail in __free_pages_core()) incurring performance regression, and asking some suggestions.
+[RFC PATCH] mm: count zram read/write into PSI_IO_WAIT (Huangzhaoyang) https://lkml.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/lkml_news_v5.16-rc4/">
@@ -156,7 +157,8 @@ Liu Peng found David&rsquo;s patch 7fef431be9c9(mm/page_alloc: place pages to ta
   <meta property="og:description" content="mmotm 2021-11-29-18-58 uploaded (Andrew Morton) https://lkml.kernel.org/r/20211130025839.ZhVoO1W_7%akpm@linux-foundation.org
 mmotm has updated. It&rsquo;s based on v5.16-rc3, adds 52 new patches, modifies 18 existing patches, and drops 2 patches. In total, 224 patches in the queue.
 [QUESTION] “place pages to tail” regress memory read bandwidth about 10% under our test cases (liupeng) https://lkml.kernel.org/r/3c6349ddd9a34732a251467b7fa4fe93@huawei.com
-Liu Peng found David&rsquo;s patch 7fef431be9c9(mm/page_alloc: place pages to tail in __free_pages_core()) incurring performance regression, and asking some suggestions."><meta property="og:image" content="/img/tux.png">
+Liu Peng found David&rsquo;s patch 7fef431be9c9(mm/page_alloc: place pages to tail in __free_pages_core()) incurring performance regression, and asking some suggestions.
+[RFC PATCH] mm: count zram read/write into PSI_IO_WAIT (Huangzhaoyang) https://lkml."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -208,7 +210,7 @@ Liu Peng found David&rsquo;s patch 7fef431be9c9(mm/page_alloc: place pages to ta
       "url": "/img/icon-512.png"
     }
   },
-  "description": "mmotm 2021-11-29-18-58 uploaded (Andrew Morton) https://lkml.kernel.org/r/20211130025839.ZhVoO1W_7%akpm@linux-foundation.org\nmmotm has updated. It\u0026rsquo;s based on v5.16-rc3, adds 52 new patches, modifies 18 existing patches, and drops 2 patches. In total, 224 patches in the queue.\n[QUESTION] “place pages to tail” regress memory read bandwidth about 10% under our test cases (liupeng) https://lkml.kernel.org/r/3c6349ddd9a34732a251467b7fa4fe93@huawei.com\nLiu Peng found David\u0026rsquo;s patch 7fef431be9c9(mm/page_alloc: place pages to tail in __free_pages_core()) incurring performance regression, and asking some suggestions."
+  "description": "mmotm 2021-11-29-18-58 uploaded (Andrew Morton) https://lkml.kernel.org/r/20211130025839.ZhVoO1W_7%akpm@linux-foundation.org\nmmotm has updated. It\u0026rsquo;s based on v5.16-rc3, adds 52 new patches, modifies 18 existing patches, and drops 2 patches. In total, 224 patches in the queue.\n[QUESTION] “place pages to tail” regress memory read bandwidth about 10% under our test cases (liupeng) https://lkml.kernel.org/r/3c6349ddd9a34732a251467b7fa4fe93@huawei.com\nLiu Peng found David\u0026rsquo;s patch 7fef431be9c9(mm/page_alloc: place pages to tail in __free_pages_core()) incurring performance regression, and asking some suggestions.\n[RFC PATCH] mm: count zram read/write into PSI_IO_WAIT (Huangzhaoyang) https://lkml."
 }
 </script>
 
@@ -623,6 +625,15 @@ existing patches, and drops 2 patches.  In total, 224 patches in the queue.</p>
 <p>Liu Peng found David&rsquo;s patch 7fef431be9c9(mm/page_alloc: place pages to tail in
 <code>__free_pages_core()</code>) incurring performance regression, and asking some
 suggestions.</p>
+<h2 id="rfc-patch-mm-count-zram-readwrite-into-psi_io_wait-huangzhaoyang">[RFC PATCH] mm: count zram read/write into PSI_IO_WAIT (Huangzhaoyang)</h2>
+<p><a href="https://lkml.kernel.org/r/1638356341-17014-1-git-send-email-huangzhaoyang@gmail.com">https://lkml.kernel.org/r/1638356341-17014-1-git-send-email-huangzhaoyang@gmail.com</a></p>
+<p>This RFC patch adds zram reads/writes counts in <code>PSI_IO_WAIT</code>.</p>
+<h2 id="patch-v4-0066-introducing-the-maple-tree-liam-howlett">[PATCH v4 00/66] Introducing the Maple Tree (Liam Howlett)</h2>
+<p><a href="https://lkml.kernel.org/r/20211201142918.921493-1-Liam.Howlett@oracle.com">https://lkml.kernel.org/r/20211201142918.921493-1-Liam.Howlett@oracle.com</a></p>
+<p>Fourth version of the maple tree, which is another tree-based structure.  The
+authors believe this could be used instead of rbtree for many cases including
+the VMAs management.  Compared to the previous version, several features are
+added and the iteration part has 40% faster.</p>
 
     </div>
 
