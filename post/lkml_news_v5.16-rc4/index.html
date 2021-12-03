@@ -576,7 +576,7 @@ Liu Peng found David&rsquo;s patch 7fef431be9c9(mm/page_alloc: place pages to ta
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -634,6 +634,17 @@ suggestions.</p>
 authors believe this could be used instead of rbtree for many cases including
 the VMAs management.  Compared to the previous version, several features are
 added and the iteration part has 40% faster.</p>
+<h2 id="rfd-clear-virtual-machine-memory-when-virtual-machine-is-turned-off-fei-luo">[RFD] clear virtual machine memory when virtual machine is turned off (Fei Luo)</h2>
+<p><a href="https://lkml.kernel.org/r/CAMgLiBskDz7XW9-0=azOgVJ00t8zFOXjdGaH7NLpKDfNH9wsGQ@mail.gmail.com">https://lkml.kernel.org/r/CAMgLiBskDz7XW9-0=azOgVJ00t8zFOXjdGaH7NLpKDfNH9wsGQ@mail.gmail.com</a></p>
+<p>Memory for a KVM process would contain sensitive data of the virtual machine.
+Even though the virtual machine is turned off, the memory will contain the data
+for a long time, unless be reused by other processes.  This mail proposes
+clearing the memory even before the memory is reused by other processes.</p>
+<h2 id="mmotm-2021-12-02-17-04-uploaded-andrew-morton">mmotm 2021-12-02-17-04 uploaded (Andrew Morton)</h2>
+<p><a href="https://lkml.kernel.org/r/20211203010516.HJH82Eku8%akpm@linux-foundation.org">https://lkml.kernel.org/r/20211203010516.HJH82Eku8%akpm@linux-foundation.org</a></p>
+<p>MMOTM has uploaded.  It&rsquo;s now based on v5.16-rc3.  This time it adds 33 new
+patches, modifies 55 pre-existing patches, and drops 2 patches.  In total, 255
+patches are in the queue.</p>
 
     </div>
 

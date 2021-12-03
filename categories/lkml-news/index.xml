@@ -35,6 +35,17 @@ suggestions.&lt;/p&gt;
 authors believe this could be used instead of rbtree for many cases including
 the VMAs management.  Compared to the previous version, several features are
 added and the iteration part has 40% faster.&lt;/p&gt;
+&lt;h2 id=&#34;rfd-clear-virtual-machine-memory-when-virtual-machine-is-turned-off-fei-luo&#34;&gt;[RFD] clear virtual machine memory when virtual machine is turned off (Fei Luo)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAMgLiBskDz7XW9-0=azOgVJ00t8zFOXjdGaH7NLpKDfNH9wsGQ@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAMgLiBskDz7XW9-0=azOgVJ00t8zFOXjdGaH7NLpKDfNH9wsGQ@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Memory for a KVM process would contain sensitive data of the virtual machine.
+Even though the virtual machine is turned off, the memory will contain the data
+for a long time, unless be reused by other processes.  This mail proposes
+clearing the memory even before the memory is reused by other processes.&lt;/p&gt;
+&lt;h2 id=&#34;mmotm-2021-12-02-17-04-uploaded-andrew-morton&#34;&gt;mmotm 2021-12-02-17-04 uploaded (Andrew Morton)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20211203010516.HJH82Eku8%akpm@linux-foundation.org&#34;&gt;https://lkml.kernel.org/r/20211203010516.HJH82Eku8%akpm@linux-foundation.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;MMOTM has uploaded.  It&amp;rsquo;s now based on v5.16-rc3.  This time it adds 33 new
+patches, modifies 55 pre-existing patches, and drops 2 patches.  In total, 255
+patches are in the queue.&lt;/p&gt;
 </description>
     </item>
     
