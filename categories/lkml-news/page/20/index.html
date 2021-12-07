@@ -31,9 +31,9 @@
   <meta name="description" content="Kernel / Hypervisor Engineer">
 
   
-  <link rel="alternate" hreflang="ko" href="/ko/tags/lkml/">
+  <link rel="alternate" hreflang="ko" href="/ko/categories/lkml-news/">
   
-  <link rel="alternate" hreflang="en-us" href="/tags/lkml/">
+  <link rel="alternate" hreflang="en-us" href="/categories/lkml-news/">
 
   
 
@@ -133,14 +133,14 @@
 
 
   
-  <link rel="alternate" href="/tags/lkml/index.xml" type="application/rss+xml" title="hacklog">
+  <link rel="alternate" href="/categories/lkml-news/index.xml" type="application/rss+xml" title="hacklog">
   
 
   <link rel="manifest" href="/index.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon-32.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="/tags/lkml/">
+  <link rel="canonical" href="/categories/lkml-news/">
 
   
   
@@ -152,8 +152,8 @@
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="hacklog">
-  <meta property="og:url" content="/tags/lkml/">
-  <meta property="og:title" content="lkml | hacklog">
+  <meta property="og:url" content="/categories/lkml-news/">
+  <meta property="og:title" content="lkml news | hacklog">
   <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
@@ -174,7 +174,7 @@
 
 
 
-  <title>lkml | hacklog</title>
+  <title>lkml news | hacklog</title>
 
 </head>
 
@@ -396,7 +396,7 @@
         
 
         <li class="nav-item">
-          <a class="nav-link  active" href="/tags"><span>Tags</span></a>
+          <a class="nav-link " href="/tags"><span>Tags</span></a>
         </li>
 
         
@@ -418,7 +418,7 @@
         
 
         <li class="nav-item">
-          <a class="nav-link " href="/categories"><span>Categories</span></a>
+          <a class="nav-link  active" href="/categories"><span>Categories</span></a>
         </li>
 
         
@@ -475,7 +475,7 @@
             <span>English</span>
           </div>
           
-          <a class="dropdown-item" href="/ko/tags/lkml/">
+          <a class="dropdown-item" href="/ko/categories/lkml-news/">
             <span>한국어</span>
           </a>
           
@@ -510,7 +510,7 @@
     
   
 <div class="universal-wrapper pt-3">
-  <h1>lkml</h1>
+  <h1>lkml news</h1>
 
   
 
@@ -525,131 +525,10 @@
   
   
   <div>
-    <h2><a href="/post/lkml_news_v5.11-rc6/">LKML News v5.11-rc6</a></h2>
+    <h2><a href="/post/lkml_news_0000/">LKML News - Intro</a></h2>
     <div class="article-style">
       
-      [RFC][PATCH 00/13] [v5] Migrate Pages in lieu of discard (Dave Hansen) https://lkml.kernel.org/r/20210126003411.2AC51464@viggo.jf.intel.com
-If a system has a small DRAM and a large persistent memory (PMEM), reclamation starts when DRAM fills up, and newer allocations will done on PMEM. This patchset makes the reclaim logic to migrate pages to PMEM instead of just discarding it.
-[PATCH v3 00/25] Page folios (Matthew Wilcox) https://lkml.kernel.org/r/20210128070404.1922318-1-willy@infradead.org
-This patchset introduces a new data structure called page folio.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.11-rc5/">LKML News v5.11-rc5</a></h2>
-    <div class="article-style">
-      
-      [PATCH v2 00/27] Page folios (Matthew Wilcox) https://lkml.kernel.org/r/20210118170148.3126186-1-willy@infradead.org
-This is the second version of the page folios patchset. This introduces a new struct named folio. Functions that receive folio as an argument always receives head page, so the function don&rsquo;t need to do compound_head().
-[PATCH -V9 0/3] numa balancing: Migrate on fault among multiple bound nodes (Huang Ying) https://lkml.kernek.org/r/20210120061235.148637-1-ying.huang@intel.com
-This patch make optimization of cross-socket memory accesses for AutoNUMA in case of application is bound to multiple NUMA nodes possible.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.11-rc4/">LKML News v5.11-rc4</a></h2>
-    <div class="article-style">
-      
-      [PATCH] mm: thp: introduce NR_PARTIAL_THPS (Bin Wang) https://lkml.kernel.org/r/20210112021208.1875-1-wangbin224@huawei.com
-Because partially unmapped THP is not split, the memory stat becomes confusing. This patch add another counter called NR_PARTIAL_THPS in node_stat_item to reduce such confusions.
-[PATCH v2 00/70] RFC mm: Introducing the Maple Tree (Liam R. Howlett) https://lkml.kernel.org/r/20210112161240.2024684-1-Liam.Howlett@Oracle.com
-Second RFC of the Maple tree. It is an RCU-safe B-tree that aims to be used as the vma tree with better scalability.
-[PATCH] mm/debug: Improve memcg debugging (Matthew Wilcox) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.11-rc3/">LKML News v5.11-rc3</a></h2>
-    <div class="article-style">
-      
-      [PATCH] mm: vmscan: support complete shrinker reclaim (Sudarshan Rajagopalan) https://lkml.kernel.org/r/2d1f1dbb7e018ad02a9e7af36a8c86397a1598a7.1609892546.git.sudaraja@codeaurora.org
-This patch makes caches can dropped even when those are smaller than the batch size.
-[PATCH 0/6] hugetlbfs: support free page reporting (Liang Li) https://lkml.kernel.org/r/20210106034623.GA1128@open-light-1.localdomain
-Because hugetlbfs is using reserved memory, it&rsquo;s not reported by the free page reporting feature. This patch makes it able to be reported.
-Linux 5.11-rc3 (Linus Torvalds) https://lkml.kernel.org/r/CAHk-=wizR7--Ub-rasYx2S5XURkooCQ63Sat23BpvTAuN0scQA@mail.gmail.com
-The prediction of Linus for this release was wrong.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.11-rc2/">LKML News v5.11-rc2</a></h2>
-    <div class="article-style">
-      
-      Linux 5.11-rc2 (Linus Torvalds) https://lkml.kernel.org/r/CAHk-=whS+rzNMSsU6vRoLMzrm0JPN-OVg+BxhybMet3NpqpR-Q@mail.gmail.com
-Due to the holiday season, rc2 ends up fairly small. Maybe we will see rc8 for v5.11, but Torvalds just saying let&rsquo;s watch more.
-Below is the diffstat of the releases in the last two years.
-Note that the y-axis is in logarithm. I draw it using https://github.com/sjp38/relstat and https://github.com/sjp38/lazybox using below command:
-$ relstat.py --since 2019-01-04 | ~/lazybox/gnuplot/plot.py \ --data_fmt table --type labeled-lines --xtics_rotate -90 \ --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.11-rc1/">LKML News v5.10-rc1</a></h2>
-    <div class="article-style">
-      
-      incoming (Andrew Morton) https://lkml.kernel.org/r/20201214190237.a17b70ae14f129e2dca3d204@linux-foundation.org
-The pull request for v5.11 from Andrew Morton. The mmap_lock tracepoint patchset series is included in here.
-incoming (Andrew Morton) https://lkml.kernel.org/r/20201215123253.954eca9a5ef4c0d52fd381fa@linux-foundation.org
-Another pull request from Andrew Morton for memcg scalability improvement. This makes per-memcg lru lock.
-[PATCH 00/25] Page folios (Matthew Wilcox) https://lkml.kernel.org/r/20201216182335.27227-1-willy@infradead.org
-This is the patchset for the page folios, which Matthew proposed a few days ago and discussed via zoom.
-Do we still need skip swapcache logic in do_swap_page() for SWP_SYNCHRONOUS_IO?
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.10/">LKML News v5.10</a></h2>
-    <div class="article-style">
-      
-      [RFC V2 00/37] Enhance memory utilization with DMEMFS (Yuley Zhang) https://lkml.kernel.org/r/cover.1607332046.git.yuleixzhang@tencent.com
-This patchset aims to remove the &lsquo;struct page&rsquo; from user-sepcified region of memory and use a file system called &lsquo;dmemfs&rsquo; to minimize the memory region dedicated for &lsquo;struct page&rsquo;s.
-[PATCH] mm: don&rsquo;t SetPageWorkingset unconditionally during swapin (Yu Zhao) https://lkml.kernel.org/r/20201209012400.1771150-1-yuzhao@google.com
-Unconditional &lsquo;SetPageWorkingset&rsquo; miscategorizes read-ahead pages or pages that never belong to the working set as working set because it&rsquo;s called unconditionally.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.10-rc7/">LKML News v5.10-rc7</a></h2>
-    <div class="article-style">
-      
-      [PATCH] mm: mmap_lock: fix use-after-free race and css ref leak in tracepoints (Axel Rasmussen) https://lkml.kernel.org/r/20201130233504.3725241-1-axelrasmussen@google.com
-This patch fixes a use-after-free bug that reported by syzbot.
-[PATCH 0/6] prohibit pinning pages in ZONE_MOVABLE (Pavel Tatashin) https://lkml.kernel.org/r/20201202052330.474592-1-pasha.tatashin@soleen.com
-Pinned pages in ZONE_MOVABLE is a wellknown problem. This patchset fixes the issue by forcing pinning new page to allocated from a zone other than ZONE_MOVABLE and migrating out existing pages from the zone during pinning.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.10-rc6/">LKML News v5.10-rc6</a></h2>
-    <div class="article-style">
-      
-      [PATCH v2] mm: memcontrol: account pagetables per node (Shakeel Butt) https://lkml.kernel.org/r/20201123161425.341314-1-shakeelb@google.com
-This commit allows user to account memory size used for page tables per node.
-[PATCH 0/2] userspace memory reaping using process_madvise (Suren Baghdasaryan) https://lkml.kernel.org/r/20201124053943.1684874-1-surenb@google.com
-This commit allows user-space driven OOM reaping using process_madvise(MADV_DONTNEED).
-[PATCH -V6 0/3] autonuma: Migrate on fault among multiple bound nodes (Huang Ying) https://lkml.kernel.org/r/20201126053219.234793-1-ying.huang@intel.com
-The 6th version for autonuma migration among multiple bound nodes. In this version, more benchmark data and example is added.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.10-rc5/">Lkml_news_v5</a></h2>
-    <div class="article-style">
-      
-      [PATCH v9 0/9] mm: introduce memfd_secret system call to create &ldquo;secret&rdquo; memory areas (Mike Rapoport) https://lkml.kernel.org/r/20201117162932.13649-1-rppt@kernel.org
-The 9th version of the memfd_secret patchset.
-[patch V4 0/8] mm/highmem: Preemptible variant of kmap_atomic &amp; friends (Thomas Gleixner) https://lkml.kernel.org/r/20201118194838.753436396@linutronix.de
-As the name suggests, this patchset allow the code using kmap_atomic and similar things to be preemptible. This incur some overhead to highmem, but Thomas claims highmem was always slow.
-[PATCH 0/7] Split huge pages to any lower order pages and selftests.
+      LKML 을 모니터링 하면서 흥미가는 패치나 토론을 lkml news 라는 카테고리로 묶어서 비정기적, 비형식적으로 간략히 정리하고 관련 소식을 업데이트 해보고자 합니다. 주로 모니터링 하는 메일은 메모리 매니지먼트 쪽과 rcu 관련 메일들이 될겁니다.
       
     </div>
   </div>
@@ -659,10 +538,8 @@ As the name suggests, this patchset allow the code using kmap_atomic and similar
 <nav>
   <ul class="pagination justify-content-center">
     
-    <li class="page-item"><a class="page-link" href="/tags/lkml/page/4/">&laquo;</a></li>
+    <li class="page-item"><a class="page-link" href="/categories/lkml-news/page/19/">&laquo;</a></li>
     
-    
-    <li class="page-item"><a class="page-link" href="/tags/lkml/page/6/">&raquo;</a></li>
     
   </ul>
 </nav>

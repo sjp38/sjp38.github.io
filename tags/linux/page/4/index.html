@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2021-11-30T07:20:32&#43;01:00">
+    <meta property="og:updated_time" content="2021-12-07T07:25:52&#43;01:00">
   
 
   
@@ -525,6 +525,19 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.12/">LKML News v5.12</a></h2>
+    <div class="article-style">
+      
+      [PATCH -next v3 1/2] mm/debug_vm_pgtable: Move {pmd/pud}_huge_tests out of CONFIG_TRANSPARENT_HUGEPAGE (Liu Shixin) The functions are not THP dependent in real, but made dependent. This patch moves it out.
+[PATCH v10 0/7] Make alloc_contig_range handle Hugetlb pages (Oscar Salvador) https://lkml.kernel.org/r/20210419075413.1064-1-osalvador@suse.de
+The 10th version of the patchset which allows Hugetlb pages allocated via alloc_contig_range(), dynamically.
+[PATCH v2 0/5] mm/madvise: introduce MADV_POPULATE_(READ|WRITE) to prefault page tables (David Hildenbrand) https://lkml.kernel.org/r/20210419135443.12822-1-david@redhat.com
+This is the second version of the patchset implementing MADV_POPULATE_(READ|WRITE) for madvise() system call.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.12-rc8/">LKML NEws v5.12-rc8</a></h2>
     <div class="article-style">
       
@@ -624,20 +637,6 @@ The 11th version of the patchset making ZONE_MOVABLE really movable. In this ver
 [RFC PATCH] mm, oom: introduce vm.sacrifice_hugepage_on_oom https://lkml.kernel.org/r/20210216030713.79101-1-eiichi.tsukata@nutanix.com
 This RFC patch introduces yet another sysctl knob called vm.sacrifice_hugepage_on_oom. When it is turned on, it tries to free available hugepages before waking oom-killer up.
 [RFC] Hugepage collapse in process context (David Rientjes) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.11/">LKML News v5.11</a></h2>
-    <div class="article-style">
-      
-      [PATCH v2] mm: cma: support sysfs (Minchan Kim) https://lkml.kernel.org/r/20210208180142.2765456-1-minchan@kernel.org
-This patch introduces sysfs interface for CMA that shows stats including number of CMA allocation attempts and failures.
-[PATCH v10 00/14] prohibit pinning pages in ZONE_MOVABLE (Pavel Tatashin) https://lkml.kernel.org/r/20210211162427.618913-1-pasha.tatashin@soleen.com
-The 10th version of the patchset making ZONE_MOVABLE really movable.
-Linux 5.11 (Linus Torvalds) https://lkml.kernel.org/r/CAHk-=wg8LpRi9+P2_V+ehJ2_EoJifNh2QmVf47aLXfkCd-1UAQ@mail.gmail.com
-Nothing strange happened last week, so Linus released v5.11 as expected. The number of changes from the rc7 to this release is actually even smaller than average.
       
     </div>
   </div>
