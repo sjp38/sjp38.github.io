@@ -33,6 +33,10 @@ has 268 patches in total now.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20211207022757.2523359-1-ying.huang@intel.com&#34;&gt;https://lkml.kernel.org/r/20211207022757.2523359-1-ying.huang@intel.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;This patchset optimize the page placement on tiered memory system equipping
 DRAM with PMEM.&lt;/p&gt;
+&lt;h2 id=&#34;patch-v4-13-mm-protect-free_pgtables-with-mmap_lock-write-lock-in-exit_mmap-suren-baghdasaryan&#34;&gt;[PATCH v4 1/3] mm: protect free_pgtables with mmap_lock write lock in exit_mmap (Suren Baghdasaryan)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20211208212211.2860249-1-surenb@google.com&#34;&gt;https://lkml.kernel.org/r/20211208212211.2860249-1-surenb@google.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This patchset makes &lt;code&gt;exit_mmap&lt;/code&gt; to hold &lt;code&gt;mmap_write_lock&lt;/code&gt; to make locking from
+oom-reaper and &lt;code&gt;process_mlrelease()&lt;/code&gt; simpler.&lt;/p&gt;
 </description>
     </item>
     
