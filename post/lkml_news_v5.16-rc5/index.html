@@ -634,6 +634,10 @@ DRAM with PMEM.</p>
 <p><a href="https://lkml.kernel.org/r/20211208212211.2860249-1-surenb@google.com">https://lkml.kernel.org/r/20211208212211.2860249-1-surenb@google.com</a></p>
 <p>This patchset makes <code>exit_mmap</code> to hold <code>mmap_write_lock</code> to make locking from
 oom-reaper and <code>process_mlrelease()</code> simpler.</p>
+<h2 id="patch-mmmadvise-pageout-under-plugging-minchan-kim">[PATCH] mm/madvise: pageout under plugging (Minchan Kim)</h2>
+<p><a href="https://lkml.kernel.org/r/20211210003019.1481269-1-minchan@kernel.org">https://lkml.kernel.org/r/20211210003019.1481269-1-minchan@kernel.org</a></p>
+<p>This commit makes <code>madvise(PAGEOUT)</code> to have the per-page memory block plugging
+benefit (3da367c3e5fc, vmscan: add block plug for page reclaim).</p>
 
     </div>
 
