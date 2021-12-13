@@ -45,6 +45,24 @@ benefit (3da367c3e5fc, vmscan: add block plug for page reclaim).&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20211210144539.663efee2c80d8450e6180230@linux-foundation.org&#34;&gt;https://lkml.kernel.org/r/20211210144539.663efee2c80d8450e6180230@linux-foundation.org&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;A pull request for mm fixes has sent to Linus Torvalds.  It contains DAMON fake
 load fix and trivial fixups.&lt;/p&gt;
+&lt;h2 id=&#34;linux-516-rc5-linus-torvalds&#34;&gt;Linux 5.16-rc5 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wixe1NPqC0PmgUbV0Xoa8D0Pbyu7X_0sfABYMG+ocLdbQ@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wixe1NPqC0PmgUbV0Xoa8D0Pbyu7X_0sfABYMG+ocLdbQ@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Fifth release candidate for v5.16 is a bit bigger than usual, but no real
+problem has found.  This might be due to people who trying to do works before
+the holidays, and Linus is warning such people.  He also plans to have one more
+release candidate for this cycle, to avoid opening merge window immediately in
+the new year.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v5.5-rc3..v5.16-rc5.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
+below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2019-12-13 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And, below is the diffstat of the -rc4 releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v5.16-rc5-only.png&#34; alt=&#34;rc2 release stat&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     

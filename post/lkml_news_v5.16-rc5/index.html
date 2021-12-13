@@ -574,7 +574,7 @@ mmotm based on v5.16-rc4 has uploaded. 14 new patches are added, 3 existign patc
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -642,6 +642,24 @@ benefit (3da367c3e5fc, vmscan: add block plug for page reclaim).</p>
 <p><a href="https://lkml.kernel.org/r/20211210144539.663efee2c80d8450e6180230@linux-foundation.org">https://lkml.kernel.org/r/20211210144539.663efee2c80d8450e6180230@linux-foundation.org</a></p>
 <p>A pull request for mm fixes has sent to Linus Torvalds.  It contains DAMON fake
 load fix and trivial fixups.</p>
+<h2 id="linux-516-rc5-linus-torvalds">Linux 5.16-rc5 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wixe1NPqC0PmgUbV0Xoa8D0Pbyu7X_0sfABYMG+ocLdbQ@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wixe1NPqC0PmgUbV0Xoa8D0Pbyu7X_0sfABYMG+ocLdbQ@mail.gmail.com</a></p>
+<p>Fifth release candidate for v5.16 is a bit bigger than usual, but no real
+problem has found.  This might be due to people who trying to do works before
+the holidays, and Linus is warning such people.  He also plans to have one more
+release candidate for this cycle, to avoid opening merge window immediately in
+the new year.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.5-rc3..v5.16-rc5.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2019-12-13 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc4 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.16-rc5-only.png" alt="rc2 release stat"></p>
 
     </div>
 
