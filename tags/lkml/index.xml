@@ -5,12 +5,31 @@
     <link>/tags/lkml/</link>
       <atom:link href="/tags/lkml/index.xml" rel="self" type="application/rss+xml" />
     <description>lkml</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 07 Dec 2021 07:25:52 +0100</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 14 Dec 2021 07:30:38 +0100</lastBuildDate>
     <image>
       <url>/img/tux.png</url>
       <title>lkml</title>
       <link>/tags/lkml/</link>
     </image>
+    
+    <item>
+      <title>LKML News v5.16-rc6</title>
+      <link>/post/lkml_news_v5.16-rc6/</link>
+      <pubDate>Tue, 14 Dec 2021 07:30:38 +0100</pubDate>
+      <guid>/post/lkml_news_v5.16-rc6/</guid>
+      <description>&lt;h2 id=&#34;patch-v4-0017-optimize-list-lru-memory-consumption-muchun-song&#34;&gt;[PATCH v4 00/17] Optimize list lru memory consumption (Muchun Song)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20211213165342.74704-1-songmuchun@bytedance.com&#34;&gt;https://lkml.kernel.org/r/20211213165342.74704-1-songmuchun@bytedance.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Muchun found 6GB of memory was consumed by kmalloc-32 slab cache on a machine
+having 952 super blocks.  That was due to &lt;code&gt;list_lru_one&lt;/code&gt; allocation from
+&lt;code&gt;memcg_nr_cache_ids&lt;/code&gt;.  This patchset aims to fix the issue.  According to a
+simple test, this reduces memory consumption under a situation from 24GiB to
+4GiB.&lt;/p&gt;
+&lt;h2 id=&#34;mmotm-2021-12-13-21-28-uploaded-andrew-morton&#34;&gt;mmotm 2021-12-13-21-28 uploaded (Andrew Morton)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20211214052904.VfRYfitp0%akpm@linux-foundation.org&#34;&gt;https://lkml.kernel.org/r/20211214052904.VfRYfitp0%akpm@linux-foundation.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Andrew Morton uploaded new mmotm.  It&amp;rsquo;s based on 5.16-rc5, adds 52 new patches
+modifies 40 patches, and drops 24 patches.  In total, 296 patches in the queue.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>LKML News v5.16-rc5</title>
