@@ -628,6 +628,11 @@ Johannes.</p>
 <p>mmotm based on v5.16-rc6 has updated.  It adds 44 new patches, modifies 11
 pre-existing patches, and drops one patch.  In total, 339 patches are in the
 queue.</p>
+<h2 id="remove-xen-tmem-leftovers-christoph-hellwig">remove Xen tmem leftovers (Christoph Hellwig)</h2>
+<p><a href="https://lkml.kernel.org/r/20211224062246.1258487-1-hch@lst.de">https://lkml.kernel.org/r/20211224062246.1258487-1-hch@lst.de</a></p>
+<p>Cleancache and Frontswap were used for Xen tmem driver, but it has removed in
+2019.  However, some hooks are remaining in the source tree.  This patchset
+removes cleancache and unused parts of frontswap.</p>
 
     </div>
 
