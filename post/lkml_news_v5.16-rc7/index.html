@@ -574,7 +574,7 @@ This patchset makes DAMOS supports demotion of memory regions."><meta property="
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -641,6 +641,22 @@ removes cleancache and unused parts of frontswap.</p>
 <p><a href="https://lkml.kernel.org/r/20211224211127.30b60764d059ff3b0afea38a@linux-foundation.org">https://lkml.kernel.org/r/20211224211127.30b60764d059ff3b0afea38a@linux-foundation.org</a></p>
 <p>Andrew Morton sent 9 patches for fixes of several subsystems including DAMON to
 Linus.</p>
+<h2 id="linux-516-rc7-linus-torvalds">Linux 5.16-rc7 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wgV_v+Enop3TwRFtJY74UjQtw=kfOzGXTQscLx2syW6Eg@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wgV_v+Enop3TwRFtJY74UjQtw=kfOzGXTQscLx2syW6Eg@mail.gmail.com</a></p>
+<p>Seventh release candidate for v5.16 also looks pretty normal.  Nevertheless,
+this could be due to the holidays season.  Linus will extend the staging window
+at least one week, as he told before.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.5-rc5..v5.16-rc7.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2019-12-27 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc7 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.16-rc7-only.png" alt="rc2 release stat"></p>
 
     </div>
 
