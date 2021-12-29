@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2021-12-21T09:01:07&#43;01:00">
+    <meta property="og:updated_time" content="2021-12-29T07:36:53&#43;01:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.13-rc2/">LKML News v5.13-rc2</a></h2>
+    <div class="article-style">
+      
+      [RESEND] LSF/MM/BPF: 2021: Call for Proposals (Josef Bacik) https://lkml.kernel.org/r/60997079.1c69fb81.77f3f.a045@mx.google.com/
+CFG for LSF/MM/BPF 2021 posted. It will be held from 2021-12-06 to 2021-12-08 in Palm Springs, California. As of now, it is supposed to be an in-person conference!
+[LSF/MM/BPF TOPIC] Memory folios (Matthew Wilcox) https://lkml.kernel.org/r/YJlzwcADaxO/JHRE@casper.infradead.org
+Matthew expects the memory folios patchset will be merged soon, but he wants to discuss about it in the LSFMM, if there are something to discuss more.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.13-rc1/">LKML News v5.13-rc1</a></h2>
     <div class="article-style">
       
@@ -628,19 +640,6 @@ This patchset mitigates the problem by migrating pages that about to be reclaime
 Because the vmstat data is only cumulated, users should calculate the diff manually or just reboot. This commit adds a procfs file that can be used to clear all vmstat counters.
 [PATCH 0/5] Introduce a bulk order-0 page allocator with two in-tree users (Mel Gorman) https://lkml.kernel.org/r/20210301161200.18852-1-mgorman@techsingularity.net
 This patchset introduces a bulk order-0 page allocator. It also makes the sunrpc and the network page pool to use that.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.12-rc1/">LKML News v5.12-rc1</a></h2>
-    <div class="article-style">
-      
-      [PATCH v11 00/14] prohibit pinning pages in ZONE_MOVABLE (Pavel Tatashin) https://lkml.kernel.org/r/20210215161349.246722-1-pasha.tatashin@soleen.com
-The 11th version of the patchset making ZONE_MOVABLE really movable. In this version, a build error on i386 is fixed.
-[RFC PATCH] mm, oom: introduce vm.sacrifice_hugepage_on_oom https://lkml.kernel.org/r/20210216030713.79101-1-eiichi.tsukata@nutanix.com
-This RFC patch introduces yet another sysctl knob called vm.sacrifice_hugepage_on_oom. When it is turned on, it tries to free available hugepages before waking oom-killer up.
-[RFC] Hugepage collapse in process context (David Rientjes) https://lkml.
       
     </div>
   </div>
