@@ -28,12 +28,12 @@
   
     
   
-  <meta name="description" content="Kernel / Hypervisor Engineer">
+  <meta name="description" content="Whenever reading the kernel development statistics report for each release from LWN, I wanted to scope it down to specific subsystems. For that, I wrote a script.
+Belows are the top 10 kernel hackers who contributed to the memory management subsystem of Linux kernel, sorted by number of commits and changed (added, deleted, or modified) lines, respectively.
+$ ./authors.py ~/linux --file mm/ --since 2021-01-01 --author_identity name --sortby lines --max_nr_authors 10 1.">
 
   
-  <link rel="alternate" hreflang="ko" href="/ko/post/">
-  
-  <link rel="alternate" hreflang="en-us" href="/post/">
+  <link rel="alternate" hreflang="en-us" href="/post/linux-mm-dev-stat-2021-short/">
 
   
 
@@ -58,6 +58,14 @@
     
       
     
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
     
 
     
@@ -125,14 +133,12 @@
 
 
   
-  <link rel="alternate" href="/post/index.xml" type="application/rss+xml" title="hacklog">
-  
 
   <link rel="manifest" href="/index.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon-32.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="/post/">
+  <link rel="canonical" href="/post/linux-mm-dev-stat-2021-short/">
 
   
   
@@ -144,18 +150,67 @@
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="hacklog">
-  <meta property="og:url" content="/post/">
-  <meta property="og:title" content="Posts | hacklog">
-  <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
+  <meta property="og:url" content="/post/linux-mm-dev-stat-2021-short/">
+  <meta property="og:title" content="Linux Memory Management Subsystem Development Statistics in 2021 (Short) | hacklog">
+  <meta property="og:description" content="Whenever reading the kernel development statistics report for each release from LWN, I wanted to scope it down to specific subsystems. For that, I wrote a script.
+Belows are the top 10 kernel hackers who contributed to the memory management subsystem of Linux kernel, sorted by number of commits and changed (added, deleted, or modified) lines, respectively.
+$ ./authors.py ~/linux --file mm/ --since 2021-01-01 --author_identity name --sortby lines --max_nr_authors 10 1."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2017-01-01T00:00:00&#43;01:00">
+    
+      <meta property="article:published_time" content="2021-12-31T07:52:00&#43;01:00">
+    
+    <meta property="article:modified_time" content="2021-12-31T07:52:00&#43;01:00">
   
 
   
 
 
+    
 
+
+
+
+
+
+  
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/post/linux-mm-dev-stat-2021-short/"
+  },
+  "headline": "Linux Memory Management Subsystem Development Statistics in 2021 (Short)",
+  
+  "datePublished": "2021-12-31T07:52:00+01:00",
+  "dateModified": "2021-12-31T07:52:00+01:00",
+  
+  "author": {
+    "@type": "Person",
+    "name": "SeongJae Park"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "hacklog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/img/icon-512.png"
+    }
+  },
+  "description": "Whenever reading the kernel development statistics report for each release from LWN, I wanted to scope it down to specific subsystems. For that, I wrote a script.\nBelows are the top 10 kernel hackers who contributed to the memory management subsystem of Linux kernel, sorted by number of commits and changed (added, deleted, or modified) lines, respectively.\n$ ./authors.py ~/linux --file mm/ --since 2021-01-01 --author_identity name --sortby lines --max_nr_authors 10 1."
+}
+</script>
+
+  
 
   
 
@@ -163,10 +218,13 @@
   
 
 
+  
 
 
 
-  <title>Posts | hacklog</title>
+
+
+  <title>Linux Memory Management Subsystem Development Statistics in 2021 (Short) | hacklog</title>
 
 </head>
 
@@ -458,22 +516,6 @@
       
 
       
-      <li class="nav-item dropdown i18n-dropdown">
-        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true">
-          <i class="fas fa-globe mr-1" aria-hidden="true"></i><span class="d-none d-lg-inline">English</span>
-        </a>
-        <div class="dropdown-menu">
-          <div class="dropdown-item i18n-active font-weight-bold">
-            <span>English</span>
-          </div>
-          
-          <a class="dropdown-item" href="/ko/post/">
-            <span>한국어</span>
-          </a>
-          
-        </div>
-      </li>
-      
 
     </ul>
 
@@ -481,79 +523,33 @@
 </nav>
 
 
-  
-
-
-
-
-
-
-
-
-
-
-
+  <article class="article">
 
   
 
+
+
+
+
+
+
+
+
+
+
+
+  
+
   
   
+  
+<div class="article-container pt-3">
+  <h1>Linux Memory Management Subsystem Development Statistics in 2021 (Short)</h1>
+
+  
+
   
     
-  
-<div class="universal-wrapper pt-3">
-  <h1>Posts</h1>
-
-  
-
-  
-</div>
-
-
-
-<div class="universal-wrapper">
-
-  
-
-  
-  
-    
-      
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="/post/lkml_news_v5.8-rc3/" >LKML News v5.8-rc3</a>
-    </h3>
-
-    
-    <div class="article-style">
-      [TECH TOPIC] restricted kernel address spaces (Mike Rapoport) https://lkml.kernel.org/r/20200621090539.GM6493@linux.ibm.com
-A new …
-    </div>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
-      
-        
 
 
 <div class="article-metadata">
@@ -567,7 +563,7 @@ A new …
     
       
     
-    Wed, Jun 24, 2020
+    Fri, Dec 31, 2021
   </span>
   
 
@@ -588,837 +584,292 @@ A new …
   
   <span class="middot-divider"></span>
   <span class="article-categories">
-    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
+    <i class="fas fa-folder mr-1"></i><a href="/categories/linux-dev-statistics/">linux dev statistics</a></span>
   
 
 </div>
 
-      
-    </div>
-
     
 
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 </div>
 
-    
-  
-    
-      
 
 
+  <div class="article-container">
 
-
-
-
-
-
-
-
-
-
-  
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="/post/lkml_news_v5.8-rc2/" >LKML News v5.8-rc2</a>
-    </h3>
-
-    
     <div class="article-style">
-      [PATCH v7] mm: Proactive compaction (Nitin Gupta) https://lkml.kernel.org/r/20200615143614.15267-1-nigupta@nvidia.com
-7th version of …
+      <p>Whenever reading the kernel development statistics
+<a href="https://lwn.net/Articles/874283/">report</a> for each release from LWN, I wanted
+to scope it down to specific subsystems.  For that, I wrote a
+<a href="https://github.com/sjp38/lazybox/blob/master/scripts/git_stats/authors.py">script</a>.</p>
+<p>Belows are the top 10 kernel hackers who contributed to the memory management
+subsystem of Linux kernel, sorted by number of commits and changed (added,
+deleted, or modified) lines, respectively.</p>
+<pre><code>$ ./authors.py ~/linux --file mm/ --since 2021-01-01 --author_identity name --sortby lines --max_nr_authors 10
+1. SeongJae Park: 4860 lines
+2. Matthew Wilcox (Oracle): 4391 lines
+3. Muchun Song: 2091 lines
+4. Mel Gorman: 1737 lines
+5. Yang Shi: 1615 lines
+6. Marco Elver: 1442 lines
+7. Mike Kravetz: 1419 lines
+8. Alexander Potapenko: 1383 lines
+9. Miaohe Lin: 1256 lines
+10. Vlastimil Babka: 1245 lines
+# 262 authors, 45700 lines in total
+$ 
+$ ./authors.py ~/linux --file mm/ --since 2021-01-01 --author_identity name --sortby commits --max_nr_authors 10
+1. Matthew Wilcox (Oracle): 133 commits
+2. Miaohe Lin: 125 commits
+3. Linus Torvalds: 78 commits
+4. Muchun Song: 51 commits
+5. Mel Gorman: 46 commits
+6. Vlastimil Babka: 44 commits
+7. SeongJae Park: 43 commits
+8. Hugh Dickins: 41 commits
+9. Yang Shi: 38 commits
+10. David Hildenbrand: 33 commits
+# 265 authors, 1527 commits in total
+</code></pre>
     </div>
+
     
 
-    <div class="stream-meta article-metadata">
 
+
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/linux/">linux</a>
+  
+  <a class="badge badge-light" href="/tags/mm/">mm</a>
+  
+  <a class="badge badge-light" href="/tags/statistics/">statistics</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
       
-
+      
       
         
-
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=/post/linux-mm-dev-stat-2021-short/&amp;text=Linux%20Memory%20Management%20Subsystem%20Development%20Statistics%20in%202021%20%28Short%29" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
     
       
-    
-    Tue, Jun 16, 2020
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
-  
-
-</div>
-
       
-    </div>
-
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="/post/lkml_news_v5.8-rc1/" >LKML News v5.8-rc1</a>
-    </h3>
-
-    
-    <div class="article-style">
-      [PATCH v6] mm: Proactive compaction (Nitin Gupta) https://lkml.kernel.org/r/20200601194822.30252-1-nigupta@nvidia.com
-This is the sixth …
-    </div>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
       
         
-
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=/post/linux-mm-dev-stat-2021-short/&amp;t=Linux%20Memory%20Management%20Subsystem%20Development%20Statistics%20in%202021%20%28Short%29" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
     
       
-    
-    Wed, Jun 3, 2020
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
-  
-
-</div>
-
       
-    </div>
-
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="/post/lkml_news_v5.7/" >LKML News v5.7</a>
-    </h3>
-
-    
-    <div class="article-style">
-      [PATCH v2 00/16] Introduce kvfree_rcu(1 or 2 arguments) (Uladzislau Rezki) …
-    </div>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
       
         
-
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Linux%20Memory%20Management%20Subsystem%20Development%20Statistics%20in%202021%20%28Short%29&amp;body=/post/linux-mm-dev-stat-2021-short/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
     
       
-    
-    Tue, May 26, 2020
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
-  
-
-</div>
-
       
-    </div>
-
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="/post/lkml_news_v5.7-rc7/" >LKML News v5.7-rc7</a>
-    </h3>
-
-    
-    <div class="article-style">
-      [PATCH v5] mm: Proactive compaction (Nitin Gupta) https://lkml.kernel.org/r/20200518181446.25759-1-nigupta@nvidia.com
-The 5th version …
-    </div>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
       
         
-
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=/post/linux-mm-dev-stat-2021-short/&amp;title=Linux%20Memory%20Management%20Subsystem%20Development%20Statistics%20in%202021%20%28Short%29" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
     
       
-    
-    Wed, May 20, 2020
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
-  
-
-</div>
-
       
-    </div>
-
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="/post/damon_github_page/" >Opening a Showcase Website for DAMON</a>
-    </h3>
-
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
       
         
-
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=Linux%20Memory%20Management%20Subsystem%20Development%20Statistics%20in%202021%20%28Short%29%20/post/linux-mm-dev-stat-2021-short/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
     
       
-    
-    Tue, May 19, 2020
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fas fa-folder mr-1"></i><a href="/categories/record/">record</a></span>
-  
-
-</div>
-
       
-    </div>
-
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="/post/lkml_news_v5.7-rc6/" >LKML News v5.7-rc6</a>
-    </h3>
-
-    
-    <div class="article-style">
-      [PATCH v4 00/36] Large pages in the page cache (Matthew Wilcox) https://lkml.kernel.org/r/20200515131656.12890-1-willy@infradead.org …
-    </div>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
       
         
-
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
       
-          Last updated on
       
-    
-    Mon, May 18, 2020
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
-  
-
-</div>
-
       
-    </div>
-
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="/post/sphynx_doc_on_github_pages_needs_nojekyll/" >Sphynx document on Github pages Needs `.nojekyll` File</a>
-    </h3>
-
-    
-    <div class="article-style">
-      I recently tried to upload the Linux kernel document which is generated in html form using the Sphynx build system[1] on a Github …
-    </div>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
-      
-        
-
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    Wed, May 13, 2020
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  
-
-  
-  
-
-</div>
-
-      
-    </div>
-
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="/post/lkml_news_v5.7-rc5/" >LKML News v5.7-rc5</a>
-    </h3>
-
-    
-    <div class="article-style">
-      [RFC 00/43] PKRAM: Preserved-over-Kexec RAM (Anthony Yznaga) …
-    </div>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
-      
-        
-
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    Thu, May 7, 2020
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
-  
-
-</div>
-
-      
-    </div>
-
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="/post/lkml_news_v5.7-rc4/" >LKML News v5.7-rc4</a>
-    </h3>
-
-    
-    <div class="article-style">
-      [PATCH 0/7] Record the mm_struct in the page table pages (Matthew Wilcox) …
-    </div>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
-      
-        
-
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    Thu, Apr 30, 2020
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
-  
-
-</div>
-
-      
-    </div>
-
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
-</div>
-
-    
-  
-
-  
-<nav>
-  <ul class="pagination justify-content-center">
-    
-    <li class="page-item"><a class="page-link" href="/post/page/8/">&laquo;</a></li>
-    
-    
-    <li class="page-item"><a class="page-link" href="/post/page/10/">&raquo;</a></li>
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=/post/linux-mm-dev-stat-2021-short/&amp;title=Linux%20Memory%20Management%20Subsystem%20Development%20Statistics%20in%202021%20%28Short%29" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
     
   </ul>
-</nav>
-
-
-
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      <img class="portrait mr-3" src="https://s.gravatar.com/avatar/43dc5645c78e68fda997138380dfaaf4?s=200')" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="/">SeongJae Park</a></h5>
+      <h6 class="card-subtitle">Kernel / Hypervisor Engineer</h6>
+      <p class="card-text">SeongJae Park is a programmer who loves to analyze and develop systems.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/log/?qt=author&amp;q=seongjae&#43;park" target="_blank" rel="noopener">
+        <i class="fab fa-linux"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/sjp38" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.com/citations?user=jJIiF3AAAAAJ" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  
+  
+  <div class="article-widget content-widget-hr">
+    <h3>Related</h3>
+    <ul>
+      
+      <li><a href="/post/damon-tests_open_sourced/">Tests package for DAMON is released under GPL v2</a></li>
+      
+      <li><a href="/post/damon_github_page/">Opening a Showcase Website for DAMON</a></li>
+      
+      <li><a href="/post/lkml_news_v5.16-rc8/">LKML News v5.16-rc8</a></li>
+      
+      <li><a href="/post/lkml_news_v5.16-rc7/">LKML News v5.16-rc7</a></li>
+      
+      <li><a href="/post/lkml_news_v5.16-rc6/">LKML News v5.16-rc6</a></li>
+      
+    </ul>
+  </div>
+  
+
+
+
+  </div>
+</article>
 
       
 
@@ -1436,6 +887,14 @@ The 5th version …
       
 
       
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js" integrity="sha256-1zu+3BnLYV9LdiY85uXMzii3bdrkelyp37e0ZyTAQh0=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/languages/c.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/languages/bash.min.js"></script>
+        
+      
 
       
       
@@ -1447,6 +906,8 @@ The 5th version …
     
 
     
+    
+    <script>const code_highlighting = true;</script>
     
 
     

@@ -31,9 +31,7 @@
   <meta name="description" content="Kernel / Hypervisor Engineer">
 
   
-  <link rel="alternate" hreflang="ko" href="/ko/tags/linux/">
-  
-  <link rel="alternate" hreflang="en-us" href="/tags/linux/">
+  <link rel="alternate" hreflang="en-us" href="/categories/linux-dev-statistics/">
 
   
 
@@ -133,14 +131,14 @@
 
 
   
-  <link rel="alternate" href="/tags/linux/index.xml" type="application/rss+xml" title="hacklog">
+  <link rel="alternate" href="/categories/linux-dev-statistics/index.xml" type="application/rss+xml" title="hacklog">
   
 
   <link rel="manifest" href="/index.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon-32.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="/tags/linux/">
+  <link rel="canonical" href="/categories/linux-dev-statistics/">
 
   
   
@@ -152,8 +150,8 @@
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="hacklog">
-  <meta property="og:url" content="/tags/linux/">
-  <meta property="og:title" content="linux | hacklog">
+  <meta property="og:url" content="/categories/linux-dev-statistics/">
+  <meta property="og:title" content="linux dev statistics | hacklog">
   <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
@@ -174,7 +172,7 @@
 
 
 
-  <title>linux | hacklog</title>
+  <title>linux dev statistics | hacklog</title>
 
 </head>
 
@@ -396,7 +394,7 @@
         
 
         <li class="nav-item">
-          <a class="nav-link  active" href="/tags"><span>Tags</span></a>
+          <a class="nav-link " href="/tags"><span>Tags</span></a>
         </li>
 
         
@@ -418,7 +416,7 @@
         
 
         <li class="nav-item">
-          <a class="nav-link " href="/categories"><span>Categories</span></a>
+          <a class="nav-link  active" href="/categories"><span>Categories</span></a>
         </li>
 
         
@@ -466,22 +464,6 @@
       
 
       
-      <li class="nav-item dropdown i18n-dropdown">
-        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true">
-          <i class="fas fa-globe mr-1" aria-hidden="true"></i><span class="d-none d-lg-inline">English</span>
-        </a>
-        <div class="dropdown-menu">
-          <div class="dropdown-item i18n-active font-weight-bold">
-            <span>English</span>
-          </div>
-          
-          <a class="dropdown-item" href="/ko/tags/linux/">
-            <span>한국어</span>
-          </a>
-          
-        </div>
-      </li>
-      
 
     </ul>
 
@@ -510,7 +492,7 @@
     
   
 <div class="universal-wrapper pt-3">
-  <h1>linux</h1>
+  <h1>linux dev statistics</h1>
 
   
 
@@ -525,140 +507,18 @@
   
   
   <div>
-    <h2><a href="/post/lkml_news_v5.13-rc4/">LKML News v5.13-rc4</a></h2>
+    <h2><a href="/post/linux-mm-dev-stat-2021-short/">Linux Memory Management Subsystem Development Statistics in 2021 (Short)</a></h2>
     <div class="article-style">
       
-      [PATCH 0/2] arm64: remove page granularity limitation from KFENCE (Jisheng Zhang) https://lkml.kernel.org/r/20210524172433.015b3b6b@xhacker.debian
-This patchset removes the page granularity mapping requirement for the KFENCE&rsquo;s linear map, to achieve both arm64&rsquo;s block level and contiguous mapping for non-KFENCE pool pages, by allocating the KFENCE pool before paging_init().
-[PATCH v2 00/21] Optimize list lru memory consumption (Muchun Song) https://lkml.kernel.org/r/20210527062148.9361-1-songmuchun@bytedance.com
-Muchun found kmalloc-32 slab cache consuming huge memory due to cgroups initialization, and posting this patchset which expected to fix the problem fundamentally.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.13-rc3/">LKML News v5.13-rc3</a></h2>
-    <div class="article-style">
-      
-      RCU tests for Maple Tree (Paul E. McKenney) https://lkml.kernel.org/r/20210517154048.GA2013926@paulmck-ThinkPad-P17-Gen-1
-Paul is asking if there are rcu-related tests for Maple Tree other than rcu_loop() and rcu_val() that Paul needs to looking for.
-[PATCH v20 0/7] mm: introduce memfd_secret system call to create &ldquo;secret&rdquo; memory areas (Mike Rapoport) https://lkml.kernel.org/r/20210518072034.31572-1-rppt@kernel.org
-The 20th version of the patchset that implements &lsquo;secret&rsquo; mappings backed by a file descriptor.
-[PATCH v3 00/14] Multigenerational LRU Framework (Yu Zhao) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.13-rc2/">LKML News v5.13-rc2</a></h2>
-    <div class="article-style">
-      
-      [RESEND] LSF/MM/BPF: 2021: Call for Proposals (Josef Bacik) https://lkml.kernel.org/r/60997079.1c69fb81.77f3f.a045@mx.google.com/
-CFG for LSF/MM/BPF 2021 posted. It will be held from 2021-12-06 to 2021-12-08 in Palm Springs, California. As of now, it is supposed to be an in-person conference!
-[LSF/MM/BPF TOPIC] Memory folios (Matthew Wilcox) https://lkml.kernel.org/r/YJlzwcADaxO/JHRE@casper.infradead.org
-Matthew expects the memory folios patchset will be merged soon, but he wants to discuss about it in the LSFMM, if there are something to discuss more.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.13-rc1/">LKML News v5.13-rc1</a></h2>
-    <div class="article-style">
-      
-      [PATCH v3] mm/compaction:let proactive compaction order configurable (chukaiping) https://lkml.kernel.org/r/1619313662-30356-1-git-send-email-chukaiping@baidu.com
-Third version of the patchset making compaction order lower than 9. Machines using 1GB hugetlbfs huge pages could be an example user of this feature.
-[PATCH v4] mm/compaction: let proactive compaction order configurable (chukaiping) https://lkml.kernel.org/r/1619576901-9531-1-git-send-email-chukaiping@baidu.com
-Fourth version of the patchset posted quite quickly.
-[PATCH 00/94] Introducing the Maple Tree (Liam Howlett) https://lkml.kernel.org/r/20210428153542.2814175-1-Liam.Howlett@Oracle.com
-This huge patchset introduces an RCU-safe range based B-tree called maple tree.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.12/">LKML News v5.12</a></h2>
-    <div class="article-style">
-      
-      [PATCH -next v3 1/2] mm/debug_vm_pgtable: Move {pmd/pud}_huge_tests out of CONFIG_TRANSPARENT_HUGEPAGE (Liu Shixin) The functions are not THP dependent in real, but made dependent. This patch moves it out.
-[PATCH v10 0/7] Make alloc_contig_range handle Hugetlb pages (Oscar Salvador) https://lkml.kernel.org/r/20210419075413.1064-1-osalvador@suse.de
-The 10th version of the patchset which allows Hugetlb pages allocated via alloc_contig_range(), dynamically.
-[PATCH v2 0/5] mm/madvise: introduce MADV_POPULATE_(READ|WRITE) to prefault page tables (David Hildenbrand) https://lkml.kernel.org/r/20210419135443.12822-1-david@redhat.com
-This is the second version of the patchset implementing MADV_POPULATE_(READ|WRITE) for madvise() system call.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.12-rc8/">LKML NEws v5.12-rc8</a></h2>
-    <div class="article-style">
-      
-      [PATCH v2 0/5] mm/memcg: Reduce kmemcache memory accounting overhead (Waiman Long) https://lkml.kernel.org/r/20210412225503.15119-1-longman@redhat.com
-Recently introduced new slab memory controller eliminates the need for separate kmemcaches for each memory cgroup and therefore reduce kernel memory usage. However, it also increases memory accouning overhead in kmem cache alloc and free functions. This patchset reduces unnecessary local_irq_save() and local_irq_restore() sequences in the code path as much as possible for minimal overhead.
-[PATCH v7 0/7] Make alloc_contig_range handle Hugetlb pages (Oscar Salvador) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.12-rc7/">LKML News v5.12-rc7</a></h2>
-    <div class="article-style">
-      
-      [RFC PATCH v1 00/11] Manage the top tier memory in a tiered memory (Tim Chen) https://lkml.kernel.org/r/cover.1617642417.git.tim.c.chen@linux.intel.com
-There are two patchsets for better handling of tiered-memory. [PATCH 00/10] [v7] Migrate Pages in lieu of discard (https://lore.kernel.org/linux-mm/20210401183216.443C4443@viggo.jf.intel.com/) makes cold pages to be placed in PMEM instead of DRAM, and [PATCH 0/6] [RFC v6] NUMA balancing: optimize memory placement for memory tiering system (https://lore.kernel.org/linux-mm/20210311081821.138467-1-ying.huang@intel.com/) allows hot pages to be placed in DRAM instead of PMEM.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.12-rc6/">LKML News v5.12-rc6</a></h2>
-    <div class="article-style">
-      
-      [RFC] NUMA balancing: reduce TLB flush via delaying mapping on hint page fault (Huang Ying) https://lkml.kernel.org/r/20210329062651.2487905-1-ying.huang@intel.com
-NUMA balancing shots down TLBs on all CPUs that recently run hint-faulted process during the migration of the hint-faulted page to appropriate node. This commit delays the TLB shootdown to reduce the overhead. With pmbench, it reduced TLB shooting IPI up to 99%, though it didn&rsquo;t makde visible benchmark score changes.
-[RFC v2 00/43] PKRAM: Preserved-over-Kexec RAM (Anthony Yznaga) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.12-rc5/">LKML News v5.12-rc5</a></h2>
-    <div class="article-style">
-      
-      [PATCH 0/3 v5] Introduce a bulk order-0 page allocator (Mel Gorman) https://lkml.kernel.org/r/20210322091845.16437-1-mgorman@techsingularity.net
-Fifth version of the order-0 pages bulk allocator. In this version, the API users are dropped from the patchset, because the callers are not confirmed if they prefer an array or list interface.
-[PATCH] mm: cma: add trace events for CMA alloc perf testing (Georgi Djakov) https://lkml.kernel.org/r/20210324160740.15901-1-georgi.djakov@linaro.org
-This patch adds tracepoints for CMA and page migrations. Those aims to be used for performance debugging of CMA.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.12-rc4/">LKML News v5.12-rc4</a></h2>
-    <div class="article-style">
-      
-      File THP and HWPoison (Matthew Wilcox) https://lkml.kernel.org/r/20210316140947.GA3420@casper.infradead.org
-THP is not splitted for file-backed pages when it got memory failure. This mail describes the problem in detail and propose some change to mitigate it.
-Issue with kfence and kmemleak (Luis Henriques) https://lkml.kernel.org/r/YFDf6iKH1p/jGnM0@suse.de
-Luis found a problem when kmemleak and kfence is used together. A fix is made by Marco.
-[PATCH v4 00/13] Introduced multi-preference mempolicy (Feng Tang) https://lkml.kernel.org/r/1615952410-36895-1-git-send-email-feng.tang@intel.com
-This is the fourth version of the patchset.
+      Whenever reading the kernel development statistics report for each release from LWN, I wanted to scope it down to specific subsystems. For that, I wrote a script.
+Belows are the top 10 kernel hackers who contributed to the memory management subsystem of Linux kernel, sorted by number of commits and changed (added, deleted, or modified) lines, respectively.
+$ ./authors.py ~/linux --file mm/ --since 2021-01-01 --author_identity name --sortby lines --max_nr_authors 10 1.
       
     </div>
   </div>
   
 
   
-<nav>
-  <ul class="pagination justify-content-center">
-    
-    <li class="page-item"><a class="page-link" href="/tags/linux/page/3/">&laquo;</a></li>
-    
-    
-    <li class="page-item"><a class="page-link" href="/tags/linux/page/5/">&raquo;</a></li>
-    
-  </ul>
-</nav>
-
 
 </div>
 

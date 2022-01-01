@@ -155,7 +155,7 @@
   <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2021-11-08T10:09:49&#43;01:00">
+    <meta property="og:updated_time" content="2021-12-31T07:52:00&#43;01:00">
   
 
   
@@ -507,10 +507,12 @@
   
   
   <div>
-    <h2><a href="/post/kernel_maintainers_stat_for_fun/">Linux kernel maintainers statistics for fun</a></h2>
+    <h2><a href="/post/linux-mm-dev-stat-2021-short/">Linux Memory Management Subsystem Development Statistics in 2021 (Short)</a></h2>
     <div class="article-style">
       
-      I made a script for doing simple analysis of Linux kernel maintainers using the MAINTAINERS file.
+      Whenever reading the kernel development statistics report for each release from LWN, I wanted to scope it down to specific subsystems. For that, I wrote a script.
+Belows are the top 10 kernel hackers who contributed to the memory management subsystem of Linux kernel, sorted by number of commits and changed (added, deleted, or modified) lines, respectively.
+$ ./authors.py ~/linux --file mm/ --since 2021-01-01 --author_identity name --sortby lines --max_nr_authors 10 1.
       
     </div>
   </div>

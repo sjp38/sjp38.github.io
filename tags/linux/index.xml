@@ -5,12 +5,52 @@
     <link>/tags/linux/</link>
       <atom:link href="/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     <description>linux</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 29 Dec 2021 07:36:53 +0100</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Fri, 31 Dec 2021 07:52:00 +0100</lastBuildDate>
     <image>
       <url>/img/tux.png</url>
       <title>linux</title>
       <link>/tags/linux/</link>
     </image>
+    
+    <item>
+      <title>Linux Memory Management Subsystem Development Statistics in 2021 (Short)</title>
+      <link>/post/linux-mm-dev-stat-2021-short/</link>
+      <pubDate>Fri, 31 Dec 2021 07:52:00 +0100</pubDate>
+      <guid>/post/linux-mm-dev-stat-2021-short/</guid>
+      <description>&lt;p&gt;Whenever reading the kernel development statistics
+&lt;a href=&#34;https://lwn.net/Articles/874283/&#34;&gt;report&lt;/a&gt; for each release from LWN, I wanted
+to scope it down to specific subsystems.  For that, I wrote a
+&lt;a href=&#34;https://github.com/sjp38/lazybox/blob/master/scripts/git_stats/authors.py&#34;&gt;script&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Belows are the top 10 kernel hackers who contributed to the memory management
+subsystem of Linux kernel, sorted by number of commits and changed (added,
+deleted, or modified) lines, respectively.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ ./authors.py ~/linux --file mm/ --since 2021-01-01 --author_identity name --sortby lines --max_nr_authors 10
+1. SeongJae Park: 4860 lines
+2. Matthew Wilcox (Oracle): 4391 lines
+3. Muchun Song: 2091 lines
+4. Mel Gorman: 1737 lines
+5. Yang Shi: 1615 lines
+6. Marco Elver: 1442 lines
+7. Mike Kravetz: 1419 lines
+8. Alexander Potapenko: 1383 lines
+9. Miaohe Lin: 1256 lines
+10. Vlastimil Babka: 1245 lines
+# 262 authors, 45700 lines in total
+$ 
+$ ./authors.py ~/linux --file mm/ --since 2021-01-01 --author_identity name --sortby commits --max_nr_authors 10
+1. Matthew Wilcox (Oracle): 133 commits
+2. Miaohe Lin: 125 commits
+3. Linus Torvalds: 78 commits
+4. Muchun Song: 51 commits
+5. Mel Gorman: 46 commits
+6. Vlastimil Babka: 44 commits
+7. SeongJae Park: 43 commits
+8. Hugh Dickins: 41 commits
+9. Yang Shi: 38 commits
+10. David Hildenbrand: 33 commits
+# 265 authors, 1527 commits in total
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
     
     <item>
       <title>LKML News v5.16-rc8</title>
@@ -27,6 +67,9 @@ allocation or migration fails.&lt;/p&gt;
 &lt;p&gt;MM of the moment has updated.  It&amp;rsquo;s rebased on v5.16-rc7, adds 32 new patches
 to the queue, drops 11 patches from the queue, and modifies 100 existing
 patches.  In total, 360 patches are in the queue.&lt;/p&gt;
+&lt;h2 id=&#34;incoming-andrew-morton&#34;&gt;incoming (Andrew Morton)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20211230201202.d9bcb24678cc3d9d503579a0@linux-foundation.org&#34;&gt;https://lkml.kernel.org/r/20211230201202.d9bcb24678cc3d9d503579a0@linux-foundation.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Two more mm fixes have pull-requested to Linus Torvalds.&lt;/p&gt;
 </description>
     </item>
     
