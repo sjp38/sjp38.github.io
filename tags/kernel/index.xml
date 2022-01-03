@@ -30,6 +30,23 @@ patches.  In total, 360 patches are in the queue.&lt;/p&gt;
 &lt;h2 id=&#34;incoming-andrew-morton&#34;&gt;incoming (Andrew Morton)&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20211230201202.d9bcb24678cc3d9d503579a0@linux-foundation.org&#34;&gt;https://lkml.kernel.org/r/20211230201202.d9bcb24678cc3d9d503579a0@linux-foundation.org&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Two more mm fixes have pull-requested to Linus Torvalds.&lt;/p&gt;
+&lt;h2 id=&#34;linux-516-rc8-linus-torvalds&#34;&gt;Linux 5.16-rc8 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wg=3dEpPGhz8YvJUDWhFW_GUeASBGmqyw3aPQRfB3ki9w@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wg=3dEpPGhz8YvJUDWhFW_GUeASBGmqyw3aPQRfB3ki9w@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;As expected, unusual rc8 has made for 5.16.  And also as expected, this is a
+quite tiny rc.  Torvalds will release 5.16 next week.  He also encourages
+subsystem maintainers to send pull request early if possible, because he will
+have a travel during the next merge window.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v5.5-rc6..v5.16-rc8.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
+below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2020-01-03 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And, below is the diffstat of the -rc8 releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v5.16-rc8-only.png&#34; alt=&#34;rc2 release stat&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     
