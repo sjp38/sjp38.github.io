@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2021-12-29T07:36:53&#43;01:00">
+    <meta property="og:updated_time" content="2022-01-04T07:09:18&#43;01:00">
   
 
   
@@ -525,6 +525,20 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.1-rc3/">LKML News v5.1-rc3</a></h2>
+    <div class="article-style">
+      
+      [PATCH tip/core/rcu 0/4] Documentation updates for v5.2 https://lkml.kernel.org/r/20190326230408.GA17069@linux.ibm.com
+v5.2 에 머지될 목적의 RCU 문서화 업데이트 패치셋입니다.
+[PATCH tip/core/rcu 0/18] Miscellaneous fixes for v5.2 https://lkml.kernel.org/r/20190326231253.GA18343@linux.ibm.com
+v5.2 를 위한 RCU 의 다양한 업데이트 패치셋입니다. rcu 를 위한 메일링 리스트도 추가되었군요. rcu@vger.kernel.org 입니다.
+[PATCH tip/core/rcu 0/9] Torture-test updates for v5.2 https://lkml.kernel.org/r/20190326233054.GA21523@linux.ibm.com
+v5.2 를 위한 torture test 의 업데이트 패치셋입니다. LKMM 이라던지 formal verification 도 많은 발전이 있었지만, torture test 도 없어질 순 없겠죠.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.1-rc2/">LKML News v5.1-rc2</a></h2>
     <div class="article-style">
       
@@ -639,18 +653,6 @@ SPF 패치에서 발견된 버그 레포트입니다. ARM 위에서 데드락 �
 &lsquo;ret2dir&rsquo; 보안 공격[1]에 대비하기 위한 패치입니다. 하지만 이로 인해 tlb 를 좀 많이 flush 해야 하는 문제가 있었고, 이 패치셋은 그에 대한 해결책도 의논하고 있습니다.
 [1] http://www.cs.columbia.edu/~vpk/papers/ret2dir.sec14.pdf
 [PATCH 0/4] Allow persistent memory to be used like normal RAM https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.0-rc1/">LKML News v5.0-rc1</a></h2>
-    <div class="article-style">
-      
-      [RFC v3 0/3] test driver to analyse vmalloc allocator https://lkml.kernel.org/r/20190102085924.14145-1-urezki@gmail.com
-vmalloc 의 성능과 스트레스 테스트를 위한 모듈을 구현한 패치입니다. Selftests 에도 테스트 스크립트를 추가했군요.
-[RFC PATCH 0/1] mm: add a warning about high order allocations https://lkml.kernel.org/r/20181225153927.2873-1-khorenko@virtuozzo.com
-특정 노드의 메모리에 접근이 많이 되고 있는 상황에서 해당 메모리가 fragment 되어 있고 이 시점에서 high order allocation 이 요청되면 이걸 위해 compaction 등이 작동하니까 다른 태스크의 latency 가 떨어질 수 있습니다. 이런 상황을 모니터링 할 수 있게끔, 이 패치는 vm.
       
     </div>
   </div>

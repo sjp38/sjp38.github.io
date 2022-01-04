@@ -31,9 +31,9 @@
   <meta name="description" content="Kernel / Hypervisor Engineer">
 
   
-  <link rel="alternate" hreflang="ko" href="/ko/tags/news/">
+  <link rel="alternate" hreflang="ko" href="/ko/tags/linux/">
   
-  <link rel="alternate" hreflang="en-us" href="/tags/news/">
+  <link rel="alternate" hreflang="en-us" href="/tags/linux/">
 
   
 
@@ -133,14 +133,14 @@
 
 
   
-  <link rel="alternate" href="/tags/news/index.xml" type="application/rss+xml" title="hacklog">
+  <link rel="alternate" href="/tags/linux/index.xml" type="application/rss+xml" title="hacklog">
   
 
   <link rel="manifest" href="/index.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon-32.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="/tags/news/">
+  <link rel="canonical" href="/tags/linux/">
 
   
   
@@ -152,8 +152,8 @@
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="hacklog">
-  <meta property="og:url" content="/tags/news/">
-  <meta property="og:title" content="news | hacklog">
+  <meta property="og:url" content="/tags/linux/">
+  <meta property="og:title" content="linux | hacklog">
   <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
@@ -174,7 +174,7 @@
 
 
 
-  <title>news | hacklog</title>
+  <title>linux | hacklog</title>
 
 </head>
 
@@ -475,7 +475,7 @@
             <span>English</span>
           </div>
           
-          <a class="dropdown-item" href="/ko/tags/news/">
+          <a class="dropdown-item" href="/ko/tags/linux/">
             <span>한국어</span>
           </a>
           
@@ -510,7 +510,7 @@
     
   
 <div class="universal-wrapper pt-3">
-  <h1>news</h1>
+  <h1>linux</h1>
 
   
 
@@ -525,121 +525,12 @@
   
   
   <div>
-    <h2><a href="/post/lkml_news_v5.0-rc1/">LKML News v5.0-rc1</a></h2>
+    <h2><a href="/post/uninstall-kernel/">uninstall kernel</a></h2>
     <div class="article-style">
       
-      [RFC v3 0/3] test driver to analyse vmalloc allocator https://lkml.kernel.org/r/20190102085924.14145-1-urezki@gmail.com
-vmalloc 의 성능과 스트레스 테스트를 위한 모듈을 구현한 패치입니다. Selftests 에도 테스트 스크립트를 추가했군요.
-[RFC PATCH 0/1] mm: add a warning about high order allocations https://lkml.kernel.org/r/20181225153927.2873-1-khorenko@virtuozzo.com
-특정 노드의 메모리에 접근이 많이 되고 있는 상황에서 해당 메모리가 fragment 되어 있고 이 시점에서 high order allocation 이 요청되면 이걸 위해 compaction 등이 작동하니까 다른 태스크의 latency 가 떨어질 수 있습니다. 이런 상황을 모니터링 할 수 있게끔, 이 패치는 vm.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.20/">LKML News for v4.20</a></h2>
-    <div class="article-style">
-      
-      [PATCH V5 0/3] mm/kvm/vfio/ppc64: Migrate compound pages out of CMA https://lkml.kernel.org/r/20181219034047.16305-1-aneesh.kumar@linux.ibm.com
-ppc64 에서는 guest os page table 을 CMA area 내에 할당하는데, VFIO 를 쓰는 경우 이게 pinning 되어 있다 보니 CMA area 밖으로 migrate 하는데 실패해, guest os page table 할당에 실패하고, 이로 인해 guest 시작조차 불가능하게 되는 문제가 있었습니다.
-이 패치는 compound page 에 대해서도 CMA area 밖으로의 migration 이 가능하게 합니다.
-[RESEND PATCH V3 0/5] arm64/mm: Enable HugeTLB migration https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.20-rc7/">LKML News by v4.20-rc7</a></h2>
-    <div class="article-style">
-      
-      [PATCH -V9 00/21] swap: Swapout/swapin THP in one piece https://lkml.kernel.org/r/20181214062754.13723-1-ying.huang@intel.com
-아직 머지되지 못한 THP swap in 패치셋의 아홉번째 버전입니다.
-[RFC 0/3] reduce THP fault thrashing https://lkml.kernel.org/r/20181211142941.20500-1-vbabka@suse.cz
-THP fault 로 인한 로컬 노드 thrashing 을 해결하기 위한 패치의 RFC 입니다. THP fault 성공률을 낮추는 부작용도 있긴 하군요. 아직 테스트도 안된 첫번째 RFC 이니, 이대로 머지되진 않겠지 싶긴 합니다만 재밌네요.
-Linux 4.20-rc76 https://lkml.kernel.org/r/CAHk-=whv9u9aTEPoCz8h83JJbVK4fmHELJF=GG01ht9=1_MaCQ@mail.gmail.com
-일곱번째 rc 버전의 릴리즈입니다&hellip; 만, 이번엔 릴리즈 메일 제목에 오타가 있었군요.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.20-rc6/">LKML News by v4.20-rc6</a></h2>
-    <div class="article-style">
-      
-      [PATCH memory-model 0/3] Updates to the formal memory model https://lkml.kernel.org/r/20181203230411.GA27476@linux.ibm.com
-리눅스 커널 메모리 모델의 업데이트 입니다.
-smp_mb__after_unlock_lock() 을 추가로 모델링했고, github 리트머스 테스트를 체크하기 위한 스크립트가 추가되었으며, -j 옵션을 서포트 하게 되었습니다.
-[tip:core/rcu] tracing: Replace synchronize_sched() and call_rcu_sched() https://lkml.kernel.org/r/tip-7440172974e85b1828bdd84ac6b23b5bcad9c5eb@git.kernel.org
-synchronize_rcu() 가 이제는 RCU read-side 크리티컬 섹션 만이 아니라 preempt-disable 코드 영역도 기다리므로, synchronize_sched() 를 대체할 수 있고, call_rcu_sched() 도 call_rcu() 로 대체될 수 있습니다. 이 패치는 이 대체를 진행하고 있습니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.20-rc5/">LKML News by 4.20-rc5</a></h2>
-    <div class="article-style">
-      
-      [PATCH V12 00/20] block: support multi-page bvec https://lkml.kernel.org/r/20181126021720.19471-1-ming.lei@redhat.com
-struct bio_bvec 하나가 물리적으로 연속적인 여러개의 페이지를 담을 수 있게 해서 block layer 의 효율성을 높이기 위한 시도입니다.
-[PATCH] aio: Convert ioctx_table to XArray https://lkml.kernel.org/r/20181128183531.5139-1-willy@infradead.org
-aio 쪽의 ioctx_table 이라는 자료구조가 스펙터에 취약한 자료구조인데, 인덱스 오버플로 문제가 없는 XArray 로 교체하는 패치입니다. 정말 코드가 깔끔해지는군요.
-[PATCH 0/4][V4] drop the mmap_sem when doing IO in the fault path https://lkml.kernel.org/r/20181130195812.19536-1-josef@toxicpanda.com
-ps 등의 도구를 사용해 시스템 상황을 모니터링하는 커다란 어플리케이션을 사용 중인데, 이 과정에서 다른 task 의 mmap_sem 을 down_read() 해야 하는 경우가 종종 생긴다는군요.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.20-rc4/">LKML News by v4.20-rc4</a></h2>
-    <div class="article-style">
-      
-      [PATCH -V7 00/21] swap: Swapout/swapin THP in one piece https://lkml.kernel.org/r/20181120085449.5542-1-ying.huang@intel.com
-Transparent Huge Page 를 쪼개지 않고 swap out / swap in 함으로써 스왑 성능을 최적화 하는 패치의 일곱번째 버전입니다. 이 블로그에서도 소개한 바 있죠. 크게 바뀐 부분은 없지만 최신 버전에 맞춰 리베이스 되었고, Daniel 에 의해 발견된 주소 정렬 관련 문제를 해결했군요.
-[PATCH 0/5] Fragmentation avoidance improvements v5 https://lkml.kernel.org/r/20181123114528.28802-1-mgorman@techsingularity.net
-시스템이 충분히 오래 운영되거나 특정한 패턴의 워크로드가 동작하게 되면 시스템의 메모리는 fragment 되게 마련이어서, 장기적으로 물리적 연속 페이지 할당이 실패하게 됩니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.20-rc3/">LKML News by v4.20-rc3</a></h2>
-    <div class="article-style">
-      
-      Linux 4.20-rc3 https://lkml.kernel.org/r/CAHk-=wiZmPvR64hDy-pcVJqcxoAwMRd4GrRhRjK04Mhng4nL4g@mail.gmail.com
-리누스 토발즈의 개인적 여행이 있었다는 점을 제외하고는 이상할 것 없는 한주였습니다만, 이번 릴리즈의 변경 사항은 rc3 치고는 상당히 적었다고 하는군요.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.20-rc2/">LKML News by v4.20-rc2</a></h2>
-    <div class="article-style">
-      
-      [PATCH 0/5] Fragmentation avoidance improvements v2 https://lkml.kernel.org/r/20181107183822.15567-1-mgorman@techsingularity.net
-장시간 운영되는 시스템은 결국 메모리가 단편화 (fragmentation) 되게 되어 있습니다. 페이징을 사용하면 단일 페이지 단위 할당은 문제가 없지만, 물리적으로 연속적인 페이지를 할당받기가 어려워지죠. Mel Gorman 의 이 패치는 이런 메모리 분절화를 좀 더 잘 막을 수 있는 방법을 포함하고 있습니다.
-첫번째 패치는 단일 페이지 또는 적은 물리적 연속 페이지들의 할당 시에 불필요하게 higher order free page zone 을 사용하지 않게 하고, 두번째와 세번째 패치는 kswapd 와 kcompactd 를 사용한 defragmentation 을 좀 더 적극적으로 하게 합니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.20-rc1/">LKML News by v4.20-rc1</a></h2>
-    <div class="article-style">
-      
-      리눅스 4.19 버전 릴리즈 후부터 4.20-rc1 버전의 릴리즈까지 LKML 에 오간 메일 중 흥미로운 메일들을 소개합니다.
-[RFC PATCH v4 00/13] ktask: multithread CPU-intensive kernel work https://lkml.kernel.org/r/20181105165558.11698-1-daniel.m.jordan@oracle.com
-CPU intensive 한 커널의 일을 여러 work queue 를 이용해 병렬화 시키기 위한 새로운 프레임웍, ktask 구현 및 적용 패치입니다. 이 프레임웍을 이용해 병렬화 시킬 일은 여러가지가 있을텐데, 이 패치는 ktask 프레임웍의 구현과 함께 VFIO 페이지 pinning, 부팅 시점에서의 struct page 초기화, gigantic page 의 초기화, 그리고 HugeTLB 페이지의 할당에 ktask 를 적용하고 있습니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.19/">LKML News after v4.19</a></h2>
-    <div class="article-style">
-      
-      Linux 4.19 https://lkml.kernel.org/r/20181022073224.GA5658@kroah.com
-드디어 9 주간의 안정화를 거쳐 4.19 버전이 릴리즈 되었습니다. 역시 토발즈가 쉬고 있는 관계로 Greg KroahHartman 이 릴리즈 했습니다. 지난 네번의 릴리즈 가운데 가장 큰 릴리즈군요. 그리고 이 버전은 &ldquo;Long Tern&rdquo; 커널 중 하나가 될 예정입니다.
-이번 릴리즈 메일은 토발즈가 잠시 쉬겠다고 했던 메일을 연상케 할정도로 내용이 긴데요, 꽤 많은 부분은 이번 버전 개발 과정에서 이야기 되었던, 새로운 커뮤니티 참여자들과의 관계와 태도에 대한 내용입니다. Greg 이 매년 발표하고 있는 커널 커뮤니티의 작업 방식 이야기를 예로 들며 설명하네요.
+      테스트 등을 위해 소스코드로부터 커널을 직접 빌드, 설치하기 시작하면 어느새 수많은 커널이 설치되어 있는 것을 확인할 수 있다. 삭제를 위해선 make install 로 만들어진 파일들을 직접 제거하고 grub 을 업데이트 해줘야 한다.
+예를 들어 시스템이 현재 부팅되어 있는 버전의 커널을 언인스톨하고자 한다면 다음의 일련의 커맨드를 입력하면 된다:
+# rm /boot/vmlinuz-$(uname -r) # rm /boot/initrd.img-$(uname -r) # rm /boot/System.map-$(uname -r) # rm /boot/config-$(uname -r) # rm -fr /lib/modules/$(uname -r) # rm /var/lib/initramfs-tools/$(uname -r) # update-grub2 다른 버전의 설치되어있는 커널을 제거하고 싶다면 위의 $(uname -r) 부분을 제거하고자 하는 커널 버전으로 대체하면 된다.
       
     </div>
   </div>
@@ -649,10 +540,8 @@ CPU intensive 한 커널의 일을 여러 work queue 를 이용해 병렬화 시
 <nav>
   <ul class="pagination justify-content-center">
     
-    <li class="page-item"><a class="page-link" href="/tags/news/page/14/">&laquo;</a></li>
+    <li class="page-item"><a class="page-link" href="/tags/linux/page/22/">&laquo;</a></li>
     
-    
-    <li class="page-item"><a class="page-link" href="/tags/news/page/16/">&raquo;</a></li>
     
   </ul>
 </nav>
