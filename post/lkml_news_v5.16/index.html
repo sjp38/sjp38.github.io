@@ -572,7 +572,7 @@ The work for seperating struct slab from struct page for making the struct page 
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -634,6 +634,11 @@ leave this to Andrew.</p>
 <p>This patch adds two trace events for PMD-based THP migration without split.
 More specifically, it makes <code>set_pmd_migration_entry()</code> and
 <code>remove_migration_pmd()</code> to trigger the tracepoints.</p>
+<h2 id="git-pull-slab-for-517-vlastimil-babka">[GIT PULL] slab for 5.17 (Vlastimil Babka)</h2>
+<p><a href="https://lkml.kernel.org/r/fa6573eb-9d5c-ef49-06b1-157c16efb868@suse.cz">https://lkml.kernel.org/r/fa6573eb-9d5c-ef49-06b1-157c16efb868@suse.cz</a></p>
+<p>Vlastimil has sent pull request of slab changes for v5.17 to Linus Torvalds.
+The changes include the separation of <code>struct slab</code> from <code>struct page</code>.  This
+makes <code>struct page</code> simpler and <code>struct slab</code> be easily changed in future.</p>
 
     </div>
 
