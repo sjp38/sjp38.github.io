@@ -44,6 +44,23 @@ More specifically, it makes &lt;code&gt;set_pmd_migration_entry()&lt;/code&gt; a
 &lt;p&gt;Vlastimil has sent pull request of slab changes for v5.17 to Linus Torvalds.
 The changes include the separation of &lt;code&gt;struct slab&lt;/code&gt; from &lt;code&gt;struct page&lt;/code&gt;.  This
 makes &lt;code&gt;struct page&lt;/code&gt; simpler and &lt;code&gt;struct slab&lt;/code&gt; be easily changed in future.&lt;/p&gt;
+&lt;h2 id=&#34;linux-516-linus-torvalds&#34;&gt;Linux 5.16 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wgUkBrUVhjixy4wvrUhPbW-DTgtQubJWVOoLW=O0wRKMA@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wgUkBrUVhjixy4wvrUhPbW-DTgtQubJWVOoLW=O0wRKMA@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The v5.16 Linux kernel has released, as expected.  No many changes since the
+v5.16-rc8, as the extra week was only due to the holidays.  This also means the
+merge window for v5.17 is opening.  Linus will have travel during the window,
+so he hopes many early pull requests, and doesn&amp;rsquo;t feel good to do the work on
+road with his laptop, as he wants to do more local build testing.  That said,
+he also believes the automated test works well.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v5.5-rc7..v5.16.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
+below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2020-01-10 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
