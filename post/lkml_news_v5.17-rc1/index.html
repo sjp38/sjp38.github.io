@@ -29,7 +29,9 @@
     
   
   <meta name="description" content="[PATCH 0/3] usable memory range fixes (arm64/fdt/efi) (Frank van der Linden) https://lkml.kernel.org/r/20220110210809.3528-1-fllinden@amazon.com
-This patchset fixes the usable memory range behavior when both DT and EFI are given.">
+This patchset fixes the usable memory range behavior when both DT and EFI are given.
+[PATCHv2 0/7] Implement support for unaccepted memory (Kirill A. Shutemov) https://lkml.kernel.org/r/20220111113314.27173-1-kirill.shutemov@linux.intel.com
+UEFI spec 2.9 introduces a concept of memory acceptance. It requires virtual machine platforms such as Intel TDX or AMD SEV-SNP to accept memory before use it. This patchset makes Linux kernel to support it, and therefore be able to reduce VM booting time by optimizing the acceptance.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/lkml_news_v5.17-rc1/">
@@ -152,7 +154,9 @@ This patchset fixes the usable memory range behavior when both DT and EFI are gi
   <meta property="og:url" content="/post/lkml_news_v5.17-rc1/">
   <meta property="og:title" content="LKML News v5.17-rc1 | hacklog">
   <meta property="og:description" content="[PATCH 0/3] usable memory range fixes (arm64/fdt/efi) (Frank van der Linden) https://lkml.kernel.org/r/20220110210809.3528-1-fllinden@amazon.com
-This patchset fixes the usable memory range behavior when both DT and EFI are given."><meta property="og:image" content="/img/tux.png">
+This patchset fixes the usable memory range behavior when both DT and EFI are given.
+[PATCHv2 0/7] Implement support for unaccepted memory (Kirill A. Shutemov) https://lkml.kernel.org/r/20220111113314.27173-1-kirill.shutemov@linux.intel.com
+UEFI spec 2.9 introduces a concept of memory acceptance. It requires virtual machine platforms such as Intel TDX or AMD SEV-SNP to accept memory before use it. This patchset makes Linux kernel to support it, and therefore be able to reduce VM booting time by optimizing the acceptance."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -204,7 +208,7 @@ This patchset fixes the usable memory range behavior when both DT and EFI are gi
       "url": "/img/icon-512.png"
     }
   },
-  "description": "[PATCH 0/3] usable memory range fixes (arm64/fdt/efi) (Frank van der Linden) https://lkml.kernel.org/r/20220110210809.3528-1-fllinden@amazon.com\nThis patchset fixes the usable memory range behavior when both DT and EFI are given."
+  "description": "[PATCH 0/3] usable memory range fixes (arm64/fdt/efi) (Frank van der Linden) https://lkml.kernel.org/r/20220110210809.3528-1-fllinden@amazon.com\nThis patchset fixes the usable memory range behavior when both DT and EFI are given.\n[PATCHv2 0/7] Implement support for unaccepted memory (Kirill A. Shutemov) https://lkml.kernel.org/r/20220111113314.27173-1-kirill.shutemov@linux.intel.com\nUEFI spec 2.9 introduces a concept of memory acceptance. It requires virtual machine platforms such as Intel TDX or AMD SEV-SNP to accept memory before use it. This patchset makes Linux kernel to support it, and therefore be able to reduce VM booting time by optimizing the acceptance."
 }
 </script>
 
@@ -614,6 +618,12 @@ This patchset fixes the usable memory range behavior when both DT and EFI are gi
 <p><a href="https://lkml.kernel.org/r/20220110210809.3528-1-fllinden@amazon.com">https://lkml.kernel.org/r/20220110210809.3528-1-fllinden@amazon.com</a></p>
 <p>This patchset fixes the usable memory range behavior when both DT and EFI are
 given.</p>
+<h2 id="patchv2-07-implement-support-for-unaccepted-memory-kirill-a-shutemov">[PATCHv2 0/7] Implement support for unaccepted memory (Kirill A. Shutemov)</h2>
+<p><a href="https://lkml.kernel.org/r/20220111113314.27173-1-kirill.shutemov@linux.intel.com">https://lkml.kernel.org/r/20220111113314.27173-1-kirill.shutemov@linux.intel.com</a></p>
+<p>UEFI spec 2.9 introduces a concept of memory acceptance.  It requires virtual
+machine platforms such as Intel TDX or AMD SEV-SNP to <em>accept</em> memory before
+use it.  This patchset makes Linux kernel to support it, and therefore be able
+to reduce VM booting time by optimizing the acceptance.</p>
 
     </div>
 

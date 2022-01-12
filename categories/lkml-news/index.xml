@@ -21,6 +21,12 @@
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20220110210809.3528-1-fllinden@amazon.com&#34;&gt;https://lkml.kernel.org/r/20220110210809.3528-1-fllinden@amazon.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;This patchset fixes the usable memory range behavior when both DT and EFI are
 given.&lt;/p&gt;
+&lt;h2 id=&#34;patchv2-07-implement-support-for-unaccepted-memory-kirill-a-shutemov&#34;&gt;[PATCHv2 0/7] Implement support for unaccepted memory (Kirill A. Shutemov)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20220111113314.27173-1-kirill.shutemov@linux.intel.com&#34;&gt;https://lkml.kernel.org/r/20220111113314.27173-1-kirill.shutemov@linux.intel.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;UEFI spec 2.9 introduces a concept of memory acceptance.  It requires virtual
+machine platforms such as Intel TDX or AMD SEV-SNP to &lt;em&gt;accept&lt;/em&gt; memory before
+use it.  This patchset makes Linux kernel to support it, and therefore be able
+to reduce VM booting time by optimizing the acceptance.&lt;/p&gt;
 </description>
     </item>
     

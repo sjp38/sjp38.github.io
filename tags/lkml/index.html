@@ -530,6 +530,8 @@
       
       [PATCH 0/3] usable memory range fixes (arm64/fdt/efi) (Frank van der Linden) https://lkml.kernel.org/r/20220110210809.3528-1-fllinden@amazon.com
 This patchset fixes the usable memory range behavior when both DT and EFI are given.
+[PATCHv2 0/7] Implement support for unaccepted memory (Kirill A. Shutemov) https://lkml.kernel.org/r/20220111113314.27173-1-kirill.shutemov@linux.intel.com
+UEFI spec 2.9 introduces a concept of memory acceptance. It requires virtual machine platforms such as Intel TDX or AMD SEV-SNP to accept memory before use it. This patchset makes Linux kernel to support it, and therefore be able to reduce VM booting time by optimizing the acceptance.
       
     </div>
   </div>
