@@ -574,7 +574,7 @@ UEFI spec 2.9 introduces a concept of memory acceptance. It requires virtual mac
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    2 min read
+    3 min read
   </span>
   
 
@@ -662,6 +662,21 @@ removing slab-specific fields from <code>struct page</code>.</p>
 <p><a href="https://lkml.kernel.org/r/20220121221021.60533b009c357d660791476e@linux-foundation.org">https://lkml.kernel.org/r/20220121221021.60533b009c357d660791476e@linux-foundation.org</a></p>
 <p>Yet another pull request for post-linux-next patches (69 in total) are sent
 from Andrew Morton to Linus Torvalds.</p>
+<h2 id="linux-517-rc1-linus-torvalds">Linux 5.17-rc1 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=whUYZvNVtNc4Xftd8aDpZzuwswBtHG4fCYQ2AC3twh_5Q@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=whUYZvNVtNc4Xftd8aDpZzuwswBtHG4fCYQ2AC3twh_5Q@mail.gmail.com</a></p>
+<p>A couple of hors earlier than usual, the rc1 for 5.17 has released.  It&rsquo;s not a
+huge release.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.6-rc1..v5.17-rc1.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2020-01-24 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc1 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.17-rc1-only.png" alt="rc1 release stat"></p>
 
     </div>
 
