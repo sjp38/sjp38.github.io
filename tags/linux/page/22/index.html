@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2022-01-11T07:08:23&#43;01:00">
+    <meta property="og:updated_time" content="2022-01-25T07:32:08&#43;01:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v4.14-rc8/">LKML News after v4.14-rc8</a></h2>
+    <div class="article-style">
+      
+      Linux 4.14-rc8 https://lwn.net/Articles/738207/
+v4.14 를 향한 (아마도) 마지막 rc 버전의 릴리즈입니다.
+정말로 별다른 일 없었다면 그냥 이번에 v4.14 릴리즈를 할 계획이었지만 그정도는 아니었다고 하는군요. 어쨌든 rc8 덕분에 v4.15 merge window 는 thanksgiving week 를 포함하게 되었는데 토발즈는 이때 가족과 휴가를 갈 계획이라 랩톱 가지고 휴가다니는 동안에도 머지를 잘 할 수 있길 바라지만 문제가 생기면 merge window 를 연장할 수도 있겠다고 하네요. 일단 어떻게 될지 두고보자는군요.
+이번 릴리즈에 포함된 변경은 대부분 드라이버 쪽 변경이고, SPDK 관련 소스코드에 라이센스 추가 등을 한 사소하지만 커다란 양의 변경이 있습니다.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/osse2017_03/">OSSummit 2017 Attendence - 03</a></h2>
     <div class="article-style">
       
@@ -624,16 +636,6 @@ Call Trace 커널은 문제가 발생하거나 하면 문제의 원인을 찾을
       
       리눅스 커널은 오픈 소스 소프트웨어이므로 그 소스코드가 공개되어 있어 누구나 인터넷을 통해 쉽게 얻을 수 있습니다. 이 글에서는 리눅스 커널 소스코드를 받아올 수 있는 몇가지 방법을 설명합니다.
 kernel.org 리눅스 커널 소스 코드를 받아오기 위한 기본적 공식 사이트는 [kernel.org] (https://www.kernel.org) 라 할 수 있겠는데, 이 사이트에는 소스 코드를 포함해 리눅스 커널을 위한 다양한 리소스가 정리되어 있습니다. 이 사이트에 웹브라우저를 통해 들어가보면 첫페이지에서부터 가장 최근에 릴리즈된 버전의 소스코드, 가장 최근의 안정화된 버전의 소스코드 등을 tar.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/fedora-chrome-update/">Updating Google Chrome on Fedora 23</a></h2>
-    <div class="article-style">
-      
-      I am using Fedora 23 laptop and installed stable version Google Chrome from its official website [0]. In this case, just using Updates of Fedora Software program doesn&rsquo;t update Chrome automatically. For the case, follow below commands to update your Chrome:
-$ sudo dnf update google-chrome-stable ... $ sudo killall chrome $ google-chrome-stable The second killall command is necessary because Chrome doesn&rsquo;t kill its process by just cliking Close button. Or, you may reboot your computer but you wouldn&rsquo;t like that.
       
     </div>
   </div>
