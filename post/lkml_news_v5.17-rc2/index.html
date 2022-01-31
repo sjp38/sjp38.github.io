@@ -576,7 +576,7 @@ This patchset enables MEMCG for PREEMPT_RT instead of disabling it.
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    2 min read
+    3 min read
   </span>
   
 
@@ -654,6 +654,26 @@ simpler and more bisectable approach.</p>
 <h2 id="incoming-andrew-morton">incoming (Andrew Morton)</h2>
 <p><a href="https://lkml.kernel.org/r/20220128181341.2103de95948608a65958ae40@linux-foundation.org">https://lkml.kernel.org/r/20220128181341.2103de95948608a65958ae40@linux-foundation.org</a></p>
 <p>12 patches for fixing mm are sent from Andrew Morton to Linus Torvalds.</p>
+<h2 id="patch-v2-03-mmpage_owner-extend-page_owner-to-show-memcg-information-waiman-long">[PATCH v2 0/3] mm/page_owner: Extend page_owner to show memcg information (Waiman Long)</h2>
+<p><a href="https://lkml.kernel.org/r/20220129205315.478628-1-longman@redhat.com">https://lkml.kernel.org/r/20220129205315.478628-1-longman@redhat.com</a></p>
+<p>Waiman found severe memory consumption due to offlined <code>mem_cgroup</code> structures
+on systems having huge number of containers.  To ease the investigation, this
+patch extends the <code>page_owner</code> debugging tool to show memch information.</p>
+<h2 id="linux-517-rc2-linus-torvalds">Linux 5.17-rc2 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wg4NYVVC58vBAD6Hd6MFfY4AG-aAUHtBCYQBcsKz+4XOg@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wg4NYVVC58vBAD6Hd6MFfY4AG-aAUHtBCYQBcsKz+4XOg@mail.gmail.com</a></p>
+<p>The second release candidate for v5.17 is out.  The stat looks a little bit
+different than usual due to late NFS client merge.  But, other parts look ok.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.6-rc2..v5.17-rc2.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2019-11-23 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc2 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.17-rc2-only.png" alt="rc2 release stat"></p>
 
     </div>
 

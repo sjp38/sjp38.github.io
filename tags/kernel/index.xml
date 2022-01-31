@@ -55,6 +55,26 @@ simpler and more bisectable approach.&lt;/p&gt;
 &lt;h2 id=&#34;incoming-andrew-morton&#34;&gt;incoming (Andrew Morton)&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20220128181341.2103de95948608a65958ae40@linux-foundation.org&#34;&gt;https://lkml.kernel.org/r/20220128181341.2103de95948608a65958ae40@linux-foundation.org&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;12 patches for fixing mm are sent from Andrew Morton to Linus Torvalds.&lt;/p&gt;
+&lt;h2 id=&#34;patch-v2-03-mmpage_owner-extend-page_owner-to-show-memcg-information-waiman-long&#34;&gt;[PATCH v2 0/3] mm/page_owner: Extend page_owner to show memcg information (Waiman Long)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20220129205315.478628-1-longman@redhat.com&#34;&gt;https://lkml.kernel.org/r/20220129205315.478628-1-longman@redhat.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Waiman found severe memory consumption due to offlined &lt;code&gt;mem_cgroup&lt;/code&gt; structures
+on systems having huge number of containers.  To ease the investigation, this
+patch extends the &lt;code&gt;page_owner&lt;/code&gt; debugging tool to show memch information.&lt;/p&gt;
+&lt;h2 id=&#34;linux-517-rc2-linus-torvalds&#34;&gt;Linux 5.17-rc2 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wg4NYVVC58vBAD6Hd6MFfY4AG-aAUHtBCYQBcsKz+4XOg@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wg4NYVVC58vBAD6Hd6MFfY4AG-aAUHtBCYQBcsKz+4XOg@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The second release candidate for v5.17 is out.  The stat looks a little bit
+different than usual due to late NFS client merge.  But, other parts look ok.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v5.6-rc2..v5.17-rc2.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
+below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2019-11-23 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And, below is the diffstat of the -rc2 releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v5.17-rc2-only.png&#34; alt=&#34;rc2 release stat&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     
