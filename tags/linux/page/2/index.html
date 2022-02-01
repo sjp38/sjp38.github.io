@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2022-01-25T07:32:08&#43;01:00">
+    <meta property="og:updated_time" content="2022-02-01T07:26:46&#43;01:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.16-rc3/">LKML News v5.16-rc3</a></h2>
+    <div class="article-style">
+      
+      [PATCH 0/3] page table check (Pasha Tatashin) https://lkml.kernel.org/r/20211123214814.3756047-1-pasha.tatashin@soleen.com
+Due to reference count of struct page handling issue, some memory were leak from a process and moved in another process. This commit avoids such type of bugs by checking page table at the time of entrieds insertion.
+[PATCH 0/5] *** Transparent Page Placement for Tiered-Memory *** (Hasan Al Maruf) https://lkml.kernel.org/r/20211124163608.33015-1-hasanalmaruf@fb.com
+This patchset augment AutoNUMA mechanism to promote pages from slow tier nodes to toptier nodes.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.16-rc2/">LKML News v5.16-rc2</a></h2>
     <div class="article-style">
       
@@ -638,16 +650,6 @@ This patchset makes a basic infrastructure to exclude some physical memory regio
 Currently, vmpressure works are awaken even though there are no vmpressure callbacks. This commit avoids such unnecessary wakeup by counting the number of registered events and skip waking up works if the number is zero.
 [PATCH v3 00/76] Optimize list lru memory consumption (Muchun Song) https://lkml.kernel.org/r/20210914072938.6440-1-songmuchun@bytedance.com
 Muchun found kmalloc-32 for list_lru_one allocation consuming 6 GiB of memory on their server.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/kernelsummit2021_talk/">I will have a talk at the Linux Kernel Summit 2021</a></h2>
-    <div class="article-style">
-      
-      I will present DAMON/DAMOS in KernelSummit'21. The title of the talk is &ldquo;Writing a fine-grained access pattern-oriented lightweight kernel module using DAMON/DAMOS in 10 minutes&rdquo;.
-https://linuxplumbersconf.org/event/11/contributions/984/
       
     </div>
   </div>
