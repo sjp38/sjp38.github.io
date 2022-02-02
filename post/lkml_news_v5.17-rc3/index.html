@@ -29,7 +29,9 @@
     
   
   <meta name="description" content="[PATCH] selftests: kselftest framework: Provide &ldquo;finished&rdquo; helper (Kees Cook) https://lkml.kernel.org/r/20220201013717.2464392-1-keescook@chromium.org
-Users who want to use ksft_exit() need to figure out the internals of kselftest. This commit adds a helper function for that purpose, namely, ksft_finished().">
+Users who want to use ksft_exit() need to figure out the internals of kselftest. This commit adds a helper function for that purpose, namely, ksft_finished().
+[LSF/MM/BPF TOPIC] Handling of VMAs (Liam Howlett) https://lkml.kernel.org/r/20220201150521.owa5axfsmpdvc7uo@revolver
+Liam is pointing out the VMAs are quite complicately managed with their cache, tree, linked list, and even reverse mapping. As it now shows its limit with the lock contention and complexity of the handling code, he wants to propose a simpler new way for their management.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/lkml_news_v5.17-rc3/">
@@ -152,7 +154,9 @@ Users who want to use ksft_exit() need to figure out the internals of kselftest.
   <meta property="og:url" content="/post/lkml_news_v5.17-rc3/">
   <meta property="og:title" content="LKML News v5.17-rc3 | hacklog">
   <meta property="og:description" content="[PATCH] selftests: kselftest framework: Provide &ldquo;finished&rdquo; helper (Kees Cook) https://lkml.kernel.org/r/20220201013717.2464392-1-keescook@chromium.org
-Users who want to use ksft_exit() need to figure out the internals of kselftest. This commit adds a helper function for that purpose, namely, ksft_finished()."><meta property="og:image" content="/img/tux.png">
+Users who want to use ksft_exit() need to figure out the internals of kselftest. This commit adds a helper function for that purpose, namely, ksft_finished().
+[LSF/MM/BPF TOPIC] Handling of VMAs (Liam Howlett) https://lkml.kernel.org/r/20220201150521.owa5axfsmpdvc7uo@revolver
+Liam is pointing out the VMAs are quite complicately managed with their cache, tree, linked list, and even reverse mapping. As it now shows its limit with the lock contention and complexity of the handling code, he wants to propose a simpler new way for their management."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -204,7 +208,7 @@ Users who want to use ksft_exit() need to figure out the internals of kselftest.
       "url": "/img/icon-512.png"
     }
   },
-  "description": "[PATCH] selftests: kselftest framework: Provide \u0026ldquo;finished\u0026rdquo; helper (Kees Cook) https://lkml.kernel.org/r/20220201013717.2464392-1-keescook@chromium.org\nUsers who want to use ksft_exit() need to figure out the internals of kselftest. This commit adds a helper function for that purpose, namely, ksft_finished()."
+  "description": "[PATCH] selftests: kselftest framework: Provide \u0026ldquo;finished\u0026rdquo; helper (Kees Cook) https://lkml.kernel.org/r/20220201013717.2464392-1-keescook@chromium.org\nUsers who want to use ksft_exit() need to figure out the internals of kselftest. This commit adds a helper function for that purpose, namely, ksft_finished().\n[LSF/MM/BPF TOPIC] Handling of VMAs (Liam Howlett) https://lkml.kernel.org/r/20220201150521.owa5axfsmpdvc7uo@revolver\nLiam is pointing out the VMAs are quite complicately managed with their cache, tree, linked list, and even reverse mapping. As it now shows its limit with the lock contention and complexity of the handling code, he wants to propose a simpler new way for their management."
 }
 </script>
 
@@ -615,6 +619,17 @@ Users who want to use ksft_exit() need to figure out the internals of kselftest.
 <p>Users who want to use <code>ksft_exit()</code> need to figure out the internals of
 kselftest.  This commit adds a helper function for that purpose, namely,
 <code>ksft_finished()</code>.</p>
+<h2 id="lsfmmbpf-topic-handling-of-vmas-liam-howlett">[LSF/MM/BPF TOPIC] Handling of VMAs (Liam Howlett)</h2>
+<p><a href="https://lkml.kernel.org/r/20220201150521.owa5axfsmpdvc7uo@revolver">https://lkml.kernel.org/r/20220201150521.owa5axfsmpdvc7uo@revolver</a></p>
+<p>Liam is pointing out the VMAs are quite complicately managed with their cache,
+tree, linked list, and even reverse mapping.  As it now shows its limit with
+the lock contention and complexity of the handling code, he wants to propose a
+simpler new way for their management.</p>
+<h2 id="lsfmmbpf-topic-the-maple-tree-liam-howlett">[LSF/MM/BPF TOPIC] The Maple Tree (Liam Howlett)</h2>
+<p><a href="https://lkml.kernel.org/r/20220201150633.jtlwrqfnh4xbhw2f@revolver">https://lkml.kernel.org/r/20220201150633.jtlwrqfnh4xbhw2f@revolver</a></p>
+<p>Maple tree is a RCU-safe range-based B-tree, which is designed to be used for
+better VMAs management.  He proposes to discuss about how it could be used for
+many complicated scenarios.</p>
 
     </div>
 

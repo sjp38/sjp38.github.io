@@ -530,6 +530,8 @@
       
       [PATCH] selftests: kselftest framework: Provide &ldquo;finished&rdquo; helper (Kees Cook) https://lkml.kernel.org/r/20220201013717.2464392-1-keescook@chromium.org
 Users who want to use ksft_exit() need to figure out the internals of kselftest. This commit adds a helper function for that purpose, namely, ksft_finished().
+[LSF/MM/BPF TOPIC] Handling of VMAs (Liam Howlett) https://lkml.kernel.org/r/20220201150521.owa5axfsmpdvc7uo@revolver
+Liam is pointing out the VMAs are quite complicately managed with their cache, tree, linked list, and even reverse mapping. As it now shows its limit with the lock contention and complexity of the handling code, he wants to propose a simpler new way for their management.
       
     </div>
   </div>
