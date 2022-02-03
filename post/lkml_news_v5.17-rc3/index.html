@@ -574,7 +574,7 @@ Liam is pointing out the VMAs are quite complicately managed with their cache, t
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -630,6 +630,17 @@ simpler new way for their management.</p>
 <p>Maple tree is a RCU-safe range-based B-tree, which is designed to be used for
 better VMAs management.  He proposes to discuss about how it could be used for
 many complicated scenarios.</p>
+<h2 id="lsfmmbpf-topic-mm-documentation-mike-rapoport">[LSF/MM/BPF TOPIC] mm documentation (Mike Rapoport)</h2>
+<p><a href="https://lkml.kernel.org/r/YfmD9Pa92xousy5b@kernel.org">https://lkml.kernel.org/r/YfmD9Pa92xousy5b@kernel.org</a></p>
+<p>Mike Rapoport proposes to discuss how we can improve the mm documentation,
+which is not so up to date for now.</p>
+<h2 id="lsfmmbpf-topic-consolidating-representations-of-the-physical-memory-mike-rapoport">[LSF/MM/BPF TOPIC] Consolidating representations of the physical memory (Mike Rapoport)</h2>
+<p><a href="https://lkml.kernel.org/r/YfmEtd3vg/x7uqXx@kernel.org">https://lkml.kernel.org/r/YfmEtd3vg/x7uqXx@kernel.org</a></p>
+<p>Currently, the physical memory is represented using multiple structures
+including <code>memblock</code>, <code>iomem_resource</code>, &lsquo;System Ram&rsquo;, per-architecture
+structures.  As this makes code inconsistent and complex, Mike is proposing to
+use single abstraction having [start, end, flags], namely memblock.  He is
+proposing to discuss about this further in LSF/MM/BPF.</p>
 
     </div>
 

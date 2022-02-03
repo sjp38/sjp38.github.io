@@ -33,6 +33,17 @@ simpler new way for their management.&lt;/p&gt;
 &lt;p&gt;Maple tree is a RCU-safe range-based B-tree, which is designed to be used for
 better VMAs management.  He proposes to discuss about how it could be used for
 many complicated scenarios.&lt;/p&gt;
+&lt;h2 id=&#34;lsfmmbpf-topic-mm-documentation-mike-rapoport&#34;&gt;[LSF/MM/BPF TOPIC] mm documentation (Mike Rapoport)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/YfmD9Pa92xousy5b@kernel.org&#34;&gt;https://lkml.kernel.org/r/YfmD9Pa92xousy5b@kernel.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Mike Rapoport proposes to discuss how we can improve the mm documentation,
+which is not so up to date for now.&lt;/p&gt;
+&lt;h2 id=&#34;lsfmmbpf-topic-consolidating-representations-of-the-physical-memory-mike-rapoport&#34;&gt;[LSF/MM/BPF TOPIC] Consolidating representations of the physical memory (Mike Rapoport)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/YfmEtd3vg/x7uqXx@kernel.org&#34;&gt;https://lkml.kernel.org/r/YfmEtd3vg/x7uqXx@kernel.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Currently, the physical memory is represented using multiple structures
+including &lt;code&gt;memblock&lt;/code&gt;, &lt;code&gt;iomem_resource&lt;/code&gt;, &amp;lsquo;System Ram&amp;rsquo;, per-architecture
+structures.  As this makes code inconsistent and complex, Mike is proposing to
+use single abstraction having [start, end, flags], namely memblock.  He is
+proposing to discuss about this further in LSF/MM/BPF.&lt;/p&gt;
 </description>
     </item>
     
