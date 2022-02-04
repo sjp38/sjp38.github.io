@@ -641,6 +641,25 @@ including <code>memblock</code>, <code>iomem_resource</code>, &lsquo;System Ram&
 structures.  As this makes code inconsistent and complex, Mike is proposing to
 use single abstraction having [start, end, flags], namely memblock.  He is
 proposing to discuss about this further in LSF/MM/BPF.</p>
+<h2 id="lsfmmbpf-topic-amortising-direct-map-fragmentation-mike-rapoport">[LSF/MM/BPF TOPIC] Amortising direct map fragmentation (Mike Rapoport)</h2>
+<p><a href="https://lkml.kernel.org/r/YfmFMvNu9oNGryjv@kernel.org">https://lkml.kernel.org/r/YfmFMvNu9oNGryjv@kernel.org</a></p>
+<p>Direct map fragmentation, which causes split of the PUD and PMD-sized mappings
+in the direct map can lead to performance degradation.  Mike proposes to
+discuss about how we can improve the situation in LSM/MM/BPF.</p>
+<h2 id="mmotm-2022-02-01-16-04-uploaded-andrew-morton">mmotm 2022-02-01-16-04 uploaded (Andrew Morton)</h2>
+<p><a href="https://lkml.kernel.org/r/20220202000522.A3834C340EB@smtp.kernel.org">https://lkml.kernel.org/r/20220202000522.A3834C340EB@smtp.kernel.org</a></p>
+<p>Andrew updated the mmotm.  It&rsquo;s rebased on 5.17-rc2, added 78 new patches,
+modified 25 existing patches, and dropped 16 patches.  In total, 226 patches in
+the queue.</p>
+<h2 id="patch-mmdamon-add-option-to-monitor-only-writes-pedro-demarchi-gomes">[PATCH] mm/damon: Add option to monitor only writes (Pedro Demarchi Gomes)</h2>
+<p><a href="https://lkml.kernel.org/r/20220203131237.298090-1-pedrodemargomes@gmail.com">https://lkml.kernel.org/r/20220203131237.298090-1-pedrodemargomes@gmail.com</a></p>
+<p>Pedro is proposing write-only monitoring for DAMON.  It&rsquo;s using soft-dirty bits
+on virtual address space monitoring primitive.</p>
+<h2 id="mmotm-2022-02-03-21-58-uploaded-andrew-morton">mmotm 2022-02-03-21-58 uploaded (Andrew Morton)</h2>
+<p><a href="https://lkml.kernel.org/r/20220204055842.0D8D0C004E1@smtp.kernel.org">https://lkml.kernel.org/r/20220204055842.0D8D0C004E1@smtp.kernel.org</a></p>
+<p>Andrew updated the mmotm.  It&rsquo;s still based on 5.17-rc2.  This time, it added
+20 new patches, modified 50 existing patches, and dropped 4 patches.  In total,
+242 patches in the queue.</p>
 
     </div>
 

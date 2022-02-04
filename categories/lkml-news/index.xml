@@ -44,6 +44,25 @@ including &lt;code&gt;memblock&lt;/code&gt;, &lt;code&gt;iomem_resource&lt;/code
 structures.  As this makes code inconsistent and complex, Mike is proposing to
 use single abstraction having [start, end, flags], namely memblock.  He is
 proposing to discuss about this further in LSF/MM/BPF.&lt;/p&gt;
+&lt;h2 id=&#34;lsfmmbpf-topic-amortising-direct-map-fragmentation-mike-rapoport&#34;&gt;[LSF/MM/BPF TOPIC] Amortising direct map fragmentation (Mike Rapoport)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/YfmFMvNu9oNGryjv@kernel.org&#34;&gt;https://lkml.kernel.org/r/YfmFMvNu9oNGryjv@kernel.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Direct map fragmentation, which causes split of the PUD and PMD-sized mappings
+in the direct map can lead to performance degradation.  Mike proposes to
+discuss about how we can improve the situation in LSM/MM/BPF.&lt;/p&gt;
+&lt;h2 id=&#34;mmotm-2022-02-01-16-04-uploaded-andrew-morton&#34;&gt;mmotm 2022-02-01-16-04 uploaded (Andrew Morton)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20220202000522.A3834C340EB@smtp.kernel.org&#34;&gt;https://lkml.kernel.org/r/20220202000522.A3834C340EB@smtp.kernel.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Andrew updated the mmotm.  It&amp;rsquo;s rebased on 5.17-rc2, added 78 new patches,
+modified 25 existing patches, and dropped 16 patches.  In total, 226 patches in
+the queue.&lt;/p&gt;
+&lt;h2 id=&#34;patch-mmdamon-add-option-to-monitor-only-writes-pedro-demarchi-gomes&#34;&gt;[PATCH] mm/damon: Add option to monitor only writes (Pedro Demarchi Gomes)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20220203131237.298090-1-pedrodemargomes@gmail.com&#34;&gt;https://lkml.kernel.org/r/20220203131237.298090-1-pedrodemargomes@gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Pedro is proposing write-only monitoring for DAMON.  It&amp;rsquo;s using soft-dirty bits
+on virtual address space monitoring primitive.&lt;/p&gt;
+&lt;h2 id=&#34;mmotm-2022-02-03-21-58-uploaded-andrew-morton&#34;&gt;mmotm 2022-02-03-21-58 uploaded (Andrew Morton)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20220204055842.0D8D0C004E1@smtp.kernel.org&#34;&gt;https://lkml.kernel.org/r/20220204055842.0D8D0C004E1@smtp.kernel.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Andrew updated the mmotm.  It&amp;rsquo;s still based on 5.17-rc2.  This time, it added
+20 new patches, modified 50 existing patches, and dropped 4 patches.  In total,
+242 patches in the queue.&lt;/p&gt;
 </description>
     </item>
     
