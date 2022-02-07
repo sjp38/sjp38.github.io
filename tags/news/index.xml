@@ -63,6 +63,22 @@ on virtual address space monitoring primitive.&lt;/p&gt;
 &lt;p&gt;Andrew updated the mmotm.  It&amp;rsquo;s still based on 5.17-rc2.  This time, it added
 20 new patches, modified 50 existing patches, and dropped 4 patches.  In total,
 242 patches in the queue.&lt;/p&gt;
+&lt;h2 id=&#34;linux-517-rc3-linus-torvalds&#34;&gt;Linux 5.17-rc3 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wiKr3q0ABWL0me+ugjN87zBOFXnBi43=-rBu7+WDKwQVA@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wiKr3q0ABWL0me+ugjN87zBOFXnBi43=-rBu7+WDKwQVA@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The third candidate for v5.17 release has out with normal shape.  Filesystem
+might have unusual diff stat, but it&amp;rsquo;s not due to single one problematic part.
+Changes for drivers are still dominating the stat, though.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v5.6-rc2..v5.17-rc3.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
+below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2020-02-07 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And, below is the diffstat of the -rc3 releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v5.17-rc3-only.png&#34; alt=&#34;rc2 release stat&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     

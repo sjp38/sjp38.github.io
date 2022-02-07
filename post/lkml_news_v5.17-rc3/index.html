@@ -574,7 +574,7 @@ Liam is pointing out the VMAs are quite complicately managed with their cache, t
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    2 min read
+    3 min read
   </span>
   
 
@@ -660,6 +660,22 @@ on virtual address space monitoring primitive.</p>
 <p>Andrew updated the mmotm.  It&rsquo;s still based on 5.17-rc2.  This time, it added
 20 new patches, modified 50 existing patches, and dropped 4 patches.  In total,
 242 patches in the queue.</p>
+<h2 id="linux-517-rc3-linus-torvalds">Linux 5.17-rc3 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wiKr3q0ABWL0me+ugjN87zBOFXnBi43=-rBu7+WDKwQVA@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wiKr3q0ABWL0me+ugjN87zBOFXnBi43=-rBu7+WDKwQVA@mail.gmail.com</a></p>
+<p>The third candidate for v5.17 release has out with normal shape.  Filesystem
+might have unusual diff stat, but it&rsquo;s not due to single one problematic part.
+Changes for drivers are still dominating the stat, though.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.6-rc2..v5.17-rc3.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2020-02-07 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc3 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.17-rc3-only.png" alt="rc2 release stat"></p>
 
     </div>
 
