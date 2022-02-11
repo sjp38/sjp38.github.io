@@ -13,6 +13,33 @@
     </image>
     
     <item>
+      <title>LKML News v5.17-rc4</title>
+      <link>/post/lkml_news_v5.17-rc4/</link>
+      <pubDate>Tue, 08 Feb 2022 07:23:14 +0100</pubDate>
+      <guid>/post/lkml_news_v5.17-rc4/</guid>
+      <description>&lt;h2 id=&#34;patch-v2-12-arm64-avoid-flushing-icache-multiple-times-on-contiguous-hugetlb-muchun-song&#34;&gt;[PATCH v2 1/2] arm64: avoid flushing icache multiple times on contiguous HugeTLB (Muchun Song)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20220208054632.66534-1-songmuchun@bytedance.com&#34;&gt;https://lkml.kernel.org/r/20220208054632.66534-1-songmuchun@bytedance.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;When a contiguous HugeTLB page is mapped, &lt;code&gt;set_pte_at()&lt;/code&gt; is called &lt;code&gt;CONT_PTES / CONT_PMDS&lt;/code&gt; times.  Because the first flushing covers subsequent flushes, this
+is unnecessary overhead, so this patchset avoids it.&lt;/p&gt;
+&lt;h2 id=&#34;patch-v7-0012-multigenerational-lru-framework-yu-zhao&#34;&gt;[PATCH v7 00/12] Multigenerational LRU Framework (Yu Zhao)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20220208081902.3550911-1-yuzhao@google.com&#34;&gt;https://lkml.kernel.org/r/20220208081902.3550911-1-yuzhao@google.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Seventh version of the MGLRU patchset, which aims to reduce performance
+overhead and improve eviction target pages selection of reclamation logic is
+posted.  Change from the last version is addressing the comments from
+stakeholders to the last version and measuring performance for each patch.&lt;/p&gt;
+&lt;h2 id=&#34;mmotm-2022-02-08-15-31-uploaded-andrew-morton&#34;&gt;mmotm 2022-02-08-15-31 uploaded (Andrew Morton)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20220208233156.E2CA6C004E1@smtp.kernel.org&#34;&gt;https://lkml.kernel.org/r/20220208233156.E2CA6C004E1@smtp.kernel.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;MMOTM tree has uploaded. It&amp;rsquo;s rebased on 5.17-rc3, added 49 new patches,
+modified 26 existing patches, and dropped 11 patches.  In total, 280 patches in
+the queue.&lt;/p&gt;
+&lt;h2 id=&#34;patch-v5-05-sparse-vmemmap-memory-savings-for-compound-devmaps-device-dax-joao-martins&#34;&gt;[PATCH v5 0/5] sparse-vmemmap: memory savings for compound devmaps (device-dax) (Joao Martins)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20220210193345.23628-1-joao.m.martins@oracle.com&#34;&gt;https://lkml.kernel.org/r/20220210193345.23628-1-joao.m.martins@oracle.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This patchset minimizes memory overhead of &lt;code&gt;struct page&lt;/code&gt; objects by pursuing a
+similar apporach as Muchun Song does for hugetlb pages.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>LKML News v5.17-rc3</title>
       <link>/post/lkml_news_v5.17-rc3/</link>
       <pubDate>Tue, 01 Feb 2022 07:26:46 +0100</pubDate>

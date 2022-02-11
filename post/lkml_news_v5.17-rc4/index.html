@@ -28,12 +28,13 @@
   
     
   
-  <meta name="description" content="Kernel / Hypervisor Engineer">
+  <meta name="description" content="[PATCH v2 1/2] arm64: avoid flushing icache multiple times on contiguous HugeTLB (Muchun Song) https://lkml.kernel.org/r/20220208054632.66534-1-songmuchun@bytedance.com
+When a contiguous HugeTLB page is mapped, set_pte_at() is called CONT_PTES / CONT_PMDS times. Because the first flushing covers subsequent flushes, this is unnecessary overhead, so this patchset avoids it.
+[PATCH v7 00/12] Multigenerational LRU Framework (Yu Zhao) https://lkml.kernel.org/r/20220208081902.3550911-1-yuzhao@google.com
+Seventh version of the MGLRU patchset, which aims to reduce performance overhead and improve eviction target pages selection of reclamation logic is posted.">
 
   
-  <link rel="alternate" hreflang="ko" href="/ko/categories/lkml-news/">
-  
-  <link rel="alternate" hreflang="en-us" href="/categories/lkml-news/">
+  <link rel="alternate" hreflang="en-us" href="/post/lkml_news_v5.17-rc4/">
 
   
 
@@ -133,14 +134,12 @@
 
 
   
-  <link rel="alternate" href="/categories/lkml-news/index.xml" type="application/rss+xml" title="hacklog">
-  
 
   <link rel="manifest" href="/index.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon-32.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="/categories/lkml-news/">
+  <link rel="canonical" href="/post/lkml_news_v5.17-rc4/">
 
   
   
@@ -152,18 +151,68 @@
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="hacklog">
-  <meta property="og:url" content="/categories/lkml-news/">
-  <meta property="og:title" content="lkml news | hacklog">
-  <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
+  <meta property="og:url" content="/post/lkml_news_v5.17-rc4/">
+  <meta property="og:title" content="LKML News v5.17-rc4 | hacklog">
+  <meta property="og:description" content="[PATCH v2 1/2] arm64: avoid flushing icache multiple times on contiguous HugeTLB (Muchun Song) https://lkml.kernel.org/r/20220208054632.66534-1-songmuchun@bytedance.com
+When a contiguous HugeTLB page is mapped, set_pte_at() is called CONT_PTES / CONT_PMDS times. Because the first flushing covers subsequent flushes, this is unnecessary overhead, so this patchset avoids it.
+[PATCH v7 00/12] Multigenerational LRU Framework (Yu Zhao) https://lkml.kernel.org/r/20220208081902.3550911-1-yuzhao@google.com
+Seventh version of the MGLRU patchset, which aims to reduce performance overhead and improve eviction target pages selection of reclamation logic is posted."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2022-02-08T07:23:14&#43;01:00">
+    
+      <meta property="article:published_time" content="2022-02-08T07:23:14&#43;01:00">
+    
+    <meta property="article:modified_time" content="2022-02-08T07:23:14&#43;01:00">
   
 
   
 
 
+    
 
+
+
+
+
+
+  
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/post/lkml_news_v5.17-rc4/"
+  },
+  "headline": "LKML News v5.17-rc4",
+  
+  "datePublished": "2022-02-08T07:23:14+01:00",
+  "dateModified": "2022-02-08T07:23:14+01:00",
+  
+  "author": {
+    "@type": "Person",
+    "name": "SeongJae Park"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "hacklog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/img/icon-512.png"
+    }
+  },
+  "description": "[PATCH v2 1/2] arm64: avoid flushing icache multiple times on contiguous HugeTLB (Muchun Song) https://lkml.kernel.org/r/20220208054632.66534-1-songmuchun@bytedance.com\nWhen a contiguous HugeTLB page is mapped, set_pte_at() is called CONT_PTES / CONT_PMDS times. Because the first flushing covers subsequent flushes, this is unnecessary overhead, so this patchset avoids it.\n[PATCH v7 00/12] Multigenerational LRU Framework (Yu Zhao) https://lkml.kernel.org/r/20220208081902.3550911-1-yuzhao@google.com\nSeventh version of the MGLRU patchset, which aims to reduce performance overhead and improve eviction target pages selection of reclamation logic is posted."
+}
+</script>
+
+  
 
   
 
@@ -171,10 +220,13 @@
   
 
 
+  
 
 
 
-  <title>lkml news | hacklog</title>
+
+
+  <title>LKML News v5.17-rc4 | hacklog</title>
 
 </head>
 
@@ -418,7 +470,7 @@
         
 
         <li class="nav-item">
-          <a class="nav-link  active" href="/categories"><span>Categories</span></a>
+          <a class="nav-link " href="/categories"><span>Categories</span></a>
         </li>
 
         
@@ -466,22 +518,6 @@
       
 
       
-      <li class="nav-item dropdown i18n-dropdown">
-        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true">
-          <i class="fas fa-globe mr-1" aria-hidden="true"></i><span class="d-none d-lg-inline">English</span>
-        </a>
-        <div class="dropdown-menu">
-          <div class="dropdown-item i18n-active font-weight-bold">
-            <span>English</span>
-          </div>
-          
-          <a class="dropdown-item" href="/ko/categories/lkml-news/">
-            <span>한국어</span>
-          </a>
-          
-        </div>
-      </li>
-      
 
     </ul>
 
@@ -489,172 +525,342 @@
 </nav>
 
 
-  
-
-
-
-
-
-
-
-
-
-
-
+  <article class="article">
 
   
 
+
+
+
+
+
+
+
+
+
+
+
+  
+
   
   
+  
+<div class="article-container pt-3">
+  <h1>LKML News v5.17-rc4</h1>
+
+  
+
   
     
-  
-<div class="universal-wrapper pt-3">
-  <h1>lkml news</h1>
+
+
+<div class="article-metadata">
 
   
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Tue, Feb 8, 2022
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   
 </div>
 
 
 
-<div class="universal-wrapper">
-  
+  <div class="article-container">
 
-  
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.20-rc3/">LKML News by v4.20-rc3</a></h2>
     <div class="article-style">
-      
-      Linux 4.20-rc3 https://lkml.kernel.org/r/CAHk-=wiZmPvR64hDy-pcVJqcxoAwMRd4GrRhRjK04Mhng4nL4g@mail.gmail.com
-리누스 토발즈의 개인적 여행이 있었다는 점을 제외하고는 이상할 것 없는 한주였습니다만, 이번 릴리즈의 변경 사항은 rc3 치고는 상당히 적었다고 하는군요.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.20-rc2/">LKML News by v4.20-rc2</a></h2>
-    <div class="article-style">
-      
-      [PATCH 0/5] Fragmentation avoidance improvements v2 https://lkml.kernel.org/r/20181107183822.15567-1-mgorman@techsingularity.net
-장시간 운영되는 시스템은 결국 메모리가 단편화 (fragmentation) 되게 되어 있습니다. 페이징을 사용하면 단일 페이지 단위 할당은 문제가 없지만, 물리적으로 연속적인 페이지를 할당받기가 어려워지죠. Mel Gorman 의 이 패치는 이런 메모리 분절화를 좀 더 잘 막을 수 있는 방법을 포함하고 있습니다.
-첫번째 패치는 단일 페이지 또는 적은 물리적 연속 페이지들의 할당 시에 불필요하게 higher order free page zone 을 사용하지 않게 하고, 두번째와 세번째 패치는 kswapd 와 kcompactd 를 사용한 defragmentation 을 좀 더 적극적으로 하게 합니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.20-rc1/">LKML News by v4.20-rc1</a></h2>
-    <div class="article-style">
-      
-      리눅스 4.19 버전 릴리즈 후부터 4.20-rc1 버전의 릴리즈까지 LKML 에 오간 메일 중 흥미로운 메일들을 소개합니다.
-[RFC PATCH v4 00/13] ktask: multithread CPU-intensive kernel work https://lkml.kernel.org/r/20181105165558.11698-1-daniel.m.jordan@oracle.com
-CPU intensive 한 커널의 일을 여러 work queue 를 이용해 병렬화 시키기 위한 새로운 프레임웍, ktask 구현 및 적용 패치입니다. 이 프레임웍을 이용해 병렬화 시킬 일은 여러가지가 있을텐데, 이 패치는 ktask 프레임웍의 구현과 함께 VFIO 페이지 pinning, 부팅 시점에서의 struct page 초기화, gigantic page 의 초기화, 그리고 HugeTLB 페이지의 할당에 ktask 를 적용하고 있습니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.19/">LKML News after v4.19</a></h2>
-    <div class="article-style">
-      
-      Linux 4.19 https://lkml.kernel.org/r/20181022073224.GA5658@kroah.com
-드디어 9 주간의 안정화를 거쳐 4.19 버전이 릴리즈 되었습니다. 역시 토발즈가 쉬고 있는 관계로 Greg KroahHartman 이 릴리즈 했습니다. 지난 네번의 릴리즈 가운데 가장 큰 릴리즈군요. 그리고 이 버전은 &ldquo;Long Tern&rdquo; 커널 중 하나가 될 예정입니다.
-이번 릴리즈 메일은 토발즈가 잠시 쉬겠다고 했던 메일을 연상케 할정도로 내용이 긴데요, 꽤 많은 부분은 이번 버전 개발 과정에서 이야기 되었던, 새로운 커뮤니티 참여자들과의 관계와 태도에 대한 내용입니다. Greg 이 매년 발표하고 있는 커널 커뮤니티의 작업 방식 이야기를 예로 들며 설명하네요.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.19-rc7/">LKML News after v4.19-rc7</a></h2>
-    <div class="article-style">
-      
-      Linux 4.19-rc7 https://lkml.kernel.org/r/20181007154529.GA4493@kroah.com
-토발즈 없이 진행되는 4.19를 위한 일곱번째 rc 릴리즈입니다. 이번에도 그렉이 대신 하는군요. 이번 릴리즈는 후반부임에도 rc6 보다 조금 더 커졌습니다. 하지만 그렇게까지 큰 차이는 아니라고 하는군요.
-일반적이라면 다음 릴리즈가 4.19 정식 릴리즈일텐데, 10월에 컨퍼런스가 많이 있다보니 rc 릴리즈를 한번 더 할 생각이라는군요. 간만에 rc8 을 보겠습니다.
-[PATCH -V6 00/21] swap: Swapout/swapin THP in one piece https://lkml.kernel.org/r/20181010071924.18767-1-ying.huang@intel.com
-THP 를 한방에 swap out / swap in 하는 Huang Ying 의 패치, 여섯번째 버전입니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.19-rc6/">LKML News after v4.19-rc6</a></h2>
-    <div class="article-style">
-      
-      Linux 4.19-rc6 https://lkml.kernel.org/r/20180930150308.GA5010@kroah.com
-이번주도 Greg 에 의해 여섯번째 rc 버전이 릴리즈 되었습니다. 평소 일정대로면 2주일 후 4.19 정식 버전이 릴리즈 될텐데, 아마도 그때까지도 Greg 이 릴리즈 하지 않을까 싶기도 하군요. 전체적으로 특이사항은 없고 Greg 의 시스템에서는 잘 동작하고 있으며 별다른 이슈를 보고받지도 못했다는군요.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.19-rc5/">LKML News after v4.19-rc5</a></h2>
-    <div class="article-style">
-      
-      Linux 4.19-rc5 https://lkml.kernel.org/r/20180923175547.GA4462@kroah.com
-지난주 토발즈가 휴식을 선언한 이유로 한동안 릴리즈는 Greg 이 맡게 되었죠. 이번 릴리즈는 그래서 Greg 이 합니다.
-사회적으로야 이런저런 일이 많았지만 (토발즈의 휴가, Code of Conduct 머지에 관련해 갑론을박이 많군요.) 기술적으로는 별 일 없었던 한주라 평가되는군요.
-사소하지만 재밌는 건 Greg 의 자기 서명. greg &quot;keeping the seat warm for a few weeks&quot; k-h 라고 하는군요. 토발즈가 휴가 가있는 동안 의자를 뎁혀 두는 역할이라는 겸손함이 눈에 띄네요.
-[PATCH -V5 RESEND 00/21] swap: Swapout/swapin THP in one piece https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.19-rc4/">LKML News after v4.19-rc4</a></h2>
-    <div class="article-style">
-      
-      Linux 4.19-rc4 released, an apology, and a maintainership note https://lkml.kernel.org/r/CA+55aFy+Hv9O5citAawS+mVZO+ywCKd9NQ2wxUmGsz9ZJzqgJQ@mail.gmail.com
-한국시간 새벽 네시 좀 넘어 이 메일을 받았습니다. 평범한 릴리즈 메일이겠거니 했는데 제목이 뭔가 심상치 않군요.
-일단 4.19를 위한 네번째 release candidate 릴리즈가 되었습니다. 약 3주 후 정식 4.19 버전이 릴리즈 되겠군요. 하지만 이 메일은 그보다 많은 내용을 담고 있습니다.
-자유분방하고 형식에 구애되지 않는 해커 문화에 기원을 두고 있는 리눅스 커뮤니티는 조금 거친 언어 문화로 유명했습니다. 예를 들어 이상한 코드를 보내면 리누스 토발즈와 커뮤니티의 일부 사람들이 이 코드를 꾸짖을 수 있는데 그 과정에서 욕설도 있을 수 있다는 거죠.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.19-rc3/">LKML News after v4.19-rc3</a></h2>
-    <div class="article-style">
-      
-      Linux 4.19-rc3 https://lkml.kernel.org/r/CA+55aFwSxCt0aKkTxcBstthYXqJ5LtxRbO-CDyqgNwU94Ldq+w@mail.gmail.com
-세번째 rc 릴리즈입니다. 어느새 이번 안정화 기간도 중반을 향하는군요. 시간 참 빠릅니다. 전체적으로 평범한 릴리즈입니다. 딱히 언급할 거리가 없군요.
-[RFC PATCH v2 0/8] lru_lock scalability and SMP list functions https://lkml.kernel.org/r/20180911004240.4758-1-daniel.m.jordan@oracle.com
-올해 LSF/MM 서밋에서도 이야기되었던, lru_lock 의 확장성을 개선하기 위한 노력의 정리입니다. LRU 리스트에 여러 쓰레드가 실제 데이터를 겹쳐 쓰지 않는다면 동시에 접근할 수 있는 새로운 오퍼레이션 세개 (smp_list_del(), smp_list_splice(), smp_list_add())을 추가했구요. 두번째로, lru_lock 을 spinlock 에서 rwlock 으로 교체했군요.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.19-rc2/">LKML News after v4.19-rc2</a></h2>
-    <div class="article-style">
-      
-      Linux 4.19-rc2 https://lkml.kernel.org/r/CA+55aFyG0GbDfoghEhAmKBPcZCiPu6CCpPRz9GwjCzLuP_Vv5Q@mail.gmail.com
-리눅스 4.19 두번째 릴리즈 후보 버전의 릴리즈입니다. 첫번째 릴리즈 후보 버전 릴리즈 후엔 사람들이 좀 쉬게 마련이고 버그를 찾기엔 시간이 많지 않았기에 큰 변화는 없었습니다. 유럽사람들의 경우 아직 휴가기간인 사람도 많구요. 미국 OSSummit 이 지난주 진행된 것도 한 영향이겠네요.
-[PATCH -V5 00/21] swap: Swapout/swapin THP in one piece https://lkml.kernel.org/r/20180903072214.24602-1-ying.huang@intel.com
-관심있게 지켜보고 있는, THP swapout/in 패치입니다. 다음 머지 윈도우에선 들어갈 수 있을까요?
-Plumbers 2018 - Performance and Scalability Microconference https://lkml.
-      
-    </div>
-  </div>
-  
+      <h2 id="patch-v2-12-arm64-avoid-flushing-icache-multiple-times-on-contiguous-hugetlb-muchun-song">[PATCH v2 1/2] arm64: avoid flushing icache multiple times on contiguous HugeTLB (Muchun Song)</h2>
+<p><a href="https://lkml.kernel.org/r/20220208054632.66534-1-songmuchun@bytedance.com">https://lkml.kernel.org/r/20220208054632.66534-1-songmuchun@bytedance.com</a></p>
+<p>When a contiguous HugeTLB page is mapped, <code>set_pte_at()</code> is called <code>CONT_PTES / CONT_PMDS</code> times.  Because the first flushing covers subsequent flushes, this
+is unnecessary overhead, so this patchset avoids it.</p>
+<h2 id="patch-v7-0012-multigenerational-lru-framework-yu-zhao">[PATCH v7 00/12] Multigenerational LRU Framework (Yu Zhao)</h2>
+<p><a href="https://lkml.kernel.org/r/20220208081902.3550911-1-yuzhao@google.com">https://lkml.kernel.org/r/20220208081902.3550911-1-yuzhao@google.com</a></p>
+<p>Seventh version of the MGLRU patchset, which aims to reduce performance
+overhead and improve eviction target pages selection of reclamation logic is
+posted.  Change from the last version is addressing the comments from
+stakeholders to the last version and measuring performance for each patch.</p>
+<h2 id="mmotm-2022-02-08-15-31-uploaded-andrew-morton">mmotm 2022-02-08-15-31 uploaded (Andrew Morton)</h2>
+<p><a href="https://lkml.kernel.org/r/20220208233156.E2CA6C004E1@smtp.kernel.org">https://lkml.kernel.org/r/20220208233156.E2CA6C004E1@smtp.kernel.org</a></p>
+<p>MMOTM tree has uploaded. It&rsquo;s rebased on 5.17-rc3, added 49 new patches,
+modified 26 existing patches, and dropped 11 patches.  In total, 280 patches in
+the queue.</p>
+<h2 id="patch-v5-05-sparse-vmemmap-memory-savings-for-compound-devmaps-device-dax-joao-martins">[PATCH v5 0/5] sparse-vmemmap: memory savings for compound devmaps (device-dax) (Joao Martins)</h2>
+<p><a href="https://lkml.kernel.org/r/20220210193345.23628-1-joao.m.martins@oracle.com">https://lkml.kernel.org/r/20220210193345.23628-1-joao.m.martins@oracle.com</a></p>
+<p>This patchset minimizes memory overhead of <code>struct page</code> objects by pursuing a
+similar apporach as Muchun Song does for hugetlb pages.</p>
 
+    </div>
+
+    
+
+
+
+
+
+<div class="article-tags">
   
-<nav>
-  <ul class="pagination justify-content-center">
+  <a class="badge badge-light" href="/tags/linux/">linux</a>
+  
+  <a class="badge badge-light" href="/tags/kernel/">kernel</a>
+  
+  <a class="badge badge-light" href="/tags/lkml/">lkml</a>
+  
+  <a class="badge badge-light" href="/tags/news/">news</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
     
-    <li class="page-item"><a class="page-link" href="/categories/lkml-news/page/15/">&laquo;</a></li>
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=/post/lkml_news_v5.17-rc4/&amp;text=LKML%20News%20v5.17-rc4" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
     
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=/post/lkml_news_v5.17-rc4/&amp;t=LKML%20News%20v5.17-rc4" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
     
-    <li class="page-item"><a class="page-link" href="/categories/lkml-news/page/17/">&raquo;</a></li>
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=LKML%20News%20v5.17-rc4&amp;body=/post/lkml_news_v5.17-rc4/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=/post/lkml_news_v5.17-rc4/&amp;title=LKML%20News%20v5.17-rc4" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=LKML%20News%20v5.17-rc4%20/post/lkml_news_v5.17-rc4/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=/post/lkml_news_v5.17-rc4/&amp;title=LKML%20News%20v5.17-rc4" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
     
   </ul>
-</nav>
-
-
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      <img class="portrait mr-3" src="https://s.gravatar.com/avatar/43dc5645c78e68fda997138380dfaaf4?s=200')" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="/">SeongJae Park</a></h5>
+      <h6 class="card-subtitle">Kernel / Hypervisor Engineer</h6>
+      <p class="card-text">SeongJae Park is a programmer who loves to analyze and develop systems.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/log/?qt=author&amp;q=seongjae&#43;park" target="_blank" rel="noopener">
+        <i class="fab fa-linux"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/sjp38" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.com/citations?user=jJIiF3AAAAAJ" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  
+  
+  <div class="article-widget content-widget-hr">
+    <h3>Related</h3>
+    <ul>
+      
+      <li><a href="/post/lkml_news_v5.17-rc3/">LKML News v5.17-rc3</a></li>
+      
+      <li><a href="/post/lkml_news_v5.17-rc2/">LKML News v5.17-rc2</a></li>
+      
+      <li><a href="/post/lkml_news_v5.17-rc1/">LKML News v5.17-rc1</a></li>
+      
+      <li><a href="/post/lkml_news_v5.16/">LKML News v5.16</a></li>
+      
+      <li><a href="/post/lkml_news_v5.16-rc8/">LKML News v5.16-rc8</a></li>
+      
+    </ul>
+  </div>
+  
+
+
+
+  </div>
+</article>
 
       
 
