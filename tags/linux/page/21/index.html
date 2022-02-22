@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2022-02-15T07:06:23&#43;01:00">
+    <meta property="og:updated_time" content="2022-02-22T07:25:14&#43;01:00">
   
 
   
@@ -525,6 +525,19 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v4.15/">LKML News after v4.15</a></h2>
+    <div class="article-style">
+      
+      Linux 4.15 https://lkml.kernel.org/r/CA+55aFzARtx-nA=d1j7vLOLf4FHMJLyRiQ-PKkoexJuTUHogdw@mail.gmail.com
+드디어 4.15 버전이 릴리즈 되었습니다. 지난 한주는 매우 조용하고 변경된 사항이 거의 없었다는군요.
+이렇게 meltdown/spectre 로 시끄럽고 길었던, 평범하지 않았던 릴리즈 사이클이 끝났습니다. 하지만, meltdown/spectre 관련한 일이 아주 끝난 건 아니라고 이야기 하는군요. 특히, indirect bracnh mitigation 을 위한 가장 큰 수정사항을 반영받기 위해선 커널만 업데이트 해선 안되고 컴파일러의 &ldquo;retpoline&rdquo; 지원이 있어야 합니다.
+cat /sys/devices/system/cpu/vulnerabilities/spectre_v2 로 컴파일러 지원이 있는지 알 수 있는데, 컴파일러 지원이 없다면
+Vulnerable: Minimal generic ASM retpoline 이란 출력이 뜰겁니다.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v4.15-rc9/">LKML News after v4.15-rc9</a></h2>
     <div class="article-style">
       
@@ -628,18 +641,6 @@ Lockdep 의 cross release 기능은 너무 느렸고, false positive 가 많다�
 4.15 의 두번째 rc 버전이 나왔습니다.
 동부 지방을 여행 중인가 보군요. 평소보다 좀 이른 시간에 릴리즈가 됐습니다. 원하던 것보단 큰 릴리즈가 되어버렸지만 대부분 fixup 이기에 큰 문제는 없는 것 같다는군요. Kernel ASLR leak 을 막기 위해 모든 &ldquo;%P&rdquo; 로 프린트되는 어드레스 주소를 해시해 버린다고 하네요. 이럼 디버깅할 때 좀 짜증날 수 있긴 하겠지만 다른 방법이 별로 없었다고&hellip;
 [RFC PATCH v3 0/7] ktask: multithread CPU-intensive kernel work https://lkml.kernel.org/r/20171205195220.28208-1-daniel.m.jordan@oracle.com
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.15-rc1/">LKML News after v4.15-rc1</a></h2>
-    <div class="article-style">
-      
-      Linux 4.15-rc1 https://lkml.kernel.org/r/CA+55aFzcudOPSwbD9XfVxBgFsQOhBjyncyYnGDYwZUEHOGUwcw@mail.gmail.com
-예정대로 2주만에 4.15 의 첫번째 rc 버전이 나왔습니다.
-지난주는 추수감사절이라 다들 휴가인 사람이 많았기에 첫번째 주에 최대한 많이 풀리퀘스트를 받았고 지난주는 좀 더 까다롭게 풀리퀘스트를 검사했군요. 토발즈는 두번째 주 동안 랩톱 들고 여행중이었고, 랩톱에서는 전체 모듈 빌드를 하지 않기 때문이라 합니다. 메인테이너들도 가능한 첫번째 주에 중요 플리퀘스트를 보내는 식으로 협조를 해줬다고 합니다. 그네들도 두번째주는 휴가가고 싶었을테니&hellip; ;)
-4.14 가 LTS 였기에 이번 머지윈도우에는 변화가 크지 않을 것으로 예상했는데 생각보다 많은 풀리퀘스트가 있었다고 합니다.
       
     </div>
   </div>
