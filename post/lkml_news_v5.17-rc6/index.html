@@ -29,7 +29,9 @@
     
   
   <meta name="description" content="[PATCH -V13 0/3] NUMA balancing: optimize memory placement for memory tiering system (Huang Ying) https://lkml.kernel.org/r/20220221084529.1052339-1-ying.huang@intel.com
-The AutoNUMA patchset for tiered memory system has revised again.">
+The AutoNUMA patchset for tiered memory system has revised again.
+[LSF/MM/BPF TOPIC] page table reclaim (David Hildenbrand) https://lkml.kernel.org/r/7b908208-02f8-6fde-4dfc-13d5e00310a6@redhat.com
+Some workloads allocates a lot of page tables. As page tables are unmovable and unreclaimable, this can contribute to memory pressure. David is proposing making it reclaimable and suggesting discussion in LSF/MM/BPF summit for the idea.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/lkml_news_v5.17-rc6/">
@@ -152,7 +154,9 @@ The AutoNUMA patchset for tiered memory system has revised again.">
   <meta property="og:url" content="/post/lkml_news_v5.17-rc6/">
   <meta property="og:title" content="LKML News v5.17-rc6 | hacklog">
   <meta property="og:description" content="[PATCH -V13 0/3] NUMA balancing: optimize memory placement for memory tiering system (Huang Ying) https://lkml.kernel.org/r/20220221084529.1052339-1-ying.huang@intel.com
-The AutoNUMA patchset for tiered memory system has revised again."><meta property="og:image" content="/img/tux.png">
+The AutoNUMA patchset for tiered memory system has revised again.
+[LSF/MM/BPF TOPIC] page table reclaim (David Hildenbrand) https://lkml.kernel.org/r/7b908208-02f8-6fde-4dfc-13d5e00310a6@redhat.com
+Some workloads allocates a lot of page tables. As page tables are unmovable and unreclaimable, this can contribute to memory pressure. David is proposing making it reclaimable and suggesting discussion in LSF/MM/BPF summit for the idea."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -204,7 +208,7 @@ The AutoNUMA patchset for tiered memory system has revised again."><meta propert
       "url": "/img/icon-512.png"
     }
   },
-  "description": "[PATCH -V13 0/3] NUMA balancing: optimize memory placement for memory tiering system (Huang Ying) https://lkml.kernel.org/r/20220221084529.1052339-1-ying.huang@intel.com\nThe AutoNUMA patchset for tiered memory system has revised again."
+  "description": "[PATCH -V13 0/3] NUMA balancing: optimize memory placement for memory tiering system (Huang Ying) https://lkml.kernel.org/r/20220221084529.1052339-1-ying.huang@intel.com\nThe AutoNUMA patchset for tiered memory system has revised again.\n[LSF/MM/BPF TOPIC] page table reclaim (David Hildenbrand) https://lkml.kernel.org/r/7b908208-02f8-6fde-4dfc-13d5e00310a6@redhat.com\nSome workloads allocates a lot of page tables. As page tables are unmovable and unreclaimable, this can contribute to memory pressure. David is proposing making it reclaimable and suggesting discussion in LSF/MM/BPF summit for the idea."
 }
 </script>
 
@@ -613,6 +617,12 @@ The AutoNUMA patchset for tiered memory system has revised again."><meta propert
       <h2 id="patch--v13-03-numa-balancing-optimize-memory-placement-for-memory-tiering-system-huang-ying">[PATCH -V13 0/3] NUMA balancing: optimize memory placement for memory tiering system (Huang Ying)</h2>
 <p><a href="https://lkml.kernel.org/r/20220221084529.1052339-1-ying.huang@intel.com">https://lkml.kernel.org/r/20220221084529.1052339-1-ying.huang@intel.com</a></p>
 <p>The AutoNUMA patchset for tiered memory system has revised again.</p>
+<h2 id="lsfmmbpf-topic-page-table-reclaim-david-hildenbrand">[LSF/MM/BPF TOPIC] page table reclaim (David Hildenbrand)</h2>
+<p><a href="https://lkml.kernel.org/r/7b908208-02f8-6fde-4dfc-13d5e00310a6@redhat.com">https://lkml.kernel.org/r/7b908208-02f8-6fde-4dfc-13d5e00310a6@redhat.com</a></p>
+<p>Some workloads allocates a lot of page tables.  As page tables are unmovable
+and unreclaimable, this can contribute to memory pressure.  David is proposing
+making it reclaimable and suggesting discussion in LSF/MM/BPF summit for the
+idea.</p>
 
     </div>
 
