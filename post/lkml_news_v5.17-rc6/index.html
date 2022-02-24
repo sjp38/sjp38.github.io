@@ -31,7 +31,8 @@
   <meta name="description" content="[PATCH -V13 0/3] NUMA balancing: optimize memory placement for memory tiering system (Huang Ying) https://lkml.kernel.org/r/20220221084529.1052339-1-ying.huang@intel.com
 The AutoNUMA patchset for tiered memory system has revised again.
 [LSF/MM/BPF TOPIC] page table reclaim (David Hildenbrand) https://lkml.kernel.org/r/7b908208-02f8-6fde-4dfc-13d5e00310a6@redhat.com
-Some workloads allocates a lot of page tables. As page tables are unmovable and unreclaimable, this can contribute to memory pressure. David is proposing making it reclaimable and suggesting discussion in LSF/MM/BPF summit for the idea.">
+Some workloads allocates a lot of page tables. As page tables are unmovable and unreclaimable, this can contribute to memory pressure. David is proposing making it reclaimable and suggesting discussion in LSF/MM/BPF summit for the idea.
+[RFC PATCH 00/47] Address Space Isolation for KVM (Junaid Shahid) https://lkml.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/lkml_news_v5.17-rc6/">
@@ -156,7 +157,8 @@ Some workloads allocates a lot of page tables. As page tables are unmovable and 
   <meta property="og:description" content="[PATCH -V13 0/3] NUMA balancing: optimize memory placement for memory tiering system (Huang Ying) https://lkml.kernel.org/r/20220221084529.1052339-1-ying.huang@intel.com
 The AutoNUMA patchset for tiered memory system has revised again.
 [LSF/MM/BPF TOPIC] page table reclaim (David Hildenbrand) https://lkml.kernel.org/r/7b908208-02f8-6fde-4dfc-13d5e00310a6@redhat.com
-Some workloads allocates a lot of page tables. As page tables are unmovable and unreclaimable, this can contribute to memory pressure. David is proposing making it reclaimable and suggesting discussion in LSF/MM/BPF summit for the idea."><meta property="og:image" content="/img/tux.png">
+Some workloads allocates a lot of page tables. As page tables are unmovable and unreclaimable, this can contribute to memory pressure. David is proposing making it reclaimable and suggesting discussion in LSF/MM/BPF summit for the idea.
+[RFC PATCH 00/47] Address Space Isolation for KVM (Junaid Shahid) https://lkml."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -208,7 +210,7 @@ Some workloads allocates a lot of page tables. As page tables are unmovable and 
       "url": "/img/icon-512.png"
     }
   },
-  "description": "[PATCH -V13 0/3] NUMA balancing: optimize memory placement for memory tiering system (Huang Ying) https://lkml.kernel.org/r/20220221084529.1052339-1-ying.huang@intel.com\nThe AutoNUMA patchset for tiered memory system has revised again.\n[LSF/MM/BPF TOPIC] page table reclaim (David Hildenbrand) https://lkml.kernel.org/r/7b908208-02f8-6fde-4dfc-13d5e00310a6@redhat.com\nSome workloads allocates a lot of page tables. As page tables are unmovable and unreclaimable, this can contribute to memory pressure. David is proposing making it reclaimable and suggesting discussion in LSF/MM/BPF summit for the idea."
+  "description": "[PATCH -V13 0/3] NUMA balancing: optimize memory placement for memory tiering system (Huang Ying) https://lkml.kernel.org/r/20220221084529.1052339-1-ying.huang@intel.com\nThe AutoNUMA patchset for tiered memory system has revised again.\n[LSF/MM/BPF TOPIC] page table reclaim (David Hildenbrand) https://lkml.kernel.org/r/7b908208-02f8-6fde-4dfc-13d5e00310a6@redhat.com\nSome workloads allocates a lot of page tables. As page tables are unmovable and unreclaimable, this can contribute to memory pressure. David is proposing making it reclaimable and suggesting discussion in LSF/MM/BPF summit for the idea.\n[RFC PATCH 00/47] Address Space Isolation for KVM (Junaid Shahid) https://lkml."
 }
 </script>
 
@@ -623,6 +625,15 @@ Some workloads allocates a lot of page tables. As page tables are unmovable and 
 and unreclaimable, this can contribute to memory pressure.  David is proposing
 making it reclaimable and suggesting discussion in LSF/MM/BPF summit for the
 idea.</p>
+<h2 id="rfc-patch-0047-address-space-isolation-for-kvm-junaid-shahid">[RFC PATCH 00/47] Address Space Isolation for KVM (Junaid Shahid)</h2>
+<p><a href="https://lkml.kernel.org/r/20220223052223.1202152-1-junaids@google.com">https://lkml.kernel.org/r/20220223052223.1202152-1-junaids@google.com</a></p>
+<p>This patch presents the idea and possible implementation of address space
+isolation, which is a comprehensive security mitigation for several types of
+speculative execution attacks.</p>
+<h2 id="mmotm-2022-02-23-21-20-uploaded-andrew-morton">mmotm 2022-02-23-21-20 uploaded (Andrew Morton)</h2>
+<p><a href="https://lkml.kernel.org/r/20220224052137.BFB10C340E9@smtp.kernel.org">https://lkml.kernel.org/r/20220224052137.BFB10C340E9@smtp.kernel.org</a></p>
+<p>mmotm updated.  It&rsquo;s rebased on 5.17-rc5, added 109 new patches, modified 87
+patches, and dropped 66 patches.  In total, 386 patches are in the queue.</p>
 
     </div>
 
