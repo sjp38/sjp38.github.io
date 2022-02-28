@@ -35,6 +35,35 @@ speculative execution attacks.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20220224052137.BFB10C340E9@smtp.kernel.org&#34;&gt;https://lkml.kernel.org/r/20220224052137.BFB10C340E9@smtp.kernel.org&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;mmotm updated.  It&amp;rsquo;s rebased on 5.17-rc5, added 109 new patches, modified 87
 patches, and dropped 66 patches.  In total, 386 patches are in the queue.&lt;/p&gt;
+&lt;h2 id=&#34;incoming-andrew-morton&#34;&gt;incoming (Andrew Morton)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20220225191021.f71538a3f43dc448110e88b6@linux-foundation.org&#34;&gt;https://lkml.kernel.org/r/20220225191021.f71538a3f43dc448110e88b6@linux-foundation.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Andrew sent 12 patches to Linus Torvads for more fixes.&lt;/p&gt;
+&lt;h2 id=&#34;reminder-lsfmmbpf-2022-call-for-proposals-josef-bacik&#34;&gt;[REMINDER] LSF/MM/BPF: 2022: Call for Proposals (Josef Bacik)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/YherWymi1E/hP/sS@localhost.localdomain&#34;&gt;https://lkml.kernel.org/r/YherWymi1E/hP/sS@localhost.localdomain&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;A reminder including a few updates on COVID related restrictions and virtual
+components for the LSF/MM/BPF of this year.&lt;/p&gt;
+&lt;h2 id=&#34;mmotm-2022-02-24-22-38-uploaded-andrew-morton&#34;&gt;mmotm 2022-02-24-22-38 uploaded (Andrew Morton)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20220225063927.29B1CC340E7@smtp.kernel.org&#34;&gt;https://lkml.kernel.org/r/20220225063927.29B1CC340E7@smtp.kernel.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;mmotm has updsated.  It adds 4 more patches, modifies 8 patches, and drops 12
+patches.  378 patches in total.&lt;/p&gt;
+&lt;h2 id=&#34;linux-517-rc6-linus-torvalds&#34;&gt;Linux 5.17-rc6 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wjWKEQUG2Z5a=2FGUfO5+choQ0jhszqyDmHfZoTXVJYJQ@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wjWKEQUG2Z5a=2FGUfO5+choQ0jhszqyDmHfZoTXVJYJQ@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Linus released the sixth candidate for Linux 5.17.  He notes that the last week
+wasn&amp;rsquo;t normal, due to the Putin&amp;rsquo;s meantal breakdown.  But, it didn&amp;rsquo;t affected
+kernel much, so the things continue to look normal.  However, some regressions
+which reported right after rc1 is still not fixed.  Torvalds is asking the
+subsystem maintainers to make priority.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v5.6-rc5..v5.17-rc6.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
+below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2020-02-28 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And, below is the diffstat of the -rc4 releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v5.16-rc6-only.png&#34; alt=&#34;rc2 release stat&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     
