@@ -576,7 +576,7 @@ mmotm has updated. It&rsquo;s rebased on 5.17-rc6, added 56 new patches, modifie
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -637,6 +637,20 @@ to discuss in LSF/MM/BPF of this week.</p>
 <p><a href="https://lkml.kernel.org/r/20220303005351.D6F91C004E1@smtp.kernel.org">https://lkml.kernel.org/r/20220303005351.D6F91C004E1@smtp.kernel.org</a></p>
 <p>The mmotm tree has updated.  It&rsquo;s based on 5.17-rc6, added 44 patches, modified
 64 patches, and dropped no patch.  In total, 418 patches in the queue.</p>
+<h2 id="patch-mm-madvise-madv_dontneed_locked-johannes-weiner">[PATCH] mm: madvise: MADV_DONTNEED_LOCKED (Johannes Weiner)</h2>
+<p><a href="https://lkml.kernel.org/r/20220303212956.229409-1-hannes@cmpxchg.org">https://lkml.kernel.org/r/20220303212956.229409-1-hannes@cmpxchg.org</a></p>
+<p>Because <code>MADV_DONTNEED</code> doesn&rsquo;t work for <code>mlock()</code>-ed ranges, and working it
+around by explicitly calling <code>munlock()</code> before <code>madvise()</code> needs unnecessary
+syscalls and vma locks, this patch adds another <code>madvise()</code> flag for the case.</p>
+<h2 id="lsfmmbpf-topic-changes-in-rcu-over-the-past-few-years-paul-e-mckenney">[LSF/MM/BPF TOPIC] Changes in RCU over the past few years (Paul E. McKenney)</h2>
+<p><a href="https://lkml.kernel.org/r/20220304035116.GA8858@paulmck-ThinkPad-P17-Gen-1">https://lkml.kernel.org/r/20220304035116.GA8858@paulmck-ThinkPad-P17-Gen-1</a></p>
+<p>Paul E. McKenney is proposing to have a time for quickly introducing the RCU
+changes that made in past few years and discuss about its usage and possible
+future changes in LSF/MM/BPF of this year.</p>
+<h2 id="mmotm-2022-03-03-21-24-uploaded-andrew-morton">mmotm 2022-03-03-21-24 uploaded (Andrew Morton)</h2>
+<p><a href="https://lkml.kernel.org/r/20220304052444.C157EC340E9@smtp.kernel.org">https://lkml.kernel.org/r/20220304052444.C157EC340E9@smtp.kernel.org</a></p>
+<p>Andrew Morton updated -mm tree.  It&rsquo;s based on v5.17-rc6, added 11 new patches,
+modified 9 patches, and dropped 6 patches.  In total, 428 patches in the queue.</p>
 
     </div>
 
