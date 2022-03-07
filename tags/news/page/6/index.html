@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2022-03-01T07:11:16&#43;01:00">
+    <meta property="og:updated_time" content="2022-03-07T08:27:55&#43;01:00">
   
 
   
@@ -525,6 +525,20 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.11/">LKML News v5.11</a></h2>
+    <div class="article-style">
+      
+      [PATCH v2] mm: cma: support sysfs (Minchan Kim) https://lkml.kernel.org/r/20210208180142.2765456-1-minchan@kernel.org
+This patch introduces sysfs interface for CMA that shows stats including number of CMA allocation attempts and failures.
+[PATCH v10 00/14] prohibit pinning pages in ZONE_MOVABLE (Pavel Tatashin) https://lkml.kernel.org/r/20210211162427.618913-1-pasha.tatashin@soleen.com
+The 10th version of the patchset making ZONE_MOVABLE really movable.
+Linux 5.11 (Linus Torvalds) https://lkml.kernel.org/r/CAHk-=wg8LpRi9+P2_V+ehJ2_EoJifNh2QmVf47aLXfkCd-1UAQ@mail.gmail.com
+Nothing strange happened last week, so Linus released v5.11 as expected. The number of changes from the rc7 to this release is actually even smaller than average.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.11-rc7/">LKML News v5.11-rc7</a></h2>
     <div class="article-style">
       
@@ -637,20 +651,6 @@ Unconditional &lsquo;SetPageWorkingset&rsquo; miscategorizes read-ahead pages or
 This patch fixes a use-after-free bug that reported by syzbot.
 [PATCH 0/6] prohibit pinning pages in ZONE_MOVABLE (Pavel Tatashin) https://lkml.kernel.org/r/20201202052330.474592-1-pasha.tatashin@soleen.com
 Pinned pages in ZONE_MOVABLE is a wellknown problem. This patchset fixes the issue by forcing pinning new page to allocated from a zone other than ZONE_MOVABLE and migrating out existing pages from the zone during pinning.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.10-rc6/">LKML News v5.10-rc6</a></h2>
-    <div class="article-style">
-      
-      [PATCH v2] mm: memcontrol: account pagetables per node (Shakeel Butt) https://lkml.kernel.org/r/20201123161425.341314-1-shakeelb@google.com
-This commit allows user to account memory size used for page tables per node.
-[PATCH 0/2] userspace memory reaping using process_madvise (Suren Baghdasaryan) https://lkml.kernel.org/r/20201124053943.1684874-1-surenb@google.com
-This commit allows user-space driven OOM reaping using process_madvise(MADV_DONTNEED).
-[PATCH -V6 0/3] autonuma: Migrate on fault among multiple bound nodes (Huang Ying) https://lkml.kernel.org/r/20201126053219.234793-1-ying.huang@intel.com
-The 6th version for autonuma migration among multiple bound nodes. In this version, more benchmark data and example is added.
       
     </div>
   </div>

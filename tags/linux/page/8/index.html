@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2022-03-01T07:11:16&#43;01:00">
+    <meta property="og:updated_time" content="2022-03-07T08:27:55&#43;01:00">
   
 
   
@@ -525,6 +525,21 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.9-rc8/">LKML News v5.9-rc8</a></h2>
+    <div class="article-style">
+      
+      [RFC PATCH v2 00/30] 1GB PUD THP support on x86_64 (Zi Yan) https://lkml.kernel.org/r/20200928175428.4110504-1-zi.yan@sent.com
+This patch adds support of 1GB THP using PUD.
+[PATCH v4 00/11] KFENCE: A low-overhead sampling-based memory safety error detector (Marco Elver) https://lkml.kernel.org/r/20200929133814.2834621-1-elver@google.com
+The 4th version of the KFENCE patchset.
+[PATCH 0/5] Speed up mremap on large regions (Kalesh Singh) https://lkml.kernel.org/r/20200930222130.4175584-1-kaleshsingh@google.com
+This patchset optimizes mremap() by allowing memory regions to be able to mapped at PMD/PUD.
+[PATCH] selftests/vm: 10x speedup for hmm-tests https://lkml.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/damon-tests_open_sourced/">Tests package for DAMON is released under GPL v2</a></h2>
     <div class="article-style">
       
@@ -625,19 +640,6 @@ The memory cgroup v2 start reclamation if the amount of the memory of the cgroup
 LPDDR5 has severan ranks and there are ranks switching delay. Therefore, it would be better to do accesses in same ranks if possible. This patch sorts freelist by the rank number so that near future allocation can be done in same rank.
 [RFC-PROTOTYPE 1/1] mm: Add __GFP_FAST_TRY flag (Uladzislau Rezki) https://lkml.kernel.org/r/20200803163029.1997-1-urezki@gmail.com
 This is the rfc of the patch for the Paul&rsquo;s last ask.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.8/">LKML News v5.8</a></h2>
-    <div class="article-style">
-      
-      [PATCH v2 0/7] mm: introduce memfd_secret system call to create &ldquo;secret&rdquo; memory areas (Mike Rapoport) https://lkml.kernel.org/r/20200727162935.31714-1-rppt@kernel.org
-This is the second version of the secretmemfd. In this version, the system call has renamed to &lsquo;memfd_secret&rsquo;.
-[RFC PATCH 0/5] madvise MADV_DOEXEC (Anthony Yznaga) https://lkml.kernel.org/r/1595869887-23307-1-git-send-email-anthony.yznaga@oracle.com
-This patch introduces another madvise hint, MADV_DOEXEC. It preserves an anonymous memory range across exec.
-[RFC PATCH 0/6] decrease unnecessary gap due to pmem kmem alignment (Jia He) https://lkml.
       
     </div>
   </div>

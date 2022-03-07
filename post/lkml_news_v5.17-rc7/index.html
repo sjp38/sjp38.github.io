@@ -576,7 +576,7 @@ mmotm has updated. It&rsquo;s rebased on 5.17-rc6, added 56 new patches, modifie
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    2 min read
+    3 min read
   </span>
   
 
@@ -651,6 +651,29 @@ future changes in LSF/MM/BPF of this year.</p>
 <p><a href="https://lkml.kernel.org/r/20220304052444.C157EC340E9@smtp.kernel.org">https://lkml.kernel.org/r/20220304052444.C157EC340E9@smtp.kernel.org</a></p>
 <p>Andrew Morton updated -mm tree.  It&rsquo;s based on v5.17-rc6, added 11 new patches,
 modified 9 patches, and dropped 6 patches.  In total, 428 patches in the queue.</p>
+<h2 id="incoming-andrew-morton">incoming (Andrew Morton)</h2>
+<p><a href="https://lkml.kernel.org/r/20220304202822.d47f8084928321c83070d7d7@linux-foundation.org">https://lkml.kernel.org/r/20220304202822.d47f8084928321c83070d7d7@linux-foundation.org</a></p>
+<p>Andrew sent 8 fixes to Linus Torvalds.</p>
+<h2 id="rfc-mechanism-to-induce-memory-reclaim-david-rientjes">[RFC] Mechanism to induce memory reclaim (David Rientjes)</h2>
+<p><a href="https://lkml.kernel.org/r/5df21376-7dd1-bf81-8414-32a73cea45dd@google.com">https://lkml.kernel.org/r/5df21376-7dd1-bf81-8414-32a73cea45dd@google.com</a></p>
+<p>David Rientjes is proposing a memcg based memory reclaim induce mechanism,
+which could be used for various underlying reclaim mechanism, for proactive
+reclamation.</p>
+<h2 id="linux-517-rc7-linus-torvalds">Linux 5.17-rc7 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wjkkYX8OvTv60+XvQkAK4Pg0QC0Hn-4+n7Q0t1+QWw7Sw@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wjkkYX8OvTv60+XvQkAK4Pg0QC0Hn-4+n7Q0t1+QWw7Sw@mail.gmail.com</a></p>
+<p>The release candidate that assumed to be the last one before Linux v5.17 is
+out.  Everything looks normal, so v5.17 would be released in the next week.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.6-rc6..v5.17-rc7.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2020-03-07 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc7 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.17-rc7-only.png" alt="rc2 release stat"></p>
 
     </div>
 

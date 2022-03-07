@@ -5,12 +5,24 @@
     <link>/categories/lkml-news/</link>
       <atom:link href="/categories/lkml-news/index.xml" rel="self" type="application/rss+xml" />
     <description>lkml news</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 01 Mar 2022 07:11:16 +0100</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Mon, 07 Mar 2022 08:27:55 +0100</lastBuildDate>
     <image>
       <url>/img/tux.png</url>
       <title>lkml news</title>
       <link>/categories/lkml-news/</link>
     </image>
+    
+    <item>
+      <title>LKML News v5.17</title>
+      <link>/post/lkml_news_v5.17/</link>
+      <pubDate>Mon, 07 Mar 2022 08:27:55 +0100</pubDate>
+      <guid>/post/lkml_news_v5.17/</guid>
+      <description>&lt;h2 id=&#34;mmotm-2022-03-06-20-33-uploaded-andrew-morton&#34;&gt;mmotm 2022-03-06-20-33 uploaded (Andrew Morton)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20220307043435.251DBC340E9@smtp.kernel.org&#34;&gt;https://lkml.kernel.org/r/20220307043435.251DBC340E9@smtp.kernel.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The -mm tree has updated.  It&amp;rsquo;s based on v5.17-rc6, added 19 patches, modified
+6 patches, and dropped 19 patches.  In totla, 428 patches in the queue.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>LKML News v5.17-rc7</title>
@@ -52,6 +64,29 @@ future changes in LSF/MM/BPF of this year.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20220304052444.C157EC340E9@smtp.kernel.org&#34;&gt;https://lkml.kernel.org/r/20220304052444.C157EC340E9@smtp.kernel.org&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Andrew Morton updated -mm tree.  It&amp;rsquo;s based on v5.17-rc6, added 11 new patches,
 modified 9 patches, and dropped 6 patches.  In total, 428 patches in the queue.&lt;/p&gt;
+&lt;h2 id=&#34;incoming-andrew-morton&#34;&gt;incoming (Andrew Morton)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20220304202822.d47f8084928321c83070d7d7@linux-foundation.org&#34;&gt;https://lkml.kernel.org/r/20220304202822.d47f8084928321c83070d7d7@linux-foundation.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Andrew sent 8 fixes to Linus Torvalds.&lt;/p&gt;
+&lt;h2 id=&#34;rfc-mechanism-to-induce-memory-reclaim-david-rientjes&#34;&gt;[RFC] Mechanism to induce memory reclaim (David Rientjes)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/5df21376-7dd1-bf81-8414-32a73cea45dd@google.com&#34;&gt;https://lkml.kernel.org/r/5df21376-7dd1-bf81-8414-32a73cea45dd@google.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;David Rientjes is proposing a memcg based memory reclaim induce mechanism,
+which could be used for various underlying reclaim mechanism, for proactive
+reclamation.&lt;/p&gt;
+&lt;h2 id=&#34;linux-517-rc7-linus-torvalds&#34;&gt;Linux 5.17-rc7 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wjkkYX8OvTv60+XvQkAK4Pg0QC0Hn-4+n7Q0t1+QWw7Sw@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wjkkYX8OvTv60+XvQkAK4Pg0QC0Hn-4+n7Q0t1+QWw7Sw@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The release candidate that assumed to be the last one before Linux v5.17 is
+out.  Everything looks normal, so v5.17 would be released in the next week.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v5.6-rc6..v5.17-rc7.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
+below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2020-03-07 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And, below is the diffstat of the -rc7 releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v5.17-rc7-only.png&#34; alt=&#34;rc2 release stat&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     
