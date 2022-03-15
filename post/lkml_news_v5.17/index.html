@@ -28,10 +28,8 @@
   
     
   
-  <meta name="description" content="mmotm 2022-03-06-20-33 uploaded (Andrew Morton) https://lkml.kernel.org/r/20220307043435.251DBC340E9@smtp.kernel.org
-The -mm tree has updated. It&rsquo;s based on v5.17-rc6, added 19 patches, modified 6 patches, and dropped 19 patches. In totla, 428 patches in the queue.
-[PATCH v3] mm: add ztree - new allocator for use via zpool API (Ananda) https://lkml.kernel.org/r/20220307142724.14519-1-a.badmaev@clicknet.pro
-Third version of ztree, which is intended to be used for storing compressed objects per ztree block. Comparing to the previous version, compiler warnings have fixed.">
+  <meta name="description" content="mmotm 2022-03-14-22-42 uploaded (Andrew Morton) https://lkml.kernel.org/r/20220315054352.5B187C340E8@smtp.kernel.org
+The -mm tree is updated. It is rebased on 5.17-rc8, added 20 new patches, modified 10 patches, and dropped 2 patches. In total, 475 patches in the queue.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/lkml_news_v5.17/">
@@ -153,16 +151,14 @@ Third version of ztree, which is intended to be used for storing compressed obje
   <meta property="og:site_name" content="hacklog">
   <meta property="og:url" content="/post/lkml_news_v5.17/">
   <meta property="og:title" content="LKML News v5.17 | hacklog">
-  <meta property="og:description" content="mmotm 2022-03-06-20-33 uploaded (Andrew Morton) https://lkml.kernel.org/r/20220307043435.251DBC340E9@smtp.kernel.org
-The -mm tree has updated. It&rsquo;s based on v5.17-rc6, added 19 patches, modified 6 patches, and dropped 19 patches. In totla, 428 patches in the queue.
-[PATCH v3] mm: add ztree - new allocator for use via zpool API (Ananda) https://lkml.kernel.org/r/20220307142724.14519-1-a.badmaev@clicknet.pro
-Third version of ztree, which is intended to be used for storing compressed objects per ztree block. Comparing to the previous version, compiler warnings have fixed."><meta property="og:image" content="/img/tux.png">
+  <meta property="og:description" content="mmotm 2022-03-14-22-42 uploaded (Andrew Morton) https://lkml.kernel.org/r/20220315054352.5B187C340E8@smtp.kernel.org
+The -mm tree is updated. It is rebased on 5.17-rc8, added 20 new patches, modified 10 patches, and dropped 2 patches. In total, 475 patches in the queue."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
     
-      <meta property="article:published_time" content="2022-03-07T08:27:55&#43;01:00">
+      <meta property="article:published_time" content="2022-03-15T07:02:08&#43;01:00">
     
-    <meta property="article:modified_time" content="2022-03-07T08:27:55&#43;01:00">
+    <meta property="article:modified_time" content="2022-03-15T07:02:08&#43;01:00">
   
 
   
@@ -192,8 +188,8 @@ Third version of ztree, which is intended to be used for storing compressed obje
   },
   "headline": "LKML News v5.17",
   
-  "datePublished": "2022-03-07T08:27:55+01:00",
-  "dateModified": "2022-03-07T08:27:55+01:00",
+  "datePublished": "2022-03-15T07:02:08+01:00",
+  "dateModified": "2022-03-15T07:02:08+01:00",
   
   "author": {
     "@type": "Person",
@@ -208,7 +204,7 @@ Third version of ztree, which is intended to be used for storing compressed obje
       "url": "/img/icon-512.png"
     }
   },
-  "description": "mmotm 2022-03-06-20-33 uploaded (Andrew Morton) https://lkml.kernel.org/r/20220307043435.251DBC340E9@smtp.kernel.org\nThe -mm tree has updated. It\u0026rsquo;s based on v5.17-rc6, added 19 patches, modified 6 patches, and dropped 19 patches. In totla, 428 patches in the queue.\n[PATCH v3] mm: add ztree - new allocator for use via zpool API (Ananda) https://lkml.kernel.org/r/20220307142724.14519-1-a.badmaev@clicknet.pro\nThird version of ztree, which is intended to be used for storing compressed objects per ztree block. Comparing to the previous version, compiler warnings have fixed."
+  "description": "mmotm 2022-03-14-22-42 uploaded (Andrew Morton) https://lkml.kernel.org/r/20220315054352.5B187C340E8@smtp.kernel.org\nThe -mm tree is updated. It is rebased on 5.17-rc8, added 20 new patches, modified 10 patches, and dropped 2 patches. In total, 475 patches in the queue."
 }
 </script>
 
@@ -565,7 +561,7 @@ Third version of ztree, which is intended to be used for storing compressed obje
     
       
     
-    Mon, Mar 7, 2022
+    Tue, Mar 15, 2022
   </span>
   
 
@@ -614,35 +610,11 @@ Third version of ztree, which is intended to be used for storing compressed obje
   <div class="article-container">
 
     <div class="article-style">
-      <h2 id="mmotm-2022-03-06-20-33-uploaded-andrew-morton">mmotm 2022-03-06-20-33 uploaded (Andrew Morton)</h2>
-<p><a href="https://lkml.kernel.org/r/20220307043435.251DBC340E9@smtp.kernel.org">https://lkml.kernel.org/r/20220307043435.251DBC340E9@smtp.kernel.org</a></p>
-<p>The -mm tree has updated.  It&rsquo;s based on v5.17-rc6, added 19 patches, modified
-6 patches, and dropped 19 patches.  In totla, 428 patches in the queue.</p>
-<h2 id="patch-v3-mm-add-ztree---new-allocator-for-use-via-zpool-api-ananda">[PATCH v3] mm: add ztree - new allocator for use via zpool API (Ananda)</h2>
-<p><a href="https://lkml.kernel.org/r/20220307142724.14519-1-a.badmaev@clicknet.pro">https://lkml.kernel.org/r/20220307142724.14519-1-a.badmaev@clicknet.pro</a></p>
-<p>Third version of ztree, which is intended to be used for storing compressed
-objects per ztree block.  Comparing to the previous version, compiler warnings
-have fixed.</p>
-<h2 id="lsfmmbpf-bof-idea-cxl-bof-discussion-ira-weiny">[LSF/MM/BPF BOF idea] CXL BOF discussion (Ira Weiny)</h2>
-<p><a href="https://lkml.kernel.org/r/YiZ0Jmhyf515EJzD@iweiny-desk3">https://lkml.kernel.org/r/YiZ0Jmhyf515EJzD@iweiny-desk3</a></p>
-<p>Ira is proposing a BPF for CXL.</p>
-<h2 id="rfc-patch-0014-mm-userspace-hugepage-collapse-zach-okeefe">[RFC PATCH 00/14] mm: userspace hugepage collapse (Zach O&rsquo;Keefe)</h2>
-<p><a href="https://lkml.kernel.org/r/20220308213417.1407042-1-zokeefe@google.com">https://lkml.kernel.org/r/20220308213417.1407042-1-zokeefe@google.com</a></p>
-<p>This RFC patchset introduces a mechanism for user space to induce a turanparent
-hugepages collapses, for more flexible THP usages.  Both <code>process_madivse()</code>
-and <code>madvise()</code> are used.</p>
-<h2 id="patch-v9-0014-multi-gen-lru-framework-yu-zhao">[PATCH v9 00/14] Multi-Gen LRU Framework (Yu Zhao)</h2>
-<p><a href="https://lkml.kernel.org/r/20220309021230.721028-1-yuzhao@google.com">https://lkml.kernel.org/r/20220309021230.721028-1-yuzhao@google.com</a></p>
-<p>A new revision of MGLRU patchset.  It removed <code>CONFIG_NR_LRU_GENS</code> and
-<code>CONFIG_TIERS_PER_GEN</code> configs compared to the last version.</p>
-<h2 id="rfc-free-up-a-page-flag-matthew-wilcox">[RFC] Free up a page flag (Matthew Wilcox)</h2>
-<p><a href="https://lkml.kernel.org/r/YikTHqjv4S6ZQ3Fv@casper.infradead.org">https://lkml.kernel.org/r/YikTHqjv4S6ZQ3Fv@casper.infradead.org</a></p>
-<p>This RFC patch frees up a page flag for others to use.</p>
-<h2 id="mmotm-2022-03-10-21-38-uploaded-andrew-morton">mmotm 2022-03-10-21-38 uploaded (Andrew Morton)</h2>
-<p><a href="https://lkml.kernel.org/r/20220311053937.E9658C340E9@smtp.kernel.org">https://lkml.kernel.org/r/20220311053937.E9658C340E9@smtp.kernel.org</a></p>
-<p>Andrew updated mmotm and pushed.  Compared to the last update, it has rebased
-on 5.17-rc7, added 34 new patches, modified 111 patches, and dropped 5 patches.
-In total, 457 patches in the queue.</p>
+      <h2 id="mmotm-2022-03-14-22-42-uploaded-andrew-morton">mmotm 2022-03-14-22-42 uploaded (Andrew Morton)</h2>
+<p><a href="https://lkml.kernel.org/r/20220315054352.5B187C340E8@smtp.kernel.org">https://lkml.kernel.org/r/20220315054352.5B187C340E8@smtp.kernel.org</a></p>
+<p>The -mm tree is updated.  It is rebased on 5.17-rc8, added 20 new patches,
+modified 10 patches, and dropped 2 patches.  In total, 475 patches in the
+queue.</p>
 
     </div>
 
@@ -853,6 +825,8 @@ In total, 457 patches in the queue.</p>
     <h3>Related</h3>
     <ul>
       
+      <li><a href="/post/lkml_news_v5.17-rc8/">LKML News v5.17-rc8</a></li>
+      
       <li><a href="/post/lkml_news_v5.17-rc7/">LKML News v5.17-rc7</a></li>
       
       <li><a href="/post/lkml_news_v5.17-rc6/">LKML News v5.17-rc6</a></li>
@@ -860,8 +834,6 @@ In total, 457 patches in the queue.</p>
       <li><a href="/post/lkml_news_v5.17-rc5/">LKML News v5.17-rc5</a></li>
       
       <li><a href="/post/lkml_news_v5.17-rc4/">LKML News v5.17-rc4</a></li>
-      
-      <li><a href="/post/lkml_news_v5.17-rc3/">LKML News v5.17-rc3</a></li>
       
     </ul>
   </div>
