@@ -29,7 +29,9 @@
     
   
   <meta name="description" content="mmotm 2022-03-14-22-42 uploaded (Andrew Morton) https://lkml.kernel.org/r/20220315054352.5B187C340E8@smtp.kernel.org
-The -mm tree is updated. It is rebased on 5.17-rc8, added 20 new patches, modified 10 patches, and dropped 2 patches. In total, 475 patches in the queue.">
+The -mm tree is updated. It is rebased on 5.17-rc8, added 20 new patches, modified 10 patches, and dropped 2 patches. In total, 475 patches in the queue.
+[LSF/MM TOPIC] Better handling of negative dentries (Mattew Wilcox) https://lkml.kernel.org/r/YjDvRPuxPN0GsxLB@casper.infradead.org
+There could be millions of negative dentries on a system having large memory and no memory pressure, because the number of negative dentries is constrained only by memory size.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/lkml_news_v5.17/">
@@ -152,7 +154,9 @@ The -mm tree is updated. It is rebased on 5.17-rc8, added 20 new patches, modifi
   <meta property="og:url" content="/post/lkml_news_v5.17/">
   <meta property="og:title" content="LKML News v5.17 | hacklog">
   <meta property="og:description" content="mmotm 2022-03-14-22-42 uploaded (Andrew Morton) https://lkml.kernel.org/r/20220315054352.5B187C340E8@smtp.kernel.org
-The -mm tree is updated. It is rebased on 5.17-rc8, added 20 new patches, modified 10 patches, and dropped 2 patches. In total, 475 patches in the queue."><meta property="og:image" content="/img/tux.png">
+The -mm tree is updated. It is rebased on 5.17-rc8, added 20 new patches, modified 10 patches, and dropped 2 patches. In total, 475 patches in the queue.
+[LSF/MM TOPIC] Better handling of negative dentries (Mattew Wilcox) https://lkml.kernel.org/r/YjDvRPuxPN0GsxLB@casper.infradead.org
+There could be millions of negative dentries on a system having large memory and no memory pressure, because the number of negative dentries is constrained only by memory size."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -204,7 +208,7 @@ The -mm tree is updated. It is rebased on 5.17-rc8, added 20 new patches, modifi
       "url": "/img/icon-512.png"
     }
   },
-  "description": "mmotm 2022-03-14-22-42 uploaded (Andrew Morton) https://lkml.kernel.org/r/20220315054352.5B187C340E8@smtp.kernel.org\nThe -mm tree is updated. It is rebased on 5.17-rc8, added 20 new patches, modified 10 patches, and dropped 2 patches. In total, 475 patches in the queue."
+  "description": "mmotm 2022-03-14-22-42 uploaded (Andrew Morton) https://lkml.kernel.org/r/20220315054352.5B187C340E8@smtp.kernel.org\nThe -mm tree is updated. It is rebased on 5.17-rc8, added 20 new patches, modified 10 patches, and dropped 2 patches. In total, 475 patches in the queue.\n[LSF/MM TOPIC] Better handling of negative dentries (Mattew Wilcox) https://lkml.kernel.org/r/YjDvRPuxPN0GsxLB@casper.infradead.org\nThere could be millions of negative dentries on a system having large memory and no memory pressure, because the number of negative dentries is constrained only by memory size."
 }
 </script>
 
@@ -615,6 +619,13 @@ The -mm tree is updated. It is rebased on 5.17-rc8, added 20 new patches, modifi
 <p>The -mm tree is updated.  It is rebased on 5.17-rc8, added 20 new patches,
 modified 10 patches, and dropped 2 patches.  In total, 475 patches in the
 queue.</p>
+<h2 id="lsfmm-topic-better-handling-of-negative-dentries-mattew-wilcox">[LSF/MM TOPIC] Better handling of negative dentries (Mattew Wilcox)</h2>
+<p><a href="https://lkml.kernel.org/r/YjDvRPuxPN0GsxLB@casper.infradead.org">https://lkml.kernel.org/r/YjDvRPuxPN0GsxLB@casper.infradead.org</a></p>
+<p>There could be millions of negative dentries on a system having large memory
+and no memory pressure, because the number of negative dentries is constrained
+only by memory size.  Because this could results in slow inotify, high memory
+usage, and poor lookup performance, Matthew is proposing to discuss about a
+solution in the LSF/MM of this year.</p>
 
     </div>
 

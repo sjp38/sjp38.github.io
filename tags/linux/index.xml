@@ -22,6 +22,13 @@
 &lt;p&gt;The -mm tree is updated.  It is rebased on 5.17-rc8, added 20 new patches,
 modified 10 patches, and dropped 2 patches.  In total, 475 patches in the
 queue.&lt;/p&gt;
+&lt;h2 id=&#34;lsfmm-topic-better-handling-of-negative-dentries-mattew-wilcox&#34;&gt;[LSF/MM TOPIC] Better handling of negative dentries (Mattew Wilcox)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/YjDvRPuxPN0GsxLB@casper.infradead.org&#34;&gt;https://lkml.kernel.org/r/YjDvRPuxPN0GsxLB@casper.infradead.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;There could be millions of negative dentries on a system having large memory
+and no memory pressure, because the number of negative dentries is constrained
+only by memory size.  Because this could results in slow inotify, high memory
+usage, and poor lookup performance, Matthew is proposing to discuss about a
+solution in the LSF/MM of this year.&lt;/p&gt;
 </description>
     </item>
     
