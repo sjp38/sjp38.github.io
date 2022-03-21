@@ -574,7 +574,7 @@ There could be millions of negative dentries on a system having large memory and
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -634,6 +634,19 @@ patches, and dropped 4 patches.  In toal, 481 patches in the queue.</p>
 <p><a href="https://lkml.kernel.org/r/20220317065033.2635123-1-maobibo@loongson.cn">https://lkml.kernel.org/r/20220317065033.2635123-1-maobibo@loongson.cn</a></p>
 <p>This patch adds dirty or access bit for platforms that doesn&rsquo;t support hardware
 page table walks.</p>
+<h2 id="linux-517-linus-torvalds">Linux 5.17 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wj4fFjx2pgbGNBM4wJs3=eReZ05EQyprzgT2Jv8qJ2vJg@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wj4fFjx2pgbGNBM4wJs3=eReZ05EQyprzgT2Jv8qJ2vJg@mail.gmail.com</a></p>
+<p>The extended one week for 5.17 was very calm, so the Linux v5.17 is out.  This
+also means the merge window for v5.18 is open.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.6..v5.17.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2020-03-21 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
 
     </div>
 

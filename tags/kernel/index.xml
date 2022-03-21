@@ -37,6 +37,19 @@ patches, and dropped 4 patches.  In toal, 481 patches in the queue.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20220317065033.2635123-1-maobibo@loongson.cn&#34;&gt;https://lkml.kernel.org/r/20220317065033.2635123-1-maobibo@loongson.cn&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;This patch adds dirty or access bit for platforms that doesn&amp;rsquo;t support hardware
 page table walks.&lt;/p&gt;
+&lt;h2 id=&#34;linux-517-linus-torvalds&#34;&gt;Linux 5.17 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wj4fFjx2pgbGNBM4wJs3=eReZ05EQyprzgT2Jv8qJ2vJg@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wj4fFjx2pgbGNBM4wJs3=eReZ05EQyprzgT2Jv8qJ2vJg@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The extended one week for 5.17 was very calm, so the Linux v5.17 is out.  This
+also means the merge window for v5.18 is open.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v5.6..v5.17.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
+below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2020-03-21 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
