@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2022-03-15T07:02:08&#43;01:00">
+    <meta property="og:updated_time" content="2022-03-22T06:59:56&#43;01:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.12-rc2/">LKML News v5.12-rc2</a></h2>
+    <div class="article-style">
+      
+      [PATCH] mm: introduce clear all vm events counters (Pintu Kumar) https://lkml.kernel.org/r/1614595766-7640-1-git-send-email-pintu@codeaurora.org
+Because the vmstat data is only cumulated, users should calculate the diff manually or just reboot. This commit adds a procfs file that can be used to clear all vmstat counters.
+[PATCH 0/5] Introduce a bulk order-0 page allocator with two in-tree users (Mel Gorman) https://lkml.kernel.org/r/20210301161200.18852-1-mgorman@techsingularity.net
+This patchset introduces a bulk order-0 page allocator. It also makes the sunrpc and the network page pool to use that.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.12-rc1/">LKML News v5.12-rc1</a></h2>
     <div class="article-style">
       
@@ -640,18 +652,6 @@ Another pull request from Andrew Morton for memcg scalability improvement. This 
 [PATCH 00/25] Page folios (Matthew Wilcox) https://lkml.kernel.org/r/20201216182335.27227-1-willy@infradead.org
 This is the patchset for the page folios, which Matthew proposed a few days ago and discussed via zoom.
 Do we still need skip swapcache logic in do_swap_page() for SWP_SYNCHRONOUS_IO?
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.10/">LKML News v5.10</a></h2>
-    <div class="article-style">
-      
-      [RFC V2 00/37] Enhance memory utilization with DMEMFS (Yuley Zhang) https://lkml.kernel.org/r/cover.1607332046.git.yuleixzhang@tencent.com
-This patchset aims to remove the &lsquo;struct page&rsquo; from user-sepcified region of memory and use a file system called &lsquo;dmemfs&rsquo; to minimize the memory region dedicated for &lsquo;struct page&rsquo;s.
-[PATCH] mm: don&rsquo;t SetPageWorkingset unconditionally during swapin (Yu Zhao) https://lkml.kernel.org/r/20201209012400.1771150-1-yuzhao@google.com
-Unconditional &lsquo;SetPageWorkingset&rsquo; miscategorizes read-ahead pages or pages that never belong to the working set as working set because it&rsquo;s called unconditionally.
       
     </div>
   </div>
