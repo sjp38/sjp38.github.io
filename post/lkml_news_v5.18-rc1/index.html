@@ -31,7 +31,8 @@
   <meta name="description" content="[LSF/MM TOPIC] Improving OOM debugging (Ken Overstreet) https://lkml.kernel.org/r/20220322005101.actefn6nttzeo2qr@moria.home.lan
 Ken proposes an LSF/MM slot for discussing OOM debugging situation improvement with two ideas from his side.
 incoming (Andrew Morton) https://lkml.kernel.org/r/20220322143803.04a5e59a07e48284f196a2f9@linux-foundation.org
-Andrew Morton has sent 227 patches to Linus Torvalds, as the first batch of the pull requests for v5.18. It includes DAMON patches including pid hiding and its sysfs interface, and merged.">
+Andrew Morton has sent 227 patches to Linus Torvalds, as the first batch of the pull requests for v5.18. It includes DAMON patches including pid hiding and its sysfs interface, and merged.
+[PATCH 0/2] mm: madvise: return exact bytes advised with process_madvise under error (Charan Teja Kalla) https://lkml.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/lkml_news_v5.18-rc1/">
@@ -156,7 +157,8 @@ Andrew Morton has sent 227 patches to Linus Torvalds, as the first batch of the 
   <meta property="og:description" content="[LSF/MM TOPIC] Improving OOM debugging (Ken Overstreet) https://lkml.kernel.org/r/20220322005101.actefn6nttzeo2qr@moria.home.lan
 Ken proposes an LSF/MM slot for discussing OOM debugging situation improvement with two ideas from his side.
 incoming (Andrew Morton) https://lkml.kernel.org/r/20220322143803.04a5e59a07e48284f196a2f9@linux-foundation.org
-Andrew Morton has sent 227 patches to Linus Torvalds, as the first batch of the pull requests for v5.18. It includes DAMON patches including pid hiding and its sysfs interface, and merged."><meta property="og:image" content="/img/tux.png">
+Andrew Morton has sent 227 patches to Linus Torvalds, as the first batch of the pull requests for v5.18. It includes DAMON patches including pid hiding and its sysfs interface, and merged.
+[PATCH 0/2] mm: madvise: return exact bytes advised with process_madvise under error (Charan Teja Kalla) https://lkml."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -208,7 +210,7 @@ Andrew Morton has sent 227 patches to Linus Torvalds, as the first batch of the 
       "url": "/img/icon-512.png"
     }
   },
-  "description": "[LSF/MM TOPIC] Improving OOM debugging (Ken Overstreet) https://lkml.kernel.org/r/20220322005101.actefn6nttzeo2qr@moria.home.lan\nKen proposes an LSF/MM slot for discussing OOM debugging situation improvement with two ideas from his side.\nincoming (Andrew Morton) https://lkml.kernel.org/r/20220322143803.04a5e59a07e48284f196a2f9@linux-foundation.org\nAndrew Morton has sent 227 patches to Linus Torvalds, as the first batch of the pull requests for v5.18. It includes DAMON patches including pid hiding and its sysfs interface, and merged."
+  "description": "[LSF/MM TOPIC] Improving OOM debugging (Ken Overstreet) https://lkml.kernel.org/r/20220322005101.actefn6nttzeo2qr@moria.home.lan\nKen proposes an LSF/MM slot for discussing OOM debugging situation improvement with two ideas from his side.\nincoming (Andrew Morton) https://lkml.kernel.org/r/20220322143803.04a5e59a07e48284f196a2f9@linux-foundation.org\nAndrew Morton has sent 227 patches to Linus Torvalds, as the first batch of the pull requests for v5.18. It includes DAMON patches including pid hiding and its sysfs interface, and merged.\n[PATCH 0/2] mm: madvise: return exact bytes advised with process_madvise under error (Charan Teja Kalla) https://lkml."
 }
 </script>
 
@@ -623,6 +625,15 @@ with two ideas from his side.</p>
 <p>Andrew Morton has sent 227 patches to Linus Torvalds, as the first batch of the
 pull requests for v5.18.  It includes DAMON patches including pid hiding and
 its sysfs interface, and merged.</p>
+<h2 id="patch-02-mm-madvise-return-exact-bytes-advised-with-process_madvise-under-error-charan-teja-kalla">[PATCH 0/2] mm: madvise: return exact bytes advised with process_madvise under error (Charan Teja Kalla)</h2>
+<p><a href="https://lkml.kernel.org/r/cover.1648046642.git.quic_charante@quicinc.com">https://lkml.kernel.org/r/cover.1648046642.git.quic_charante@quicinc.com</a></p>
+<p><code>process_madvise()</code> can partially success, but it doesn&rsquo;t allow users to know
+that.  As a result, the user should merely repeat the call until it&rsquo;s perfectly
+success.  This commit tries to help the situation.</p>
+<h2 id="incoming-andrew-morton-1">incoming (Andrew Morton)</h2>
+<p><a href="https://lkml.kernel.org/r/20220323160453.65922ced539cbf445b191555@linux-foundation.org">https://lkml.kernel.org/r/20220323160453.65922ced539cbf445b191555@linux-foundation.org</a></p>
+<p>41 more patches from Andrew Morton for various subsystems except mm have sent
+to Linus Torvalds.</p>
 
     </div>
 

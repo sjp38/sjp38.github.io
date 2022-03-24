@@ -26,6 +26,15 @@ with two ideas from his side.&lt;/p&gt;
 &lt;p&gt;Andrew Morton has sent 227 patches to Linus Torvalds, as the first batch of the
 pull requests for v5.18.  It includes DAMON patches including pid hiding and
 its sysfs interface, and merged.&lt;/p&gt;
+&lt;h2 id=&#34;patch-02-mm-madvise-return-exact-bytes-advised-with-process_madvise-under-error-charan-teja-kalla&#34;&gt;[PATCH 0/2] mm: madvise: return exact bytes advised with process_madvise under error (Charan Teja Kalla)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/cover.1648046642.git.quic_charante@quicinc.com&#34;&gt;https://lkml.kernel.org/r/cover.1648046642.git.quic_charante@quicinc.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;process_madvise()&lt;/code&gt; can partially success, but it doesn&amp;rsquo;t allow users to know
+that.  As a result, the user should merely repeat the call until it&amp;rsquo;s perfectly
+success.  This commit tries to help the situation.&lt;/p&gt;
+&lt;h2 id=&#34;incoming-andrew-morton-1&#34;&gt;incoming (Andrew Morton)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20220323160453.65922ced539cbf445b191555@linux-foundation.org&#34;&gt;https://lkml.kernel.org/r/20220323160453.65922ced539cbf445b191555@linux-foundation.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;41 more patches from Andrew Morton for various subsystems except mm have sent
+to Linus Torvalds.&lt;/p&gt;
 </description>
     </item>
     
