@@ -578,7 +578,7 @@ The mmotm snapshot has updated. It&rsquo;s rebased on v5."><meta property="og:im
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -645,6 +645,24 @@ the queue.</p>
 <h2 id="patch-v3-04-memcg-introduce-per-memcg-proactive-reclaim-yosry-ahmed">[PATCH v3 0/4] memcg: introduce per-memcg proactive reclaim (Yosry Ahmed)</h2>
 <p><a href="https://lkml.kernel.org/r/20220408045743.1432968-1-yosryahmed@google.com">https://lkml.kernel.org/r/20220408045743.1432968-1-yosryahmed@google.com</a></p>
 <p>This patch adds another knob for per-memcg proactive reclaim, <code>memory.reclaim</code>.</p>
+<h2 id="incoming-andrew-morton">incoming (Andrew Morton)</h2>
+<p><a href="https://lkml.kernel.org/r/20220408130819.a89195e527ce58dfbe0700b9@linux-foundation.org">https://lkml.kernel.org/r/20220408130819.a89195e527ce58dfbe0700b9@linux-foundation.org</a></p>
+<p>Andrew has sent 9 patches for fixes of various subsystems, mainly mm.</p>
+<h2 id="linux-518-rc2-linus-torvalds">Linux 5.18-rc2 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wh0+DYC2+Aeu2=vfUtGaDqVuKxKrxyhwQFoG89rcynzww@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wh0+DYC2+Aeu2=vfUtGaDqVuKxKrxyhwQFoG89rcynzww@mail.gmail.com</a></p>
+<p>As usual, the second release candidate of Linux 5.18 has out in Sunday
+afternoon.  All the things looks quite normal, or at least not odd.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.7-rc2..v5.18-rc2.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2019-11-23 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc2 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.18-rc2-only.png" alt="rc2 release stat"></p>
 
     </div>
 

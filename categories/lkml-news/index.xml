@@ -44,6 +44,24 @@ the queue.&lt;/p&gt;
 &lt;h2 id=&#34;patch-v3-04-memcg-introduce-per-memcg-proactive-reclaim-yosry-ahmed&#34;&gt;[PATCH v3 0/4] memcg: introduce per-memcg proactive reclaim (Yosry Ahmed)&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20220408045743.1432968-1-yosryahmed@google.com&#34;&gt;https://lkml.kernel.org/r/20220408045743.1432968-1-yosryahmed@google.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;This patch adds another knob for per-memcg proactive reclaim, &lt;code&gt;memory.reclaim&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;incoming-andrew-morton&#34;&gt;incoming (Andrew Morton)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20220408130819.a89195e527ce58dfbe0700b9@linux-foundation.org&#34;&gt;https://lkml.kernel.org/r/20220408130819.a89195e527ce58dfbe0700b9@linux-foundation.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Andrew has sent 9 patches for fixes of various subsystems, mainly mm.&lt;/p&gt;
+&lt;h2 id=&#34;linux-518-rc2-linus-torvalds&#34;&gt;Linux 5.18-rc2 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wh0+DYC2+Aeu2=vfUtGaDqVuKxKrxyhwQFoG89rcynzww@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wh0+DYC2+Aeu2=vfUtGaDqVuKxKrxyhwQFoG89rcynzww@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;As usual, the second release candidate of Linux 5.18 has out in Sunday
+afternoon.  All the things looks quite normal, or at least not odd.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v5.7-rc2..v5.18-rc2.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
+below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2019-11-23 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And, below is the diffstat of the -rc2 releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v5.18-rc2-only.png&#34; alt=&#34;rc2 release stat&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     
