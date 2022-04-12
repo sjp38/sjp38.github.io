@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2022-04-05T07:45:57&#43;02:00">
+    <meta property="og:updated_time" content="2022-04-12T06:42:16&#43;02:00">
   
 
   
@@ -525,6 +525,20 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.11-rc3/">LKML News v5.11-rc3</a></h2>
+    <div class="article-style">
+      
+      [PATCH] mm: vmscan: support complete shrinker reclaim (Sudarshan Rajagopalan) https://lkml.kernel.org/r/2d1f1dbb7e018ad02a9e7af36a8c86397a1598a7.1609892546.git.sudaraja@codeaurora.org
+This patch makes caches can dropped even when those are smaller than the batch size.
+[PATCH 0/6] hugetlbfs: support free page reporting (Liang Li) https://lkml.kernel.org/r/20210106034623.GA1128@open-light-1.localdomain
+Because hugetlbfs is using reserved memory, it&rsquo;s not reported by the free page reporting feature. This patch makes it able to be reported.
+Linux 5.11-rc3 (Linus Torvalds) https://lkml.kernel.org/r/CAHk-=wizR7--Ub-rasYx2S5XURkooCQ63Sat23BpvTAuN0scQA@mail.gmail.com
+The prediction of Linus for this release was wrong.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.11-rc2/">LKML News v5.11-rc2</a></h2>
     <div class="article-style">
       
@@ -639,20 +653,6 @@ The fifth version of the KFENCE.
 [PATCH -V2 0/2] autonuma: Migrate on fault among multiple bound nodes (Huang Ying) https://lkml.kernel.org/r/20201028023411.15045-1-ying.huang@intel.com
 This patch is for multiple NUMA nodes bounded application&rsquo;s AutoNUMA balancing.
 [PATCH v6 0/9] KFENCE: A low-overhead sampling-based memory safety error detector (Marco Elver) https://lkml.kernel.org/r/20201029131649.182037-1-elver@google.com
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.10-rc1/">LKML News v5.10-rc1</a></h2>
-    <div class="article-style">
-      
-      [PATCH] mm: Make allocator take care of memoryless numa node (Xianting Tian) https://lkml.kernel.org/r/20201012082739.15661-1-tian.xianting@h3c.com
-CPUs in powerpc like architecture could have no local memory. As the kernel code doesn&rsquo;t care about it, this commit makes it to handle the case.
-incoming (Andrew Morton) https://lkml.kernel.org/r/20201013164658.3bfd96cc224d8923e66a9f4e@linux-foundation.org
-This is the pull request from Andrew Morton, the mm maintainer, for v5.10.
-[PATCH v4 0/5] Speed up mremap on large regions (Kalesh Singh) https://lkml.kernel.org/r/20201014005320.2233162-1-kaleshsingh@google.com)
-Repost fo the patch series.
       
     </div>
   </div>
