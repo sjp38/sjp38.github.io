@@ -31,7 +31,8 @@
   <meta name="description" content="Re: [PATCH v10 00/14] Multi-Gen LRU Framework (Andrew Morton) https://lore.kernel.org/linux-mm/20220411191559.a844c7140faeba2e68d842b7@linux-foundation.org/
 Andrew Morton&rsquo;s overall answer to MGLRU patchset. He would merge the latest MGLRU in -mm and -next, but would request broader update to the code.
 mmotm 2022-04-12-21-05 uploaded (Andrew Morton) https://lkml.kernel.org/r/20220413040610.06AAAC385A4@smtp.kernel.org
-A snapshot of -mm has updated. It added 79 new patches, modified 24 patches, and dropped 10 patches. In total, 257 patches in the queue.">
+A snapshot of -mm has updated. It added 79 new patches, modified 24 patches, and dropped 10 patches. In total, 257 patches in the queue.
+[PATCH v2 0/5] mm: demotion: Introduce new node state N_DEMOTION_TARGETS (Jagdish Gediya) https://lkml.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/lkml_news_v5.18-rc3/">
@@ -156,7 +157,8 @@ A snapshot of -mm has updated. It added 79 new patches, modified 24 patches, and
   <meta property="og:description" content="Re: [PATCH v10 00/14] Multi-Gen LRU Framework (Andrew Morton) https://lore.kernel.org/linux-mm/20220411191559.a844c7140faeba2e68d842b7@linux-foundation.org/
 Andrew Morton&rsquo;s overall answer to MGLRU patchset. He would merge the latest MGLRU in -mm and -next, but would request broader update to the code.
 mmotm 2022-04-12-21-05 uploaded (Andrew Morton) https://lkml.kernel.org/r/20220413040610.06AAAC385A4@smtp.kernel.org
-A snapshot of -mm has updated. It added 79 new patches, modified 24 patches, and dropped 10 patches. In total, 257 patches in the queue."><meta property="og:image" content="/img/tux.png">
+A snapshot of -mm has updated. It added 79 new patches, modified 24 patches, and dropped 10 patches. In total, 257 patches in the queue.
+[PATCH v2 0/5] mm: demotion: Introduce new node state N_DEMOTION_TARGETS (Jagdish Gediya) https://lkml."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -208,7 +210,7 @@ A snapshot of -mm has updated. It added 79 new patches, modified 24 patches, and
       "url": "/img/icon-512.png"
     }
   },
-  "description": "Re: [PATCH v10 00/14] Multi-Gen LRU Framework (Andrew Morton) https://lore.kernel.org/linux-mm/20220411191559.a844c7140faeba2e68d842b7@linux-foundation.org/\nAndrew Morton\u0026rsquo;s overall answer to MGLRU patchset. He would merge the latest MGLRU in -mm and -next, but would request broader update to the code.\nmmotm 2022-04-12-21-05 uploaded (Andrew Morton) https://lkml.kernel.org/r/20220413040610.06AAAC385A4@smtp.kernel.org\nA snapshot of -mm has updated. It added 79 new patches, modified 24 patches, and dropped 10 patches. In total, 257 patches in the queue."
+  "description": "Re: [PATCH v10 00/14] Multi-Gen LRU Framework (Andrew Morton) https://lore.kernel.org/linux-mm/20220411191559.a844c7140faeba2e68d842b7@linux-foundation.org/\nAndrew Morton\u0026rsquo;s overall answer to MGLRU patchset. He would merge the latest MGLRU in -mm and -next, but would request broader update to the code.\nmmotm 2022-04-12-21-05 uploaded (Andrew Morton) https://lkml.kernel.org/r/20220413040610.06AAAC385A4@smtp.kernel.org\nA snapshot of -mm has updated. It added 79 new patches, modified 24 patches, and dropped 10 patches. In total, 257 patches in the queue.\n[PATCH v2 0/5] mm: demotion: Introduce new node state N_DEMOTION_TARGETS (Jagdish Gediya) https://lkml."
 }
 </script>
 
@@ -622,6 +624,11 @@ MGLRU in -mm and -next, but would request broader update to the code.</p>
 <p><a href="https://lkml.kernel.org/r/20220413040610.06AAAC385A4@smtp.kernel.org">https://lkml.kernel.org/r/20220413040610.06AAAC385A4@smtp.kernel.org</a></p>
 <p>A snapshot of -mm has updated.  It added 79 new patches, modified 24 patches,
 and dropped 10 patches.  In total, 257 patches in the queue.</p>
+<h2 id="patch-v2-05-mm-demotion-introduce-new-node-state-n_demotion_targets-jagdish-gediya">[PATCH v2 0/5] mm: demotion: Introduce new node state N_DEMOTION_TARGETS (Jagdish Gediya)</h2>
+<p><a href="https://lkml.kernel.org/r/20220413092206.73974-1-jvgediya@linux.ibm.com">https://lkml.kernel.org/r/20220413092206.73974-1-jvgediya@linux.ibm.com</a></p>
+<p>This patchset adds new memory node state <code>N_DEMOTION_TARGETS</code>, which indicates
+the node is for demotion.  This helps a situation where DRAM-only memory numa
+node having same node state.</p>
 
     </div>
 
