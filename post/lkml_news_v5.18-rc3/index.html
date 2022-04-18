@@ -644,6 +644,23 @@ be used for fine control and debugging of the shrinkers.</p>
 <p><a href="https://lkml.kernel.org/r/20220416053902.68517-1-dave@stgolabs.net">https://lkml.kernel.org/r/20220416053902.68517-1-dave@stgolabs.net</a></p>
 <p>Davidlohr is proposing a new LSFMM topic with an RFC patch which introducing
 another sysfs interface for memory tier information exposure to the user space.</p>
+<h2 id="linux-518-rc3-linus-torvalds">Linux 5.18-rc3 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wgBR6P8EseYMjfMjxQ_oTpoQmL0qvKpAw04kP-HBgSGFg@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wgBR6P8EseYMjfMjxQ_oTpoQmL0qvKpAw04kP-HBgSGFg@mail.gmail.com</a></p>
+<p>The third release candidate of 5.18 has prioritized to be released even on
+Easter Sunday, so we have it now.  Everything looks quite normal, though email
+changes in devicetree files and sound card probing error handling fixes are
+making the diffstat a little bit odd.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.7-rc3..v5.18-rc3.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2020-02-07 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc3 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.18-rc3-only.png" alt="rc2 release stat"></p>
 
     </div>
 
