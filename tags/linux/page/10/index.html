@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2022-04-12T06:42:16&#43;02:00">
+    <meta property="og:updated_time" content="2022-04-20T08:40:25&#43;02:00">
   
 
   
@@ -525,6 +525,20 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.8-rc3/">LKML News v5.8-rc3</a></h2>
+    <div class="article-style">
+      
+      [TECH TOPIC] restricted kernel address spaces (Mike Rapoport) https://lkml.kernel.org/r/20200621090539.GM6493@linux.ibm.com
+A new kernel summit talk proposal is made. This topic is recycled from the LSF/MM/BPF, which scheduled but canceled due to the COVID19.
+[PATCH] mm: filemap: clear idle flag for writes (Yang Shi) https://lkml.kernel.org/r/1593020612-13051-1-git-send-email-yang.shi@linux.alibaba.com
+This patch adds missed idle flag clearing in filemap writing.
++ mm-madvise-introduce-process_madvise-syscall-an-external-memory-hinting-api-fix-2.patch added to -mm tree https://marc.info/?l=linux-mm-commits&amp;m=159303823314812&amp;w=2
+The process_madvise() patch has merged in the -mm tree again.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.8-rc2/">LKML News v5.8-rc2</a></h2>
     <div class="article-style">
       
@@ -636,18 +650,6 @@ This patchset makes the compaction to be more proactively done for better THP al
       LSFMMBPF 2020 Cancellation announcement (Josef Bacik) https://lkml.kernel.org/r/0b6d3d6f-99de-3603-4b42-c3db5113633d@toxicpanda.com
 Due to the COVID-19, LSFMM, which was supposed to be help April, has delayed before, and now it has just canceled. What a shame, but this might be the right thing to do. This mail also announce the schedule of next year LSFMM. It will be held in Palm Springs, on May 12-14, 2021 at the Riviera Palm Springs.
 [PATCH 2/2] mm: support vector address ranges for process_madvise (Minchan Kim) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.7-rc2/">LKML News after v5.7-rc2</a></h2>
-    <div class="article-style">
-      
-      [RFC] autonuma: Support to scan page table asynchronously (Huang Ying) https://lkml.kernel.org/r/20200414081951.297676-1-ying.huang@intel.com
-AutoNUMA is currently scanning page tables of the processes in the process context and therefore this can increase the latency of the process. This RFC thus makes the page table scanning asynchronous if there are idle CPUs.
-[PATCH v4 00/10] Add a new mmap locking API wrapping mmap_sem calls https://lkml.kernel.org/r/20200415004353.130248-1-walken@google.com
-This is just a repost of the patch series rebased on v5.
       
     </div>
   </div>
