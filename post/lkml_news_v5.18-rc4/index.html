@@ -31,7 +31,9 @@
   <meta name="description" content="LSF/MM/BPF 2022: Running BOF (Matthew Wilcox) https://lkml.kernel.org/r/Yl7TUDtLcrhXcp1g@casper.infradead.org
 Matthew is proposing a running BOF, which would do discussions while running after a breakfast.
 mmotm 2022-04-20-17-12 uploaded (Andrew Morton) https://lkml.kernel.org/r/20220421001235.5F4E0C385A0@smtp.kernel.org
--mm tree has updated. It&rsquo;s rebased on 5.18-rc3, added 69 patches modified 126 patches, and dropped 35 patches. In total, 291 patches in the queue.">
+-mm tree has updated. It&rsquo;s rebased on 5.18-rc3, added 69 patches modified 126 patches, and dropped 35 patches. In total, 291 patches in the queue.
+[PATCH v2] mm: make minimum slab alignment a runtime property (Peter Collingbourne) https://lkml.kernel.org/r/20220421211549.3884453-1-pcc@google.com
+This makes slab alignment a runtime property and only align to 16 if KASAN is enabled at runtime.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/lkml_news_v5.18-rc4/">
@@ -156,7 +158,9 @@ mmotm 2022-04-20-17-12 uploaded (Andrew Morton) https://lkml.kernel.org/r/202204
   <meta property="og:description" content="LSF/MM/BPF 2022: Running BOF (Matthew Wilcox) https://lkml.kernel.org/r/Yl7TUDtLcrhXcp1g@casper.infradead.org
 Matthew is proposing a running BOF, which would do discussions while running after a breakfast.
 mmotm 2022-04-20-17-12 uploaded (Andrew Morton) https://lkml.kernel.org/r/20220421001235.5F4E0C385A0@smtp.kernel.org
--mm tree has updated. It&rsquo;s rebased on 5.18-rc3, added 69 patches modified 126 patches, and dropped 35 patches. In total, 291 patches in the queue."><meta property="og:image" content="/img/tux.png">
+-mm tree has updated. It&rsquo;s rebased on 5.18-rc3, added 69 patches modified 126 patches, and dropped 35 patches. In total, 291 patches in the queue.
+[PATCH v2] mm: make minimum slab alignment a runtime property (Peter Collingbourne) https://lkml.kernel.org/r/20220421211549.3884453-1-pcc@google.com
+This makes slab alignment a runtime property and only align to 16 if KASAN is enabled at runtime."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -208,7 +212,7 @@ mmotm 2022-04-20-17-12 uploaded (Andrew Morton) https://lkml.kernel.org/r/202204
       "url": "/img/icon-512.png"
     }
   },
-  "description": "LSF/MM/BPF 2022: Running BOF (Matthew Wilcox) https://lkml.kernel.org/r/Yl7TUDtLcrhXcp1g@casper.infradead.org\nMatthew is proposing a running BOF, which would do discussions while running after a breakfast.\nmmotm 2022-04-20-17-12 uploaded (Andrew Morton) https://lkml.kernel.org/r/20220421001235.5F4E0C385A0@smtp.kernel.org\n-mm tree has updated. It\u0026rsquo;s rebased on 5.18-rc3, added 69 patches modified 126 patches, and dropped 35 patches. In total, 291 patches in the queue."
+  "description": "LSF/MM/BPF 2022: Running BOF (Matthew Wilcox) https://lkml.kernel.org/r/Yl7TUDtLcrhXcp1g@casper.infradead.org\nMatthew is proposing a running BOF, which would do discussions while running after a breakfast.\nmmotm 2022-04-20-17-12 uploaded (Andrew Morton) https://lkml.kernel.org/r/20220421001235.5F4E0C385A0@smtp.kernel.org\n-mm tree has updated. It\u0026rsquo;s rebased on 5.18-rc3, added 69 patches modified 126 patches, and dropped 35 patches. In total, 291 patches in the queue.\n[PATCH v2] mm: make minimum slab alignment a runtime property (Peter Collingbourne) https://lkml.kernel.org/r/20220421211549.3884453-1-pcc@google.com\nThis makes slab alignment a runtime property and only align to 16 if KASAN is enabled at runtime."
 }
 </script>
 
@@ -622,6 +626,14 @@ after a breakfast.</p>
 <p><a href="https://lkml.kernel.org/r/20220421001235.5F4E0C385A0@smtp.kernel.org">https://lkml.kernel.org/r/20220421001235.5F4E0C385A0@smtp.kernel.org</a></p>
 <p>-mm tree has updated.  It&rsquo;s rebased on 5.18-rc3, added 69 patches modified 126
 patches, and dropped 35 patches.  In total, 291 patches in the queue.</p>
+<h2 id="patch-v2-mm-make-minimum-slab-alignment-a-runtime-property-peter-collingbourne">[PATCH v2] mm: make minimum slab alignment a runtime property (Peter Collingbourne)</h2>
+<p><a href="https://lkml.kernel.org/r/20220421211549.3884453-1-pcc@google.com">https://lkml.kernel.org/r/20220421211549.3884453-1-pcc@google.com</a></p>
+<p>This makes slab alignment a runtime property and only align to 16 if KASAN is
+enabled at runtime.</p>
+<h2 id="patch-v4-04-memcg-introduce-per-memcg-proactive-reclaim-yosry-ahmed">[PATCH v4 0/4] memcg: introduce per-memcg proactive reclaim (Yosry Ahmed)</h2>
+<p><a href="https://lkml.kernel.org/r/20220421234426.3494842-1-yosryahmed@google.com">https://lkml.kernel.org/r/20220421234426.3494842-1-yosryahmed@google.com</a></p>
+<p>This patch introduces a new memcg file, <code>memory.reclaim</code>.  The file will allow
+users request kernel to reclaim a fixed amount of pages.</p>
 
     </div>
 
