@@ -28,12 +28,15 @@
   
     
   
-  <meta name="description" content="Kernel / Hypervisor Engineer">
+  <meta name="description" content="[PATCH v5 0/4] memcg: introduce per-memcg proactive reclaim (Yosry Ahmed) https://lkml.kernel.org/r/20220425190040.2475377-1-yosryahmed@google.com
+The fifth version of the patchset for adding per-memch proactive reclamation trigger interface.
+mmotm 2022-04-25-17-59 uploaded (Andrew Morton) https://lkml.kernel.org/r/20220426005932.848CBC385A4@smtp.kernel.org
+The mmotm has updated. It has rebased on 5.18-rc4, added 62 new patches, modified 8 patches, and dropped 19 patches. In total, 334 patches in the queue.
+[PATCH -V2 0/3] memory tiering: hot page selection (Huang Ying) https://lkml.kernel.org/r/20220426085105.60822-1-ying.huang@intel.com
+This patchset adds hot pages selection to the tiered memory promotion mechanism for better performance.">
 
   
-  <link rel="alternate" hreflang="ko" href="/ko/tags/lkml/">
-  
-  <link rel="alternate" hreflang="en-us" href="/tags/lkml/">
+  <link rel="alternate" hreflang="en-us" href="/post/lkml_news_v5.18-rc5/">
 
   
 
@@ -133,14 +136,12 @@
 
 
   
-  <link rel="alternate" href="/tags/lkml/index.xml" type="application/rss+xml" title="hacklog">
-  
 
   <link rel="manifest" href="/index.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon-32.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="/tags/lkml/">
+  <link rel="canonical" href="/post/lkml_news_v5.18-rc5/">
 
   
   
@@ -152,18 +153,70 @@
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="hacklog">
-  <meta property="og:url" content="/tags/lkml/">
-  <meta property="og:title" content="lkml | hacklog">
-  <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
+  <meta property="og:url" content="/post/lkml_news_v5.18-rc5/">
+  <meta property="og:title" content="LKML News v5.18-rc5 | hacklog">
+  <meta property="og:description" content="[PATCH v5 0/4] memcg: introduce per-memcg proactive reclaim (Yosry Ahmed) https://lkml.kernel.org/r/20220425190040.2475377-1-yosryahmed@google.com
+The fifth version of the patchset for adding per-memch proactive reclamation trigger interface.
+mmotm 2022-04-25-17-59 uploaded (Andrew Morton) https://lkml.kernel.org/r/20220426005932.848CBC385A4@smtp.kernel.org
+The mmotm has updated. It has rebased on 5.18-rc4, added 62 new patches, modified 8 patches, and dropped 19 patches. In total, 334 patches in the queue.
+[PATCH -V2 0/3] memory tiering: hot page selection (Huang Ying) https://lkml.kernel.org/r/20220426085105.60822-1-ying.huang@intel.com
+This patchset adds hot pages selection to the tiered memory promotion mechanism for better performance."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2022-04-26T06:38:29-07:00">
+    
+      <meta property="article:published_time" content="2022-04-26T06:38:29-07:00">
+    
+    <meta property="article:modified_time" content="2022-04-26T06:38:29-07:00">
   
 
   
 
 
+    
 
+
+
+
+
+
+  
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/post/lkml_news_v5.18-rc5/"
+  },
+  "headline": "LKML News v5.18-rc5",
+  
+  "datePublished": "2022-04-26T06:38:29-07:00",
+  "dateModified": "2022-04-26T06:38:29-07:00",
+  
+  "author": {
+    "@type": "Person",
+    "name": "SeongJae Park"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "hacklog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/img/icon-512.png"
+    }
+  },
+  "description": "[PATCH v5 0/4] memcg: introduce per-memcg proactive reclaim (Yosry Ahmed) https://lkml.kernel.org/r/20220425190040.2475377-1-yosryahmed@google.com\nThe fifth version of the patchset for adding per-memch proactive reclamation trigger interface.\nmmotm 2022-04-25-17-59 uploaded (Andrew Morton) https://lkml.kernel.org/r/20220426005932.848CBC385A4@smtp.kernel.org\nThe mmotm has updated. It has rebased on 5.18-rc4, added 62 new patches, modified 8 patches, and dropped 19 patches. In total, 334 patches in the queue.\n[PATCH -V2 0/3] memory tiering: hot page selection (Huang Ying) https://lkml.kernel.org/r/20220426085105.60822-1-ying.huang@intel.com\nThis patchset adds hot pages selection to the tiered memory promotion mechanism for better performance."
+}
+</script>
+
+  
 
   
 
@@ -171,10 +224,13 @@
   
 
 
+  
 
 
 
-  <title>lkml | hacklog</title>
+
+
+  <title>LKML News v5.18-rc5 | hacklog</title>
 
 </head>
 
@@ -396,7 +452,7 @@
         
 
         <li class="nav-item">
-          <a class="nav-link  active" href="/tags"><span>Tags</span></a>
+          <a class="nav-link " href="/tags"><span>Tags</span></a>
         </li>
 
         
@@ -466,22 +522,6 @@
       
 
       
-      <li class="nav-item dropdown i18n-dropdown">
-        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true">
-          <i class="fas fa-globe mr-1" aria-hidden="true"></i><span class="d-none d-lg-inline">English</span>
-        </a>
-        <div class="dropdown-menu">
-          <div class="dropdown-item i18n-active font-weight-bold">
-            <span>English</span>
-          </div>
-          
-          <a class="dropdown-item" href="/ko/tags/lkml/">
-            <span>한국어</span>
-          </a>
-          
-        </div>
-      </li>
-      
 
     </ul>
 
@@ -489,188 +529,336 @@
 </nav>
 
 
-  
-
-
-
-
-
-
-
-
-
-
-
+  <article class="article">
 
   
 
+
+
+
+
+
+
+
+
+
+
+
+  
+
   
   
+  
+<div class="article-container pt-3">
+  <h1>LKML News v5.18-rc5</h1>
+
+  
+
   
     
-  
-<div class="universal-wrapper pt-3">
-  <h1>lkml</h1>
+
+
+<div class="article-metadata">
 
   
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Tue, Apr 26, 2022
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   
 </div>
 
 
 
-<div class="universal-wrapper">
-  
+  <div class="article-container">
 
-  
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.10-rc2/">LKML News v5.10-rc2</a></h2>
     <div class="article-style">
-      
-      [PATCH 0/9] More THP fixes (Matthew Wilcox) https://lkml.kernel.org/r/20201026183136.10404-1-willy@infradead.org
-Several THP fixes.
-[PATCH v5 0/9] KFENCE: A low-overhead sampling-based memory safety error detector (Marco Elver) https://lkml.kernel.org/r/20201027141606.426816-1-elver@google.com
-The fifth version of the KFENCE.
-[PATCH -V2 0/2] autonuma: Migrate on fault among multiple bound nodes (Huang Ying) https://lkml.kernel.org/r/20201028023411.15045-1-ying.huang@intel.com
-This patch is for multiple NUMA nodes bounded application&rsquo;s AutoNUMA balancing.
-[PATCH v6 0/9] KFENCE: A low-overhead sampling-based memory safety error detector (Marco Elver) https://lkml.kernel.org/r/20201029131649.182037-1-elver@google.com
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.10-rc1/">LKML News v5.10-rc1</a></h2>
-    <div class="article-style">
-      
-      [PATCH] mm: Make allocator take care of memoryless numa node (Xianting Tian) https://lkml.kernel.org/r/20201012082739.15661-1-tian.xianting@h3c.com
-CPUs in powerpc like architecture could have no local memory. As the kernel code doesn&rsquo;t care about it, this commit makes it to handle the case.
-incoming (Andrew Morton) https://lkml.kernel.org/r/20201013164658.3bfd96cc224d8923e66a9f4e@linux-foundation.org
-This is the pull request from Andrew Morton, the mm maintainer, for v5.10.
-[PATCH v4 0/5] Speed up mremap on large regions (Kalesh Singh) https://lkml.kernel.org/r/20201014005320.2233162-1-kaleshsingh@google.com)
-Repost fo the patch series.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.9/">LKML News v5.9</a></h2>
-    <div class="article-style">
-      
-      [PATCH RFC v2] Opportunistic memory reclaim (Andrea Righi) https://lkml.kernel.org/r/20201005081313.732745-1-andrea.righi@canonical.com
-This patch introduces new file under memcg, &lsquo;memory.swap.reclaim&rsquo; that allow users to incur Reclaim even before the memory pressure happens, to help reducing system memory footprint and speed up hibernation/VM migration time, etc.
-[PATCH v2 0/2] Add tracepoints around mmap_lock acquisition (Axel Rasmussen) https://lkml.kernel.org/r/20201007184403.1902111-1-axelrasmussen@google.com
-This patchset adds tracepoints for mmap_lock to use that for analysis of the contention.
-[RFC][PATCH 0/9] [v4][RESEND] Migrate Pages in lieu of discard (Dave Hansen) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.9-rc8/">LKML News v5.9-rc8</a></h2>
-    <div class="article-style">
-      
-      [RFC PATCH v2 00/30] 1GB PUD THP support on x86_64 (Zi Yan) https://lkml.kernel.org/r/20200928175428.4110504-1-zi.yan@sent.com
-This patch adds support of 1GB THP using PUD.
-[PATCH v4 00/11] KFENCE: A low-overhead sampling-based memory safety error detector (Marco Elver) https://lkml.kernel.org/r/20200929133814.2834621-1-elver@google.com
-The 4th version of the KFENCE patchset.
-[PATCH 0/5] Speed up mremap on large regions (Kalesh Singh) https://lkml.kernel.org/r/20200930222130.4175584-1-kaleshsingh@google.com
-This patchset optimizes mremap() by allowing memory regions to be able to mapped at PMD/PUD.
-[PATCH] selftests/vm: 10x speedup for hmm-tests https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.9-rc7/">LKML News v5.9-rc7</a></h2>
-    <div class="article-style">
-      
-      [PATCH v3 00/10] KFENCE: A low-overhead sampling-based memory safety error detector (Marco Elver) https://lkml.kernel.org/r/20200921132611.1700350-1-elver@google.com
-The third version of KFENCE patchset is uploaded.
-Machine lockups on extreme memory pressure (Shakeel Butt) https://lkml.kernel.org/r/CALvZod4FWLsV9byrKQojeus7tMDhHjQHFF5J_JpNsyB0HkaERA@mail.gmail.com
-Shakeel reports a machine lockup due to extreme memory pressure. It&rsquo;s locked up on memcg&rsquo;s vmpressure sr_lock, which is irq-unsafe. And the lockup made in IRQ. He proposes a solution simply changing the lock with irq-safe one, but he also admits it&rsquo;s not a maintainable solution.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.9-rc6/">LKML News v5.9-rc6</a></h2>
-    <div class="article-style">
-      
-      [PATCH v14 0/5] KASAN-KUnit Integration (David Gow) https://lkml.kernel.org/r/20200915035828.570483-1-davidgow@google.com
-The 14th patchset for the KASAN and KUnit integration. From the v13, compile warnings in test_kasan_module fixed.
-[PATCH v2 00/10] KFENCE: A low-overhead sampling-based memory safety error detector (Marco Elver) https://lkml.kernel.org/r/20200915132046.3332537-1-elver@google.com
-The second version of the KFENCE posted.
-[PATCH 1/2] fs: Add a filesystem flag for THPs (Matthew Wilcox) https://lkml.kernel.org/r/20200916032717.22917-1-willy@infradead.org
-This patchset caches whether the backing filesystem support THP or not in an address space flags, so that the page cache can determine if it can send THP to the backing filesystem or not.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.9-rc5/">LKML News v5.9-rc5</a></h2>
-    <div class="article-style">
-      
-      [PATCH RFC 00/10] KFENCE: A low-overhead sampling-based memory safety error detector (Marco Elver) https://lkml.kernel.org/r/20200907134055.2878499-1-elver@google.com
-This patchset introduces another kernel use-after-free detection infrastructure, called Kernel Electric-Fence (KFENCE). Unlike KASAN, this trades the performance for precision and as a result it incurs near zero performance overhead so that it can be enabled in the production.
-[PATCH 00/11] Remove assumptions of THP size (Matthew Wilcox) https://lkml.kernel.org/r/20200908195539.25896-1-willy@infradead.org
-Matthew is working for variable sized THP. For start of the work, this patchset changes the assumption that THP will be PMD size by introducing thp_nr_pages() and let the other VM code to use it.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.9-rc4/">LKML News v5.9-rc4</a></h2>
-    <div class="article-style">
-      
-      [PATCH v9 0/3] introduce memory hinting API for external process (Minchan Kim) https://lkml.kernel.org/r/20200901000633.1920247-1-minchan@kernel.org
-After the rejection, this patchset posted again. Linus&rsquo;s opinion about dropping the task_struct to do_madvise and Christian&rsquo;s comment regarding compat syscall entry has resolved.
-And, this patchset merged in the &lsquo;-mm&rsquo; tree again. Hopefully it will be merged in mainline by 5.10!
-[PATCH v6 0/3] Anonymous VMA naming patches (Sumit Semwal) https://lkml.kernel.org/r/20200901091901.19779-1-sumit.semwal@linaro.org
-This is reposting of old patchset which Colin Cross sent before.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.9-rc3/">LkML New v5.9-rc3</a></h2>
-    <div class="article-style">
-      
-      [RFC -V3 0/5] autonuma: Optimize memory placement for memory tiering system (Huang Ying) https://lkml.kernel.org/r/20200825002354.17038-1-ying.huang@intel.com
-The third RFC of autonuma for help placing of data items on systems utilizing both DRAM and PMEM as different NUMA nodes.
-Linux 5.9-rc3 https://lkml.kernel.org/r/CAHk-=wiD1yujm_WvWLYL7gZsWMvZyWMg1rfU7dWmnYYc3a7Gsg@mail.gmail.com
-This week rc release is also quite normal. The &lsquo;fallthought&rsquo; comment conversion made fairly evenly distributed changes. Torvalds says it was quite calm. Indeed, only one patchset got my interest this week.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.9-rc2/">LKML News v5.9-rc2</a></h2>
-    <div class="article-style">
-      
-      PROBLEM: Long Workqueue delays. (Jim Baxter) https://lkml.kernel.org/r/71aafe68-7fe0-6b77-ea8e-83edd3f16c8d@mentor.com
-Jim Baxter encountered 6.5 seconds delay due to long workqueue delay. He want to ask if this is normal or real problem.
-[RFC PATCH 0/8] memcg: Enable fine-grained per process memory control (Waiman Long) https://lkml.kernel.org/r/20200817140831.30260-1-longman@redhat.com
-The memory cgroup v2 start reclamation if the amount of the memory of the cgroup exceeds &lsquo;memory.high&rsquo; and start OOM killing if if exceeds &lsquo;memory.max&rsquo;. Problem is, the OOM killer can kill any process.
-      
-    </div>
-  </div>
-  
+      <h2 id="patch-v5-04-memcg-introduce-per-memcg-proactive-reclaim-yosry-ahmed">[PATCH v5 0/4] memcg: introduce per-memcg proactive reclaim (Yosry Ahmed)</h2>
+<p><a href="https://lkml.kernel.org/r/20220425190040.2475377-1-yosryahmed@google.com">https://lkml.kernel.org/r/20220425190040.2475377-1-yosryahmed@google.com</a></p>
+<p>The fifth version of the patchset for adding per-memch proactive reclamation
+trigger interface.</p>
+<h2 id="mmotm-2022-04-25-17-59-uploaded-andrew-morton">mmotm 2022-04-25-17-59 uploaded (Andrew Morton)</h2>
+<p><a href="https://lkml.kernel.org/r/20220426005932.848CBC385A4@smtp.kernel.org">https://lkml.kernel.org/r/20220426005932.848CBC385A4@smtp.kernel.org</a></p>
+<p>The mmotm has updated.  It has rebased on 5.18-rc4, added 62 new patches,
+modified 8 patches, and dropped 19 patches.  In total, 334 patches in the
+queue.</p>
+<h2 id="patch--v2-03-memory-tiering-hot-page-selection-huang-ying">[PATCH -V2 0/3] memory tiering: hot page selection (Huang Ying)</h2>
+<p><a href="https://lkml.kernel.org/r/20220426085105.60822-1-ying.huang@intel.com">https://lkml.kernel.org/r/20220426085105.60822-1-ying.huang@intel.com</a></p>
+<p>This patchset adds hot pages selection to the tiered memory promotion mechanism
+for better performance.</p>
 
+    </div>
+
+    
+
+
+
+
+
+<div class="article-tags">
   
-<nav>
-  <ul class="pagination justify-content-center">
+  <a class="badge badge-light" href="/tags/linux/">linux</a>
+  
+  <a class="badge badge-light" href="/tags/kernel/">kernel</a>
+  
+  <a class="badge badge-light" href="/tags/lkml/">lkml</a>
+  
+  <a class="badge badge-light" href="/tags/news/">news</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
     
-    <li class="page-item"><a class="page-link" href="/tags/lkml/page/7/">&laquo;</a></li>
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=/post/lkml_news_v5.18-rc5/&amp;text=LKML%20News%20v5.18-rc5" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
     
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=/post/lkml_news_v5.18-rc5/&amp;t=LKML%20News%20v5.18-rc5" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
     
-    <li class="page-item"><a class="page-link" href="/tags/lkml/page/9/">&raquo;</a></li>
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=LKML%20News%20v5.18-rc5&amp;body=/post/lkml_news_v5.18-rc5/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=/post/lkml_news_v5.18-rc5/&amp;title=LKML%20News%20v5.18-rc5" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=LKML%20News%20v5.18-rc5%20/post/lkml_news_v5.18-rc5/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=/post/lkml_news_v5.18-rc5/&amp;title=LKML%20News%20v5.18-rc5" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
     
   </ul>
-</nav>
-
-
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      <img class="portrait mr-3" src="https://s.gravatar.com/avatar/43dc5645c78e68fda997138380dfaaf4?s=200')" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="/">SeongJae Park</a></h5>
+      <h6 class="card-subtitle">Kernel / Hypervisor Engineer</h6>
+      <p class="card-text">SeongJae Park is a programmer who loves to analyze and develop systems.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/log/?qt=author&amp;q=seongjae&#43;park" target="_blank" rel="noopener">
+        <i class="fab fa-linux"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/sjp38" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.com/citations?user=jJIiF3AAAAAJ" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  
+  
+  <div class="article-widget content-widget-hr">
+    <h3>Related</h3>
+    <ul>
+      
+      <li><a href="/post/lkml_news_v5.18-rc4/">LKML News v5.18-rc4</a></li>
+      
+      <li><a href="/post/lkml_news_v5.18-rc3/">LKML News v5.18-rc3</a></li>
+      
+      <li><a href="/post/lkml_news_v5.18-rc2/">LKML News v5.18-rc2</a></li>
+      
+      <li><a href="/post/lkml_news_v5.18-rc1/">LKML News v5.18-rc1</a></li>
+      
+      <li><a href="/post/lkml_news_v5.17/">LKML News v5.17</a></li>
+      
+    </ul>
+  </div>
+  
+
+
+
+  </div>
+</article>
 
       
 
