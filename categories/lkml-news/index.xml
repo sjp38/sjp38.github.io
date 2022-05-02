@@ -47,6 +47,22 @@ the version that merged in mglru-maple branch of akpm&amp;rsquo;s tree.&lt;/p&gt
 &lt;h2 id=&#34;rfc-memory-tiering-kernel-interfaces-wei-xu&#34;&gt;RFC: Memory Tiering Kernel Interfaces (Wei Xu)&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAAPL-u9sVx94ACSuCVN8V0tKp+AMxiY89cro0japtyB=xNfNBw@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAAPL-u9sVx94ACSuCVN8V0tKp+AMxiY89cro0japtyB=xNfNBw@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Wei is proposing a new memory tiering interfaces and requesting comments on it.&lt;/p&gt;
+&lt;h2 id=&#34;linux-518-rc5-linus-torvalds&#34;&gt;Linux 5.18-rc5 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wjUhfhaes6_hMYDQFTbGjkmA-j2ZSeXZ32H66ufRfYrmQ@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wjUhfhaes6_hMYDQFTbGjkmA-j2ZSeXZ32H66ufRfYrmQ@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Unlike the rc4, which released last week and was tiny smaller than usual, a
+little bit larger than usual rc5 has released.  It seems it&amp;rsquo;s due to the
+smaller rc4.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v5.7-rc5..v5.18-rc5.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
+below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2020-05-02 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And, below is the diffstat of the -rc5 releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v5.18-rc5-only.png&#34; alt=&#34;rc5 release stat&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     
