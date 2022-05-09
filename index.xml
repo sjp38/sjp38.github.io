@@ -56,6 +56,25 @@ someone, this patch adds cgroup-based THP usage knob.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20220507110114.4128854-1-tongtiangen@huawei.com&#34;&gt;https://lkml.kernel.org/r/20220507110114.4128854-1-tongtiangen@huawei.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Seventh version of the patchset for making the page table check easier to
 support new architectures and add support for arm64 and risc-v.&lt;/p&gt;
+&lt;h2 id=&#34;patch-v2-mmdoc-add-new-documentation-structure-matthew-wilcox&#34;&gt;[PATCH v2] mm,doc: Add new documentation structure (Matthew Wilcox)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20220507134947.444287-1-willy@infradead.org&#34;&gt;https://lkml.kernel.org/r/20220507134947.444287-1-willy@infradead.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Second version of the patchset for making the mm documentation close to Mel
+Gorman&amp;rsquo;s book &amp;ldquo;Understanding the Linux Virtual Memory Manager&amp;rdquo; has posted.&lt;/p&gt;
+&lt;h2 id=&#34;linux-518-rc6-linus-torvalds&#34;&gt;Linux 5.18-rc6 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wi0vqZQUAS67tBsJQW+dtt89m+dqA-Z4bOs8CH-mm8u2w@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wi0vqZQUAS67tBsJQW+dtt89m+dqA-Z4bOs8CH-mm8u2w@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;5.18 merge window included more than usual large number of patches, but the
+release candidates are slightly modest, and the trend is continuing to rc6.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v5.7-rc6..v5.18-rc6.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
+below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2020-05-09 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And, below is the diffstat of the -rc6 releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v5.18-rc6-only.png&#34; alt=&#34;rc2 release stat&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -5120,7 +5139,7 @@ times faster!&lt;/p&gt;
     <item>
       <title>Opening a Showcase Website for DAMON</title>
       <link>/post/damon_github_page/</link>
-      <pubDate>Tue, 19 May 2020 06:27:47 +0000</pubDate>
+      <pubDate>Tue, 19 May 2020 06:27:47 +0200</pubDate>
       <guid>/post/damon_github_page/</guid>
       <description>&lt;p&gt;A DAMON showcase website[1] is open.
 There are&lt;/p&gt;
