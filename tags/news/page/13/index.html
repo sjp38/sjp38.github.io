@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2022-05-03T09:14:23-07:00">
+    <meta property="og:updated_time" content="2022-05-11T06:20:47&#43;02:00">
   
 
   
@@ -525,6 +525,19 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.4-rc4/">LKML News v5.4-rc4</a></h2>
+    <div class="article-style">
+      
+      [PATCH 0/8] Add Kernel Concurrency Sanitizer (KCSAN) https://lkml.kernel.org/r/20191016083959.186860-1-elver@google.com
+구글에서 만든 동시성 버그 탐색기능, KCSAN 을 추가하는 패치셋입니다. 처음 세상에 모습을 드러낸건 9월이었고, 최근 컨퍼런스들에서도 발표가 있었죠. 메커니즘은 간단하다면 간단한, 샘플링 기반입니다. 구글 내부 fuzzing tester 인 syzkaller 는 이미 이 기능을 켠채 돌아간다는군요.
+[PATCH 2/2] mm, zswap: Support THP https://lkml.kernel.org/r/1571111349-5041-2-git-send-email-teawater@gmail.com
+Zswap 이THP 를 지원하도록 수정하는 패치입니다. 그냥 zswap_frontswap_store() 함수가 THP 페이지를 연속적인 4 KiB 페이지로 인식하고 처리하게끔 했군요.
+[PATCH RFC v1 00/26] Add KernelMemorySanitizer infrastructure https://lkml.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.4-rc3/">LKML News v5.4-rc3</a></h2>
     <div class="article-style">
       
@@ -621,20 +634,6 @@ Linux 5.3-rc8 https://lkml.kernel.org/r/CAHk-=whBQ+6c-h+htiv6pp8ndtv97+45AH9WvdZ
 호스트 또는 별도 VM 에서 돌아가는 어플리케이션이 다른 VM들을 제어하거나 상태를 알아보거나 shadow 페이지 테이블을 조정하거나 특정 이벤트 발생시 알림을 받거나 할 수 있게 해주는 KVM introspection 서브시스템을 제안하는 패치입니다. 무려 92개짜리의 거대한 패치군요.
 [PATCH v4 1/5] mm/page_idle: Add per-pid idle page tracking using virtual indexing https://lkml.kernel.org/r/20190805170451.26009-1-joel@joelfernandes.org
 페이지 액세스 여부를 알아볼 수 있는 page_idle 기능을 프로세스별로 트래킹 하기 편하게 만들어 주는 패치의 네번째 버전입니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.3-rc3/">LKML News v5.3-rc3</a></h2>
-    <div class="article-style">
-      
-      [PATCH v5 00/14] Provide generic top-down mmap layout functions https://lkml.kernel.org/r/20190730055113.23635-1-alex@ghiti.fr
-아키텍쳐별로 다르게 구현되어 있던 mmap 레이아웃 함수들을 범용화 시키는 패치셋, 다섯번째 버전입니다.
-[PATCH v10 00/22] Generic page walk and ptdump https://lkml.kernel.org/r/20190731154603.41797-1-steven.price@arm.com
-역시 아키텍쳐별로 다르게 구현되어 있던 page table walk 과 page table dump 기능을 범용화 시키는 패치입니다. 벌써 10번째 버전이군요.
-[PATCH 0/3] address hugetlb page allocation stalls https://lkml.kernel.org/r/20190802223930.30971-1-mike.kravetz@oracle.com
-sysctl 이나 procfs 를 통한 hugetlb 페이지 할당은 수분이나 수시간까지도 오래 걸릴 수 있습니다.
       
     </div>
   </div>
