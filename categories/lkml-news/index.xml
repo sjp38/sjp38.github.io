@@ -26,6 +26,10 @@ mechanism.&lt;/p&gt;
 &lt;p&gt;For PTE-cont or PMD-cont size hugetlb pages, migration or unmapping of poisoned
 hugetlb pages which are using &lt;code&gt;ptep_clear_flush()&lt;/code&gt; and &lt;code&gt;set_pte_at()&lt;/code&gt; can cause
 data consistency issue.  This patchset tries to fix the issue.&lt;/p&gt;
+&lt;h2 id=&#34;patch-v4-mm-dont-be-stuck-to-rmap-lock-on-reclaim-path-minchan-kim&#34;&gt;[PATCH v4] mm: don&amp;rsquo;t be stuck to rmap lock on reclaim path (Minchan Kim)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20220510215423.164547-1-minchan@kernel.org&#34;&gt;https://lkml.kernel.org/r/20220510215423.164547-1-minchan@kernel.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This patch makes LRU aging path to do &lt;code&gt;try_lock&lt;/code&gt; so that the reclaim path
+doesn&amp;rsquo;t stuck with rmap locks but work with next LRU pages.&lt;/p&gt;
 </description>
     </item>
     
