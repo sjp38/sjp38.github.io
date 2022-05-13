@@ -574,7 +574,7 @@ For PTE-cont or PMD-cont size hugetlb pages, migration or unmapping of poisoned 
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -627,6 +627,21 @@ data consistency issue.  This patchset tries to fix the issue.</p>
 <p><a href="https://lkml.kernel.org/r/20220510215423.164547-1-minchan@kernel.org">https://lkml.kernel.org/r/20220510215423.164547-1-minchan@kernel.org</a></p>
 <p>This patch makes LRU aging path to do <code>try_lock</code> so that the reclaim path
 doesn&rsquo;t stuck with rmap locks but work with next LRU pages.</p>
+<h2 id="patch-05-v1-mm-oom-introduce-per-numa-node-oom-for-constraint_memory_policy-gang-li">[PATCH 0/5 v1] mm, oom: Introduce per numa node oom for CONSTRAINT_MEMORY_POLICY (Gang Li)</h2>
+<p><a href="https://lkml.kernel.org/r/20220512044634.63586-1-ligang.bdlg@bytedance.com">https://lkml.kernel.org/r/20220512044634.63586-1-ligang.bdlg@bytedance.com</a></p>
+<p>This patch makes OOM to select the victim to kill from specific node.</p>
+<h2 id="rfc-memory-tiering-kernel-interfaces-v2-wei-xu">RFC: Memory Tiering Kernel Interfaces (v2) (Wei Xu)</h2>
+<p><a href="https://lkml.kernel.org/r/CAAPL-u-DGLcKRVDnChN9ZhxPkfxQvz9Sb93kVoX_4J2oiJSkUw@mail.gmail.com">https://lkml.kernel.org/r/CAAPL-u-DGLcKRVDnChN9ZhxPkfxQvz9Sb93kVoX_4J2oiJSkUw@mail.gmail.com</a></p>
+<p>Seond version of the RFC for discussing kernel interface for tiered memory
+managements.</p>
+<h2 id="freeing-page-flags-matthew-wilcox">Freeing page flags (Matthew Wilcox)</h2>
+<p><a href="https://lkml.kernel.org/r/Yn10Iz1mJX1Mu1rv@casper.infradead.org">https://lkml.kernel.org/r/Yn10Iz1mJX1Mu1rv@casper.infradead.org</a></p>
+<p>There was a discussion about which page flags can be removed in the LSFMM of
+this year.  Matthew is starting a thread to more deeply discuss about that.</p>
+<h2 id="lsfmmbpf-2022-slides-and-thanks-josef-bacik">LSF/MM/BPF 2022: Slides and thanks! (Josef Bacik)</h2>
+<p><a href="https://lkml.kernel.org/r/Yn3I7KZeuJQqVFHi@localhost.localdomain">https://lkml.kernel.org/r/Yn3I7KZeuJQqVFHi@localhost.localdomain</a></p>
+<p>Josef has sent the thank you email to LSFMM attendees.  This mail also asks the
+presenters to send thier slides.</p>
 
     </div>
 
