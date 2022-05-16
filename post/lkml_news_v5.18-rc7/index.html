@@ -649,6 +649,22 @@ trustworthy source of data access pattern.</p>
 <h2 id="git-pull-hotfixes-for-518-rc7-andrew-morton">[GIT PULL] hotfixes for 5.18-rc7 (Andrew Morton)</h2>
 <p><a href="https://lkml.kernel.org/r/20220513100825.701c0801de7f18168c4d838c@linux-foundation.org">https://lkml.kernel.org/r/20220513100825.701c0801de7f18168c4d838c@linux-foundation.org</a></p>
 <p>Hotfixes for v5.18-rc7 has sent from Andrew to Linus.</p>
+<h2 id="linux-518-rc7-linus-torvalds">Linux 5.18-rc7 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wg2eVUN0a1E5UnBF1ziGaU1yrMJtnFPg4R78O=FcRDqnA@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wg2eVUN0a1E5UnBF1ziGaU1yrMJtnFPg4R78O=FcRDqnA@mail.gmail.com</a></p>
+<p>Things continue to be calm and normal, so the seventh rc for v5.18 has
+released.  Torvalds says the most exciting thing last week was that Andrew
+started using git and sent pull-request.  Andrew was using patches before.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.7-rc6..v5.18-rc7.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2020-05-16 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc7 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.18-rc7-only.png" alt="rc2 release stat"></p>
 
     </div>
 

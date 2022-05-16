@@ -52,6 +52,22 @@ trustworthy source of data access pattern.&lt;/p&gt;
 &lt;h2 id=&#34;git-pull-hotfixes-for-518-rc7-andrew-morton&#34;&gt;[GIT PULL] hotfixes for 5.18-rc7 (Andrew Morton)&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20220513100825.701c0801de7f18168c4d838c@linux-foundation.org&#34;&gt;https://lkml.kernel.org/r/20220513100825.701c0801de7f18168c4d838c@linux-foundation.org&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Hotfixes for v5.18-rc7 has sent from Andrew to Linus.&lt;/p&gt;
+&lt;h2 id=&#34;linux-518-rc7-linus-torvalds&#34;&gt;Linux 5.18-rc7 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wg2eVUN0a1E5UnBF1ziGaU1yrMJtnFPg4R78O=FcRDqnA@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wg2eVUN0a1E5UnBF1ziGaU1yrMJtnFPg4R78O=FcRDqnA@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Things continue to be calm and normal, so the seventh rc for v5.18 has
+released.  Torvalds says the most exciting thing last week was that Andrew
+started using git and sent pull-request.  Andrew was using patches before.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v5.7-rc6..v5.18-rc7.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
+below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2020-05-16 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And, below is the diffstat of the -rc7 releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v5.18-rc7-only.png&#34; alt=&#34;rc2 release stat&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     
