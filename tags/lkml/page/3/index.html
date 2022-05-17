@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2022-05-11T06:20:47&#43;02:00">
+    <meta property="og:updated_time" content="2022-05-17T07:09:37-07:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.16-rc6/">LKML News v5.16-rc6</a></h2>
+    <div class="article-style">
+      
+      [PATCH v4 00/17] Optimize list lru memory consumption (Muchun Song) https://lkml.kernel.org/r/20211213165342.74704-1-songmuchun@bytedance.com
+Muchun found 6GB of memory was consumed by kmalloc-32 slab cache on a machine having 952 super blocks. That was due to list_lru_one allocation from memcg_nr_cache_ids. This patchset aims to fix the issue. According to a simple test, this reduces memory consumption under a situation from 24GiB to 4GiB.
+mmotm 2021-12-13-21-28 uploaded (Andrew Morton) https://lkml.kernel.org/r/20211214052904.VfRYfitp0%akpm@linux-foundation.org
+Andrew Morton uploaded new mmotm.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.16-rc5/">LKML News v5.16-rc5</a></h2>
     <div class="article-style">
       
@@ -637,20 +649,6 @@ This patchset adds a pidfd handling wrapper for removing duplications.
 This huge patchset separates struct slab from struct page to make struct page simple and therefore easier to handle.
 [PATCH v3 00/66] Introducing the Maple Tree (Liam Howlett) https://lkml.kernel.org/r/20211005012959.1110504-1-Liam.Howlett@oracle.com
 This patchset introduces Maple tree, which is intended to replace the rb tree for vmas, to improve the scalability.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.15-rc4/">LKML News v5.15-rc4</a></h2>
-    <div class="article-style">
-      
-      [RFC PATCH 0/8] mm/madvise: support process_madvise(MADV_DONTNEED) (Nadav Amit) https://lkml.kernel.org/r/20210926161259.238054-1-namit@vmware.com
-This patchset makes process_madvise() to support MADV_DONTNEED hint.
-mmotm 2021-09-28-19-05 uploaded (Andrew Morton) https://lkml.kernel.org/r/20210929020604.DyNimbxao%akpm@linux-foundation.org
-The mm-of-the-moment snapshot has been updated. 13 drop, 45 add, 37 modified. 184 patches in the broken/ in total.
-[PATCH 1/2] memcg: flush stats only if updated (Shakeel Butt) https://lkml.kernel.org/r/20210930044711.2892660-1-shakeelb@google.com
-This patchset makes memcg stats updated only when needed, as it is currently flushed on every refault and reclaim iteration.
       
     </div>
   </div>
