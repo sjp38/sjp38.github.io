@@ -628,6 +628,19 @@ revised based on the comments from LSFMM.</p>
 <p><a href="https://lkml.kernel.org/r/20220518223815.809858-1-vaibhav@linux.ibm.com">https://lkml.kernel.org/r/20220518223815.809858-1-vaibhav@linux.ibm.com</a></p>
 <p>This patch extends the <code>memory.reclaim</code>, the memcg&rsquo;s proactive reclaim knob, to
 provide the statistics of the reclaimation.</p>
+<h2 id="linux-518-linus-torvalds">Linux 5.18 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wjiqyoH6qntYvYTjR1F2L-pHtgX9esZMRS13iktCOJ1zA@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wjiqyoH6qntYvYTjR1F2L-pHtgX9esZMRS13iktCOJ1zA@mail.gmail.com</a></p>
+<p>There was no surprise in last week, so the v5.18 has released as scheduled.
+This also means the merge window for v5.19 has opened.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.6..v5.17.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2020-05-23 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
 
     </div>
 

@@ -28,12 +28,11 @@
   
     
   
-  <meta name="description" content="Kernel / Hypervisor Engineer">
+  <meta name="description" content="[PATCH] arm64: enable THP_SWAP for arm64 (Barry Song) https://lkml.kernel.org/r/20220524071403.128644-1-21cnbao@gmail.com
+This patch enables THP_SWAP, which can help swap performance on systems having fast swap storages, for arm64.">
 
   
-  <link rel="alternate" hreflang="ko" href="/ko/tags/news/">
-  
-  <link rel="alternate" hreflang="en-us" href="/tags/news/">
+  <link rel="alternate" hreflang="en-us" href="/post/lkml_news_v5.19-rc1/">
 
   
 
@@ -133,14 +132,12 @@
 
 
   
-  <link rel="alternate" href="/tags/news/index.xml" type="application/rss+xml" title="hacklog">
-  
 
   <link rel="manifest" href="/index.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon-32.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="/tags/news/">
+  <link rel="canonical" href="/post/lkml_news_v5.19-rc1/">
 
   
   
@@ -152,18 +149,66 @@
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="hacklog">
-  <meta property="og:url" content="/tags/news/">
-  <meta property="og:title" content="news | hacklog">
-  <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
+  <meta property="og:url" content="/post/lkml_news_v5.19-rc1/">
+  <meta property="og:title" content="LKML News v5.19-rc1 | hacklog">
+  <meta property="og:description" content="[PATCH] arm64: enable THP_SWAP for arm64 (Barry Song) https://lkml.kernel.org/r/20220524071403.128644-1-21cnbao@gmail.com
+This patch enables THP_SWAP, which can help swap performance on systems having fast swap storages, for arm64."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2022-05-24T07:22:30-07:00">
+    
+      <meta property="article:published_time" content="2022-05-24T07:22:30-07:00">
+    
+    <meta property="article:modified_time" content="2022-05-24T07:22:30-07:00">
   
 
   
 
 
+    
 
+
+
+
+
+
+  
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/post/lkml_news_v5.19-rc1/"
+  },
+  "headline": "LKML News v5.19-rc1",
+  
+  "datePublished": "2022-05-24T07:22:30-07:00",
+  "dateModified": "2022-05-24T07:22:30-07:00",
+  
+  "author": {
+    "@type": "Person",
+    "name": "SeongJae Park"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "hacklog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/img/icon-512.png"
+    }
+  },
+  "description": "[PATCH] arm64: enable THP_SWAP for arm64 (Barry Song) https://lkml.kernel.org/r/20220524071403.128644-1-21cnbao@gmail.com\nThis patch enables THP_SWAP, which can help swap performance on systems having fast swap storages, for arm64."
+}
+</script>
+
+  
 
   
 
@@ -171,10 +216,13 @@
   
 
 
+  
 
 
 
-  <title>news | hacklog</title>
+
+
+  <title>LKML News v5.19-rc1 | hacklog</title>
 
 </head>
 
@@ -396,7 +444,7 @@
         
 
         <li class="nav-item">
-          <a class="nav-link  active" href="/tags"><span>Tags</span></a>
+          <a class="nav-link " href="/tags"><span>Tags</span></a>
         </li>
 
         
@@ -466,22 +514,6 @@
       
 
       
-      <li class="nav-item dropdown i18n-dropdown">
-        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true">
-          <i class="fas fa-globe mr-1" aria-hidden="true"></i><span class="d-none d-lg-inline">English</span>
-        </a>
-        <div class="dropdown-menu">
-          <div class="dropdown-item i18n-active font-weight-bold">
-            <span>English</span>
-          </div>
-          
-          <a class="dropdown-item" href="/ko/tags/news/">
-            <span>한국어</span>
-          </a>
-          
-        </div>
-      </li>
-      
 
     </ul>
 
@@ -489,184 +521,327 @@
 </nav>
 
 
-  
-
-
-
-
-
-
-
-
-
-
-
+  <article class="article">
 
   
 
+
+
+
+
+
+
+
+
+
+
+
+  
+
   
   
+  
+<div class="article-container pt-3">
+  <h1>LKML News v5.19-rc1</h1>
+
+  
+
   
     
-  
-<div class="universal-wrapper pt-3">
-  <h1>news</h1>
+
+
+<div class="article-metadata">
 
   
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Tue, May 24, 2022
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   
 </div>
 
 
 
-<div class="universal-wrapper">
-  
+  <div class="article-container">
 
-  
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.14-rc3/">LKML News v5.14-rc3</a></h2>
     <div class="article-style">
-      
-      [PATCH 0/7] Free user PTE page table pages (Qi Zheng) https://lkml.kernel.org/r/20210718043034.76431-1-zhengqi.arch@bytedance.com
-This patchset frees user PTE page table pages when all PTE entries are empty, to reduce the memory overhead due to page tables.
-[PATCH v15 00/17] Folio support in block + iomap layers (Matthew Wilcox) https://lkml.kernel.org/r/20210719184001.1750630-1-willy@infradead.org
-Seems memory folios patchset is now merged in -mm tree and -next tree. This patchset further updates iomap to use folios.
-Runtime Memory Validation in Intel-TDX and AMD-SNP (Joerg Roedel) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.14-rc2/">LKML News v5.14-rc2</a></h2>
-    <div class="article-style">
-      
-      [PATCH v6 0/6] Introduce multi-preference mempolicy (Feng Tang) https://lkml.kernel.org/r/1626077374-81682-1-git-send-email-feng.tang@intel.com
-Six version of the patchset that allows applications to set multiple preferred memory policy.
-[PATCH v1] madvise.2: Document MADV_POPULATE_READ and MADV_POPULATE_WRITE (David Hildenbrand) https://lkml.kernel.org/r/20210712083917.16361-1-david@redhat.com
-This patch documents the new madvise() options, MADV_POPULATE_(READ|WRITE).
-Request for folios (David Howells) https://lkml.kernel.org/r/3398985.1626104609@warthog.procyon.org.uk
-David is working for improving local filesystem&rsquo;s caching and network filesystem support library. He thinks the folio work would make his work easier, though it also makes some of his work challenging.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.14-rc1/">LKML News v5.14-rc1</a></h2>
-    <div class="article-style">
-      
-      incoming (Andrew Morton) https://lkml.kernel.org/r/20210628193256.008961950a714730751c1423@linux-foundation.org
-The first pull request from Andrew Morton for the v5.14 merge window.
-[PATCH v3 00/18] Folio conversion of memcg (Matthew Wilcox) https://lkml.kernel.org/r/20210630040034.1155892-1-willy@infradead.org
-This patchset was a part of the memory folio patchset, but has split out to individual patchset.
-incoming (Andrew Morton) https://lkml.kernel.org/r/20210630184624.9ca1937310b0dd5ce66b30e7@linux-foundation.org
-Rest of the -mm tree, which dependent on things in -next. Andrew will trickle that over next week, before the merge window is closed.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.13/">LKML News v5.13</a></h2>
-    <div class="article-style">
-      
-      [PATCH v4] mm: introduce reference pages (Peter Collingbourne) https://lkml.kernel.org/r/20210619092002.1791322-1-pcc@google.com
-This patch introduces a new syscall, refpage_create(). This system creates a file descriptor which can be mmap-ed using mmap(), which will be similar to anonymous mapping but the memory will be backed by a reference page instead of the zero page.
-[PATCH 0/3] mm/page_reporting: Make page reporting work on arm64 with 64KB page size (Gavin Shan) https://lkml.kernel.org/r/20210621051152.305224-1-gshan@redhat.com
-This patchset makes the page reporting to work on ARM with more realistic threshold, which is 2MB instead of 512MB, when the system&rsquo;s page size is 64KB.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.13-rc7/">LKML News v5.13-rc7</a></h2>
-    <div class="article-style">
-      
-      [PATCH v11 00/33] Memory folios (&ldquo;Matthew Wilcox (Oracle)&quot;) (33+ msgs) (Matthew Wilcox) https://lkml.kernel.org/r/20210614201435.1379188-1-willy@infradead.org
-Eleventh version of the memory folios patchset. It helps easier handling of head and tails of compounded pages.
-[LSF/MM TOPIC] Tiered memory accounting and management (Tim Chen) https://lkml.kernel.org/r/475cbc62-a430-2c60-34cc-72ea8baebf2c@linux.intel.com
-Another LSF/MM topic for discussion of tiered memory accounting and management, including the DRAM to PMEM demotion and PMEM to DRAM promotion.
-[REMINDER] LSF/MM/BPF: 2021: Call for Proposals (Josef Bacik) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.13-rc6/">LKML News v5.13-rc6</a></h2>
-    <div class="article-style">
-      
-      [RFC PATCH V3] zram:calculate available memory when zram is used (wangyong) https://lkml.kernel.org/r/1623080354-21453-1-git-send-email-yongw.pur@gmail.com
-This patchset adds a new entry called SwapAvailable in /proc/meminfo. It shows the memory savings when swap devices are used. If zram is used, it considers the compression ratio.
-[PATCH v3 0/9] Remove DISCONTIGMEM memory model (Mike Rapoport) https://lkml.kernel.org/r/20210608091316.3622-1-rppt@kernel.org
-This patchset removes DISCONTIGMEM memory model, finally. There are no more architectures requiring it.
-[LSF/MM/BPF TOPIC] Consolidating representations of the physical memory (Mike Rapoport) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.13-rc5/">LKML News v5.13-rc5</a></h2>
-    <div class="article-style">
-      
-      [PATCH V3 0/2] mm: compaction: proactive compaction trigger by user (Charan Teja Reddy) https://lkml.kernel.org/r/cover.1622454385.git.charante@codeaurora.org
-This patchset introduces /proc/sys/vm/compaction_proactiveness file, which can trigger proactive compaction by writing it.
-[RFC PATCH] mm/page_reporting: Adjust threshold according to MAX_ORDER (Gavin Shan) https://lkml.kernel.org/r/20210601033319.100737-1-gshan@redhat.com
-The free pages reporting feature doesn&rsquo;t allow discontiguous pages that smaller than PAGE_REPORTING_MIN_ORDER. Current setting of it makes the feature to never work on specific environment, because it is set to be equal to pageblock_order.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.13-rc4/">LKML News v5.13-rc4</a></h2>
-    <div class="article-style">
-      
-      [PATCH 0/2] arm64: remove page granularity limitation from KFENCE (Jisheng Zhang) https://lkml.kernel.org/r/20210524172433.015b3b6b@xhacker.debian
-This patchset removes the page granularity mapping requirement for the KFENCE&rsquo;s linear map, to achieve both arm64&rsquo;s block level and contiguous mapping for non-KFENCE pool pages, by allocating the KFENCE pool before paging_init().
-[PATCH v2 00/21] Optimize list lru memory consumption (Muchun Song) https://lkml.kernel.org/r/20210527062148.9361-1-songmuchun@bytedance.com
-Muchun found kmalloc-32 slab cache consuming huge memory due to cgroups initialization, and posting this patchset which expected to fix the problem fundamentally.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.13-rc3/">LKML News v5.13-rc3</a></h2>
-    <div class="article-style">
-      
-      RCU tests for Maple Tree (Paul E. McKenney) https://lkml.kernel.org/r/20210517154048.GA2013926@paulmck-ThinkPad-P17-Gen-1
-Paul is asking if there are rcu-related tests for Maple Tree other than rcu_loop() and rcu_val() that Paul needs to looking for.
-[PATCH v20 0/7] mm: introduce memfd_secret system call to create &ldquo;secret&rdquo; memory areas (Mike Rapoport) https://lkml.kernel.org/r/20210518072034.31572-1-rppt@kernel.org
-The 20th version of the patchset that implements &lsquo;secret&rsquo; mappings backed by a file descriptor.
-[PATCH v3 00/14] Multigenerational LRU Framework (Yu Zhao) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.13-rc2/">LKML News v5.13-rc2</a></h2>
-    <div class="article-style">
-      
-      [RESEND] LSF/MM/BPF: 2021: Call for Proposals (Josef Bacik) https://lkml.kernel.org/r/60997079.1c69fb81.77f3f.a045@mx.google.com/
-CFG for LSF/MM/BPF 2021 posted. It will be held from 2021-12-06 to 2021-12-08 in Palm Springs, California. As of now, it is supposed to be an in-person conference!
-[LSF/MM/BPF TOPIC] Memory folios (Matthew Wilcox) https://lkml.kernel.org/r/YJlzwcADaxO/JHRE@casper.infradead.org
-Matthew expects the memory folios patchset will be merged soon, but he wants to discuss about it in the LSFMM, if there are something to discuss more.
-      
-    </div>
-  </div>
-  
+      <h2 id="patch-arm64-enable-thp_swap-for-arm64-barry-song">[PATCH] arm64: enable THP_SWAP for arm64 (Barry Song)</h2>
+<p><a href="https://lkml.kernel.org/r/20220524071403.128644-1-21cnbao@gmail.com">https://lkml.kernel.org/r/20220524071403.128644-1-21cnbao@gmail.com</a></p>
+<p>This patch enables <code>THP_SWAP</code>, which can help swap performance on systems
+having fast swap storages, for arm64.</p>
 
+    </div>
+
+    
+
+
+
+
+
+<div class="article-tags">
   
-<nav>
-  <ul class="pagination justify-content-center">
+  <a class="badge badge-light" href="/tags/linux/">linux</a>
+  
+  <a class="badge badge-light" href="/tags/kernel/">kernel</a>
+  
+  <a class="badge badge-light" href="/tags/lkml/">lkml</a>
+  
+  <a class="badge badge-light" href="/tags/news/">news</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
     
-    <li class="page-item"><a class="page-link" href="/tags/news/page/4/">&laquo;</a></li>
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=/post/lkml_news_v5.19-rc1/&amp;text=LKML%20News%20v5.19-rc1" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
     
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=/post/lkml_news_v5.19-rc1/&amp;t=LKML%20News%20v5.19-rc1" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
     
-    <li class="page-item"><a class="page-link" href="/tags/news/page/6/">&raquo;</a></li>
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=LKML%20News%20v5.19-rc1&amp;body=/post/lkml_news_v5.19-rc1/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=/post/lkml_news_v5.19-rc1/&amp;title=LKML%20News%20v5.19-rc1" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=LKML%20News%20v5.19-rc1%20/post/lkml_news_v5.19-rc1/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=/post/lkml_news_v5.19-rc1/&amp;title=LKML%20News%20v5.19-rc1" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
     
   </ul>
-</nav>
-
-
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      <img class="portrait mr-3" src="https://s.gravatar.com/avatar/43dc5645c78e68fda997138380dfaaf4?s=200')" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="/">SeongJae Park</a></h5>
+      <h6 class="card-subtitle">Kernel / Hypervisor Engineer</h6>
+      <p class="card-text">SeongJae Park is a programmer who loves to analyze and develop systems.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/log/?qt=author&amp;q=seongjae&#43;park" target="_blank" rel="noopener">
+        <i class="fab fa-linux"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/sjp38" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.com/citations?user=jJIiF3AAAAAJ" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  
+  
+  <div class="article-widget content-widget-hr">
+    <h3>Related</h3>
+    <ul>
+      
+      <li><a href="/post/lkml_news_v5.18/">LKML News v5.18</a></li>
+      
+      <li><a href="/post/lkml_news_v5.18-rc7/">LKML News v5.18-rc7</a></li>
+      
+      <li><a href="/post/lkml_news_v5.18-rc6/">LKML News v5.18-rc6</a></li>
+      
+      <li><a href="/post/lkml_news_v5.18-rc5/">LKML News v5.18-rc5</a></li>
+      
+      <li><a href="/post/lkml_news_v5.18-rc4/">LKML News v5.18-rc4</a></li>
+      
+    </ul>
+  </div>
+  
+
+
+
+  </div>
+</article>
 
       
 
