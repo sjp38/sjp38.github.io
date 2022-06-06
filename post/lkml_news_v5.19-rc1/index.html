@@ -578,7 +578,7 @@ Second version of the THP_SWAP enablement for arm64 has posted."><meta property=
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    2 min read
+    3 min read
   </span>
   
 
@@ -673,6 +673,26 @@ the selftest hack has removed.</p>
 <p><a href="https://lkml.kernel.org/r/cover.1654271618.git.baolin.wang@linux.alibaba.com">https://lkml.kernel.org/r/cover.1654271618.git.baolin.wang@linux.alibaba.com</a></p>
 <p>This patchset introduces two new helpers for accounting PUD and kernel PTE
 pagetable pages.</p>
+<h2 id="git-pull-hotfixes-for-519-rc1-andrew-morton-1">[GIT PULL] hotfixes for 5.19-rc1 (Andrew Morton)</h2>
+<p><a href="https://lkml.kernel.org/r/20220605113808.2cf854614e3aff3790b7c49e@linux-foundation.org">https://lkml.kernel.org/r/20220605113808.2cf854614e3aff3790b7c49e@linux-foundation.org</a></p>
+<p>A few hotfixes for 5.19-rc1 has pull-requested by Andrew Morton.</p>
+<h2 id="linux-519-rc1-linus-torvalds">Linux 5.19-rc1 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wgZt-YDSKfdyES2p6A_KJoG8DwQ0mb9CeS8jZYp+0Y2Rw@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wgZt-YDSKfdyES2p6A_KJoG8DwQ0mb9CeS8jZYp+0Y2Rw@mail.gmail.com</a></p>
+<p>The two weeks of the merge window was fairly normal, though some pull requests
+were sent a little bit late.  That said, this merge window had more signed pull
+requests, and especially Andrew Morton used the git this time.  Anyway, the
+merge window has closed and the rc1 has released.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.8-rc1..v5.19-rc1.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2020-06-06 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc1 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.19-rc1-only.png" alt="rc1 release stat"></p>
 
     </div>
 
