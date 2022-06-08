@@ -5,12 +5,31 @@
     <link>/</link>
       <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <description>hacklog</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 24 May 2022 07:22:30 -0700</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 07 Jun 2022 07:26:24 -0700</lastBuildDate>
     <image>
       <url>/img/tux.png</url>
       <title>hacklog</title>
       <link>/</link>
     </image>
+    
+    <item>
+      <title>LKML News v5.19-rc2</title>
+      <link>/post/lkml_news_v5.19-rc2/</link>
+      <pubDate>Tue, 07 Jun 2022 07:26:24 -0700</pubDate>
+      <guid>/post/lkml_news_v5.19-rc2/</guid>
+      <description>&lt;h2 id=&#34;patch-v3-06-introduce-mirrored-memory-support-for-arm64-wupeng-ma&#34;&gt;[PATCH v3 0/6] introduce mirrored memory support for arm64 (Wupeng Ma)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20220607093805.1354256-1-mawupeng1@huawei.com&#34;&gt;https://lkml.kernel.org/r/20220607093805.1354256-1-mawupeng1@huawei.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This patchset adds memory mirroring support, which relies on UEFI and used to
+separate memory into two separate channels, to arm64.&lt;/p&gt;
+&lt;h2 id=&#34;patch-mm-mempolicy-nm-interleave-policy-for-tiered-memory-nodes-johannes-weiner&#34;&gt;[PATCH] mm: mempolicy: N:M interleave policy for tiered memory nodes (Johannes Weiner)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20220607171949.85796-1-hannes@cmpxchg.org&#34;&gt;https://lkml.kernel.org/r/20220607171949.85796-1-hannes@cmpxchg.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Current pages NUMA-interleaving policy is 1:1 mapping, 1 for CPU node, 1 for
+remote note.  As more types of tiered memory systems having CPU-less memory
+nodes are coming, this patchset introduces an N:M interleave policy, which N
+pages are allocated from the top-tier node while M pages are allocated from
+low-tier nodes.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>LKML News v5.19-rc1</title>

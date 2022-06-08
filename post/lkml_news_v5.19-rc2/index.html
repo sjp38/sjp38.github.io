@@ -28,12 +28,13 @@
   
     
   
-  <meta name="description" content="Kernel / Hypervisor Engineer">
+  <meta name="description" content="[PATCH v3 0/6] introduce mirrored memory support for arm64 (Wupeng Ma) https://lkml.kernel.org/r/20220607093805.1354256-1-mawupeng1@huawei.com
+This patchset adds memory mirroring support, which relies on UEFI and used to separate memory into two separate channels, to arm64.
+[PATCH] mm: mempolicy: N:M interleave policy for tiered memory nodes (Johannes Weiner) https://lkml.kernel.org/r/20220607171949.85796-1-hannes@cmpxchg.org
+Current pages NUMA-interleaving policy is 1:1 mapping, 1 for CPU node, 1 for remote note. As more types of tiered memory systems having CPU-less memory nodes are coming, this patchset introduces an N:M interleave policy, which N pages are allocated from the top-tier node while M pages are allocated from low-tier nodes.">
 
   
-  <link rel="alternate" hreflang="ko" href="/ko/tags/lkml/">
-  
-  <link rel="alternate" hreflang="en-us" href="/tags/lkml/">
+  <link rel="alternate" hreflang="en-us" href="/post/lkml_news_v5.19-rc2/">
 
   
 
@@ -133,14 +134,12 @@
 
 
   
-  <link rel="alternate" href="/tags/lkml/index.xml" type="application/rss+xml" title="hacklog">
-  
 
   <link rel="manifest" href="/index.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon-32.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="/tags/lkml/">
+  <link rel="canonical" href="/post/lkml_news_v5.19-rc2/">
 
   
   
@@ -152,18 +151,68 @@
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="hacklog">
-  <meta property="og:url" content="/tags/lkml/">
-  <meta property="og:title" content="lkml | hacklog">
-  <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
+  <meta property="og:url" content="/post/lkml_news_v5.19-rc2/">
+  <meta property="og:title" content="LKML News v5.19-rc2 | hacklog">
+  <meta property="og:description" content="[PATCH v3 0/6] introduce mirrored memory support for arm64 (Wupeng Ma) https://lkml.kernel.org/r/20220607093805.1354256-1-mawupeng1@huawei.com
+This patchset adds memory mirroring support, which relies on UEFI and used to separate memory into two separate channels, to arm64.
+[PATCH] mm: mempolicy: N:M interleave policy for tiered memory nodes (Johannes Weiner) https://lkml.kernel.org/r/20220607171949.85796-1-hannes@cmpxchg.org
+Current pages NUMA-interleaving policy is 1:1 mapping, 1 for CPU node, 1 for remote note. As more types of tiered memory systems having CPU-less memory nodes are coming, this patchset introduces an N:M interleave policy, which N pages are allocated from the top-tier node while M pages are allocated from low-tier nodes."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2022-06-07T07:26:24-07:00">
+    
+      <meta property="article:published_time" content="2022-06-07T07:26:24-07:00">
+    
+    <meta property="article:modified_time" content="2022-06-07T07:26:24-07:00">
   
 
   
 
 
+    
 
+
+
+
+
+
+  
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/post/lkml_news_v5.19-rc2/"
+  },
+  "headline": "LKML News v5.19-rc2",
+  
+  "datePublished": "2022-06-07T07:26:24-07:00",
+  "dateModified": "2022-06-07T07:26:24-07:00",
+  
+  "author": {
+    "@type": "Person",
+    "name": "SeongJae Park"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "hacklog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/img/icon-512.png"
+    }
+  },
+  "description": "[PATCH v3 0/6] introduce mirrored memory support for arm64 (Wupeng Ma) https://lkml.kernel.org/r/20220607093805.1354256-1-mawupeng1@huawei.com\nThis patchset adds memory mirroring support, which relies on UEFI and used to separate memory into two separate channels, to arm64.\n[PATCH] mm: mempolicy: N:M interleave policy for tiered memory nodes (Johannes Weiner) https://lkml.kernel.org/r/20220607171949.85796-1-hannes@cmpxchg.org\nCurrent pages NUMA-interleaving policy is 1:1 mapping, 1 for CPU node, 1 for remote note. As more types of tiered memory systems having CPU-less memory nodes are coming, this patchset introduces an N:M interleave policy, which N pages are allocated from the top-tier node while M pages are allocated from low-tier nodes."
+}
+</script>
+
+  
 
   
 
@@ -171,10 +220,13 @@
   
 
 
+  
 
 
 
-  <title>lkml | hacklog</title>
+
+
+  <title>LKML News v5.19-rc2 | hacklog</title>
 
 </head>
 
@@ -396,7 +448,7 @@
         
 
         <li class="nav-item">
-          <a class="nav-link  active" href="/tags"><span>Tags</span></a>
+          <a class="nav-link " href="/tags"><span>Tags</span></a>
         </li>
 
         
@@ -466,22 +518,6 @@
       
 
       
-      <li class="nav-item dropdown i18n-dropdown">
-        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true">
-          <i class="fas fa-globe mr-1" aria-hidden="true"></i><span class="d-none d-lg-inline">English</span>
-        </a>
-        <div class="dropdown-menu">
-          <div class="dropdown-item i18n-active font-weight-bold">
-            <span>English</span>
-          </div>
-          
-          <a class="dropdown-item" href="/ko/tags/lkml/">
-            <span>한국어</span>
-          </a>
-          
-        </div>
-      </li>
-      
 
     </ul>
 
@@ -489,181 +525,334 @@
 </nav>
 
 
-  
-
-
-
-
-
-
-
-
-
-
-
+  <article class="article">
 
   
 
+
+
+
+
+
+
+
+
+
+
+
+  
+
   
   
+  
+<div class="article-container pt-3">
+  <h1>LKML News v5.19-rc2</h1>
+
+  
+
   
     
-  
-<div class="universal-wrapper pt-3">
-  <h1>lkml</h1>
+
+
+<div class="article-metadata">
 
   
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Tue, Jun 7, 2022
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   
 </div>
 
 
 
-<div class="universal-wrapper">
-  
+  <div class="article-container">
 
-  
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.8-rc4/">LKML News v5.8-rc4</a></h2>
     <div class="article-style">
-      
-      [Ksummit-discuss] [TECH TOPIC] Inline Encryption Support and new related features (Satya Tangirala) https://lkml.kernel.org/r/20200629092551.GA673684@google.com
-Maybe the last kernel summit proposal. The inline encryption work was presented in the last year LPC and a part of it has merged in the v5.8, being tested in Android. The talk will discuss the todo list of the work.
-[PATCH] mm: define pte_add_end for consistency (Wei Yang) https://lkml.kernel.org/r/20200630031852.45383-1-richard.weiyang@linux.alibaba.com
-This patch adds a helper to get the address of the next boundary for pte level.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.8-rc3/">LKML News v5.8-rc3</a></h2>
-    <div class="article-style">
-      
-      [TECH TOPIC] restricted kernel address spaces (Mike Rapoport) https://lkml.kernel.org/r/20200621090539.GM6493@linux.ibm.com
-A new kernel summit talk proposal is made. This topic is recycled from the LSF/MM/BPF, which scheduled but canceled due to the COVID19.
-[PATCH] mm: filemap: clear idle flag for writes (Yang Shi) https://lkml.kernel.org/r/1593020612-13051-1-git-send-email-yang.shi@linux.alibaba.com
-This patch adds missed idle flag clearing in filemap writing.
-+ mm-madvise-introduce-process_madvise-syscall-an-external-memory-hinting-api-fix-2.patch added to -mm tree https://marc.info/?l=linux-mm-commits&amp;m=159303823314812&amp;w=2
-The process_madvise() patch has merged in the -mm tree again.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.8-rc2/">LKML News v5.8-rc2</a></h2>
-    <div class="article-style">
-      
-      [PATCH v7] mm: Proactive compaction (Nitin Gupta) https://lkml.kernel.org/r/20200615143614.15267-1-nigupta@nvidia.com
-7th version of the proactive compaction patchset. This version fixes compile error while THP is disabled.
-Maintainers / Kernel Summit 2020 submissions (Theodore Y. Ts&rsquo;o) https://lkml.kernel.org/r/20200615155839.GF2863913@mit.edu
-There were only 5 submissions for the kernel summit talk, and no submission for the maintainers summit. Ted asks people to submit until this week.
-[PATCH v6 0/6] workingset protection/detection on the anonymous LRU list https://lkml.kernel.org/r/1592371583-30672-1-git-send-email-iamjoonsoo.kim@lge.com
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.8-rc1/">LKML News v5.8-rc1</a></h2>
-    <div class="article-style">
-      
-      [PATCH v6] mm: Proactive compaction (Nitin Gupta) https://lkml.kernel.org/r/20200601194822.30252-1-nigupta@nvidia.com
-This is the sixth version of the proactive compaction patchset. It makes compaction to be able to triggered earlier than final memory pressure using knobs. The goal is better THP allocation success.
-[PATCH] vmalloc: Convert to XArray (Matthew Wilcox) https://lkml.kernel.org/r/20200603171448.5894-1-willy@infradead.org
-This patchset converts the radix tree for vmap blocks into XArray.
-incoming (Andrew Morton) https://lkml.kernel.org/r/20200608212922.5b7fa74ca3f4e2444441b7f9@linux-foundation.org
-MM-side pull request. It contains the &ldquo;mmap locking API: initial implementation as rwsem wrappers&rdquo; patchset.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.7/">LKML News v5.7</a></h2>
-    <div class="article-style">
-      
-      [PATCH v2 00/16] Introduce kvfree_rcu(1 or 2 arguments) (Uladzislau Rezki) https://lkml.kernel.org/r/20200525214800.93072-1-urezki@gmail.com
-This is the second version of the rcu-protected kvfree().
-[PATCH v2 0/7] Add histogram measuring mmap_lock contention latency (Axel Rasmussen) https://lkml.kernel.org/r/20200528235238.74233-1-axelrasmussen@google.com
-For further analysis of the mmap_sem overhead from both kernel space and user space, this commit adds the latency historgram for mmap_sem acquisition time. Actually, mmap_sem is now renamed into mmap_lock, thanks to Michel&rsquo;s patch.
-[PATCH -V4] swap: Reduce lock contention on swap cache from swap slots allocation (Huang, Ying) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.7-rc7/">LKML News v5.7-rc7</a></h2>
-    <div class="article-style">
-      
-      [PATCH v5] mm: Proactive compaction (Nitin Gupta) https://lkml.kernel.org/r/20200518181446.25759-1-nigupta@nvidia.com
-The 5th version of the proactive compaction. This patchset make the compaction more proactive to make THP allocation easily success.
-[PATCH -V2] swap: Reduce lock contention on swap cache from swap slots allocation (Huang Ying) https://lkml.kernel.org/r/20200520031502.175659-1-ying.huang@intel.com
-After swap device is fragmented, there&rsquo;s no free swap cluster. Therefore, each swap logic of each CPU will linearly scan each swap cluster to find a free slot.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.7-rc6/">LKML News v5.7-rc6</a></h2>
-    <div class="article-style">
-      
-      [PATCH v4 00/36] Large pages in the page cache (Matthew Wilcox) https://lkml.kernel.org/r/20200515131656.12890-1-willy@infradead.org
-This is the fourth version of the patchset for the huge pages in the page cache. Still it fails xfstests.
-Maintainers / Kernel Summit 2020 planning kick-off (Theodore Y. Ts&rsquo;o) https://lkml.kernel.org/r/20200515163956.GA2158595@mit.edu
-Ted annouced that the Maintainers / Kernel Summit will be held in virtual this year, of course due to the COVID19. With this announcement, the CFP for the kernel summit is also opened.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.7-rc5/">LKML News v5.7-rc5</a></h2>
-    <div class="article-style">
-      
-      [RFC 00/43] PKRAM: Preserved-over-Kexec RAM (Anthony Yznaga) https://lkml.kernel.org/r/1588812129-8596-1-git-send-email-anthony.yznaga@oracle.com
-This patchset introduces special memory called PKRAM. It can be used to preserve VM guest memory across kexec boot for fast restart (VMM Fast Restart). Compared to DRAM based PMEM simulation, PKRAM is more flexible as the memory size is not need to be previously fixed.
-[PATCH] mm: Replace zero-length array with flexible-array (Gustavo A. R. Silva) https://lkml.kernel.org/r/20200507185942.GA15193@embeddedor
-The zero-length array of C90 are widely used in the kernel code base, but the flexible array member of C99 would be better choice.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.7-rc4/">LKML News v5.7-rc4</a></h2>
-    <div class="article-style">
-      
-      [PATCH 0/7] Record the mm_struct in the page table pages (Matthew Wilcox) https://lkml.kernel.org/r/20200428194449.22615-1-willy@infradead.org
-Literally, this patchset adds the mm_struct pointer to struct page if it is used for page tables. This will be useful for several cases usch as uncorrectable errors handling and task-page table relation checking, etc.
-[PATCH v4] mm: Proactive compaction (Nitin Gupta) https://lkml.kernel.org/r/20200428221055.598-1-nigupta@nvidia.com
-This patchset makes the compaction to be more proactively done for better THP allocation success and makes user to be able to control the proactiveness using a sysfs file, /sys/kernel/mm/compaction/proactiveness.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.7-rc3/">LKML News v5.7-rc3</a></h2>
-    <div class="article-style">
-      
-      LSFMMBPF 2020 Cancellation announcement (Josef Bacik) https://lkml.kernel.org/r/0b6d3d6f-99de-3603-4b42-c3db5113633d@toxicpanda.com
-Due to the COVID-19, LSFMM, which was supposed to be help April, has delayed before, and now it has just canceled. What a shame, but this might be the right thing to do. This mail also announce the schedule of next year LSFMM. It will be held in Palm Springs, on May 12-14, 2021 at the Riviera Palm Springs.
-[PATCH 2/2] mm: support vector address ranges for process_madvise (Minchan Kim) https://lkml.
-      
-    </div>
-  </div>
-  
+      <h2 id="patch-v3-06-introduce-mirrored-memory-support-for-arm64-wupeng-ma">[PATCH v3 0/6] introduce mirrored memory support for arm64 (Wupeng Ma)</h2>
+<p><a href="https://lkml.kernel.org/r/20220607093805.1354256-1-mawupeng1@huawei.com">https://lkml.kernel.org/r/20220607093805.1354256-1-mawupeng1@huawei.com</a></p>
+<p>This patchset adds memory mirroring support, which relies on UEFI and used to
+separate memory into two separate channels, to arm64.</p>
+<h2 id="patch-mm-mempolicy-nm-interleave-policy-for-tiered-memory-nodes-johannes-weiner">[PATCH] mm: mempolicy: N:M interleave policy for tiered memory nodes (Johannes Weiner)</h2>
+<p><a href="https://lkml.kernel.org/r/20220607171949.85796-1-hannes@cmpxchg.org">https://lkml.kernel.org/r/20220607171949.85796-1-hannes@cmpxchg.org</a></p>
+<p>Current pages NUMA-interleaving policy is 1:1 mapping, 1 for CPU node, 1 for
+remote note.  As more types of tiered memory systems having CPU-less memory
+nodes are coming, this patchset introduces an N:M interleave policy, which N
+pages are allocated from the top-tier node while M pages are allocated from
+low-tier nodes.</p>
 
+    </div>
+
+    
+
+
+
+
+
+<div class="article-tags">
   
-<nav>
-  <ul class="pagination justify-content-center">
+  <a class="badge badge-light" href="/tags/linux/">linux</a>
+  
+  <a class="badge badge-light" href="/tags/kernel/">kernel</a>
+  
+  <a class="badge badge-light" href="/tags/lkml/">lkml</a>
+  
+  <a class="badge badge-light" href="/tags/news/">news</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
     
-    <li class="page-item"><a class="page-link" href="/tags/lkml/page/9/">&laquo;</a></li>
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=/post/lkml_news_v5.19-rc2/&amp;text=LKML%20News%20v5.19-rc2" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
     
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=/post/lkml_news_v5.19-rc2/&amp;t=LKML%20News%20v5.19-rc2" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
     
-    <li class="page-item"><a class="page-link" href="/tags/lkml/page/11/">&raquo;</a></li>
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=LKML%20News%20v5.19-rc2&amp;body=/post/lkml_news_v5.19-rc2/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=/post/lkml_news_v5.19-rc2/&amp;title=LKML%20News%20v5.19-rc2" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=LKML%20News%20v5.19-rc2%20/post/lkml_news_v5.19-rc2/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=/post/lkml_news_v5.19-rc2/&amp;title=LKML%20News%20v5.19-rc2" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
     
   </ul>
-</nav>
-
-
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      <img class="portrait mr-3" src="https://s.gravatar.com/avatar/43dc5645c78e68fda997138380dfaaf4?s=200')" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="/">SeongJae Park</a></h5>
+      <h6 class="card-subtitle">Kernel / Hypervisor Engineer</h6>
+      <p class="card-text">SeongJae Park is a programmer who loves to analyze and develop systems.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/log/?qt=author&amp;q=seongjae&#43;park" target="_blank" rel="noopener">
+        <i class="fab fa-linux"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/sjp38" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.com/citations?user=jJIiF3AAAAAJ" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  
+  
+  <div class="article-widget content-widget-hr">
+    <h3>Related</h3>
+    <ul>
+      
+      <li><a href="/post/lkml_news_v5.19-rc1/">LKML News v5.19-rc1</a></li>
+      
+      <li><a href="/post/lkml_news_v5.18/">LKML News v5.18</a></li>
+      
+      <li><a href="/post/lkml_news_v5.18-rc7/">LKML News v5.18-rc7</a></li>
+      
+      <li><a href="/post/lkml_news_v5.18-rc6/">LKML News v5.18-rc6</a></li>
+      
+      <li><a href="/post/lkml_news_v5.18-rc5/">LKML News v5.18-rc5</a></li>
+      
+    </ul>
+  </div>
+  
+
+
+
+  </div>
+</article>
 
       
 
