@@ -625,6 +625,10 @@ remote note.  As more types of tiered memory systems having CPU-less memory
 nodes are coming, this patchset introduces an N:M interleave policy, which N
 pages are allocated from the top-tier node while M pages are allocated from
 low-tier nodes.</p>
+<h2 id="patch-v2-mmvmscan-dont-try-to-reclaim-freed-folios-miaohe-lin">[PATCH v2] mm/vmscan: don&rsquo;t try to reclaim freed folios (Miaohe Lin)</h2>
+<p><a href="https://lkml.kernel.org/r/20220608141432.23258-1-linmiaohe@huawei.com">https://lkml.kernel.org/r/20220608141432.23258-1-linmiaohe@huawei.com</a></p>
+<p>This patchset avoids reclaiming already freed folios for saving CPU cycles and
+disk I/O.</p>
 
     </div>
 
