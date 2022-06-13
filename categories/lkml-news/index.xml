@@ -37,6 +37,29 @@ disk I/O.&lt;/p&gt;
 &lt;p&gt;Sixth version of the patchset for improving memory tier hierarchy
 construction&amp;rsquo;s flexibility.  This makes the creation of memory tiers explicit
 under the control of the user space or device drivers.&lt;/p&gt;
+&lt;h2 id=&#34;patch-02-introduce-caba-helper-process-tree-pavel-tikhomirov&#34;&gt;[PATCH 0/2] Introduce CABA helper process tree (Pavel Tikhomirov)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20220610163214.49974-1-ptikhomirov@virtuozzo.com&#34;&gt;https://lkml.kernel.org/r/20220610163214.49974-1-ptikhomirov@virtuozzo.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This patchset adds CABA tree to &lt;code&gt;task_struct&lt;/code&gt;.  Main usage would be CRIU,
+though the author of the patchset says it&amp;rsquo;s not the only usage.&lt;/p&gt;
+&lt;h2 id=&#34;patch-v4-06-introduce-mirrored-memory-support-for-arm64-wupeng-ma&#34;&gt;[PATCH v4 0/6] introduce mirrored memory support for arm64 (Wupeng Ma)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20220613082147.183145-1-mawupeng1@huawei.com&#34;&gt;https://lkml.kernel.org/r/20220613082147.183145-1-mawupeng1@huawei.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Fourth version of the patchset for supporint mirrored memory of arm64.&lt;/p&gt;
+&lt;h2 id=&#34;linux-519-rc2-linus-torvalds&#34;&gt;Linux 5.19-rc2 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wiLDbZ9ch9vSLxrYBdr-bBujr5sehH_HszWzSah54UiQw@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wiLDbZ9ch9vSLxrYBdr-bBujr5sehH_HszWzSah54UiQw@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The second release candidate of Linux 5.19 has released.  There is nothing
+unusual.  One thing to note is that Torvalds has updated his system and
+encountered some issues with gcc update.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v5.8-rc2..v5.19-rc2.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
+below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2020-06-13 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And, below is the diffstat of the -rc2 releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v5.19-rc2-only.png&#34; alt=&#34;rc2 release stat&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     
