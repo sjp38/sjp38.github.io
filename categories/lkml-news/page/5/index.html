@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2022-06-07T07:26:24-07:00">
+    <meta property="og:updated_time" content="2022-06-14T07:06:16-07:00">
   
 
   
@@ -525,6 +525,19 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.14-rc5/">LKML News v5.14-rc5</a></h2>
+    <div class="article-style">
+      
+      [PATCH 0/3] mm: optimize thp for reclaim and migration (Yu Zhao) https://lkml.kernel.org/r/20210731063938.1391602-1-yuzhao@google.com
+This patchset drops subpages of THPs which contain only zero contents when splitting those, to reduce memory pressure overheads due to THP internal fragmentations.
+[PATCH v4 1/2] mm: introduce process_mrelease system call (Suren Baghdasaryan) https://lkml.kernel.org/r/20210802221431.2251210-1-surenb@google.com
+This patchset introduces a new system call, namely process_mrelease(). It can be used to quickly release memory of a process.
+[PATCH v7 0/5] Introduce multi-preference mempolicy (Feng Tang) https://lkml.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.14-rc4/">LKML News v5.14-rc4</a></h2>
     <div class="article-style">
       
@@ -639,19 +652,6 @@ The free pages reporting feature doesn&rsquo;t allow discontiguous pages that sm
 This patchset removes the page granularity mapping requirement for the KFENCE&rsquo;s linear map, to achieve both arm64&rsquo;s block level and contiguous mapping for non-KFENCE pool pages, by allocating the KFENCE pool before paging_init().
 [PATCH v2 00/21] Optimize list lru memory consumption (Muchun Song) https://lkml.kernel.org/r/20210527062148.9361-1-songmuchun@bytedance.com
 Muchun found kmalloc-32 slab cache consuming huge memory due to cgroups initialization, and posting this patchset which expected to fix the problem fundamentally.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.13-rc3/">LKML News v5.13-rc3</a></h2>
-    <div class="article-style">
-      
-      RCU tests for Maple Tree (Paul E. McKenney) https://lkml.kernel.org/r/20210517154048.GA2013926@paulmck-ThinkPad-P17-Gen-1
-Paul is asking if there are rcu-related tests for Maple Tree other than rcu_loop() and rcu_val() that Paul needs to looking for.
-[PATCH v20 0/7] mm: introduce memfd_secret system call to create &ldquo;secret&rdquo; memory areas (Mike Rapoport) https://lkml.kernel.org/r/20210518072034.31572-1-rppt@kernel.org
-The 20th version of the patchset that implements &lsquo;secret&rsquo; mappings backed by a file descriptor.
-[PATCH v3 00/14] Multigenerational LRU Framework (Yu Zhao) https://lkml.
       
     </div>
   </div>
