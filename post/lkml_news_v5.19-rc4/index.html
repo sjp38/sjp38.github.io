@@ -28,12 +28,11 @@
   
     
   
-  <meta name="description" content="Kernel / Hypervisor Engineer">
+  <meta name="description" content="[PATCH Part2 v6 00/49] Add AMD Secure Nested Paging (SEV-SNP) (Ashsh Kalra) https://lkml.kernel.org/r/cover.1655761627.git.ashish.kalra@amd.com
+This is second part patchset of Secure Encrypted Paging (SEV-SNP) work, which focuses on the changes required in a host OS for the feature support.">
 
   
-  <link rel="alternate" hreflang="ko" href="/ko/tags/lkml/">
-  
-  <link rel="alternate" hreflang="en-us" href="/tags/lkml/">
+  <link rel="alternate" hreflang="en-us" href="/post/lkml_news_v5.19-rc4/">
 
   
 
@@ -133,14 +132,12 @@
 
 
   
-  <link rel="alternate" href="/tags/lkml/index.xml" type="application/rss+xml" title="hacklog">
-  
 
   <link rel="manifest" href="/index.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon-32.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="/tags/lkml/">
+  <link rel="canonical" href="/post/lkml_news_v5.19-rc4/">
 
   
   
@@ -152,18 +149,66 @@
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="hacklog">
-  <meta property="og:url" content="/tags/lkml/">
-  <meta property="og:title" content="lkml | hacklog">
-  <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
+  <meta property="og:url" content="/post/lkml_news_v5.19-rc4/">
+  <meta property="og:title" content="LKML News v5.19-rc4 | hacklog">
+  <meta property="og:description" content="[PATCH Part2 v6 00/49] Add AMD Secure Nested Paging (SEV-SNP) (Ashsh Kalra) https://lkml.kernel.org/r/cover.1655761627.git.ashish.kalra@amd.com
+This is second part patchset of Secure Encrypted Paging (SEV-SNP) work, which focuses on the changes required in a host OS for the feature support."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2022-06-21T07:12:43-07:00">
+    
+      <meta property="article:published_time" content="2022-06-21T07:12:43-07:00">
+    
+    <meta property="article:modified_time" content="2022-06-21T07:12:43-07:00">
   
 
   
 
 
+    
 
+
+
+
+
+
+  
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/post/lkml_news_v5.19-rc4/"
+  },
+  "headline": "LKML News v5.19-rc4",
+  
+  "datePublished": "2022-06-21T07:12:43-07:00",
+  "dateModified": "2022-06-21T07:12:43-07:00",
+  
+  "author": {
+    "@type": "Person",
+    "name": "SeongJae Park"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "hacklog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/img/icon-512.png"
+    }
+  },
+  "description": "[PATCH Part2 v6 00/49] Add AMD Secure Nested Paging (SEV-SNP) (Ashsh Kalra) https://lkml.kernel.org/r/cover.1655761627.git.ashish.kalra@amd.com\nThis is second part patchset of Secure Encrypted Paging (SEV-SNP) work, which focuses on the changes required in a host OS for the feature support."
+}
+</script>
+
+  
 
   
 
@@ -171,10 +216,13 @@
   
 
 
+  
 
 
 
-  <title>lkml | hacklog</title>
+
+
+  <title>LKML News v5.19-rc4 | hacklog</title>
 
 </head>
 
@@ -396,7 +444,7 @@
         
 
         <li class="nav-item">
-          <a class="nav-link  active" href="/tags"><span>Tags</span></a>
+          <a class="nav-link " href="/tags"><span>Tags</span></a>
         </li>
 
         
@@ -466,22 +514,6 @@
       
 
       
-      <li class="nav-item dropdown i18n-dropdown">
-        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true">
-          <i class="fas fa-globe mr-1" aria-hidden="true"></i><span class="d-none d-lg-inline">English</span>
-        </a>
-        <div class="dropdown-menu">
-          <div class="dropdown-item i18n-active font-weight-bold">
-            <span>English</span>
-          </div>
-          
-          <a class="dropdown-item" href="/ko/tags/lkml/">
-            <span>한국어</span>
-          </a>
-          
-        </div>
-      </li>
-      
 
     </ul>
 
@@ -489,182 +521,327 @@
 </nav>
 
 
-  
-
-
-
-
-
-
-
-
-
-
-
+  <article class="article">
 
   
 
+
+
+
+
+
+
+
+
+
+
+
+  
+
   
   
+  
+<div class="article-container pt-3">
+  <h1>LKML News v5.19-rc4</h1>
+
+  
+
   
     
-  
-<div class="universal-wrapper pt-3">
-  <h1>lkml</h1>
+
+
+<div class="article-metadata">
 
   
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Tue, Jun 21, 2022
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   
 </div>
 
 
 
-<div class="universal-wrapper">
-  
+  <div class="article-container">
 
-  
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.9-rc8/">LKML News v5.9-rc8</a></h2>
     <div class="article-style">
-      
-      [RFC PATCH v2 00/30] 1GB PUD THP support on x86_64 (Zi Yan) https://lkml.kernel.org/r/20200928175428.4110504-1-zi.yan@sent.com
-This patch adds support of 1GB THP using PUD.
-[PATCH v4 00/11] KFENCE: A low-overhead sampling-based memory safety error detector (Marco Elver) https://lkml.kernel.org/r/20200929133814.2834621-1-elver@google.com
-The 4th version of the KFENCE patchset.
-[PATCH 0/5] Speed up mremap on large regions (Kalesh Singh) https://lkml.kernel.org/r/20200930222130.4175584-1-kaleshsingh@google.com
-This patchset optimizes mremap() by allowing memory regions to be able to mapped at PMD/PUD.
-[PATCH] selftests/vm: 10x speedup for hmm-tests https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.9-rc7/">LKML News v5.9-rc7</a></h2>
-    <div class="article-style">
-      
-      [PATCH v3 00/10] KFENCE: A low-overhead sampling-based memory safety error detector (Marco Elver) https://lkml.kernel.org/r/20200921132611.1700350-1-elver@google.com
-The third version of KFENCE patchset is uploaded.
-Machine lockups on extreme memory pressure (Shakeel Butt) https://lkml.kernel.org/r/CALvZod4FWLsV9byrKQojeus7tMDhHjQHFF5J_JpNsyB0HkaERA@mail.gmail.com
-Shakeel reports a machine lockup due to extreme memory pressure. It&rsquo;s locked up on memcg&rsquo;s vmpressure sr_lock, which is irq-unsafe. And the lockup made in IRQ. He proposes a solution simply changing the lock with irq-safe one, but he also admits it&rsquo;s not a maintainable solution.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.9-rc6/">LKML News v5.9-rc6</a></h2>
-    <div class="article-style">
-      
-      [PATCH v14 0/5] KASAN-KUnit Integration (David Gow) https://lkml.kernel.org/r/20200915035828.570483-1-davidgow@google.com
-The 14th patchset for the KASAN and KUnit integration. From the v13, compile warnings in test_kasan_module fixed.
-[PATCH v2 00/10] KFENCE: A low-overhead sampling-based memory safety error detector (Marco Elver) https://lkml.kernel.org/r/20200915132046.3332537-1-elver@google.com
-The second version of the KFENCE posted.
-[PATCH 1/2] fs: Add a filesystem flag for THPs (Matthew Wilcox) https://lkml.kernel.org/r/20200916032717.22917-1-willy@infradead.org
-This patchset caches whether the backing filesystem support THP or not in an address space flags, so that the page cache can determine if it can send THP to the backing filesystem or not.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.9-rc5/">LKML News v5.9-rc5</a></h2>
-    <div class="article-style">
-      
-      [PATCH RFC 00/10] KFENCE: A low-overhead sampling-based memory safety error detector (Marco Elver) https://lkml.kernel.org/r/20200907134055.2878499-1-elver@google.com
-This patchset introduces another kernel use-after-free detection infrastructure, called Kernel Electric-Fence (KFENCE). Unlike KASAN, this trades the performance for precision and as a result it incurs near zero performance overhead so that it can be enabled in the production.
-[PATCH 00/11] Remove assumptions of THP size (Matthew Wilcox) https://lkml.kernel.org/r/20200908195539.25896-1-willy@infradead.org
-Matthew is working for variable sized THP. For start of the work, this patchset changes the assumption that THP will be PMD size by introducing thp_nr_pages() and let the other VM code to use it.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.9-rc4/">LKML News v5.9-rc4</a></h2>
-    <div class="article-style">
-      
-      [PATCH v9 0/3] introduce memory hinting API for external process (Minchan Kim) https://lkml.kernel.org/r/20200901000633.1920247-1-minchan@kernel.org
-After the rejection, this patchset posted again. Linus&rsquo;s opinion about dropping the task_struct to do_madvise and Christian&rsquo;s comment regarding compat syscall entry has resolved.
-And, this patchset merged in the &lsquo;-mm&rsquo; tree again. Hopefully it will be merged in mainline by 5.10!
-[PATCH v6 0/3] Anonymous VMA naming patches (Sumit Semwal) https://lkml.kernel.org/r/20200901091901.19779-1-sumit.semwal@linaro.org
-This is reposting of old patchset which Colin Cross sent before.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.9-rc3/">LkML New v5.9-rc3</a></h2>
-    <div class="article-style">
-      
-      [RFC -V3 0/5] autonuma: Optimize memory placement for memory tiering system (Huang Ying) https://lkml.kernel.org/r/20200825002354.17038-1-ying.huang@intel.com
-The third RFC of autonuma for help placing of data items on systems utilizing both DRAM and PMEM as different NUMA nodes.
-Linux 5.9-rc3 https://lkml.kernel.org/r/CAHk-=wiD1yujm_WvWLYL7gZsWMvZyWMg1rfU7dWmnYYc3a7Gsg@mail.gmail.com
-This week rc release is also quite normal. The &lsquo;fallthought&rsquo; comment conversion made fairly evenly distributed changes. Torvalds says it was quite calm. Indeed, only one patchset got my interest this week.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.9-rc2/">LKML News v5.9-rc2</a></h2>
-    <div class="article-style">
-      
-      PROBLEM: Long Workqueue delays. (Jim Baxter) https://lkml.kernel.org/r/71aafe68-7fe0-6b77-ea8e-83edd3f16c8d@mentor.com
-Jim Baxter encountered 6.5 seconds delay due to long workqueue delay. He want to ask if this is normal or real problem.
-[RFC PATCH 0/8] memcg: Enable fine-grained per process memory control (Waiman Long) https://lkml.kernel.org/r/20200817140831.30260-1-longman@redhat.com
-The memory cgroup v2 start reclamation if the amount of the memory of the cgroup exceeds &lsquo;memory.high&rsquo; and start OOM killing if if exceeds &lsquo;memory.max&rsquo;. Problem is, the OOM killer can kill any process.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.9-rc1/">LKML News v5.9-rc1</a></h2>
-    <div class="article-style">
-      
-      mm: sort freelist by rank number (Cho KyongHo) https://lkml.kernel.org/r/1596435031-41837-1-git-send-email-pullip.cho@samsung.com
-LPDDR5 has severan ranks and there are ranks switching delay. Therefore, it would be better to do accesses in same ranks if possible. This patch sorts freelist by the rank number so that near future allocation can be done in same rank.
-[RFC-PROTOTYPE 1/1] mm: Add __GFP_FAST_TRY flag (Uladzislau Rezki) https://lkml.kernel.org/r/20200803163029.1997-1-urezki@gmail.com
-This is the rfc of the patch for the Paul&rsquo;s last ask.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.8/">LKML News v5.8</a></h2>
-    <div class="article-style">
-      
-      [PATCH v2 0/7] mm: introduce memfd_secret system call to create &ldquo;secret&rdquo; memory areas (Mike Rapoport) https://lkml.kernel.org/r/20200727162935.31714-1-rppt@kernel.org
-This is the second version of the secretmemfd. In this version, the system call has renamed to &lsquo;memfd_secret&rsquo;.
-[RFC PATCH 0/5] madvise MADV_DOEXEC (Anthony Yznaga) https://lkml.kernel.org/r/1595869887-23307-1-git-send-email-anthony.yznaga@oracle.com
-This patch introduces another madvise hint, MADV_DOEXEC. It preserves an anonymous memory range across exec.
-[RFC PATCH 0/6] decrease unnecessary gap due to pmem kmem alignment (Jia He) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.8-rc7/">LKML News v5.8-rc7</a></h2>
-    <div class="article-style">
-      
-      [PATCH 0/6] mm: introduce secretmemfd system call to create &ldquo;secret&rdquo; memory areas (Mike Rapoport) https://lkml.kernel.org/r/20200720092435.17469-1-rppt@kernel.org
-This patchset make another special kind of file for secret memory areas. The file can be opened using secretmemfd(). mmap() of the file creates the secret memory mapping. The mapped pages are marked as not present in the direct map and will have desired protection bits (e..g, uncached).
-[PATCH v7 0/6] workingset protection/detection on the anonymous LRU list (js1304@gmail.
-      
-    </div>
-  </div>
-  
+      <h2 id="patch-part2-v6-0049-add-amd-secure-nested-paging-sev-snp-ashsh-kalra">[PATCH Part2 v6 00/49] Add AMD Secure Nested Paging (SEV-SNP) (Ashsh Kalra)</h2>
+<p><a href="https://lkml.kernel.org/r/cover.1655761627.git.ashish.kalra@amd.com">https://lkml.kernel.org/r/cover.1655761627.git.ashish.kalra@amd.com</a></p>
+<p>This is second part patchset of Secure Encrypted Paging (SEV-SNP) work, which
+focuses on the changes required in a host OS for the feature support.</p>
 
+    </div>
+
+    
+
+
+
+
+
+<div class="article-tags">
   
-<nav>
-  <ul class="pagination justify-content-center">
+  <a class="badge badge-light" href="/tags/linux/">linux</a>
+  
+  <a class="badge badge-light" href="/tags/kernel/">kernel</a>
+  
+  <a class="badge badge-light" href="/tags/lkml/">lkml</a>
+  
+  <a class="badge badge-light" href="/tags/news/">news</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
     
-    <li class="page-item"><a class="page-link" href="/tags/lkml/page/8/">&laquo;</a></li>
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=/post/lkml_news_v5.19-rc4/&amp;text=LKML%20News%20v5.19-rc4" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
     
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=/post/lkml_news_v5.19-rc4/&amp;t=LKML%20News%20v5.19-rc4" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
     
-    <li class="page-item"><a class="page-link" href="/tags/lkml/page/10/">&raquo;</a></li>
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=LKML%20News%20v5.19-rc4&amp;body=/post/lkml_news_v5.19-rc4/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=/post/lkml_news_v5.19-rc4/&amp;title=LKML%20News%20v5.19-rc4" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=LKML%20News%20v5.19-rc4%20/post/lkml_news_v5.19-rc4/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=/post/lkml_news_v5.19-rc4/&amp;title=LKML%20News%20v5.19-rc4" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
     
   </ul>
-</nav>
-
-
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      <img class="portrait mr-3" src="https://s.gravatar.com/avatar/43dc5645c78e68fda997138380dfaaf4?s=200')" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="/">SeongJae Park</a></h5>
+      <h6 class="card-subtitle">Kernel / Hypervisor Engineer</h6>
+      <p class="card-text">SeongJae Park is a programmer who loves to analyze and develop systems.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/log/?qt=author&amp;q=seongjae&#43;park" target="_blank" rel="noopener">
+        <i class="fab fa-linux"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/sjp38" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.com/citations?user=jJIiF3AAAAAJ" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  
+  
+  <div class="article-widget content-widget-hr">
+    <h3>Related</h3>
+    <ul>
+      
+      <li><a href="/post/lkml_news_v5.19-rc3/">LKML News v5.19-rc3</a></li>
+      
+      <li><a href="/post/lkml_news_v5.19-rc2/">LKML News v5.19-rc2</a></li>
+      
+      <li><a href="/post/lkml_news_v5.19-rc1/">LKML News v5.19-rc1</a></li>
+      
+      <li><a href="/post/lkml_news_v5.18/">LKML News v5.18</a></li>
+      
+      <li><a href="/post/lkml_news_v5.18-rc7/">LKML News v5.18-rc7</a></li>
+      
+    </ul>
+  </div>
+  
+
+
+
+  </div>
+</article>
 
       
 
