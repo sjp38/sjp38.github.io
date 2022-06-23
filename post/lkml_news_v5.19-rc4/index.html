@@ -29,7 +29,9 @@
     
   
   <meta name="description" content="[PATCH Part2 v6 00/49] Add AMD Secure Nested Paging (SEV-SNP) (Ashsh Kalra) https://lkml.kernel.org/r/cover.1655761627.git.ashish.kalra@amd.com
-This is second part patchset of Secure Encrypted Paging (SEV-SNP) work, which focuses on the changes required in a host OS for the feature support.">
+This is second part patchset of Secure Encrypted Paging (SEV-SNP) work, which focuses on the changes required in a host OS for the feature support.
+[PATCH v7 00/12] mm/demotion: Memory tiers and demotion (Aneesh Kumar K.V) https://lkml.kernel.org/r/20220622082513.467538-1-aneesh.kumar@linux.ibm.com
+This patchset improves memory tiers construction to be more explicit and flexible, and memory allocation for demotion to have no change.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/lkml_news_v5.19-rc4/">
@@ -152,7 +154,9 @@ This is second part patchset of Secure Encrypted Paging (SEV-SNP) work, which fo
   <meta property="og:url" content="/post/lkml_news_v5.19-rc4/">
   <meta property="og:title" content="LKML News v5.19-rc4 | hacklog">
   <meta property="og:description" content="[PATCH Part2 v6 00/49] Add AMD Secure Nested Paging (SEV-SNP) (Ashsh Kalra) https://lkml.kernel.org/r/cover.1655761627.git.ashish.kalra@amd.com
-This is second part patchset of Secure Encrypted Paging (SEV-SNP) work, which focuses on the changes required in a host OS for the feature support."><meta property="og:image" content="/img/tux.png">
+This is second part patchset of Secure Encrypted Paging (SEV-SNP) work, which focuses on the changes required in a host OS for the feature support.
+[PATCH v7 00/12] mm/demotion: Memory tiers and demotion (Aneesh Kumar K.V) https://lkml.kernel.org/r/20220622082513.467538-1-aneesh.kumar@linux.ibm.com
+This patchset improves memory tiers construction to be more explicit and flexible, and memory allocation for demotion to have no change."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -204,7 +208,7 @@ This is second part patchset of Secure Encrypted Paging (SEV-SNP) work, which fo
       "url": "/img/icon-512.png"
     }
   },
-  "description": "[PATCH Part2 v6 00/49] Add AMD Secure Nested Paging (SEV-SNP) (Ashsh Kalra) https://lkml.kernel.org/r/cover.1655761627.git.ashish.kalra@amd.com\nThis is second part patchset of Secure Encrypted Paging (SEV-SNP) work, which focuses on the changes required in a host OS for the feature support."
+  "description": "[PATCH Part2 v6 00/49] Add AMD Secure Nested Paging (SEV-SNP) (Ashsh Kalra) https://lkml.kernel.org/r/cover.1655761627.git.ashish.kalra@amd.com\nThis is second part patchset of Secure Encrypted Paging (SEV-SNP) work, which focuses on the changes required in a host OS for the feature support.\n[PATCH v7 00/12] mm/demotion: Memory tiers and demotion (Aneesh Kumar K.V) https://lkml.kernel.org/r/20220622082513.467538-1-aneesh.kumar@linux.ibm.com\nThis patchset improves memory tiers construction to be more explicit and flexible, and memory allocation for demotion to have no change."
 }
 </script>
 
@@ -614,6 +618,15 @@ This is second part patchset of Secure Encrypted Paging (SEV-SNP) work, which fo
 <p><a href="https://lkml.kernel.org/r/cover.1655761627.git.ashish.kalra@amd.com">https://lkml.kernel.org/r/cover.1655761627.git.ashish.kalra@amd.com</a></p>
 <p>This is second part patchset of Secure Encrypted Paging (SEV-SNP) work, which
 focuses on the changes required in a host OS for the feature support.</p>
+<h2 id="patch-v7-0012-mmdemotion-memory-tiers-and-demotion-aneesh-kumar-kv">[PATCH v7 00/12] mm/demotion: Memory tiers and demotion (Aneesh Kumar K.V)</h2>
+<p><a href="https://lkml.kernel.org/r/20220622082513.467538-1-aneesh.kumar@linux.ibm.com">https://lkml.kernel.org/r/20220622082513.467538-1-aneesh.kumar@linux.ibm.com</a></p>
+<p>This patchset improves memory tiers construction to be more explicit and
+flexible, and memory allocation for demotion to have no change.</p>
+<h2 id="patch-mm-vmpressure-dont-count-userspace-induced-reclaim-as-memory-pressure-yosry-ahmed">[PATCH] mm: vmpressure: don&rsquo;t count userspace-induced reclaim as memory pressure (Yosry Ahmed)</h2>
+<p><a href="https://lkml.kernel.org/r/20220623000530.1194226-1-yosryahmed@google.comu">https://lkml.kernel.org/r/20220623000530.1194226-1-yosryahmed@google.comu</a></p>
+<p>PSI don&rsquo;t count the memory reclaim that has induced by the userspace via
+<code>memory.reclaim</code> as pressure, but <code>vmpressure</code> is still counting it as
+pressure.  This commit fixes the inconsistent behavior.</p>
 
     </div>
 

@@ -21,6 +21,15 @@
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/cover.1655761627.git.ashish.kalra@amd.com&#34;&gt;https://lkml.kernel.org/r/cover.1655761627.git.ashish.kalra@amd.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;This is second part patchset of Secure Encrypted Paging (SEV-SNP) work, which
 focuses on the changes required in a host OS for the feature support.&lt;/p&gt;
+&lt;h2 id=&#34;patch-v7-0012-mmdemotion-memory-tiers-and-demotion-aneesh-kumar-kv&#34;&gt;[PATCH v7 00/12] mm/demotion: Memory tiers and demotion (Aneesh Kumar K.V)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20220622082513.467538-1-aneesh.kumar@linux.ibm.com&#34;&gt;https://lkml.kernel.org/r/20220622082513.467538-1-aneesh.kumar@linux.ibm.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This patchset improves memory tiers construction to be more explicit and
+flexible, and memory allocation for demotion to have no change.&lt;/p&gt;
+&lt;h2 id=&#34;patch-mm-vmpressure-dont-count-userspace-induced-reclaim-as-memory-pressure-yosry-ahmed&#34;&gt;[PATCH] mm: vmpressure: don&amp;rsquo;t count userspace-induced reclaim as memory pressure (Yosry Ahmed)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20220623000530.1194226-1-yosryahmed@google.comu&#34;&gt;https://lkml.kernel.org/r/20220623000530.1194226-1-yosryahmed@google.comu&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;PSI don&amp;rsquo;t count the memory reclaim that has induced by the userspace via
+&lt;code&gt;memory.reclaim&lt;/code&gt; as pressure, but &lt;code&gt;vmpressure&lt;/code&gt; is still counting it as
+pressure.  This commit fixes the inconsistent behavior.&lt;/p&gt;
 </description>
     </item>
     
