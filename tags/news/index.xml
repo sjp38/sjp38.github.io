@@ -30,6 +30,11 @@ flexible, and memory allocation for demotion to have no change.&lt;/p&gt;
 &lt;p&gt;PSI don&amp;rsquo;t count the memory reclaim that has induced by the userspace via
 &lt;code&gt;memory.reclaim&lt;/code&gt; as pressure, but &lt;code&gt;vmpressure&lt;/code&gt; is still counting it as
 pressure.  This commit fixes the inconsistent behavior.&lt;/p&gt;
+&lt;h2 id=&#34;patch-v5-007-drain-remote-per-cpu-directly--mel-gorman&#34;&gt;[PATCH v5 00/7] Drain remote per-cpu directly  (Mel Gorman)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20220624125423.6126-1-mgorman@techsingularity.net&#34;&gt;https://lkml.kernel.org/r/20220624125423.6126-1-mgorman@techsingularity.net&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This patchset introduces a mechanism to remotely drain per-cpu lists so that
+latency sensitive applications don&amp;rsquo;t get the interference due to per-cpu lists
+draining works that can be queued by &lt;code&gt;__drain_all_pages()&lt;/code&gt;.&lt;/p&gt;
 </description>
     </item>
     
