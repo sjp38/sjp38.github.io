@@ -35,6 +35,22 @@ pressure.  This commit fixes the inconsistent behavior.&lt;/p&gt;
 &lt;p&gt;This patchset introduces a mechanism to remotely drain per-cpu lists so that
 latency sensitive applications don&amp;rsquo;t get the interference due to per-cpu lists
 draining works that can be queued by &lt;code&gt;__drain_all_pages()&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;linux-519-rc4-linus-torvalds&#34;&gt;Linux 5.19-rc4 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wjRt2bxDDT9-Uq337dAg6jipZfetgSsHejggU=JHmyK6A@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wjRt2bxDDT9-Uq337dAg6jipZfetgSsHejggU=JHmyK6A@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;In contrast to the second and the third release candidates for 5.19, which were
+fairly small, rc4 is a bit larger.  Torvalds says it&amp;rsquo;s not what he really
+wanted to see but also not that scary, as changes are also fairly spread.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v5.8-rc4..v5.19-rc4.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
+below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2020-06-27 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And, below is the diffstat of the -rc4 releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v5.19-rc4-only.png&#34; alt=&#34;rc4 release stat&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     

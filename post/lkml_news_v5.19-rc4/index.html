@@ -574,7 +574,7 @@ This patchset improves memory tiers construction to be more explicit and flexibl
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -632,6 +632,22 @@ pressure.  This commit fixes the inconsistent behavior.</p>
 <p>This patchset introduces a mechanism to remotely drain per-cpu lists so that
 latency sensitive applications don&rsquo;t get the interference due to per-cpu lists
 draining works that can be queued by <code>__drain_all_pages()</code>.</p>
+<h2 id="linux-519-rc4-linus-torvalds">Linux 5.19-rc4 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wjRt2bxDDT9-Uq337dAg6jipZfetgSsHejggU=JHmyK6A@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wjRt2bxDDT9-Uq337dAg6jipZfetgSsHejggU=JHmyK6A@mail.gmail.com</a></p>
+<p>In contrast to the second and the third release candidates for 5.19, which were
+fairly small, rc4 is a bit larger.  Torvalds says it&rsquo;s not what he really
+wanted to see but also not that scary, as changes are also fairly spread.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.8-rc4..v5.19-rc4.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2020-06-27 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc4 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.19-rc4-only.png" alt="rc4 release stat"></p>
 
     </div>
 
