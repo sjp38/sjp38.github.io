@@ -31,7 +31,9 @@
   <meta name="description" content="[PATCH v3] docs: rename Documentation/vm to Documentation/mm (Mike Rapoport) https://lkml.kernel.org/r/20220627060026.180439-1-rppt@kernel.org
 As the subject says, this commit renames the Documentation/vm directory to Documentation/mm.
 [PATCH v6 0/4] KVM: mm: count KVM mmu usage in memory stats (Yosry Ahmed) https://lkml.kernel.org/r/20220628220938.3657876-1-yosryahmed@google.com
-This patchset allows users account KVM mmu usages with NR_SECONDARY_PAGETABLE memory stat.">
+This patchset allows users account KVM mmu usages with NR_SECONDARY_PAGETABLE memory stat.
+[RFC PATCH] mm/slub: enable debugging memory wasting of kmalloc (Feng Tang) https://lkml.kernel.org/r/20220630014715.73330-1-feng.tang@intel.com
+As kmalloc allocates memory in power of 2 granularity, it could waste a lot of memory.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/lkml_news_v5.19-rc5/">
@@ -156,7 +158,9 @@ This patchset allows users account KVM mmu usages with NR_SECONDARY_PAGETABLE me
   <meta property="og:description" content="[PATCH v3] docs: rename Documentation/vm to Documentation/mm (Mike Rapoport) https://lkml.kernel.org/r/20220627060026.180439-1-rppt@kernel.org
 As the subject says, this commit renames the Documentation/vm directory to Documentation/mm.
 [PATCH v6 0/4] KVM: mm: count KVM mmu usage in memory stats (Yosry Ahmed) https://lkml.kernel.org/r/20220628220938.3657876-1-yosryahmed@google.com
-This patchset allows users account KVM mmu usages with NR_SECONDARY_PAGETABLE memory stat."><meta property="og:image" content="/img/tux.png">
+This patchset allows users account KVM mmu usages with NR_SECONDARY_PAGETABLE memory stat.
+[RFC PATCH] mm/slub: enable debugging memory wasting of kmalloc (Feng Tang) https://lkml.kernel.org/r/20220630014715.73330-1-feng.tang@intel.com
+As kmalloc allocates memory in power of 2 granularity, it could waste a lot of memory."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -208,7 +212,7 @@ This patchset allows users account KVM mmu usages with NR_SECONDARY_PAGETABLE me
       "url": "/img/icon-512.png"
     }
   },
-  "description": "[PATCH v3] docs: rename Documentation/vm to Documentation/mm (Mike Rapoport) https://lkml.kernel.org/r/20220627060026.180439-1-rppt@kernel.org\nAs the subject says, this commit renames the Documentation/vm directory to Documentation/mm.\n[PATCH v6 0/4] KVM: mm: count KVM mmu usage in memory stats (Yosry Ahmed) https://lkml.kernel.org/r/20220628220938.3657876-1-yosryahmed@google.com\nThis patchset allows users account KVM mmu usages with NR_SECONDARY_PAGETABLE memory stat."
+  "description": "[PATCH v3] docs: rename Documentation/vm to Documentation/mm (Mike Rapoport) https://lkml.kernel.org/r/20220627060026.180439-1-rppt@kernel.org\nAs the subject says, this commit renames the Documentation/vm directory to Documentation/mm.\n[PATCH v6 0/4] KVM: mm: count KVM mmu usage in memory stats (Yosry Ahmed) https://lkml.kernel.org/r/20220628220938.3657876-1-yosryahmed@google.com\nThis patchset allows users account KVM mmu usages with NR_SECONDARY_PAGETABLE memory stat.\n[RFC PATCH] mm/slub: enable debugging memory wasting of kmalloc (Feng Tang) https://lkml.kernel.org/r/20220630014715.73330-1-feng.tang@intel.com\nAs kmalloc allocates memory in power of 2 granularity, it could waste a lot of memory."
 }
 </script>
 
@@ -622,6 +626,11 @@ Documentation/mm.</p>
 <p><a href="https://lkml.kernel.org/r/20220628220938.3657876-1-yosryahmed@google.com">https://lkml.kernel.org/r/20220628220938.3657876-1-yosryahmed@google.com</a></p>
 <p>This patchset allows users account KVM mmu usages with <code>NR_SECONDARY_PAGETABLE</code>
 memory stat.</p>
+<h2 id="rfc-patch-mmslub-enable-debugging-memory-wasting-of-kmalloc-feng-tang">[RFC PATCH] mm/slub: enable debugging memory wasting of kmalloc (Feng Tang)</h2>
+<p><a href="https://lkml.kernel.org/r/20220630014715.73330-1-feng.tang@intel.com">https://lkml.kernel.org/r/20220630014715.73330-1-feng.tang@intel.com</a></p>
+<p>As kmalloc allocates memory in power of 2 granularity, it could waste a lot of
+memory.  This patch therefore implements a way for tracking each kmalloc&rsquo;s
+memory waste for bettr debugging.</p>
 
     </div>
 
