@@ -30,6 +30,11 @@ memory stat.&lt;/p&gt;
 &lt;p&gt;As kmalloc allocates memory in power of 2 granularity, it could waste a lot of
 memory.  This patch therefore implements a way for tracking each kmalloc&amp;rsquo;s
 memory waste for bettr debugging.&lt;/p&gt;
+&lt;h2 id=&#34;patch-v3-mm-vmpressure-dont-count-proactive-reclaim-in-vmpressure-yosry-ahmed&#34;&gt;[PATCH v3] mm: vmpressure: don&amp;rsquo;t count proactive reclaim in vmpressure (Yosry Ahmed)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20220630083044.997474-1-yosryahmed@google.com&#34;&gt;https://lkml.kernel.org/r/20220630083044.997474-1-yosryahmed@google.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This commit makes vmpressure to not be triggered by the reclaim caused by
+writing to &lt;code&gt;memory.reclaim&lt;/code&gt;, as it is intended to be used while not affecting
+the performance.&lt;/p&gt;
 </description>
     </item>
     
