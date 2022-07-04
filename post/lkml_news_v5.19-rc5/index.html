@@ -578,7 +578,7 @@ As kmalloc allocates memory in power of 2 granularity, it could waste a lot of m
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -636,6 +636,25 @@ memory waste for bettr debugging.</p>
 <p>This commit makes vmpressure to not be triggered by the reclaim caused by
 writing to <code>memory.reclaim</code>, as it is intended to be used while not affecting
 the performance.</p>
+<h2 id="patch-v4-0045-add-kernelmemorysanitizer-infrastructure-alexander-potapenko">[PATCH v4 00/45] Add KernelMemorySanitizer infrastructure (Alexander Potapenko)</h2>
+<p><a href="https://lkml.kernel.org/r/20220701142310.2188015-1-glider@google.com">https://lkml.kernel.org/r/20220701142310.2188015-1-glider@google.com</a></p>
+<p>This patchset addds KernelMemorySanitizer infrastructure in Linux kernel.</p>
+<h2 id="linux-519-rc5-linus-torvalds">Linux 5.19-rc5 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wgAOr-+OWLGo+aCMjGWiJ8xMYXUm0v5f-G+eizmPa3kKw@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wgAOr-+OWLGo+aCMjGWiJ8xMYXUm0v5f-G+eizmPa3kKw@mail.gmail.com</a></p>
+<p>The fifth release candidate has released in a slightly smaller than usual size.
+This might mean that that the previous release candidate was larger than usual
+just for a random timing issue.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.8-rc5..v5.19-rc5.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2020-07-04 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc5 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.19-rc5-only.png" alt="rc5 release stat"></p>
 
     </div>
 
