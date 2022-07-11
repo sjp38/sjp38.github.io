@@ -574,7 +574,7 @@ THP_SWAP, which dealys the split of THP for swap, includes swap throughput and a
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -635,6 +635,21 @@ into CPU page tables like <code>MEMORY_DEVICE_GENERIC</code>, called
 <h2 id="patch-v3-0021-update-documentation-cross-references-and-fix-issues-mauro-carvalho-chehab">[PATCH v3 00/21] Update Documentation/ cross references and fix issues (Mauro Carvalho Chehab)</h2>
 <p><a href="https://lkml.kernel.org/r/cover.1657360984.git.mchehab@kernel.org">https://lkml.kernel.org/r/cover.1657360984.git.mchehab@kernel.org</a></p>
 <p>This patchset fixes html docs build issues.</p>
+<h2 id="linux-519-rc6-linus-torvalds">Linux 5.19-rc6 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wgTmGaToVFdSdoFqT2sNkk7jg2rSWasUYv-tASUZ2j_0Q@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wgTmGaToVFdSdoFqT2sNkk7jg2rSWasUYv-tASUZ2j_0Q@mail.gmail.com</a></p>
+<p>The sixth release candidate for Linux 5.19 has released.  This release is just
+fairly normal and has nothing really stands out.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.8-rc6..v5.19-rc6.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2020-07-11 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc6 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.19-rc6-only.png" alt="rc6 release stat"></p>
 
     </div>
 
