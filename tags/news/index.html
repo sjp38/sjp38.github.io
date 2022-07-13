@@ -530,6 +530,8 @@
       
       [PATCH 0/4] add struct page and Direct I/O support to reserved memory (Li Chen) https://lkml.kernel.org/r/20220711122459.13773-1-me@linux.beauty
 Only buffered I/O is available to reserved memory for ZONE_DEVICE and mhp. This patchset enables direct I/O to the memory for better throughput.
+[PATCH -V4 RESEND 0/3] memory tiering: hot page selection (Huang Ying) https://lkml.kernel.org/r/20220713083954.34196-1-ying.huang@intel.com
+This patchset implements a new hot page identification algorithm based on the latency between NUMA balancing page table scanning and hit page fault, so that it can be somewhat LFU algorithm instead of MRU algorithm.
       
     </div>
   </div>

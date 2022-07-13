@@ -29,7 +29,9 @@
     
   
   <meta name="description" content="[PATCH 0/4] add struct page and Direct I/O support to reserved memory (Li Chen) https://lkml.kernel.org/r/20220711122459.13773-1-me@linux.beauty
-Only buffered I/O is available to reserved memory for ZONE_DEVICE and mhp. This patchset enables direct I/O to the memory for better throughput.">
+Only buffered I/O is available to reserved memory for ZONE_DEVICE and mhp. This patchset enables direct I/O to the memory for better throughput.
+[PATCH -V4 RESEND 0/3] memory tiering: hot page selection (Huang Ying) https://lkml.kernel.org/r/20220713083954.34196-1-ying.huang@intel.com
+This patchset implements a new hot page identification algorithm based on the latency between NUMA balancing page table scanning and hit page fault, so that it can be somewhat LFU algorithm instead of MRU algorithm.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/lkml_news_v5.19-rc7/">
@@ -152,7 +154,9 @@ Only buffered I/O is available to reserved memory for ZONE_DEVICE and mhp. This 
   <meta property="og:url" content="/post/lkml_news_v5.19-rc7/">
   <meta property="og:title" content="LKML News v5.19-rc7 | hacklog">
   <meta property="og:description" content="[PATCH 0/4] add struct page and Direct I/O support to reserved memory (Li Chen) https://lkml.kernel.org/r/20220711122459.13773-1-me@linux.beauty
-Only buffered I/O is available to reserved memory for ZONE_DEVICE and mhp. This patchset enables direct I/O to the memory for better throughput."><meta property="og:image" content="/img/tux.png">
+Only buffered I/O is available to reserved memory for ZONE_DEVICE and mhp. This patchset enables direct I/O to the memory for better throughput.
+[PATCH -V4 RESEND 0/3] memory tiering: hot page selection (Huang Ying) https://lkml.kernel.org/r/20220713083954.34196-1-ying.huang@intel.com
+This patchset implements a new hot page identification algorithm based on the latency between NUMA balancing page table scanning and hit page fault, so that it can be somewhat LFU algorithm instead of MRU algorithm."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -204,7 +208,7 @@ Only buffered I/O is available to reserved memory for ZONE_DEVICE and mhp. This 
       "url": "/img/icon-512.png"
     }
   },
-  "description": "[PATCH 0/4] add struct page and Direct I/O support to reserved memory (Li Chen) https://lkml.kernel.org/r/20220711122459.13773-1-me@linux.beauty\nOnly buffered I/O is available to reserved memory for ZONE_DEVICE and mhp. This patchset enables direct I/O to the memory for better throughput."
+  "description": "[PATCH 0/4] add struct page and Direct I/O support to reserved memory (Li Chen) https://lkml.kernel.org/r/20220711122459.13773-1-me@linux.beauty\nOnly buffered I/O is available to reserved memory for ZONE_DEVICE and mhp. This patchset enables direct I/O to the memory for better throughput.\n[PATCH -V4 RESEND 0/3] memory tiering: hot page selection (Huang Ying) https://lkml.kernel.org/r/20220713083954.34196-1-ying.huang@intel.com\nThis patchset implements a new hot page identification algorithm based on the latency between NUMA balancing page table scanning and hit page fault, so that it can be somewhat LFU algorithm instead of MRU algorithm."
 }
 </script>
 
@@ -614,6 +618,11 @@ Only buffered I/O is available to reserved memory for ZONE_DEVICE and mhp. This 
 <p><a href="https://lkml.kernel.org/r/20220711122459.13773-1-me@linux.beauty">https://lkml.kernel.org/r/20220711122459.13773-1-me@linux.beauty</a></p>
 <p>Only buffered I/O is available to reserved memory for <code>ZONE_DEVICE</code> and <code>mhp</code>.
 This patchset enables direct I/O to the memory for better throughput.</p>
+<h2 id="patch--v4-resend-03-memory-tiering-hot-page-selection-huang-ying">[PATCH -V4 RESEND 0/3] memory tiering: hot page selection (Huang Ying)</h2>
+<p><a href="https://lkml.kernel.org/r/20220713083954.34196-1-ying.huang@intel.com">https://lkml.kernel.org/r/20220713083954.34196-1-ying.huang@intel.com</a></p>
+<p>This patchset implements a new hot page identification algorithm based on the
+latency between NUMA balancing page table scanning and hit page fault, so that
+it can be somewhat LFU algorithm instead of MRU algorithm.</p>
 
     </div>
 
