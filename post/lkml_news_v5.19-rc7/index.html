@@ -627,6 +627,10 @@ it can be somewhat LFU algorithm instead of MRU algorithm.</p>
 <p><a href="https://lkml.kernel.org/r/20220714045351.434957-1-aneesh.kumar@linux.ibm.com">https://lkml.kernel.org/r/20220714045351.434957-1-aneesh.kumar@linux.ibm.com</a></p>
 <p>This patchset makes memory tiering management interface for creation of the
 tier explicit.</p>
+<h2 id="patch-v4-mm-vmpressure-dont-count-proactive-reclaim-in-vmpressure-yosry-ahmed">[PATCH v4] mm: vmpressure: don&rsquo;t count proactive reclaim in vmpressure (Yosry Ahmed)</h2>
+<p><a href="https://lkml.kernel.org/r/20220714064918.2576464-1-yosryahmed@google.com">https://lkml.kernel.org/r/20220714064918.2576464-1-yosryahmed@google.com</a></p>
+<p><code>memory.reclaim</code> is for reclaiming only cold memory, so vmpressure is not
+needed.  This patch makes it to not trigger vmpressure.</p>
 
     </div>
 
