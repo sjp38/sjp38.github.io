@@ -740,13 +740,15 @@ kernel, you could:</p>
 <pre><code>$ grep CONFIG_DAMON /boot/config-$(uname -r)
 </code></pre>
 <p>If you are an <a href="https://aws.amazon.com/amazon-linux-2/">Amazon Linux 2</a> user,
-you can install a DAMON-enabled Linux kernel which based on v5.4 or v5.10 using
+you can install a DAMON-enabled Linux kernel which based on v5.10 or v5.4 using
 <a href="https://aws.amazon.com/premiumsupport/knowledge-center/ec2-install-extras-library-software/">amazon-linux-extras</a>
 like below:</p>
 <pre><code>$ sudo yum install -y amazon-linux-extras
-$ sudo amazon-linux-extras install kernel-&lt;5.4 or 5.10&gt;
+$ sudo amazon-linux-extras install kernel-&lt;5.10 or 5.4&gt;
 $ sudo reboot
 </code></pre>
+<p>Note that AL2 v5.4.y contains only a part of DAMON features, so AL2 v5.10.y is
+more recommended.</p>
 <p>If your package system doesn&rsquo;t have DAMON-enabled kernel in the list, you can
 <a href="#source-code">fetch</a> a DAMON-merged Linux kernel source tree, build, and
 install it.  Note that you should enable kernel configuration options for
@@ -762,6 +764,7 @@ $ echo 'CONFIG_DAMON_SYSFS=y' &gt;&gt; /.config
 $ echo 'CONFIG_DAMON_DBGFS=y' &gt;&gt; /.config
 $ echo 'CONFIG_DAMON_DBGFS_KUNIT_TEST=y' &gt;&gt; /.config
 $ echo 'CONFIG_DAMON_RECLAIM=y' &gt;&gt; /.config
+$ echo 'CONFIG_DAMON_LRU_SORT=y' &gt;&gt; /.config
 $ make -j$(nproc)
 $ sudo make modules_install install
 </code></pre>
@@ -771,13 +774,14 @@ You may pick one among those based on your needs.</p>
 <p>For users who want only a stable version of DAMON, below trees are available.</p>
 <ul>
 <li>Linus Torvalds&rsquo; <a href="https://git.kernel.org/torvalds/h/master">mainline tree</a>
-contains the latest stable version of DAMON.</li>
+contains the latest stable version of DAMON since v5.15.</li>
 <li>Amazon Linux 2
 <a href="https://github.com/amazonlinux/linux/tree/amazon-5.10.y/master">v5.10.y tree</a>
 and
 <a href="https://github.com/amazonlinux/linux/tree/amazon-5.4.y/master">v5.4.y tree</a>
 also contains stable versions of DAMON, which back-ported on v5.10.y and
-v5.4.y, respectively.</li>
+v5.4.y, respectively.  Note that AL2 v5.4.y contains only a part of DAMON
+features, so AL2 v5.10.y is more recommended.</li>
 </ul>
 <p>If you have interest in DAMON features under development, below trees will be
 appropriate.  Those trees contain latest version of DAMON which having features
@@ -849,6 +853,12 @@ and</li>
 </ul>
 <h2 id="publications-and-presentations">Publications and Presentations</h2>
 <ul>
+<li>SeongJae Park, Madhuparna Bhowmik, Alexandru Uta, <strong>DAOS: Data Access-aware
+Operating System.</strong> In <em>The 31st International ACM Symposium on
+High-Performance Parallel and Distributed Computing (HPDC'22)</em>, June 2022.
+<a href="https://www.amazon.science/publications/daos-data-access-aware-operating-system">Paper</a>,
+<a href="https://damonitor.github.io/misc/daos_hpdc_2022_slides.pdf">Slides</a>,
+<a href="https://damonitor.github.io/misc/daos_hpdc_2022_poster.pdf">Poster</a></li>
 <li>SeongJae Park, <strong>Writing a fine-grained access pattern oriented lightweight
 kernel module using DAMON/DAMOS in 10 minutes.</strong>
 In <em>The Linux Kernel Summit</em>, September 2021.
