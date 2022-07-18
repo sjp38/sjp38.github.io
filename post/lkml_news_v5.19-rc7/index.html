@@ -574,7 +574,7 @@ This patchset implements a new hot page identification algorithm based on the la
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -631,6 +631,24 @@ tier explicit.</p>
 <p><a href="https://lkml.kernel.org/r/20220714064918.2576464-1-yosryahmed@google.com">https://lkml.kernel.org/r/20220714064918.2576464-1-yosryahmed@google.com</a></p>
 <p><code>memory.reclaim</code> is for reclaiming only cold memory, so vmpressure is not
 needed.  This patch makes it to not trigger vmpressure.</p>
+<h2 id="linux-519-rc7-linus-torvalds">Linux 5.19-rc7 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wj63HHDU0MTRVKese5a4j82g3s3u4Ztno7=7Cj=cRRFFQ@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wj63HHDU0MTRVKese5a4j82g3s3u4Ztno7=7Cj=cRRFFQ@mail.gmail.com</a></p>
+<p>The seventh release candidate of 5.19 has released as usual.  This release is
+bigger than usual, due to the retbleed h/w vulnerability mitigation.  As the
+mitigation was developed under the hood due to the embargo, and because there
+are two more works ongoing, Torvalds will have one more unusual release
+candidate next week, instead of the v5.19.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.8-rc7..v5.19-rc7.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2020-07-18 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc6 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.19-rc7-only.png" alt="rc7 release stat"></p>
 
     </div>
 
