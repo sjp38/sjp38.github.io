@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2022-07-12T08:10:06-07:00">
+    <meta property="og:updated_time" content="2022-07-19T07:26:27-07:00">
   
 
   
@@ -525,6 +525,20 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.14-rc2/">LKML News v5.14-rc2</a></h2>
+    <div class="article-style">
+      
+      [PATCH v6 0/6] Introduce multi-preference mempolicy (Feng Tang) https://lkml.kernel.org/r/1626077374-81682-1-git-send-email-feng.tang@intel.com
+Six version of the patchset that allows applications to set multiple preferred memory policy.
+[PATCH v1] madvise.2: Document MADV_POPULATE_READ and MADV_POPULATE_WRITE (David Hildenbrand) https://lkml.kernel.org/r/20210712083917.16361-1-david@redhat.com
+This patch documents the new madvise() options, MADV_POPULATE_(READ|WRITE).
+Request for folios (David Howells) https://lkml.kernel.org/r/3398985.1626104609@warthog.procyon.org.uk
+David is working for improving local filesystem&rsquo;s caching and network filesystem support library. He thinks the folio work would make his work easier, though it also makes some of his work challenging.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.14-rc1/">LKML News v5.14-rc1</a></h2>
     <div class="article-style">
       
@@ -635,19 +649,6 @@ Third version of the patchset making compaction order lower than 9. Machines usi
 Fourth version of the patchset posted quite quickly.
 [PATCH 00/94] Introducing the Maple Tree (Liam Howlett) https://lkml.kernel.org/r/20210428153542.2814175-1-Liam.Howlett@Oracle.com
 This huge patchset introduces an RCU-safe range based B-tree called maple tree.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.12/">LKML News v5.12</a></h2>
-    <div class="article-style">
-      
-      [PATCH -next v3 1/2] mm/debug_vm_pgtable: Move {pmd/pud}_huge_tests out of CONFIG_TRANSPARENT_HUGEPAGE (Liu Shixin) The functions are not THP dependent in real, but made dependent. This patch moves it out.
-[PATCH v10 0/7] Make alloc_contig_range handle Hugetlb pages (Oscar Salvador) https://lkml.kernel.org/r/20210419075413.1064-1-osalvador@suse.de
-The 10th version of the patchset which allows Hugetlb pages allocated via alloc_contig_range(), dynamically.
-[PATCH v2 0/5] mm/madvise: introduce MADV_POPULATE_(READ|WRITE) to prefault page tables (David Hildenbrand) https://lkml.kernel.org/r/20210419135443.12822-1-david@redhat.com
-This is the second version of the patchset implementing MADV_POPULATE_(READ|WRITE) for madvise() system call.
       
     </div>
   </div>
