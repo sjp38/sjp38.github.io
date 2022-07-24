@@ -576,7 +576,7 @@ Maple tree has already merged in the mm-unstable but a new bug has found, so the
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -635,6 +635,24 @@ letter includes the test program for the check.</p>
 <p><a href="https://lkml.kernel.org/r/20220720140603.1958773-1-zokeefe@google.com">https://lkml.kernel.org/r/20220720140603.1958773-1-zokeefe@google.com</a></p>
 <p>This patchset is for cleanup of <code>MADV_COLLAPSE</code> patches that needs to be
 squashed in relevant patches in the mm tree.</p>
+<h2 id="linux-519-rc8-linus-torvalds">Linux 5.19-rc8 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wiWwDYxNhnStS0e+p-NTFAQSHvab=2-8LwxunCVuY5-2A@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wiWwDYxNhnStS0e+p-NTFAQSHvab=2-8LwxunCVuY5-2A@mail.gmail.com</a></p>
+<p>Mainly due to the retbleed mitigation, which developed under the hood and
+therefore not tested by the public tests and the eyeballs, eighth release
+candidate has released instead of the v5.19 this week.  No surprise here, as
+usual release candidate week.  If everyone do their testing as normal, next
+week we might see the v5.19.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.8..v5.19-rc8.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2020-07-24 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc8 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.19-rc8-only.png" alt="rc8 release stat"></p>
 
     </div>
 
