@@ -530,6 +530,8 @@
       
       [PATCH v4 0/3] mm/mprotect: Fix soft-dirty checks (Peter Xu) https://lkml.kernel.org/r/20220725142048.30450-1-peterx@redhat.com
 Fourth version of the soft-dirty check fixes for mprotect has posted. This version polishes the commit message and adds tests.
+[PATCH v2 1/2] mm/slub: enable debugging memory wasting of kmalloc (Feng Tang) https://lkml.kernel.org/r/20220725112025.22625-1-feng.tang@intel.com
+As slab allocates memory in only power of 2 bytes size, memory can be wasted when slab allocation is requested for a large number of times for objects that sizes not aligned in power of two bytes.
       
     </div>
   </div>

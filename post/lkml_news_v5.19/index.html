@@ -29,7 +29,9 @@
     
   
   <meta name="description" content="[PATCH v4 0/3] mm/mprotect: Fix soft-dirty checks (Peter Xu) https://lkml.kernel.org/r/20220725142048.30450-1-peterx@redhat.com
-Fourth version of the soft-dirty check fixes for mprotect has posted. This version polishes the commit message and adds tests.">
+Fourth version of the soft-dirty check fixes for mprotect has posted. This version polishes the commit message and adds tests.
+[PATCH v2 1/2] mm/slub: enable debugging memory wasting of kmalloc (Feng Tang) https://lkml.kernel.org/r/20220725112025.22625-1-feng.tang@intel.com
+As slab allocates memory in only power of 2 bytes size, memory can be wasted when slab allocation is requested for a large number of times for objects that sizes not aligned in power of two bytes.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/lkml_news_v5.19/">
@@ -152,7 +154,9 @@ Fourth version of the soft-dirty check fixes for mprotect has posted. This versi
   <meta property="og:url" content="/post/lkml_news_v5.19/">
   <meta property="og:title" content="LKML News v5.19 | hacklog">
   <meta property="og:description" content="[PATCH v4 0/3] mm/mprotect: Fix soft-dirty checks (Peter Xu) https://lkml.kernel.org/r/20220725142048.30450-1-peterx@redhat.com
-Fourth version of the soft-dirty check fixes for mprotect has posted. This version polishes the commit message and adds tests."><meta property="og:image" content="/img/tux.png">
+Fourth version of the soft-dirty check fixes for mprotect has posted. This version polishes the commit message and adds tests.
+[PATCH v2 1/2] mm/slub: enable debugging memory wasting of kmalloc (Feng Tang) https://lkml.kernel.org/r/20220725112025.22625-1-feng.tang@intel.com
+As slab allocates memory in only power of 2 bytes size, memory can be wasted when slab allocation is requested for a large number of times for objects that sizes not aligned in power of two bytes."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -204,7 +208,7 @@ Fourth version of the soft-dirty check fixes for mprotect has posted. This versi
       "url": "/img/icon-512.png"
     }
   },
-  "description": "[PATCH v4 0/3] mm/mprotect: Fix soft-dirty checks (Peter Xu) https://lkml.kernel.org/r/20220725142048.30450-1-peterx@redhat.com\nFourth version of the soft-dirty check fixes for mprotect has posted. This version polishes the commit message and adds tests."
+  "description": "[PATCH v4 0/3] mm/mprotect: Fix soft-dirty checks (Peter Xu) https://lkml.kernel.org/r/20220725142048.30450-1-peterx@redhat.com\nFourth version of the soft-dirty check fixes for mprotect has posted. This version polishes the commit message and adds tests.\n[PATCH v2 1/2] mm/slub: enable debugging memory wasting of kmalloc (Feng Tang) https://lkml.kernel.org/r/20220725112025.22625-1-feng.tang@intel.com\nAs slab allocates memory in only power of 2 bytes size, memory can be wasted when slab allocation is requested for a large number of times for objects that sizes not aligned in power of two bytes."
 }
 </script>
 
@@ -614,6 +618,20 @@ Fourth version of the soft-dirty check fixes for mprotect has posted. This versi
 <p><a href="https://lkml.kernel.org/r/20220725142048.30450-1-peterx@redhat.com">https://lkml.kernel.org/r/20220725142048.30450-1-peterx@redhat.com</a></p>
 <p>Fourth version of the soft-dirty check fixes for mprotect has posted.  This
 version polishes the commit message and adds tests.</p>
+<h2 id="patch-v2-12-mmslub-enable-debugging-memory-wasting-of-kmalloc-feng-tang">[PATCH v2 1/2] mm/slub: enable debugging memory wasting of kmalloc (Feng Tang)</h2>
+<p><a href="https://lkml.kernel.org/r/20220725112025.22625-1-feng.tang@intel.com">https://lkml.kernel.org/r/20220725112025.22625-1-feng.tang@intel.com</a></p>
+<p>As slab allocates memory in only power of 2 bytes size, memory can be wasted
+when slab allocation is requested for a large number of times for objects that
+sizes not aligned in power of two bytes.  For example, if 1025 bytes memory
+allocation is requested, slab will allocate 2048 bytes in real and therefore
+1023 bytes are only wasted.  This patch makes the existing slab debugging
+interface (<code>/sys/kernel/debug/slab/kmalloc-xx/alloc_traces</code>) to show how much
+if the memory is wasted due to the requested memory size that not aligned to
+<code>2^n</code>.</p>
+<h2 id="patch-v2-mmpage_ownerc-add-llseek-for-page_owner-kassey-li">[PATCH v2] mm/page_owner.c: add llseek for page_owner (Kassey Li)</h2>
+<p><a href="https://lkml.kernel.org/r/20220727125508.5154-1-quic_yingangl@quicinc.com">https://lkml.kernel.org/r/20220727125508.5154-1-quic_yingangl@quicinc.com</a></p>
+<p>This patch allows specifying ppos as <code>start_pfn</code> for page_owner information of
+given cma region.</p>
 
     </div>
 
