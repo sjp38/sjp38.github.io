@@ -647,6 +647,23 @@ usage.  It allows assigning a specific memcg when creating bpf map.</p>
 <p><a href="https://lkml.kernel.org/r/20220729204454.b38fba22290c5b54733cedb5@linux-foundation.org">https://lkml.kernel.org/r/20220729204454.b38fba22290c5b54733cedb5@linux-foundation.org</a></p>
 <p>Andrew Morton sent two more hotfixes for v5.19 to Linus Torvalds.  This must be
 the final hotfixes.</p>
+<h2 id="linux-519-linus-torvalds">Linux 5.19 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wgrz5BBk=rCz7W28Fj_o02s0Xi0OEQ3H1uQgOdFvHgx0w@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wgrz5BBk=rCz7W28Fj_o02s0Xi0OEQ3H1uQgOdFvHgx0w@mail.gmail.com</a></p>
+<p>Linus has released the v5.19 Linux kernel.  Some changes for arch to annotate
+<code>READ_ONCE()</code> calls for static checkers and random small changes are there.
+Torvalds also note that this release has made on arm64 thank to Asahi team&rsquo;s
+efforts.  Maybe he&rsquo;s using the Macbook.</p>
+<p>Now, the merge window for the next version of the Linux kernel will open.
+Torvalds also note that the next version will be 6.0 instead of 5.20.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.9-rc1..v5.19.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2020-07-31 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
 
     </div>
 
