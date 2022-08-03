@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2022-07-29T21:02:43-07:00">
+    <meta property="og:updated_time" content="2022-08-02T17:40:09-07:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.17-rc8/">LKML News v5.17-rc8</a></h2>
+    <div class="article-style">
+      
+      mmotm 2022-03-06-20-33 uploaded (Andrew Morton) https://lkml.kernel.org/r/20220307043435.251DBC340E9@smtp.kernel.org
+The -mm tree has updated. It&rsquo;s based on v5.17-rc6, added 19 patches, modified 6 patches, and dropped 19 patches. In totla, 428 patches in the queue.
+[PATCH v3] mm: add ztree - new allocator for use via zpool API (Ananda) https://lkml.kernel.org/r/20220307142724.14519-1-a.badmaev@clicknet.pro
+Third version of ztree, which is intended to be used for storing compressed objects per ztree block. Comparing to the previous version, compiler warnings have fixed.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.17-rc7/">LKML News v5.17-rc7</a></h2>
     <div class="article-style">
       
@@ -630,18 +642,6 @@ The work for seperating struct slab from struct page for making the struct page 
       Whenever reading the kernel development statistics report for each release from LWN, I wanted to scope it down to specific subsystems. For that, I wrote a script.
 Belows are the top 10 kernel hackers who contributed to the memory management subsystem of Linux kernel, sorted by number of commits and changed (added, deleted, or modified) lines, respectively.
 $ ./authors.py ~/linux --file mm/ --since 2021-01-01 --author_identity name --sortby lines --max_nr_authors 10 1.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.16-rc8/">LKML News v5.16-rc8</a></h2>
-    <div class="article-style">
-      
-      [RFC v2] mm: introduce page pin owner (Minchan Kim) https://lkml.kernel.org/r/20211228175904.3739751-1-minchan@kernel.org
-Second version of the RFC for page pinning owner feature, which can be useful for tracking down who pins which page and therefore why contiguous pages allocation or migration fails.
-mmotm 2021-12-29-20-07 uploaded (Andrew Morton) https://lkml.kernel.org/r/20211230040740.SbquJAFf5%akpm@linux-foundation.org
-MM of the moment has updated. It&rsquo;s rebased on v5.16-rc7, adds 32 new patches to the queue, drops 11 patches from the queue, and modifies 100 existing patches.
       
     </div>
   </div>

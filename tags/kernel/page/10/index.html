@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2022-07-29T21:02:43-07:00">
+    <meta property="og:updated_time" content="2022-08-02T17:40:09-07:00">
   
 
   
@@ -525,6 +525,20 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.9-rc6/">LKML News v5.9-rc6</a></h2>
+    <div class="article-style">
+      
+      [PATCH v14 0/5] KASAN-KUnit Integration (David Gow) https://lkml.kernel.org/r/20200915035828.570483-1-davidgow@google.com
+The 14th patchset for the KASAN and KUnit integration. From the v13, compile warnings in test_kasan_module fixed.
+[PATCH v2 00/10] KFENCE: A low-overhead sampling-based memory safety error detector (Marco Elver) https://lkml.kernel.org/r/20200915132046.3332537-1-elver@google.com
+The second version of the KFENCE posted.
+[PATCH 1/2] fs: Add a filesystem flag for THPs (Matthew Wilcox) https://lkml.kernel.org/r/20200916032717.22917-1-willy@infradead.org
+This patchset caches whether the backing filesystem support THP or not in an address space flags, so that the page cache can determine if it can send THP to the backing filesystem or not.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.9-rc5/">LKML News v5.9-rc5</a></h2>
     <div class="article-style">
       
@@ -627,18 +641,6 @@ On x86, smallest supported block size is 128MiB. This means it needs to create 1
 This patchset makes kunit to use kmemleak to catch memory leak in the test code.
 [PATCH] CodingStyle: Inclusive Terminology (Dan Williams) https://lkml.kernel.org/r/159389297140.2210796.13590142254668787525.stgit@dwillia2-desk3.amr.corp.intel.com
 This patch adds a new document for inclusive term usage in the kernel tree. It suggests to stop using the terms, &lsquo;slave&rsquo; and &lsquo;blacklist&rsquo; anymore. This patch was revised two times and the third revision is merged in Torvalds&rsquo; tree by the Friday.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.8-rc4/">LKML News v5.8-rc4</a></h2>
-    <div class="article-style">
-      
-      [Ksummit-discuss] [TECH TOPIC] Inline Encryption Support and new related features (Satya Tangirala) https://lkml.kernel.org/r/20200629092551.GA673684@google.com
-Maybe the last kernel summit proposal. The inline encryption work was presented in the last year LPC and a part of it has merged in the v5.8, being tested in Android. The talk will discuss the todo list of the work.
-[PATCH] mm: define pte_add_end for consistency (Wei Yang) https://lkml.kernel.org/r/20200630031852.45383-1-richard.weiyang@linux.alibaba.com
-This patch adds a helper to get the address of the next boundary for pte level.
       
     </div>
   </div>
