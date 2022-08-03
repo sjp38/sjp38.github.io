@@ -530,6 +530,8 @@
       
       [PATCH] mm: vmscan: fix extreme overreclaim and swap floods (Johannes Weiner) https://lkml.kernel.org/r/20220802162811.39216-1-hannes@cmpxchg.org
 Johannes found proactive reclamation using memory.reclaim sometimes reclaim more pages than requested on specific cgroup use cases. This patch resolves the issue so that the proactive reclamation doesn&rsquo;t over-reclaim pages.
+[RFC PATCH 0/4] propose a auto-run mode for ksm (Xu Xin) https://lkml.kernel.org/r/20220803100306.1653382-1-xu.xin16@zte.con.cn
+KSM operation management is quite manual and sometimes inefficient if not well managed. This patchset introduces auto-run mode that can operate KSM in a better way.
       
     </div>
   </div>
