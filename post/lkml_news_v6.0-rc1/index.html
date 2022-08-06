@@ -574,7 +574,7 @@ KSM operation management is quite manual and sometimes inefficient if not well m
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -636,6 +636,10 @@ now is to merge them in the mainline by 5.21-rc1 (Or, 6.1-rc1?).</p>
 <p><a href="https://lkml.kernel.org/r/20220804203952.53665-1-peterx@redhat.com">https://lkml.kernel.org/r/20220804203952.53665-1-peterx@redhat.com</a></p>
 <p>We set a page as old and clean when migrating it.  As a result, the access
 information is lost.  This patch makes the information to be preserved.</p>
+<h2 id="patch-v3-mm-add-thp_utilization-metrics-to-procthp_utilization-alexander-zhu">[PATCH v3] mm: add thp_utilization metrics to /proc/thp_utilization (Alexander Zhu)</h2>
+<p><a href="https://lkml.kernel.org/r/20220805184016.2926168-1-alexlzhu@fb.com">https://lkml.kernel.org/r/20220805184016.2926168-1-alexlzhu@fb.com</a></p>
+<p>This patch adds a tool that scans all physical memory for anonymous THP and
+reports the real utilization of the THPs for knowing how well THP is used.</p>
 
     </div>
 
