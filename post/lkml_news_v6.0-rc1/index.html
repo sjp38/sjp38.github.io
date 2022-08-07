@@ -640,6 +640,12 @@ information is lost.  This patch makes the information to be preserved.</p>
 <p><a href="https://lkml.kernel.org/r/20220805184016.2926168-1-alexlzhu@fb.com">https://lkml.kernel.org/r/20220805184016.2926168-1-alexlzhu@fb.com</a></p>
 <p>This patch adds a tool that scans all physical memory for anonymous THP and
 reports the real utilization of the THPs for knowing how well THP is used.</p>
+<h2 id="patch-v2-05-mmmemfd-mfd_noexec-for-memfd_create-jeff-xu">[PATCH v2 0/5] mm/memfd: MFD_NOEXEC for memfd_create (Jeff Xu)</h2>
+<p><a href="https://lkml.kernel.org/r/20220805222126.142525-1-jeffxu@google.com">https://lkml.kernel.org/r/20220805222126.142525-1-jeffxu@google.com</a></p>
+<p>memfd file&rsquo;s default permission includes execute permission.  As it is
+undesirable on systems that all filesystems are intedned to be mounted without
+exec permission, this patchset implements a new flag for <code>memfd_create()</code>
+called <code>MFD_NOEXEC</code>.</p>
 
     </div>
 
