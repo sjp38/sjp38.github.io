@@ -574,7 +574,7 @@ KSM operation management is quite manual and sometimes inefficient if not well m
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    2 min read
+    3 min read
   </span>
   
 
@@ -658,6 +658,11 @@ moves the metric from <code>procfs</code> to <code>debugfs</code> in this versio
 <p><a href="https://lkml.kernel.org/r/20220809171854.3725722-1-willy@infradead.org">https://lkml.kernel.org/r/20220809171854.3725722-1-willy@infradead.org</a></p>
 <p>This patchset adds APIs to allocate and free pages which are in a frozen state.
 This is a step towards the future which <code>struct page</code> doesn&rsquo;t have a refcount.</p>
+<h2 id="rfc-patch-introduce-sysfs-interface-to-disable-kfence-for-selected-slabs-imran-khan">[RFC PATCH] Introduce sysfs interface to disable kfence for selected slabs. (Imran Khan)</h2>
+<p><a href="https://lkml.kernel.org/r/20220811072551.2506005-1-imran.f.khan@oracle.com">https://lkml.kernel.org/r/20220811072551.2506005-1-imran.f.khan@oracle.com</a></p>
+<p>As we have kfence interest in only specific slab objects like <code>dentry</code> or
+<code>ext4_*</code>, this patch introduces a sysfs interface for disabling kfence for
+specific slabs.</p>
 
     </div>
 

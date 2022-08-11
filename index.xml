@@ -61,6 +61,11 @@ moves the metric from &lt;code&gt;procfs&lt;/code&gt; to &lt;code&gt;debugfs&lt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20220809171854.3725722-1-willy@infradead.org&#34;&gt;https://lkml.kernel.org/r/20220809171854.3725722-1-willy@infradead.org&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;This patchset adds APIs to allocate and free pages which are in a frozen state.
 This is a step towards the future which &lt;code&gt;struct page&lt;/code&gt; doesn&amp;rsquo;t have a refcount.&lt;/p&gt;
+&lt;h2 id=&#34;rfc-patch-introduce-sysfs-interface-to-disable-kfence-for-selected-slabs-imran-khan&#34;&gt;[RFC PATCH] Introduce sysfs interface to disable kfence for selected slabs. (Imran Khan)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20220811072551.2506005-1-imran.f.khan@oracle.com&#34;&gt;https://lkml.kernel.org/r/20220811072551.2506005-1-imran.f.khan@oracle.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;As we have kfence interest in only specific slab objects like &lt;code&gt;dentry&lt;/code&gt; or
+&lt;code&gt;ext4_*&lt;/code&gt;, this patch introduces a sysfs interface for disabling kfence for
+specific slabs.&lt;/p&gt;
 </description>
     </item>
     
