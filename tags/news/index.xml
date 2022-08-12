@@ -66,6 +66,12 @@ This is a step towards the future which &lt;code&gt;struct page&lt;/code&gt; doe
 &lt;p&gt;As we have kfence interest in only specific slab objects like &lt;code&gt;dentry&lt;/code&gt; or
 &lt;code&gt;ext4_*&lt;/code&gt;, this patch introduces a sysfs interface for disabling kfence for
 specific slabs.&lt;/p&gt;
+&lt;h2 id=&#34;state-of-the-page-august-2022-matthew-wilcox&#34;&gt;State of the Page (August 2022) (Matthew Wilcox)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/YvV1KTyzZ+Jrtj9x@casper.infradead.org&#34;&gt;https://lkml.kernel.org/r/YvV1KTyzZ+Jrtj9x@casper.infradead.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;As &lt;code&gt;struct page&lt;/code&gt; size is 64 bytes, the array of &lt;code&gt;struct page&lt;/code&gt; objects, called
+&lt;code&gt;memmap&lt;/code&gt;, commonly consumes about 1.6% of memory.  Matthew tries to size it
+down to 8 byte so that the overhead could be down to 0.2%, which could be
+acceptable.  In this mail, he shares the state of the progress.&lt;/p&gt;
 </description>
     </item>
     
