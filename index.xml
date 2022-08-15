@@ -79,6 +79,26 @@ demotion has posted.&lt;/p&gt;
 &lt;h2 id=&#34;patch-v2-05-propose-auto-run-mode-of-ksm-and-its-tests-xu-xin&#34;&gt;[PATCH v2 0/5] propose auto-run mode of ksm and its tests (Xu Xin)&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20220812101102.41422-1-xu.xin16@zte.com.cn&#34;&gt;https://lkml.kernel.org/r/20220812101102.41422-1-xu.xin16@zte.com.cn&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Second version of the patchset for adding auto-run mode of ksm has posted.&lt;/p&gt;
+&lt;h2 id=&#34;linux-60-rc1-linus-torvalds&#34;&gt;Linux 6.0-rc1 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wgRFjPHV-Y_eKP9wQMLFDgG+dEUHiv5wC17OQHsG5z7BA@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wgRFjPHV-Y_eKP9wQMLFDgG+dEUHiv5wC17OQHsG5z7BA@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;After the two weeks of the merge window, about 13.5k non-merge, 800+ merge
+commits have merged in the mainline tree and 6.0-rc1 has released.  Linus
+emphasizes the increment of the major version number nothing but the minor
+version number has been too large to remember.  He also notes that he wanted
+Rust infrastructure and multi-gen LRU to be merged in this release but those
+didn&amp;rsquo;t make it.  He estimates Linux 6.0 would be released in early October, and
+asks people to help testing for that.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v5.9-rc2..v6.0-rc1.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
+below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2020-08-15 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And, below is the diffstat of the -rc1 releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v6.0-rc1-only.png&#34; alt=&#34;rc1 release stat&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     

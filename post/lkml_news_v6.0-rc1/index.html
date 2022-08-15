@@ -574,7 +574,7 @@ KSM operation management is quite manual and sometimes inefficient if not well m
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    3 min read
+    4 min read
   </span>
   
 
@@ -676,6 +676,26 @@ demotion has posted.</p>
 <h2 id="patch-v2-05-propose-auto-run-mode-of-ksm-and-its-tests-xu-xin">[PATCH v2 0/5] propose auto-run mode of ksm and its tests (Xu Xin)</h2>
 <p><a href="https://lkml.kernel.org/r/20220812101102.41422-1-xu.xin16@zte.com.cn">https://lkml.kernel.org/r/20220812101102.41422-1-xu.xin16@zte.com.cn</a></p>
 <p>Second version of the patchset for adding auto-run mode of ksm has posted.</p>
+<h2 id="linux-60-rc1-linus-torvalds">Linux 6.0-rc1 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wgRFjPHV-Y_eKP9wQMLFDgG+dEUHiv5wC17OQHsG5z7BA@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wgRFjPHV-Y_eKP9wQMLFDgG+dEUHiv5wC17OQHsG5z7BA@mail.gmail.com</a></p>
+<p>After the two weeks of the merge window, about 13.5k non-merge, 800+ merge
+commits have merged in the mainline tree and 6.0-rc1 has released.  Linus
+emphasizes the increment of the major version number nothing but the minor
+version number has been too large to remember.  He also notes that he wanted
+Rust infrastructure and multi-gen LRU to be merged in this release but those
+didn&rsquo;t make it.  He estimates Linux 6.0 would be released in early October, and
+asks people to help testing for that.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.9-rc2..v6.0-rc1.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2020-08-15 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc1 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v6.0-rc1-only.png" alt="rc1 release stat"></p>
 
     </div>
 
