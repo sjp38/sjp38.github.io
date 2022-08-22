@@ -629,6 +629,27 @@ better ideas.</p>
 <h2 id="patch-v3-mm-add-thp_utilization-metrics-to-debugfs-alexander-zhu">[PATCH v3] mm: add thp_utilization metrics to debugfs (Alexander Zhu)</h2>
 <p><a href="https://lkml.kernel.org/r/20220818000112.2722201-1-alexlzhu@fb.com">https://lkml.kernel.org/r/20220818000112.2722201-1-alexlzhu@fb.com</a></p>
 <p>This patch adds debugfs file for tracking how THP is utilized well.</p>
+<h2 id="patch-v15-0010-mmdemotion-memory-tiers-and-demotion-aneesh-kumar-kv">[PATCH v15 00/10] mm/demotion: Memory tiers and demotion (Aneesh Kumar K.V)</h2>
+<p><a href="https://lkml.kernel.org/r/20220818131042.113280-1-aneesh.kumar@linux.ibm.com">https://lkml.kernel.org/r/20220818131042.113280-1-aneesh.kumar@linux.ibm.com</a></p>
+<p>Fifteenth version of the patchset for improving memory tier construction and
+demotion has posted.</p>
+<h2 id="linux-60-rc2-linus-torvalds">Linux 6.0-rc2 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wj_XDfMiVXuo6A98KF4MsXxtyuMP_OtOGw87xnKERcfAg@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wj_XDfMiVXuo6A98KF4MsXxtyuMP_OtOGw87xnKERcfAg@mail.gmail.com</a></p>
+<p>The second rc release is out.  It&rsquo;s small as other rc2 releases also usually
+are, but contains a fix for a virtio issue, which found during the merge window
+and disrupted some automated tests.  Of course it contains fixes for more
+subsystems.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.9-rc3..v6.0-rc2.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2020-08-22 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc2 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v6.0-rc2-only.png" alt="rc2 release stat"></p>
 
     </div>
 
