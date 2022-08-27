@@ -638,6 +638,10 @@ calling <code>page_ext_init()</code> before <code>page_alloc_init_late()</code>.
 <p><a href="https://lkml.kernel.org/r/20220826011503.103894-1-lujialin4@huawei.com">https://lkml.kernel.org/r/20220826011503.103894-1-lujialin4@huawei.com</a></p>
 <p>This RFC patchset adds <code>cgroup.top</code> file under cgroupfs, which can be used to
 gather top-down resource usage information.</p>
+<h2 id="patch-mm-kill-is_memblock_offlined-kefeng-wang">[PATCH] mm: kill is_memblock_offlined() (Kefeng Wang)</h2>
+<p><a href="https://lkml.kernel.org/r/20220827112043.187028-1-wangkefeng.wang@huawei.com">https://lkml.kernel.org/r/20220827112043.187028-1-wangkefeng.wang@huawei.com</a></p>
+<p>This patch removes one line wrapper function, <code>is_memblock_offlined()</code> and make
+the callers do the check on its own.</p>
 
     </div>
 
