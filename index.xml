@@ -45,6 +45,22 @@ gather top-down resource usage information.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20220827112043.187028-1-wangkefeng.wang@huawei.com&#34;&gt;https://lkml.kernel.org/r/20220827112043.187028-1-wangkefeng.wang@huawei.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;This patch removes one line wrapper function, &lt;code&gt;is_memblock_offlined()&lt;/code&gt; and make
 the callers do the check on its own.&lt;/p&gt;
+&lt;h2 id=&#34;linux-60-rc3-linus-torvalds&#34;&gt;Linux 6.0-rc3 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=whaiqzB6a_daUpvGyDg-cvkXKwwfjwPKV4HQRcci+8BeA@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=whaiqzB6a_daUpvGyDg-cvkXKwwfjwPKV4HQRcci+8BeA@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Linus releases the third release candidate for v6.0 of the Linux kernel.  There
+are some known issues but nothing scary and almost normal.  He also notices it
+was the week was having the 31st anniversary of Linux.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v5.9-rc4..v6.0-rc3.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
+below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2020-08-29 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And, below is the diffstat of the -rc3 releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v6.0-rc3-only.png&#34; alt=&#34;rc3 release stat&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     
