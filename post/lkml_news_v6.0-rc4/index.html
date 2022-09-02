@@ -627,6 +627,12 @@ do memory allocation tracking, dynamic fault injection, latency tracking, etc.</
 <h2 id="git-pull-slab-fix-for-60-rc4-vlastimil-babka">[GIT PULL] slab fix for 6.0-rc4 (Vlastimil Babka)</h2>
 <p><a href="https://lkml.kernel.org/r/72c237d6-df43-fc3b-4948-6d9a34ef3ba8@suse.cz">https://lkml.kernel.org/r/72c237d6-df43-fc3b-4948-6d9a34ef3ba8@suse.cz</a></p>
 <p>Vlastimil sent a slab fix pull request to Linus for v6.0-rc4.</p>
+<h2 id="resend-rfc-patch-mm-introduce-__gfp_trackleak-to-track-in-kernel-allocation-zhaoyang-huang">[Resend RFC PATCH] mm: introduce <code>__GFP_TRACKLEAK</code> to track in-kernel allocation (Zhaoyang Huang)</h2>
+<p><a href="https://lkml.kernel.org/r/1662116347-17649-1-git-send-email-zhaoyang.huang@unisoc.com">https://lkml.kernel.org/r/1662116347-17649-1-git-send-email-zhaoyang.huang@unisoc.com</a></p>
+<p>It&rsquo;s hard to debug memory leaks in kthread and drivers as they could fetch
+memory via direct <code>alloc_pages()</code> calls.  This patches solves this by
+introducing yet another <code>GFP</code> flag, <code>__GFP_TRACELEAK</code> and reuse <code>kmemleak</code>
+mechanism.</p>
 
     </div>
 
