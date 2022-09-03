@@ -116,7 +116,7 @@ workloads and systems.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;/img/masim_stairs_heatmap_ascii.png&#34; alt=&#34;masim stairs heatmap in ascii&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;recent-news&#34;&gt;Recent News&lt;/h2&gt;
 &lt;p&gt;&lt;em&gt;2022-08-30&lt;/em&gt;: AL2 5.10 kernel&amp;rsquo;s DAMON code has
-&lt;a href=&#34;https://github.com/amazonlinux/linux/commit/8fde5ce7c81c1ecf6c3ac2595774eac0e6784869&#34;&gt;updated&lt;/a&gt;
+&lt;a href=&#34;https://github.com/amazonlinux/linux/commit/ec912bc8716cbf7f339b45aec3c10d0cd33f8c71&#34;&gt;updated&lt;/a&gt;
 to that of v5.18&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;2022-08-22&lt;/em&gt;: LWN &lt;a href=&#34;https://lwn.net/Articles/905370/&#34;&gt;introduced&lt;/a&gt; DAMON-based
 LRU-lists manipulation (DAMON_LRU_SORT) in detail&lt;/p&gt;
@@ -137,8 +137,8 @@ the Kernel Summit 2022.&lt;/p&gt;
 the user-space tool, and&lt;/li&gt;
 &lt;li&gt;run the automated &lt;a href=&#34;#tests-package&#34;&gt;tests suite&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;By following those, you will be able to check if DAMON works on your machine
-and know how you can use it.&lt;/p&gt;
+&lt;p&gt;By following those, you will be able to know if DAMON works on your machine and
+how you can use it.&lt;/p&gt;
 &lt;h2 id=&#34;install&#34;&gt;Install&lt;/h2&gt;
 &lt;p&gt;DAMON is implemented in the Linux kernel, so you should install DAMON-enabled
 Linux kernel to use it.  To check if you&amp;rsquo;re already running DAMON-enabled
@@ -146,7 +146,8 @@ kernel, you could:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ grep CONFIG_DAMON /boot/config-$(uname -r)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;If you are an &lt;a href=&#34;https://aws.amazon.com/amazon-linux-2/&#34;&gt;Amazon Linux 2&lt;/a&gt; user,
-you can install a DAMON-enabled Linux kernel which based on v5.10 or v5.4 using
+you can install a DAMON-enabled Linux kernels which are based on v5.10 or v5.4
+using
 &lt;a href=&#34;https://aws.amazon.com/premiumsupport/knowledge-center/ec2-install-extras-library-software/&#34;&gt;amazon-linux-extras&lt;/a&gt;
 like below:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ sudo yum install -y amazon-linux-extras
@@ -155,7 +156,7 @@ $ sudo reboot
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Note that AL2 v5.4.y contains only a part of DAMON features, so AL2 v5.10.y is
 more recommended.&lt;/p&gt;
-&lt;p&gt;If your package system doesn&amp;rsquo;t have DAMON-enabled kernel in the list, you can
+&lt;p&gt;If your package system doesn&amp;rsquo;t support DAMON-enabled kernel, you can
 &lt;a href=&#34;#source-code&#34;&gt;fetch&lt;/a&gt; a DAMON-merged Linux kernel source tree, build, and
 install it.  Note that you should enable kernel configuration options for
 DAMON, depending on your demands.  For example:&lt;/p&gt;
@@ -185,24 +186,24 @@ contains the latest stable version of DAMON since v5.15.&lt;/li&gt;
 &lt;a href=&#34;https://github.com/amazonlinux/linux/tree/amazon-5.10.y/master&#34;&gt;v5.10.y tree&lt;/a&gt;
 and
 &lt;a href=&#34;https://github.com/amazonlinux/linux/tree/amazon-5.4.y/master&#34;&gt;v5.4.y tree&lt;/a&gt;
-also contains stable versions of DAMON, which back-ported on v5.10.y and
-v5.4.y, respectively.  Note that AL2 v5.4.y contains only a part of DAMON
-features, so AL2 v5.10.y is more recommended.&lt;/li&gt;
+also contains stable versions of DAMON in the mainline, which back-ported on
+v5.10.y and v5.4.y, respectively.  Note that AL2 v5.4.y contains only a part
+of DAMON features, so AL2 v5.10.y is more recommended.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;If you have interest in DAMON features under development, below trees will be
-appropriate.  Those trees contain latest version of DAMON which having features
-under development.&lt;/p&gt;
+&lt;p&gt;If you have interests in DAMON features under development, below tree will be
+appropriate.  This trees contain latest version of DAMON which having features
+under development/hacks.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://git.kernel.org/sj/h/damon/master&#34;&gt;damon/master&lt;/a&gt; contains the
-tree that relatively stable.  This tree is not so frequently updated.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://git.kernel.org/sj/h/damon/next&#34;&gt;damon/next&lt;/a&gt; contains the latest
-changes, which might not even be tested.  So this tree is likely unstable and
-frequently updated.&lt;/li&gt;
+changes, which might not fully be tested.  So this tree is likely unstable
+and frequently updated.  This tree also contains some changes that exist
+only for DAMON hacks itself rather than eventually be merged in the mainline.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;For people who have interest in DAMON features under development but use LTS
 kernels as their baseline, there &lt;em&gt;were&lt;/em&gt; trees that based on three latest LTS
-kernels.  NOTE: these trees are deprecated, because all initial DAMON features
-are merged in the Linus&amp;rsquo; tree during the v5.16 merge window.&lt;/p&gt;
+kernels.&lt;/p&gt;
+&lt;p&gt;NOTE: these trees are deprecated as of 2022-09-03, and therefore there will be
+no update at all.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://git.kernel.org/sj/h/damon/for-v5.15.y&#34;&gt;damon/for-v5.15.y&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://git.kernel.org/sj/h/damon/for-v5.10.y&#34;&gt;damon/for-v5.10.y&lt;/a&gt;&lt;/li&gt;
@@ -211,8 +212,8 @@ are merged in the Linus&amp;rsquo; tree during the v5.16 merge window.&lt;/p&gt;
 &lt;p&gt;The source code of DAPTRACE, which is a prototype of DAMON, is also
 &lt;a href=&#34;https://github.com/daptrace&#34;&gt;available&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;user-space-tool&#34;&gt;User-space Tool&lt;/h2&gt;
-&lt;p&gt;A user-space tool for DAMON, which is called
-&lt;a href=&#34;https://github.com/awslabs/damo&#34;&gt;DAMO&lt;/a&gt; is available.  It&amp;rsquo;s also available at
+&lt;p&gt;A user-space tool for DAMON, which is called DAMO is available at
+&lt;a href=&#34;https://github.com/awslabs/damo&#34;&gt;Github&lt;/a&gt; and
 &lt;a href=&#34;https://pypi.org/project/damo/&#34;&gt;PyPi&lt;/a&gt;.  You may start using DAMON by following
 the &lt;a href=&#34;https://github.com/awslabs/damo#getting-started&#34;&gt;Getting Started&lt;/a&gt; of the
 tool for start.&lt;/p&gt;
@@ -226,21 +227,21 @@ interface of DAMON.&lt;/p&gt;
 &lt;a href=&#34;https://github.com/awslabs/damo#getting-started&#34;&gt;tutorial&lt;/a&gt; but have no idea
 about what to do next, running the tests would be a good start.  If any test
 fails, please report that to the maintainer via mail (&lt;a href=&#34;mailto:sj@kernel.org&#34;&gt;sj@kernel.org&lt;/a&gt;) or
-&lt;a href=&#34;https://github.com/awslabs/damo/issues&#34;&gt;github&lt;/a&gt;.&lt;/p&gt;
+&lt;a href=&#34;https://github.com/awslabs/damon-tests/issues&#34;&gt;github&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;official-document&#34;&gt;Official Document&lt;/h2&gt;
 &lt;p&gt;The official document of DAMON in the latest mainline for
 &lt;a href=&#34;https://docs.kernel.org/admin-guide/mm/damon/index.html&#34;&gt;users/sysadmins&lt;/a&gt; and
 &lt;a href=&#34;https://docs.kernel.org/vm/damon/index.html&#34;&gt;kernel programmers&lt;/a&gt; are
-available.  Those for DAMON in the development tree
-(&lt;a href=&#34;#source-code&#34;&gt;damon/next&lt;/a&gt;) are also
+available.  That for DAMON in the &lt;a href=&#34;#source-code&#34;&gt;damon/next&lt;/a&gt; tree, which
+focused on DAMON only and contains some more DAMON-specific contents, is also
 &lt;a href=&#34;https://damonitor.github.io/doc/html/next/&#34;&gt;available&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;showcase-website&#34;&gt;Showcase Website&lt;/h2&gt;
 &lt;p&gt;There is a showcase web &lt;a href=&#34;https://damonitor.github.io/_index&#34;&gt;site&lt;/a&gt; that you can
 get more information of DAMON.
 The site hosts&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;the official &lt;a href=&#34;https://damonitor.github.io/doc/html/next/&#34;&gt;documentation&lt;/a&gt; of
-DAMON in its development tree,&lt;/li&gt;
+&lt;li&gt;the &lt;a href=&#34;https://damonitor.github.io/doc/html/next/&#34;&gt;documentation&lt;/a&gt; of
+DAMON that contains contents on &lt;a href=&#34;#source-code&#34;&gt;damon/next&lt;/a&gt; tree,&lt;/li&gt;
 &lt;li&gt;the heatmap format dynamic access pattern of various realistic workloads for
 &lt;a href=&#34;https://damonitor.github.io/test/result/visual/latest/rec.heatmap.0.png.html&#34;&gt;heap&lt;/a&gt;
 area,
