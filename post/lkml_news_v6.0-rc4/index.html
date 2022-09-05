@@ -574,7 +574,7 @@ This RFC patchset introduces code tagging framework which can identify a specifi
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -633,6 +633,21 @@ do memory allocation tracking, dynamic fault injection, latency tracking, etc.</
 memory via direct <code>alloc_pages()</code> calls.  This patches solves this by
 introducing yet another <code>GFP</code> flag, <code>__GFP_TRACELEAK</code> and reuse <code>kmemleak</code>
 mechanism.</p>
+<h2 id="linux-60-rc4-linus-torvalds">Linux 6.0-rc4 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wiqix9N5P0BXrSSOXjPZxMh=wDDRJ3sgf=hutoTUx0nZQ@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wiqix9N5P0BXrSSOXjPZxMh=wDDRJ3sgf=hutoTUx0nZQ@mail.gmail.com</a></p>
+<p>Another normal week has passed and the fourth release candidate for Linux v6.0
+has released.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.9-rc5..v6.0-rc4.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2020-09-05 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc4 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v6.0-rc4-only.png" alt="rc4 release stat"></p>
 
     </div>
 
