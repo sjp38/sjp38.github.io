@@ -31,7 +31,9 @@
   <meta name="description" content="[LPC 2022] Kernel Memory Management Microconference - next Monday! (Vlastimil Babka) https://lkml.kernel.org/r/e918dd3c-aa71-c510-4a50-4f9882bca3e8@suse.cz
 Vlastimil and Matthew are reminding about the kernel memory management microconference, which will be held as a part of the LPC this year, in Dublin.
 [PATCH v6 00/44] Add KernelMemorySanitizer infrastructure (Alexander Potapenko) https://lkml.kernel.org/r/20220905122452.2258262-1-glider@google.com
-Sixth iteration of the KMSAN infra patchset has posted.">
+Sixth iteration of the KMSAN infra patchset has posted.
+[PATCH v3 0/2] Introduce CABA helper process tree (Pavel Tikhomirov) https://lkml.kernel.org/r/20220908140313.313020-1-ptikhomirov@virtuozzo.com
+Current linux process tree looses the information in which subtree the child was originally born, after the children is died and therefore reparented.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/lkml_news_v6.0-rc5/">
@@ -156,7 +158,9 @@ Sixth iteration of the KMSAN infra patchset has posted.">
   <meta property="og:description" content="[LPC 2022] Kernel Memory Management Microconference - next Monday! (Vlastimil Babka) https://lkml.kernel.org/r/e918dd3c-aa71-c510-4a50-4f9882bca3e8@suse.cz
 Vlastimil and Matthew are reminding about the kernel memory management microconference, which will be held as a part of the LPC this year, in Dublin.
 [PATCH v6 00/44] Add KernelMemorySanitizer infrastructure (Alexander Potapenko) https://lkml.kernel.org/r/20220905122452.2258262-1-glider@google.com
-Sixth iteration of the KMSAN infra patchset has posted."><meta property="og:image" content="/img/tux.png">
+Sixth iteration of the KMSAN infra patchset has posted.
+[PATCH v3 0/2] Introduce CABA helper process tree (Pavel Tikhomirov) https://lkml.kernel.org/r/20220908140313.313020-1-ptikhomirov@virtuozzo.com
+Current linux process tree looses the information in which subtree the child was originally born, after the children is died and therefore reparented."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -208,7 +212,7 @@ Sixth iteration of the KMSAN infra patchset has posted."><meta property="og:imag
       "url": "/img/icon-512.png"
     }
   },
-  "description": "[LPC 2022] Kernel Memory Management Microconference - next Monday! (Vlastimil Babka) https://lkml.kernel.org/r/e918dd3c-aa71-c510-4a50-4f9882bca3e8@suse.cz\nVlastimil and Matthew are reminding about the kernel memory management microconference, which will be held as a part of the LPC this year, in Dublin.\n[PATCH v6 00/44] Add KernelMemorySanitizer infrastructure (Alexander Potapenko) https://lkml.kernel.org/r/20220905122452.2258262-1-glider@google.com\nSixth iteration of the KMSAN infra patchset has posted."
+  "description": "[LPC 2022] Kernel Memory Management Microconference - next Monday! (Vlastimil Babka) https://lkml.kernel.org/r/e918dd3c-aa71-c510-4a50-4f9882bca3e8@suse.cz\nVlastimil and Matthew are reminding about the kernel memory management microconference, which will be held as a part of the LPC this year, in Dublin.\n[PATCH v6 00/44] Add KernelMemorySanitizer infrastructure (Alexander Potapenko) https://lkml.kernel.org/r/20220905122452.2258262-1-glider@google.com\nSixth iteration of the KMSAN infra patchset has posted.\n[PATCH v3 0/2] Introduce CABA helper process tree (Pavel Tikhomirov) https://lkml.kernel.org/r/20220908140313.313020-1-ptikhomirov@virtuozzo.com\nCurrent linux process tree looses the information in which subtree the child was originally born, after the children is died and therefore reparented."
 }
 </script>
 
@@ -621,6 +625,13 @@ microconference, which will be held as a part of the LPC this year, in Dublin.</
 <h2 id="patch-v6-0044-add-kernelmemorysanitizer-infrastructure-alexander-potapenko">[PATCH v6 00/44] Add KernelMemorySanitizer infrastructure (Alexander Potapenko)</h2>
 <p><a href="https://lkml.kernel.org/r/20220905122452.2258262-1-glider@google.com">https://lkml.kernel.org/r/20220905122452.2258262-1-glider@google.com</a></p>
 <p>Sixth iteration of the KMSAN infra patchset has posted.</p>
+<h2 id="patch-v3-02-introduce-caba-helper-process-tree-pavel-tikhomirov">[PATCH v3 0/2] Introduce CABA helper process tree (Pavel Tikhomirov)</h2>
+<p><a href="https://lkml.kernel.org/r/20220908140313.313020-1-ptikhomirov@virtuozzo.com">https://lkml.kernel.org/r/20220908140313.313020-1-ptikhomirov@virtuozzo.com</a></p>
+<p>Current linux process tree looses the information in which subtree the child
+was originally born, after the children is died and therefore reparented.  This
+patchset introduces a new data structure called CABA tree to use as the process
+tree for keeing the information, as it could be helpful for CRIU to restore the
+process tree.</p>
 
     </div>
 
