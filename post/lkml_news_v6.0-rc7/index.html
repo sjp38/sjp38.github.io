@@ -29,7 +29,10 @@
     
   
   <meta name="description" content="[RFC PATCH] mm: track bad page via kmemleak (Zhaoyang Huang) https://lkml.kernel.org/r/1663679468-16757-1-git-send-email-zhaoyang.huang@unisoc.com
-This RFC patch makes bad pages to be tracked via kmemleak.">
+This RFC patch makes bad pages to be tracked via kmemleak.
+[PATCH v1 0/3] coding-style.rst: document BUG() and WARN() rules (David Hildenbrand) https://lkml.kernel.org/r/20220920122302.99195-1-david@redhat.com
+There was a recent discussion on when to use BUG() and WARN() and the variants. This patch tries to make it clearly described in coding-style doc and checkpatch script.
+[RFC 0/6] migrate_pages(): batch TLB flushing (Huang Ying) https://lkml.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/lkml_news_v6.0-rc7/">
@@ -152,7 +155,10 @@ This RFC patch makes bad pages to be tracked via kmemleak.">
   <meta property="og:url" content="/post/lkml_news_v6.0-rc7/">
   <meta property="og:title" content="LKML News v6.0-rc6 | hacklog">
   <meta property="og:description" content="[RFC PATCH] mm: track bad page via kmemleak (Zhaoyang Huang) https://lkml.kernel.org/r/1663679468-16757-1-git-send-email-zhaoyang.huang@unisoc.com
-This RFC patch makes bad pages to be tracked via kmemleak."><meta property="og:image" content="/img/tux.png">
+This RFC patch makes bad pages to be tracked via kmemleak.
+[PATCH v1 0/3] coding-style.rst: document BUG() and WARN() rules (David Hildenbrand) https://lkml.kernel.org/r/20220920122302.99195-1-david@redhat.com
+There was a recent discussion on when to use BUG() and WARN() and the variants. This patch tries to make it clearly described in coding-style doc and checkpatch script.
+[RFC 0/6] migrate_pages(): batch TLB flushing (Huang Ying) https://lkml."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -204,7 +210,7 @@ This RFC patch makes bad pages to be tracked via kmemleak."><meta property="og:i
       "url": "/img/icon-512.png"
     }
   },
-  "description": "[RFC PATCH] mm: track bad page via kmemleak (Zhaoyang Huang) https://lkml.kernel.org/r/1663679468-16757-1-git-send-email-zhaoyang.huang@unisoc.com\nThis RFC patch makes bad pages to be tracked via kmemleak."
+  "description": "[RFC PATCH] mm: track bad page via kmemleak (Zhaoyang Huang) https://lkml.kernel.org/r/1663679468-16757-1-git-send-email-zhaoyang.huang@unisoc.com\nThis RFC patch makes bad pages to be tracked via kmemleak.\n[PATCH v1 0/3] coding-style.rst: document BUG() and WARN() rules (David Hildenbrand) https://lkml.kernel.org/r/20220920122302.99195-1-david@redhat.com\nThere was a recent discussion on when to use BUG() and WARN() and the variants. This patch tries to make it clearly described in coding-style doc and checkpatch script.\n[RFC 0/6] migrate_pages(): batch TLB flushing (Huang Ying) https://lkml."
 }
 </script>
 
@@ -613,6 +619,19 @@ This RFC patch makes bad pages to be tracked via kmemleak."><meta property="og:i
       <h2 id="rfc-patch-mm-track-bad-page-via-kmemleak-zhaoyang-huang">[RFC PATCH] mm: track bad page via kmemleak (Zhaoyang Huang)</h2>
 <p><a href="https://lkml.kernel.org/r/1663679468-16757-1-git-send-email-zhaoyang.huang@unisoc.com">https://lkml.kernel.org/r/1663679468-16757-1-git-send-email-zhaoyang.huang@unisoc.com</a></p>
 <p>This RFC patch makes bad pages to be tracked via kmemleak.</p>
+<h2 id="patch-v1-03-coding-stylerst-document-bug-and-warn-rules-david-hildenbrand">[PATCH v1 0/3] coding-style.rst: document BUG() and WARN() rules (David Hildenbrand)</h2>
+<p><a href="https://lkml.kernel.org/r/20220920122302.99195-1-david@redhat.com">https://lkml.kernel.org/r/20220920122302.99195-1-david@redhat.com</a></p>
+<p>There was a recent discussion on when to use <code>BUG()</code> and <code>WARN()</code> and the
+variants.  This patch tries to make it clearly described in <code>coding-style</code> doc
+and <code>checkpatch</code> script.</p>
+<h2 id="rfc-06-migrate_pages-batch-tlb-flushing-huang-ying">[RFC 0/6] migrate_pages(): batch TLB flushing (Huang Ying)</h2>
+<p><a href="https://lkml.kernel.org/r/20220921060616.73086-1-ying.huang@intel.com">https://lkml.kernel.org/r/20220921060616.73086-1-ying.huang@intel.com</a></p>
+<p>This RFC patch tries to do TLB flushing for <code>migrate_pages()</code>, which is
+currently be done for every page one by one.</p>
+<h2 id="patch-0012-slab-introduce-kmalloc_size_roundup-kees-cook">[PATCH 00/12] slab: Introduce kmalloc_size_roundup() (Kees Cook)</h2>
+<p><a href="https://lkml.kernel.org/r/20220922031013.2150682-1-keescook@chromium.org">https://lkml.kernel.org/r/20220922031013.2150682-1-keescook@chromium.org</a></p>
+<p>This patchset introduces <code>kmalloc_size_roundup()</code> to replace anticipatory
+resizing uses of <code>ksize()</code>.</p>
 
     </div>
 
