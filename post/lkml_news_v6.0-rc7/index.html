@@ -576,7 +576,7 @@ There was a recent discussion on when to use BUG() and WARN() and the variants. 
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -640,6 +640,23 @@ via sysfs has posted.</p>
 <p><a href="https://lkml.kernel.org/r/20220923113426.52871-1-david@redhat.com">https://lkml.kernel.org/r/20220923113426.52871-1-david@redhat.com</a></p>
 <p>The second version of the patch for making the document clear about difference
 in <code>BUG()</code> and <code>WARN()</code> has posted.</p>
+<h2 id="linux-60-rc7-linus-torvalds">Linux 6.0-rc7 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wjc_CDPy5WbN=e_FtPrd0Yn2Wp4JcdRByeyDoM9azK1mA@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wjc_CDPy5WbN=e_FtPrd0Yn2Wp4JcdRByeyDoM9azK1mA@mail.gmail.com</a></p>
+<p>Due to the LPC and OSSummit EU, Torvalds suspected the release of 6.0 might be
+delayed one week, but that didn&rsquo;t happen.  The rc7 is bigger than the average,
+but not the outlier.  So we could imagine the 6.0 to be released in the
+expected schedule, in the next week.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.9-rc7..v6.0-rc7.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2020-09-26 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc7 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v6.0-rc7-only.png" alt="rc7 release stat"></p>
 
     </div>
 
