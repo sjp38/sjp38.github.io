@@ -578,7 +578,7 @@ This patchset introduces a sysfs files for measuring THP utilization and a shrin
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -638,6 +638,20 @@ kernel.</p>
 <p><a href="https://lkml.kernel.org/r/20220930185257.d02c928a322dfa727bed4cb3@linux-foundation.org">https://lkml.kernel.org/r/20220930185257.d02c928a322dfa727bed4cb3@linux-foundation.org</a></p>
 <p>Andrew posted yet another hotfixes for Linux v6.0, and it has immediately
 merged.</p>
+<h2 id="linux-60-linus-torvalds">Linux 6.0 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wiaGf66EQOq1FwM6p9c3mGOjzm9stGeUTfC5Txx4yoxgg@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wiaGf66EQOq1FwM6p9c3mGOjzm9stGeUTfC5Txx4yoxgg@mail.gmail.com</a></p>
+<p>As expected, Linux v6.0 has released.  It means nothing but only long time has
+passed since v5.0 release.  Nevertheless, this is one of the bigger than usual
+release in terms of the number of commits.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.9..v6.0.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2020-10-03 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
 
     </div>
 

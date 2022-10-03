@@ -37,6 +37,20 @@ kernel.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20220930185257.d02c928a322dfa727bed4cb3@linux-foundation.org&#34;&gt;https://lkml.kernel.org/r/20220930185257.d02c928a322dfa727bed4cb3@linux-foundation.org&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Andrew posted yet another hotfixes for Linux v6.0, and it has immediately
 merged.&lt;/p&gt;
+&lt;h2 id=&#34;linux-60-linus-torvalds&#34;&gt;Linux 6.0 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wiaGf66EQOq1FwM6p9c3mGOjzm9stGeUTfC5Txx4yoxgg@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wiaGf66EQOq1FwM6p9c3mGOjzm9stGeUTfC5Txx4yoxgg@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;As expected, Linux v6.0 has released.  It means nothing but only long time has
+passed since v5.0 release.  Nevertheless, this is one of the bigger than usual
+release in terms of the number of commits.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v5.9..v6.0.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
+below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2020-10-03 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
