@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2022-09-27T08:35:53-07:00">
+    <meta property="og:updated_time" content="2022-10-04T07:14:10-07:00">
   
 
   
@@ -525,6 +525,19 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.3/">LKML News v5.3</a></h2>
+    <div class="article-style">
+      
+      [PATCH] x86/mm: Enable 5-level paging support by default https://lkml.kernel.org/r/20190913095452.40592-1-kirill.shutemov@linux.intel.com
+5 레벨 페이지 테이블 기능이 들어간지도 어느덧 시간이 지났죠. 인텔 내부적 테스트 상으론 이 기능을 켰을 때 4 레벨 페이지 테이블 기계에서도 딱히 리그레션 등은 나타나지 않았고, 주요 배포판들은 5 레벨 페이지 테이블 서포트를 기본으로 켤것으로 보인다고 합니다. 따라서 이 기능을 아예 디폴트로 켜져있게 하는 패치입니다.
+v5.4 에 들어가기엔 좀 늦은 관계로, v5.5 에 들어갈 것 같다는군요.
+Linux 5.3 https://lkml.kernel.org/r/CAHk-=wiP4K8DRJWsCo=20hn_6054xBamGKF2kPgUzpB5aMaofA@mail.gmail.com
+LPC 와 커널 서밋 등으로 인해 한주 늦춰진 5.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.3-rc8/">LKML News v5.3-rc8</a></h2>
     <div class="article-style">
       
@@ -624,19 +637,6 @@ x86 과 arm64 가 범용적 페이지 테이블 워킹을 하도록 했던 해�
     <div class="article-style">
       
       My talk proposal to the Linux Kernel Summit of this year which is co-located with the Linux Plumbers has accepted! Hope to see you in Lisbon. The title of the talk is, &ldquo;Tracing Data Access Pattern with Bounded Overhead and Best-effort Accuracy&rdquo;.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.3-rc1/">LKML News v5.3-rc1</a></h2>
-    <div class="article-style">
-      
-      [PATCH v5 0/5] Introduce MADV_COLD and MADV_PAGEOUT https://lkml.kernel.org/r/20190714233401.36909-1-minchan@kernel.org
-MADV_COLD 와 MADV_PAGEOUT 을 구현하는 패치, 어느새 다섯번째 버전입니다. 큰 변경은 없는 것 같군요.
-[PATCH v2 0/3] Make working with compound pages easier https://lkml.kernel.org/r/20190721104612.19120-1-willy@infradead.org
-Huge page 를 다루기 쉽게끔 page_size(), page_shift(), 그리고 compound_nr() 이라는 세개의 helper 함수를 추가하고 이 함수들을 사용하게끔 기존 코드를 다듬는 패치셋입니다.
-PAGE_SIZE &lt;&lt; compound_order(page) 는 page_size(page) 가, PAGE_SHIFT + compound_order(page) 는 page_shift(page) 가, 그리고 1 &lt;&lt; compound_order(page) 는 compound_nr(page) 가 되는 것이죠.
       
     </div>
   </div>
