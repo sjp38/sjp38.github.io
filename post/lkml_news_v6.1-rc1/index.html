@@ -29,7 +29,9 @@
     
   
   <meta name="description" content="[RFC UKL 00/10] Unikernel Linux (UKL) (Ali Raza) https://lkml.kernel.org/r/20221003222133.20948-1-aliraza@bu.edu
-This RFC patchset introduces a research project called Unikernel Linux which integrates application specific optimization to the Linux kernel. It links an application directly with kernel and runs it in the supervisor mode.">
+This RFC patchset introduces a research project called Unikernel Linux which integrates application specific optimization to the Linux kernel. It links an application directly with kernel and runs it in the supervisor mode.
+[PATCH v6] mm: add zblock - new allocator for use via zpool API (Ananda) https://lkml.kernel.org/r/20221005053302.30387-1-a.badmaev@clicknet.pro
+This patchset introduces a new allocator for zpool API. The author says it is better than zsmalloc in terms of worst execution time and therefore good at real-time usage.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/lkml_news_v6.1-rc1/">
@@ -152,7 +154,9 @@ This RFC patchset introduces a research project called Unikernel Linux which int
   <meta property="og:url" content="/post/lkml_news_v6.1-rc1/">
   <meta property="og:title" content="LKML News v6.1-rc1 | hacklog">
   <meta property="og:description" content="[RFC UKL 00/10] Unikernel Linux (UKL) (Ali Raza) https://lkml.kernel.org/r/20221003222133.20948-1-aliraza@bu.edu
-This RFC patchset introduces a research project called Unikernel Linux which integrates application specific optimization to the Linux kernel. It links an application directly with kernel and runs it in the supervisor mode."><meta property="og:image" content="/img/tux.png">
+This RFC patchset introduces a research project called Unikernel Linux which integrates application specific optimization to the Linux kernel. It links an application directly with kernel and runs it in the supervisor mode.
+[PATCH v6] mm: add zblock - new allocator for use via zpool API (Ananda) https://lkml.kernel.org/r/20221005053302.30387-1-a.badmaev@clicknet.pro
+This patchset introduces a new allocator for zpool API. The author says it is better than zsmalloc in terms of worst execution time and therefore good at real-time usage."><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -204,7 +208,7 @@ This RFC patchset introduces a research project called Unikernel Linux which int
       "url": "/img/icon-512.png"
     }
   },
-  "description": "[RFC UKL 00/10] Unikernel Linux (UKL) (Ali Raza) https://lkml.kernel.org/r/20221003222133.20948-1-aliraza@bu.edu\nThis RFC patchset introduces a research project called Unikernel Linux which integrates application specific optimization to the Linux kernel. It links an application directly with kernel and runs it in the supervisor mode."
+  "description": "[RFC UKL 00/10] Unikernel Linux (UKL) (Ali Raza) https://lkml.kernel.org/r/20221003222133.20948-1-aliraza@bu.edu\nThis RFC patchset introduces a research project called Unikernel Linux which integrates application specific optimization to the Linux kernel. It links an application directly with kernel and runs it in the supervisor mode.\n[PATCH v6] mm: add zblock - new allocator for use via zpool API (Ananda) https://lkml.kernel.org/r/20221005053302.30387-1-a.badmaev@clicknet.pro\nThis patchset introduces a new allocator for zpool API. The author says it is better than zsmalloc in terms of worst execution time and therefore good at real-time usage."
 }
 </script>
 
@@ -615,6 +619,16 @@ This RFC patchset introduces a research project called Unikernel Linux which int
 <p>This RFC patchset introduces a research project called Unikernel Linux which
 integrates application specific optimization to the Linux kernel.  It links an
 application directly with kernel and runs it in the supervisor mode.</p>
+<h2 id="patch-v6-mm-add-zblock---new-allocator-for-use-via-zpool-api-ananda">[PATCH v6] mm: add zblock - new allocator for use via zpool API (Ananda)</h2>
+<p><a href="https://lkml.kernel.org/r/20221005053302.30387-1-a.badmaev@clicknet.pro">https://lkml.kernel.org/r/20221005053302.30387-1-a.badmaev@clicknet.pro</a></p>
+<p>This patchset introduces a new allocator for zpool API.  The author says it is
+better than zsmalloc in terms of worst execution time and therefore good at
+real-time usage.</p>
+<h2 id="rfc-patch-04-introduce-mempool-pages-bulk-allocator-the-use-it-in-dm-crypt-yang-shi">[RFC PATCH 0/4] Introduce mempool pages bulk allocator the use it in dm-crypt (Yang Shi)</h2>
+<p><a href="https://lkml.kernel.org/r/20221005180341.1738796-1-shy828301@gmail.com">https://lkml.kernel.org/r/20221005180341.1738796-1-shy828301@gmail.com</a></p>
+<p>This patch introduces a mempool bulk pages allocator that supposed to be used
+in dm-crypt as it shows noticeable overhead when writing on full disk
+encryption is enabled.</p>
 
     </div>
 
