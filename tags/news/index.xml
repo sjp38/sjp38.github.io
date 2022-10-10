@@ -40,6 +40,11 @@ lists.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20221008132113.919b9b894426297de78ac00f@linux-foundation.org&#34;&gt;https://lkml.kernel.org/r/20221008132113.919b9b894426297de78ac00f@linux-foundation.org&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Andrew sent the pull request for MM to Linus.  It contains, MGLRU, Maple tree,
 DAMON cleanups, &lt;code&gt;MADV_THP_COLLAPSE&lt;/code&gt;, and many interesting changes.&lt;/p&gt;
+&lt;h2 id=&#34;rfc-patch-mm-skip-gfp_io-if-swap-is-zram-only-zhaoyang-huang&#34;&gt;[RFC PATCH] mm: skip GFP_IO if swap is zram only (Zhaoyang Huang)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/1665399622-20236-1-git-send-email-zhaoyang.huang@unisoc.com&#34;&gt;https://lkml.kernel.org/r/1665399622-20236-1-git-send-email-zhaoyang.huang@unisoc.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This RFC patch makes &lt;code&gt;__GFP_IO&lt;/code&gt; to do acclocation even if it can be suspended
+due to zram swap, as zram is believed to be faster one unlike the normal
+physical block devices.&lt;/p&gt;
 </description>
     </item>
     

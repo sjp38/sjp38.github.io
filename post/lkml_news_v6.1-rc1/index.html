@@ -574,7 +574,7 @@ This patchset introduces a new allocator for zpool API. The author says it is be
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -637,6 +637,11 @@ lists.</p>
 <p><a href="https://lkml.kernel.org/r/20221008132113.919b9b894426297de78ac00f@linux-foundation.org">https://lkml.kernel.org/r/20221008132113.919b9b894426297de78ac00f@linux-foundation.org</a></p>
 <p>Andrew sent the pull request for MM to Linus.  It contains, MGLRU, Maple tree,
 DAMON cleanups, <code>MADV_THP_COLLAPSE</code>, and many interesting changes.</p>
+<h2 id="rfc-patch-mm-skip-gfp_io-if-swap-is-zram-only-zhaoyang-huang">[RFC PATCH] mm: skip GFP_IO if swap is zram only (Zhaoyang Huang)</h2>
+<p><a href="https://lkml.kernel.org/r/1665399622-20236-1-git-send-email-zhaoyang.huang@unisoc.com">https://lkml.kernel.org/r/1665399622-20236-1-git-send-email-zhaoyang.huang@unisoc.com</a></p>
+<p>This RFC patch makes <code>__GFP_IO</code> to do acclocation even if it can be suspended
+due to zram swap, as zram is believed to be faster one unlike the normal
+physical block devices.</p>
 
     </div>
 
