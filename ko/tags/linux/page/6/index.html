@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="ko-kr">
   
-    <meta property="og:updated_time" content="2021-09-08T07:12:32&#43;02:00">
+    <meta property="og:updated_time" content="2022-10-16T09:09:55-07:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/ko/post/lkml_news_v5.0-rc1/">LKML News v5.0-rc1</a></h2>
+    <div class="article-style">
+      
+      [RFC v3 0/3] test driver to analyse vmalloc allocator https://lkml.kernel.org/r/20190102085924.14145-1-urezki@gmail.com
+vmalloc 의 성능과 스트레스 테스트를 위한 모듈을 구현한 패치입니다. Selftests 에도 테스트 스크립트를 추가했군요.
+[RFC PATCH 0/1] mm: add a warning about high order allocations https://lkml.kernel.org/r/20181225153927.2873-1-khorenko@virtuozzo.com
+특정 노드의 메모리에 접근이 많이 되고 있는 상황에서 해당 메모리가 fragment 되어 있고 이 시점에서 high order allocation 이 요청되면 이걸 위해 compaction 등이 작동하니까 다른 태스크의 latency 가 떨어질 수 있습니다. 이런 상황을 모니터링 할 수 있게끔, 이 패치는 vm.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/ko/post/perf_symbol_problem_4.19/">Perf symbol problem on Linux 4.19</a></h2>
     <div class="article-style">
       
@@ -626,16 +638,6 @@ Transparent Huge Page 를 쪼개지 않고 swap out / swap in 함으로써 스�
       
       지난 토요일, Theodore Ts&rsquo;o 로부터 올해 Linux Plumbers Conference 의 한 트랙으로 열리는 커널 서밋에서 GCMA 발표를 해줄 수 있겠냐는 제의를 받았고 물론 그러겠노라고 했습니다. 발표 일정의 [첫번째 드래프트][1]가 올라왔군요. 화요일 아침에 발표하게 됐습니다.
 [1] https://lists.linuxfoundation.org/pipermail/ksummit-discuss/2018-November/006238.html
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/ko/post/lkmm-install/">LKMM Setup and Usage</a></h2>
-    <div class="article-style">
-      
-      리눅스 커널은 Formalised and executable memory consistent model 을 제공합니다. 줄여서 linux kernel memory model (LKMM) 이라고 하죠. 이 글은 4.19 버전을 기준으로 LKMM 을 실제로 수행해 보기 위한 환경 셋업 과정과 간단한 실행 방법을 정리해 봅니다. 글 작성을 위한 테스트는 Ubuntu 16.04 서버가 설치된 가상머신에서 진행되었습니다.
-herd7 install LKMM 은 버전 7.49 의 &ldquo;herd7&rdquo; 과 &ldquo;klitmus7&rdquo; 을 필요로 합니다. 하지만 herd7 은 또 Ocaml 을 위한 패키지 매니저인 OPAM 을 설치할 것을 필요로 하죠.
       
     </div>
   </div>

@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="ko-kr">
   
-    <meta property="og:updated_time" content="2021-09-08T07:12:32&#43;02:00">
+    <meta property="og:updated_time" content="2022-10-16T09:09:55-07:00">
   
 
   
@@ -525,6 +525,16 @@
   
   
   <div>
+    <h2><a href="/ko/post/linux_kernel_contribution_10th_anniversary/">나의 리눅스 커널 컨트리뷰션 10주년</a></h2>
+    <div class="article-style">
+      
+      오늘은 제가 리눅스 커널에 처음 기여를 한지 10년이 되는 날입니다. 그 작고 사소했던 패치를 포함해, 지난 10년간 총 381개의 패치를 메인라인에 기여했네요.
+$ git log --author SeongJae --reverse commit cf174b0ef52ad8184779e1da4132e2d9d17247e5 Author: SeongJae Park &lt;sj38.park@gmail.com&gt; Date: Tue Oct 16 16:47:50 2012 +0900 staging: csr: csr_framework_ext_types.h: fix coding style Fix coding style of csr_framework_ext_types.h Signed-off-by: SeongJae Park &lt;sj38.park@gmail.com&gt; Signed-off-by: Greg Kroah-Hartman &lt;gregkh@linuxfoundation.org&gt; [...] $ git log --author SeongJae --oneline | wc -l 381 다음 10년을 기대합니다.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/ko/post/damon_profile_callstack_example/">DAMON 을 이용한 프로파일링의 한 예</a></h2>
     <div class="article-style">
       
@@ -632,16 +642,6 @@ Linux 5.4-rc5 https://lkml.kernel.org/r/CAHk-=wgpewLxHxnO71tFHh=M4C4iUofJykMqq3r
 [PATCH 2/2] mm, zswap: Support THP https://lkml.kernel.org/r/1571111349-5041-2-git-send-email-teawater@gmail.com
 Zswap 이THP 를 지원하도록 수정하는 패치입니다. 그냥 zswap_frontswap_store() 함수가 THP 페이지를 연속적인 4 KiB 페이지로 인식하고 처리하게끔 했군요.
 [PATCH RFC v1 00/26] Add KernelMemorySanitizer infrastructure https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/ko/post/lkml_news_v5.4-rc3/">LKML News v5.4-rc3</a></h2>
-    <div class="article-style">
-      
-      Linux 5.4-rc3 https://lkml.kernel.org/r/CAHk-=wjOhveT=qrq8HHyL7gpA5fmBtDa2ue7sO5ZSEBrrcY6Vg@mail.gmail.com
-세번째 rc 릴리즈입니다. 실제 문제가 발견되고 그에 대한 수정이 본격적으로 시작되는 시즌이라 rc2보단 당연히 크지만 역대 rc3 들과 비교하면 작은 편의 릴리즈라는군요. staging driver 일부가 사라진 게 조금 릴리즈 크기를 크게 보이게 만들 수 있다는게 그나마 유의할 점일까요.
       
     </div>
   </div>

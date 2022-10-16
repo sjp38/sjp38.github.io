@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel / Hypervisor Engineer"><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="ko-kr">
   
-    <meta property="og:updated_time" content="2021-09-08T07:12:32&#43;02:00">
+    <meta property="og:updated_time" content="2022-10-16T09:09:55-07:00">
   
 
   
@@ -525,6 +525,19 @@
   
   
   <div>
+    <h2><a href="/ko/post/lkml_news_v5.0/">LKML News v5.0</a></h2>
+    <div class="article-style">
+      
+      Linux v5.0-rc8 릴리즈 (2019-02-24) 부터 Linux v5.0 릴리즈 (2019-03-03) 사이 기간에 LKML 에 올라온 흥미로운 메일들을 소개합니다.
+[PATCH 0/5] [v5] Allow persistent memory to be used like normal RAM https://lkml.kernel.org/r/20190225185727.BCBD768C@viggo.jf.intel.com
+앞서 몇번 소개했던, persistent memory 를 좀 많이 느린 numa node 인 것처럼 해서 시스템이 사용할 수 있게 하는 접근법의 패치 다섯번째 버전입니다. 이제 개선은 어느정도 된 것 같으니 슬슬 머지되야하지 않겠냐고 주장하는군요.
+Linux v5.0 https://lkml.kernel.org/r/CAHk-=wjuG6HiGbD7DCGfvDvhr_1WZUR-eYF2qWGbYyn9k6unvg@mail.gmail.com
+마침내 5.0 릴리즈입니다! 제 랩톱에도 바로 받아다가 설치했습니다!
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/ko/post/lkml_news_v5.0-rc8/">LKML News v5.0-rc8</a></h2>
     <div class="article-style">
       
@@ -633,20 +646,6 @@ $ sudo perf record -g ls arch builtin-ftrace.c builtin-report.c Documentation pe
 ppc64 에서는 guest os page table 을 CMA area 내에 할당하는데, VFIO 를 쓰는 경우 이게 pinning 되어 있다 보니 CMA area 밖으로 migrate 하는데 실패해, guest os page table 할당에 실패하고, 이로 인해 guest 시작조차 불가능하게 되는 문제가 있었습니다.
 이 패치는 compound page 에 대해서도 CMA area 밖으로의 migration 이 가능하게 합니다.
 [RESEND PATCH V3 0/5] arm64/mm: Enable HugeTLB migration https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/ko/post/lkml_news_v4.20-rc7/">LKML News by v4.20-rc7</a></h2>
-    <div class="article-style">
-      
-      [PATCH -V9 00/21] swap: Swapout/swapin THP in one piece https://lkml.kernel.org/r/20181214062754.13723-1-ying.huang@intel.com
-아직 머지되지 못한 THP swap in 패치셋의 아홉번째 버전입니다.
-[RFC 0/3] reduce THP fault thrashing https://lkml.kernel.org/r/20181211142941.20500-1-vbabka@suse.cz
-THP fault 로 인한 로컬 노드 thrashing 을 해결하기 위한 패치의 RFC 입니다. THP fault 성공률을 낮추는 부작용도 있긴 하군요. 아직 테스트도 안된 첫번째 RFC 이니, 이대로 머지되진 않겠지 싶긴 합니다만 재밌네요.
-Linux 4.20-rc76 https://lkml.kernel.org/r/CAHk-=whv9u9aTEPoCz8h83JJbVK4fmHELJF=GG01ht9=1_MaCQ@mail.gmail.com
-일곱번째 rc 버전의 릴리즈입니다&hellip; 만, 이번엔 릴리즈 메일 제목에 오타가 있었군요.
       
     </div>
   </div>
