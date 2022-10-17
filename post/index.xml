@@ -85,6 +85,24 @@ memory efficiency has posted.&lt;/p&gt;
 &lt;h2 id=&#34;git-pull-final-mm-updates-for-61-rc1-andrew-morton&#34;&gt;[GIT PULL] Final MM updates for 6.1-rc1 (Andrew Morton)&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20221013230302.96f2869cd26026b36e8ecd40@linux-foundation.org&#34;&gt;https://lkml.kernel.org/r/20221013230302.96f2869cd26026b36e8ecd40@linux-foundation.org&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Andrew sent the final MM changes pull request to Linus Torvalds.&lt;/p&gt;
+&lt;h2 id=&#34;linux-61-rc1-linus-torvalds&#34;&gt;Linux 6.1-rc1 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wj6y5fipM2A5kEuOO9qm5PBzUY=-m9viEahhtxT09KR_g@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wj6y5fipM2A5kEuOO9qm5PBzUY=-m9viEahhtxT09KR_g@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;After the two weeks, the first release candidate of Linux 6.1 has released.
+It&amp;rsquo;s not a big release, but contains some major changes including Multi-gen LRU
+and Rust infrastructure.  It contains no Rust code but only the infrastructure,
+though.  Linus also mentions that he was frustrated due to a problem on his
+personal machine and late pull requests.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v5.10-rc2..v6.1-rc1.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
+below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2020-10-17 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And, below is the diffstat of the -rc1 releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/kernel_release_stat/v6.1-rc1-only.png&#34; alt=&#34;rc1 release stat&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     
