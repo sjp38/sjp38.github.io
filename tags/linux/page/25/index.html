@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="/img/tux.png">
   <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2022-10-16T09:09:55-07:00">
+    <meta property="og:updated_time" content="2022-10-18T07:57:23-07:00">
   
 
   
@@ -525,6 +525,19 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v4.15-rc3/">LKML News after v4.15-rc3</a></h2>
+    <div class="article-style">
+      
+      Linux 4.15-rc3 https://lkml.kernel.org/r/CA+55aFz9O9R8u3ori-QNPz4ALU+0B=Es0gd+oWmsce5qxugxXA@mail.gmail.com
+4.15 의 세번째 rc 버전입니다. 지난주보단 조금 늦게 릴리즈 되었네요.
+일반적으로 rc3 릴리즈는 좀 변경사항이 많지만 이번엔 그중에서도 변경사항이 많은 편이라 걱정된다고 하는군요. 대부분은 드라이버쪽 변경인데 perf 쪽 변경도 꽤 있고 core, networking, kvm, arch, 문서 업데이트도 물론 있습니다. 어쨌든 토발즈는 이제는 정말 안정화가 되어가길 바라는 마음이라는군요.
+[PATCH v2] mm/slab: Do not hash pointers when debugging slab https://lkml.kernel.org/r/1513179267-2509-1-git-send-email-geert+renesas@glider.be
+이번 버전에 들어와 포인터 값을 기반으로 한 예측을 통해 공격이 들어오는 걸 방지하기 위해 &lsquo;%p&rsquo; 가 포인터를 그냥 출력하는게 아니라 hash 한 다음에 출력하도록 바뀌었죠.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v4.15-rc2/">LKML News after v4.15-rc2</a></h2>
     <div class="article-style">
       
@@ -635,17 +648,6 @@ OSSummit 컨퍼런스 회장인 힐튼 프라하 호텔은 프라하 시내의 �
 OSSE 와 kernel summit 으로 프라하를 방문했던 토발즈인데, 집에 잘 돌아왔다는군요. 이번 rc 버전은 기존의 rc7 보다도 작은 편에 가깝다고 합니다만, 다음 한주간이 정말 조용하지 않는한은 rc8 릴리즈를 할 생각이라는군요.
 Re: Page allocator bottleneck https://lkml.kernel.org/r/1c218381-067e-7757-ccc2-4e5befd2bfc3@mellanox.com
 멜라녹스의 빠른 네트워크 카드를 사용하는 환경에서는 page allocator 의 속도가 bottleneck 이 된다는 이야기에 대한 업데이트입니다. 여전히 해당 부분이 bottleneck 이며, queued_spin_lock_slowpath() 가 85 % 가까이 CPU 를 차지하고 있군요.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/osse2017_01/">OSSummit 2017 Attendence - 01</a></h2>
-    <div class="article-style">
-      
-      ![pargue!] (/img/osse_01/8.jpg)
-Open Source Summit Europe 과 Embedded Linux Conference Europe, 그리고 Annual Kernel Summit 이 합동으로 열린 프라하에 다녀왔습니다. 이에 대한 기록을 남겨봅니다.
-The Event 리눅스 재단에서는 다양한 컨퍼런스를 개최합니다. 2015년까지는 한국에서도 Korea Linux Forum 이라는 행사를 매년 열었죠. 특히 2015년에는 커널 서밋도 함께해서 특히 특별했던 기억입니다. 이런 이벤트들 중에서도 가장 큰 이벤트는 오픈소스 서밋이 아닐까 싶습니다. 이 이벤트는 기존의 리눅스콘 등 행사들이 합쳐진 행사입니다. 가장 큰 이벤트가 오픈소스 서밋이라면 가장 중요한 행사는 커널 서밋이라 할 수 있지 않을까 싶습니다.
       
     </div>
   </div>
