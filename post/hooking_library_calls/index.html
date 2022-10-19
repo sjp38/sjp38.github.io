@@ -33,9 +33,9 @@ Original Program 먼저 다음과 같은 프로그램이 있을 수 있을 겁�
 #include &lt;stdio.h&gt; #include &lt;stdlib.h&gt; int main(void) { char *abc; abc = (char *)malloc(8); printf(&quot;malloced address: %p\n&quot;, abc); sprintf(abc, &quot;hello\n&quot;); printf(&quot;%s\n&quot;, abc); free(abc); return 0; } 단순히 malloc() 을 통해 8바이트 메모리를 할당받아 그 영역을 표시하고 종료하는 프로그램입니다.">
 
   
-  <link rel="alternate" hreflang="ko" href="/ko/post/hooking_library_calls/">
+  <link rel="alternate" hreflang="ko" href="https://sjp38.github.io/ko/post/hooking_library_calls/">
   
-  <link rel="alternate" hreflang="en-us" href="/post/hooking_library_calls/">
+  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/hooking_library_calls/">
 
   
 
@@ -140,7 +140,7 @@ Original Program 먼저 다음과 같은 프로그램이 있을 수 있을 겁�
   <link rel="icon" type="image/png" href="/img/icon-32.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="/post/hooking_library_calls/">
+  <link rel="canonical" href="https://sjp38.github.io/post/hooking_library_calls/">
 
   
   
@@ -152,12 +152,12 @@ Original Program 먼저 다음과 같은 프로그램이 있을 수 있을 겁�
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="hacklog">
-  <meta property="og:url" content="/post/hooking_library_calls/">
+  <meta property="og:url" content="https://sjp38.github.io/post/hooking_library_calls/">
   <meta property="og:title" content="Hooking Library Function Calls | hacklog">
   <meta property="og:description" content="LD_PRELOAD 환경변수를 사용하면 로더가 프로그램을 로드할 때 동적 로드해야 할 바이너리 코드를 해당 변수의 값의 디렉토리에서부터 뒤지도록 합니다. 따라서 이를 이용해 malloc(), free() 등의 일반적으로 사용하는 라이브러리 함수를 우리의 구현으로 대체하거나 후킹할 수 있습니다. 이 글은 이런 방법으로 malloc() 을 후킹하는 방법을 예제를 통해 간단히 설명합니다.
 Original Program 먼저 다음과 같은 프로그램이 있을 수 있을 겁니다:
-#include &lt;stdio.h&gt; #include &lt;stdlib.h&gt; int main(void) { char *abc; abc = (char *)malloc(8); printf(&quot;malloced address: %p\n&quot;, abc); sprintf(abc, &quot;hello\n&quot;); printf(&quot;%s\n&quot;, abc); free(abc); return 0; } 단순히 malloc() 을 통해 8바이트 메모리를 할당받아 그 영역을 표시하고 종료하는 프로그램입니다."><meta property="og:image" content="/img/tux.png">
-  <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
+#include &lt;stdio.h&gt; #include &lt;stdlib.h&gt; int main(void) { char *abc; abc = (char *)malloc(8); printf(&quot;malloced address: %p\n&quot;, abc); sprintf(abc, &quot;hello\n&quot;); printf(&quot;%s\n&quot;, abc); free(abc); return 0; } 단순히 malloc() 을 통해 8바이트 메모리를 할당받아 그 영역을 표시하고 종료하는 프로그램입니다."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
+  <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
     
       <meta property="article:published_time" content="2019-04-10T11:39:06&#43;09:00">
@@ -188,7 +188,7 @@ Original Program 먼저 다음과 같은 프로그램이 있을 수 있을 겁�
   "@type": "BlogPosting",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "/post/hooking_library_calls/"
+    "@id": "https://sjp38.github.io/post/hooking_library_calls/"
   },
   "headline": "Hooking Library Function Calls",
   
@@ -205,7 +205,7 @@ Original Program 먼저 다음과 같은 프로그램이 있을 수 있을 겁�
     "name": "hacklog",
     "logo": {
       "@type": "ImageObject",
-      "url": "/img/icon-512.png"
+      "url": "https://sjp38.github.io/img/icon-512.png"
     }
   },
   "description": "LD_PRELOAD 환경변수를 사용하면 로더가 프로그램을 로드할 때 동적 로드해야 할 바이너리 코드를 해당 변수의 값의 디렉토리에서부터 뒤지도록 합니다. 따라서 이를 이용해 malloc(), free() 등의 일반적으로 사용하는 라이브러리 함수를 우리의 구현으로 대체하거나 후킹할 수 있습니다. 이 글은 이런 방법으로 malloc() 을 후킹하는 방법을 예제를 통해 간단히 설명합니다.\nOriginal Program 먼저 다음과 같은 프로그램이 있을 수 있을 겁니다:\n#include \u0026lt;stdio.h\u0026gt; #include \u0026lt;stdlib.h\u0026gt; int main(void) { char *abc; abc = (char *)malloc(8); printf(\u0026quot;malloced address: %p\\n\u0026quot;, abc); sprintf(abc, \u0026quot;hello\\n\u0026quot;); printf(\u0026quot;%s\\n\u0026quot;, abc); free(abc); return 0; } 단순히 malloc() 을 통해 8바이트 메모리를 할당받아 그 영역을 표시하고 종료하는 프로그램입니다."
@@ -737,7 +737,7 @@ hello
       
       
       <li>
-        <a href="https://twitter.com/intent/tweet?url=/post/hooking_library_calls/&amp;text=Hooking%20Library%20Function%20Calls" target="_blank" rel="noopener" class="share-btn-twitter">
+        <a href="https://twitter.com/intent/tweet?url=https://sjp38.github.io/post/hooking_library_calls/&amp;text=Hooking%20Library%20Function%20Calls" target="_blank" rel="noopener" class="share-btn-twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
@@ -750,7 +750,7 @@ hello
       
       
       <li>
-        <a href="https://www.facebook.com/sharer.php?u=/post/hooking_library_calls/&amp;t=Hooking%20Library%20Function%20Calls" target="_blank" rel="noopener" class="share-btn-facebook">
+        <a href="https://www.facebook.com/sharer.php?u=https://sjp38.github.io/post/hooking_library_calls/&amp;t=Hooking%20Library%20Function%20Calls" target="_blank" rel="noopener" class="share-btn-facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
@@ -763,7 +763,7 @@ hello
       
       
       <li>
-        <a href="mailto:?subject=Hooking%20Library%20Function%20Calls&amp;body=/post/hooking_library_calls/" target="_blank" rel="noopener" class="share-btn-email">
+        <a href="mailto:?subject=Hooking%20Library%20Function%20Calls&amp;body=https://sjp38.github.io/post/hooking_library_calls/" target="_blank" rel="noopener" class="share-btn-email">
           <i class="fas fa-envelope"></i>
         </a>
       </li>
@@ -776,7 +776,7 @@ hello
       
       
       <li>
-        <a href="https://www.linkedin.com/shareArticle?url=/post/hooking_library_calls/&amp;title=Hooking%20Library%20Function%20Calls" target="_blank" rel="noopener" class="share-btn-linkedin">
+        <a href="https://www.linkedin.com/shareArticle?url=https://sjp38.github.io/post/hooking_library_calls/&amp;title=Hooking%20Library%20Function%20Calls" target="_blank" rel="noopener" class="share-btn-linkedin">
           <i class="fab fa-linkedin-in"></i>
         </a>
       </li>
@@ -789,7 +789,7 @@ hello
       
       
       <li>
-        <a href="https://web.whatsapp.com/send?text=Hooking%20Library%20Function%20Calls%20/post/hooking_library_calls/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+        <a href="https://web.whatsapp.com/send?text=Hooking%20Library%20Function%20Calls%20https://sjp38.github.io/post/hooking_library_calls/" target="_blank" rel="noopener" class="share-btn-whatsapp">
           <i class="fab fa-whatsapp"></i>
         </a>
       </li>
@@ -802,7 +802,7 @@ hello
       
       
       <li>
-        <a href="https://service.weibo.com/share/share.php?url=/post/hooking_library_calls/&amp;title=Hooking%20Library%20Function%20Calls" target="_blank" rel="noopener" class="share-btn-weibo">
+        <a href="https://service.weibo.com/share/share.php?url=https://sjp38.github.io/post/hooking_library_calls/&amp;title=Hooking%20Library%20Function%20Calls" target="_blank" rel="noopener" class="share-btn-weibo">
           <i class="fab fa-weibo"></i>
         </a>
       </li>
@@ -840,7 +840,7 @@ hello
     
 
     <div class="media-body">
-      <h5 class="card-title"><a href="/">SeongJae Park</a></h5>
+      <h5 class="card-title"><a href="https://sjp38.github.io/">SeongJae Park</a></h5>
       <h6 class="card-subtitle">Kernel Development Engineer</h6>
       <p class="card-text">SeongJae Park is a programmer who loves to analyze and develop systems.</p>
       <ul class="network-icon" aria-hidden="true">

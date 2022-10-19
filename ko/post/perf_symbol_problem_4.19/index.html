@@ -32,9 +32,9 @@
 $ sudo perf record -g ls arch builtin-ftrace.c builtin-report.c Documentation perf.data.old bench builtin.h builtin-sched.c examples perf.h Build builtin-help.c builtin-script.c include perf-read-vdso.c builtin-annotate.c builtin-inject.c builtin-stat.c jvmti perf-sys.h builtin-bench.c builtin-kallsyms.c builtin-timechart.c Makefile perf-with-kcore.sh builtin-buildid-cache.c builtin-kmem.c builtin-top.c Makefile.config pmu-events builtin-buildid-list.c builtin-kvm.c builtin-trace.c Makefile.perf python builtin-c2c.c builtin-list.c builtin-version.c MANIFEST scripts builtin-config.c builtin-lock.c check-headers.sh perf-archive.">
 
   
-  <link rel="alternate" hreflang="en" href="/post/perf_symbol_problem_4.19/">
+  <link rel="alternate" hreflang="en" href="https://sjp38.github.io/post/perf_symbol_problem_4.19/">
   
-  <link rel="alternate" hreflang="ko-kr" href="/ko/post/perf_symbol_problem_4.19/">
+  <link rel="alternate" hreflang="ko-kr" href="https://sjp38.github.io/ko/post/perf_symbol_problem_4.19/">
 
   
 
@@ -139,7 +139,7 @@ $ sudo perf record -g ls arch builtin-ftrace.c builtin-report.c Documentation pe
   <link rel="icon" type="image/png" href="/img/icon-32.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="/ko/post/perf_symbol_problem_4.19/">
+  <link rel="canonical" href="https://sjp38.github.io/ko/post/perf_symbol_problem_4.19/">
 
   
   
@@ -151,11 +151,11 @@ $ sudo perf record -g ls arch builtin-ftrace.c builtin-report.c Documentation pe
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="hacklog">
-  <meta property="og:url" content="/ko/post/perf_symbol_problem_4.19/">
+  <meta property="og:url" content="https://sjp38.github.io/ko/post/perf_symbol_problem_4.19/">
   <meta property="og:title" content="Perf symbol problem on Linux 4.19 | hacklog">
   <meta property="og:description" content="4.19 커널에서 오랫만에 perf 를 다시 빌드하고 써보려고 하니, perf report 가 아래와 같이 제대로 된 symbol name 을 찾질 못합니다.
-$ sudo perf record -g ls arch builtin-ftrace.c builtin-report.c Documentation perf.data.old bench builtin.h builtin-sched.c examples perf.h Build builtin-help.c builtin-script.c include perf-read-vdso.c builtin-annotate.c builtin-inject.c builtin-stat.c jvmti perf-sys.h builtin-bench.c builtin-kallsyms.c builtin-timechart.c Makefile perf-with-kcore.sh builtin-buildid-cache.c builtin-kmem.c builtin-top.c Makefile.config pmu-events builtin-buildid-list.c builtin-kvm.c builtin-trace.c Makefile.perf python builtin-c2c.c builtin-list.c builtin-version.c MANIFEST scripts builtin-config.c builtin-lock.c check-headers.sh perf-archive."><meta property="og:image" content="/img/tux.png">
-  <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="ko-kr">
+$ sudo perf record -g ls arch builtin-ftrace.c builtin-report.c Documentation perf.data.old bench builtin.h builtin-sched.c examples perf.h Build builtin-help.c builtin-script.c include perf-read-vdso.c builtin-annotate.c builtin-inject.c builtin-stat.c jvmti perf-sys.h builtin-bench.c builtin-kallsyms.c builtin-timechart.c Makefile perf-with-kcore.sh builtin-buildid-cache.c builtin-kmem.c builtin-top.c Makefile.config pmu-events builtin-buildid-list.c builtin-kvm.c builtin-trace.c Makefile.perf python builtin-c2c.c builtin-list.c builtin-version.c MANIFEST scripts builtin-config.c builtin-lock.c check-headers.sh perf-archive."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
+  <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="ko-kr">
   
     
       <meta property="article:published_time" content="2018-12-21T17:00:22&#43;09:00">
@@ -186,7 +186,7 @@ $ sudo perf record -g ls arch builtin-ftrace.c builtin-report.c Documentation pe
   "@type": "BlogPosting",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "/ko/post/perf_symbol_problem_4.19/"
+    "@id": "https://sjp38.github.io/ko/post/perf_symbol_problem_4.19/"
   },
   "headline": "Perf symbol problem on Linux 4.19",
   
@@ -203,7 +203,7 @@ $ sudo perf record -g ls arch builtin-ftrace.c builtin-report.c Documentation pe
     "name": "hacklog",
     "logo": {
       "@type": "ImageObject",
-      "url": "/img/icon-512.png"
+      "url": "https://sjp38.github.io/img/icon-512.png"
     }
   },
   "description": "4.19 커널에서 오랫만에 perf 를 다시 빌드하고 써보려고 하니, perf report 가 아래와 같이 제대로 된 symbol name 을 찾질 못합니다.\n$ sudo perf record -g ls arch builtin-ftrace.c builtin-report.c Documentation perf.data.old bench builtin.h builtin-sched.c examples perf.h Build builtin-help.c builtin-script.c include perf-read-vdso.c builtin-annotate.c builtin-inject.c builtin-stat.c jvmti perf-sys.h builtin-bench.c builtin-kallsyms.c builtin-timechart.c Makefile perf-with-kcore.sh builtin-buildid-cache.c builtin-kmem.c builtin-top.c Makefile.config pmu-events builtin-buildid-list.c builtin-kvm.c builtin-trace.c Makefile.perf python builtin-c2c.c builtin-list.c builtin-version.c MANIFEST scripts builtin-config.c builtin-lock.c check-headers.sh perf-archive."
@@ -269,7 +269,7 @@ $ sudo perf record -g ls arch builtin-ftrace.c builtin-report.c Documentation pe
     
     
     
-      <a class="navbar-brand" href="/ko">hacklog</a>
+      <a class="navbar-brand" href="/ko/">hacklog</a>
     
 
     
@@ -704,7 +704,7 @@ tools: Stop fallbacking to kallsyms for vdso symbols lookup&rdquo;) 이 만든 �
       
       
       <li>
-        <a href="https://twitter.com/intent/tweet?url=/ko/post/perf_symbol_problem_4.19/&amp;text=Perf%20symbol%20problem%20on%20Linux%204.19" target="_blank" rel="noopener" class="share-btn-twitter">
+        <a href="https://twitter.com/intent/tweet?url=https://sjp38.github.io/ko/post/perf_symbol_problem_4.19/&amp;text=Perf%20symbol%20problem%20on%20Linux%204.19" target="_blank" rel="noopener" class="share-btn-twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
@@ -717,7 +717,7 @@ tools: Stop fallbacking to kallsyms for vdso symbols lookup&rdquo;) 이 만든 �
       
       
       <li>
-        <a href="https://www.facebook.com/sharer.php?u=/ko/post/perf_symbol_problem_4.19/&amp;t=Perf%20symbol%20problem%20on%20Linux%204.19" target="_blank" rel="noopener" class="share-btn-facebook">
+        <a href="https://www.facebook.com/sharer.php?u=https://sjp38.github.io/ko/post/perf_symbol_problem_4.19/&amp;t=Perf%20symbol%20problem%20on%20Linux%204.19" target="_blank" rel="noopener" class="share-btn-facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
@@ -730,7 +730,7 @@ tools: Stop fallbacking to kallsyms for vdso symbols lookup&rdquo;) 이 만든 �
       
       
       <li>
-        <a href="mailto:?subject=Perf%20symbol%20problem%20on%20Linux%204.19&amp;body=/ko/post/perf_symbol_problem_4.19/" target="_blank" rel="noopener" class="share-btn-email">
+        <a href="mailto:?subject=Perf%20symbol%20problem%20on%20Linux%204.19&amp;body=https://sjp38.github.io/ko/post/perf_symbol_problem_4.19/" target="_blank" rel="noopener" class="share-btn-email">
           <i class="fas fa-envelope"></i>
         </a>
       </li>
@@ -743,7 +743,7 @@ tools: Stop fallbacking to kallsyms for vdso symbols lookup&rdquo;) 이 만든 �
       
       
       <li>
-        <a href="https://www.linkedin.com/shareArticle?url=/ko/post/perf_symbol_problem_4.19/&amp;title=Perf%20symbol%20problem%20on%20Linux%204.19" target="_blank" rel="noopener" class="share-btn-linkedin">
+        <a href="https://www.linkedin.com/shareArticle?url=https://sjp38.github.io/ko/post/perf_symbol_problem_4.19/&amp;title=Perf%20symbol%20problem%20on%20Linux%204.19" target="_blank" rel="noopener" class="share-btn-linkedin">
           <i class="fab fa-linkedin-in"></i>
         </a>
       </li>
@@ -756,7 +756,7 @@ tools: Stop fallbacking to kallsyms for vdso symbols lookup&rdquo;) 이 만든 �
       
       
       <li>
-        <a href="https://web.whatsapp.com/send?text=Perf%20symbol%20problem%20on%20Linux%204.19%20/ko/post/perf_symbol_problem_4.19/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+        <a href="https://web.whatsapp.com/send?text=Perf%20symbol%20problem%20on%20Linux%204.19%20https://sjp38.github.io/ko/post/perf_symbol_problem_4.19/" target="_blank" rel="noopener" class="share-btn-whatsapp">
           <i class="fab fa-whatsapp"></i>
         </a>
       </li>
@@ -769,7 +769,7 @@ tools: Stop fallbacking to kallsyms for vdso symbols lookup&rdquo;) 이 만든 �
       
       
       <li>
-        <a href="https://service.weibo.com/share/share.php?url=/ko/post/perf_symbol_problem_4.19/&amp;title=Perf%20symbol%20problem%20on%20Linux%204.19" target="_blank" rel="noopener" class="share-btn-weibo">
+        <a href="https://service.weibo.com/share/share.php?url=https://sjp38.github.io/ko/post/perf_symbol_problem_4.19/&amp;title=Perf%20symbol%20problem%20on%20Linux%204.19" target="_blank" rel="noopener" class="share-btn-weibo">
           <i class="fab fa-weibo"></i>
         </a>
       </li>
@@ -807,7 +807,7 @@ tools: Stop fallbacking to kallsyms for vdso symbols lookup&rdquo;) 이 만든 �
     
 
     <div class="media-body">
-      <h5 class="card-title"><a href="/">SeongJae Park</a></h5>
+      <h5 class="card-title"><a href="https://sjp38.github.io/">SeongJae Park</a></h5>
       <h6 class="card-subtitle">Kernel Development Engineer</h6>
       <p class="card-text">SeongJae Park is a programmer who loves to analyze and develop systems.</p>
       <ul class="network-icon" aria-hidden="true">

@@ -35,9 +35,9 @@ smp_mb__after_unlock_lock() 을 추가로 모델링했고, github 리트머스 �
 synchronize_rcu() 가 이제는 RCU read-side 크리티컬 섹션 만이 아니라 preempt-disable 코드 영역도 기다리므로, synchronize_sched() 를 대체할 수 있고, call_rcu_sched() 도 call_rcu() 로 대체될 수 있습니다. 이 패치는 이 대체를 진행하고 있습니다.">
 
   
-  <link rel="alternate" hreflang="ko" href="/ko/post/lkml_news_v4.20-rc6/">
+  <link rel="alternate" hreflang="ko" href="https://sjp38.github.io/ko/post/lkml_news_v4.20-rc6/">
   
-  <link rel="alternate" hreflang="en-us" href="/post/lkml_news_v4.20-rc6/">
+  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/lkml_news_v4.20-rc6/">
 
   
 
@@ -142,7 +142,7 @@ synchronize_rcu() 가 이제는 RCU read-side 크리티컬 섹션 만이 아니�
   <link rel="icon" type="image/png" href="/img/icon-32.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="/post/lkml_news_v4.20-rc6/">
+  <link rel="canonical" href="https://sjp38.github.io/post/lkml_news_v4.20-rc6/">
 
   
   
@@ -154,14 +154,14 @@ synchronize_rcu() 가 이제는 RCU read-side 크리티컬 섹션 만이 아니�
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="hacklog">
-  <meta property="og:url" content="/post/lkml_news_v4.20-rc6/">
+  <meta property="og:url" content="https://sjp38.github.io/post/lkml_news_v4.20-rc6/">
   <meta property="og:title" content="LKML News by v4.20-rc6 | hacklog">
   <meta property="og:description" content="[PATCH memory-model 0/3] Updates to the formal memory model https://lkml.kernel.org/r/20181203230411.GA27476@linux.ibm.com
 리눅스 커널 메모리 모델의 업데이트 입니다.
 smp_mb__after_unlock_lock() 을 추가로 모델링했고, github 리트머스 테스트를 체크하기 위한 스크립트가 추가되었으며, -j 옵션을 서포트 하게 되었습니다.
 [tip:core/rcu] tracing: Replace synchronize_sched() and call_rcu_sched() https://lkml.kernel.org/r/tip-7440172974e85b1828bdd84ac6b23b5bcad9c5eb@git.kernel.org
-synchronize_rcu() 가 이제는 RCU read-side 크리티컬 섹션 만이 아니라 preempt-disable 코드 영역도 기다리므로, synchronize_sched() 를 대체할 수 있고, call_rcu_sched() 도 call_rcu() 로 대체될 수 있습니다. 이 패치는 이 대체를 진행하고 있습니다."><meta property="og:image" content="/img/tux.png">
-  <meta property="twitter:image" content="/img/tux.png"><meta property="og:locale" content="en-us">
+synchronize_rcu() 가 이제는 RCU read-side 크리티컬 섹션 만이 아니라 preempt-disable 코드 영역도 기다리므로, synchronize_sched() 를 대체할 수 있고, call_rcu_sched() 도 call_rcu() 로 대체될 수 있습니다. 이 패치는 이 대체를 진행하고 있습니다."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
+  <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
     
       <meta property="article:published_time" content="2018-12-05T08:20:36&#43;09:00">
@@ -192,7 +192,7 @@ synchronize_rcu() 가 이제는 RCU read-side 크리티컬 섹션 만이 아니�
   "@type": "BlogPosting",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "/post/lkml_news_v4.20-rc6/"
+    "@id": "https://sjp38.github.io/post/lkml_news_v4.20-rc6/"
   },
   "headline": "LKML News by v4.20-rc6",
   
@@ -209,7 +209,7 @@ synchronize_rcu() 가 이제는 RCU read-side 크리티컬 섹션 만이 아니�
     "name": "hacklog",
     "logo": {
       "@type": "ImageObject",
-      "url": "/img/icon-512.png"
+      "url": "https://sjp38.github.io/img/icon-512.png"
     }
   },
   "description": "[PATCH memory-model 0/3] Updates to the formal memory model https://lkml.kernel.org/r/20181203230411.GA27476@linux.ibm.com\n리눅스 커널 메모리 모델의 업데이트 입니다.\nsmp_mb__after_unlock_lock() 을 추가로 모델링했고, github 리트머스 테스트를 체크하기 위한 스크립트가 추가되었으며, -j 옵션을 서포트 하게 되었습니다.\n[tip:core/rcu] tracing: Replace synchronize_sched() and call_rcu_sched() https://lkml.kernel.org/r/tip-7440172974e85b1828bdd84ac6b23b5bcad9c5eb@git.kernel.org\nsynchronize_rcu() 가 이제는 RCU read-side 크리티컬 섹션 만이 아니라 preempt-disable 코드 영역도 기다리므로, synchronize_sched() 를 대체할 수 있고, call_rcu_sched() 도 call_rcu() 로 대체될 수 있습니다. 이 패치는 이 대체를 진행하고 있습니다."
@@ -691,7 +691,7 @@ Daniel 에 의해 레포트된 버그 하나를 고쳐서 여덟번째 버전이
       
       
       <li>
-        <a href="https://twitter.com/intent/tweet?url=/post/lkml_news_v4.20-rc6/&amp;text=LKML%20News%20by%20v4.20-rc6" target="_blank" rel="noopener" class="share-btn-twitter">
+        <a href="https://twitter.com/intent/tweet?url=https://sjp38.github.io/post/lkml_news_v4.20-rc6/&amp;text=LKML%20News%20by%20v4.20-rc6" target="_blank" rel="noopener" class="share-btn-twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
@@ -704,7 +704,7 @@ Daniel 에 의해 레포트된 버그 하나를 고쳐서 여덟번째 버전이
       
       
       <li>
-        <a href="https://www.facebook.com/sharer.php?u=/post/lkml_news_v4.20-rc6/&amp;t=LKML%20News%20by%20v4.20-rc6" target="_blank" rel="noopener" class="share-btn-facebook">
+        <a href="https://www.facebook.com/sharer.php?u=https://sjp38.github.io/post/lkml_news_v4.20-rc6/&amp;t=LKML%20News%20by%20v4.20-rc6" target="_blank" rel="noopener" class="share-btn-facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
@@ -717,7 +717,7 @@ Daniel 에 의해 레포트된 버그 하나를 고쳐서 여덟번째 버전이
       
       
       <li>
-        <a href="mailto:?subject=LKML%20News%20by%20v4.20-rc6&amp;body=/post/lkml_news_v4.20-rc6/" target="_blank" rel="noopener" class="share-btn-email">
+        <a href="mailto:?subject=LKML%20News%20by%20v4.20-rc6&amp;body=https://sjp38.github.io/post/lkml_news_v4.20-rc6/" target="_blank" rel="noopener" class="share-btn-email">
           <i class="fas fa-envelope"></i>
         </a>
       </li>
@@ -730,7 +730,7 @@ Daniel 에 의해 레포트된 버그 하나를 고쳐서 여덟번째 버전이
       
       
       <li>
-        <a href="https://www.linkedin.com/shareArticle?url=/post/lkml_news_v4.20-rc6/&amp;title=LKML%20News%20by%20v4.20-rc6" target="_blank" rel="noopener" class="share-btn-linkedin">
+        <a href="https://www.linkedin.com/shareArticle?url=https://sjp38.github.io/post/lkml_news_v4.20-rc6/&amp;title=LKML%20News%20by%20v4.20-rc6" target="_blank" rel="noopener" class="share-btn-linkedin">
           <i class="fab fa-linkedin-in"></i>
         </a>
       </li>
@@ -743,7 +743,7 @@ Daniel 에 의해 레포트된 버그 하나를 고쳐서 여덟번째 버전이
       
       
       <li>
-        <a href="https://web.whatsapp.com/send?text=LKML%20News%20by%20v4.20-rc6%20/post/lkml_news_v4.20-rc6/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+        <a href="https://web.whatsapp.com/send?text=LKML%20News%20by%20v4.20-rc6%20https://sjp38.github.io/post/lkml_news_v4.20-rc6/" target="_blank" rel="noopener" class="share-btn-whatsapp">
           <i class="fab fa-whatsapp"></i>
         </a>
       </li>
@@ -756,7 +756,7 @@ Daniel 에 의해 레포트된 버그 하나를 고쳐서 여덟번째 버전이
       
       
       <li>
-        <a href="https://service.weibo.com/share/share.php?url=/post/lkml_news_v4.20-rc6/&amp;title=LKML%20News%20by%20v4.20-rc6" target="_blank" rel="noopener" class="share-btn-weibo">
+        <a href="https://service.weibo.com/share/share.php?url=https://sjp38.github.io/post/lkml_news_v4.20-rc6/&amp;title=LKML%20News%20by%20v4.20-rc6" target="_blank" rel="noopener" class="share-btn-weibo">
           <i class="fab fa-weibo"></i>
         </a>
       </li>
@@ -794,7 +794,7 @@ Daniel 에 의해 레포트된 버그 하나를 고쳐서 여덟번째 버전이
     
 
     <div class="media-body">
-      <h5 class="card-title"><a href="/">SeongJae Park</a></h5>
+      <h5 class="card-title"><a href="https://sjp38.github.io/">SeongJae Park</a></h5>
       <h6 class="card-subtitle">Kernel Development Engineer</h6>
       <p class="card-text">SeongJae Park is a programmer who loves to analyze and develop systems.</p>
       <ul class="network-icon" aria-hidden="true">
