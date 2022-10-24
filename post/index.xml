@@ -34,6 +34,21 @@ THP memory inefficiency due to the THP internal fragmentation.&lt;/p&gt;
 &lt;p&gt;The monotonic zones layout avoids flexible movable pages layout on some systems
 having multiple memory controllers.  This patchset introduces designated memory
 blocks that ca help mitigating the situation.&lt;/p&gt;
+&lt;h2 id=&#34;linux-61-rc2-linus-torvalds&#34;&gt;Linux 6.1-rc2 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wgLV1tNP0EYz7qWK-xeKzO6bh5Kogbpn2wxKLPPpOit3w@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wgLV1tNP0EYz7qWK-xeKzO6bh5Kogbpn2wxKLPPpOit3w@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Second release candidate of Linux v6.1 has released.  Mainly due to a late pull
+request for media tree, this release is unusually big.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/kernel_release_stat/v5.9-rc3..v6.0-rc2.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
+below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2020-08-22 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And, below is the diffstat of the -rc2 releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/kernel_release_stat/v6.0-rc2-only.png&#34; alt=&#34;rc2 release stat&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -6986,6 +7001,9 @@ workloads and systems.&lt;/p&gt;
 &lt;h2 id=&#34;demo-screenshot&#34;&gt;Demo Screenshot&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/masim_stairs_heatmap_ascii.png&#34; alt=&#34;masim stairs heatmap in ascii&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;recent-news&#34;&gt;Recent News&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;2022-10-19&lt;/em&gt;: An RFC patchset for efficient query-like DAMON monitoring results
+have
+&lt;a href=&#34;https://lore.kernel.org/damon/20221019001317.104270-1-sj@kernel.org/&#34;&gt;posted&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;2022-09-15&lt;/em&gt;: The &lt;a href=&#34;https://youtu.be/e2SZoUPhDRg?t=13245&#34;&gt;video&lt;/a&gt; for my kernel
 summit DAMON talk this year is now available at Youtube&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;2022-09-09&lt;/em&gt;: The plan for the first in-person DAMON community meetup at LPC
@@ -6997,11 +7015,6 @@ to that of v5.19&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;2022-08-30&lt;/em&gt;: AL2 5.10 kernel&amp;rsquo;s DAMON code has
 &lt;a href=&#34;https://github.com/amazonlinux/linux/commit/ec912bc8716cbf7f339b45aec3c10d0cd33f8c71&#34;&gt;updated&lt;/a&gt;
 to that of v5.18&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;2022-08-22&lt;/em&gt;: LWN &lt;a href=&#34;https://lwn.net/Articles/905370/&#34;&gt;introduced&lt;/a&gt; DAMON-based
-LRU-lists manipulation (DAMON_LRU_SORT) in detail&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;2022-08-12&lt;/em&gt;: Bi-weekly DAMON Beer/Coffee/Tea Chat series for open, regular,
-and informal community syncups and discussions has
-&lt;a href=&#34;https://lore.kernel.org/damon/20220810225102.124459-1-sj@kernel.org/&#34;&gt;announced&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;getting-started&#34;&gt;Getting Started&lt;/h2&gt;
 &lt;p&gt;You can start using DAMON by&lt;/p&gt;
 &lt;ul&gt;
@@ -7196,6 +7209,9 @@ June 2019.
 &lt;a href=&#34;https://ieeexplore.ieee.org/abstract/document/8791992&#34;&gt;Paper&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;news&#34;&gt;News&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;2022-10-19&lt;/em&gt;: An RFC patchset for efficient query-like DAMON monitoring results
+have
+&lt;a href=&#34;https://lore.kernel.org/damon/20221019001317.104270-1-sj@kernel.org/&#34;&gt;posted&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;2022-09-15&lt;/em&gt;: The &lt;a href=&#34;https://youtu.be/e2SZoUPhDRg?t=13245&#34;&gt;video&lt;/a&gt; for my kernel
 summit DAMON talk this year is now available at Youtube&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;2022-09-09&lt;/em&gt;: The plan for the first in-person DAMON community meetup at LPC
