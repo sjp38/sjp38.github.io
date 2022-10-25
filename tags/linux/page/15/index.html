@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2022-10-18T07:57:23-07:00">
+    <meta property="og:updated_time" content="2022-10-25T06:54:56-07:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.5-rc4/">LKML News v5.5-rc4</a></h2>
+    <div class="article-style">
+      
+      [PATCH V11 RESEND] mm/debug: Add tests validating architecture page table helpers https://lkml.kernel.org/r/1577162322-30303-1-git-send-email-anshuman.khandual@arm.com
+This patchset adds tests for the page table helpers. Those tests covers basic page table entry transformations including old, young, dirty, clean, write, write protect etc. The tests are not using the kselftest or kunit, but implemented as a kernel module with new file, mm/debug_vm_pgtable.c.
+Linux 5.5-rc4 https://lkml.kernel.org/r/CAHk-=wjq2b9GkLzpaDE-Xryu5c0zMM72BqkJKeZVsX+4ymH6aA@mail.gmail.com
+Due to the holidays, last week was unsurprisingly quiet. Torvalds says it was hardly even worth making an rc release.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.5-rc3/">LKML News v5.5-rc3</a></h2>
     <div class="article-style">
       
@@ -625,16 +637,6 @@ Linux 5.4-rc5 https://lkml.kernel.org/r/CAHk-=wgpewLxHxnO71tFHh=M4C4iUofJykMqq3r
 [PATCH 2/2] mm, zswap: Support THP https://lkml.kernel.org/r/1571111349-5041-2-git-send-email-teawater@gmail.com
 Zswap 이THP 를 지원하도록 수정하는 패치입니다. 그냥 zswap_frontswap_store() 함수가 THP 페이지를 연속적인 4 KiB 페이지로 인식하고 처리하게끔 했군요.
 [PATCH RFC v1 00/26] Add KernelMemorySanitizer infrastructure https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.4-rc3/">LKML News v5.4-rc3</a></h2>
-    <div class="article-style">
-      
-      Linux 5.4-rc3 https://lkml.kernel.org/r/CAHk-=wjOhveT=qrq8HHyL7gpA5fmBtDa2ue7sO5ZSEBrrcY6Vg@mail.gmail.com
-세번째 rc 릴리즈입니다. 실제 문제가 발견되고 그에 대한 수정이 본격적으로 시작되는 시즌이라 rc2보단 당연히 크지만 역대 rc3 들과 비교하면 작은 편의 릴리즈라는군요. staging driver 일부가 사라진 게 조금 릴리즈 크기를 크게 보이게 만들 수 있다는게 그나마 유의할 점일까요.
       
     </div>
   </div>

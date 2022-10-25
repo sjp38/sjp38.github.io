@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2022-10-18T07:57:23-07:00">
+    <meta property="og:updated_time" content="2022-10-25T06:54:56-07:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.6-rc2/">LKML News v5.6-rc2</a></h2>
+    <div class="article-style">
+      
+      [RFC PATCH 0/3] DAMON: Implement The Data Access Pattern Awared Memory Management Rules https://lkml.kernel.org/r/20200210150921.32482-1-sjpark@amazon.com
+This is an RFC patch from me that implementing simple way to run data access pattern awared memory system using DAMON. Proactive reclamation or access awared THP promotion/demotion will be easily available using this change.
+[PATCH 0/9] workingset protection/detection on the anonymous LRU list https://lkml.kernel.org/r/1581401993-20041-1-git-send-email-iamjoonsoo.kim@lge.com
+This patchset is for improving kernel&rsquo;s reclamation scheme in a corner case where pages which used only once evicting hot pages.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.6-rc1/">LKML News v5.6-rc1</a></h2>
     <div class="article-style">
       
@@ -627,18 +639,6 @@ As the buffered IO uses the page cache, an intensive buffered IO workload using 
 The mmap_sem is a big scalability bottleneck and there are several projects for solving it. In this mail, Matthew Wilcox suggests his plan for his solution and asks whether a exceptional case in his solution is acceptable to other people.
 Linux 5.5-rc1 https://lkml.kernel.org/r/CAHk-=wiEJK=yo9vEhX_4b4ROvCqUA_rjK7g996h-5MbfOMeDrw@mail.gmail.com
 Linux 5.5 merge window closed and the -rc1 has released. It was a tiny bit larger release compared to recent several releases, but fairly regular overall.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.4/">LKML News v5.4</a></h2>
-    <div class="article-style">
-      
-      [PATCH RFC v3 00/36] Add KernelMemorySanitizer infrastructure https://lkml.kernel.org/r/20191122112621.204798-1-glider@google.com
-Google&rsquo;s third KMSAN RFC patchset that detects errors caused by accessing uninitialized memory areas. Like other SAN series, it has been used in Google syzkaller and found over 200 bugs in the last two years.
-LSF/MM/BPF: 2020: Call for Proposals https://lkml.kernel.org/r/20191122172502.vffyfxlqejthjib6@macbook-pro-91.dhcp.thefacebook.com
-LSF/MM&rsquo;s CFP for the next year was released. From next year, BPF sessions will be added to LSF/MM, so the name has changed to LSF/MM/BPF.
       
     </div>
   </div>
