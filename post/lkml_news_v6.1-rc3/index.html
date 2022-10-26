@@ -29,7 +29,9 @@
     
   
   <meta name="description" content="[PATCH] swap: add a limit for readahead page-cluster value (Kairu Song) https://lkml.kernel.org/r/20221023162533.81561-1-ryncsn@gmail.com
-/proc/sys/vm/page-cluster could overflow because it has no upper limit. This patch set its upper-limit as 2**31, so that at most 2**31 pages could be read in at once.">
+/proc/sys/vm/page-cluster could overflow because it has no upper limit. This patch set its upper-limit as 2**31, so that at most 2**31 pages could be read in at once.
+[PATCH 0/1] Dead stores in maple-tree (Lukas Bulwahn) https://lkml.kernel.org/r/20221026120029.12555-1-lukas.bulwahn@gmail.com
+This patch fixes some dead stores of maple tree that reported by clang analyzer.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/lkml_news_v6.1-rc3/">
@@ -152,7 +154,9 @@
   <meta property="og:url" content="https://sjp38.github.io/post/lkml_news_v6.1-rc3/">
   <meta property="og:title" content="LKML News v6.1-rc3 | hacklog">
   <meta property="og:description" content="[PATCH] swap: add a limit for readahead page-cluster value (Kairu Song) https://lkml.kernel.org/r/20221023162533.81561-1-ryncsn@gmail.com
-/proc/sys/vm/page-cluster could overflow because it has no upper limit. This patch set its upper-limit as 2**31, so that at most 2**31 pages could be read in at once."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
+/proc/sys/vm/page-cluster could overflow because it has no upper limit. This patch set its upper-limit as 2**31, so that at most 2**31 pages could be read in at once.
+[PATCH 0/1] Dead stores in maple-tree (Lukas Bulwahn) https://lkml.kernel.org/r/20221026120029.12555-1-lukas.bulwahn@gmail.com
+This patch fixes some dead stores of maple tree that reported by clang analyzer."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -204,7 +208,7 @@
       "url": "https://sjp38.github.io/img/icon-512.png"
     }
   },
-  "description": "[PATCH] swap: add a limit for readahead page-cluster value (Kairu Song) https://lkml.kernel.org/r/20221023162533.81561-1-ryncsn@gmail.com\n/proc/sys/vm/page-cluster could overflow because it has no upper limit. This patch set its upper-limit as 2**31, so that at most 2**31 pages could be read in at once."
+  "description": "[PATCH] swap: add a limit for readahead page-cluster value (Kairu Song) https://lkml.kernel.org/r/20221023162533.81561-1-ryncsn@gmail.com\n/proc/sys/vm/page-cluster could overflow because it has no upper limit. This patch set its upper-limit as 2**31, so that at most 2**31 pages could be read in at once.\n[PATCH 0/1] Dead stores in maple-tree (Lukas Bulwahn) https://lkml.kernel.org/r/20221026120029.12555-1-lukas.bulwahn@gmail.com\nThis patch fixes some dead stores of maple tree that reported by clang analyzer."
 }
 </script>
 
@@ -615,6 +619,10 @@
 <p><code>/proc/sys/vm/page-cluster</code> could overflow because it has no upper limit.
 This patch set its upper-limit as <code>2**31</code>, so that at most <code>2**31</code> pages
 could be read in at once.</p>
+<h2 id="patch-01-dead-stores-in-maple-tree-lukas-bulwahn">[PATCH 0/1] Dead stores in maple-tree (Lukas Bulwahn)</h2>
+<p><a href="https://lkml.kernel.org/r/20221026120029.12555-1-lukas.bulwahn@gmail.com">https://lkml.kernel.org/r/20221026120029.12555-1-lukas.bulwahn@gmail.com</a></p>
+<p>This patch fixes some dead stores of maple tree that reported by clang
+analyzer.</p>
 
     </div>
 

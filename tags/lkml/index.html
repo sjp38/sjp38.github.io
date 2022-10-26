@@ -530,6 +530,8 @@
       
       [PATCH] swap: add a limit for readahead page-cluster value (Kairu Song) https://lkml.kernel.org/r/20221023162533.81561-1-ryncsn@gmail.com
 /proc/sys/vm/page-cluster could overflow because it has no upper limit. This patch set its upper-limit as 2**31, so that at most 2**31 pages could be read in at once.
+[PATCH 0/1] Dead stores in maple-tree (Lukas Bulwahn) https://lkml.kernel.org/r/20221026120029.12555-1-lukas.bulwahn@gmail.com
+This patch fixes some dead stores of maple tree that reported by clang analyzer.
       
     </div>
   </div>
