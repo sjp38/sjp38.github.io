@@ -578,7 +578,7 @@ The patchset for THP shrinking, which aims to reduce memory waste due to the THP
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -638,6 +638,22 @@ and attempts to recover those.</p>
 <p><a href="https://lkml.kernel.org/r/20221105025342.3130038-1-pasha.tatashin@soleen.com">https://lkml.kernel.org/r/20221105025342.3130038-1-pasha.tatashin@soleen.com</a></p>
 <p>This patch extend the anonymous memory mapping naming feature to be able to
 name not only private memory but also shared memory.</p>
+<h2 id="linux-61-rc4-linus-torvalds">Linux 6.1-rc4 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=whdSr755Jz=w9Kx7XZqsKFATFK5HXzk=XKd=Hf9D6K_=Q@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=whdSr755Jz=w9Kx7XZqsKFATFK5HXzk=XKd=Hf9D6K_=Q@mail.gmail.com</a></p>
+<p>After the small surprise of the increased diff for 6.1-rc3, rc4 is back to
+normal.  The size is quite normal as usual, and the changes are spread to each
+subsystems.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.10-rc4..v6.1-rc4.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2020-11-07 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc4 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v6.1-rc4-only.png" alt="rc4 release stat"></p>
 
     </div>
 
