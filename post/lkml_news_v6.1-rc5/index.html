@@ -31,7 +31,9 @@
   <meta name="description" content="[PATCH v2] mm: anonymous shared memory naming (Pasha Tatashin) https://lkml.kernel.org/r/20221107184715.3950621-1-pasha.tatashin@soleen.com
 Second version of the patch for allowing shared anonymous memory mapping naming has posted.
 Deprecating and removing SLOB (Vlastimil Babka) https://lkml.kernel.org/r/b35c3f82-f67b-2103-7d82-7a7ba7521439@suse.cz
-Vlastimil is describing his proposal for removing SLOB, mainly for the code maintenance overhead, and trying to continue discussions for that.">
+Vlastimil is describing his proposal for removing SLOB, mainly for the code maintenance overhead, and trying to continue discussions for that.
+[PATCH 1/4] mm: introduce &lsquo;encoded&rsquo; page pointers with embedded extra bits (Linus Torvalds) https://lkml.kernel.org/r/20221109203051.1835763-1-torvalds@linux-foundation.org
+Linus Torvalds has posted a patchset for a new type called struct encoded_page, which is for struct page pointers having extra flags in it.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/lkml_news_v6.1-rc5/">
@@ -156,7 +158,9 @@ Vlastimil is describing his proposal for removing SLOB, mainly for the code main
   <meta property="og:description" content="[PATCH v2] mm: anonymous shared memory naming (Pasha Tatashin) https://lkml.kernel.org/r/20221107184715.3950621-1-pasha.tatashin@soleen.com
 Second version of the patch for allowing shared anonymous memory mapping naming has posted.
 Deprecating and removing SLOB (Vlastimil Babka) https://lkml.kernel.org/r/b35c3f82-f67b-2103-7d82-7a7ba7521439@suse.cz
-Vlastimil is describing his proposal for removing SLOB, mainly for the code maintenance overhead, and trying to continue discussions for that."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
+Vlastimil is describing his proposal for removing SLOB, mainly for the code maintenance overhead, and trying to continue discussions for that.
+[PATCH 1/4] mm: introduce &lsquo;encoded&rsquo; page pointers with embedded extra bits (Linus Torvalds) https://lkml.kernel.org/r/20221109203051.1835763-1-torvalds@linux-foundation.org
+Linus Torvalds has posted a patchset for a new type called struct encoded_page, which is for struct page pointers having extra flags in it."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -208,7 +212,7 @@ Vlastimil is describing his proposal for removing SLOB, mainly for the code main
       "url": "https://sjp38.github.io/img/icon-512.png"
     }
   },
-  "description": "[PATCH v2] mm: anonymous shared memory naming (Pasha Tatashin) https://lkml.kernel.org/r/20221107184715.3950621-1-pasha.tatashin@soleen.com\nSecond version of the patch for allowing shared anonymous memory mapping naming has posted.\nDeprecating and removing SLOB (Vlastimil Babka) https://lkml.kernel.org/r/b35c3f82-f67b-2103-7d82-7a7ba7521439@suse.cz\nVlastimil is describing his proposal for removing SLOB, mainly for the code maintenance overhead, and trying to continue discussions for that."
+  "description": "[PATCH v2] mm: anonymous shared memory naming (Pasha Tatashin) https://lkml.kernel.org/r/20221107184715.3950621-1-pasha.tatashin@soleen.com\nSecond version of the patch for allowing shared anonymous memory mapping naming has posted.\nDeprecating and removing SLOB (Vlastimil Babka) https://lkml.kernel.org/r/b35c3f82-f67b-2103-7d82-7a7ba7521439@suse.cz\nVlastimil is describing his proposal for removing SLOB, mainly for the code maintenance overhead, and trying to continue discussions for that.\n[PATCH 1/4] mm: introduce \u0026lsquo;encoded\u0026rsquo; page pointers with embedded extra bits (Linus Torvalds) https://lkml.kernel.org/r/20221109203051.1835763-1-torvalds@linux-foundation.org\nLinus Torvalds has posted a patchset for a new type called struct encoded_page, which is for struct page pointers having extra flags in it."
 }
 </script>
 
@@ -622,6 +626,9 @@ has posted.</p>
 <p><a href="https://lkml.kernel.org/r/b35c3f82-f67b-2103-7d82-7a7ba7521439@suse.cz">https://lkml.kernel.org/r/b35c3f82-f67b-2103-7d82-7a7ba7521439@suse.cz</a></p>
 <p>Vlastimil is describing his proposal for removing SLOB, mainly for the code
 maintenance overhead, and trying to continue discussions for that.</p>
+<h2 id="patch-14-mm-introduce-encoded-page-pointers-with-embedded-extra-bits-linus-torvalds">[PATCH 1/4] mm: introduce &lsquo;encoded&rsquo; page pointers with embedded extra bits (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/20221109203051.1835763-1-torvalds@linux-foundation.org">https://lkml.kernel.org/r/20221109203051.1835763-1-torvalds@linux-foundation.org</a></p>
+<p>Linus Torvalds has posted a patchset for a new type called <code>struct encoded_page</code>, which is for <code>struct page</code> pointers having extra flags in it.</p>
 
     </div>
 
