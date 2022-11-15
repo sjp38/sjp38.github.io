@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2022-11-08T07:15:10-08:00">
+    <meta property="og:updated_time" content="2022-11-15T07:10:36-08:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.0-rc1/">LKML News v5.0-rc1</a></h2>
+    <div class="article-style">
+      
+      [RFC v3 0/3] test driver to analyse vmalloc allocator https://lkml.kernel.org/r/20190102085924.14145-1-urezki@gmail.com
+vmalloc 의 성능과 스트레스 테스트를 위한 모듈을 구현한 패치입니다. Selftests 에도 테스트 스크립트를 추가했군요.
+[RFC PATCH 0/1] mm: add a warning about high order allocations https://lkml.kernel.org/r/20181225153927.2873-1-khorenko@virtuozzo.com
+특정 노드의 메모리에 접근이 많이 되고 있는 상황에서 해당 메모리가 fragment 되어 있고 이 시점에서 high order allocation 이 요청되면 이걸 위해 compaction 등이 작동하니까 다른 태스크의 latency 가 떨어질 수 있습니다. 이런 상황을 모니터링 할 수 있게끔, 이 패치는 vm.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v4.20/">LKML News for v4.20</a></h2>
     <div class="article-style">
       
@@ -628,19 +640,6 @@ CPU intensive 한 커널의 일을 여러 work queue 를 이용해 병렬화 시
       Linux 4.19 https://lkml.kernel.org/r/20181022073224.GA5658@kroah.com
 드디어 9 주간의 안정화를 거쳐 4.19 버전이 릴리즈 되었습니다. 역시 토발즈가 쉬고 있는 관계로 Greg KroahHartman 이 릴리즈 했습니다. 지난 네번의 릴리즈 가운데 가장 큰 릴리즈군요. 그리고 이 버전은 &ldquo;Long Tern&rdquo; 커널 중 하나가 될 예정입니다.
 이번 릴리즈 메일은 토발즈가 잠시 쉬겠다고 했던 메일을 연상케 할정도로 내용이 긴데요, 꽤 많은 부분은 이번 버전 개발 과정에서 이야기 되었던, 새로운 커뮤니티 참여자들과의 관계와 태도에 대한 내용입니다. Greg 이 매년 발표하고 있는 커널 커뮤니티의 작업 방식 이야기를 예로 들며 설명하네요.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.19-rc7/">LKML News after v4.19-rc7</a></h2>
-    <div class="article-style">
-      
-      Linux 4.19-rc7 https://lkml.kernel.org/r/20181007154529.GA4493@kroah.com
-토발즈 없이 진행되는 4.19를 위한 일곱번째 rc 릴리즈입니다. 이번에도 그렉이 대신 하는군요. 이번 릴리즈는 후반부임에도 rc6 보다 조금 더 커졌습니다. 하지만 그렇게까지 큰 차이는 아니라고 하는군요.
-일반적이라면 다음 릴리즈가 4.19 정식 릴리즈일텐데, 10월에 컨퍼런스가 많이 있다보니 rc 릴리즈를 한번 더 할 생각이라는군요. 간만에 rc8 을 보겠습니다.
-[PATCH -V6 00/21] swap: Swapout/swapin THP in one piece https://lkml.kernel.org/r/20181010071924.18767-1-ying.huang@intel.com
-THP 를 한방에 swap out / swap in 하는 Huang Ying 의 패치, 여섯번째 버전입니다.
       
     </div>
   </div>

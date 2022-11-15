@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2022-11-08T07:15:10-08:00">
+    <meta property="og:updated_time" content="2022-11-15T07:10:36-08:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.17-rc1/">LKML News v5.17-rc1</a></h2>
+    <div class="article-style">
+      
+      [PATCH 0/3] usable memory range fixes (arm64/fdt/efi) (Frank van der Linden) https://lkml.kernel.org/r/20220110210809.3528-1-fllinden@amazon.com
+This patchset fixes the usable memory range behavior when both DT and EFI are given.
+[PATCHv2 0/7] Implement support for unaccepted memory (Kirill A. Shutemov) https://lkml.kernel.org/r/20220111113314.27173-1-kirill.shutemov@linux.intel.com
+UEFI spec 2.9 introduces a concept of memory acceptance. It requires virtual machine platforms such as Intel TDX or AMD SEV-SNP to accept memory before use it. This patchset makes Linux kernel to support it, and therefore be able to reduce VM booting time by optimizing the acceptance.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.16/">LKML News v5.16</a></h2>
     <div class="article-style">
       
@@ -630,18 +642,6 @@ This patchset introduces a new syscall that can be used to set a home node for t
 This RFC patchset fixes the migration stats that broken here and there.
 incoming (Andrew Morton) https://lkml.kernel.org/r/20211105133408.cccbb98b71a77d5e8430aba1@linux-foundation.org
 The first pull request for v5.16 from Andrew Morton. Patches for DAMON subsystem including DAMOS, physical address space support, and DAMON-based proactive reclamation are also included here.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.15/">LKML News v5.15</a></h2>
-    <div class="article-style">
-      
-      Dynamically allocated memory descriptors (Matthew Wilcox) https://lkml.kernel.org/r/YXcLqcFhDq3uUwIj@casper.infradead.org
-In this mail, Matthew explains his idea on making struct page only two words and how it could work with buddy allocator freelists.
-[RFC] mm: Disable NUMA_BALANCING_DEFAULT_ENABLED and TRANSPARENT_HUGEPAGE on PREEMPT_RT (Sebastian Andrzej Siewior) https://lkml.kernel.org/r/20211026165100.ahz5bkx44lrrw5pt@linutronix.de
-Mel told RT patchset could incur spikes on NUMA machines when NUMA_BALANCING and THP are turned on. Sebastian request comments on disabling those on RT enabled kernel by default, but still trying to find a good test for that.
       
     </div>
   </div>

@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2022-11-08T07:15:10-08:00">
+    <meta property="og:updated_time" content="2022-11-15T07:10:36-08:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.5-rc3/">LKML News v5.5-rc3</a></h2>
+    <div class="article-style">
+      
+      PROBLEM: Large (256MB) CMA allocation fails from time to time when using Intel VT-d https://lkml.kernel.org/r/5e75d900cb50457784ee1d2050b511ec@MAILER13.tech.ceia
+The author reports a CMA allocation failure that occurs time to time if the system is using Intel VT-d.
+[PATCHv2 0/3] Allow ZRAM to use any zpool-compatible backend https://lkml.kernel.org/r/20191219151928.ad4ccf732b64b7f8a26116db@gmail.com
+ZRAM is an in-memory block device that compresses the content. Currently, ZRAM is used only with zsmalloc. However, the zsmalloc is not an optimal selection in some environment.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.5-rc2/">LKML News v5.5-rc2</a></h2>
     <div class="article-style">
       
@@ -623,17 +635,6 @@ Zswap 이THP 를 지원하도록 수정하는 패치입니다. 그냥 zswap_fron
       
       Linux 5.4-rc3 https://lkml.kernel.org/r/CAHk-=wjOhveT=qrq8HHyL7gpA5fmBtDa2ue7sO5ZSEBrrcY6Vg@mail.gmail.com
 세번째 rc 릴리즈입니다. 실제 문제가 발견되고 그에 대한 수정이 본격적으로 시작되는 시즌이라 rc2보단 당연히 크지만 역대 rc3 들과 비교하면 작은 편의 릴리즈라는군요. staging driver 일부가 사라진 게 조금 릴리즈 크기를 크게 보이게 만들 수 있다는게 그나마 유의할 점일까요.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.4-rc2/">LKML News v5.4-rc2</a></h2>
-    <div class="article-style">
-      
-      [PATCH v18 00/19] kunit: introduce KUnit, the Linux kernel unit testing framework https://lkml.kernel.org/r/20190923090249.127984-1-brendanhiggins@google.com
-어떻게 보면 별거 아닌 이유로 5.4 머지윈도우에서 튕겨나가고 만 kunit. 요청받은대로 파일 위치를 하위 디렉토리로 변경한 kunit 새 버전의 패치셋이 올라왔습니다. &lsquo;kunit/&rsquo; 디렉토리와 kunit 을 위한 &lsquo;Kconfig&rsquo; 파일을 &lsquo;lib/&rsquo; 아래로 옮겼군요.
-이후 벌어진 대화가 재미있는데요, 토발즈는 이걸 5.5에 넣을 예정인데, 가능하면 그동안 실제 테스트 코드도 추가되면 좋겠다고 했습니다. 근데 테스트 프레임웍이 머지안되었는데 테스트 코드를? 메인테이너 간에 일이 복잡해지고 컨플릭 날 확률이 높아지니 이걸로 꽤 많은 이야기가 있었습니다.
       
     </div>
   </div>
