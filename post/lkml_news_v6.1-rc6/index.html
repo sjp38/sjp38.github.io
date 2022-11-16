@@ -29,7 +29,9 @@
     
   
   <meta name="description" content="[PATCH] mm: Make drop_caches keep reclaiming on all nodes (Jan Kara) https://lkml.kernel.org/r/20221115123255.12559-1-jack@suse.cz
-drop_caches works in somewhat loop-until-no-progress manner. It could result in not so aggressive reclamation. This patch makes it to continue reclamation on other node until every node makes no progress.">
+drop_caches works in somewhat loop-until-no-progress manner. It could result in not so aggressive reclamation. This patch makes it to continue reclamation on other node until every node makes no progress.
+[RFC][PATCH 0/4] cachestat: a new syscall for page cache state of files (Nha Pham) https://lkml.kernel.org/r/20221115182901.2755368-1-nphamcs@gmail.com
+Users can know the cache state of files using mincore() system call, but it scales bad for large files.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/lkml_news_v6.1-rc6/">
@@ -152,7 +154,9 @@ drop_caches works in somewhat loop-until-no-progress manner. It could result in 
   <meta property="og:url" content="https://sjp38.github.io/post/lkml_news_v6.1-rc6/">
   <meta property="og:title" content="LKML News v6.1-rc6 | hacklog">
   <meta property="og:description" content="[PATCH] mm: Make drop_caches keep reclaiming on all nodes (Jan Kara) https://lkml.kernel.org/r/20221115123255.12559-1-jack@suse.cz
-drop_caches works in somewhat loop-until-no-progress manner. It could result in not so aggressive reclamation. This patch makes it to continue reclamation on other node until every node makes no progress."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
+drop_caches works in somewhat loop-until-no-progress manner. It could result in not so aggressive reclamation. This patch makes it to continue reclamation on other node until every node makes no progress.
+[RFC][PATCH 0/4] cachestat: a new syscall for page cache state of files (Nha Pham) https://lkml.kernel.org/r/20221115182901.2755368-1-nphamcs@gmail.com
+Users can know the cache state of files using mincore() system call, but it scales bad for large files."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -204,7 +208,7 @@ drop_caches works in somewhat loop-until-no-progress manner. It could result in 
       "url": "https://sjp38.github.io/img/icon-512.png"
     }
   },
-  "description": "[PATCH] mm: Make drop_caches keep reclaiming on all nodes (Jan Kara) https://lkml.kernel.org/r/20221115123255.12559-1-jack@suse.cz\ndrop_caches works in somewhat loop-until-no-progress manner. It could result in not so aggressive reclamation. This patch makes it to continue reclamation on other node until every node makes no progress."
+  "description": "[PATCH] mm: Make drop_caches keep reclaiming on all nodes (Jan Kara) https://lkml.kernel.org/r/20221115123255.12559-1-jack@suse.cz\ndrop_caches works in somewhat loop-until-no-progress manner. It could result in not so aggressive reclamation. This patch makes it to continue reclamation on other node until every node makes no progress.\n[RFC][PATCH 0/4] cachestat: a new syscall for page cache state of files (Nha Pham) https://lkml.kernel.org/r/20221115182901.2755368-1-nphamcs@gmail.com\nUsers can know the cache state of files using mincore() system call, but it scales bad for large files."
 }
 </script>
 
@@ -615,6 +619,11 @@ drop_caches works in somewhat loop-until-no-progress manner. It could result in 
 <p><code>drop_caches</code> works in somewhat loop-until-no-progress manner.  It could result
 in not so aggressive reclamation.  This patch makes it to continue reclamation
 on other node until every node makes no progress.</p>
+<h2 id="rfcpatch-04-cachestat-a-new-syscall-for-page-cache-state-of-files-nha-pham">[RFC][PATCH 0/4] cachestat: a new syscall for page cache state of files (Nha Pham)</h2>
+<p><a href="https://lkml.kernel.org/r/20221115182901.2755368-1-nphamcs@gmail.com">https://lkml.kernel.org/r/20221115182901.2755368-1-nphamcs@gmail.com</a></p>
+<p>Users can know the cache state of files using <code>mincore()</code> system call, but it
+scales bad for large files.  This patchset adds a new system call called
+<code>cachestat()</code>, which reports the cache state statistics of a file.</p>
 
     </div>
 

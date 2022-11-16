@@ -22,6 +22,11 @@
 &lt;p&gt;&lt;code&gt;drop_caches&lt;/code&gt; works in somewhat loop-until-no-progress manner.  It could result
 in not so aggressive reclamation.  This patch makes it to continue reclamation
 on other node until every node makes no progress.&lt;/p&gt;
+&lt;h2 id=&#34;rfcpatch-04-cachestat-a-new-syscall-for-page-cache-state-of-files-nha-pham&#34;&gt;[RFC][PATCH 0/4] cachestat: a new syscall for page cache state of files (Nha Pham)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20221115182901.2755368-1-nphamcs@gmail.com&#34;&gt;https://lkml.kernel.org/r/20221115182901.2755368-1-nphamcs@gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Users can know the cache state of files using &lt;code&gt;mincore()&lt;/code&gt; system call, but it
+scales bad for large files.  This patchset adds a new system call called
+&lt;code&gt;cachestat()&lt;/code&gt;, which reports the cache state statistics of a file.&lt;/p&gt;
 </description>
     </item>
     
