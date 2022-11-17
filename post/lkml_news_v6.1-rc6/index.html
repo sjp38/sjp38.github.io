@@ -624,6 +624,10 @@ on other node until every node makes no progress.</p>
 <p>Users can know the cache state of files using <code>mincore()</code> system call, but it
 scales bad for large files.  This patchset adds a new system call called
 <code>cachestat()</code>, which reports the cache state statistics of a file.</p>
+<h2 id="patch-bpf-next-v3-06-execmem_alloc-for-bpf-programs-song-liu">[PATCH bpf-next v3 0/6] execmem_alloc for BPF programs (Song Liu)</h2>
+<p><a href="https://lkml.kernel.org/r/20221117010621.1891711-1-song@kernel.org">https://lkml.kernel.org/r/20221117010621.1891711-1-song@kernel.org</a></p>
+<p>This patchset improves <code>bpf_prog_pack</code> performance improvement from 0.6% to
+0.8% using 512 4KiB pages instead of 1 2MiB pages.</p>
 
     </div>
 
