@@ -574,7 +574,7 @@ Users can know the cache state of files using mincore() system call, but it scal
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -633,6 +633,23 @@ scales bad for large files.  This patchset adds a new system call called
 <p>This commit makes cgroupv1 to do the reclaim throttling after flusher wakes up,
 to allow the flusher be able to writeback quickly enough on large memory
 systems.</p>
+<h2 id="linux-61-rc6-linus-torvalds">Linux 6.1-rc6 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wjKJyzfJmOzBdEOqCFRc8Fh-rdGM4tvMXfW0WXbbHwV0w@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wjKJyzfJmOzBdEOqCFRc8Fh-rdGM4tvMXfW0WXbbHwV0w@mail.gmail.com</a></p>
+<p>rc5 was bigger than usual, and the situation has not dramatically changed.  rc6
+is also a bit larger than usual, though it doesn&rsquo;t look really scary, as it&rsquo;s
+only mixed fixes spread around the subsystems.  Torvalds didn&rsquo;t decide to have
+rc8 yet.  He says he will gonna see what will happen, at the moment.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.10-rc6..v6.1-rc6.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2020-11-14 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc5 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v6.1-rc6-only.png" alt="rc5 release stat"></p>
 
     </div>
 

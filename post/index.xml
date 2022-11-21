@@ -36,6 +36,23 @@ scales bad for large files.  This patchset adds a new system call called
 &lt;p&gt;This commit makes cgroupv1 to do the reclaim throttling after flusher wakes up,
 to allow the flusher be able to writeback quickly enough on large memory
 systems.&lt;/p&gt;
+&lt;h2 id=&#34;linux-61-rc6-linus-torvalds&#34;&gt;Linux 6.1-rc6 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wjKJyzfJmOzBdEOqCFRc8Fh-rdGM4tvMXfW0WXbbHwV0w@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wjKJyzfJmOzBdEOqCFRc8Fh-rdGM4tvMXfW0WXbbHwV0w@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;rc5 was bigger than usual, and the situation has not dramatically changed.  rc6
+is also a bit larger than usual, though it doesn&amp;rsquo;t look really scary, as it&amp;rsquo;s
+only mixed fixes spread around the subsystems.  Torvalds didn&amp;rsquo;t decide to have
+rc8 yet.  He says he will gonna see what will happen, at the moment.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/kernel_release_stat/v5.10-rc6..v6.1-rc6.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
+below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2020-11-14 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And, below is the diffstat of the -rc5 releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/kernel_release_stat/v6.1-rc6-only.png&#34; alt=&#34;rc5 release stat&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -68,7 +85,7 @@ also included.&lt;/p&gt;
 6.1-rc4.  No real strange things stands out, but if it doesn&amp;rsquo;t shrink down now,
 Linux says he would have the extra week for 6.1.&lt;/p&gt;
 &lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/kernel_release_stat/v5.10-rc4..v6.1-rc4.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/kernel_release_stat/v5.10-rc5..v6.1-rc5.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
 &lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
 below command:&lt;/p&gt;
