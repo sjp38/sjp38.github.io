@@ -31,6 +31,16 @@ pages, which could be common in zram like use cases.&lt;/p&gt;
 &lt;p&gt;There is a bit specifying whether a kmem_cache is a kmalloc cache or not.  This
 commit adds a helper function for checking the bit to let other components like
 kasan to have simplified code.&lt;/p&gt;
+&lt;h2 id=&#34;low-tcp-throughput-due-to-vmpressure-with-swap-enabled-ivan-babrou&#34;&gt;Low TCP throughput due to vmpressure with swap enabled (Ivan Babrou)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CABWYdi0G7cyNFbndM-ELTDAR3x4Ngm0AehEp5aP0tfNkXUE+Uw@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CABWYdi0G7cyNFbndM-ELTDAR3x4Ngm0AehEp5aP0tfNkXUE+Uw@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This report says a commit controlling vmpressure behavior has regressed
+throughput of TCP.&lt;/p&gt;
+&lt;h2 id=&#34;rfc-patch-v1-mm-disable-demotion-from-proactive-reclaim-mina-almasry&#34;&gt;[RFC PATCH V1] mm: Disable demotion from proactive reclaim (Mina Almasry)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20221122203850.2765015-1-almasrymina@google.com&#34;&gt;https://lkml.kernel.org/r/20221122203850.2765015-1-almasrymina@google.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;memory.reclaim&lt;/code&gt; memcg file does both demotion and reclaim.  This is not ok for
+applications of tiers in the middle class which demotion is ok but reclaim is
+too much.  This patch proposes to have reclaim-only and demotion-only
+mechanism.&lt;/p&gt;
 </description>
     </item>
     
