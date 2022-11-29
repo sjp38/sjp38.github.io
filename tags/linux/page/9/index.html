@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2022-11-22T07:35:46-08:00">
+    <meta property="og:updated_time" content="2022-11-29T08:00:17-08:00">
   
 
   
@@ -525,6 +525,17 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.12-rc8/">LKML NEws v5.12-rc8</a></h2>
+    <div class="article-style">
+      
+      [PATCH v2 0/5] mm/memcg: Reduce kmemcache memory accounting overhead (Waiman Long) https://lkml.kernel.org/r/20210412225503.15119-1-longman@redhat.com
+Recently introduced new slab memory controller eliminates the need for separate kmemcaches for each memory cgroup and therefore reduce kernel memory usage. However, it also increases memory accouning overhead in kmem cache alloc and free functions. This patchset reduces unnecessary local_irq_save() and local_irq_restore() sequences in the code path as much as possible for minimal overhead.
+[PATCH v7 0/7] Make alloc_contig_range handle Hugetlb pages (Oscar Salvador) https://lkml.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.12-rc7/">LKML News v5.12-rc7</a></h2>
     <div class="article-style">
       
@@ -627,20 +638,6 @@ This patch introduces sysfs interface for CMA that shows stats including number 
 The 10th version of the patchset making ZONE_MOVABLE really movable.
 Linux 5.11 (Linus Torvalds) https://lkml.kernel.org/r/CAHk-=wg8LpRi9+P2_V+ehJ2_EoJifNh2QmVf47aLXfkCd-1UAQ@mail.gmail.com
 Nothing strange happened last week, so Linus released v5.11 as expected. The number of changes from the rc7 to this release is actually even smaller than average.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.11-rc7/">LKML News v5.11-rc7</a></h2>
-    <div class="article-style">
-      
-      [RFC 00/20] TLB batching consolidation and enhancements (Nadav Amit) https://lkml.kernel.org/r/20210131001132.3368247-1-namit@vmware.com
-This patchset prepares more aggressive TLB flushing batching by consolidating a few TLB batching methods.
-[PATCH v9 00/14] prohibit pinning pages in ZONE_MOVABLE (Pavel Tatashin) https://lkml.kernel.org/r/20210201153827.444374-1-pasha.tatashin@soleen.com
-This patchset makes ZONE_MOVABLE really movable by prohibiting pinning of pages in the zone.
-Augmented Page Reclaim (Yu Zhao) https://lkml.kernel.org/r/YBkT6175GmMWBvw3@google.com
-This mail shares a part of decade researh/experimentation in memory overcommit at Google. The author wants to start submitting patch based on responses.
       
     </div>
   </div>

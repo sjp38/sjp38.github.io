@@ -5,12 +5,25 @@
     <link>https://sjp38.github.io/</link>
       <atom:link href="https://sjp38.github.io/index.xml" rel="self" type="application/rss+xml" />
     <description>hacklog</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 22 Nov 2022 07:35:46 -0800</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 29 Nov 2022 08:00:17 -0800</lastBuildDate>
     <image>
       <url>https://sjp38.github.io/img/tux.png</url>
       <title>hacklog</title>
       <link>https://sjp38.github.io/</link>
     </image>
+    
+    <item>
+      <title>LKML News v6.1-rc8</title>
+      <link>https://sjp38.github.io/post/lkml_news_v6.1-rc8/</link>
+      <pubDate>Tue, 29 Nov 2022 08:00:17 -0800</pubDate>
+      <guid>https://sjp38.github.io/post/lkml_news_v6.1-rc8/</guid>
+      <description>&lt;h2 id=&#34;patch-12-lockdep-allow-instrumenting-lockdepc-with-kmsan-alexander-potapenko&#34;&gt;[PATCH 1/2] lockdep: allow instrumenting lockdep.c with KMSAN (Alexander Potapenko)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20221128094541.2645890-1-glider@google.com&#34;&gt;https://lkml.kernel.org/r/20221128094541.2645890-1-glider@google.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Lockdep and KMSAN are known to work together nowadays, though it could make
+kernel run slower.  This patch fixes KMSAN&amp;rsquo;s false positives on
+&lt;code&gt;wq_head-&amp;gt;lock-&amp;gt;dep_map&lt;/code&gt;.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>LKML News v6.1-rc7</title>
@@ -41,6 +54,24 @@ throughput of TCP.&lt;/p&gt;
 applications of tiers in the middle class which demotion is ok but reclaim is
 too much.  This patch proposes to have reclaim-only and demotion-only
 mechanism.&lt;/p&gt;
+&lt;h2 id=&#34;linux-61-rc7-linus-torvalds&#34;&gt;Linux 6.1-rc7 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wgUZwX8Sbb8Zvm7FxWVfX6CGuE7x+E16VKoqL7Ok9vv7g@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wgUZwX8Sbb8Zvm7FxWVfX6CGuE7x+E16VKoqL7Ok9vv7g@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Unfortunately, last week was not that quiet.  Linus says this would mean he
+will have another extra rc week for 6.1.  Because that means the next merge
+window for 6.2 will be during the holiday season, he also asks people to aware
+the rule, everything for merge window should be ready &lt;em&gt;before&lt;/em&gt; the merge window
+opens.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/kernel_release_stat/v5.10-rc7..v6.1-rc7.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
+below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2020-11-28 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And, below is the diffstat of the -rc5 releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/kernel_release_stat/v6.1-rc7-only.png&#34; alt=&#34;rc7 release stat&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -79,12 +110,12 @@ rc8 yet.  He says he will gonna see what will happen, at the moment.&lt;/p&gt;
 &lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
 &lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
 below command:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2020-11-14 | ~/lazybox/gnuplot/plot.py \
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2020-11-21 | ~/lazybox/gnuplot/plot.py \
     --data_fmt table --type labeled-lines --xtics_rotate -90 \
     --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;And, below is the diffstat of the -rc5 releases in the last two years.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/kernel_release_stat/v6.1-rc6-only.png&#34; alt=&#34;rc5 release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;And, below is the diffstat of the -rc6 releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/kernel_release_stat/v6.1-rc6-only.png&#34; alt=&#34;rc6 release stat&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     

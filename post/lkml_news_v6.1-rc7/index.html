@@ -576,7 +576,7 @@ This RFC patchset introduces a mechanism for merging identical compressed pages,
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -640,6 +640,24 @@ throughput of TCP.</p>
 applications of tiers in the middle class which demotion is ok but reclaim is
 too much.  This patch proposes to have reclaim-only and demotion-only
 mechanism.</p>
+<h2 id="linux-61-rc7-linus-torvalds">Linux 6.1-rc7 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wgUZwX8Sbb8Zvm7FxWVfX6CGuE7x+E16VKoqL7Ok9vv7g@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wgUZwX8Sbb8Zvm7FxWVfX6CGuE7x+E16VKoqL7Ok9vv7g@mail.gmail.com</a></p>
+<p>Unfortunately, last week was not that quiet.  Linus says this would mean he
+will have another extra rc week for 6.1.  Because that means the next merge
+window for 6.2 will be during the holiday season, he also asks people to aware
+the rule, everything for merge window should be ready <em>before</em> the merge window
+opens.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.10-rc7..v6.1-rc7.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2020-11-28 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc5 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v6.1-rc7-only.png" alt="rc7 release stat"></p>
 
     </div>
 
