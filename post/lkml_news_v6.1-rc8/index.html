@@ -29,7 +29,9 @@
     
   
   <meta name="description" content="[PATCH 1/2] lockdep: allow instrumenting lockdep.c with KMSAN (Alexander Potapenko) https://lkml.kernel.org/r/20221128094541.2645890-1-glider@google.com
-Lockdep and KMSAN are known to work together nowadays, though it could make kernel run slower. This patch fixes KMSAN&rsquo;s false positives on wq_head-&gt;lock-&gt;dep_map.">
+Lockdep and KMSAN are known to work together nowadays, though it could make kernel run slower. This patch fixes KMSAN&rsquo;s false positives on wq_head-&gt;lock-&gt;dep_map.
+[PATCH] mm/huge_memory: add TRANSPARENT_HUGEPAGE_NEVER for THP (ye xingchen) https://lkml.kernel.org/r/202211301651462590168@zte.com.cn
+This patch adds a new kernel config called TRANSPARENT_HUGEPAGE_NEVER, which will set the value of /sys/kernel/mm/transparent_hugepage/enabled [never].">
 
   
   <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/lkml_news_v6.1-rc8/">
@@ -152,7 +154,9 @@ Lockdep and KMSAN are known to work together nowadays, though it could make kern
   <meta property="og:url" content="https://sjp38.github.io/post/lkml_news_v6.1-rc8/">
   <meta property="og:title" content="LKML News v6.1-rc8 | hacklog">
   <meta property="og:description" content="[PATCH 1/2] lockdep: allow instrumenting lockdep.c with KMSAN (Alexander Potapenko) https://lkml.kernel.org/r/20221128094541.2645890-1-glider@google.com
-Lockdep and KMSAN are known to work together nowadays, though it could make kernel run slower. This patch fixes KMSAN&rsquo;s false positives on wq_head-&gt;lock-&gt;dep_map."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
+Lockdep and KMSAN are known to work together nowadays, though it could make kernel run slower. This patch fixes KMSAN&rsquo;s false positives on wq_head-&gt;lock-&gt;dep_map.
+[PATCH] mm/huge_memory: add TRANSPARENT_HUGEPAGE_NEVER for THP (ye xingchen) https://lkml.kernel.org/r/202211301651462590168@zte.com.cn
+This patch adds a new kernel config called TRANSPARENT_HUGEPAGE_NEVER, which will set the value of /sys/kernel/mm/transparent_hugepage/enabled [never]."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -204,7 +208,7 @@ Lockdep and KMSAN are known to work together nowadays, though it could make kern
       "url": "https://sjp38.github.io/img/icon-512.png"
     }
   },
-  "description": "[PATCH 1/2] lockdep: allow instrumenting lockdep.c with KMSAN (Alexander Potapenko) https://lkml.kernel.org/r/20221128094541.2645890-1-glider@google.com\nLockdep and KMSAN are known to work together nowadays, though it could make kernel run slower. This patch fixes KMSAN\u0026rsquo;s false positives on wq_head-\u0026gt;lock-\u0026gt;dep_map."
+  "description": "[PATCH 1/2] lockdep: allow instrumenting lockdep.c with KMSAN (Alexander Potapenko) https://lkml.kernel.org/r/20221128094541.2645890-1-glider@google.com\nLockdep and KMSAN are known to work together nowadays, though it could make kernel run slower. This patch fixes KMSAN\u0026rsquo;s false positives on wq_head-\u0026gt;lock-\u0026gt;dep_map.\n[PATCH] mm/huge_memory: add TRANSPARENT_HUGEPAGE_NEVER for THP (ye xingchen) https://lkml.kernel.org/r/202211301651462590168@zte.com.cn\nThis patch adds a new kernel config called TRANSPARENT_HUGEPAGE_NEVER, which will set the value of /sys/kernel/mm/transparent_hugepage/enabled [never]."
 }
 </script>
 
@@ -615,6 +619,10 @@ Lockdep and KMSAN are known to work together nowadays, though it could make kern
 <p>Lockdep and KMSAN are known to work together nowadays, though it could make
 kernel run slower.  This patch fixes KMSAN&rsquo;s false positives on
 <code>wq_head-&gt;lock-&gt;dep_map</code>.</p>
+<h2 id="patch-mmhuge_memory-add-transparent_hugepage_never-for-thp-ye-xingchen">[PATCH] mm/huge_memory: add TRANSPARENT_HUGEPAGE_NEVER for THP (ye xingchen)</h2>
+<p><a href="https://lkml.kernel.org/r/202211301651462590168@zte.com.cn">https://lkml.kernel.org/r/202211301651462590168@zte.com.cn</a></p>
+<p>This patch adds a new kernel config called <code>TRANSPARENT_HUGEPAGE_NEVER</code>, which
+will set the value of <code>/sys/kernel/mm/transparent_hugepage/enabled</code> <code>[never]</code>.</p>
 
     </div>
 
