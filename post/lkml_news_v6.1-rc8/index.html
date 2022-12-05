@@ -576,7 +576,7 @@ This patch adds a new kernel config called TRANSPARENT_HUGEPAGE_NEVER, which wil
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -633,6 +633,22 @@ specifying memory node to reclaim.</p>
 <p><a href="https://lkml.kernel.org/r/CADrL8HVDB3u2EOhXHCrAgJNLwHkj2Lka1B_kkNb0dNwiWiAN_Q@mail.gmail.com">https://lkml.kernel.org/r/CADrL8HVDB3u2EOhXHCrAgJNLwHkj2Lka1B_kkNb0dNwiWiAN_Q@mail.gmail.com</a></p>
 <p>James is suggesting some ways for improving userfaultfd performance for
 post-copy live migration.</p>
+<h2 id="linux-61-rc8-linus-torvalds">Linux 6.1-rc8 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wgyXu4D44b8wQU9dpTYUft6WhZ0wr3nV1fziy6k0GwCCw@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wgyXu4D44b8wQU9dpTYUft6WhZ0wr3nV1fziy6k0GwCCw@mail.gmail.com</a></p>
+<p>As expected, Linus released the eighth release candidate of Linux v6.1.
+Fortunately, it started calming down.  If this week is also quiet or even
+quieter, we will show Linux 6.1 next Sunday.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.10..v6.1-rc8.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2020-12-05 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc8 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v6.1-rc8-only.png" alt="rc7 release stat"></p>
 
     </div>
 
