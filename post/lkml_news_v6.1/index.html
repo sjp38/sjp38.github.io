@@ -28,12 +28,11 @@
   
     
   
-  <meta name="description" content="Kernel Development Engineer">
+  <meta name="description" content="[PATCH v3] [mm-unstable] mm: Fix memcg reclaim on memory tiered systems (Mina Almasry) https://lkml.kernel.org/r/20221206023406.3182800-1-almasrymina@google.com
+There was a patch for enabling demotion via memory.reclaim memcg file. It made try_to_free_mem_cgroup_pages() behavior changed. As the changed behavior is somewhat the users of the caller didn&rsquo;t expect, this patch fixes it.">
 
   
-  <link rel="alternate" hreflang="ko" href="https://sjp38.github.io/ko/tags/linux/">
-  
-  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/tags/linux/">
+  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/lkml_news_v6.1/">
 
   
 
@@ -133,14 +132,12 @@
 
 
   
-  <link rel="alternate" href="/tags/linux/index.xml" type="application/rss+xml" title="hacklog">
-  
 
   <link rel="manifest" href="/index.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon-32.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://sjp38.github.io/tags/linux/">
+  <link rel="canonical" href="https://sjp38.github.io/post/lkml_news_v6.1/">
 
   
   
@@ -152,18 +149,66 @@
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="hacklog">
-  <meta property="og:url" content="https://sjp38.github.io/tags/linux/">
-  <meta property="og:title" content="linux | hacklog">
-  <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
+  <meta property="og:url" content="https://sjp38.github.io/post/lkml_news_v6.1/">
+  <meta property="og:title" content="LKML News v6.1 | hacklog">
+  <meta property="og:description" content="[PATCH v3] [mm-unstable] mm: Fix memcg reclaim on memory tiered systems (Mina Almasry) https://lkml.kernel.org/r/20221206023406.3182800-1-almasrymina@google.com
+There was a patch for enabling demotion via memory.reclaim memcg file. It made try_to_free_mem_cgroup_pages() behavior changed. As the changed behavior is somewhat the users of the caller didn&rsquo;t expect, this patch fixes it."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2022-12-06T07:12:28-08:00">
+    
+      <meta property="article:published_time" content="2022-12-06T07:12:28-08:00">
+    
+    <meta property="article:modified_time" content="2022-12-06T07:12:28-08:00">
   
 
   
 
 
+    
 
+
+
+
+
+
+  
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://sjp38.github.io/post/lkml_news_v6.1/"
+  },
+  "headline": "LKML News v6.1",
+  
+  "datePublished": "2022-12-06T07:12:28-08:00",
+  "dateModified": "2022-12-06T07:12:28-08:00",
+  
+  "author": {
+    "@type": "Person",
+    "name": "SeongJae Park"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "hacklog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://sjp38.github.io/img/icon-512.png"
+    }
+  },
+  "description": "[PATCH v3] [mm-unstable] mm: Fix memcg reclaim on memory tiered systems (Mina Almasry) https://lkml.kernel.org/r/20221206023406.3182800-1-almasrymina@google.com\nThere was a patch for enabling demotion via memory.reclaim memcg file. It made try_to_free_mem_cgroup_pages() behavior changed. As the changed behavior is somewhat the users of the caller didn\u0026rsquo;t expect, this patch fixes it."
+}
+</script>
+
+  
 
   
 
@@ -171,10 +216,13 @@
   
 
 
+  
 
 
 
-  <title>linux | hacklog</title>
+
+
+  <title>LKML News v6.1 | hacklog</title>
 
 </head>
 
@@ -396,7 +444,7 @@
         
 
         <li class="nav-item">
-          <a class="nav-link  active" href="/tags"><span>Tags</span></a>
+          <a class="nav-link " href="/tags"><span>Tags</span></a>
         </li>
 
         
@@ -466,22 +514,6 @@
       
 
       
-      <li class="nav-item dropdown i18n-dropdown">
-        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true">
-          <i class="fas fa-globe mr-1" aria-hidden="true"></i><span class="d-none d-lg-inline">English</span>
-        </a>
-        <div class="dropdown-menu">
-          <div class="dropdown-item i18n-active font-weight-bold">
-            <span>English</span>
-          </div>
-          
-          <a class="dropdown-item" href="/ko/tags/linux/">
-            <span>한국어</span>
-          </a>
-          
-        </div>
-      </li>
-      
 
     </ul>
 
@@ -489,173 +521,329 @@
 </nav>
 
 
-  
-
-
-
-
-
-
-
-
-
-
-
+  <article class="article">
 
   
 
+
+
+
+
+
+
+
+
+
+
+
+  
+
   
   
+  
+<div class="article-container pt-3">
+  <h1>LKML News v6.1</h1>
+
+  
+
   
     
-  
-<div class="universal-wrapper pt-3">
-  <h1>linux</h1>
+
+
+<div class="article-metadata">
 
   
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Tue, Dec 6, 2022
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   
 </div>
 
 
 
-<div class="universal-wrapper">
-  
+  <div class="article-container">
 
-  
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.12/">LKML News v5.12</a></h2>
     <div class="article-style">
-      
-      [PATCH -next v3 1/2] mm/debug_vm_pgtable: Move {pmd/pud}_huge_tests out of CONFIG_TRANSPARENT_HUGEPAGE (Liu Shixin) The functions are not THP dependent in real, but made dependent. This patch moves it out.
-[PATCH v10 0/7] Make alloc_contig_range handle Hugetlb pages (Oscar Salvador) https://lkml.kernel.org/r/20210419075413.1064-1-osalvador@suse.de
-The 10th version of the patchset which allows Hugetlb pages allocated via alloc_contig_range(), dynamically.
-[PATCH v2 0/5] mm/madvise: introduce MADV_POPULATE_(READ|WRITE) to prefault page tables (David Hildenbrand) https://lkml.kernel.org/r/20210419135443.12822-1-david@redhat.com
-This is the second version of the patchset implementing MADV_POPULATE_(READ|WRITE) for madvise() system call.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.12-rc8/">LKML NEws v5.12-rc8</a></h2>
-    <div class="article-style">
-      
-      [PATCH v2 0/5] mm/memcg: Reduce kmemcache memory accounting overhead (Waiman Long) https://lkml.kernel.org/r/20210412225503.15119-1-longman@redhat.com
-Recently introduced new slab memory controller eliminates the need for separate kmemcaches for each memory cgroup and therefore reduce kernel memory usage. However, it also increases memory accouning overhead in kmem cache alloc and free functions. This patchset reduces unnecessary local_irq_save() and local_irq_restore() sequences in the code path as much as possible for minimal overhead.
-[PATCH v7 0/7] Make alloc_contig_range handle Hugetlb pages (Oscar Salvador) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.12-rc7/">LKML News v5.12-rc7</a></h2>
-    <div class="article-style">
-      
-      [RFC PATCH v1 00/11] Manage the top tier memory in a tiered memory (Tim Chen) https://lkml.kernel.org/r/cover.1617642417.git.tim.c.chen@linux.intel.com
-There are two patchsets for better handling of tiered-memory. [PATCH 00/10] [v7] Migrate Pages in lieu of discard (https://lore.kernel.org/linux-mm/20210401183216.443C4443@viggo.jf.intel.com/) makes cold pages to be placed in PMEM instead of DRAM, and [PATCH 0/6] [RFC v6] NUMA balancing: optimize memory placement for memory tiering system (https://lore.kernel.org/linux-mm/20210311081821.138467-1-ying.huang@intel.com/) allows hot pages to be placed in DRAM instead of PMEM.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.12-rc6/">LKML News v5.12-rc6</a></h2>
-    <div class="article-style">
-      
-      [RFC] NUMA balancing: reduce TLB flush via delaying mapping on hint page fault (Huang Ying) https://lkml.kernel.org/r/20210329062651.2487905-1-ying.huang@intel.com
-NUMA balancing shots down TLBs on all CPUs that recently run hint-faulted process during the migration of the hint-faulted page to appropriate node. This commit delays the TLB shootdown to reduce the overhead. With pmbench, it reduced TLB shooting IPI up to 99%, though it didn&rsquo;t makde visible benchmark score changes.
-[RFC v2 00/43] PKRAM: Preserved-over-Kexec RAM (Anthony Yznaga) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.12-rc5/">LKML News v5.12-rc5</a></h2>
-    <div class="article-style">
-      
-      [PATCH 0/3 v5] Introduce a bulk order-0 page allocator (Mel Gorman) https://lkml.kernel.org/r/20210322091845.16437-1-mgorman@techsingularity.net
-Fifth version of the order-0 pages bulk allocator. In this version, the API users are dropped from the patchset, because the callers are not confirmed if they prefer an array or list interface.
-[PATCH] mm: cma: add trace events for CMA alloc perf testing (Georgi Djakov) https://lkml.kernel.org/r/20210324160740.15901-1-georgi.djakov@linaro.org
-This patch adds tracepoints for CMA and page migrations. Those aims to be used for performance debugging of CMA.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.12-rc4/">LKML News v5.12-rc4</a></h2>
-    <div class="article-style">
-      
-      File THP and HWPoison (Matthew Wilcox) https://lkml.kernel.org/r/20210316140947.GA3420@casper.infradead.org
-THP is not splitted for file-backed pages when it got memory failure. This mail describes the problem in detail and propose some change to mitigate it.
-Issue with kfence and kmemleak (Luis Henriques) https://lkml.kernel.org/r/YFDf6iKH1p/jGnM0@suse.de
-Luis found a problem when kmemleak and kfence is used together. A fix is made by Marco.
-[PATCH v4 00/13] Introduced multi-preference mempolicy (Feng Tang) https://lkml.kernel.org/r/1615952410-36895-1-git-send-email-feng.tang@intel.com
-This is the fourth version of the patchset.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.12-rc3/">LKML News v5.12-rc3</a></h2>
-    <div class="article-style">
-      
-      [PATCH 00/10] [v6] Migrate Pages in lieu of discard (Dave Hansen) https://lkml.kernel.org/r/20210304235949.7922C1C3@viggo.jf.intel.com
-When the system configured with both DRAM and persistent memory, current kernel starts reclamation when DRAM fulls even though there are some space in persistent memory. And from some point, all page allocation is done on the persistent memory only, even though DRAM has some free slots now.
-This patchset mitigates the problem by migrating pages that about to be reclaimed to persistent memory.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.12-rc2/">LKML News v5.12-rc2</a></h2>
-    <div class="article-style">
-      
-      [PATCH] mm: introduce clear all vm events counters (Pintu Kumar) https://lkml.kernel.org/r/1614595766-7640-1-git-send-email-pintu@codeaurora.org
-Because the vmstat data is only cumulated, users should calculate the diff manually or just reboot. This commit adds a procfs file that can be used to clear all vmstat counters.
-[PATCH 0/5] Introduce a bulk order-0 page allocator with two in-tree users (Mel Gorman) https://lkml.kernel.org/r/20210301161200.18852-1-mgorman@techsingularity.net
-This patchset introduces a bulk order-0 page allocator. It also makes the sunrpc and the network page pool to use that.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/damon_profile_callstack_example/">An example of DAMON usage for profiling</a></h2>
-    <div class="article-style">
-      
-      I realized I didn&rsquo;t introduce a good, intuitive example use case of DAMON[0] for profiling so far, though DAMON is not for only profiling. One straightforward and realistic usage of DAMON as a profiling tool would be recording the monitoring results with callstack and visualize those by timeline together.
-For example, below shows that visualization for a realistic workload, namely &lsquo;fft&rsquo; in SPLASH-2X benchmark suite. From that, you can know there are three memory access bursting phases in the workload and FFT1DOnce.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.12-rc1/">LKML News v5.12-rc1</a></h2>
-    <div class="article-style">
-      
-      [PATCH v11 00/14] prohibit pinning pages in ZONE_MOVABLE (Pavel Tatashin) https://lkml.kernel.org/r/20210215161349.246722-1-pasha.tatashin@soleen.com
-The 11th version of the patchset making ZONE_MOVABLE really movable. In this version, a build error on i386 is fixed.
-[RFC PATCH] mm, oom: introduce vm.sacrifice_hugepage_on_oom https://lkml.kernel.org/r/20210216030713.79101-1-eiichi.tsukata@nutanix.com
-This RFC patch introduces yet another sysctl knob called vm.sacrifice_hugepage_on_oom. When it is turned on, it tries to free available hugepages before waking oom-killer up.
-[RFC] Hugepage collapse in process context (David Rientjes) https://lkml.
-      
-    </div>
-  </div>
-  
+      <h2 id="patch-v3-mm-unstable-mm-fix-memcg-reclaim-on-memory-tiered-systems-mina-almasry">[PATCH v3] [mm-unstable] mm: Fix memcg reclaim on memory tiered systems (Mina Almasry)</h2>
+<p><a href="https://lkml.kernel.org/r/20221206023406.3182800-1-almasrymina@google.com">https://lkml.kernel.org/r/20221206023406.3182800-1-almasrymina@google.com</a></p>
+<p>There was a patch for enabling demotion via <code>memory.reclaim</code> memcg file.  It
+made <code>try_to_free_mem_cgroup_pages()</code> behavior changed.  As the changed
+behavior is somewhat the users of the caller didn&rsquo;t expect, this patch fixes
+it.</p>
 
+    </div>
+
+    
+
+
+
+
+
+<div class="article-tags">
   
-<nav>
-  <ul class="pagination justify-content-center">
+  <a class="badge badge-light" href="/tags/linux/">linux</a>
+  
+  <a class="badge badge-light" href="/tags/kernel/">kernel</a>
+  
+  <a class="badge badge-light" href="/tags/lkml/">lkml</a>
+  
+  <a class="badge badge-light" href="/tags/news/">news</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
     
-    <li class="page-item"><a class="page-link" href="/tags/linux/page/8/">&laquo;</a></li>
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=https://sjp38.github.io/post/lkml_news_v6.1/&amp;text=LKML%20News%20v6.1" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
     
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=https://sjp38.github.io/post/lkml_news_v6.1/&amp;t=LKML%20News%20v6.1" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
     
-    <li class="page-item"><a class="page-link" href="/tags/linux/page/10/">&raquo;</a></li>
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=LKML%20News%20v6.1&amp;body=https://sjp38.github.io/post/lkml_news_v6.1/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=https://sjp38.github.io/post/lkml_news_v6.1/&amp;title=LKML%20News%20v6.1" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=LKML%20News%20v6.1%20https://sjp38.github.io/post/lkml_news_v6.1/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=https://sjp38.github.io/post/lkml_news_v6.1/&amp;title=LKML%20News%20v6.1" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
     
   </ul>
-</nav>
-
-
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      <img class="portrait mr-3" src="https://s.gravatar.com/avatar/43dc5645c78e68fda997138380dfaaf4?s=200')" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="https://sjp38.github.io/">SeongJae Park</a></h5>
+      <h6 class="card-subtitle">Kernel Development Engineer</h6>
+      <p class="card-text">SeongJae Park is a programmer who loves to analyze and develop systems.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/log/?qt=author&amp;q=seongjae&#43;park" target="_blank" rel="noopener">
+        <i class="fab fa-linux"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/sjp38" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.com/citations?user=jJIiF3AAAAAJ" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  
+  
+  <div class="article-widget content-widget-hr">
+    <h3>Related</h3>
+    <ul>
+      
+      <li><a href="/post/lkml_news_v6.1-rc8/">LKML News v6.1-rc8</a></li>
+      
+      <li><a href="/post/lkml_news_v6.1-rc7/">LKML News v6.1-rc7</a></li>
+      
+      <li><a href="/post/lkml_news_v6.1-rc6/">LKML News v6.1-rc6</a></li>
+      
+      <li><a href="/post/lkml_news_v6.1-rc5/">LKML News v6.1-rc5</a></li>
+      
+      <li><a href="/post/lkml_news_v6.1-rc4/">LKML News v6.1-rc4</a></li>
+      
+    </ul>
+  </div>
+  
+
+
+
+  </div>
+</article>
 
       
 
