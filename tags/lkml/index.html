@@ -530,6 +530,8 @@
       
       [PATCH v3] [mm-unstable] mm: Fix memcg reclaim on memory tiered systems (Mina Almasry) https://lkml.kernel.org/r/20221206023406.3182800-1-almasrymina@google.com
 There was a patch for enabling demotion via memory.reclaim memcg file. It made try_to_free_mem_cgroup_pages() behavior changed. As the changed behavior is somewhat the users of the caller didn&rsquo;t expect, this patch fixes it.
+[PATCHv8 00/14] mm, x86/cc: Implement support for unaccepted memory (Kirill A. Shutemov) https://lkml.kernel.org/r/20221207014933.8435-1-kirill.shutemov@linux.intel.com
+Some confidential VM approaches like Intel TDX or AMD SEV-SNP requires the guests to accept memory that they will use before use.
       
     </div>
   </div>

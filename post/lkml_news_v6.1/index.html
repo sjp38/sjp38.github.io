@@ -29,7 +29,9 @@
     
   
   <meta name="description" content="[PATCH v3] [mm-unstable] mm: Fix memcg reclaim on memory tiered systems (Mina Almasry) https://lkml.kernel.org/r/20221206023406.3182800-1-almasrymina@google.com
-There was a patch for enabling demotion via memory.reclaim memcg file. It made try_to_free_mem_cgroup_pages() behavior changed. As the changed behavior is somewhat the users of the caller didn&rsquo;t expect, this patch fixes it.">
+There was a patch for enabling demotion via memory.reclaim memcg file. It made try_to_free_mem_cgroup_pages() behavior changed. As the changed behavior is somewhat the users of the caller didn&rsquo;t expect, this patch fixes it.
+[PATCHv8 00/14] mm, x86/cc: Implement support for unaccepted memory (Kirill A. Shutemov) https://lkml.kernel.org/r/20221207014933.8435-1-kirill.shutemov@linux.intel.com
+Some confidential VM approaches like Intel TDX or AMD SEV-SNP requires the guests to accept memory that they will use before use.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/lkml_news_v6.1/">
@@ -152,7 +154,9 @@ There was a patch for enabling demotion via memory.reclaim memcg file. It made t
   <meta property="og:url" content="https://sjp38.github.io/post/lkml_news_v6.1/">
   <meta property="og:title" content="LKML News v6.1 | hacklog">
   <meta property="og:description" content="[PATCH v3] [mm-unstable] mm: Fix memcg reclaim on memory tiered systems (Mina Almasry) https://lkml.kernel.org/r/20221206023406.3182800-1-almasrymina@google.com
-There was a patch for enabling demotion via memory.reclaim memcg file. It made try_to_free_mem_cgroup_pages() behavior changed. As the changed behavior is somewhat the users of the caller didn&rsquo;t expect, this patch fixes it."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
+There was a patch for enabling demotion via memory.reclaim memcg file. It made try_to_free_mem_cgroup_pages() behavior changed. As the changed behavior is somewhat the users of the caller didn&rsquo;t expect, this patch fixes it.
+[PATCHv8 00/14] mm, x86/cc: Implement support for unaccepted memory (Kirill A. Shutemov) https://lkml.kernel.org/r/20221207014933.8435-1-kirill.shutemov@linux.intel.com
+Some confidential VM approaches like Intel TDX or AMD SEV-SNP requires the guests to accept memory that they will use before use."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -204,7 +208,7 @@ There was a patch for enabling demotion via memory.reclaim memcg file. It made t
       "url": "https://sjp38.github.io/img/icon-512.png"
     }
   },
-  "description": "[PATCH v3] [mm-unstable] mm: Fix memcg reclaim on memory tiered systems (Mina Almasry) https://lkml.kernel.org/r/20221206023406.3182800-1-almasrymina@google.com\nThere was a patch for enabling demotion via memory.reclaim memcg file. It made try_to_free_mem_cgroup_pages() behavior changed. As the changed behavior is somewhat the users of the caller didn\u0026rsquo;t expect, this patch fixes it."
+  "description": "[PATCH v3] [mm-unstable] mm: Fix memcg reclaim on memory tiered systems (Mina Almasry) https://lkml.kernel.org/r/20221206023406.3182800-1-almasrymina@google.com\nThere was a patch for enabling demotion via memory.reclaim memcg file. It made try_to_free_mem_cgroup_pages() behavior changed. As the changed behavior is somewhat the users of the caller didn\u0026rsquo;t expect, this patch fixes it.\n[PATCHv8 00/14] mm, x86/cc: Implement support for unaccepted memory (Kirill A. Shutemov) https://lkml.kernel.org/r/20221207014933.8435-1-kirill.shutemov@linux.intel.com\nSome confidential VM approaches like Intel TDX or AMD SEV-SNP requires the guests to accept memory that they will use before use."
 }
 </script>
 
@@ -616,6 +620,13 @@ There was a patch for enabling demotion via memory.reclaim memcg file. It made t
 made <code>try_to_free_mem_cgroup_pages()</code> behavior changed.  As the changed
 behavior is somewhat the users of the caller didn&rsquo;t expect, this patch fixes
 it.</p>
+<h2 id="patchv8-0014-mm-x86cc-implement-support-for-unaccepted-memory-kirill-a-shutemov">[PATCHv8 00/14] mm, x86/cc: Implement support for unaccepted memory (Kirill A. Shutemov)</h2>
+<p><a href="https://lkml.kernel.org/r/20221207014933.8435-1-kirill.shutemov@linux.intel.com">https://lkml.kernel.org/r/20221207014933.8435-1-kirill.shutemov@linux.intel.com</a></p>
+<p>Some confidential VM approaches like Intel TDX or AMD SEV-SNP requires the
+guests to <em>accept</em> memory that they will use before use.  As the acceptance
+takes time, it can increase the boot time.  This patchset makes the kernel to
+support the unaccepted memory case for reducing the boot time by postpone
+memory acceptance until memory is needed.</p>
 
     </div>
 
