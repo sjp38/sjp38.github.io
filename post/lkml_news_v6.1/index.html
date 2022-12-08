@@ -627,6 +627,11 @@ guests to <em>accept</em> memory that they will use before use.  As the acceptan
 takes time, it can increase the boot time.  This patchset makes the kernel to
 support the unaccepted memory case for reducing the boot time by postpone
 memory acceptance until memory is needed.</p>
+<h2 id="patch-cmatracing-print-alloc-result-in-trace_cma_alloc_finish-wenchao-hao">[PATCH] cma:tracing: Print alloc result in trace_cma_alloc_finish (Wenchao Hao)</h2>
+<p><a href="https://lkml.kernel.org/r/20221208142130.1501195-1-haowenchao@huawei.com">https://lkml.kernel.org/r/20221208142130.1501195-1-haowenchao@huawei.com</a></p>
+<p><code>cma_alloc_finish</code> tracepoint does not print the contiguous memory allocation
+result.  To help the result-based following additional operations, this
+patchset adds the information to the tracepoint.</p>
 
     </div>
 
