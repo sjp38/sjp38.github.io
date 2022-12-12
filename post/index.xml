@@ -39,6 +39,22 @@ patchset adds the information to the tracepoint.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/cover.1670566861.git.kai.huang@intel.com&#34;&gt;https://lkml.kernel.org/r/cover.1670566861.git.kai.huang@intel.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;This patchset adds initial support for Intel Trusted Domain Extension (TDX),
 which protects guest VMs from malicious host.&lt;/p&gt;
+&lt;h2 id=&#34;linux-61-linus-torvalds&#34;&gt;Linux 6.1 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wj_HcgFZNyZHTLJ7qC2613zphKDtLh6ndciwopZRfH0aQ@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wj_HcgFZNyZHTLJ7qC2613zphKDtLh6ndciwopZRfH0aQ@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;After the ten eight weeks of staging, Linux 6.1 has released.  This also means
+the merge window for v6.2 has opened.  Because the merge window will be through
+the holiday season, Linus asks people to be more strict about the merge window
+rules.  That is, every pull request should have been ready before the merge
+window, and spent some time on the next tree with the automated tests.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/kernel_release_stat/v5.11-rc1..v6.1.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
+below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2020-12-12 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
