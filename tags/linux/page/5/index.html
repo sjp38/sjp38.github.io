@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2022-12-06T07:12:28-08:00">
+    <meta property="og:updated_time" content="2022-12-13T08:05:03-08:00">
   
 
   
@@ -525,6 +525,19 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.17-rc6/">LKML News v5.17-rc6</a></h2>
+    <div class="article-style">
+      
+      [PATCH -V13 0/3] NUMA balancing: optimize memory placement for memory tiering system (Huang Ying) https://lkml.kernel.org/r/20220221084529.1052339-1-ying.huang@intel.com
+The AutoNUMA patchset for tiered memory system has revised again.
+[LSF/MM/BPF TOPIC] page table reclaim (David Hildenbrand) https://lkml.kernel.org/r/7b908208-02f8-6fde-4dfc-13d5e00310a6@redhat.com
+Some workloads allocates a lot of page tables. As page tables are unmovable and unreclaimable, this can contribute to memory pressure. David is proposing making it reclaimable and suggesting discussion in LSF/MM/BPF summit for the idea.
+[RFC PATCH 00/47] Address Space Isolation for KVM (Junaid Shahid) https://lkml.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.17-rc5/">LKML News v5.17-rc5</a></h2>
     <div class="article-style">
       
@@ -628,18 +641,6 @@ MM of the moment has updated. It&rsquo;s rebased on v5.16-rc7, adds 32 new patch
 Fifth version of the patchset for reducing lru memory consumption. This version fixes a sleep-in-atomic-context bug which is reported by the kernel test robot, applies some requests from Johannes, and collect Acked-by from Johannes.
 [PATCH 0/2] Add a new scheme to support demotion on tiered memory system (Baolin Wang) https://lkml.kernel.org/r/cover.1640077468.git.baolin.wang@linux.alibaba.com
 This patchset makes DAMOS supports demotion of memory regions.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.16-rc6/">LKML News v5.16-rc6</a></h2>
-    <div class="article-style">
-      
-      [PATCH v4 00/17] Optimize list lru memory consumption (Muchun Song) https://lkml.kernel.org/r/20211213165342.74704-1-songmuchun@bytedance.com
-Muchun found 6GB of memory was consumed by kmalloc-32 slab cache on a machine having 952 super blocks. That was due to list_lru_one allocation from memcg_nr_cache_ids. This patchset aims to fix the issue. According to a simple test, this reduces memory consumption under a situation from 24GiB to 4GiB.
-mmotm 2021-12-13-21-28 uploaded (Andrew Morton) https://lkml.kernel.org/r/20211214052904.VfRYfitp0%akpm@linux-foundation.org
-Andrew Morton uploaded new mmotm.
       
     </div>
   </div>
