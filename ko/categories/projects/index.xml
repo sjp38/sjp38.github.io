@@ -155,6 +155,10 @@ workloads and systems.&lt;/p&gt;
 &lt;h2 id=&#34;demo-screenshot&#34;&gt;Demo Screenshot&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/masim_stairs_heatmap_ascii.png&#34; alt=&#34;masim stairs heatmap in ascii&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;recent-news&#34;&gt;Recent News&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;2022-12-16&lt;/em&gt;: The DAMOS filtering for anon pages and/or memory
+cgroups have
+&lt;a href=&#34;https://lore.kernel.org/mm-commits/20221216235930.526BAC433EF@smtp.kernel.org/&#34;&gt;merged&lt;/a&gt;
+in mm tree.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;2022-11-24&lt;/em&gt;: An RFC patchset for DAMOS filtering for anon pages and memory
 cgroups have
 &lt;a href=&#34;https://lore.kernel.org/damon/20221124212114.136863-1-sj@kernel.org/&#34;&gt;posted&lt;/a&gt;&lt;/p&gt;
@@ -165,9 +169,6 @@ have
 &lt;a href=&#34;https://nvd.nist.gov/vuln/detail/CVE-2022-3544&#34;&gt;published&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;2022-09-15&lt;/em&gt;: The &lt;a href=&#34;https://youtu.be/e2SZoUPhDRg?t=13245&#34;&gt;video&lt;/a&gt; for my kernel
 summit DAMON talk this year is now available at Youtube&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;2022-09-09&lt;/em&gt;: The plan for the first in-person DAMON community meetup at LPC
-and the in-person office hour at OSSummit EU has
-&lt;a href=&#34;https://lore.kernel.org/damon/20220909173856.55818-1-sj@kernel.org/&#34;&gt;announced&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;getting-started&#34;&gt;Getting Started&lt;/h2&gt;
 &lt;p&gt;You can start using DAMON by&lt;/p&gt;
 &lt;ul&gt;
@@ -194,8 +195,9 @@ like below:&lt;/p&gt;
 $ sudo amazon-linux-extras install kernel-&amp;lt;5.10 or 5.4&amp;gt;
 $ sudo reboot
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Note that AL2 v5.4.y contains only a part of DAMON features, so AL2 v5.10.y is
-more recommended.&lt;/p&gt;
+&lt;p&gt;Note that AL2 v5.10.y contains all DAMON features that available on mainline
+while AL2 5.4.y contains only a part of DAMON features, so AL2 v5.10.y is more
+recommended.&lt;/p&gt;
 &lt;p&gt;If your package system doesn&amp;rsquo;t support DAMON-enabled kernel, you can
 &lt;a href=&#34;#source-code&#34;&gt;fetch&lt;/a&gt; a DAMON-merged Linux kernel source tree, build, and
 install it.  Note that you should enable kernel configuration options for
@@ -218,7 +220,8 @@ $ sudo make modules_install install
 &lt;h2 id=&#34;source-code&#34;&gt;Source Code&lt;/h2&gt;
 &lt;p&gt;There are several DAMON-merged Linux kernel source trees for different users.
 You may pick one among those based on your needs.&lt;/p&gt;
-&lt;p&gt;For users who want only a stable version of DAMON, below trees are available.&lt;/p&gt;
+&lt;p&gt;For users who want only a &lt;strong&gt;stable&lt;/strong&gt; version of DAMON, below trees are
+available.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Linus Torvalds&amp;rsquo; &lt;a href=&#34;https://git.kernel.org/torvalds/h/master&#34;&gt;mainline tree&lt;/a&gt;
 contains the latest stable version of DAMON since v5.15.&lt;/li&gt;
@@ -227,13 +230,19 @@ contains the latest stable version of DAMON since v5.15.&lt;/li&gt;
 and
 &lt;a href=&#34;https://github.com/amazonlinux/linux/tree/amazon-5.4.y/master&#34;&gt;v5.4.y tree&lt;/a&gt;
 also contains stable versions of DAMON in the mainline, which back-ported on
-v5.10.y and v5.4.y, respectively.  Note that AL2 v5.4.y contains only a part
-of DAMON features, so AL2 v5.10.y is more recommended.&lt;/li&gt;
+v5.10.y and v5.4.y, respectively.  Note that AL2 v5.10.y contains all DAMON
+features that available on the major releases of Linux mainline while AL2
+5.4.y contains only a part of DAMON features, so AL2 v5.10.y is more
+recommended.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;If you have interests in DAMON features under development, below tree will be
-appropriate.  This trees contain latest version of DAMON which having features
-under development/hacks.&lt;/p&gt;
+&lt;p&gt;If you have interests in DAMON features under &lt;strong&gt;development&lt;/strong&gt;, below trees will
+be appropriate.  These trees contain latest version of DAMON which having
+features under development.&lt;/p&gt;
 &lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://git.kernel.org/akpm/mm/h/mm-unstable&#34;&gt;mm-unstable&lt;/a&gt; contains the
+latest DAMON patches, which are under testing with other unstable memory
+management subsystem patches.  So this tree is likely unstable and frequently
+updated, but would be a good baseline for your DAMON patches.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://git.kernel.org/sj/h/damon/next&#34;&gt;damon/next&lt;/a&gt; contains the latest
 changes, which might not fully be tested.  So this tree is likely unstable
 and frequently updated.  This tree also contains some changes that exist
@@ -242,8 +251,9 @@ only for DAMON hacks itself rather than eventually be merged in the mainline.&lt
 &lt;p&gt;For people who have interest in DAMON features under development but use LTS
 kernels as their baseline, there &lt;em&gt;were&lt;/em&gt; trees that based on three latest LTS
 kernels.&lt;/p&gt;
-&lt;p&gt;NOTE: these trees are deprecated as of 2022-09-03, and therefore there will be
-no update at all.&lt;/p&gt;
+&lt;p&gt;NOTE: Below trees were continuously getting DAMON backports on latest 5.4.y,
+5.10.y, and 5.15.y.  But those are deprecated as of 2022-09-03, and therefore
+there will be no update to the trees.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://git.kernel.org/sj/h/damon/for-v5.15.y&#34;&gt;damon/for-v5.15.y&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://git.kernel.org/sj/h/damon/for-v5.10.y&#34;&gt;damon/for-v5.10.y&lt;/a&gt;&lt;/li&gt;
@@ -272,11 +282,11 @@ fails, please report that to the maintainer via mail (&lt;a href=&#34;mailto:sj@
 &lt;p&gt;The official document of DAMON in the latest mainline for
 &lt;a href=&#34;https://docs.kernel.org/admin-guide/mm/damon/index.html&#34;&gt;users/sysadmins&lt;/a&gt; and
 &lt;a href=&#34;https://docs.kernel.org/vm/damon/index.html&#34;&gt;kernel programmers&lt;/a&gt; are
-available.  That for DAMON in the &lt;a href=&#34;#source-code&#34;&gt;damon/next&lt;/a&gt; tree, which
+available.  Document for DAMON in the &lt;a href=&#34;#source-code&#34;&gt;damon/next&lt;/a&gt; tree, which
 focused on DAMON only and contains some more DAMON-specific contents, is also
 &lt;a href=&#34;https://damonitor.github.io/doc/html/next/&#34;&gt;available&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;showcase-website&#34;&gt;Showcase Website&lt;/h2&gt;
-&lt;p&gt;There is a showcase web &lt;a href=&#34;https://damonitor.github.io/_index&#34;&gt;site&lt;/a&gt; that you can
+&lt;p&gt;There is a showcase &lt;a href=&#34;https://damonitor.github.io/_index&#34;&gt;website&lt;/a&gt; that you can
 get more information of DAMON.
 The site hosts&lt;/p&gt;
 &lt;ul&gt;
@@ -305,8 +315,9 @@ the linux kernel development community.&lt;/p&gt;
 All the patches are posted there and reviewed.  Almost every discussions are
 also made there.  You can subscribe to the mailing list via
 &lt;a href=&#34;https://subspace.kernel.org/lists.linux.dev.html&#34;&gt;subspace.kernel.org&lt;/a&gt;
-following the &lt;a href=&#34;https://subspace.kernel.org/#subscribing&#34;&gt;instruction&lt;/a&gt;, and read
-the mails via &lt;a href=&#34;https://lore.kernel.org/damon/&#34;&gt;lore&lt;/a&gt;.&lt;/p&gt;
+following the &lt;a href=&#34;https://subspace.kernel.org/#subscribing&#34;&gt;instruction&lt;/a&gt;.  You
+could also read the mails without subscription via
+&lt;a href=&#34;https://lore.kernel.org/damon/&#34;&gt;lore&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;The community also have an open, regular, and informal virtual bi-weekly
 meeting series for DAMON community called DAMON Beer/Coffee/Tea chat
 &lt;a href=&#34;https://lore.kernel.org/damon/20220810225102.124459-1-sj@kernel.org/&#34;&gt;series&lt;/a&gt;.&lt;/p&gt;
@@ -362,6 +373,10 @@ June 2019.
 &lt;a href=&#34;https://ieeexplore.ieee.org/abstract/document/8791992&#34;&gt;Paper&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;news&#34;&gt;News&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;2022-12-16&lt;/em&gt;: The DAMOS filtering for anon pages and/or memory
+cgroups have
+&lt;a href=&#34;https://lore.kernel.org/mm-commits/20221216235930.526BAC433EF@smtp.kernel.org/&#34;&gt;merged&lt;/a&gt;
+in mm tree.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;2022-10-19&lt;/em&gt;: An RFC patchset for efficient query-like DAMON monitoring results
 have
 &lt;a href=&#34;https://lore.kernel.org/damon/20221019001317.104270-1-sj@kernel.org/&#34;&gt;posted&lt;/a&gt;&lt;/p&gt;
