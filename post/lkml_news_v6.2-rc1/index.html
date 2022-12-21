@@ -574,7 +574,7 @@ Andrew Morton sent the MM pull request for v6.2-rc1 to Linus Torvalds. It includ
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -637,6 +637,14 @@ with minute granularity has posted.</p>
 <p><a href="https://lkml.kernel.org/r/20221220072743.3039060-1-shiyn.lin@gmail.com">https://lkml.kernel.org/r/20221220072743.3039060-1-shiyn.lin@gmail.com</a></p>
 <p>Copy on write is useful for lightweight <code>fork()</code>, but it is applied to only
 mapped memory.  This patchset further applies the mechanism to page table.</p>
+<h2 id="patch-rfc-ipcmqueue-introduce-msg-cache-roman-gushchin">[PATCH RFC] ipc/mqueue: introduce msg cache (Roman Gushchin)</h2>
+<p><a href="https://lkml.kernel.org/r/20221220184813.1908318-1-roman.gushchin@linux.dev">https://lkml.kernel.org/r/20221220184813.1908318-1-roman.gushchin@linux.dev</a></p>
+<p>This patchset introduces msg cache, which allocates message queue messages on
+a small percpu cache insted of free/realloc them everytime.</p>
+<h2 id="patch-mm-unstable-v2-08-mm-multi-gen-lru-memcg-lru-yu-zhao">[PATCH mm-unstable v2 0/8] mm: multi-gen LRU: memcg LRU (Yu Zhao)</h2>
+<p><a href="https://lkml.kernel.org/r/20221221001207.1376119-1-yuzhao@google.com">https://lkml.kernel.org/r/20221221001207.1376119-1-yuzhao@google.com</a></p>
+<p>This patchset introduces an extended LRU called memcg LRU, which can work
+system wide with an optimized complexity.</p>
 
     </div>
 
