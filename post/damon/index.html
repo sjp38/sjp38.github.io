@@ -28,7 +28,8 @@
   
     
   
-  <meta name="description" content="Modern workloads tend to have huge working sets and low locality. Despite this trend, the capacity of DRAM has not been increased enough to accommodate such huge working sets. Therefore, memory management mechanisms optimized for such modern workloads are widely required today. For such optimizations, knowing the data access pattern of given workloads is essential. However, manually extracting such patterns from huge and complex workloads is exhaustive. Worse yet, existing memory access analysis tools incur unacceptably high overheads for unnecessarily detailed analysis results.">
+  <meta name="description" content="The trend of increasing data intensive workloads and limited DRAM capacity makes dynamic access pattern based optimal memory management important. Such mechnisms can be made only when not only accurate but also efficient dynamic access pattern monitoring is available.
+DAMON is a Data Access MONitoring framework subsystem for the Linux kernel that developed for such memory management. It is designed with some core mechanism (refer to Design for the detail), which can make it">
 
   
   <link rel="alternate" hreflang="ko" href="https://sjp38.github.io/ko/post/damon/">
@@ -152,7 +153,8 @@
   <meta property="og:site_name" content="hacklog">
   <meta property="og:url" content="https://sjp38.github.io/post/damon/">
   <meta property="og:title" content="DAMON: Data Access Monitor | hacklog">
-  <meta property="og:description" content="Modern workloads tend to have huge working sets and low locality. Despite this trend, the capacity of DRAM has not been increased enough to accommodate such huge working sets. Therefore, memory management mechanisms optimized for such modern workloads are widely required today. For such optimizations, knowing the data access pattern of given workloads is essential. However, manually extracting such patterns from huge and complex workloads is exhaustive. Worse yet, existing memory access analysis tools incur unacceptably high overheads for unnecessarily detailed analysis results."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
+  <meta property="og:description" content="The trend of increasing data intensive workloads and limited DRAM capacity makes dynamic access pattern based optimal memory management important. Such mechnisms can be made only when not only accurate but also efficient dynamic access pattern monitoring is available.
+DAMON is a Data Access MONitoring framework subsystem for the Linux kernel that developed for such memory management. It is designed with some core mechanism (refer to Design for the detail), which can make it"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -204,7 +206,7 @@
       "url": "https://sjp38.github.io/img/icon-512.png"
     }
   },
-  "description": "Modern workloads tend to have huge working sets and low locality. Despite this trend, the capacity of DRAM has not been increased enough to accommodate such huge working sets. Therefore, memory management mechanisms optimized for such modern workloads are widely required today. For such optimizations, knowing the data access pattern of given workloads is essential. However, manually extracting such patterns from huge and complex workloads is exhaustive. Worse yet, existing memory access analysis tools incur unacceptably high overheads for unnecessarily detailed analysis results."
+  "description": "The trend of increasing data intensive workloads and limited DRAM capacity makes dynamic access pattern based optimal memory management important. Such mechnisms can be made only when not only accurate but also efficient dynamic access pattern monitoring is available.\nDAMON is a Data Access MONitoring framework subsystem for the Linux kernel that developed for such memory management. It is designed with some core mechanism (refer to Design for the detail), which can make it"
 }
 </script>
 
@@ -665,18 +667,15 @@
   <div class="article-container">
 
     <div class="article-style">
-      <p>Modern workloads tend to have huge working sets and low locality. Despite this
-trend, the capacity of DRAM has not been increased enough to accommodate such
-huge working sets. Therefore, memory management mechanisms optimized for such
-modern workloads are widely required today. For such optimizations, knowing the
-data access pattern of given workloads is essential. However, manually
-extracting such patterns from huge and complex workloads is exhaustive. Worse
-yet, existing memory access analysis tools incur unacceptably high overheads
-for unnecessarily detailed analysis results.</p>
-<p>DAMON is a data access monitoring framework subsystem for the Linux kernel.  It
-mitigates the problems with its core mechanisms (refer to
+      <p>The trend of increasing data intensive workloads and limited DRAM capacity
+makes dynamic access pattern based optimal memory management important.  Such
+mechnisms can be made only when not only accurate but also efficient dynamic
+access pattern monitoring is available.</p>
+<p>DAMON is a Data Access MONitoring framework subsystem for the Linux kernel that
+developed for such memory management.  It is designed with some core mechanism
+(refer to
 <a href="https://docs.kernel.org/mm/damon/design.html">Design</a> for the detail), which
-make it</p>
+can make it</p>
 <ul>
 <li>accurate (the monitoring output is useful enough for DRAM level memory
 management; It might not appropriate for CPU Cache levels, though),</li>
@@ -685,12 +684,13 @@ and</li>
 <li>scalable (the upper-bound of the overhead is in constant range regardless of
 the size of target workloads).</li>
 </ul>
-<p>Using this framework, therefore, the kernel’s memory management mechanisms can
-make advanced decisions. Experimental memory management optimization works that
-incurring high data accesses monitoring overhead could implemented again. In
-user space, meanwhile, users who have some special workloads can write
-personalized applications for better understanding and optimizations of their
-workloads and systems.</p>
+<p>DAMON therefore makes development of any access pattern based memory management
+available.  For easier development of such system, DAMON further provides a
+feature called DAMOS (DAMon-based Operation Schemes).  Using it, DAMON users
+can develop and run their access-aware memory management with no code but
+simple configurations.  Simple mechanisms made on top of DAMOS
+<a href="https://www.amazon.science/publications/daos-data-access-aware-operating-system">achieve</a>
+up to 12% performance improvement and 91% memory saving.</p>
 <h2 id="demo-video">Demo Video</h2>
 <p><img src="/img/damo_monitor_water_nsquared.gif" alt="damo monitor for water_nsquared"></p>
 
