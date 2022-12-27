@@ -651,6 +651,28 @@ system wide with an optimized complexity.</p>
 <h2 id="git-pull-hotfixes-for-62-rc1-andrew-morton">[GIT PULL] hotfixes for 6.2-rc1 (Andrew Morton)</h2>
 <p><a href="https://lkml.kernel.org/r/20221222144648.db034ee4087ea4bb126545ec@linux-foundation.org">https://lkml.kernel.org/r/20221222144648.db034ee4087ea4bb126545ec@linux-foundation.org</a></p>
 <p>Andrew Morton sent hotfixes for v6.2-rc1 to Linus Torvalds.</p>
+<h2 id="patch-08-migrate_pages-batch-tlb-flushing-huang-ying">[PATCH 0/8] migrate_pages(): batch TLB flushing (Huang Ying)</h2>
+<p><a href="https://lkml.kernel.org/r/20221227002859.27740-1-ying.huang@intel.com">https://lkml.kernel.org/r/20221227002859.27740-1-ying.huang@intel.com</a></p>
+<p>This patch refactors <code>migrate_pages()</code> implementation and make it to batch TLB
+flushing.</p>
+<h2 id="linux-62-rc1-linus-torvalds">Linux 6.2-rc1 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wgf929uGOVpiWALPyC7pv_9KbwB2EAvQ3C4woshZZ5zqQ@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wgf929uGOVpiWALPyC7pv_9KbwB2EAvQ3C4woshZZ5zqQ@mail.gmail.com</a></p>
+<p>On the Christmas, Linus Torvalds released the first release candidate of v6.2.
+Because of the delay of v6.1 release, the merge window was tried to be finish
+early, and actually Torvalds was able to finish almost merge works early.
+Resulting 6.2-rc1 is somewhat looks larger than v6.1.  13.5k commits from ~1800
+people.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.11-rc2..v6.2-rc1.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2020-12-25 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc1 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v6.2-rc1-only.png" alt="rc1 release stat"></p>
 
     </div>
 

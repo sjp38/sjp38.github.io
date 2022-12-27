@@ -54,6 +54,28 @@ system wide with an optimized complexity.&lt;/p&gt;
 &lt;h2 id=&#34;git-pull-hotfixes-for-62-rc1-andrew-morton&#34;&gt;[GIT PULL] hotfixes for 6.2-rc1 (Andrew Morton)&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20221222144648.db034ee4087ea4bb126545ec@linux-foundation.org&#34;&gt;https://lkml.kernel.org/r/20221222144648.db034ee4087ea4bb126545ec@linux-foundation.org&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Andrew Morton sent hotfixes for v6.2-rc1 to Linus Torvalds.&lt;/p&gt;
+&lt;h2 id=&#34;patch-08-migrate_pages-batch-tlb-flushing-huang-ying&#34;&gt;[PATCH 0/8] migrate_pages(): batch TLB flushing (Huang Ying)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20221227002859.27740-1-ying.huang@intel.com&#34;&gt;https://lkml.kernel.org/r/20221227002859.27740-1-ying.huang@intel.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This patch refactors &lt;code&gt;migrate_pages()&lt;/code&gt; implementation and make it to batch TLB
+flushing.&lt;/p&gt;
+&lt;h2 id=&#34;linux-62-rc1-linus-torvalds&#34;&gt;Linux 6.2-rc1 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wgf929uGOVpiWALPyC7pv_9KbwB2EAvQ3C4woshZZ5zqQ@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wgf929uGOVpiWALPyC7pv_9KbwB2EAvQ3C4woshZZ5zqQ@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;On the Christmas, Linus Torvalds released the first release candidate of v6.2.
+Because of the delay of v6.1 release, the merge window was tried to be finish
+early, and actually Torvalds was able to finish almost merge works early.
+Resulting 6.2-rc1 is somewhat looks larger than v6.1.  13.5k commits from ~1800
+people.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/kernel_release_stat/v5.11-rc2..v6.2-rc1.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
+below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2020-12-25 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And, below is the diffstat of the -rc1 releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/kernel_release_stat/v6.2-rc1-only.png&#34; alt=&#34;rc1 release stat&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     
