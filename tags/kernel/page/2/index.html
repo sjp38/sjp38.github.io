@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2022-12-13T08:05:03-08:00">
+    <meta property="og:updated_time" content="2022-12-28T07:59:10-08:00">
   
 
   
@@ -525,6 +525,16 @@
   
   
   <div>
+    <h2><a href="/post/linux_kernel_contribution_10th_anniversary/">My 10th anniversary of the Linux kernel contribution</a></h2>
+    <div class="article-style">
+      
+      Today is the 10th anniversary of my Linux kernel contribution. Including the tiny and trivial patch, I made 381 patches merged in the mainline during the 10 years.
+$ git log --author SeongJae --reverse commit cf174b0ef52ad8184779e1da4132e2d9d17247e5 Author: SeongJae Park &lt;sj38.park@gmail.com&gt; Date: Tue Oct 16 16:47:50 2012 +0900 staging: csr: csr_framework_ext_types.h: fix coding style Fix coding style of csr_framework_ext_types.h Signed-off-by: SeongJae Park &lt;sj38.park@gmail.com&gt; Signed-off-by: Greg Kroah-Hartman &lt;gregkh@linuxfoundation.org&gt; [...] $ git log --author SeongJae --oneline | wc -l 381 I&rsquo;m looking forward to the next 10 years.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.1-rc1/">LKML News v6.1-rc1</a></h2>
     <div class="article-style">
       
@@ -635,18 +645,6 @@ This patch adds debugfs file for tracking how THP is utilized well.
 Johannes found proactive reclamation using memory.reclaim sometimes reclaim more pages than requested on specific cgroup use cases. This patch resolves the issue so that the proactive reclamation doesn&rsquo;t over-reclaim pages.
 [RFC PATCH 0/4] propose a auto-run mode for ksm (Xu Xin) https://lkml.kernel.org/r/20220803100306.1653382-1-xu.xin16@zte.con.cn
 KSM operation management is quite manual and sometimes inefficient if not well managed. This patchset introduces auto-run mode that can operate KSM in a better way.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.19/">LKML News v5.19</a></h2>
-    <div class="article-style">
-      
-      [PATCH v4 0/3] mm/mprotect: Fix soft-dirty checks (Peter Xu) https://lkml.kernel.org/r/20220725142048.30450-1-peterx@redhat.com
-Fourth version of the soft-dirty check fixes for mprotect has posted. This version polishes the commit message and adds tests.
-[PATCH v2 1/2] mm/slub: enable debugging memory wasting of kmalloc (Feng Tang) https://lkml.kernel.org/r/20220725112025.22625-1-feng.tang@intel.com
-As slab allocates memory in only power of 2 bytes size, memory can be wasted when slab allocation is requested for a large number of times for objects that sizes not aligned in power of two bytes.
       
     </div>
   </div>

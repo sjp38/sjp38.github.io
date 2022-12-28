@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2022-12-13T08:05:03-08:00">
+    <meta property="og:updated_time" content="2022-12-28T07:59:10-08:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v4.16-rc4/">LKML News after v4.16-rc4</a></h2>
+    <div class="article-style">
+      
+      Linux 4.16-rc4 https://lkml.kernel.org/r/CA+55aFxXg8hi+T_DNCG_OrAotqSheyREw-Njf9XgUD1vXqAyHQ@mail.gmail.com
+벌써 개발 단계의 중반이라 할 수 있는 rc4 의 릴리즈입니다. 4.16 버전의 릴리즈도 얼마 남지 않았군요. 여전히 충분히 조용한 한주였습니다. 다만 여기저기에 조금씩 변경사항이 골고루 있군요.
+[PATCH 00/34 v3] PTI support for x32 https://lkml.kernel.org/r/1520245563-8444-1-git-send-email-joro@8bytes.org
+x86-32 를 위한 Page Table Isolation 패치입니다.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v4.16-rc3/">Lkml_news_v4.16 Rc3</a></h2>
     <div class="article-style">
       
@@ -627,19 +639,6 @@ Meltdown 과 Spectre 로 떠들썩했던 시간을 지나 4.15 의 일곱번째 
 이번 rc5 의 변경 사항들도 지난 릴리즈의 rc5 와 비슷했다고 하는데, 다만 x86 의 커널 페이지 테이블 격리화 관련 작업이 진행 중인 게 좀 예외라고 하는군요.
 [RFC v3 PATCH 0/5] Eliminate zone-&gt;lock contention for will-it-scale/page_fault1 and parallel free https://lkml.kernel.org/r/20180509085450.3524-1-aaron.lu@intel.com
 패치셋 저자는 112개 CPU를 갖는 Intel Skylake 서버에서 will-it-scale/page_fult1 워크로드를 돌려보았고 80% CPU 가 zone-&gt;lock 에서 스핀하며 시간을 보내고 있음을 파악했습니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.15-rc5/">LKML News after v4.15-rc5</a></h2>
-    <div class="article-style">
-      
-      Linux 4.15-rc5 https://lkml.kernel.org/r/CA+55aFy1U+uBLEAoCWU3=BqEbROW6rsbaHUdYJArR6iYQQWo_A@mail.gmail.com
-4.15 의 다섯번째 rc 버전이 평소 스케쥴보다 하루 일찍 릴리즈 되었습니다. 원래대로라면 내일일텐데, 미국 시간으로는 크리스마스 이브라서 그냥 오늘 릴리즈 한다는군요.
-이번 rc5 의 변경 사항들도 지난 릴리즈의 rc5 와 비슷했다고 하는데, 다만 x86 의 커널 페이지 테이블 격리화 관련 작업이 진행 중인 게 좀 예외라고 하는군요.
-Re: About the try to remove cross-release feature entirely by Ingo https://lkml.kernel.org/r/20171229014736.GA10341@X58A-UD3R
-Lockdep 의 cross release 기능은 너무 느렸고, false positive 가 많다는 이유로, 특히 false positive 가 너무 많다는 이유로 Ingo Molnar 에 의해 제거되려 하고 있습니다.
       
     </div>
   </div>
