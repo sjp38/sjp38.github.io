@@ -31,7 +31,8 @@
   <meta name="description" content="[PATCH -next v3 0/7] mm: convert page_idle/damon to use folios (Kefeng Wang) https://lkml.kernel.org/r/20221228113413.10329-1-wangkefeng.wang@huawei.com
 Patchset for converting Idle Pages Tracking and DAMON to use Folios instead of Page where possible has posted.
 [PATCH 1/1] mm: fix vma-&gt;anon_name memory leak for anonymous shmem VMAs (Suren Baghdasaryan) https://lkml.kernel.org/r/20221228194249.170354-1-surenb@google.com
-Shared anonymous pages VMA naming has a memory leak. This patch fixes the leak.">
+Shared anonymous pages VMA naming has a memory leak. This patch fixes the leak.
+[QUESTION] about the maple tree and current status of mmap_lock scalability (Hyeonggon Yoo) https://lkml.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/lkml_news_v6.2-rc2/">
@@ -156,7 +157,8 @@ Shared anonymous pages VMA naming has a memory leak. This patch fixes the leak."
   <meta property="og:description" content="[PATCH -next v3 0/7] mm: convert page_idle/damon to use folios (Kefeng Wang) https://lkml.kernel.org/r/20221228113413.10329-1-wangkefeng.wang@huawei.com
 Patchset for converting Idle Pages Tracking and DAMON to use Folios instead of Page where possible has posted.
 [PATCH 1/1] mm: fix vma-&gt;anon_name memory leak for anonymous shmem VMAs (Suren Baghdasaryan) https://lkml.kernel.org/r/20221228194249.170354-1-surenb@google.com
-Shared anonymous pages VMA naming has a memory leak. This patch fixes the leak."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
+Shared anonymous pages VMA naming has a memory leak. This patch fixes the leak.
+[QUESTION] about the maple tree and current status of mmap_lock scalability (Hyeonggon Yoo) https://lkml."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -208,7 +210,7 @@ Shared anonymous pages VMA naming has a memory leak. This patch fixes the leak."
       "url": "https://sjp38.github.io/img/icon-512.png"
     }
   },
-  "description": "[PATCH -next v3 0/7] mm: convert page_idle/damon to use folios (Kefeng Wang) https://lkml.kernel.org/r/20221228113413.10329-1-wangkefeng.wang@huawei.com\nPatchset for converting Idle Pages Tracking and DAMON to use Folios instead of Page where possible has posted.\n[PATCH 1/1] mm: fix vma-\u0026gt;anon_name memory leak for anonymous shmem VMAs (Suren Baghdasaryan) https://lkml.kernel.org/r/20221228194249.170354-1-surenb@google.com\nShared anonymous pages VMA naming has a memory leak. This patch fixes the leak."
+  "description": "[PATCH -next v3 0/7] mm: convert page_idle/damon to use folios (Kefeng Wang) https://lkml.kernel.org/r/20221228113413.10329-1-wangkefeng.wang@huawei.com\nPatchset for converting Idle Pages Tracking and DAMON to use Folios instead of Page where possible has posted.\n[PATCH 1/1] mm: fix vma-\u0026gt;anon_name memory leak for anonymous shmem VMAs (Suren Baghdasaryan) https://lkml.kernel.org/r/20221228194249.170354-1-surenb@google.com\nShared anonymous pages VMA naming has a memory leak. This patch fixes the leak.\n[QUESTION] about the maple tree and current status of mmap_lock scalability (Hyeonggon Yoo) https://lkml."
 }
 </script>
 
@@ -622,6 +624,12 @@ Page where possible has posted.</p>
 <p><a href="https://lkml.kernel.org/r/20221228194249.170354-1-surenb@google.com">https://lkml.kernel.org/r/20221228194249.170354-1-surenb@google.com</a></p>
 <p>Shared anonymous pages VMA naming has a memory leak.  This patch fixes the
 leak.</p>
+<h2 id="question-about-the-maple-tree-and-current-status-of-mmap_lock-scalability-hyeonggon-yoo">[QUESTION] about the maple tree and current status of mmap_lock scalability (Hyeonggon Yoo)</h2>
+<p><a href="https://lkml.kernel.org/r/EC51CFA7-2BC8-4F72-A7D4-3B1A778EDB37@gmail.com">https://lkml.kernel.org/r/EC51CFA7-2BC8-4F72-A7D4-3B1A778EDB37@gmail.com</a></p>
+<p>Hyeonggon has asked the status and plan of <code>mmap_lock</code> scalability improvement.
+Interesting discussion continues there.  Suren says he worked with Liam for
+making the maple tree to sue per-vma lock and it is already almost done, and
+would post the patch in 2023, probably in January.</p>
 
     </div>
 
