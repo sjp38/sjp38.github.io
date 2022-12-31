@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="ko-kr">
   
-    <meta property="og:updated_time" content="2022-10-16T09:09:55-07:00">
+    <meta property="og:updated_time" content="2022-12-31T13:48:12-08:00">
   
 
   
@@ -523,6 +523,17 @@
   
 
   
+  
+  <div>
+    <h2><a href="/ko/post/arping-howto/">Using arping to know ip-MAC mapping</a></h2>
+    <div class="article-style">
+      
+      로컬 네트워크에서 어떤 IP 주소가 어떤 MAC 어드레스에 매핑되는지 알기 위해 arping 을 사용할 수 있습니다. 사용법은 간단합니다:
+arping [-AbDfhqUV] [-c count] [-w deadline] [-s source] -I interface destination 예를 들면, 다음과 같습니다:
+$ arping -I eth0 10.0.0.1 ARPING 10.0.0.1 from 10.0.0.2 eth0 Unicast reply from 10.0.0.1 [11:22:33:44:55:66] 0.123ms Unicast reply from 10.0.0.1 [11:22:33:44:55:66] 0.251ms ... 이 툴의 동작 원리는 ARP 프로토콜 [1] 입니다. IP 프로토콜 레이어는 이 프로토콜을 사용해 특정 IP 주소를 사용하는 기계의 MAC 어드레스를 파악하고 이 주소를 아랫단의 Ethernet 레이어에 보냅니다.
+      
+    </div>
+  </div>
   
   <div>
     <h2><a href="/ko/post/uninstall-kernel/">uninstall kernel</a></h2>

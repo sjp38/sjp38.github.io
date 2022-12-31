@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2022-12-29T19:35:00-08:00">
+    <meta property="og:updated_time" content="2022-12-31T13:48:12-08:00">
   
 
   
@@ -525,6 +525,17 @@
   
   
   <div>
+    <h2><a href="/post/linux-mm-dev-stat-2021-short/">Linux Memory Management Subsystem Development Statistics in 2021 (Short)</a></h2>
+    <div class="article-style">
+      
+      Whenever reading the kernel development statistics report for each release from LWN, I wanted to scope it down to specific subsystems. For that, I wrote a script.
+Belows are the top 10 kernel hackers who contributed to the memory management subsystem of Linux kernel, sorted by number of commits and changed (added, deleted, or modified) lines, respectively.
+$ ./authors.py ~/linux --file mm/ --since 2021-01-01 --author_identity name --sortby lines --max_nr_authors 10 1.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.16-rc8/">LKML News v5.16-rc8</a></h2>
     <div class="article-style">
       
@@ -631,20 +642,6 @@ The first pull request for v5.16 from Andrew Morton. Patches for DAMON subsystem
 In this mail, Matthew explains his idea on making struct page only two words and how it could work with buddy allocator freelists.
 [RFC] mm: Disable NUMA_BALANCING_DEFAULT_ENABLED and TRANSPARENT_HUGEPAGE on PREEMPT_RT (Sebastian Andrzej Siewior) https://lkml.kernel.org/r/20211026165100.ahz5bkx44lrrw5pt@linutronix.de
 Mel told RT patchset could incur spikes on NUMA machines when NUMA_BALANCING and THP are turned on. Sebastian request comments on disabling those on RT enabled kernel by default, but still trying to find a good test for that.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.15-rc7/">LKML News v5.15-rc7</a></h2>
-    <div class="article-style">
-      
-      incoming (Andrew Morton) https://lkml.kernel.org/r/20211018151438.f2246e2656c041b6753a8bdd@linux-foundation.org
-19 mm subsystem fix patches have sent to Linus Torvalds.
-[PATCH v11 1/3] mm: rearrange madvise code to allow for reuse (Suren Baghdasaryan) https://lkml.kernel.org/r/20211019215511.3771969-1-surenb@google.com
-This commit refactor some madvise code for vma updates so that those can be reused by prctl.
-mmotm 2021-10-20-20-40 uploaded (Andrew Morton) https://lkml.kernel.org/r/20211021034104.F6VxKBQcG%akpm@linux-foundation.org
-Andrew updated mmotm. It&rsquo;s based on 5.15-rc6, adds 74 new patches modifies 29 existing patches, and drops 22 patches. In total, 366 patches in the queue.
       
     </div>
   </div>
