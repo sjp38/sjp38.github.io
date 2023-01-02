@@ -576,7 +576,7 @@ Shared anonymous pages VMA naming has a memory leak. This patch fixes the leak.
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -630,6 +630,23 @@ leak.</p>
 Interesting discussion continues there.  Suren says he worked with Liam for
 making the maple tree to sue per-vma lock and it is already almost done, and
 would post the patch in 2023, probably in January.</p>
+<h2 id="linux-62-rc2-linus-torvalds">Linux 6.2-rc2 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wim8DMRzjyYTJ3UbdqZ26keQyZSU02NZb-JY1=9OpcO1w@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wim8DMRzjyYTJ3UbdqZ26keQyZSU02NZb-JY1=9OpcO1w@mail.gmail.com</a></p>
+<p>Due to the holidays season, last week was quite calm, though there were several
+pull requests for Linus Torvalds at the end of the week.  As a result, 6.2-rc2
+has released, but with only small changes.  Linus expects the trend will
+continue for rc3.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.11-rc3..v6.2-rc2.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2021-01-02 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc2 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v6.2-rc2-only.png" alt="rc2 release stat"></p>
 
     </div>
 
