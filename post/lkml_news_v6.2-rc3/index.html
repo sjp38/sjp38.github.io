@@ -578,7 +578,7 @@ This patchset introduces HugeTLB high-Granularity Mapping (HGM), which teaches H
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -635,6 +635,21 @@ May 8 to May 10 at Vancouver, Canada.</p>
 <h2 id="lsfmmbpf-bof-session-for-cxl-memory-viacheslav-adubeyko">[LSF/MM/BPF BoF] Session for CXL memory (Viacheslav A.Dubeyko)</h2>
 <p><a href="https://lkml.kernel.org/r/F75E3DE0-CDF2-407A-9AF7-8EAE1D177559@bytedance.com">https://lkml.kernel.org/r/F75E3DE0-CDF2-407A-9AF7-8EAE1D177559@bytedance.com</a></p>
 <p>A LSF/MM/BPF BoF session proposal for CXL memory has posted.</p>
+<h2 id="linux-62-rc3-linus-torvalds">Linux 6.2-rc3 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wjwrqFcC9-KkfboqATYwLfJHi_8Z5mTrJh=nf8KT_SjUA@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wjwrqFcC9-KkfboqATYwLfJHi_8Z5mTrJh=nf8KT_SjUA@mail.gmail.com</a></p>
+<p>Linus Torvalds released the third release candidate for Linux 6.2.  After the
+quiet holidays that made last release small, it started look a lot more normal.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.11-rc4..v6.2-rc3.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2021-01-09 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc3 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v6.2-rc3-only.png" alt="rc3 release stat"></p>
 
     </div>
 
