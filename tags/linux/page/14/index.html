@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2023-01-03T07:29:24-08:00">
+    <meta property="og:updated_time" content="2023-01-10T07:34:41-08:00">
   
 
   
@@ -525,6 +525,20 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.8-rc1/">LKML News v5.8-rc1</a></h2>
+    <div class="article-style">
+      
+      [PATCH v6] mm: Proactive compaction (Nitin Gupta) https://lkml.kernel.org/r/20200601194822.30252-1-nigupta@nvidia.com
+This is the sixth version of the proactive compaction patchset. It makes compaction to be able to triggered earlier than final memory pressure using knobs. The goal is better THP allocation success.
+[PATCH] vmalloc: Convert to XArray (Matthew Wilcox) https://lkml.kernel.org/r/20200603171448.5894-1-willy@infradead.org
+This patchset converts the radix tree for vmap blocks into XArray.
+incoming (Andrew Morton) https://lkml.kernel.org/r/20200608212922.5b7fa74ca3f4e2444441b7f9@linux-foundation.org
+MM-side pull request. It contains the &ldquo;mmap locking API: initial implementation as rwsem wrappers&rdquo; patchset.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.7/">LKML News v5.7</a></h2>
     <div class="article-style">
       
@@ -636,19 +650,6 @@ The fifth version of the workingset protection.
 [PATCH v4 0/2] mm: using CMA for 1 GB hugepages allocation https://lkml.kernel.org/r/20200407010431.1286488-1-guro@fb.com
 This patchset make hugetlb to use CMA for 1GB hugepage allocations.
 [PATCH RFC] mm: compaction: avoid migrating non-cma pages to a cma area The compaction algorithm doesn&rsquo;t distinguish CMA from other movable pageblocks.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.6/">LKML News v5.6</a></h2>
-    <div class="article-style">
-      
-      [PATCH v5 00/38] Add KernelMemorySanitizer infrastructure (glider) https://lkml.kernel.org/r/20200325161249.55095-1-glider@google.com
-This is the fifth official patchset for kernel uninitialized memory related error detector, KMSAN.
-[PATCH 1/2] mm: cma: NUMA node interface (Aslan Barikov) https://lkml.kernel.org/r/20200326212718.3798742-1-aslan@fb.com
-CMA provides no way to specify what NUMA node the memory area to be allocated. This commit adds the interface to specify the NUMA node to use for the allocation.
-[PATCH v3 00/10] Add a new mmap locking API wrapping mmap_sem calls (Michel Lespinasse) https://lkml.
       
     </div>
   </div>
