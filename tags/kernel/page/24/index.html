@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2023-01-10T07:34:41-08:00">
+    <meta property="og:updated_time" content="2023-01-15T10:34:06-08:00">
   
 
   
@@ -525,6 +525,26 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v4.17-rc2/">LKML News after v4.17-rc2</a></h2>
+    <div class="article-style">
+      
+      Linux v4.17-rc2 https://lkml.kernel.org/r/CA+55aFwzkGuq5ASF-vhYj7mEX26V0K+uZCLWi1BLYq+9F1n-Rw@mail.gmail.com
+두번째 rc 버전의 릴리즈입니다. perf 와 테스트 스크립트 쪽에 변경사항이 좀 많긴 하지만 평소와 크게 다르지 않은 추이라는군요.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v4.17-rc1/">LKML News after v4.17-rc1</a></h2>
+    <div class="article-style">
+      
+      Linux v4.17-rc1 https://lkml.kernel.org/r/CA+55aFx62iBkj+hOmhLksUtvjwTcm_o1dwcyvaNnVpJ-AmvzVQ@mail.gmail.com
+2주간의 머지 윈도우가 지나고, v4.17-rc1 이 릴리즈 되었습니다. 크게 특별할 것 없이 평범한 머지 윈도우였다고 토발즈는 평하는군요. 그리고 이번에 git objects mark 가 4백만을 넘겼습니다. 따라서 다음 커널이 v5.0 이어도 될 것 같은데, 꼭 다음 버전에서 그렇게 할지는 모르겠다는군요. 리눅스 커널에서 버전은 그저 시간이 흘렀음을 의미할 뿐, 큰 변화가 있어서 메이저 버전 넘버가 바뀌는게 아니기 때문이죠. 참고로 v3.0 과 v4.0 은 각각 git objects mark 2백만과 4백만에서 이루어졌군요.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v4.16/">LKML News after v4.16</a></h2>
     <div class="article-style">
       
@@ -617,32 +637,6 @@ RCU critical section 안에서 sleep 을 할 수 있는 SRCU 의 간단한 업�
 어느덧 2주일이 지났습니다. 머지 윈도우가 닫히고 4.16 첫번째 rc 버전이 나왔습니다. 4.15는 역시 토발즈에게 고통스러웠던 시간이었던지 이번 머지 윈도우는 4.15 보다 훨씬 나았다는 토발즈의 이야기입니다.
 이번 릴리즈에서는 GPU 쪽 변경 사항이 많고 대부분은 드라이버라 아주 큰 변화는 거의 없지만, 여전히 arch 쪽에도, 네트워킹과 파일시스템 등에도 변경이 없지는 않다고 정리하고 있습니다. 스펙터 / 멜트다운 이슈에 대한 x86 외 아키텍쳐의 변경사항들도 들어왔군요.
 [PATCH v8 00/24] Speculative page faults https://lkml.kernel.org/r/1518794738-4186-1-git-send-email-ldufour@linux.vnet.ibm.com
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.15/">LKML News after v4.15</a></h2>
-    <div class="article-style">
-      
-      Linux 4.15 https://lkml.kernel.org/r/CA+55aFzARtx-nA=d1j7vLOLf4FHMJLyRiQ-PKkoexJuTUHogdw@mail.gmail.com
-드디어 4.15 버전이 릴리즈 되었습니다. 지난 한주는 매우 조용하고 변경된 사항이 거의 없었다는군요.
-이렇게 meltdown/spectre 로 시끄럽고 길었던, 평범하지 않았던 릴리즈 사이클이 끝났습니다. 하지만, meltdown/spectre 관련한 일이 아주 끝난 건 아니라고 이야기 하는군요. 특히, indirect bracnh mitigation 을 위한 가장 큰 수정사항을 반영받기 위해선 커널만 업데이트 해선 안되고 컴파일러의 &ldquo;retpoline&rdquo; 지원이 있어야 합니다.
-cat /sys/devices/system/cpu/vulnerabilities/spectre_v2 로 컴파일러 지원이 있는지 알 수 있는데, 컴파일러 지원이 없다면
-Vulnerable: Minimal generic ASM retpoline 이란 출력이 뜰겁니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.15-rc9/">LKML News after v4.15-rc9</a></h2>
-    <div class="article-style">
-      
-      Not final 4.15 this weekend https://lkml.kernel.org/r/CA+55aFxzQBH5gnG92ah-PREfOqb5_rjWriLH3fWHMWS1=BSQFw@mail.gmail.com
-원래대로라면 4.15 정식 버전의 릴리즈가 될 타이밍이었습니다만&hellip; 아직 충분히 안정화 되지 않은 것 같다는 토발즈의 판단 아래 이번주에도 rc 버전이 나왔습니다. rc9 입니다. 2011년의 3.1-rc9 이후 처음 나온 rc9 이네요.
-이번 릴리즈는 x86, arm powerpc, mips 쪽의 arch 업데이트, 드라이버, 그리고 네트워킹 핵심부 업데이트가 주된 변경이군요.
-다음주에는 꼭 4.15를 릴리즈 하고 싶다고 하는데, 아마도 다음주에는 4.15 정식 버전이 릴리즈되길 빕니다.
-[LSF/MM TOPIC] CMA and larger page sizes https://lkml.
       
     </div>
   </div>

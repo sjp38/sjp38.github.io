@@ -5,12 +5,152 @@
     <link>https://sjp38.github.io/tags/projects/</link>
       <atom:link href="https://sjp38.github.io/tags/projects/index.xml" rel="self" type="application/rss+xml" />
     <description>projects</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sat, 27 Mar 2021 13:01:07 +0100</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sun, 15 Jan 2023 10:36:11 -0800</lastBuildDate>
     <image>
       <url>https://sjp38.github.io/img/tux.png</url>
       <title>projects</title>
       <link>https://sjp38.github.io/tags/projects/</link>
     </image>
+    
+    <item>
+      <title>DAMON-based System Optimization Guide</title>
+      <link>https://sjp38.github.io/post/damon_optimization_guide/</link>
+      <pubDate>Sun, 15 Jan 2023 10:36:11 -0800</pubDate>
+      <guid>https://sjp38.github.io/post/damon_optimization_guide/</guid>
+      <description>&lt;p&gt;This document helps you estimating the amount of benefit that you could get
+from DAMON-based system optimizations, and describes how you could achieve it.&lt;/p&gt;
+&lt;h1 id=&#34;check-the-signs&#34;&gt;Check The Signs&lt;/h1&gt;
+&lt;p&gt;No optimization can provide same extent of benefit to every case.  Therefore
+you should first guess how much improvements you could get using DAMON.  If
+some of below conditions match your situation, you could consider using DAMON.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Low IPC and High Cache Miss Ratios.&lt;/em&gt;  Low IPC means most of the CPU time is
+spent waiting for the completion of time-consuming operations such as memory
+access, while high cache miss ratios mean the caches don&amp;rsquo;t help it well.
+DAMON is not for cache level optimization, but DRAM level.  However,
+improving DRAM management will also help this case by reducing the memory
+operation latency.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Memory Over-commitment and Unknown Users.&lt;/em&gt;  If you are doing memory
+overcommitment and you cannot control every user of your system, a memory
+bank run could happen at any time.  You can estimate when it will happen
+based on DAMON&amp;rsquo;s monitoring results and act earlier to avoid or deal better
+with the crisis.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Frequent Memory Pressure.&lt;/em&gt;  Frequent memory pressure means your system has
+wrong configurations or memory hogs.  DAMON will help you find the right
+configuration and/or the criminals.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Heterogeneous Memory System.&lt;/em&gt;  If your system is utilizing memory devices
+that placed between DRAM and traditional hard disks, such as non-volatile
+memory or fast SSDs, DAMON could help you utilizing the devices more
+efficiently.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;profile&#34;&gt;Profile&lt;/h1&gt;
+&lt;p&gt;If you found some positive signals, you could start by profiling your workloads
+using DAMON.  Find major workloads on your systems and analyze their data
+access pattern to find something wrong or can be improved.  The DAMON user
+space tool (&lt;code&gt;damo&lt;/code&gt;) will be useful for this.  You can get &lt;code&gt;damo&lt;/code&gt; from
+&lt;a href=&#34;https://github.com/awslabs/damo&#34;&gt;https://github.com/awslabs/damo&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;We recommend you to start from working set size distribution check using &lt;code&gt;damo report wss&lt;/code&gt;.  If the distribution is ununiform or quite different from what
+you estimated, you could consider &lt;code&gt;Memory Configuration&lt;/code&gt; optimization.&lt;/p&gt;
+&lt;p&gt;Then, review the overall access pattern in heatmap form using &lt;code&gt;damo report heats&lt;/code&gt;.  If it shows a simple pattern consists of a small number of memory
+regions having high contrast of access temperature, you could consider manual
+&lt;code&gt;Program Modification&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;If the access pattern is very frequently changing so that you cannot figure out
+what is the performance important region using your human eye, &lt;code&gt;Automated DAMON-based Memory Operations&lt;/code&gt; might help the case owing to its machine-level
+microscope view.&lt;/p&gt;
+&lt;p&gt;If you still want to absorb more benefits, you should develop &lt;code&gt;Personalized DAMON Application&lt;/code&gt; for your special case.&lt;/p&gt;
+&lt;p&gt;You don&amp;rsquo;t need to take only one approach among the above plans, but you could
+use multiple of the above approaches to maximize the benefit.&lt;/p&gt;
+&lt;h1 id=&#34;optimize&#34;&gt;Optimize&lt;/h1&gt;
+&lt;p&gt;If the profiling result also says it&amp;rsquo;s worth trying some optimization, you
+could consider below approaches.  Note that some of the below approaches assume
+that your systems are configured with swap devices or other types of auxiliary
+memory so that you don&amp;rsquo;t strictly required to accommodate the whole working set
+in the main memory.  Most of the detailed optimization should be made on your
+concrete understanding of your memory devices.&lt;/p&gt;
+&lt;h2 id=&#34;memory-configuration&#34;&gt;Memory Configuration&lt;/h2&gt;
+&lt;p&gt;No more no less, DRAM should be large enough to accommodate only important
+working sets, because DRAM is highly performance critical but expensive and
+heavily consumes the power.  However, knowing the size of the real important
+working sets is difficult.  As a consequence, people usually equips
+unnecessarily large or too small DRAM.  Many problems stem from such wrong
+configurations.&lt;/p&gt;
+&lt;p&gt;Using the working set size distribution report provided by &lt;code&gt;damo report wss&lt;/code&gt;,
+you can know the appropriate DRAM size for you.  For example, roughly speaking,
+if you worry about only 95 percentile latency, you don&amp;rsquo;t need to equip DRAM of
+a size larger than 95 percentile working set size.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s see a real example.  This &lt;code&gt;page &amp;lt;https://damonitor.github.io/doc/html/v17/admin-guide/mm/damon/guide.html#memory-configuration&amp;gt;&lt;/code&gt;
+shows the heatmap and the working set size distributions/changes of
+&lt;code&gt;freqmine&lt;/code&gt; workload in PARSEC3 benchmark suite.  The working set size spikes
+up to 180 MiB, but keeps smaller than 50 MiB for more than 95% of the time.
+Even though you give only 50 MiB of memory space to the workload, it will work
+well for 95% of the time.  Meanwhile, you can save the 130 MiB of memory space.&lt;/p&gt;
+&lt;h2 id=&#34;program-modification&#34;&gt;Program Modification&lt;/h2&gt;
+&lt;p&gt;If the data access pattern heatmap plotted by &lt;code&gt;damo report heats&lt;/code&gt; is quite
+simple so that you can understand how the things are going in the workload with
+your human eye, you could manually optimize the memory management.&lt;/p&gt;
+&lt;p&gt;For example, suppose that the workload has two big memory object but only one
+object is frequently accessed while the other one is only occasionally
+accessed.  Then, you could modify the program source code to keep the hot
+object in the main memory by invoking &lt;code&gt;mlock()&lt;/code&gt; or &lt;code&gt;madvise()&lt;/code&gt; with
+&lt;code&gt;MADV_WILLNEED&lt;/code&gt;.  Or, you could proactively evict the cold object using
+&lt;code&gt;madvise()&lt;/code&gt; with &lt;code&gt;MADV_COLD&lt;/code&gt; or &lt;code&gt;MADV_PAGEOUT&lt;/code&gt;.  Using both together
+would be also worthy.&lt;/p&gt;
+&lt;p&gt;A research work [1] using the &lt;code&gt;mlock()&lt;/code&gt; achieved up to 2.55x performance
+speedup.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s see another realistic example access pattern for this kind of
+optimizations.  This &lt;code&gt;another page &amp;lt;https://damonitor.github.io/doc/html/v17/admin-guide/mm/damon/guide.html#program-modification&amp;gt;&lt;/code&gt;
+shows the visualized access patterns of streamcluster workload in PARSEC3
+benchmark suite.  We can easily identify the 100 MiB sized hot object.&lt;/p&gt;
+&lt;h2 id=&#34;automated-damon-based-memory-operations&#34;&gt;Automated DAMON-based Memory Operations&lt;/h2&gt;
+&lt;p&gt;Though &lt;code&gt;Manual Program Optimization&lt;/code&gt; works well in many cases and DAMON can
+help it, modifying the source code is not a good option in many cases.  First
+of all, the source code could be too old or unavailable.  And, many workloads
+will have complex data access patterns that even hard to distinguish hot memory
+objects and cold memory objects with the human eye.  Finding the mapping from
+the visualized access pattern to the source code and injecting the hinting
+system calls inside the code will also be quite challenging.&lt;/p&gt;
+&lt;p&gt;By using DAMON-based operation schemes (DAMOS) via &lt;code&gt;damo schemes&lt;/code&gt;, you will
+be able to easily optimize your workload in such a case.  Our example schemes
+called &amp;lsquo;efficient THP&amp;rsquo; and &amp;lsquo;proactive reclamation&amp;rsquo; achieved significant speedup
+and memory space saves against 25 realistic workloads [2].&lt;/p&gt;
+&lt;p&gt;That said, note that you need careful tune of the schemes (e.g., target region
+size and age) and monitoring attributes for the successful use of this
+approach.  Because the optimal values of the parameters will be dependent on
+each system and workload, misconfiguring the parameters could result in worse
+memory management.&lt;/p&gt;
+&lt;p&gt;For the tuning, you could measure the performance metrics such as IPC, TLB
+misses, and swap in/out events and adjusts the parameters based on their
+changes.  The total number and the total size of the regions that each scheme
+is applied, which are provided via the debugfs interface and the programming
+interface can also be useful.  Writing a program automating this optimal
+parameter could be an option.&lt;/p&gt;
+&lt;h2 id=&#34;personalized-damon-application&#34;&gt;Personalized DAMON Application&lt;/h2&gt;
+&lt;p&gt;Above approaches will work well for many general cases, but would not enough
+for some special cases.&lt;/p&gt;
+&lt;p&gt;If this is the case, it might be the time to forget the comfortable use of the
+user space tool and dive into the debugfs interface (refer to :doc:&lt;code&gt;usage&lt;/code&gt; for
+the detail) of DAMON.  Using the interface, you can control the DAMON more
+flexibly.  Therefore, you can write your personalized DAMON application that
+controls the monitoring via the debugfs interface, analyzes the result, and
+applies complex optimizations itself.  Using this, you can make more creative
+and wise optimizations.&lt;/p&gt;
+&lt;p&gt;If you are a kernel space programmer, writing kernel space DAMON applications
+using the API (refer to the :doc:&lt;code&gt;/mm/damon/api&lt;/code&gt; for more detail) would be an
+option.&lt;/p&gt;
+&lt;h1 id=&#34;reference-practices&#34;&gt;Reference Practices&lt;/h1&gt;
+&lt;p&gt;Referencing previously done successful practices could help you getting the
+sense for this kind of optimizations.  There is an academic paper [1]
+reporting the visualized access pattern and manual &lt;code&gt;Program Modification&lt;/code&gt; results for a number of realistic workloads.  You can also get
+the visualized access patterns [3,4,5] and
+&lt;code&gt;Automated DAMON-based Memory Operations&lt;/code&gt; results for other realistic
+workloads that collected with latest version of DAMON [2].&lt;/p&gt;
+&lt;p&gt;[1] &lt;a href=&#34;https://dl.acm.org/doi/10.1145/3366626.3368125&#34;&gt;https://dl.acm.org/doi/10.1145/3366626.3368125&lt;/a&gt;&lt;br&gt;
+[2] &lt;a href=&#34;https://damonitor.github.io/test/result/perf/latest/html/&#34;&gt;https://damonitor.github.io/test/result/perf/latest/html/&lt;/a&gt;&lt;br&gt;
+[3] &lt;a href=&#34;https://damonitor.github.io/test/result/visual/latest/rec.heatmap.1.png.html&#34;&gt;https://damonitor.github.io/test/result/visual/latest/rec.heatmap.1.png.html&lt;/a&gt;&lt;br&gt;
+[4] &lt;a href=&#34;https://damonitor.github.io/test/result/visual/latest/rec.wss_sz.png.html&#34;&gt;https://damonitor.github.io/test/result/visual/latest/rec.wss_sz.png.html&lt;/a&gt;&lt;br&gt;
+[5] &lt;a href=&#34;https://damonitor.github.io/test/result/visual/latest/rec.wss_time.png.html&#34;&gt;https://damonitor.github.io/test/result/visual/latest/rec.wss_time.png.html&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Starting perfbook translation again</title>

@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2021-12-31T07:52:00&#43;01:00">
+    <meta property="og:updated_time" content="2023-01-15T10:36:11-08:00">
   
 
   
@@ -525,6 +525,39 @@
   
   
   <div>
+    <h2><a href="/post/damon_optimization_guide/">DAMON-based System Optimization Guide</a></h2>
+    <div class="article-style">
+      
+      This document helps you estimating the amount of benefit that you could get from DAMON-based system optimizations, and describes how you could achieve it.
+Check The Signs No optimization can provide same extent of benefit to every case. Therefore you should first guess how much improvements you could get using DAMON. If some of below conditions match your situation, you could consider using DAMON.
+ Low IPC and High Cache Miss Ratios.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/damon_evaluation/">DAMON Evaluation</a></h2>
+    <div class="article-style">
+      
+      DAMON is lightweight. It increases system memory usage by 0.39% and slows target workloads down by 1.16%.
+DAMON is accurate and useful for memory management optimizations. An experimental DAMON-based operation scheme for THP, namely &lsquo;ethp&rsquo;, removes 76.15% of THP memory overheads while preserving 51.25% of THP speedup. Another experimental DAMON-based &lsquo;proactive reclamation&rsquo; implementation, namely &lsquo;prcl&rsquo;, reduces 93.38% of residential sets and 23.63% of system memory footprint while incurring only 1.22% runtime overhead in the best case (parsec3/freqmine).
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/damon_stat_2022/">Summary of DAMON Development in 2022</a></h2>
+    <div class="article-style">
+      
+      A summary of DAMON development in 2022 has posted: https://lore.kernel.org/damon/20221229171209.162356-1-sj@kernel.org/
+2022 was a year of active and healthy DAMON development.
+Seven new DAMON major features were delivered to users. Some of those were featured in articles and academic papers.
+It was possible thanks to the DAMON community. The community has expanded with its own mailing list and an open bi-weekly chat series. 40 people contributed their great code to DAMON via making their 275 commits merged into the mainline.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/linux-mm-dev-stat-2021-short/">Linux Memory Management Subsystem Development Statistics in 2021 (Short)</a></h2>
     <div class="article-style">
       
@@ -557,6 +590,16 @@ $ ./authors.py ~/linux --file mm/ --since 2021-01-01 --author_identity name --so
 [6] https://damonitor.github.io/test/result/visual/latest/wss_sz.html
 [7] https://damonitor.github.io/test/result/visual/latest/wss_time.html
 [8] https://damonitor.github.io/test/result/perf/latest/html/index.html
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/damon/">DAMON: Data Access Monitor</a></h2>
+    <div class="article-style">
+      
+      The trend of increasing data intensive workloads and limited DRAM capacity makes dynamic access pattern based optimal memory management important. Such mechnisms can be made only when not only accurate but also efficient dynamic access pattern monitoring is available.
+DAMON is a Data Access MONitoring framework subsystem for the Linux kernel that developed for such memory management. It is designed with some core mechanism (refer to Design for the detail), which can make it
       
     </div>
   </div>
