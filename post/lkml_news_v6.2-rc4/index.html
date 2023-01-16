@@ -576,7 +576,7 @@ LSFMMBPF proposal [General/MM]: SRCU: a case study in memory ordering (Joel Fern
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -642,6 +642,21 @@ in a file are being read from disk.</p>
 <h2 id="patch-06-v3-discard-__gfp_atomic-mel-gorman">[PATCH 0/6 v3] Discard <code>__GFP_ATOMIC</code> (Mel Gorman)</h2>
 <p><a href="https://lkml.kernel.org/r/20230113111217.14134-1-mgorman@techsingularity.net">https://lkml.kernel.org/r/20230113111217.14134-1-mgorman@techsingularity.net</a></p>
 <p>A new version of <code>Discard __GFP_ATOMIC</code> patchset rewritten by Mel has posted.</p>
+<h2 id="linux-62-rc4-linus-torvalds">Linux 6.2-rc4 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wgcOEWvT-WjmRf-zCCXyFJaVVFH=26BPQ+N1OFTTnN=RA@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wgcOEWvT-WjmRf-zCCXyFJaVVFH=26BPQ+N1OFTTnN=RA@mail.gmail.com</a></p>
+<p>The fourth release candidate for Linux v6.2 has released.  Seems people are
+back from holidays.  Everything looks normal.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.11-rc5..v6.2-rc4.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2021-01-16 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc4 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v6.2-rc4-only.png" alt="rc3 release stat"></p>
 
     </div>
 
