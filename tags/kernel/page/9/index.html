@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2023-01-15T10:34:06-08:00">
+    <meta property="og:updated_time" content="2023-01-17T07:37:29-08:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.13-rc5/">LKML News v5.13-rc5</a></h2>
+    <div class="article-style">
+      
+      [PATCH V3 0/2] mm: compaction: proactive compaction trigger by user (Charan Teja Reddy) https://lkml.kernel.org/r/cover.1622454385.git.charante@codeaurora.org
+This patchset introduces /proc/sys/vm/compaction_proactiveness file, which can trigger proactive compaction by writing it.
+[RFC PATCH] mm/page_reporting: Adjust threshold according to MAX_ORDER (Gavin Shan) https://lkml.kernel.org/r/20210601033319.100737-1-gshan@redhat.com
+The free pages reporting feature doesn&rsquo;t allow discontiguous pages that smaller than PAGE_REPORTING_MIN_ORDER. Current setting of it makes the feature to never work on specific environment, because it is set to be equal to pageblock_order.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.13-rc4/">LKML News v5.13-rc4</a></h2>
     <div class="article-style">
       
@@ -628,20 +640,6 @@ NUMA balancing shots down TLBs on all CPUs that recently run hint-faulted proces
 Fifth version of the order-0 pages bulk allocator. In this version, the API users are dropped from the patchset, because the callers are not confirmed if they prefer an array or list interface.
 [PATCH] mm: cma: add trace events for CMA alloc perf testing (Georgi Djakov) https://lkml.kernel.org/r/20210324160740.15901-1-georgi.djakov@linaro.org
 This patch adds tracepoints for CMA and page migrations. Those aims to be used for performance debugging of CMA.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.12-rc4/">LKML News v5.12-rc4</a></h2>
-    <div class="article-style">
-      
-      File THP and HWPoison (Matthew Wilcox) https://lkml.kernel.org/r/20210316140947.GA3420@casper.infradead.org
-THP is not splitted for file-backed pages when it got memory failure. This mail describes the problem in detail and propose some change to mitigate it.
-Issue with kfence and kmemleak (Luis Henriques) https://lkml.kernel.org/r/YFDf6iKH1p/jGnM0@suse.de
-Luis found a problem when kmemleak and kfence is used together. A fix is made by Marco.
-[PATCH v4 00/13] Introduced multi-preference mempolicy (Feng Tang) https://lkml.kernel.org/r/1615952410-36895-1-git-send-email-feng.tang@intel.com
-This is the fourth version of the patchset.
       
     </div>
   </div>

@@ -31,9 +31,9 @@
   <meta name="description" content="Kernel Development Engineer">
 
   
-  <link rel="alternate" hreflang="ko" href="https://sjp38.github.io/ko/tags/lkml/">
+  <link rel="alternate" hreflang="ko" href="https://sjp38.github.io/ko/tags/kernel/">
   
-  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/tags/lkml/">
+  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/tags/kernel/">
 
   
 
@@ -133,14 +133,14 @@
 
 
   
-  <link rel="alternate" href="/tags/lkml/index.xml" type="application/rss+xml" title="hacklog">
+  <link rel="alternate" href="/tags/kernel/index.xml" type="application/rss+xml" title="hacklog">
   
 
   <link rel="manifest" href="/index.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon-32.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://sjp38.github.io/tags/lkml/">
+  <link rel="canonical" href="https://sjp38.github.io/tags/kernel/">
 
   
   
@@ -152,8 +152,8 @@
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="hacklog">
-  <meta property="og:url" content="https://sjp38.github.io/tags/lkml/">
-  <meta property="og:title" content="lkml | hacklog">
+  <meta property="og:url" content="https://sjp38.github.io/tags/kernel/">
+  <meta property="og:title" content="kernel | hacklog">
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
@@ -174,7 +174,7 @@
 
 
 
-  <title>lkml | hacklog</title>
+  <title>kernel | hacklog</title>
 
 </head>
 
@@ -475,7 +475,7 @@
             <span>English</span>
           </div>
           
-          <a class="dropdown-item" href="/ko/tags/lkml/">
+          <a class="dropdown-item" href="/ko/tags/kernel/">
             <span>한국어</span>
           </a>
           
@@ -510,7 +510,7 @@
     
   
 <div class="universal-wrapper pt-3">
-  <h1>lkml</h1>
+  <h1>kernel</h1>
 
   
 
@@ -525,116 +525,12 @@
   
   
   <div>
-    <h2><a href="/post/lkml_news_v5.5-rc7/">LKML News v5.5-rc7</a></h2>
+    <h2><a href="/post/uninstall-kernel/">uninstall kernel</a></h2>
     <div class="article-style">
       
-      REMINDER: LSF/MM/BPF: 2020: Call for Proposals https://lkml.kernel.org/r/20200115215409.5pd4fnoawqzs7rvw@jbacik-mbp
-This is reminder of the LSF/MM/BPF of this year. It underscores the submitters to also send the mail to the appropriate mailing list as before. Maybe a few of people are missing sending mail but only wite up their proposal to the google form.
-[LSF/MM TOPIC] Free Page Reporting https://lkml.kernel.org/r/4b8671d16573307da09afc56030c2a5f5a9c45bf.camel@linux.intel.com
-In case of KVM case, as each VM guest receives virtual memory from the host, only when host gets memory pressure the memory being used by guests will be reclaimed.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.5-rc6/">LKML News v5.5-rc6</a></h2>
-    <div class="article-style">
-      
-      OOM killer not nearly agressive enough? https://lkml.kernel.org/r/20200107204412.GA29562@amd
-The author if this mail, Pavel updated his userspace to x86-64 and encountered chromium&rsquo;s memory hogging. He was required to kill the chromium himself, because OOM killer didn&rsquo;t kill it. He asks whether this means OOM killer is not aggressive enough.
-[PATCH 0/4] introduce memory hinting API for external process https://lkml.kernel.org/r/20200110213433.94739-1-minchan@kernel.org
-Minchan has previously posted the patchset introducing the MADV_COLD, MADV_PAGEOUT and external madvise() able code change.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.5-rc5/">LKML News v5.5-rc5</a></h2>
-    <div class="article-style">
-      
-      [PATCH v16 QEMU 4/3 RFC] memory: Add support for MADV_FREE as mechanism to lazy discard pages https://lkml.kernel.org/r/20200103212339.29849.99817.stgit@localhost.localdomain
-This RFC patch modifies QEMU to able to use MADV_FREE for discard of pages to avoid the page zeroing cost.
-Linux 5.5-rc5 https://lkml/kernel.org/r/CAHk-=whwmJQwwMD06VfPapDmc52LFQhG3HP6VyVLXVA=nYi_ow@mail.gmail.com
-Time files, rc5 released. Last week was also another calm week due to the new year holidays, and thus this release is small. Linus expects it will be changed in this upcoming weeks, or 5.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.5-rc4/">LKML News v5.5-rc4</a></h2>
-    <div class="article-style">
-      
-      [PATCH V11 RESEND] mm/debug: Add tests validating architecture page table helpers https://lkml.kernel.org/r/1577162322-30303-1-git-send-email-anshuman.khandual@arm.com
-This patchset adds tests for the page table helpers. Those tests covers basic page table entry transformations including old, young, dirty, clean, write, write protect etc. The tests are not using the kselftest or kunit, but implemented as a kernel module with new file, mm/debug_vm_pgtable.c.
-Linux 5.5-rc4 https://lkml.kernel.org/r/CAHk-=wjq2b9GkLzpaDE-Xryu5c0zMM72BqkJKeZVsX+4ymH6aA@mail.gmail.com
-Due to the holidays, last week was unsurprisingly quiet. Torvalds says it was hardly even worth making an rc release.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.5-rc3/">LKML News v5.5-rc3</a></h2>
-    <div class="article-style">
-      
-      PROBLEM: Large (256MB) CMA allocation fails from time to time when using Intel VT-d https://lkml.kernel.org/r/5e75d900cb50457784ee1d2050b511ec@MAILER13.tech.ceia
-The author reports a CMA allocation failure that occurs time to time if the system is using Intel VT-d.
-[PATCHv2 0/3] Allow ZRAM to use any zpool-compatible backend https://lkml.kernel.org/r/20191219151928.ad4ccf732b64b7f8a26116db@gmail.com
-ZRAM is an in-memory block device that compresses the content. Currently, ZRAM is used only with zsmalloc. However, the zsmalloc is not an optimal selection in some environment.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.5-rc2/">LKML News v5.5-rc2</a></h2>
-    <div class="article-style">
-      
-      [PATCHSET 0/5] Support for RWF_UNCACHED https://lkml.kernel.org/r/20191210162454.8608-1-axboe@kernel.dk
-As the buffered IO uses the page cache, an intensive buffered IO workload using very huge file can cause memory pressure by inflating the page cache. Changing the workload to do direct IO can solve this problem, but the modification is not so simple. Jens Axboe thus implemented RWF_UNCACHED flag, which skips use of the page cache if the given IO target is not in the page cache already.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.5-rc1/">LKML News v5.5-rc1</a></h2>
-    <div class="article-style">
-      
-      Splitting the mmap_sem https://lkml.kernel.org/r/20191203222147.GV20752@bombadil.infradead.org
-The mmap_sem is a big scalability bottleneck and there are several projects for solving it. In this mail, Matthew Wilcox suggests his plan for his solution and asks whether a exceptional case in his solution is acceptable to other people.
-Linux 5.5-rc1 https://lkml.kernel.org/r/CAHk-=wiEJK=yo9vEhX_4b4ROvCqUA_rjK7g996h-5MbfOMeDrw@mail.gmail.com
-Linux 5.5 merge window closed and the -rc1 has released. It was a tiny bit larger release compared to recent several releases, but fairly regular overall.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.4/">LKML News v5.4</a></h2>
-    <div class="article-style">
-      
-      [PATCH RFC v3 00/36] Add KernelMemorySanitizer infrastructure https://lkml.kernel.org/r/20191122112621.204798-1-glider@google.com
-Google&rsquo;s third KMSAN RFC patchset that detects errors caused by accessing uninitialized memory areas. Like other SAN series, it has been used in Google syzkaller and found over 200 bugs in the last two years.
-LSF/MM/BPF: 2020: Call for Proposals https://lkml.kernel.org/r/20191122172502.vffyfxlqejthjib6@macbook-pro-91.dhcp.thefacebook.com
-LSF/MM&rsquo;s CFP for the next year was released. From next year, BPF sessions will be added to LSF/MM, so the name has changed to LSF/MM/BPF.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.4-rc8/">LKML News v5.4-rc8</a></h2>
-    <div class="article-style">
-      
-      [PATCH 00/13] Finish off [smp_]read_barrier_depends() https://lkml.kernel.org/r/20191108170120.22331-1-will@kernel.org
-The memory model element which is depends only on Alpha, smp_read_barrier_depends() is built into READ_ONCE(), so that you don&rsquo;t have to worry about Alpha in non-alpha-specific kernel code. Nevertheless, the author of this patchset concerned about the continuing uploads of the code that cares it. This patchset removes the description of the feature from all documentation and comments in the kernel code.
-[PATCH v4 00/10] Add Kernel Concurrency Sanitizer (KCSAN) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.4-rc7/">LKML News v5.4-rc7</a></h2>
-    <div class="article-style">
-      
-      Linux 5.4-rc7 https://lkml.kernel.org/r/CAHk-=wivmGEOTha5XkRHgH6VwfiroiN+PFVMNK3B0r-d0eFLPQ@mail.gmail.com
-일곱번째 rc 버전이 릴리즈 되었습니다. 지난 rc6 때도 변경량이 생각보다 많아 토발즈가 고민했는데, 이번주도 토발즈가 원했던 것보단 변경량이 많았다고 하는군요. 다음주에 rc8 을 낼지 5.4 정식 버전을 낼지는 좀 더 고민해 봐야겠다고 합니다.
+      테스트 등을 위해 소스코드로부터 커널을 직접 빌드, 설치하기 시작하면 어느새 수많은 커널이 설치되어 있는 것을 확인할 수 있다. 삭제를 위해선 make install 로 만들어진 파일들을 직접 제거하고 grub 을 업데이트 해줘야 한다.
+예를 들어 시스템이 현재 부팅되어 있는 버전의 커널을 언인스톨하고자 한다면 다음의 일련의 커맨드를 입력하면 된다:
+# rm /boot/vmlinuz-$(uname -r) # rm /boot/initrd.img-$(uname -r) # rm /boot/System.map-$(uname -r) # rm /boot/config-$(uname -r) # rm -fr /lib/modules/$(uname -r) # rm /var/lib/initramfs-tools/$(uname -r) # update-grub2 다른 버전의 설치되어있는 커널을 제거하고 싶다면 위의 $(uname -r) 부분을 제거하고자 하는 커널 버전으로 대체하면 된다.
       
     </div>
   </div>
@@ -644,10 +540,8 @@ The memory model element which is depends only on Alpha, smp_read_barrier_depend
 <nav>
   <ul class="pagination justify-content-center">
     
-    <li class="page-item"><a class="page-link" href="/tags/lkml/page/14/">&laquo;</a></li>
+    <li class="page-item"><a class="page-link" href="/tags/kernel/page/26/">&laquo;</a></li>
     
-    
-    <li class="page-item"><a class="page-link" href="/tags/lkml/page/16/">&raquo;</a></li>
     
   </ul>
 </nav>
