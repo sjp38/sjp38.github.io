@@ -29,7 +29,9 @@
     
   
   <meta name="description" content="[RFC] memory pressure detection in VMs using PSI mechanism for dynamically inflating/deflating VM memory (Sudarshan Rajagopalan) https://lkml.kernel.org/r/DS0PR02MB90787835F5B9CB9771A20329C4C09@DS0PR02MB9078.namprd02.prod.outlook.com
-Qualcomm&rsquo;s Linux memory team asks upstream&rsquo;s opinion about their userspace deamon approach for controlling VM memory size based on memory demands via monitoring PSI.">
+Qualcomm&rsquo;s Linux memory team asks upstream&rsquo;s opinion about their userspace deamon approach for controlling VM memory size based on memory demands via monitoring PSI.
+[PATCH v1 0/3] Introduce per NUMA node memory error statistics (Jiaqi Yan) https://lkml.kernel.org/r/20230116193902.1315236-1-jiaqiyan@google.com
+On huge memory systems, memory error is inevitable, so detailed statistics of it helps administrators to operate systems more efficiently.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/lkml_news_v6.2-rc5/">
@@ -152,7 +154,9 @@ Qualcomm&rsquo;s Linux memory team asks upstream&rsquo;s opinion about their use
   <meta property="og:url" content="https://sjp38.github.io/post/lkml_news_v6.2-rc5/">
   <meta property="og:title" content="LKML News v6.2-rc5 | hacklog">
   <meta property="og:description" content="[RFC] memory pressure detection in VMs using PSI mechanism for dynamically inflating/deflating VM memory (Sudarshan Rajagopalan) https://lkml.kernel.org/r/DS0PR02MB90787835F5B9CB9771A20329C4C09@DS0PR02MB9078.namprd02.prod.outlook.com
-Qualcomm&rsquo;s Linux memory team asks upstream&rsquo;s opinion about their userspace deamon approach for controlling VM memory size based on memory demands via monitoring PSI."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
+Qualcomm&rsquo;s Linux memory team asks upstream&rsquo;s opinion about their userspace deamon approach for controlling VM memory size based on memory demands via monitoring PSI.
+[PATCH v1 0/3] Introduce per NUMA node memory error statistics (Jiaqi Yan) https://lkml.kernel.org/r/20230116193902.1315236-1-jiaqiyan@google.com
+On huge memory systems, memory error is inevitable, so detailed statistics of it helps administrators to operate systems more efficiently."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -204,7 +208,7 @@ Qualcomm&rsquo;s Linux memory team asks upstream&rsquo;s opinion about their use
       "url": "https://sjp38.github.io/img/icon-512.png"
     }
   },
-  "description": "[RFC] memory pressure detection in VMs using PSI mechanism for dynamically inflating/deflating VM memory (Sudarshan Rajagopalan) https://lkml.kernel.org/r/DS0PR02MB90787835F5B9CB9771A20329C4C09@DS0PR02MB9078.namprd02.prod.outlook.com\nQualcomm\u0026rsquo;s Linux memory team asks upstream\u0026rsquo;s opinion about their userspace deamon approach for controlling VM memory size based on memory demands via monitoring PSI."
+  "description": "[RFC] memory pressure detection in VMs using PSI mechanism for dynamically inflating/deflating VM memory (Sudarshan Rajagopalan) https://lkml.kernel.org/r/DS0PR02MB90787835F5B9CB9771A20329C4C09@DS0PR02MB9078.namprd02.prod.outlook.com\nQualcomm\u0026rsquo;s Linux memory team asks upstream\u0026rsquo;s opinion about their userspace deamon approach for controlling VM memory size based on memory demands via monitoring PSI.\n[PATCH v1 0/3] Introduce per NUMA node memory error statistics (Jiaqi Yan) https://lkml.kernel.org/r/20230116193902.1315236-1-jiaqiyan@google.com\nOn huge memory systems, memory error is inevitable, so detailed statistics of it helps administrators to operate systems more efficiently."
 }
 </script>
 
@@ -615,6 +619,11 @@ Qualcomm&rsquo;s Linux memory team asks upstream&rsquo;s opinion about their use
 <p>Qualcomm&rsquo;s Linux memory team asks upstream&rsquo;s opinion about their userspace
 deamon approach for controlling VM memory size based on memory demands via
 monitoring PSI.</p>
+<h2 id="patch-v1-03-introduce-per-numa-node-memory-error-statistics-jiaqi-yan">[PATCH v1 0/3] Introduce per NUMA node memory error statistics (Jiaqi Yan)</h2>
+<p><a href="https://lkml.kernel.org/r/20230116193902.1315236-1-jiaqiyan@google.com">https://lkml.kernel.org/r/20230116193902.1315236-1-jiaqiyan@google.com</a></p>
+<p>On huge memory systems, memory error is inevitable, so detailed statistics of
+it helps administrators to operate systems more efficiently.  This patchset
+adds NUMA level memory error statistics.</p>
 
     </div>
 
