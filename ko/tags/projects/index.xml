@@ -5,12 +5,152 @@
     <link>https://sjp38.github.io/ko/tags/projects/</link>
       <atom:link href="https://sjp38.github.io/ko/tags/projects/index.xml" rel="self" type="application/rss+xml" />
     <description>projects</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>ko-kr</language><lastBuildDate>Sat, 27 Mar 2021 13:01:07 +0100</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>ko-kr</language><lastBuildDate>Sun, 15 Jan 2023 10:36:11 -0800</lastBuildDate>
     <image>
       <url>https://sjp38.github.io/img/tux.png</url>
       <title>projects</title>
       <link>https://sjp38.github.io/ko/tags/projects/</link>
     </image>
+    
+    <item>
+      <title>DAMON-based System Optimization Guide</title>
+      <link>https://sjp38.github.io/ko/post/damon_optimization_guide/</link>
+      <pubDate>Sun, 15 Jan 2023 10:36:11 -0800</pubDate>
+      <guid>https://sjp38.github.io/ko/post/damon_optimization_guide/</guid>
+      <description>&lt;p&gt;This document helps you estimating the amount of benefit that you could get
+from DAMON-based system optimizations, and describes how you could achieve it.&lt;/p&gt;
+&lt;h1 id=&#34;check-the-signs&#34;&gt;Check The Signs&lt;/h1&gt;
+&lt;p&gt;No optimization can provide same extent of benefit to every case.  Therefore
+you should first guess how much improvements you could get using DAMON.  If
+some of below conditions match your situation, you could consider using DAMON.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Low IPC and High Cache Miss Ratios.&lt;/em&gt;  Low IPC means most of the CPU time is
+spent waiting for the completion of time-consuming operations such as memory
+access, while high cache miss ratios mean the caches don&amp;rsquo;t help it well.
+DAMON is not for cache level optimization, but DRAM level.  However,
+improving DRAM management will also help this case by reducing the memory
+operation latency.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Memory Over-commitment and Unknown Users.&lt;/em&gt;  If you are doing memory
+overcommitment and you cannot control every user of your system, a memory
+bank run could happen at any time.  You can estimate when it will happen
+based on DAMON&amp;rsquo;s monitoring results and act earlier to avoid or deal better
+with the crisis.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Frequent Memory Pressure.&lt;/em&gt;  Frequent memory pressure means your system has
+wrong configurations or memory hogs.  DAMON will help you find the right
+configuration and/or the criminals.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Heterogeneous Memory System.&lt;/em&gt;  If your system is utilizing memory devices
+that placed between DRAM and traditional hard disks, such as non-volatile
+memory or fast SSDs, DAMON could help you utilizing the devices more
+efficiently.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;profile&#34;&gt;Profile&lt;/h1&gt;
+&lt;p&gt;If you found some positive signals, you could start by profiling your workloads
+using DAMON.  Find major workloads on your systems and analyze their data
+access pattern to find something wrong or can be improved.  The DAMON user
+space tool (&lt;code&gt;damo&lt;/code&gt;) will be useful for this.  You can get &lt;code&gt;damo&lt;/code&gt; from
+&lt;a href=&#34;https://github.com/awslabs/damo&#34;&gt;https://github.com/awslabs/damo&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;We recommend you to start from working set size distribution check using &lt;code&gt;damo report wss&lt;/code&gt;.  If the distribution is ununiform or quite different from what
+you estimated, you could consider &lt;code&gt;Memory Configuration&lt;/code&gt; optimization.&lt;/p&gt;
+&lt;p&gt;Then, review the overall access pattern in heatmap form using &lt;code&gt;damo report heats&lt;/code&gt;.  If it shows a simple pattern consists of a small number of memory
+regions having high contrast of access temperature, you could consider manual
+&lt;code&gt;Program Modification&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;If the access pattern is very frequently changing so that you cannot figure out
+what is the performance important region using your human eye, &lt;code&gt;Automated DAMON-based Memory Operations&lt;/code&gt; might help the case owing to its machine-level
+microscope view.&lt;/p&gt;
+&lt;p&gt;If you still want to absorb more benefits, you should develop &lt;code&gt;Personalized DAMON Application&lt;/code&gt; for your special case.&lt;/p&gt;
+&lt;p&gt;You don&amp;rsquo;t need to take only one approach among the above plans, but you could
+use multiple of the above approaches to maximize the benefit.&lt;/p&gt;
+&lt;h1 id=&#34;optimize&#34;&gt;Optimize&lt;/h1&gt;
+&lt;p&gt;If the profiling result also says it&amp;rsquo;s worth trying some optimization, you
+could consider below approaches.  Note that some of the below approaches assume
+that your systems are configured with swap devices or other types of auxiliary
+memory so that you don&amp;rsquo;t strictly required to accommodate the whole working set
+in the main memory.  Most of the detailed optimization should be made on your
+concrete understanding of your memory devices.&lt;/p&gt;
+&lt;h2 id=&#34;memory-configuration&#34;&gt;Memory Configuration&lt;/h2&gt;
+&lt;p&gt;No more no less, DRAM should be large enough to accommodate only important
+working sets, because DRAM is highly performance critical but expensive and
+heavily consumes the power.  However, knowing the size of the real important
+working sets is difficult.  As a consequence, people usually equips
+unnecessarily large or too small DRAM.  Many problems stem from such wrong
+configurations.&lt;/p&gt;
+&lt;p&gt;Using the working set size distribution report provided by &lt;code&gt;damo report wss&lt;/code&gt;,
+you can know the appropriate DRAM size for you.  For example, roughly speaking,
+if you worry about only 95 percentile latency, you don&amp;rsquo;t need to equip DRAM of
+a size larger than 95 percentile working set size.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s see a real example.  This &lt;code&gt;page &amp;lt;https://damonitor.github.io/doc/html/v17/admin-guide/mm/damon/guide.html#memory-configuration&amp;gt;&lt;/code&gt;
+shows the heatmap and the working set size distributions/changes of
+&lt;code&gt;freqmine&lt;/code&gt; workload in PARSEC3 benchmark suite.  The working set size spikes
+up to 180 MiB, but keeps smaller than 50 MiB for more than 95% of the time.
+Even though you give only 50 MiB of memory space to the workload, it will work
+well for 95% of the time.  Meanwhile, you can save the 130 MiB of memory space.&lt;/p&gt;
+&lt;h2 id=&#34;program-modification&#34;&gt;Program Modification&lt;/h2&gt;
+&lt;p&gt;If the data access pattern heatmap plotted by &lt;code&gt;damo report heats&lt;/code&gt; is quite
+simple so that you can understand how the things are going in the workload with
+your human eye, you could manually optimize the memory management.&lt;/p&gt;
+&lt;p&gt;For example, suppose that the workload has two big memory object but only one
+object is frequently accessed while the other one is only occasionally
+accessed.  Then, you could modify the program source code to keep the hot
+object in the main memory by invoking &lt;code&gt;mlock()&lt;/code&gt; or &lt;code&gt;madvise()&lt;/code&gt; with
+&lt;code&gt;MADV_WILLNEED&lt;/code&gt;.  Or, you could proactively evict the cold object using
+&lt;code&gt;madvise()&lt;/code&gt; with &lt;code&gt;MADV_COLD&lt;/code&gt; or &lt;code&gt;MADV_PAGEOUT&lt;/code&gt;.  Using both together
+would be also worthy.&lt;/p&gt;
+&lt;p&gt;A research work [1] using the &lt;code&gt;mlock()&lt;/code&gt; achieved up to 2.55x performance
+speedup.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s see another realistic example access pattern for this kind of
+optimizations.  This &lt;code&gt;another page &amp;lt;https://damonitor.github.io/doc/html/v17/admin-guide/mm/damon/guide.html#program-modification&amp;gt;&lt;/code&gt;
+shows the visualized access patterns of streamcluster workload in PARSEC3
+benchmark suite.  We can easily identify the 100 MiB sized hot object.&lt;/p&gt;
+&lt;h2 id=&#34;automated-damon-based-memory-operations&#34;&gt;Automated DAMON-based Memory Operations&lt;/h2&gt;
+&lt;p&gt;Though &lt;code&gt;Manual Program Optimization&lt;/code&gt; works well in many cases and DAMON can
+help it, modifying the source code is not a good option in many cases.  First
+of all, the source code could be too old or unavailable.  And, many workloads
+will have complex data access patterns that even hard to distinguish hot memory
+objects and cold memory objects with the human eye.  Finding the mapping from
+the visualized access pattern to the source code and injecting the hinting
+system calls inside the code will also be quite challenging.&lt;/p&gt;
+&lt;p&gt;By using DAMON-based operation schemes (DAMOS) via &lt;code&gt;damo schemes&lt;/code&gt;, you will
+be able to easily optimize your workload in such a case.  Our example schemes
+called &amp;lsquo;efficient THP&amp;rsquo; and &amp;lsquo;proactive reclamation&amp;rsquo; achieved significant speedup
+and memory space saves against 25 realistic workloads [2].&lt;/p&gt;
+&lt;p&gt;That said, note that you need careful tune of the schemes (e.g., target region
+size and age) and monitoring attributes for the successful use of this
+approach.  Because the optimal values of the parameters will be dependent on
+each system and workload, misconfiguring the parameters could result in worse
+memory management.&lt;/p&gt;
+&lt;p&gt;For the tuning, you could measure the performance metrics such as IPC, TLB
+misses, and swap in/out events and adjusts the parameters based on their
+changes.  The total number and the total size of the regions that each scheme
+is applied, which are provided via the debugfs interface and the programming
+interface can also be useful.  Writing a program automating this optimal
+parameter could be an option.&lt;/p&gt;
+&lt;h2 id=&#34;personalized-damon-application&#34;&gt;Personalized DAMON Application&lt;/h2&gt;
+&lt;p&gt;Above approaches will work well for many general cases, but would not enough
+for some special cases.&lt;/p&gt;
+&lt;p&gt;If this is the case, it might be the time to forget the comfortable use of the
+user space tool and dive into the debugfs interface (refer to :doc:&lt;code&gt;usage&lt;/code&gt; for
+the detail) of DAMON.  Using the interface, you can control the DAMON more
+flexibly.  Therefore, you can write your personalized DAMON application that
+controls the monitoring via the debugfs interface, analyzes the result, and
+applies complex optimizations itself.  Using this, you can make more creative
+and wise optimizations.&lt;/p&gt;
+&lt;p&gt;If you are a kernel space programmer, writing kernel space DAMON applications
+using the API (refer to the :doc:&lt;code&gt;/mm/damon/api&lt;/code&gt; for more detail) would be an
+option.&lt;/p&gt;
+&lt;h1 id=&#34;reference-practices&#34;&gt;Reference Practices&lt;/h1&gt;
+&lt;p&gt;Referencing previously done successful practices could help you getting the
+sense for this kind of optimizations.  There is an academic paper [1]
+reporting the visualized access pattern and manual &lt;code&gt;Program Modification&lt;/code&gt; results for a number of realistic workloads.  You can also get
+the visualized access patterns [3,4,5] and
+&lt;code&gt;Automated DAMON-based Memory Operations&lt;/code&gt; results for other realistic
+workloads that collected with latest version of DAMON [2].&lt;/p&gt;
+&lt;p&gt;[1] &lt;a href=&#34;https://dl.acm.org/doi/10.1145/3366626.3368125&#34;&gt;https://dl.acm.org/doi/10.1145/3366626.3368125&lt;/a&gt;&lt;br&gt;
+[2] &lt;a href=&#34;https://damonitor.github.io/test/result/perf/latest/html/&#34;&gt;https://damonitor.github.io/test/result/perf/latest/html/&lt;/a&gt;&lt;br&gt;
+[3] &lt;a href=&#34;https://damonitor.github.io/test/result/visual/latest/rec.heatmap.1.png.html&#34;&gt;https://damonitor.github.io/test/result/visual/latest/rec.heatmap.1.png.html&lt;/a&gt;&lt;br&gt;
+[4] &lt;a href=&#34;https://damonitor.github.io/test/result/visual/latest/rec.wss_sz.png.html&#34;&gt;https://damonitor.github.io/test/result/visual/latest/rec.wss_sz.png.html&lt;/a&gt;&lt;br&gt;
+[5] &lt;a href=&#34;https://damonitor.github.io/test/result/visual/latest/rec.wss_time.png.html&#34;&gt;https://damonitor.github.io/test/result/visual/latest/rec.wss_time.png.html&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>perfbook 번역 재시작</title>
@@ -157,6 +297,8 @@ can develop and run their access-aware memory management with no code but
 simple configurations.  Simple mechanisms made on top of DAMOS
 &lt;a href=&#34;https://www.amazon.science/publications/daos-data-access-aware-operating-system&#34;&gt;achieve&lt;/a&gt;
 up to 12% performance improvement and 91% memory saving.&lt;/p&gt;
+&lt;p&gt;Detailed evaluation of DAMON and DAMON-based system optimizations are
+available at another &lt;a href=&#34;https://sjp38.github.io/ko/post/damon_evaluation/&#34;&gt;post&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;demo-video&#34;&gt;Demo Video&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/damo_monitor_water_nsquared.gif&#34; alt=&#34;damo monitor for water_nsquared&#34;&gt;&lt;/p&gt;
 
@@ -182,8 +324,6 @@ have
 &lt;a href=&#34;https://lore.kernel.org/damon/20221019001317.104270-1-sj@kernel.org/&#34;&gt;posted&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;2022-10-17&lt;/em&gt;: A CVE for DAMON has
 &lt;a href=&#34;https://nvd.nist.gov/vuln/detail/CVE-2022-3544&#34;&gt;published&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;2022-09-15&lt;/em&gt;: The &lt;a href=&#34;https://youtu.be/e2SZoUPhDRg?t=13245&#34;&gt;video&lt;/a&gt; for my kernel
-summit DAMON talk this year is now available at Youtube&lt;/p&gt;
 &lt;h2 id=&#34;getting-started&#34;&gt;Getting Started&lt;/h2&gt;
 &lt;p&gt;You can start using DAMON by&lt;/p&gt;
 &lt;ul&gt;
@@ -199,24 +339,26 @@ how you can use it.&lt;/p&gt;
 &lt;p&gt;DAMON is implemented in the Linux kernel, so you should install DAMON-enabled
 Linux kernel to use it.  To check if you&amp;rsquo;re already running DAMON-enabled
 kernel, you could:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ grep CONFIG_DAMON /boot/config-$(uname -r)
+&lt;pre&gt;&lt;code&gt;$ if grep CONFIG_DAMON /boot/config-$(uname -r); then echo &amp;quot;installed&amp;quot;; fi
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;If you are an &lt;a href=&#34;https://aws.amazon.com/amazon-linux-2/&#34;&gt;Amazon Linux 2&lt;/a&gt; user,
 you can install a DAMON-enabled Linux kernels which are based on v5.10 or v5.4
 using
-&lt;a href=&#34;https://aws.amazon.com/premiumsupport/knowledge-center/ec2-install-extras-library-software/&#34;&gt;amazon-linux-extras&lt;/a&gt;
-like below:&lt;/p&gt;
+&lt;a href=&#34;https://aws.amazon.com/premiumsupport/knowledge-center/ec2-install-extras-library-software/&#34;&gt;amazon-linux-extras&lt;/a&gt;.
+For example, if you want to use DAMON with Amazon Linux v5.10 kernel, below
+commands will work.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ sudo yum install -y amazon-linux-extras
-$ sudo amazon-linux-extras install kernel-&amp;lt;5.10 or 5.4&amp;gt;
+$ sudo amazon-linux-extras install kernel-5.10
 $ sudo reboot
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Note that AL2 v5.10.y contains all DAMON features that available on mainline
 while AL2 5.4.y contains only a part of DAMON features, so AL2 v5.10.y is more
 recommended.&lt;/p&gt;
 &lt;p&gt;If your package system doesn&amp;rsquo;t support DAMON-enabled kernel, you can
-&lt;a href=&#34;#source-code&#34;&gt;fetch&lt;/a&gt; a DAMON-merged Linux kernel source tree, build, and
-install it.  Note that you should enable kernel configuration options for
-DAMON, depending on your demands.  For example:&lt;/p&gt;
+&lt;a href=&#34;#source-code&#34;&gt;fetch&lt;/a&gt; a DAMON-merged Linux kernel source tree (it has merged in
+Linux mainline tree since v5.15), build, and install it.  Note that you should
+enable kernel configuration options for DAMON, depending on your demands.  For
+example:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ cd $THE_FETCHED_DAMON_KERNEL_SOURCE_TREE
 $ make olddefconfig
 $ echo &#39;CONFIG_DAMON=y&#39; &amp;gt;&amp;gt; /.config
@@ -244,9 +386,8 @@ contains the latest stable version of DAMON since v5.15.&lt;/li&gt;
 &lt;a href=&#34;https://github.com/amazonlinux/linux/tree/amazon-5.10.y/master&#34;&gt;v5.10.y tree&lt;/a&gt;
 and
 &lt;a href=&#34;https://github.com/amazonlinux/linux/tree/amazon-5.4.y/master&#34;&gt;v5.4.y tree&lt;/a&gt;
-also contains stable versions of DAMON in the mainline, which back-ported on
-v5.10.y and v5.4.y, respectively.  Note that AL2 v5.10.y contains all DAMON
-features that available on the major releases of Linux mainline while AL2
+also contain stable versions of DAMON.  Note that AL2 v5.10.y contains all
+DAMON features that available on the latest major releases of Linux while AL2
 5.4.y contains only a part of DAMON features, so AL2 v5.10.y is more
 recommended.&lt;/li&gt;
 &lt;/ul&gt;
@@ -257,11 +398,12 @@ features under development.&lt;/p&gt;
 &lt;li&gt;&lt;a href=&#34;https://git.kernel.org/akpm/mm/h/mm-unstable&#34;&gt;mm-unstable&lt;/a&gt; contains the
 latest DAMON patches, which are under testing with other unstable memory
 management subsystem patches.  So this tree is likely unstable and frequently
-updated, but would be a good baseline for your DAMON patches.&lt;/li&gt;
+updated, but would be a good baseline for your DAMON development.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://git.kernel.org/sj/h/damon/next&#34;&gt;damon/next&lt;/a&gt; contains the latest
-changes, which might not fully be tested.  So this tree is likely unstable
-and frequently updated.  This tree also contains some changes that exist
-only for DAMON hacks itself rather than eventually be merged in the mainline.&lt;/li&gt;
+changes, which might not tested at all.  So this tree is likely more unstable
+and frequently updated than mm-unstable.  This tree also contains some
+changes that exist only for DAMON hacks itself rather than eventually be
+merged in the mainline.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;For people who have interest in DAMON features under development but use LTS
 kernels as their baseline, there &lt;em&gt;were&lt;/em&gt; trees that based on three latest LTS
@@ -277,13 +419,13 @@ there will be no update to the trees.&lt;/p&gt;
 &lt;p&gt;The source code of DAPTRACE, which is a prototype of DAMON, is also
 &lt;a href=&#34;https://github.com/daptrace&#34;&gt;available&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;user-space-tool&#34;&gt;User-space Tool&lt;/h2&gt;
-&lt;p&gt;A user-space tool for DAMON, which is called DAMO is available at
+&lt;p&gt;A user-space tool for DAMON, which is called DAMO, is available at
 &lt;a href=&#34;https://github.com/awslabs/damo&#34;&gt;Github&lt;/a&gt; and
 &lt;a href=&#34;https://pypi.org/project/damo/&#34;&gt;PyPi&lt;/a&gt;.  You may start using DAMON by following
 the &lt;a href=&#34;https://github.com/awslabs/damo#getting-started&#34;&gt;Getting Started&lt;/a&gt; of the
 tool for start.&lt;/p&gt;
 &lt;h2 id=&#34;tests-package&#34;&gt;Tests Package&lt;/h2&gt;
-&lt;p&gt;There is an automated &lt;a href=&#34;https://github.com/awslabs/damon-tests&#34;&gt;tests suite&lt;/a&gt; for
+&lt;p&gt;There is a &lt;a href=&#34;https://github.com/awslabs/damon-tests&#34;&gt;tests suite&lt;/a&gt; for
 correctness verification and performance evaluation of DAMON.  Those are
 actively used for the development of DAMON.  Using that, you can test DAMON on
 your machine with only a few simple commands or deeply understand the user
@@ -291,12 +433,13 @@ interface of DAMON.&lt;/p&gt;
 &lt;p&gt;So, if you finished the
 &lt;a href=&#34;https://github.com/awslabs/damo#getting-started&#34;&gt;tutorial&lt;/a&gt; but have no idea
 about what to do next, running the tests would be a good start.  If any test
-fails, please report that to the maintainer via mail (&lt;a href=&#34;mailto:sj@kernel.org&#34;&gt;sj@kernel.org&lt;/a&gt;) or
+fails, please report that to the maintainer via mail (&lt;a href=&#34;mailto:sj@kernel.org&#34;&gt;sj@kernel.org&lt;/a&gt; or
+&lt;a href=&#34;mailto:damon@lists.linux.dev&#34;&gt;damon@lists.linux.dev&lt;/a&gt;) or
 &lt;a href=&#34;https://github.com/awslabs/damon-tests/issues&#34;&gt;github&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;official-document&#34;&gt;Official Document&lt;/h2&gt;
 &lt;p&gt;The official document of DAMON in the latest mainline for
 &lt;a href=&#34;https://docs.kernel.org/admin-guide/mm/damon/index.html&#34;&gt;users/sysadmins&lt;/a&gt; and
-&lt;a href=&#34;https://docs.kernel.org/vm/damon/index.html&#34;&gt;kernel programmers&lt;/a&gt; are
+&lt;a href=&#34;https://docs.kernel.org/mm/damon/index.html&#34;&gt;kernel programmers&lt;/a&gt; are
 available.  Document for DAMON in the &lt;a href=&#34;#source-code&#34;&gt;damon/next&lt;/a&gt; tree, which
 focused on DAMON only and contains some more DAMON-specific contents, is also
 &lt;a href=&#34;https://damonitor.github.io/doc/html/next/&#34;&gt;available&lt;/a&gt;.&lt;/p&gt;
@@ -323,6 +466,12 @@ and&lt;/li&gt;
 &lt;li&gt;the latest performance test
 &lt;a href=&#34;https://damonitor.github.io/test/result/perf/latest/html/index.html&#34;&gt;results&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
+&lt;h2 id=&#34;evaluation-results&#34;&gt;Evaluation Results&lt;/h2&gt;
+&lt;p&gt;Evaluation of DAMON and DAMON-based system optimizations are
+&lt;a href=&#34;https://sjp38.github.io/ko/post/damon_evaluation/&#34;&gt;available&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;damon-based-system-optimization-guide&#34;&gt;DAMON-based System Optimization Guide&lt;/h2&gt;
+&lt;p&gt;A guide for DAMON-based system optimizations are also
+&lt;a href=&#34;https://sjp38.github.io/ko/post/damon_optimization_guide/&#34;&gt;available&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;community&#34;&gt;Community&lt;/h2&gt;
 &lt;p&gt;DAMON is maintained and developed by its own community, which is a sub-set of
 the linux kernel development community.&lt;/p&gt;

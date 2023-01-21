@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="ko-kr">
   
-    <meta property="og:updated_time" content="2022-12-31T13:48:12-08:00">
+    <meta property="og:updated_time" content="2023-01-15T10:36:11-08:00">
   
 
   
@@ -525,6 +525,27 @@
   
   
   <div>
+    <h2><a href="/ko/post/damon_optimization_guide/">DAMON-based System Optimization Guide</a></h2>
+    <div class="article-style">
+      
+      This document helps you estimating the amount of benefit that you could get from DAMON-based system optimizations, and describes how you could achieve it.
+Check The Signs No optimization can provide same extent of benefit to every case. Therefore you should first guess how much improvements you could get using DAMON. If some of below conditions match your situation, you could consider using DAMON.
+ Low IPC and High Cache Miss Ratios.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/ko/post/damon_evaluation/">DAMON Evaluation</a></h2>
+    <div class="article-style">
+      
+      DAMON is lightweight. It increases system memory usage by 0.39% and slows target workloads down by 1.16%.
+DAMON is accurate and useful for memory management optimizations. An experimental DAMON-based operation scheme for THP, namely &lsquo;ethp&rsquo;, removes 76.15% of THP memory overheads while preserving 51.25% of THP speedup. Another experimental DAMON-based &lsquo;proactive reclamation&rsquo; implementation, namely &lsquo;prcl&rsquo;, reduces 93.38% of residential sets and 23.63% of system memory footprint while incurring only 1.22% runtime overhead in the best case (parsec3/freqmine).
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/ko/post/my_opensource_commits_stat_2022/">2022년 오픈소스 커밋 통계</a></h2>
     <div class="article-style">
       
@@ -614,28 +635,6 @@ LSF/MM/BPF: 2020: Call for Proposals https://lkml.kernel.org/r/20191122172502.vf
 내년 LSF/MM 의 CFP 가 나왔습니다. 근데, 내년부턴 LSF/MM 에 BPF 세션이 추가되네요, 명칭도 LSF/MM/BPF 로 바뀌었습니다. BPF 의 위상이 새삼 느껴지네요!
 Linux 5.4 https://lkml.kernel.org/r/CAHk-=wjmzaD=BZ1hjUYu+RTnSGDLfCRwCdg99GeQpCjEwo9uzw@mail.gmail.com
 여덟번의 rc 릴리즈를 끝으로 드디어 5.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/ko/post/lkml_news_v5.4-rc8/">LKML News v5.4-rc8</a></h2>
-    <div class="article-style">
-      
-      [PATCH 00/13] Finish off [smp_]read_barrier_depends() https://lkml.kernel.org/r/20191108170120.22331-1-will@kernel.org
-Alpha 에만 의존적인 메모리 모델 요소인 smp_read_barrier_depends() 는 READ_ONCE() 에 내장됨으로써 Alpha-specific 하지 않은 커널 코드에서는 Alpha 를 신경쓰지 않아도 되게 되었죠. 그럼에도 불구하고 이걸 신경쓰는 코드가 올라오는게 신경쓰였나 봅니다. 이 패치셋은 커널 코드의 모든 문서와 주석에서 해당 기능에 대한 설명을 삭제해 버립니다.
-[PATCH v4 00/10] Add Kernel Concurrency Sanitizer (KCSAN) https://lkml.kernel.org/r/20191114180303.66955-1-elver@google.com
-구글의 동시성 버그를 잡아주는 KCSAN 패치입니다. 이번 버전은 x86 만을 위한 버전이지만 조만간 ARM64 와 POWER 지원을 추가할 예정이라는군요.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/ko/post/lkml_news_v5.4-rc7/">LKML News v5.4-rc7</a></h2>
-    <div class="article-style">
-      
-      Linux 5.4-rc7 https://lkml.kernel.org/r/CAHk-=wivmGEOTha5XkRHgH6VwfiroiN+PFVMNK3B0r-d0eFLPQ@mail.gmail.com
-일곱번째 rc 버전이 릴리즈 되었습니다. 지난 rc6 때도 변경량이 생각보다 많아 토발즈가 고민했는데, 이번주도 토발즈가 원했던 것보단 변경량이 많았다고 하는군요. 다음주에 rc8 을 낼지 5.4 정식 버전을 낼지는 좀 더 고민해 봐야겠다고 합니다.
       
     </div>
   </div>

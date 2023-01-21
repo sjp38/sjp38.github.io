@@ -31,9 +31,9 @@
   <meta name="description" content="Kernel Development Engineer">
 
   
-  <link rel="alternate" hreflang="en" href="https://sjp38.github.io/tags/kernel/">
+  <link rel="alternate" hreflang="en" href="https://sjp38.github.io/post/">
   
-  <link rel="alternate" hreflang="ko-kr" href="https://sjp38.github.io/ko/tags/kernel/">
+  <link rel="alternate" hreflang="ko-kr" href="https://sjp38.github.io/ko/post/">
 
   
 
@@ -58,14 +58,6 @@
     
       
     
-    
-      
-      
-        
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/github.min.css" crossorigin="anonymous" title="hl-light">
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
-        
-      
     
 
     
@@ -133,14 +125,14 @@
 
 
   
-  <link rel="alternate" href="/ko/tags/kernel/index.xml" type="application/rss+xml" title="hacklog">
+  <link rel="alternate" href="/ko/post/index.xml" type="application/rss+xml" title="hacklog">
   
 
   <link rel="manifest" href="/ko/index.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon-32.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://sjp38.github.io/ko/tags/kernel/">
+  <link rel="canonical" href="https://sjp38.github.io/ko/post/">
 
   
   
@@ -152,12 +144,12 @@
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="hacklog">
-  <meta property="og:url" content="https://sjp38.github.io/ko/tags/kernel/">
-  <meta property="og:title" content="kernel | hacklog">
+  <meta property="og:url" content="https://sjp38.github.io/ko/post/">
+  <meta property="og:title" content="Posts | hacklog">
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="ko-kr">
   
-    <meta property="og:updated_time" content="2023-01-15T10:34:06-08:00">
+    <meta property="og:updated_time" content="2017-01-01T00:00:00-08:00">
   
 
   
@@ -174,7 +166,7 @@
 
 
 
-  <title>kernel | hacklog</title>
+  <title>Posts | hacklog</title>
 
 </head>
 
@@ -396,7 +388,7 @@
         
 
         <li class="nav-item">
-          <a class="nav-link  active" href="/ko/tags"><span>Tags</span></a>
+          <a class="nav-link " href="/ko/tags"><span>Tags</span></a>
         </li>
 
         
@@ -475,7 +467,7 @@
             <span>한국어</span>
           </div>
           
-          <a class="dropdown-item" href="/tags/kernel/">
+          <a class="dropdown-item" href="/post/">
             <span>English</span>
           </a>
           
@@ -510,7 +502,7 @@
     
   
 <div class="universal-wrapper pt-3">
-  <h1>kernel</h1>
+  <h1>Posts</h1>
 
   
 
@@ -520,148 +512,203 @@
 
 
 <div class="universal-wrapper">
+
   
 
   
   
-  <div>
-    <h2><a href="/ko/post/lkml_news_v5.3-rc5/">LKML News v5.3-rc5</a></h2>
-    <div class="article-style">
+    
       
-      [RFC PATCH 0/2] Add predictive memory reclamation and compaction https://lkml.kernel.org/r/20190813014012.30232-1-khalid.aziz@oracle.com
-커널의 page reclamation 과 compaction 등은 기본적으로 시스템 메모리 잔여량이 부족할 때 시작됩니다. 하지만 이땐 이미 때가 늦었습니다. reclamation 과 compaction 을 열심히 하긴 하지만 어플리케이션은 이미 메모리 부족으로 인한 응답시간 폭증 등을 겪게 됩니다.
-이 패치셋은 시스템의 메모리 부족을 미리 예측하고 reclamation 과 compaction 을 시작하기 위한 패치셋입니다. 시간축에 따라 메모리 사용량 변화 추세를 보면 이걸 예측할 수 있지 않겠냐는 것이죠.
-      
-    </div>
-  </div>
+
+
+
+
+
+
+
+
+
+
+
+
   
-  <div>
-    <h2><a href="/ko/post/lkml_news_v5.3-rc4/">LKML News v5.3-rc4</a></h2>
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0">
+      <a href="/ko/post/about/" >About</a>
+    </h3>
+
+    
     <div class="article-style">
-      
-      [RFC PATCH v6 00/92] VM introspection https://lkml.kernel.org/r/20190809160047.8319-1-alazar@bitdefender.com
-호스트 또는 별도 VM 에서 돌아가는 어플리케이션이 다른 VM들을 제어하거나 상태를 알아보거나 shadow 페이지 테이블을 조정하거나 특정 이벤트 발생시 알림을 받거나 할 수 있게 해주는 KVM introspection 서브시스템을 제안하는 패치입니다. 무려 92개짜리의 거대한 패치군요.
-[PATCH v4 1/5] mm/page_idle: Add per-pid idle page tracking using virtual indexing https://lkml.kernel.org/r/20190805170451.26009-1-joel@joelfernandes.org
-페이지 액세스 여부를 알아볼 수 있는 page_idle 기능을 프로세스별로 트래킹 하기 편하게 만들어 주는 패치의 네번째 버전입니다.
-      
+      Bio SeongJae Park is a programmer who loves to analyse and develop systems just for fun.
+Contacts  sj@kernel.org sjpark@amazon.com …
     </div>
-  </div>
+    
+
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
+
+<div class="article-metadata">
+
   
-  <div>
-    <h2><a href="/ko/post/lkml_news_v5.3-rc3/">LKML News v5.3-rc3</a></h2>
-    <div class="article-style">
-      
-      [PATCH v5 00/14] Provide generic top-down mmap layout functions https://lkml.kernel.org/r/20190730055113.23635-1-alex@ghiti.fr
-아키텍쳐별로 다르게 구현되어 있던 mmap 레이아웃 함수들을 범용화 시키는 패치셋, 다섯번째 버전입니다.
-[PATCH v10 00/22] Generic page walk and ptdump https://lkml.kernel.org/r/20190731154603.41797-1-steven.price@arm.com
-역시 아키텍쳐별로 다르게 구현되어 있던 page table walk 과 page table dump 기능을 범용화 시키는 패치입니다. 벌써 10번째 버전이군요.
-[PATCH 0/3] address hugetlb page allocation stalls https://lkml.kernel.org/r/20190802223930.30971-1-mike.kravetz@oracle.com
-sysctl 이나 procfs 를 통한 hugetlb 페이지 할당은 수분이나 수시간까지도 오래 걸릴 수 있습니다.
-      
-    </div>
-  </div>
   
-  <div>
-    <h2><a href="/ko/post/lwn_memory_flat_discontiguous_sparse/">Memory: the flat, the discontiguous, and the sparse (Korean)</a></h2>
-    <div class="article-style">
-      
-      LWN 의 &ldquo;Memory: the flat, the discontiguous, and the sparse&rdquo; 라는 제목의 글의 한글 번역입니다. 원문은 LWN 에서 볼 수 있습니다: https://lwn.net/Articles/789304/
- May 27, 2019
-이 기사는 Mike Rapoport 에 의해 기여되었습니다.
-컴퓨터 시스템에서 물리 메모리는 소중한 자원이어서, 이를 효율적으로 관리하기 위한 많은 노력이 기울여져왔습니다. 이 일은 현대의 시스템에서의 메모리 구조가 복잡해짐에 따라 더 어려워졌습니다. 물리 메모리가 실제로 어떻게 위치해 있는가를 다루기 위한 여러 계층의 추상화가 존재합니다; 그런 추상화 중 하나는 &ldquo;메모리 모델&rdquo; 이라고 불립니다.
-      
-    </div>
-  </div>
+
   
-  <div>
-    <h2><a href="/ko/post/lkml_news_v5.3-rc2/">LKML News v5.3-rc2</a></h2>
-    <div class="article-style">
+  <span class="article-date">
+    
+    
       
-      [PATCH v6 0/5] Introduce MADV_COLD and MADV_PAGEOUT https://lkml.kernel.org/r/20190723062539.198697-1-minchan@kernel.org
-어플리케이션의 메모리를 좀 더 적극적으로 reclaim 시킴으로써 반응성을 높이기 위한 패치셋의 일부를 따로 떼어낸, MADV_COLD 와 MADV_PAGEOUT 힌트를 madvise() 에 추가하는 패치의 여섯번째 버전입니다.
-일곱번째 버전도 빠르게 올라왔군요: https://lkml.kernel.org/r/20190726023435.214162-1-minchan@kernel.org 단순히 mmotm 최신 버전 위로 리베이스 한 것 같네요.
-[PATCH v9 00/21] Generic page walk and ptdump https://lkml.kernel.org/r/20190722154210.42799-1-steven.price@arm.com
-x86 과 arm64 가 범용적 페이지 테이블 워킹을 하도록 했던 해치셋을 조금 더 확장한 버전입니다. 기존 대비 페이지 테이블 덤프 기능도 일반화 시킨게 차이군요.
+          Last updated on
       
-    </div>
-  </div>
+    
+    Fri, Sep 16, 2022
+  </span>
   
-  <div>
-    <h2><a href="/ko/post/lkml_news_v5.3-rc1/">LKML News v5.3-rc1</a></h2>
-    <div class="article-style">
-      
-      [PATCH v5 0/5] Introduce MADV_COLD and MADV_PAGEOUT https://lkml.kernel.org/r/20190714233401.36909-1-minchan@kernel.org
-MADV_COLD 와 MADV_PAGEOUT 을 구현하는 패치, 어느새 다섯번째 버전입니다. 큰 변경은 없는 것 같군요.
-[PATCH v2 0/3] Make working with compound pages easier https://lkml.kernel.org/r/20190721104612.19120-1-willy@infradead.org
-Huge page 를 다루기 쉽게끔 page_size(), page_shift(), 그리고 compound_nr() 이라는 세개의 helper 함수를 추가하고 이 함수들을 사용하게끔 기존 코드를 다듬는 패치셋입니다.
-PAGE_SIZE &lt;&lt; compound_order(page) 는 page_size(page) 가, PAGE_SHIFT + compound_order(page) 는 page_shift(page) 가, 그리고 1 &lt;&lt; compound_order(page) 는 compound_nr(page) 가 되는 것이죠.
-      
-    </div>
-  </div>
+
   
-  <div>
-    <h2><a href="/ko/post/lkml_news_v5.2/">LKML News v5.2</a></h2>
-    <div class="article-style">
-      
-      [PATCH v5 00/12] S.A.R.A. a new stacked LSM https://lkml.kernel.org/r/1562410493-8661-1-git-send-email-s.mesoraca16@gmail.com
-다양한 보안 측정을 위한 공용 인터페이스를 제공하는 스택 기반의 리눅스 보안 모듈입니다. 이름이 재밌네요. S.A.R.A 는 S.A.R.A is Another Recursive Acronym 의 약자라고 합니다.
-Linux 5.2 https://lkml.kernel.org/r/CAHk-=whtW3FdruS-q2zehJPSan1SKtHoFHKX28A3J_1gfTFUMw@mail.gmail.com
-이번 릴리즈 중간엔 토발즈의 여행이 있었죠. 초반엔 예상 외로 큰 rc 릴리즈도 있었구요. 해서 이번주는 rc8 이 릴리즈 될지 5.2가 릴리즈 될지 저도 좀 궁금했는데, 최종적으로 5.2 릴리즈가 되었습니다. 토발즈도 rc8 을 릴리즈 할까 망설였다고 하네요.
-      
-    </div>
-  </div>
+
   
-  <div>
-    <h2><a href="/ko/post/lkml_news_v5.2-rc7/">LKML News v5.2-rc7</a></h2>
-    <div class="article-style">
-      
-      [PATCH v7 0/4] THP aware uprobe https://lkml.kernel.org/r/20190625235325.2096441-1-songliubraving@fb.com
-uprobe 가 THP 로 받쳐지고 있는 코드에 적용되면 이 THP 는 regular page 로 쪼개집니다. 이 패치셋은 이 문제를 해결합니다.
-[PATCH v9 0/6] Enable THP for text section of non-shmem files https://lkml.kernel.org/r/20190625001246.685563-1-songliubraving@fb.com
-어플리케이션의 텍스트 섹션을 THP 로 지원해 줌으로써 iTLB 미스를 줄이고 성능을 높이고자 하는 패치셋입니다.
-Linux 5.2-rc7 https://lkml.kernel.org/r/CAHk-=wgL5GyQ93o=VyiymFPfw=Z0TGHEPBJrCtGSqFSW2Mhx8g@mail.gmail.com
-여전히 토발즈의 여행 탓에 릴리즈가 평소와 조금 다른 시간대에 이뤄졌습니다, 토발즈 자신의 시점으로는 평소와 같은 일요일 오후지만요.
-      
-    </div>
-  </div>
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    4 min read
+  </span>
   
-  <div>
-    <h2><a href="/ko/post/lkml_news_v5.2-rc6/">LKML News v5.2-rc6</a></h2>
-    <div class="article-style">
-      
-      [PATCH NOTFORMERGE 0/5] Extend remote madvise API to KSM hints https://lkml.kernel.org/r/20190616085835.953-1-oleksandr@redhat.com
-이 블로그에서도 여러번 소개한 remote madvise() 에 대한 관심이 많이 있는 것 같네요. 이 패치셋은 MADV_MERGEABLE, MADV_UNMERGEABLE 을 추가해서 KSM 힌트도 madvise() 를 통해 줄 수 있게 합니다.
-논의를 위한 패치라 이대로 머지되진 않겠지만, 사용처가 많이 늘어날 것 같네요.
-Linux 5.2-rc6 https://lkml.kernel.org/r/CAHk-=wg+nPKhdn=vKSgJQkfOSGhauTO4jyt=0FH9cnM_QChDLw@mail.gmail.com
-안타깝게도 기대와 달리 이번 릴리즈는 조용하지 않았습니다. 이번 5.2 개발을 위한 릴리즈 중 머지 윈도우와 rc1 을 제외하면 rc6 가 오히려 가장 많은 변화를 담고 있다는군요.
-      
-    </div>
-  </div>
+
   
-  <div>
-    <h2><a href="/ko/post/lkml_news_v5.2-rc5/">LKML News v5.2-rc5</a></h2>
-    <div class="article-style">
-      
-      [PATCH v3 0/5] THP aware uprobe https://lkml.kernel.org/r/20190612220320.2223898-1-songliubraving@fb.com
-uprobe 는 THP 로 되어있는 페이지를 쪼갭니다. 이로 인해 성능 향상 효과가 사라지죠. 이 패치셋은 uprobe 가 THP 를 인식하게 해서 이런 문제를 제거합니다.
-[PATCH v2 0/5] Introduce MADV_COLD and MADV_PAGEOUT https://lkml.kernel.org/r/20190610111252.239156-1-minchan@kernel.org
-기존에도 소개한 MADV_COLD 와 MADV_PAGEOUT 을 madvise() 에 추가하는 패치셋의 두번째 버전입니다. 이 패치셋을 ChromeOS 팀의 Brian Geffon 은 가져다가 탭이 백그라운드로 들어가고 45초 이상 그 상태를 유지하면 이 기능을 사용해서 페이지를 proactively swap out 시켰는데, 그 결과 tab 전환 속도가 25% 나 빨라졌다고 합니다.
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/ko/categories/about/">about</a></span>
+  
+
+</div>
+
       
     </div>
+
+    
+
   </div>
+  <div class="ml-3">
+    
+    
+  </div>
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0">
+      <a href="/ko/post/perfbook-kokr/" >&#34;Is Parallel Programming Hard, And, If So, What Can You Do About It?&#34; Translation</a>
+    </h3>
+
+    
+    <div class="article-style">
+      &ldquo;Is Parallel Programming is Hard, And, If So, What Can You Do About It?&quot;[1] 은 parallel programming 분야에서 대가라 불릴만한 분으로, 이쪽 분야에 …
+    </div>
+    
+
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Tue, Jan 10, 2017
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/ko/categories/projects/">projects</a></span>
+  
+
+</div>
+
+      
+    </div>
+
+    
+
+  </div>
+  <div class="ml-3">
+    
+    
+  </div>
+</div>
+
+    
   
 
   
 <nav>
   <ul class="pagination justify-content-center">
     
-    <li class="page-item"><a class="page-link" href="/ko/tags/kernel/page/2/">&laquo;</a></li>
+    <li class="page-item"><a class="page-link" href="/ko/post/page/18/">&laquo;</a></li>
     
-    
-    <li class="page-item"><a class="page-link" href="/ko/tags/kernel/page/4/">&raquo;</a></li>
     
   </ul>
 </nav>
+
 
 
 </div>
@@ -682,14 +729,6 @@ uprobe 는 THP 로 되어있는 페이지를 쪼갭니다. 이로 인해 성능 
       
 
       
-        
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js" integrity="sha256-1zu+3BnLYV9LdiY85uXMzii3bdrkelyp37e0ZyTAQh0=" crossorigin="anonymous"></script>
-        
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/languages/c.min.js"></script>
-        
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/languages/bash.min.js"></script>
-        
-      
 
       
       
@@ -701,8 +740,6 @@ uprobe 는 THP 로 되어있는 페이지를 쪼갭니다. 이로 인해 성능 
     
 
     
-    
-    <script>const code_highlighting = true;</script>
     
 
     

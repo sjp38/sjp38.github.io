@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="ko-kr">
   
-    <meta property="og:updated_time" content="2022-12-31T13:48:12-08:00">
+    <meta property="og:updated_time" content="2023-01-15T10:36:11-08:00">
   
 
   
@@ -525,6 +525,28 @@
   
   
   <div>
+    <h2><a href="/ko/post/lkml_news_v5.4-rc8/">LKML News v5.4-rc8</a></h2>
+    <div class="article-style">
+      
+      [PATCH 00/13] Finish off [smp_]read_barrier_depends() https://lkml.kernel.org/r/20191108170120.22331-1-will@kernel.org
+Alpha 에만 의존적인 메모리 모델 요소인 smp_read_barrier_depends() 는 READ_ONCE() 에 내장됨으로써 Alpha-specific 하지 않은 커널 코드에서는 Alpha 를 신경쓰지 않아도 되게 되었죠. 그럼에도 불구하고 이걸 신경쓰는 코드가 올라오는게 신경쓰였나 봅니다. 이 패치셋은 커널 코드의 모든 문서와 주석에서 해당 기능에 대한 설명을 삭제해 버립니다.
+[PATCH v4 00/10] Add Kernel Concurrency Sanitizer (KCSAN) https://lkml.kernel.org/r/20191114180303.66955-1-elver@google.com
+구글의 동시성 버그를 잡아주는 KCSAN 패치입니다. 이번 버전은 x86 만을 위한 버전이지만 조만간 ARM64 와 POWER 지원을 추가할 예정이라는군요.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/ko/post/lkml_news_v5.4-rc7/">LKML News v5.4-rc7</a></h2>
+    <div class="article-style">
+      
+      Linux 5.4-rc7 https://lkml.kernel.org/r/CAHk-=wivmGEOTha5XkRHgH6VwfiroiN+PFVMNK3B0r-d0eFLPQ@mail.gmail.com
+일곱번째 rc 버전이 릴리즈 되었습니다. 지난 rc6 때도 변경량이 생각보다 많아 토발즈가 고민했는데, 이번주도 토발즈가 원했던 것보단 변경량이 많았다고 하는군요. 다음주에 rc8 을 낼지 5.4 정식 버전을 낼지는 좀 더 고민해 봐야겠다고 합니다.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/ko/post/lkml_news_v5.4-rc6/">LKML News v5.4-rc6</a></h2>
     <div class="article-style">
       
@@ -615,27 +637,6 @@ LPC 와 커널 서밋 등으로 인해 한주 늦춰진 5.
 슬랩 할당자의 실제 메모리 활용률이 대부분 45-65 퍼센트에 불과했다고 합니다. 이는 슬랩 페이지가 각 메모리 cgroup 마다 배타적으로 사용되기 때문입니다. 적은 메모리만 사용하는 cgroup 여러개가 존재하면 슬랩에서 크게 받아놓은 메모리에서 조금씩만 실제 사용되니까 전체 활용률은 낮게 되는거죠. 이 RFC 패치셋은 서로 다른 cgroup 들이 슬랩 페이지를 공유할 수 있게 함으로써 이 문제를 해결합니다.
 Linux 5.3-rc8 https://lkml.kernel.org/r/CAHk-=whBQ+6c-h+htiv6pp8ndtv97+45AH9WvdZougDRM6M4VQ@mail.gmail.com
 평소대로라면 5.3 정식 릴리즈가 되었을테고 별다른 문제는 없었지만, rc7 릴리즈에서 이야기된대로 LPC 와 커널 서밋도 있고 한 이유로, -rc8 이 릴리즈 되었습니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/ko/post/lkml_news_v5.3-rc7/">LKML News v5.3-rc7</a></h2>
-    <div class="article-style">
-      
-      평소보다 늦은 월요일 아침 릴리즈가 이뤄졌습니다. 일요일에 토발즈가 컴퓨터로부터 떨어져 있었다는군요.
-늦어진 릴리즈 덕분에 뒤늦게 들어온 풀리퀘스트를 더 받을 수 있었고, 이로 인해 이번 rc 릴리즈는 평소보다 좀 사이즈가 큽니다. 따라서 이번 릴리즈의 크기가 불안정성을 의미하는 게 아니라 5.3 정식 릴리즈를 늦출 필요는 없습니다만, 공교롭게도 또한 다음주는 LPC 와 커널 서밋이 있죠. 토발즈도 그렇고 많은 다른 개발자들도 이때 LPC 와 커널 서밋에 참가할 거라, rc7 을 마지막으로 5.3 릴리즈를 하면 5.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/ko/post/lkml_news_v5.3-rc6/">LKML News v5.3-rc6</a></h2>
-    <div class="article-style">
-      
-      Linux 5.3-rc6 https://lkml.kernel.org/r/CAHk-=wgAKCTq+t5YnG6HzrF62=rr9H=q3LqokEP0_bQRHLwYNw@mail.gmail.com
-오늘은 리눅스의 28번째 생일입니다. 따라서 오늘 rc6 릴리즈는 28년만의 릴리즈이기도 하군요. 토발즈도 감회가 깊었는지 오늘의 릴리즈 메일엔 최초 릴리즈 메일에 적었던 내용과 비슷하게 시작 부분을 꾸몄네요. 감회 깊은 날, 감회 깊은 릴리즈입니다.
-리눅스를 사용하는 여러분들 안녕하세요, 저는 486 AT 클론과 그외의 많은 다른 하드웨어를 위한 (자유) 운영체제를 (취미보단 더 진지하게) 만들고 있습니다. 이 일은 28년째 지속되고 있고, 아직도 끝나지 않았습니다. 이 릴리즈에 의해 만들어진 (또는 그보다 오래된) 모든 버그에 대한 피드백을 부탁드립니다.
       
     </div>
   </div>

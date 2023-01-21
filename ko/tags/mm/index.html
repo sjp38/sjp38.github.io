@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="ko-kr">
   
-    <meta property="og:updated_time" content="2020-09-26T08:47:12&#43;02:00">
+    <meta property="og:updated_time" content="2023-01-15T10:36:11-08:00">
   
 
   
@@ -523,6 +523,27 @@
   
 
   
+  
+  <div>
+    <h2><a href="/ko/post/damon_optimization_guide/">DAMON-based System Optimization Guide</a></h2>
+    <div class="article-style">
+      
+      This document helps you estimating the amount of benefit that you could get from DAMON-based system optimizations, and describes how you could achieve it.
+Check The Signs No optimization can provide same extent of benefit to every case. Therefore you should first guess how much improvements you could get using DAMON. If some of below conditions match your situation, you could consider using DAMON.
+ Low IPC and High Cache Miss Ratios.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/ko/post/damon_evaluation/">DAMON Evaluation</a></h2>
+    <div class="article-style">
+      
+      DAMON is lightweight. It increases system memory usage by 0.39% and slows target workloads down by 1.16%.
+DAMON is accurate and useful for memory management optimizations. An experimental DAMON-based operation scheme for THP, namely &lsquo;ethp&rsquo;, removes 76.15% of THP memory overheads while preserving 51.25% of THP speedup. Another experimental DAMON-based &lsquo;proactive reclamation&rsquo; implementation, namely &lsquo;prcl&rsquo;, reduces 93.38% of residential sets and 23.63% of system memory footprint while incurring only 1.22% runtime overhead in the best case (parsec3/freqmine).
+      
+    </div>
+  </div>
   
   <div>
     <h2><a href="/ko/post/damon-tests_open_sourced/">DAMON 테스트 패키지가 GPL v2 로 릴리즈 되었습니다</a></h2>
