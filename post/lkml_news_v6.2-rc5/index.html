@@ -574,7 +574,7 @@ On huge memory systems, memory error is inevitable, so detailed statistics of it
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -632,6 +632,23 @@ collection has posted.</p>
 <p><a href="https://lkml.kernel.org/r/20230118080011.2258375-1-npiggin@gmail.com">https://lkml.kernel.org/r/20230118080011.2258375-1-npiggin@gmail.com</a></p>
 <p>The lazy tlb shootdown patchset is revised with last suggested modification
 from Andy and Linus.</p>
+<h2 id="linux-62-rc5-linus-torvalds">Linux 6.2-rc5 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wg+E9tTCrSqBOxejUX11f8ebyRWQ+4exC=cmOEupX_d7Q@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wg+E9tTCrSqBOxejUX11f8ebyRWQ+4exC=cmOEupX_d7Q@mail.gmail.com</a></p>
+<p>Unlike the expectation, the winter holidays season effect is not finished.  The
+fifth releae candidate of Linux v6.2 ended up having some size.  Linus also
+note that Linux v6.2 will have rc8 regardless of this, as we apparently lost
+one or two weeks.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.11-rc6..v6.2-rc5.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2021-01-23 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc4 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v6.2-rc5-only.png" alt="rc5 release stat"></p>
 
     </div>
 
