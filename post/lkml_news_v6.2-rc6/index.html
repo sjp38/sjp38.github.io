@@ -29,7 +29,9 @@
     
   
   <meta name="description" content="[RFC PATCH 00/19] mm: Introduce a cgroup to limit the amount of locked and pinned memory (Alistair Popple) https://lkml.kernel.org/r/cover.f52b9eb2792bccb8a9ecd6bc95055705cfe2ae03.1674538665.git-series.apopple@nvidia.com
-This RFC patchset introduces a cgroup limit like RLIMIT_MEMLOCKED but that for pinned pages.">
+This RFC patchset introduces a cgroup limit like RLIMIT_MEMLOCKED but that for pinned pages.
+[RFC PATCH 0/4] Fix excessive CPU usage during compaction (Mel Gorman) https://lkml.kernel.org/r/20230125134434.18017-1-mgorman@techsingularity.net
+A patch for not ignoring fast_find_migrateblock() found pageblocks made compaction shows high CPU and stalls. It therefore once merged in mainline, than reverted, and again merged in mm-unstable.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/lkml_news_v6.2-rc6/">
@@ -152,7 +154,9 @@ This RFC patchset introduces a cgroup limit like RLIMIT_MEMLOCKED but that for p
   <meta property="og:url" content="https://sjp38.github.io/post/lkml_news_v6.2-rc6/">
   <meta property="og:title" content="LKML News v6.2-rc6 | hacklog">
   <meta property="og:description" content="[RFC PATCH 00/19] mm: Introduce a cgroup to limit the amount of locked and pinned memory (Alistair Popple) https://lkml.kernel.org/r/cover.f52b9eb2792bccb8a9ecd6bc95055705cfe2ae03.1674538665.git-series.apopple@nvidia.com
-This RFC patchset introduces a cgroup limit like RLIMIT_MEMLOCKED but that for pinned pages."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
+This RFC patchset introduces a cgroup limit like RLIMIT_MEMLOCKED but that for pinned pages.
+[RFC PATCH 0/4] Fix excessive CPU usage during compaction (Mel Gorman) https://lkml.kernel.org/r/20230125134434.18017-1-mgorman@techsingularity.net
+A patch for not ignoring fast_find_migrateblock() found pageblocks made compaction shows high CPU and stalls. It therefore once merged in mainline, than reverted, and again merged in mm-unstable."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -204,7 +208,7 @@ This RFC patchset introduces a cgroup limit like RLIMIT_MEMLOCKED but that for p
       "url": "https://sjp38.github.io/img/icon-512.png"
     }
   },
-  "description": "[RFC PATCH 00/19] mm: Introduce a cgroup to limit the amount of locked and pinned memory (Alistair Popple) https://lkml.kernel.org/r/cover.f52b9eb2792bccb8a9ecd6bc95055705cfe2ae03.1674538665.git-series.apopple@nvidia.com\nThis RFC patchset introduces a cgroup limit like RLIMIT_MEMLOCKED but that for pinned pages."
+  "description": "[RFC PATCH 00/19] mm: Introduce a cgroup to limit the amount of locked and pinned memory (Alistair Popple) https://lkml.kernel.org/r/cover.f52b9eb2792bccb8a9ecd6bc95055705cfe2ae03.1674538665.git-series.apopple@nvidia.com\nThis RFC patchset introduces a cgroup limit like RLIMIT_MEMLOCKED but that for pinned pages.\n[RFC PATCH 0/4] Fix excessive CPU usage during compaction (Mel Gorman) https://lkml.kernel.org/r/20230125134434.18017-1-mgorman@techsingularity.net\nA patch for not ignoring fast_find_migrateblock() found pageblocks made compaction shows high CPU and stalls. It therefore once merged in mainline, than reverted, and again merged in mm-unstable."
 }
 </script>
 
@@ -614,6 +618,13 @@ This RFC patchset introduces a cgroup limit like RLIMIT_MEMLOCKED but that for p
 <p><a href="https://lkml.kernel.org/r/cover.f52b9eb2792bccb8a9ecd6bc95055705cfe2ae03.1674538665.git-series.apopple@nvidia.com">https://lkml.kernel.org/r/cover.f52b9eb2792bccb8a9ecd6bc95055705cfe2ae03.1674538665.git-series.apopple@nvidia.com</a></p>
 <p>This RFC patchset introduces a cgroup limit like <code>RLIMIT_MEMLOCKED</code> but that
 for pinned pages.</p>
+<h2 id="rfc-patch-04-fix-excessive-cpu-usage-during-compaction-mel-gorman">[RFC PATCH 0/4] Fix excessive CPU usage during compaction (Mel Gorman)</h2>
+<p><a href="https://lkml.kernel.org/r/20230125134434.18017-1-mgorman@techsingularity.net">https://lkml.kernel.org/r/20230125134434.18017-1-mgorman@techsingularity.net</a></p>
+<p>A patch for not ignoring <code>fast_find_migrateblock()</code> found pageblocks made
+compaction shows high CPU and stalls.  It therefore once merged in mainline,
+than reverted, and again merged in mm-unstable.  This patch fixes the
+underlying problem of the issue, so that the revert of the patch and reverted
+later.</p>
 
     </div>
 
