@@ -625,6 +625,12 @@ compaction shows high CPU and stalls.  It therefore once merged in mainline,
 than reverted, and again merged in mm-unstable.  This patch fixes the
 underlying problem of the issue, so that the revert of the patch and reverted
 later.</p>
+<h2 id="patch-v3-07-introduce-vm_flags-modifier-functions-suren-baghdasaryan">[PATCH v3 0/7] introduce vm_flags modifier functions (Suren Baghdasaryan)</h2>
+<p><a href="https://lkml.kernel.org/r/20230125233554.153109-1-surenb@google.com">https://lkml.kernel.org/r/20230125233554.153109-1-surenb@google.com</a></p>
+<p><code>vm_flags</code> are usually modified under exclusive <code>mmap_lock</code> protection to
+prevent racing with concurrent VMA operations like merging and splitting.  This
+patchset introduces a modifier function that ensure correct locking.</p>
+<p>This was a part of per-VMA locking, but separated.</p>
 
     </div>
 
