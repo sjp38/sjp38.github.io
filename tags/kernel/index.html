@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2023-01-31T07:50:12-08:00">
+    <meta property="og:updated_time" content="2023-02-07T06:32:31-08:00">
   
 
   
@@ -525,6 +525,16 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.2-rc8/">LKML News v6.2-rc8</a></h2>
+    <div class="article-style">
+      
+      [LSF/MM/BPF TOPIC] sframe: An orc like stack unwinder for the kernel to get a user space stacktrace (Steven Rostedt) https://lkml.kernel.org/r/20230206103828.6efcb28f@rorschach.local.home
+Steven Rostedt proposes yet another LSF/MM/BPF topic for using sframe section, which is introduced by binutils, for more efficient user space stack tracing.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.2-rc7/">LKML News v6.2-rc7</a></h2>
     <div class="article-style">
       
@@ -630,18 +640,6 @@ Patchset for converting Idle Pages Tracking and DAMON to use Folios instead of P
 [PATCH 1/1] mm: fix vma-&gt;anon_name memory leak for anonymous shmem VMAs (Suren Baghdasaryan) https://lkml.kernel.org/r/20221228194249.170354-1-surenb@google.com
 Shared anonymous pages VMA naming has a memory leak. This patch fixes the leak.
 [QUESTION] about the maple tree and current status of mmap_lock scalability (Hyeonggon Yoo) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.2-rc1/">LKML News v6.2-rc1</a></h2>
-    <div class="article-style">
-      
-      memcg reclaim demotion wrt. isolation (Michal Hocko) https://lkml.kernel.org/r/Y5idFucjKVbjatqc@dhcp22.suse.cz
-Currently pages allocated for demotion targets includes __GFP_KSWAPD_RECALIM, and therefore memcg triggered reclaim could result in reclaims of pages in different hierarchy. Michal suggests simple modification of it.
-[GIT PULL] MM updates for 6.2-rc1 (Andrew Morton) (1+ msgs) (Andrew Morton) https://lkml.kernel.org/r/20221213142614.525a9240506119abc3cef6b6@linux-foundation.org
-Andrew Morton sent the MM pull request for v6.2-rc1 to Linus Torvalds. It includes 28 DAMON patches for cleanup and DAMOS tried regions sysfs.
       
     </div>
   </div>
