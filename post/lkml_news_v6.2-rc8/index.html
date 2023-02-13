@@ -574,7 +574,7 @@ Fourth version of the patchset making copy-on-write be used for page table, whil
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -630,6 +630,24 @@ like performance differentiated memory as &lsquo;System RAM&rsquo; by default.</
 <p><a href="https://lkml.kernel.org/r/cover.1676067791.git.quic_sudaraja@quicinc.com">https://lkml.kernel.org/r/cover.1676067791.git.quic_sudaraja@quicinc.com</a></p>
 <p>The minimum window size of PSI is 500ms.  This patch asks the rationale behind
 the decision and suggest reducing it to 50ms.</p>
+<h2 id="linux-62-rc8-linus-torvalds">Linux 6.2-rc8 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wj1=T1KzpPWbhqfFWOEp5Wf_kj3JjTHSHmEngf0-Vv7aA@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wj1=T1KzpPWbhqfFWOEp5Wf_kj3JjTHSHmEngf0-Vv7aA@mail.gmail.com</a></p>
+<p>The eighth candidate for Linux 6.2 release has released.  It was fairly calm.
+This extended stabilization week was not due to any problem, but just to make
+the time for early holiday season.  It turned out it might not really needed,
+but there was also no reason to change already announced plan.  So we are
+having one more week for stabilization of Linux 6.2.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.12-rc1..v6.2-rc8.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2021-02-13 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc6 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v6.2-rc8-only.png" alt="rc8 release stat"></p>
 
     </div>
 
