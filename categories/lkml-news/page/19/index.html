@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2023-02-07T06:32:31-08:00">
+    <meta property="og:updated_time" content="2023-02-14T07:02:05-08:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.1-rc5/">LKML News v5.1-rc5</a></h2>
+    <div class="article-style">
+      
+      [v2 RFC PATCH 0/9] Another Approach to Use PMEM as NUMA Node https://lkml.kernel.org/r/1554955019-29472-1-git-send-email-yang.shi@linux.alibaba.com
+본 블로그를 통해 지속적으로 소개하고 있는, PMEM as NUMA node 를 위한, 보다 나은 hotness 기반 page location 을 위한 패치셋입니다. 기존 코멘트에 기반해서 두번째 버전을 내놓았군요.
+[RFC PATCH v3 00/15] Slab Movable Objects (SMO) https://lkml.kernel.org/r/20190411013441.5415-1-tobin@kernel.org
+최근 LWN 에서도 소개된 (https://lwn.net/Articles/784964/) 패치입니다. Slab allocator 에서 할당된 object 가 free page 가운데에 박혀 있어 page 를 회수할 수 없는 fragmentation 이 발생합니다.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.1-rc4/">LKML News v5.1-rc4</a></h2>
     <div class="article-style">
       
@@ -636,22 +648,6 @@ Memory management facing a 400Gpbs network link https://lkml.kernel.org/r/010001
 리눅스 커널의 page 정보는 PG_ 로 시작하는 플래그를 사용해 현재 상태를 알리는데요, 이걸 저장하는데 사용되는 공간을 더 줄일 수 있을지에 대한 논의를 해보고 싶다는 LSF/MM 제안입니다.
 [LSF/MM TOPIC] Use NVDIMM as NUMA node and NUMA API https://lkml.kernel.org/r/f0d66b0c-c9b6-a040-c485-1606041a70a2@linux.alibaba.com
 알리바바에서는 NVDIMM 을 클라우드 고객들에게 싼 비용의 메모리로 제공하려 한다는군요. 이를 위해 여러 필요성이 있고, 현재 NUMA API 로는 모든 경우를 커퍼하기가 어렵다고 합니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.0-rc3/">LKML News v5.0-rc3</a></h2>
-    <div class="article-style">
-      
-      LSF/MM 2019: Call for Proposals https://lkml.kernel.org/r/51b4b263-a0f2-113d-7bdc-f7960b540929@kernel.dk
-올해의 LSF/MM 을 위한 발표 모집입니다. 올해는 푸에르토리코에서 4월 30일부터 5월 2일까지 열리는군요.
-[LSF/MM TOPIC] NUMA, memory hierarchy and device memory https://lkml.kernel.org/r/20190118174512.GA3060@redhat.com
-LSF/MM 을 위한 발표 지원입니다. NUMA API 가 다계층 메모리에 적용될 때의 단점에 대해서 이야기 해보겠다는군요.
-[PATCH 00/22] Increase success rates and reduce latency of compaction v3 https://lkml.kernel.org/r/20190118175136.31341-1-mgorman@techsingularity.net
-Mel Gorman 의 compaction 개선 패치셋 세번째 버전입니다.
-Linux 5.0-rc3 https://lkml.kernel.org/r/CAHk-=whS=6Z_UxzoMjLANupOk3u-8ycERLPnaZxShMTviW0jkQ@mail.gmail.com
-5.0 세번째 릴리즈입니다. 지난 릴리즈에서 여행 중이지만 항상 그렇듯 일요일 릴리즈를 하려 한다고 했는데, 이번에도 성공적이군요.
       
     </div>
   </div>

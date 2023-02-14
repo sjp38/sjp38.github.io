@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2023-02-07T06:32:31-08:00">
+    <meta property="og:updated_time" content="2023-02-14T07:02:05-08:00">
   
 
   
@@ -525,6 +525,21 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.2-rc3/">LKML News v5.2-rc3</a></h2>
+    <div class="article-style">
+      
+      [PATCH tip/core/rcu 0/12] https://lkml.kernel.org/r/20190530145204.GA28526@linux.ibm.com
+Paul E. McKenney 로부터의 RCU flavor consolidation 관련 추가 작업과 코드 정리를 위한 패치셋입니다.
+[PATCH tip/core/rcu 0/2] Documentation updates for v5.3 https://lkml.kernel.org/r/20190530145504.GA29820@linux.ibm.com
+RCU 문서 업데이트를 담고 있는 패치셋입니다. rcuref 의 실제 예제와 rcu_task_stall_timeout 의 정의에 대한 내용이 추가되었군요!
+[PATCH tip/core/rcu 0/21] Torture-test updates for v5.3 https://lkml.kernel.org/r/20190530151650.GA422@linux.ibm.com
+RCU 와 spinlock 등을 위해 사용되는 torture 테스트 업데이트를 담은 패치셋입니다. 무려 21개 패치네요!
+[RFCv2 0/6] introduce memory hinting API for external process https://lkml.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.2-rc2/">LKML News v5.2-rc2</a></h2>
     <div class="article-style">
       
@@ -630,19 +645,6 @@ v5.2 를 위한 torture test 의 업데이트 패치셋입니다. LKMM 이라던
     <div class="article-style">
       
       Update (2020-01-01): KUnit has merged in v5.5 merge window. From the writing of this post, it had some changes, so below content, especially the test setup and running will not work. Recommend you to refer to the official document in the kernel for detailed tutorial. It also has a python version dependency now, so you would encounter a problem with Ubuntu 16.04. Recommend you to use later Python or Ubuntu 18.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.1-rc2/">LKML News v5.1-rc2</a></h2>
-    <div class="article-style">
-      
-      [PATCH v5 00/19] Convert x86 &amp; arm64 to use generic page walk https://lkml.kernel.org/r/20190321141953.31960-1-steven.price@arm.com
-커널이 walk_page_range() 함수를 제공하긴 하지만 이 함수는 커널에 의해 사용되는 페이지 테이블은 볼수가 없기 때문에 각 아키텍쳐별로 페이지 테이블 순회를 위한 기능을 별도로 만들어 사용하고 있습니다.
-이 패치셋은 walk_page_range() 가 커널의 페이지 테이블을 만질 수 있도록 확장함으로써 그런 불필요한 아키텍쳐별 파편화를 줄이려 합니다.
-[PATCH v6 0/7] psi: pressure stall monitors v6 https://lkml.kernel.org/r/20190319235619.260832-1-surenb@google.com
-시스템이 어떤 부분의 pressure 를 받는지 쉽게 확인하기 위한 pressure stall monitor 구현 패치의 여섯 번째 버전입니다.
       
     </div>
   </div>

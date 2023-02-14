@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2023-02-07T06:32:31-08:00">
+    <meta property="og:updated_time" content="2023-02-14T07:02:05-08:00">
   
 
   
@@ -525,6 +525,16 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.2/">LKML News v6.2</a></h2>
+    <div class="article-style">
+      
+      [PATCH] mm/userfaultfd: Support operation on multiple VMAs (Muhammad Usama Anjum) https://lkml.kernel.org/r/20230213104323.1792839-1-usama.anjum@collabora.com
+mwriteprotect_range() handle only single VMA, but there are usecases which need to handle multiple VMAs in a memory range of interest. This commit fixes the case.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.2-rc8/">LKML News v6.2-rc8</a></h2>
     <div class="article-style">
       
@@ -629,19 +639,6 @@ Memory Management In 2022, 305 people participated in Linux kernel memory manage
 2022 was a year of active and healthy DAMON development.
 Seven new DAMON major features were delivered to users. Some of those were featured in articles and academic papers.
 It was possible thanks to the DAMON community. The community has expanded with its own mailing list and an open bi-weekly chat series. 40 people contributed their great code to DAMON via making their 275 commits merged into the mainline.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.2-rc2/">LKML News v6.2-rc2</a></h2>
-    <div class="article-style">
-      
-      [PATCH -next v3 0/7] mm: convert page_idle/damon to use folios (Kefeng Wang) https://lkml.kernel.org/r/20221228113413.10329-1-wangkefeng.wang@huawei.com
-Patchset for converting Idle Pages Tracking and DAMON to use Folios instead of Page where possible has posted.
-[PATCH 1/1] mm: fix vma-&gt;anon_name memory leak for anonymous shmem VMAs (Suren Baghdasaryan) https://lkml.kernel.org/r/20221228194249.170354-1-surenb@google.com
-Shared anonymous pages VMA naming has a memory leak. This patch fixes the leak.
-[QUESTION] about the maple tree and current status of mmap_lock scalability (Hyeonggon Yoo) https://lkml.
       
     </div>
   </div>

@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2023-02-07T06:32:31-08:00">
+    <meta property="og:updated_time" content="2023-02-14T07:02:05-08:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v4.17-rc6/">LKML News after v4.17-rc6</a></h2>
+    <div class="article-style">
+      
+      Linux v4.17-rc6 https://lkml.kernel.org/r/CA+55aFxxYQFL3mwsQcC+__R23ZmO8c3F0SThi6r44TdK0ePNDQ@mail.gmail.com
+여섯번째 release candidate 버전입니다. 이번 릴리즈에도 특기할 만한 일은 없었습니다. 이제 충분히 안정화 되었을 거라고 하는군요.
+[PATCH -mm -V3 00/21] mm, THP, swap: Swapout/swapin THP in one piece https://lkml.kernel.org/r/20180523082625.6897-1-ying.huang@intel.com
+이전에도 이 시리즈로 소개했던, THP 의 swap out 과 swap in 최적화 마지막 단계 패치의 세번째 버전입니다. 마지막 단계 이야기 하니 문득 인피니티워의 오역 논란이 떠오르는군요 ;) 두번째 버전 이후 특정 컨피규레이션에서의 빌드 버그를 수정했고, mmotm/master 브랜치의 5월 18일자 버전으로 rebase 한게 차이점의 전부군요.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v4.17-rc5/">LKML News after v4.17-rc5</a></h2>
     <div class="article-style">
       
@@ -622,18 +634,6 @@ NUMA 아키텍쳐에서 리눅스 커널은 NUMA 노드당 하나의 kswapd 쓰�
       
       Linux 4.16-rc6 https://lkml.kernel.org/r/CA+55aFzV1nffUeriZLksK90noD49T+w+WmgBsYMAO13rTbn3Pg@mail.gmail.com
 4.16 여섯번째 rc 버전이 나왔습니다. 4.16을 향한 이번 사이클은 상당히 순탄하게 진행되는군요. rc7 까진 만들 예정이라고 하는데, 그 후엔 4.16이 안정적으로 나오게 될 것 같습니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.16-rc5/">LKML News after v4.16-rc5</a></h2>
-    <div class="article-style">
-      
-      Linux 4.16-rc5 https://lkml.kernel.org/r/CA+55aFxXAMHeD8zz1BLv9r_2rjWJ6xE=cNGVAoWOvQJog7oz9A@mail.gmail.com
-여전히 특이사항 없는 한주를 거쳐 다섯번째 rc 버전이 나왔습니다. 이번 릴리즈가 기존의 rc5 단계보단 조금 크지만 특이할 정도는 아닌 모양이군요. 개인적으로 눈에 띈 부분은, overlayfs, xfs 등의 파일시스템의 변경, 그리고 perf 와 selftest 쪽 변경이 있군요.
-[PATCH v9 00/24] Speculative page faults https://lkml.kernel.org/r/1520963994-28477-1-git-send-email-ldufour@linux.vnet.ibm.com
-Speculative page faults 의 9번째 패치셋입니다. Michael Hocko 가 이거 너무 자주 올리는 거 아니냐고 한마디 했고, 패치 저자인 Laurent Dufour 도 오케이 했네요.
       
     </div>
   </div>
