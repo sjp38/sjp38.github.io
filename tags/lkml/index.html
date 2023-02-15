@@ -530,6 +530,8 @@
       
       [PATCH] mm/userfaultfd: Support operation on multiple VMAs (Muhammad Usama Anjum) https://lkml.kernel.org/r/20230213104323.1792839-1-usama.anjum@collabora.com
 mwriteprotect_range() handle only single VMA, but there are usecases which need to handle multiple VMAs in a memory range of interest. This commit fixes the case.
+[v2 PATCH 0/5] Introduce mempool pages bulk allocator and use it in dm-crypt (Yang Shi) https://lkml.kernel.org/r/20230214190221.1156876-1-shy828301@gmail.com
+Noticeable overhead on disc encryption due to page allocations have found. The overhead was because the allocation logic in dm-crypt allocates one page in each pass of a loop.
       
     </div>
   </div>

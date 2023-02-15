@@ -29,7 +29,9 @@
     
   
   <meta name="description" content="[PATCH] mm/userfaultfd: Support operation on multiple VMAs (Muhammad Usama Anjum) https://lkml.kernel.org/r/20230213104323.1792839-1-usama.anjum@collabora.com
-mwriteprotect_range() handle only single VMA, but there are usecases which need to handle multiple VMAs in a memory range of interest. This commit fixes the case.">
+mwriteprotect_range() handle only single VMA, but there are usecases which need to handle multiple VMAs in a memory range of interest. This commit fixes the case.
+[v2 PATCH 0/5] Introduce mempool pages bulk allocator and use it in dm-crypt (Yang Shi) https://lkml.kernel.org/r/20230214190221.1156876-1-shy828301@gmail.com
+Noticeable overhead on disc encryption due to page allocations have found. The overhead was because the allocation logic in dm-crypt allocates one page in each pass of a loop.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/lkml_news_v6.2/">
@@ -152,7 +154,9 @@ mwriteprotect_range() handle only single VMA, but there are usecases which need 
   <meta property="og:url" content="https://sjp38.github.io/post/lkml_news_v6.2/">
   <meta property="og:title" content="LKML News v6.2 | hacklog">
   <meta property="og:description" content="[PATCH] mm/userfaultfd: Support operation on multiple VMAs (Muhammad Usama Anjum) https://lkml.kernel.org/r/20230213104323.1792839-1-usama.anjum@collabora.com
-mwriteprotect_range() handle only single VMA, but there are usecases which need to handle multiple VMAs in a memory range of interest. This commit fixes the case."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
+mwriteprotect_range() handle only single VMA, but there are usecases which need to handle multiple VMAs in a memory range of interest. This commit fixes the case.
+[v2 PATCH 0/5] Introduce mempool pages bulk allocator and use it in dm-crypt (Yang Shi) https://lkml.kernel.org/r/20230214190221.1156876-1-shy828301@gmail.com
+Noticeable overhead on disc encryption due to page allocations have found. The overhead was because the allocation logic in dm-crypt allocates one page in each pass of a loop."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -204,7 +208,7 @@ mwriteprotect_range() handle only single VMA, but there are usecases which need 
       "url": "https://sjp38.github.io/img/icon-512.png"
     }
   },
-  "description": "[PATCH] mm/userfaultfd: Support operation on multiple VMAs (Muhammad Usama Anjum) https://lkml.kernel.org/r/20230213104323.1792839-1-usama.anjum@collabora.com\nmwriteprotect_range() handle only single VMA, but there are usecases which need to handle multiple VMAs in a memory range of interest. This commit fixes the case."
+  "description": "[PATCH] mm/userfaultfd: Support operation on multiple VMAs (Muhammad Usama Anjum) https://lkml.kernel.org/r/20230213104323.1792839-1-usama.anjum@collabora.com\nmwriteprotect_range() handle only single VMA, but there are usecases which need to handle multiple VMAs in a memory range of interest. This commit fixes the case.\n[v2 PATCH 0/5] Introduce mempool pages bulk allocator and use it in dm-crypt (Yang Shi) https://lkml.kernel.org/r/20230214190221.1156876-1-shy828301@gmail.com\nNoticeable overhead on disc encryption due to page allocations have found. The overhead was because the allocation logic in dm-crypt allocates one page in each pass of a loop."
 }
 </script>
 
@@ -615,6 +619,12 @@ mwriteprotect_range() handle only single VMA, but there are usecases which need 
 <p><code>mwriteprotect_range()</code> handle only single VMA, but there are usecases which
 need to handle multiple VMAs in a memory range of interest.  This commit fixes
 the case.</p>
+<h2 id="v2-patch-05-introduce-mempool-pages-bulk-allocator-and-use-it-in-dm-crypt-yang-shi">[v2 PATCH 0/5] Introduce mempool pages bulk allocator and use it in dm-crypt (Yang Shi)</h2>
+<p><a href="https://lkml.kernel.org/r/20230214190221.1156876-1-shy828301@gmail.com">https://lkml.kernel.org/r/20230214190221.1156876-1-shy828301@gmail.com</a></p>
+<p>Noticeable overhead on disc encryption due to page allocations have found.  The
+overhead was because the allocation logic in dm-crypt allocates one page in
+each pass of a loop.  This patchset introduces a new bulk allocator API and use
+it for dm-crypt.</p>
 
     </div>
 
