@@ -574,7 +574,7 @@ Noticeable overhead on disc encryption due to page allocations have found. The o
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -633,6 +633,26 @@ it for dm-crypt.</p>
 <p>PowerPC provides access counter and access affinity details at configurable
 page size granularity.  Aneesh propose to introduce it and discuss about the
 best ways to integrate it in the Linux kernel.</p>
+<h2 id="lsfmmbpf-topic-scalable-pagefaults-matthew-wilcox">[LSF/MM/BPF TOPIC] Scalable Pagefaults (Matthew Wilcox)</h2>
+<p><a href="https://lkml.kernel.org/r/Y+/f9slIaK195fRX@casper.infradead.org">https://lkml.kernel.org/r/Y+/f9slIaK195fRX@casper.infradead.org</a></p>
+<p>Matthew is proposing yet another topic for continueing the page faults multi
+CPU scalability issue.  He hopes the per-VMA locks patchset to be merged in at
+least mm tree by the time, and be able to discuss further improvements.</p>
+<h2 id="linux-62-linus-torvalds">Linux 6.2 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wio46vC4t6xXD-sFqjoPwFm_u515jm3suzmkGxQTeA1_A@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wio46vC4t6xXD-sFqjoPwFm_u515jm3suzmkGxQTeA1_A@mail.gmail.com</a></p>
+<p>Linux v6.2 has released as expected, with the extended schedule.  There were
+some more fixes for some regressions, but Linus didn&rsquo;t merge those because the
+maintainers didn&rsquo;t push.  Those would be merged in stable release of 6.2,
+later.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.12-rc2..v6.2.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2021-02-20 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
 
     </div>
 

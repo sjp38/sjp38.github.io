@@ -36,6 +36,26 @@ it for dm-crypt.&lt;/p&gt;
 &lt;p&gt;PowerPC provides access counter and access affinity details at configurable
 page size granularity.  Aneesh propose to introduce it and discuss about the
 best ways to integrate it in the Linux kernel.&lt;/p&gt;
+&lt;h2 id=&#34;lsfmmbpf-topic-scalable-pagefaults-matthew-wilcox&#34;&gt;[LSF/MM/BPF TOPIC] Scalable Pagefaults (Matthew Wilcox)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/Y+/f9slIaK195fRX@casper.infradead.org&#34;&gt;https://lkml.kernel.org/r/Y+/f9slIaK195fRX@casper.infradead.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Matthew is proposing yet another topic for continueing the page faults multi
+CPU scalability issue.  He hopes the per-VMA locks patchset to be merged in at
+least mm tree by the time, and be able to discuss further improvements.&lt;/p&gt;
+&lt;h2 id=&#34;linux-62-linus-torvalds&#34;&gt;Linux 6.2 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wio46vC4t6xXD-sFqjoPwFm_u515jm3suzmkGxQTeA1_A@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wio46vC4t6xXD-sFqjoPwFm_u515jm3suzmkGxQTeA1_A@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Linux v6.2 has released as expected, with the extended schedule.  There were
+some more fixes for some regressions, but Linus didn&amp;rsquo;t merge those because the
+maintainers didn&amp;rsquo;t push.  Those would be merged in stable release of 6.2,
+later.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/kernel_release_stat/v5.12-rc2..v6.2.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
+below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2021-02-20 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
