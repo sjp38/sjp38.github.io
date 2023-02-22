@@ -28,12 +28,13 @@
   
     
   
-  <meta name="description" content="Kernel Development Engineer">
+  <meta name="description" content="[GIT PULL] MM updates for 6.3-rc1 (Andrew Morton) https://lkml.kernel.org/r/20230220135225.91b0f28344c01d5306c31230@linux-foundation.org
+The mm updates pull request for v6.3-rc1 has posted by Andrew.
+[GIT PULL] Compute Express Link (CXL) for 6.3 (Dan Williams) https://lkml.kernel.org/r/63f5a4e2277b1_c94229453@dwillia2-mobl3.amr.corp.intel.com.notmuch
+A pull request for makincg CXL handling including CXL memory layout parsing/updating and events/errors reporting has posted for v6.3. Without this patchset, currently the works are dependents on platform-firmware.">
 
   
-  <link rel="alternate" hreflang="ko" href="https://sjp38.github.io/ko/tags/">
-  
-  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/tags/">
+  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/lkml_news_v6.3-rc1/">
 
   
 
@@ -133,14 +134,12 @@
 
 
   
-  <link rel="alternate" href="/tags/index.xml" type="application/rss+xml" title="hacklog">
-  
 
   <link rel="manifest" href="/index.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon-32.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://sjp38.github.io/tags/">
+  <link rel="canonical" href="https://sjp38.github.io/post/lkml_news_v6.3-rc1/">
 
   
   
@@ -152,18 +151,68 @@
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="hacklog">
-  <meta property="og:url" content="https://sjp38.github.io/tags/">
-  <meta property="og:title" content="Tags | hacklog">
-  <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
+  <meta property="og:url" content="https://sjp38.github.io/post/lkml_news_v6.3-rc1/">
+  <meta property="og:title" content="LKML News v6.3-rc1 | hacklog">
+  <meta property="og:description" content="[GIT PULL] MM updates for 6.3-rc1 (Andrew Morton) https://lkml.kernel.org/r/20230220135225.91b0f28344c01d5306c31230@linux-foundation.org
+The mm updates pull request for v6.3-rc1 has posted by Andrew.
+[GIT PULL] Compute Express Link (CXL) for 6.3 (Dan Williams) https://lkml.kernel.org/r/63f5a4e2277b1_c94229453@dwillia2-mobl3.amr.corp.intel.com.notmuch
+A pull request for makincg CXL handling including CXL memory layout parsing/updating and events/errors reporting has posted for v6.3. Without this patchset, currently the works are dependents on platform-firmware."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2023-02-21T07:32:00-08:00">
+    
+      <meta property="article:published_time" content="2023-02-21T07:32:00-08:00">
+    
+    <meta property="article:modified_time" content="2023-02-21T07:32:00-08:00">
   
 
   
 
 
+    
 
+
+
+
+
+
+  
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://sjp38.github.io/post/lkml_news_v6.3-rc1/"
+  },
+  "headline": "LKML News v6.3-rc1",
+  
+  "datePublished": "2023-02-21T07:32:00-08:00",
+  "dateModified": "2023-02-21T07:32:00-08:00",
+  
+  "author": {
+    "@type": "Person",
+    "name": "SeongJae Park"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "hacklog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://sjp38.github.io/img/icon-512.png"
+    }
+  },
+  "description": "[GIT PULL] MM updates for 6.3-rc1 (Andrew Morton) https://lkml.kernel.org/r/20230220135225.91b0f28344c01d5306c31230@linux-foundation.org\nThe mm updates pull request for v6.3-rc1 has posted by Andrew.\n[GIT PULL] Compute Express Link (CXL) for 6.3 (Dan Williams) https://lkml.kernel.org/r/63f5a4e2277b1_c94229453@dwillia2-mobl3.amr.corp.intel.com.notmuch\nA pull request for makincg CXL handling including CXL memory layout parsing/updating and events/errors reporting has posted for v6.3. Without this patchset, currently the works are dependents on platform-firmware."
+}
+</script>
+
+  
 
   
 
@@ -171,10 +220,13 @@
   
 
 
+  
 
 
 
-  <title>Tags | hacklog</title>
+
+
+  <title>LKML News v6.3-rc1 | hacklog</title>
 
 </head>
 
@@ -396,7 +448,7 @@
         
 
         <li class="nav-item">
-          <a class="nav-link  active" href="/tags"><span>Tags</span></a>
+          <a class="nav-link " href="/tags"><span>Tags</span></a>
         </li>
 
         
@@ -466,22 +518,6 @@
       
 
       
-      <li class="nav-item dropdown i18n-dropdown">
-        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true">
-          <i class="fas fa-globe mr-1" aria-hidden="true"></i><span class="d-none d-lg-inline">English</span>
-        </a>
-        <div class="dropdown-menu">
-          <div class="dropdown-item i18n-active font-weight-bold">
-            <span>English</span>
-          </div>
-          
-          <a class="dropdown-item" href="/ko/tags/">
-            <span>한국어</span>
-          </a>
-          
-        </div>
-      </li>
-      
 
     </ul>
 
@@ -489,126 +525,331 @@
 </nav>
 
 
-  
-
-
-
-
-
-
-
-
-
-
-
+  <article class="article">
 
   
 
+
+
+
+
+
+
+
+
+
+
+
+  
+
   
   
+  
+<div class="article-container pt-3">
+  <h1>LKML News v6.3-rc1</h1>
+
+  
+
   
     
-  
-<div class="universal-wrapper pt-3">
-  <h1>Tags</h1>
+
+
+<div class="article-metadata">
 
   
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Tue, Feb 21, 2023
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   
 </div>
 
 
 
-<div class="universal-wrapper">
-  
+  <div class="article-container">
 
-  
-  
-  <div>
-    <h2><a href="/tags/kunit/">kunit</a></h2>
     <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/unit-test/">unit test</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/docker/">docker</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/gitlab/">gitlab</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/install/">install</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/installation/">installation</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/fast/">fast</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/fast19/">fast19</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/conference/">conference</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/ksummit/">ksummit</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
+      <h2 id="git-pull-mm-updates-for-63-rc1-andrew-morton">[GIT PULL] MM updates for 6.3-rc1 (Andrew Morton)</h2>
+<p><a href="https://lkml.kernel.org/r/20230220135225.91b0f28344c01d5306c31230@linux-foundation.org">https://lkml.kernel.org/r/20230220135225.91b0f28344c01d5306c31230@linux-foundation.org</a></p>
+<p>The mm updates pull request for v6.3-rc1 has posted by Andrew.</p>
+<h2 id="git-pull-compute-express-link-cxl-for-63-dan-williams">[GIT PULL] Compute Express Link (CXL) for 6.3 (Dan Williams)</h2>
+<p><a href="https://lkml.kernel.org/r/63f5a4e2277b1_c94229453@dwillia2-mobl3.amr.corp.intel.com.notmuch">https://lkml.kernel.org/r/63f5a4e2277b1_c94229453@dwillia2-mobl3.amr.corp.intel.com.notmuch</a></p>
+<p>A pull request for makincg CXL handling including CXL memory layout
+parsing/updating and events/errors reporting has posted for v6.3.  Without this
+patchset, currently the works are dependents on platform-firmware.</p>
 
+    </div>
+
+    
+
+
+
+
+
+<div class="article-tags">
   
-<nav>
-  <ul class="pagination justify-content-center">
+  <a class="badge badge-light" href="/tags/linux/">linux</a>
+  
+  <a class="badge badge-light" href="/tags/kernel/">kernel</a>
+  
+  <a class="badge badge-light" href="/tags/lkml/">lkml</a>
+  
+  <a class="badge badge-light" href="/tags/news/">news</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
     
-    <li class="page-item"><a class="page-link" href="/tags/page/9/">&laquo;</a></li>
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=https://sjp38.github.io/post/lkml_news_v6.3-rc1/&amp;text=LKML%20News%20v6.3-rc1" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
     
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=https://sjp38.github.io/post/lkml_news_v6.3-rc1/&amp;t=LKML%20News%20v6.3-rc1" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
     
-    <li class="page-item"><a class="page-link" href="/tags/page/11/">&raquo;</a></li>
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=LKML%20News%20v6.3-rc1&amp;body=https://sjp38.github.io/post/lkml_news_v6.3-rc1/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=https://sjp38.github.io/post/lkml_news_v6.3-rc1/&amp;title=LKML%20News%20v6.3-rc1" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=LKML%20News%20v6.3-rc1%20https://sjp38.github.io/post/lkml_news_v6.3-rc1/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=https://sjp38.github.io/post/lkml_news_v6.3-rc1/&amp;title=LKML%20News%20v6.3-rc1" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
     
   </ul>
-</nav>
-
-
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      <img class="portrait mr-3" src="https://s.gravatar.com/avatar/43dc5645c78e68fda997138380dfaaf4?s=200')" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="https://sjp38.github.io/">SeongJae Park</a></h5>
+      <h6 class="card-subtitle">Kernel Development Engineer</h6>
+      <p class="card-text">SeongJae Park is a programmer who loves to analyze and develop systems.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/log/?qt=author&amp;q=seongjae&#43;park" target="_blank" rel="noopener">
+        <i class="fab fa-linux"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/sjp38" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.com/citations?user=jJIiF3AAAAAJ" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  
+  
+  <div class="article-widget content-widget-hr">
+    <h3>Related</h3>
+    <ul>
+      
+      <li><a href="/post/lkml_news_v6.2/">LKML News v6.2</a></li>
+      
+      <li><a href="/post/lkml_news_v6.2-rc8/">LKML News v6.2-rc8</a></li>
+      
+      <li><a href="/post/lkml_news_v6.2-rc7/">LKML News v6.2-rc7</a></li>
+      
+      <li><a href="/post/lkml_news_v6.2-rc6/">LKML News v6.2-rc6</a></li>
+      
+      <li><a href="/post/lkml_news_v6.2-rc5/">LKML News v6.2-rc5</a></li>
+      
+    </ul>
+  </div>
+  
+
+
+
+  </div>
+</article>
 
       
 
