@@ -28,6 +28,12 @@ patchset, currently the works are dependents on platform-firmware.&lt;/p&gt;
 &lt;h2 id=&#34;rfc-v2-05-tmpfs-add-the-option-to-disable-swap-luis-chamberlain&#34;&gt;[RFC v2 0/5] tmpfs: add the option to disable swap (Luis Chamberlain)&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20230223024412.3522465-1-mcgrof@kernel.org&#34;&gt;https://lkml.kernel.org/r/20230223024412.3522465-1-mcgrof@kernel.org&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;This RFC adds noswap option to tmpfs.&lt;/p&gt;
+&lt;h2 id=&#34;lsfmmbpf-topic-vm-memory-overcommit-tj-alumbaugh&#34;&gt;[LSF/MM/BPF TOPIC] VM Memory Overcommit (T.J. Alumbaugh)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CABmGT5H6t_agW=yY1U78tsV+chLoRf2=mcSc8GCYUD25PbxahQ@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CABmGT5H6t_agW=yY1U78tsV+chLoRf2=mcSc8GCYUD25PbxahQ@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Yet another proposal for memory overcommitted virtual machines systems has
+posted.  T.J proposes host-side efficient access tracking of guests&amp;rsquo; memory for
+host-guests independent case, and guest working set size notification mechanism
+and ballooning improvement for host-guest cooperate case.&lt;/p&gt;
 </description>
     </item>
     
@@ -8142,6 +8148,8 @@ available at another &lt;a href=&#34;https://sjp38.github.io/post/damon_evaluati
 &lt;h2 id=&#34;demo-screenshot&#34;&gt;Demo Screenshot&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/masim_stairs_heatmap_ascii.png&#34; alt=&#34;masim stairs heatmap in ascii&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;recent-news&#34;&gt;Recent News&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;2023-02-24&lt;/em&gt;: A preprint of an academic paper that compares their approach
+against DAMON has &lt;a href=&#34;https://arxiv.org/pdf/2302.09468.pdf&#34;&gt;uploaded&lt;/a&gt; to ArXiv.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;2023-02-13&lt;/em&gt;: LSF/MM/BPF topic proposal for DAMON has
 &lt;a href=&#34;https://lore.kernel.org/linux-mm/20230214003328.55285-1-sj@kernel.org/&#34;&gt;posted&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;2023-02-09&lt;/em&gt;: DAMON debugfs deprecation patchset has
@@ -8153,12 +8161,6 @@ and &lt;a href=&#34;https://www.phoronix.com/news/DAMON-Linux-2022&#34;&gt;featu
 cgroups have
 &lt;a href=&#34;https://lore.kernel.org/mm-commits/20221216235930.526BAC433EF@smtp.kernel.org/&#34;&gt;merged&lt;/a&gt;
 in mm tree.&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;2022-11-24&lt;/em&gt;: An RFC patchset for DAMOS filtering for anon pages and memory
-cgroups have
-&lt;a href=&#34;https://lore.kernel.org/damon/20221124212114.136863-1-sj@kernel.org/&#34;&gt;posted&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;2022-10-19&lt;/em&gt;: An RFC patchset for efficient query-like DAMON monitoring results
-have
-&lt;a href=&#34;https://lore.kernel.org/damon/20221019001317.104270-1-sj@kernel.org/&#34;&gt;posted&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;getting-started&#34;&gt;Getting Started&lt;/h2&gt;
 &lt;p&gt;You can start using DAMON by&lt;/p&gt;
 &lt;ul&gt;
@@ -8372,6 +8374,8 @@ June 2019.
 &lt;a href=&#34;https://ieeexplore.ieee.org/abstract/document/8791992&#34;&gt;Paper&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;news&#34;&gt;News&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;2023-02-24&lt;/em&gt;: A preprint of an academic paper that compares their approach
+against DAMON has &lt;a href=&#34;https://arxiv.org/pdf/2302.09468.pdf&#34;&gt;uploaded&lt;/a&gt; to ArXiv.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;2023-02-13&lt;/em&gt;: LSF/MM/BPF topic proposal for DAMON has
 &lt;a href=&#34;https://lore.kernel.org/linux-mm/20230214003328.55285-1-sj@kernel.org/&#34;&gt;posted&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;2023-02-09&lt;/em&gt;: DAMON debugfs deprecation patchset has
