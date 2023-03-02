@@ -650,6 +650,11 @@ currently limited by use of single spinlock, has posted.</p>
 <p><a href="https://lkml.kernel.org/r/Y/7L74P6jSWwOvWt@mit.edu">https://lkml.kernel.org/r/Y/7L74P6jSWwOvWt@mit.edu</a></p>
 <p>Ted proposes a LSF/MM/BPF topic for cloud storage optimizations, such as giving
 some useful hint for cloud storage to kernel.</p>
+<h2 id="patch-11-psi-remove-500ms-min-window-size-limitation-for-triggers-suren-baghdasaryan">[PATCH 1/1] psi: remove 500ms min window size limitation for triggers (Suren Baghdasaryan)</h2>
+<p><a href="https://lkml.kernel.org/r/20230301193403.1507484-1-surenb@google.com">https://lkml.kernel.org/r/20230301193403.1507484-1-surenb@google.com</a></p>
+<p>Current PSI limits polling interval to 50ms for preventing too much cpu time is
+used by too frequent polling.  This patchset tries to limit psi trigger
+creation instead of limiting psi events latency.</p>
 
     </div>
 
