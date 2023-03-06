@@ -659,6 +659,21 @@ creation instead of limiting psi events latency.</p>
 <p><a href="https://lkml.kernel.org/r/20230303073130.1950714-1-senozhatsky@chromium.org">https://lkml.kernel.org/r/20230303073130.1950714-1-senozhatsky@chromium.org</a></p>
 <p>This patchset reworks zsmalloc fullness grouping and classification for optimal
 page selection.</p>
+<h2 id="linux-63-rc1-linus-torvalds">Linux 6.3-rc1 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wgr1D8hb75Z+nn+4LXUnosp0HM+gP+YJEcEav1DgTC=Cw@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wgr1D8hb75Z+nn+4LXUnosp0HM+gP+YJEcEav1DgTC=Cw@mail.gmail.com</a></p>
+<p>After the two weeks of the merge window, first release candidate for v6.3 has
+released.  The merge window was fairly nice and normal, as usual, Linus says.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.12-rc3..v6.3-rc1.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2021-03-06 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc1 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v6.3-rc1-only.png" alt="rc1 release stat"></p>
 
     </div>
 
