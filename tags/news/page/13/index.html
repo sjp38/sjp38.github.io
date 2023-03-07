@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2023-02-21T07:32:00-08:00">
+    <meta property="og:updated_time" content="2023-03-07T07:40:16-08:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.9-rc1/">LKML News v5.9-rc1</a></h2>
+    <div class="article-style">
+      
+      mm: sort freelist by rank number (Cho KyongHo) https://lkml.kernel.org/r/1596435031-41837-1-git-send-email-pullip.cho@samsung.com
+LPDDR5 has severan ranks and there are ranks switching delay. Therefore, it would be better to do accesses in same ranks if possible. This patch sorts freelist by the rank number so that near future allocation can be done in same rank.
+[RFC-PROTOTYPE 1/1] mm: Add __GFP_FAST_TRY flag (Uladzislau Rezki) https://lkml.kernel.org/r/20200803163029.1997-1-urezki@gmail.com
+This is the rfc of the patch for the Paul&rsquo;s last ask.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.8/">LKML News v5.8</a></h2>
     <div class="article-style">
       
@@ -632,18 +644,6 @@ This is the second version of the rcu-protected kvfree().
 [PATCH v2 0/7] Add histogram measuring mmap_lock contention latency (Axel Rasmussen) https://lkml.kernel.org/r/20200528235238.74233-1-axelrasmussen@google.com
 For further analysis of the mmap_sem overhead from both kernel space and user space, this commit adds the latency historgram for mmap_sem acquisition time. Actually, mmap_sem is now renamed into mmap_lock, thanks to Michel&rsquo;s patch.
 [PATCH -V4] swap: Reduce lock contention on swap cache from swap slots allocation (Huang, Ying) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.7-rc7/">LKML News v5.7-rc7</a></h2>
-    <div class="article-style">
-      
-      [PATCH v5] mm: Proactive compaction (Nitin Gupta) https://lkml.kernel.org/r/20200518181446.25759-1-nigupta@nvidia.com
-The 5th version of the proactive compaction. This patchset make the compaction more proactive to make THP allocation easily success.
-[PATCH -V2] swap: Reduce lock contention on swap cache from swap slots allocation (Huang Ying) https://lkml.kernel.org/r/20200520031502.175659-1-ying.huang@intel.com
-After swap device is fragmented, there&rsquo;s no free swap cluster. Therefore, each swap logic of each CPU will linearly scan each swap cluster to find a free slot.
       
     </div>
   </div>
