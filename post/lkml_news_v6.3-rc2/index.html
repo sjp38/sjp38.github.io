@@ -30,7 +30,9 @@
   
   <meta name="description" content="[Invitation] Linux MM Alignment Session on Wednesday (David Rientjes) https://lkml.kernel.org/r/CAE-26VAFJtSu5xEbzNUgPVn3W13-B1bGvvU8-&#43;i-hkS4GtupCw@mail.gmail.com
 David is hosting biweekly meetings for Linux memory management developments called Linux MM Alignment, and he is publicly inviting people to the meetings.
-The next instance will be held on 10:00 PST, 2023-03-08, at https://meet.google.com/csb-wcds-xya">
+The next instance will be held on 10:00 PST, 2023-03-08, at https://meet.google.com/csb-wcds-xya
+THP backed thread stacks (Mike Kravetz) https://lkml.kernel.org/r/20230306235730.GA31451@monkey
+Mike found THP-always&rsquo;s memory bloat issue due to THP usage for threads&rsquo; stacks. Mike feels it might make no sense to use THP for stacks even if the THP policy is &lsquo;always&rsquo;, and starting discussions on improvment of the situation.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/lkml_news_v6.3-rc2/">
@@ -154,7 +156,9 @@ The next instance will be held on 10:00 PST, 2023-03-08, at https://meet.google.
   <meta property="og:title" content="LKML News v6.3-rc2 | hacklog">
   <meta property="og:description" content="[Invitation] Linux MM Alignment Session on Wednesday (David Rientjes) https://lkml.kernel.org/r/CAE-26VAFJtSu5xEbzNUgPVn3W13-B1bGvvU8-&#43;i-hkS4GtupCw@mail.gmail.com
 David is hosting biweekly meetings for Linux memory management developments called Linux MM Alignment, and he is publicly inviting people to the meetings.
-The next instance will be held on 10:00 PST, 2023-03-08, at https://meet.google.com/csb-wcds-xya"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
+The next instance will be held on 10:00 PST, 2023-03-08, at https://meet.google.com/csb-wcds-xya
+THP backed thread stacks (Mike Kravetz) https://lkml.kernel.org/r/20230306235730.GA31451@monkey
+Mike found THP-always&rsquo;s memory bloat issue due to THP usage for threads&rsquo; stacks. Mike feels it might make no sense to use THP for stacks even if the THP policy is &lsquo;always&rsquo;, and starting discussions on improvment of the situation."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -206,7 +210,7 @@ The next instance will be held on 10:00 PST, 2023-03-08, at https://meet.google.
       "url": "https://sjp38.github.io/img/icon-512.png"
     }
   },
-  "description": "[Invitation] Linux MM Alignment Session on Wednesday (David Rientjes) https://lkml.kernel.org/r/CAE-26VAFJtSu5xEbzNUgPVn3W13-B1bGvvU8-+i-hkS4GtupCw@mail.gmail.com\nDavid is hosting biweekly meetings for Linux memory management developments called Linux MM Alignment, and he is publicly inviting people to the meetings.\nThe next instance will be held on 10:00 PST, 2023-03-08, at https://meet.google.com/csb-wcds-xya"
+  "description": "[Invitation] Linux MM Alignment Session on Wednesday (David Rientjes) https://lkml.kernel.org/r/CAE-26VAFJtSu5xEbzNUgPVn3W13-B1bGvvU8-+i-hkS4GtupCw@mail.gmail.com\nDavid is hosting biweekly meetings for Linux memory management developments called Linux MM Alignment, and he is publicly inviting people to the meetings.\nThe next instance will be held on 10:00 PST, 2023-03-08, at https://meet.google.com/csb-wcds-xya\nTHP backed thread stacks (Mike Kravetz) https://lkml.kernel.org/r/20230306235730.GA31451@monkey\nMike found THP-always\u0026rsquo;s memory bloat issue due to THP usage for threads\u0026rsquo; stacks. Mike feels it might make no sense to use THP for stacks even if the THP policy is \u0026lsquo;always\u0026rsquo;, and starting discussions on improvment of the situation."
 }
 </script>
 
@@ -618,6 +622,16 @@ The next instance will be held on 10:00 PST, 2023-03-08, at https://meet.google.
 called Linux MM Alignment, and he is publicly inviting people to the meetings.</p>
 <p>The next instance will be held on 10:00 PST, 2023-03-08, at
 <a href="https://meet.google.com/csb-wcds-xya">https://meet.google.com/csb-wcds-xya</a></p>
+<h2 id="thp-backed-thread-stacks-mike-kravetz">THP backed thread stacks (Mike Kravetz)</h2>
+<p><a href="https://lkml.kernel.org/r/20230306235730.GA31451@monkey">https://lkml.kernel.org/r/20230306235730.GA31451@monkey</a></p>
+<p>Mike found THP-always&rsquo;s memory bloat issue due to THP usage for threads&rsquo;
+stacks.  Mike feels it might make no sense to use THP for stacks even if the
+THP policy is &lsquo;always&rsquo;, and starting discussions on improvment of the
+situation.</p>
+<h2 id="patch-v2-03-ignore-non-lru-based-reclaim-in-memcg-reclaim-yosry-ahmed">[PATCH v2 0/3] Ignore non-LRU-based reclaim in memcg reclaim (Yosry Ahmed)</h2>
+<p><a href="https://lkml.kernel.org/r/20230309093109.3039327-1-yosryahmed@google.com">https://lkml.kernel.org/r/20230309093109.3039327-1-yosryahmed@google.com</a></p>
+<p>Memcg reclaim sometimes over-report the number of reclaimed pages.  This
+patchset fixes the issue by ignoring non-LRU-based reclaim.</p>
 
     </div>
 

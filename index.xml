@@ -23,6 +23,16 @@
 called Linux MM Alignment, and he is publicly inviting people to the meetings.&lt;/p&gt;
 &lt;p&gt;The next instance will be held on 10:00 PST, 2023-03-08, at
 &lt;a href=&#34;https://meet.google.com/csb-wcds-xya&#34;&gt;https://meet.google.com/csb-wcds-xya&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;thp-backed-thread-stacks-mike-kravetz&#34;&gt;THP backed thread stacks (Mike Kravetz)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20230306235730.GA31451@monkey&#34;&gt;https://lkml.kernel.org/r/20230306235730.GA31451@monkey&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Mike found THP-always&amp;rsquo;s memory bloat issue due to THP usage for threads&amp;rsquo;
+stacks.  Mike feels it might make no sense to use THP for stacks even if the
+THP policy is &amp;lsquo;always&amp;rsquo;, and starting discussions on improvment of the
+situation.&lt;/p&gt;
+&lt;h2 id=&#34;patch-v2-03-ignore-non-lru-based-reclaim-in-memcg-reclaim-yosry-ahmed&#34;&gt;[PATCH v2 0/3] Ignore non-LRU-based reclaim in memcg reclaim (Yosry Ahmed)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20230309093109.3039327-1-yosryahmed@google.com&#34;&gt;https://lkml.kernel.org/r/20230309093109.3039327-1-yosryahmed@google.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Memcg reclaim sometimes over-report the number of reclaimed pages.  This
+patchset fixes the issue by ignoring non-LRU-based reclaim.&lt;/p&gt;
 </description>
     </item>
     
