@@ -33,6 +33,12 @@ situation.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20230309093109.3039327-1-yosryahmed@google.com&#34;&gt;https://lkml.kernel.org/r/20230309093109.3039327-1-yosryahmed@google.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Memcg reclaim sometimes over-report the number of reclaimed pages.  This
 patchset fixes the issue by ignoring non-LRU-based reclaim.&lt;/p&gt;
+&lt;h2 id=&#34;patch-v11-07-implement-ioctl-to-get-and-optionally-clear-info-about-ptes-muhammad-usama-anjum&#34;&gt;[PATCH v11 0/7] Implement IOCTL to get and optionally clear info about PTEs (Muhammad Usama Anjum)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20230309135718.1490461-1-usama.anjum@collabora.com&#34;&gt;https://lkml.kernel.org/r/20230309135718.1490461-1-usama.anjum@collabora.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This patchset adds a new ioctl, namely &lt;code&gt;PAGEMAP_SCAN&lt;/code&gt; for &lt;code&gt;pagemap&lt;/code&gt; file for
+getting and clearing page table entries information.  That was already almost
+possible for soft-dirty PTE bit, and was used by CRIU.  However, this patchset
+makes the feature available for only specific pages.&lt;/p&gt;
 </description>
     </item>
     
