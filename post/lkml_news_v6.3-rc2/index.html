@@ -576,7 +576,7 @@ Mike found THP-always&rsquo;s memory bloat issue due to THP usage for threads&rs
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -638,6 +638,22 @@ patchset fixes the issue by ignoring non-LRU-based reclaim.</p>
 getting and clearing page table entries information.  That was already almost
 possible for soft-dirty PTE bit, and was used by CRIU.  However, this patchset
 makes the feature available for only specific pages.</p>
+<h2 id="linux-63-rc2-linus-torvalds">Linux 6.3-rc2 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wii6BZtVKYfvQCQqbE3+t1_yAb-ea80-3PcJ4KxgpfHkA@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wii6BZtVKYfvQCQqbE3+t1_yAb-ea80-3PcJ4KxgpfHkA@mail.gmail.com</a></p>
+<p>After the week, second release candidate of Linux kernel v6.3 has released.
+Removal of r8188eu driver is dominating the change log.  However, other than
+the big change, other things are just normal.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.12-rc4..v6.3-rc2.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2021-03-13 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc2 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v6.3-rc2-only.png" alt="rc2 release stat"></p>
 
     </div>
 
