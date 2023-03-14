@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2023-03-07T07:40:16-08:00">
+    <meta property="og:updated_time" content="2023-03-14T07:42:23-07:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.14/">LKML News v5.14</a></h2>
+    <div class="article-style">
+      
+      [GIT PULL] Memory folios for v5.15 (Matthew Wilcox) https://lkml.kernel.org/r/YSPwmNNuuQhXNToQ@casper.infradead.org
+Matthew Wilcox sent a pull request for his page folio works to Linus Torvalds. Linus Torvalds replied he wants this to work in reverse. That is, calling head pages as normal pages but calling tail pages something other, as the term, page, is more common and de-facto standard in the industry.
+mmotm 2021-08-23-16-42 uploaded (Andrew Morton) https://lkml.kernel.org/r/20210823234329.H9WD-du1K%akpm@linux-foundation.org
+MMOTM is rebased on v5.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.14-rc7/">LKML News v5.14-rc7</a></h2>
     <div class="article-style">
       
@@ -641,19 +653,6 @@ Eleventh version of the memory folios patchset. It helps easier handling of head
 [LSF/MM TOPIC] Tiered memory accounting and management (Tim Chen) https://lkml.kernel.org/r/475cbc62-a430-2c60-34cc-72ea8baebf2c@linux.intel.com
 Another LSF/MM topic for discussion of tiered memory accounting and management, including the DRAM to PMEM demotion and PMEM to DRAM promotion.
 [REMINDER] LSF/MM/BPF: 2021: Call for Proposals (Josef Bacik) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.13-rc6/">LKML News v5.13-rc6</a></h2>
-    <div class="article-style">
-      
-      [RFC PATCH V3] zram:calculate available memory when zram is used (wangyong) https://lkml.kernel.org/r/1623080354-21453-1-git-send-email-yongw.pur@gmail.com
-This patchset adds a new entry called SwapAvailable in /proc/meminfo. It shows the memory savings when swap devices are used. If zram is used, it considers the compression ratio.
-[PATCH v3 0/9] Remove DISCONTIGMEM memory model (Mike Rapoport) https://lkml.kernel.org/r/20210608091316.3622-1-rppt@kernel.org
-This patchset removes DISCONTIGMEM memory model, finally. There are no more architectures requiring it.
-[LSF/MM/BPF TOPIC] Consolidating representations of the physical memory (Mike Rapoport) https://lkml.
       
     </div>
   </div>

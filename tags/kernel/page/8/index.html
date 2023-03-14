@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2023-03-07T07:40:16-08:00">
+    <meta property="og:updated_time" content="2023-03-14T07:42:23-07:00">
   
 
   
@@ -525,6 +525,20 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.15-rc6/">LKML News v5.15-rc6</a></h2>
+    <div class="article-style">
+      
+      mmotm 2021-10-10-18-19 uploaded (Andrew Morton) https://lkml.kernel.org/r/20211011012001.mSbkDke0y%akpm@linux-foundation.org
+Update of mmotm. 33 new patches added and 7 old patches dropped. 285 patches in total.
+[PATCH v2 0/2] Introduce simple pidfd to task helper (Christian Brauner) https://lkml.kernel.org/r/20211011133245.1703103-1-brauner@kernel.org
+This patchset adds a simple helper to make code clean without duplications.
+[PATCH v0.7 0/5] sched,mm,x86/uaccess: implement User Managed Concurrency Groups (Peter Oskolkov) https://lkml.kernel.org/r/20211012232522.714898-1-posk@google.com
+This patchset implements the kernel parts for user-space m:n threading. If this is finalized and merged, user-space applications will be able to do the scheduling of their threads on their own.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.15-rc5/">LKML News v5.15-rc5</a></h2>
     <div class="article-style">
       
@@ -634,22 +648,6 @@ This patchset drops subpages of THPs which contain only zero contents when split
 [PATCH v4 1/2] mm: introduce process_mrelease system call (Suren Baghdasaryan) https://lkml.kernel.org/r/20210802221431.2251210-1-surenb@google.com
 This patchset introduces a new system call, namely process_mrelease(). It can be used to quickly release memory of a process.
 [PATCH v7 0/5] Introduce multi-preference mempolicy (Feng Tang) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.14-rc4/">LKML News v5.14-rc4</a></h2>
-    <div class="article-style">
-      
-      mmotm 2021-07-28-18-24 uploaded (Andrew Morton) https://lkml.kernel.org/r/20210729012524.S8-WP%akpm@linux-foundation.org
-Andrew Morton is updating the -mm tree.
-incoming (Andrew Morton) https://lkml.kernel.org/r/20210729145259.24681c326dc3ed18194cf9e5@linux-foundation.org
-Seven fixup patches from Andrew Morton.
-[PATCH 0/3] mm: optimize thp for reclaim and migration (Yu Zhao) https://lkml.kernel.org/r/20210731063938.1391602-1-yuzhao@google.com
-This patch optimizes THP split for reclaim or migration by dropping subpages that contain only zeroes.
-Linux 5.14-rc4 (Linus Torvalds) https://lkml.kernel.org/r/CAHk-=whv0g5YqoRXc8oxqJX3r+GP1dN3ia_Qg_V6UTjhi8vg8w@mail.gmail.com
-After one week, entirely normal rc4 is released. 5.14 is not so far now.
       
     </div>
   </div>
