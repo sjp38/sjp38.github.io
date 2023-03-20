@@ -37,6 +37,23 @@ implementation.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20230317104307.29328-1-vbabka@suse.cz&#34;&gt;https://lkml.kernel.org/r/20230317104307.29328-1-vbabka@suse.cz&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;SLOB has deprected in 6.2.  Vlastimil tries to further remove it completely
 immediately for-next, and from v6.4.&lt;/p&gt;
+&lt;h2 id=&#34;linux-63-rc3-linus-torvalds&#34;&gt;Linux 6.3-rc3 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wiPd8R8-zSqTOtJ9KYeZLBByHug7ny3rgP-ZqzpP_KELg@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wiPd8R8-zSqTOtJ9KYeZLBByHug7ny3rgP-ZqzpP_KELg@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;After the one week, third release candidate for Linux v6.3 has out.  It&amp;rsquo;s
+unusually huge due to big changes for git-ignore scripts removal and kvm
+selftests cleanups.  Other than those, nothing unusual, so not real worrisome
+release.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/kernel_release_stat/v5.12-rc5..v6.3-rc3.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
+below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2021-03-20 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And, below is the diffstat of the -rc3 releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/kernel_release_stat/v6.3-rc3-only.png&#34; alt=&#34;rc3 release stat&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     
