@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2023-03-14T07:42:23-07:00">
+    <meta property="og:updated_time" content="2023-03-21T06:48:19-07:00">
   
 
   
@@ -525,6 +525,16 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.3-rc4/">LKML News v6.3-rc4</a></h2>
+    <div class="article-style">
+      
+      [PATCH 00/15] mm: move core MM initialization to mm/mm_init.c (Mike Rapoport) https://lkml.kernel.org/r/20230319220008.2138576-1-rppt@kernel.org
+This patchset consolidates MM initialization code to mm/mm_init.c file for better maintainability.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.3-rc3/">LKML News v6.3-rc3</a></h2>
     <div class="article-style">
       
@@ -629,19 +639,6 @@ On huge memory systems, memory error is inevitable, so detailed statistics of it
       
       DAMON is lightweight. It increases system memory usage by 0.39% and slows target workloads down by 1.16%.
 DAMON is accurate and useful for memory management optimizations. An experimental DAMON-based operation scheme for THP, namely &lsquo;ethp&rsquo;, removes 76.15% of THP memory overheads while preserving 51.25% of THP speedup. Another experimental DAMON-based &lsquo;proactive reclamation&rsquo; implementation, namely &lsquo;prcl&rsquo;, reduces 93.38% of residential sets and 23.63% of system memory footprint while incurring only 1.22% runtime overhead in the best case (parsec3/freqmine).
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.2-rc4/">LKML News v6.2-rc4</a></h2>
-    <div class="article-style">
-      
-      [PATCH 00/41] Per-VMA locks (Suren Baghdasaryan) https://lkml.kernel.org/r/20230109205336.3665937-1-surenb@google.com
-For the mmap_lock scalability issue, yet another approach called per-VMA locks has posted.
-[PATCH v2 0/2] docs/mm: start filling out new structure (Mike Rapoport) https://lkml.kernel.org/r/20230110152358.2641910-1-rppt@kernel.org
-MM kernel documentation has restructured to be somewhat more like textbook that can better explaining overall concept and how it manage memory, but the content is empty. Mike starts filling the content.
-LSFMMBPF proposal [General/MM]: SRCU: a case study in memory ordering (Joel Fernandes) https://lkml.
       
     </div>
   </div>
