@@ -576,7 +576,7 @@ This patchset delays zswap initialization until it gets enabled to save about 18
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -632,6 +632,22 @@ better maintainability.</p>
 <p>This patchset makes <code>va_128TBswitch.c</code> mm selftests, which is for only PowerPC
 and x86, to supports arm64 together.  Because Arm64 supports 256TB switch, this
 also rename the test to <code>va_high_addr_switch</code>.</p>
+<h2 id="linux-63-rc4-linus-torvalds">Linux 6.3-rc4 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=whcaHLNpb7Mu_QX7ABwPgyRyfW-V8=v4Mv0S22fpjY4JQ@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=whcaHLNpb7Mu_QX7ABwPgyRyfW-V8=v4Mv0S22fpjY4JQ@mail.gmail.com</a></p>
+<p>The fourth release candidate for Linux 6.3 has released with a pretty normal
+shape.  The diffstat is skewed to filesystem though, due to bulky xfs fixes,
+though.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.12-rc6..v6.3-rc4.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2021-03-27 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc4 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v6.3-rc4-only.png" alt="rc4 release stat"></p>
 
     </div>
 

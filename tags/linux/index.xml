@@ -33,6 +33,22 @@ better maintainability.&lt;/p&gt;
 &lt;p&gt;This patchset makes &lt;code&gt;va_128TBswitch.c&lt;/code&gt; mm selftests, which is for only PowerPC
 and x86, to supports arm64 together.  Because Arm64 supports 256TB switch, this
 also rename the test to &lt;code&gt;va_high_addr_switch&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;linux-63-rc4-linus-torvalds&#34;&gt;Linux 6.3-rc4 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=whcaHLNpb7Mu_QX7ABwPgyRyfW-V8=v4Mv0S22fpjY4JQ@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=whcaHLNpb7Mu_QX7ABwPgyRyfW-V8=v4Mv0S22fpjY4JQ@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The fourth release candidate for Linux 6.3 has released with a pretty normal
+shape.  The diffstat is skewed to filesystem though, due to bulky xfs fixes,
+though.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/kernel_release_stat/v5.12-rc6..v6.3-rc4.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
+below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2021-03-27 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And, below is the diffstat of the -rc4 releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/kernel_release_stat/v6.3-rc4-only.png&#34; alt=&#34;rc4 release stat&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     
