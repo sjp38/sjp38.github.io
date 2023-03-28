@@ -28,12 +28,11 @@
   
     
   
-  <meta name="description" content="Kernel Development Engineer">
+  <meta name="description" content="[PATCH] LoongArch: Add kernel address sanitizer support (Qing Zhang) https://lkml.kernel.org/r/20230328111714.2056-1-zhangqing@loongson.cn
+Loongarch has arch specific memory holes and mapping formula. This patch adds kasan support for Loongarch.">
 
   
-  <link rel="alternate" hreflang="ko" href="https://sjp38.github.io/ko/categories/lkml-news/">
-  
-  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/categories/lkml-news/">
+  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/lkml_news_v6.3-rc5/">
 
   
 
@@ -133,14 +132,12 @@
 
 
   
-  <link rel="alternate" href="/categories/lkml-news/index.xml" type="application/rss+xml" title="hacklog">
-  
 
   <link rel="manifest" href="/index.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon-32.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://sjp38.github.io/categories/lkml-news/">
+  <link rel="canonical" href="https://sjp38.github.io/post/lkml_news_v6.3-rc5/">
 
   
   
@@ -152,18 +149,66 @@
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="hacklog">
-  <meta property="og:url" content="https://sjp38.github.io/categories/lkml-news/">
-  <meta property="og:title" content="lkml news | hacklog">
-  <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
+  <meta property="og:url" content="https://sjp38.github.io/post/lkml_news_v6.3-rc5/">
+  <meta property="og:title" content="LKML News v6.3-rc5 | hacklog">
+  <meta property="og:description" content="[PATCH] LoongArch: Add kernel address sanitizer support (Qing Zhang) https://lkml.kernel.org/r/20230328111714.2056-1-zhangqing@loongson.cn
+Loongarch has arch specific memory holes and mapping formula. This patch adds kasan support for Loongarch."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2023-03-28T07:31:57-07:00">
+    
+      <meta property="article:published_time" content="2023-03-28T07:31:57-07:00">
+    
+    <meta property="article:modified_time" content="2023-03-28T07:31:57-07:00">
   
 
   
 
 
+    
 
+
+
+
+
+
+  
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://sjp38.github.io/post/lkml_news_v6.3-rc5/"
+  },
+  "headline": "LKML News v6.3-rc5",
+  
+  "datePublished": "2023-03-28T07:31:57-07:00",
+  "dateModified": "2023-03-28T07:31:57-07:00",
+  
+  "author": {
+    "@type": "Person",
+    "name": "SeongJae Park"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "hacklog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://sjp38.github.io/img/icon-512.png"
+    }
+  },
+  "description": "[PATCH] LoongArch: Add kernel address sanitizer support (Qing Zhang) https://lkml.kernel.org/r/20230328111714.2056-1-zhangqing@loongson.cn\nLoongarch has arch specific memory holes and mapping formula. This patch adds kasan support for Loongarch."
+}
+</script>
+
+  
 
   
 
@@ -171,10 +216,13 @@
   
 
 
+  
 
 
 
-  <title>lkml news | hacklog</title>
+
+
+  <title>LKML News v6.3-rc5 | hacklog</title>
 
 </head>
 
@@ -418,7 +466,7 @@
         
 
         <li class="nav-item">
-          <a class="nav-link  active" href="/categories"><span>Categories</span></a>
+          <a class="nav-link " href="/categories"><span>Categories</span></a>
         </li>
 
         
@@ -466,22 +514,6 @@
       
 
       
-      <li class="nav-item dropdown i18n-dropdown">
-        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true">
-          <i class="fas fa-globe mr-1" aria-hidden="true"></i><span class="d-none d-lg-inline">English</span>
-        </a>
-        <div class="dropdown-menu">
-          <div class="dropdown-item i18n-active font-weight-bold">
-            <span>English</span>
-          </div>
-          
-          <a class="dropdown-item" href="/ko/categories/lkml-news/">
-            <span>한국어</span>
-          </a>
-          
-        </div>
-      </li>
-      
 
     </ul>
 
@@ -489,182 +521,327 @@
 </nav>
 
 
-  
-
-
-
-
-
-
-
-
-
-
-
+  <article class="article">
 
   
 
+
+
+
+
+
+
+
+
+
+
+
+  
+
   
   
+  
+<div class="article-container pt-3">
+  <h1>LKML News v6.3-rc5</h1>
+
+  
+
   
     
-  
-<div class="universal-wrapper pt-3">
-  <h1>lkml news</h1>
+
+
+<div class="article-metadata">
 
   
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Tue, Mar 28, 2023
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   
 </div>
 
 
 
-<div class="universal-wrapper">
-  
+  <div class="article-container">
 
-  
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.8-rc2/">LKML News v5.8-rc2</a></h2>
     <div class="article-style">
-      
-      [PATCH v7] mm: Proactive compaction (Nitin Gupta) https://lkml.kernel.org/r/20200615143614.15267-1-nigupta@nvidia.com
-7th version of the proactive compaction patchset. This version fixes compile error while THP is disabled.
-Maintainers / Kernel Summit 2020 submissions (Theodore Y. Ts&rsquo;o) https://lkml.kernel.org/r/20200615155839.GF2863913@mit.edu
-There were only 5 submissions for the kernel summit talk, and no submission for the maintainers summit. Ted asks people to submit until this week.
-[PATCH v6 0/6] workingset protection/detection on the anonymous LRU list https://lkml.kernel.org/r/1592371583-30672-1-git-send-email-iamjoonsoo.kim@lge.com
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.8-rc1/">LKML News v5.8-rc1</a></h2>
-    <div class="article-style">
-      
-      [PATCH v6] mm: Proactive compaction (Nitin Gupta) https://lkml.kernel.org/r/20200601194822.30252-1-nigupta@nvidia.com
-This is the sixth version of the proactive compaction patchset. It makes compaction to be able to triggered earlier than final memory pressure using knobs. The goal is better THP allocation success.
-[PATCH] vmalloc: Convert to XArray (Matthew Wilcox) https://lkml.kernel.org/r/20200603171448.5894-1-willy@infradead.org
-This patchset converts the radix tree for vmap blocks into XArray.
-incoming (Andrew Morton) https://lkml.kernel.org/r/20200608212922.5b7fa74ca3f4e2444441b7f9@linux-foundation.org
-MM-side pull request. It contains the &ldquo;mmap locking API: initial implementation as rwsem wrappers&rdquo; patchset.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.7/">LKML News v5.7</a></h2>
-    <div class="article-style">
-      
-      [PATCH v2 00/16] Introduce kvfree_rcu(1 or 2 arguments) (Uladzislau Rezki) https://lkml.kernel.org/r/20200525214800.93072-1-urezki@gmail.com
-This is the second version of the rcu-protected kvfree().
-[PATCH v2 0/7] Add histogram measuring mmap_lock contention latency (Axel Rasmussen) https://lkml.kernel.org/r/20200528235238.74233-1-axelrasmussen@google.com
-For further analysis of the mmap_sem overhead from both kernel space and user space, this commit adds the latency historgram for mmap_sem acquisition time. Actually, mmap_sem is now renamed into mmap_lock, thanks to Michel&rsquo;s patch.
-[PATCH -V4] swap: Reduce lock contention on swap cache from swap slots allocation (Huang, Ying) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.7-rc7/">LKML News v5.7-rc7</a></h2>
-    <div class="article-style">
-      
-      [PATCH v5] mm: Proactive compaction (Nitin Gupta) https://lkml.kernel.org/r/20200518181446.25759-1-nigupta@nvidia.com
-The 5th version of the proactive compaction. This patchset make the compaction more proactive to make THP allocation easily success.
-[PATCH -V2] swap: Reduce lock contention on swap cache from swap slots allocation (Huang Ying) https://lkml.kernel.org/r/20200520031502.175659-1-ying.huang@intel.com
-After swap device is fragmented, there&rsquo;s no free swap cluster. Therefore, each swap logic of each CPU will linearly scan each swap cluster to find a free slot.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.7-rc6/">LKML News v5.7-rc6</a></h2>
-    <div class="article-style">
-      
-      [PATCH v4 00/36] Large pages in the page cache (Matthew Wilcox) https://lkml.kernel.org/r/20200515131656.12890-1-willy@infradead.org
-This is the fourth version of the patchset for the huge pages in the page cache. Still it fails xfstests.
-Maintainers / Kernel Summit 2020 planning kick-off (Theodore Y. Ts&rsquo;o) https://lkml.kernel.org/r/20200515163956.GA2158595@mit.edu
-Ted annouced that the Maintainers / Kernel Summit will be held in virtual this year, of course due to the COVID19. With this announcement, the CFP for the kernel summit is also opened.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.7-rc5/">LKML News v5.7-rc5</a></h2>
-    <div class="article-style">
-      
-      [RFC 00/43] PKRAM: Preserved-over-Kexec RAM (Anthony Yznaga) https://lkml.kernel.org/r/1588812129-8596-1-git-send-email-anthony.yznaga@oracle.com
-This patchset introduces special memory called PKRAM. It can be used to preserve VM guest memory across kexec boot for fast restart (VMM Fast Restart). Compared to DRAM based PMEM simulation, PKRAM is more flexible as the memory size is not need to be previously fixed.
-[PATCH] mm: Replace zero-length array with flexible-array (Gustavo A. R. Silva) https://lkml.kernel.org/r/20200507185942.GA15193@embeddedor
-The zero-length array of C90 are widely used in the kernel code base, but the flexible array member of C99 would be better choice.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.7-rc4/">LKML News v5.7-rc4</a></h2>
-    <div class="article-style">
-      
-      [PATCH 0/7] Record the mm_struct in the page table pages (Matthew Wilcox) https://lkml.kernel.org/r/20200428194449.22615-1-willy@infradead.org
-Literally, this patchset adds the mm_struct pointer to struct page if it is used for page tables. This will be useful for several cases usch as uncorrectable errors handling and task-page table relation checking, etc.
-[PATCH v4] mm: Proactive compaction (Nitin Gupta) https://lkml.kernel.org/r/20200428221055.598-1-nigupta@nvidia.com
-This patchset makes the compaction to be more proactively done for better THP allocation success and makes user to be able to control the proactiveness using a sysfs file, /sys/kernel/mm/compaction/proactiveness.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.7-rc3/">LKML News v5.7-rc3</a></h2>
-    <div class="article-style">
-      
-      LSFMMBPF 2020 Cancellation announcement (Josef Bacik) https://lkml.kernel.org/r/0b6d3d6f-99de-3603-4b42-c3db5113633d@toxicpanda.com
-Due to the COVID-19, LSFMM, which was supposed to be help April, has delayed before, and now it has just canceled. What a shame, but this might be the right thing to do. This mail also announce the schedule of next year LSFMM. It will be held in Palm Springs, on May 12-14, 2021 at the Riviera Palm Springs.
-[PATCH 2/2] mm: support vector address ranges for process_madvise (Minchan Kim) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.7-rc2/">LKML News after v5.7-rc2</a></h2>
-    <div class="article-style">
-      
-      [RFC] autonuma: Support to scan page table asynchronously (Huang Ying) https://lkml.kernel.org/r/20200414081951.297676-1-ying.huang@intel.com
-AutoNUMA is currently scanning page tables of the processes in the process context and therefore this can increase the latency of the process. This RFC thus makes the page table scanning asynchronous if there are idle CPUs.
-[PATCH v4 00/10] Add a new mmap locking API wrapping mmap_sem calls https://lkml.kernel.org/r/20200415004353.130248-1-walken@google.com
-This is just a repost of the patch series rebased on v5.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.7-rc1/">LKML News v5.7-rc1</a></h2>
-    <div class="article-style">
-      
-      [GIT PULL] XArray for 5.7-rc1 https://lkml.kernel.org/r/20200331141749.GB21484@bombadil.infradead.org
-Matthew&rsquo;s XArray pull request for 5.7 merge window. Quickly merged by Torvald.
-[PATCH v5 00/10] workingset protection/detection on the anonymous LRU list https://lkml.kernel.org/r/1585892447-32059-1-git-send-email-iamjoonsoo.kim@lge.com
-The fifth version of the workingset protection.
-[PATCH v4 0/2] mm: using CMA for 1 GB hugepages allocation https://lkml.kernel.org/r/20200407010431.1286488-1-guro@fb.com
-This patchset make hugetlb to use CMA for 1GB hugepage allocations.
-[PATCH RFC] mm: compaction: avoid migrating non-cma pages to a cma area The compaction algorithm doesn&rsquo;t distinguish CMA from other movable pageblocks.
-      
-    </div>
-  </div>
-  
+      <h2 id="patch-loongarch-add-kernel-address-sanitizer-support-qing-zhang">[PATCH] LoongArch: Add kernel address sanitizer support (Qing Zhang)</h2>
+<p><a href="https://lkml.kernel.org/r/20230328111714.2056-1-zhangqing@loongson.cn">https://lkml.kernel.org/r/20230328111714.2056-1-zhangqing@loongson.cn</a></p>
+<p>Loongarch has arch specific memory holes and mapping formula.  This patch adds
+kasan support for Loongarch.</p>
 
+    </div>
+
+    
+
+
+
+
+
+<div class="article-tags">
   
-<nav>
-  <ul class="pagination justify-content-center">
+  <a class="badge badge-light" href="/tags/linux/">linux</a>
+  
+  <a class="badge badge-light" href="/tags/kernel/">kernel</a>
+  
+  <a class="badge badge-light" href="/tags/lkml/">lkml</a>
+  
+  <a class="badge badge-light" href="/tags/news/">news</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
     
-    <li class="page-item"><a class="page-link" href="/categories/lkml-news/page/13/">&laquo;</a></li>
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=https://sjp38.github.io/post/lkml_news_v6.3-rc5/&amp;text=LKML%20News%20v6.3-rc5" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
     
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=https://sjp38.github.io/post/lkml_news_v6.3-rc5/&amp;t=LKML%20News%20v6.3-rc5" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
     
-    <li class="page-item"><a class="page-link" href="/categories/lkml-news/page/15/">&raquo;</a></li>
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=LKML%20News%20v6.3-rc5&amp;body=https://sjp38.github.io/post/lkml_news_v6.3-rc5/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=https://sjp38.github.io/post/lkml_news_v6.3-rc5/&amp;title=LKML%20News%20v6.3-rc5" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=LKML%20News%20v6.3-rc5%20https://sjp38.github.io/post/lkml_news_v6.3-rc5/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=https://sjp38.github.io/post/lkml_news_v6.3-rc5/&amp;title=LKML%20News%20v6.3-rc5" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
     
   </ul>
-</nav>
-
-
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      <img class="portrait mr-3" src="https://s.gravatar.com/avatar/43dc5645c78e68fda997138380dfaaf4?s=200')" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="https://sjp38.github.io/">SeongJae Park</a></h5>
+      <h6 class="card-subtitle">Kernel Development Engineer</h6>
+      <p class="card-text">SeongJae Park is a programmer who loves to analyze and develop systems.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/log/?qt=author&amp;q=seongjae&#43;park" target="_blank" rel="noopener">
+        <i class="fab fa-linux"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/sjp38" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.com/citations?user=jJIiF3AAAAAJ" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  
+  
+  <div class="article-widget content-widget-hr">
+    <h3>Related</h3>
+    <ul>
+      
+      <li><a href="/post/lkml_news_v6.3-rc4/">LKML News v6.3-rc4</a></li>
+      
+      <li><a href="/post/lkml_news_v6.3-rc3/">LKML News v6.3-rc3</a></li>
+      
+      <li><a href="/post/lkml_news_v6.3-rc2/">LKML News v6.3-rc2</a></li>
+      
+      <li><a href="/post/lkml_news_v6.3-rc1/">LKML News v6.3-rc1</a></li>
+      
+      <li><a href="/post/lkml_news_v6.2/">LKML News v6.2</a></li>
+      
+    </ul>
+  </div>
+  
+
+
+
+  </div>
+</article>
 
       
 
