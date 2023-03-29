@@ -29,7 +29,9 @@
     
   
   <meta name="description" content="[PATCH] LoongArch: Add kernel address sanitizer support (Qing Zhang) https://lkml.kernel.org/r/20230328111714.2056-1-zhangqing@loongson.cn
-Loongarch has arch specific memory holes and mapping formula. This patch adds kasan support for Loongarch.">
+Loongarch has arch specific memory holes and mapping formula. This patch adds kasan support for Loongarch.
+[PATCH v2 0/7] Split a folio to any lower order folios (Zi Yan) https://lkml.kernel.org/r/20230329011712.3242298-1-zi.yan@sent.com
+Currently, split_huge_page() splits huge page to only order 0 pages. This patchset adds support of splitting a huge page to any lower order pages.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/lkml_news_v6.3-rc5/">
@@ -152,7 +154,9 @@ Loongarch has arch specific memory holes and mapping formula. This patch adds ka
   <meta property="og:url" content="https://sjp38.github.io/post/lkml_news_v6.3-rc5/">
   <meta property="og:title" content="LKML News v6.3-rc5 | hacklog">
   <meta property="og:description" content="[PATCH] LoongArch: Add kernel address sanitizer support (Qing Zhang) https://lkml.kernel.org/r/20230328111714.2056-1-zhangqing@loongson.cn
-Loongarch has arch specific memory holes and mapping formula. This patch adds kasan support for Loongarch."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
+Loongarch has arch specific memory holes and mapping formula. This patch adds kasan support for Loongarch.
+[PATCH v2 0/7] Split a folio to any lower order folios (Zi Yan) https://lkml.kernel.org/r/20230329011712.3242298-1-zi.yan@sent.com
+Currently, split_huge_page() splits huge page to only order 0 pages. This patchset adds support of splitting a huge page to any lower order pages."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -204,7 +208,7 @@ Loongarch has arch specific memory holes and mapping formula. This patch adds ka
       "url": "https://sjp38.github.io/img/icon-512.png"
     }
   },
-  "description": "[PATCH] LoongArch: Add kernel address sanitizer support (Qing Zhang) https://lkml.kernel.org/r/20230328111714.2056-1-zhangqing@loongson.cn\nLoongarch has arch specific memory holes and mapping formula. This patch adds kasan support for Loongarch."
+  "description": "[PATCH] LoongArch: Add kernel address sanitizer support (Qing Zhang) https://lkml.kernel.org/r/20230328111714.2056-1-zhangqing@loongson.cn\nLoongarch has arch specific memory holes and mapping formula. This patch adds kasan support for Loongarch.\n[PATCH v2 0/7] Split a folio to any lower order folios (Zi Yan) https://lkml.kernel.org/r/20230329011712.3242298-1-zi.yan@sent.com\nCurrently, split_huge_page() splits huge page to only order 0 pages. This patchset adds support of splitting a huge page to any lower order pages."
 }
 </script>
 
@@ -614,6 +618,10 @@ Loongarch has arch specific memory holes and mapping formula. This patch adds ka
 <p><a href="https://lkml.kernel.org/r/20230328111714.2056-1-zhangqing@loongson.cn">https://lkml.kernel.org/r/20230328111714.2056-1-zhangqing@loongson.cn</a></p>
 <p>Loongarch has arch specific memory holes and mapping formula.  This patch adds
 kasan support for Loongarch.</p>
+<h2 id="patch-v2-07-split-a-folio-to-any-lower-order-folios-zi-yan">[PATCH v2 0/7] Split a folio to any lower order folios (Zi Yan)</h2>
+<p><a href="https://lkml.kernel.org/r/20230329011712.3242298-1-zi.yan@sent.com">https://lkml.kernel.org/r/20230329011712.3242298-1-zi.yan@sent.com</a></p>
+<p>Currently, <code>split_huge_page()</code> splits huge page to only order 0 pages.  This
+patchset adds support of splitting a huge page to any lower order pages.</p>
 
     </div>
 
