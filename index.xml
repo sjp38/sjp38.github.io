@@ -25,6 +25,12 @@ kasan support for Loongarch.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20230329011712.3242298-1-zi.yan@sent.com&#34;&gt;https://lkml.kernel.org/r/20230329011712.3242298-1-zi.yan@sent.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Currently, &lt;code&gt;split_huge_page()&lt;/code&gt; splits huge page to only order 0 pages.  This
 patchset adds support of splitting a huge page to any lower order pages.&lt;/p&gt;
+&lt;h2 id=&#34;patchv9-0014-mm-x86cc-implement-support-for-unaccepted-memory-kirill-a-shutemov&#34;&gt;[PATCHv9 00/14] mm, x86/cc: Implement support for unaccepted memory (Kirill A. Shutemov)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20230330114956.20342-1-kirill.shutemov@linux.intel.com&#34;&gt;https://lkml.kernel.org/r/20230330114956.20342-1-kirill.shutemov@linux.intel.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Some virtual machine platforms such as intel TDX or AMD SEV-SNP requires memory
+to be accepted by the guest before being used.  As the accepting process is
+costly, this patchset allows the acceptance to be postpone until it is needed,
+to reduce boot time and memory overhead.&lt;/p&gt;
 </description>
     </item>
     

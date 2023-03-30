@@ -31,7 +31,8 @@
   <meta name="description" content="[PATCH] LoongArch: Add kernel address sanitizer support (Qing Zhang) https://lkml.kernel.org/r/20230328111714.2056-1-zhangqing@loongson.cn
 Loongarch has arch specific memory holes and mapping formula. This patch adds kasan support for Loongarch.
 [PATCH v2 0/7] Split a folio to any lower order folios (Zi Yan) https://lkml.kernel.org/r/20230329011712.3242298-1-zi.yan@sent.com
-Currently, split_huge_page() splits huge page to only order 0 pages. This patchset adds support of splitting a huge page to any lower order pages.">
+Currently, split_huge_page() splits huge page to only order 0 pages. This patchset adds support of splitting a huge page to any lower order pages.
+[PATCHv9 00/14] mm, x86/cc: Implement support for unaccepted memory (Kirill A.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/lkml_news_v6.3-rc5/">
@@ -156,7 +157,8 @@ Currently, split_huge_page() splits huge page to only order 0 pages. This patchs
   <meta property="og:description" content="[PATCH] LoongArch: Add kernel address sanitizer support (Qing Zhang) https://lkml.kernel.org/r/20230328111714.2056-1-zhangqing@loongson.cn
 Loongarch has arch specific memory holes and mapping formula. This patch adds kasan support for Loongarch.
 [PATCH v2 0/7] Split a folio to any lower order folios (Zi Yan) https://lkml.kernel.org/r/20230329011712.3242298-1-zi.yan@sent.com
-Currently, split_huge_page() splits huge page to only order 0 pages. This patchset adds support of splitting a huge page to any lower order pages."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
+Currently, split_huge_page() splits huge page to only order 0 pages. This patchset adds support of splitting a huge page to any lower order pages.
+[PATCHv9 00/14] mm, x86/cc: Implement support for unaccepted memory (Kirill A."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -208,7 +210,7 @@ Currently, split_huge_page() splits huge page to only order 0 pages. This patchs
       "url": "https://sjp38.github.io/img/icon-512.png"
     }
   },
-  "description": "[PATCH] LoongArch: Add kernel address sanitizer support (Qing Zhang) https://lkml.kernel.org/r/20230328111714.2056-1-zhangqing@loongson.cn\nLoongarch has arch specific memory holes and mapping formula. This patch adds kasan support for Loongarch.\n[PATCH v2 0/7] Split a folio to any lower order folios (Zi Yan) https://lkml.kernel.org/r/20230329011712.3242298-1-zi.yan@sent.com\nCurrently, split_huge_page() splits huge page to only order 0 pages. This patchset adds support of splitting a huge page to any lower order pages."
+  "description": "[PATCH] LoongArch: Add kernel address sanitizer support (Qing Zhang) https://lkml.kernel.org/r/20230328111714.2056-1-zhangqing@loongson.cn\nLoongarch has arch specific memory holes and mapping formula. This patch adds kasan support for Loongarch.\n[PATCH v2 0/7] Split a folio to any lower order folios (Zi Yan) https://lkml.kernel.org/r/20230329011712.3242298-1-zi.yan@sent.com\nCurrently, split_huge_page() splits huge page to only order 0 pages. This patchset adds support of splitting a huge page to any lower order pages.\n[PATCHv9 00/14] mm, x86/cc: Implement support for unaccepted memory (Kirill A."
 }
 </script>
 
@@ -622,6 +624,12 @@ kasan support for Loongarch.</p>
 <p><a href="https://lkml.kernel.org/r/20230329011712.3242298-1-zi.yan@sent.com">https://lkml.kernel.org/r/20230329011712.3242298-1-zi.yan@sent.com</a></p>
 <p>Currently, <code>split_huge_page()</code> splits huge page to only order 0 pages.  This
 patchset adds support of splitting a huge page to any lower order pages.</p>
+<h2 id="patchv9-0014-mm-x86cc-implement-support-for-unaccepted-memory-kirill-a-shutemov">[PATCHv9 00/14] mm, x86/cc: Implement support for unaccepted memory (Kirill A. Shutemov)</h2>
+<p><a href="https://lkml.kernel.org/r/20230330114956.20342-1-kirill.shutemov@linux.intel.com">https://lkml.kernel.org/r/20230330114956.20342-1-kirill.shutemov@linux.intel.com</a></p>
+<p>Some virtual machine platforms such as intel TDX or AMD SEV-SNP requires memory
+to be accepted by the guest before being used.  As the accepting process is
+costly, this patchset allows the acceptance to be postpone until it is needed,
+to reduce boot time and memory overhead.</p>
 
     </div>
 
