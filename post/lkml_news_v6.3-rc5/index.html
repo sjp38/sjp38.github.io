@@ -630,6 +630,15 @@ patchset adds support of splitting a huge page to any lower order pages.</p>
 to be accepted by the guest before being used.  As the accepting process is
 costly, this patchset allows the acceptance to be postpone until it is needed,
 to reduce boot time and memory overhead.</p>
+<h2 id="patch-v3-03-ignore-non-lru-based-reclaim-in-memcg-reclaim-yosry-ahmed">[PATCH v3 0/3] Ignore non-LRU-based reclaim in memcg reclaim (Yosry Ahmed)</h2>
+<p><a href="https://lkml.kernel.org/r/20230331070818.2792558-1-yosryahmed@google.com">https://lkml.kernel.org/r/20230331070818.2792558-1-yosryahmed@google.com</a></p>
+<p>Reclamation triggered via <code>memory.reclaim</code> counts pages that relcaimed based
+on non-LRU mechanism.  This patchset addresses the issue.</p>
+<h2 id="syzbot-monthly-mm-report-syzbot">[syzbot] Monthly mm report (syzbot)</h2>
+<p><a href="https://lkml.kernel.org/r/00000000000032660805f8337db1@google.com">https://lkml.kernel.org/r/00000000000032660805f8337db1@google.com</a></p>
+<p>Syzbot is reporting monthly report for the issues it found with its fuzzing
+tests.  During the last 30 days, 15 new issues were detected and 2 were fixed.
+In total, 120 issues are still open and 197 have been fixed so far.</p>
 
     </div>
 
