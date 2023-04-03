@@ -576,7 +576,7 @@ Currently, split_huge_page() splits huge page to only order 0 pages. This patchs
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -639,6 +639,22 @@ on non-LRU mechanism.  This patchset addresses the issue.</p>
 <p>Syzbot is reporting monthly report for the issues it found with its fuzzing
 tests.  During the last 30 days, 15 new issues were detected and 2 were fixed.
 In total, 120 issues are still open and 197 have been fixed so far.</p>
+<h2 id="linux-63-rc5-linus-torvalds">Linux 6.3-rc5 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wi92YtfjcczOm20_mYkWZwKKjn+dCcrx8BL9n9f55MY5g@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wi92YtfjcczOm20_mYkWZwKKjn+dCcrx8BL9n9f55MY5g@mail.gmail.com</a></p>
+<p>The release for Linux v6.3 continues being normal and boring, so Linux likes
+it.  Also the number of commits started decrease with this release candidate.
+Linux expects the release is on track and it will be made as usual.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.12-rc7..v6.3-rc5.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2021-04-03 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc5 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v6.3-rc5-only.png" alt="rc5 release stat"></p>
 
     </div>
 
