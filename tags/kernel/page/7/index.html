@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2023-03-28T07:31:57-07:00">
+    <meta property="og:updated_time" content="2023-04-04T08:14:59-07:00">
   
 
   
@@ -525,6 +525,19 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.17-rc2/">LKML News v5.17-rc2</a></h2>
+    <div class="article-style">
+      
+      [PATCH 0/7] Allocate module text and data separately (Christophe Leroy) https://lkml.kernel.org/r/cover.1643015752.git.christophe.leroy@csgroup.eu
+Powerpc book3s/32 can set execute permission in 256 MiB segments granularity instead of page granularity. This patchset therefore allow module data be allocated in vmalloc rea instead of module area.
+[PATCH 0/4] mm/memcg: Address PREEMPT_RT problems instead of disabling it. (Sebastian Adrzej Siewior) https://lkml.kernel.org/r/20220125164337.2071854-1-bigeasy@linutronix.de
+This patchset enables MEMCG for PREEMPT_RT instead of disabling it.
+[LSF/MM/BPF TOPIC] Folios (Matthew Wilcox) https://lkml.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.17-rc1/">LKML News v5.17-rc1</a></h2>
     <div class="article-style">
       
@@ -628,20 +641,6 @@ This patchset augment AutoNUMA mechanism to promote pages from slow tier nodes t
 This patchset optimizes the pages placement on tiered memory systems using DRAM and PMEM.
 [RFC 0/3] page table check (Pasha Tatashin) https://lkml.kernel.org/r/20211116220038.116484-1-pasha.tatashin@soleen.com
 Pasha found broken page ref issue in 4.14 kernel. The page was leaked into another process, so they were able to find the issue by examining the page tables. This patchset tries to prevent this kind of memory corruption issues by checking the page tables in time of inserting entries into user page tables.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.16-rc1/">LKML News v5.16-rc1</a></h2>
-    <div class="article-style">
-      
-      [PATCH v4 0/3] mm: add new syscall set_mempolicy_home_node (Aneesh Kumar K.V) https://lkml.kernel.org/r/20211101050206.549050-1-aneesh.kumar@linux.ibm.com
-This patchset introduces a new syscall that can be used to set a home node for the MPOL_BIND and MPOL_PREFERRED_MANY.
-[RFC PATCH 0/3] Improve the migration stats (Baolin Wang) https://lkml.kernel.org/r/cover.1635936218.git.baolin.wang@linux.alibaba.com
-This RFC patchset fixes the migration stats that broken here and there.
-incoming (Andrew Morton) https://lkml.kernel.org/r/20211105133408.cccbb98b71a77d5e8430aba1@linux-foundation.org
-The first pull request for v5.16 from Andrew Morton. Patches for DAMON subsystem including DAMOS, physical address space support, and DAMON-based proactive reclamation are also included here.
       
     </div>
   </div>

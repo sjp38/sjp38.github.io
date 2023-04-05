@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2023-03-28T07:31:57-07:00">
+    <meta property="og:updated_time" content="2023-04-04T08:14:59-07:00">
   
 
   
@@ -525,6 +525,20 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.10-rc1/">LKML News v5.10-rc1</a></h2>
+    <div class="article-style">
+      
+      [PATCH] mm: Make allocator take care of memoryless numa node (Xianting Tian) https://lkml.kernel.org/r/20201012082739.15661-1-tian.xianting@h3c.com
+CPUs in powerpc like architecture could have no local memory. As the kernel code doesn&rsquo;t care about it, this commit makes it to handle the case.
+incoming (Andrew Morton) https://lkml.kernel.org/r/20201013164658.3bfd96cc224d8923e66a9f4e@linux-foundation.org
+This is the pull request from Andrew Morton, the mm maintainer, for v5.10.
+[PATCH v4 0/5] Speed up mremap on large regions (Kalesh Singh) https://lkml.kernel.org/r/20201014005320.2233162-1-kaleshsingh@google.com)
+Repost fo the patch series.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.9/">LKML News v5.9</a></h2>
     <div class="article-style">
       
@@ -632,18 +646,6 @@ This week rc release is also quite normal. The &lsquo;fallthought&rsquo; comment
 Jim Baxter encountered 6.5 seconds delay due to long workqueue delay. He want to ask if this is normal or real problem.
 [RFC PATCH 0/8] memcg: Enable fine-grained per process memory control (Waiman Long) https://lkml.kernel.org/r/20200817140831.30260-1-longman@redhat.com
 The memory cgroup v2 start reclamation if the amount of the memory of the cgroup exceeds &lsquo;memory.high&rsquo; and start OOM killing if if exceeds &lsquo;memory.max&rsquo;. Problem is, the OOM killer can kill any process.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.9-rc1/">LKML News v5.9-rc1</a></h2>
-    <div class="article-style">
-      
-      mm: sort freelist by rank number (Cho KyongHo) https://lkml.kernel.org/r/1596435031-41837-1-git-send-email-pullip.cho@samsung.com
-LPDDR5 has severan ranks and there are ranks switching delay. Therefore, it would be better to do accesses in same ranks if possible. This patch sorts freelist by the rank number so that near future allocation can be done in same rank.
-[RFC-PROTOTYPE 1/1] mm: Add __GFP_FAST_TRY flag (Uladzislau Rezki) https://lkml.kernel.org/r/20200803163029.1997-1-urezki@gmail.com
-This is the rfc of the patch for the Paul&rsquo;s last ask.
       
     </div>
   </div>
