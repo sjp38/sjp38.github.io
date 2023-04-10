@@ -35,6 +35,22 @@ benchmarks to run for this, and asking people&amp;rsquo;s opinion about the list
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/1680864131-4675-1-git-send-email-zhaoyang.huang@unisoc.com&#34;&gt;https://lkml.kernel.org/r/1680864131-4675-1-git-send-email-zhaoyang.huang@unisoc.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;This RFC makes CMA-allocated memory deallocation to be deferred so that later
 continuous memory allocation less likely fail.&lt;/p&gt;
+&lt;h2 id=&#34;linux-63-rc6-linus-torvalds&#34;&gt;Linux 6.3-rc6 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;https://lkml.kernel.org/r/CAHk-=wi=_UHtmSy-3jB0ZJ7sAPULLy4a86HP3DpYX-C3eu+wpg@mail.gmail.com&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Even in Easter Sunday, Linux release process continues.  The sixthe release
+candidate for Linux v6.3 has released with the regular pattern.  Nothing
+unusual so far.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/kernel_release_stat/v5.12-rc8..v6.3-rc6.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
+below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2021-04-10 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And, below is the diffstat of the -rc6 releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/kernel_release_stat/v6.3-rc6-only.png&#34; alt=&#34;rc6 release stat&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     
