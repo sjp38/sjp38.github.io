@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2023-04-04T08:14:59-07:00">
+    <meta property="og:updated_time" content="2023-04-11T07:41:47-07:00">
   
 
   
@@ -525,6 +525,19 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.17-rc5/">LKML News v5.17-rc5</a></h2>
+    <div class="article-style">
+      
+      [PATCH v3 0/3] Add hugetlb MADV_DONTNEED support (Mike Kravetz) https://lkml.kernel.org/r/20220215002348.128823-1-mike.kravetz@oracle.com
+MADV_DONTNEED can be used for hugetlb but currently prohibits it with a simple check. This commit removes the check to enable MADV_DONENEED for hugetlb.
+mmotm 2022-02-14-17-46 uploaded (Andrew Morton) https://lkml.kernel.org/r/20220215014633.9CD9CC340E9@smtp.kernel.org
+mmotm has updated. It&rsquo;s rebased on 5.17-rc4, added 20 new patches, modified 295 patches, and dropped 10 patches. In total, 316 patches in the queue.
+[PATCH v6 00/71] Introducing the Maple Tree (Liam Howlett) https://lkml.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.17-rc4/">LKML News v5.17-rc4</a></h2>
     <div class="article-style">
       
@@ -627,18 +640,6 @@ This patchset makes DAMOS supports demotion of memory regions.
 Muchun found 6GB of memory was consumed by kmalloc-32 slab cache on a machine having 952 super blocks. That was due to list_lru_one allocation from memcg_nr_cache_ids. This patchset aims to fix the issue. According to a simple test, this reduces memory consumption under a situation from 24GiB to 4GiB.
 mmotm 2021-12-13-21-28 uploaded (Andrew Morton) https://lkml.kernel.org/r/20211214052904.VfRYfitp0%akpm@linux-foundation.org
 Andrew Morton uploaded new mmotm.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.16-rc5/">LKML News v5.16-rc5</a></h2>
-    <div class="article-style">
-      
-      [RFC] mm: introduce page pinner (Minchan Kim) https://lkml.kernel.org/r/20211206184730.858850-1-minchan@kernel.org
-Page migrations commonly fails from temporal referenc count elevation. Worse yet, it&rsquo;s hard to know which kernel subsystem has made the temporal reference count increase. To tracking it available, Minchan is proposing a new feature called page pinner. It tracks page put operations for pages that migration failed.
-mmotm 2021-12-06-22-21 uploaded (Andrew Morton) https://lkml.kernel.org/r/20211207062141.pMgbjXQXy%akpm@linux-foundation.org
-mmotm based on v5.16-rc4 has uploaded. 14 new patches are added, 3 existign patches modified, and 1 existing patch has dropped from the queue.
       
     </div>
   </div>
