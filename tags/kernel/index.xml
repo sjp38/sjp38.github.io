@@ -22,6 +22,13 @@
 &lt;p&gt;This patch makes oomkiller to aware of numa nodes of processes that assigned
 via cpuset so that real memory pressure tirggeered process can be picked as
 victim of the pressure.&lt;/p&gt;
+&lt;h2 id=&#34;lsfmmbpf-topic-reducing-zombie-memcgs-tj-mercier&#34;&gt;[LSF/MM/BPF TOPIC] Reducing zombie memcgs (T.J. Mercier)&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;https://lkml.kernel.org/r/CABdmKX2M6koq4Q0Cmp_-=wbP0Qa190HdEGGaHfxNS05gAkUtPA@mail.gmail.com&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Memcg lives in the kernel until the reference count drops to zero, even if it&amp;rsquo;s
+removed by userspace.  This zombie-like memcg consumes system resource and
+makes kernel operations that get affected by the total number of memcg less
+efficient.  This new topic suggestion is for discussion on a out-of-tree
+solution for this problem.&lt;/p&gt;
 </description>
     </item>
     

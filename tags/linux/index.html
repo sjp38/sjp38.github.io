@@ -530,6 +530,8 @@
       
       [PATCH v5] mm: oom: introduce cpuset oom (Gang Li) https://lkml.kernel.org/r/20230411134539.45046-1-ligang.bdlg@bytedance.com
 This patch makes oomkiller to aware of numa nodes of processes that assigned via cpuset so that real memory pressure tirggeered process can be picked as victim of the pressure.
+[LSF/MM/BPF TOPIC] Reducing zombie memcgs (T.J. Mercier) https://lkml.kernel.org/r/CABdmKX2M6koq4Q0Cmp_-=wbP0Qa190HdEGGaHfxNS05gAkUtPA@mail.gmail.com
+Memcg lives in the kernel until the reference count drops to zero, even if it&rsquo;s removed by userspace. This zombie-like memcg consumes system resource and makes kernel operations that get affected by the total number of memcg less efficient.
       
     </div>
   </div>
