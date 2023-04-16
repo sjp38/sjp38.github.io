@@ -29,7 +29,7 @@
     
   
   <meta name="description" content="I realized I didn&rsquo;t introduce a good, intuitive example use case of DAMON[0] for profiling so far, though DAMON is not for only profiling. One straightforward and realistic usage of DAMON as a profiling tool would be recording the monitoring results with callstack and visualize those by timeline together.
-For example, below shows that visualization for a realistic workload, namely &lsquo;fft&rsquo; in SPLASH-2X benchmark suite. From that, you can know there are three memory access bursting phases in the workload and FFT1DOnce.">
+For example, below shows that visualization for a realistic workload, namely &lsquo;fft&rsquo; in SPLASH-2X benchmark suite. The upper-most graph shows how DAMON-detected working set size of the workload (y-axis) changes by time (x-axis).">
 
   
   <link rel="alternate" hreflang="ko" href="https://sjp38.github.io/ko/post/damon_profile_callstack_example/">
@@ -154,13 +154,13 @@ For example, below shows that visualization for a realistic workload, namely &ls
   <meta property="og:url" content="https://sjp38.github.io/post/damon_profile_callstack_example/">
   <meta property="og:title" content="An example of DAMON usage for profiling | hacklog">
   <meta property="og:description" content="I realized I didn&rsquo;t introduce a good, intuitive example use case of DAMON[0] for profiling so far, though DAMON is not for only profiling. One straightforward and realistic usage of DAMON as a profiling tool would be recording the monitoring results with callstack and visualize those by timeline together.
-For example, below shows that visualization for a realistic workload, namely &lsquo;fft&rsquo; in SPLASH-2X benchmark suite. From that, you can know there are three memory access bursting phases in the workload and FFT1DOnce."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
+For example, below shows that visualization for a realistic workload, namely &lsquo;fft&rsquo; in SPLASH-2X benchmark suite. The upper-most graph shows how DAMON-detected working set size of the workload (y-axis) changes by time (x-axis)."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
     
       <meta property="article:published_time" content="2021-02-25T07:20:30&#43;01:00">
     
-    <meta property="article:modified_time" content="2021-02-25T07:20:30&#43;01:00">
+    <meta property="article:modified_time" content="2023-04-16T15:26:41-07:00">
   
 
   
@@ -191,7 +191,7 @@ For example, below shows that visualization for a realistic workload, namely &ls
   "headline": "An example of DAMON usage for profiling",
   
   "datePublished": "2021-02-25T07:20:30+01:00",
-  "dateModified": "2021-02-25T07:20:30+01:00",
+  "dateModified": "2023-04-16T15:26:41-07:00",
   
   "author": {
     "@type": "Person",
@@ -206,7 +206,7 @@ For example, below shows that visualization for a realistic workload, namely &ls
       "url": "https://sjp38.github.io/img/icon-512.png"
     }
   },
-  "description": "I realized I didn\u0026rsquo;t introduce a good, intuitive example use case of DAMON[0] for profiling so far, though DAMON is not for only profiling. One straightforward and realistic usage of DAMON as a profiling tool would be recording the monitoring results with callstack and visualize those by timeline together.\nFor example, below shows that visualization for a realistic workload, namely \u0026lsquo;fft\u0026rsquo; in SPLASH-2X benchmark suite. From that, you can know there are three memory access bursting phases in the workload and FFT1DOnce."
+  "description": "I realized I didn\u0026rsquo;t introduce a good, intuitive example use case of DAMON[0] for profiling so far, though DAMON is not for only profiling. One straightforward and realistic usage of DAMON as a profiling tool would be recording the monitoring results with callstack and visualize those by timeline together.\nFor example, below shows that visualization for a realistic workload, namely \u0026lsquo;fft\u0026rsquo; in SPLASH-2X benchmark suite. The upper-most graph shows how DAMON-detected working set size of the workload (y-axis) changes by time (x-axis)."
 }
 </script>
 
@@ -578,8 +578,10 @@ For example, below shows that visualization for a realistic workload, namely &ls
     
     
       
+          Last updated on
+      
     
-    Thu, Feb 25, 2021
+    Sun, Apr 16, 2023
   </span>
   
 
@@ -634,16 +636,22 @@ straightforward and realistic usage of DAMON as a profiling tool would be
 recording the monitoring results with callstack and visualize those by timeline
 together.</p>
 <p>For example, below shows that visualization for a realistic workload, namely
-&lsquo;fft&rsquo; in SPLASH-2X benchmark suite.  From that, you can know there are three
-memory access bursting phases in the workload and <code>FFT1DOnce.cons::prop.2()</code>
-looks responsible for the first and second hot phase, while <code>Transpose()</code> is
-responsible for the last one.  Now the programmer can take a deep look in the
-functions and optimize the code (e.g., adding <code>madvise()</code> or <code>mlock()</code> calls).</p>
+&lsquo;fft&rsquo; in SPLASH-2X benchmark suite.  The upper-most graph shows how
+DAMON-detected working set size of the workload (y-axis) changes by time
+(x-axis).  The middle graph shows when (x-axis) which address range of the
+memory (y-axis) has how frequency accessed (color).  The lower-most graph,
+finally, shows when (x-axis) what function the workload was executing, and by
+what function call chain it was called.</p>
+<p>From this, you can know there are three memory access bursting phases in the
+workload and <code>FFT1DOnce.cons::prop.2()</code> looks responsible for the first and
+second hot phase, while <code>Transpose()</code> is responsible for the last one.  Now the
+programmer can take a deep look in the functions and optimize the code (e.g.,
+adding <code>madvise()</code> or <code>mlock()</code> calls).</p>
 <p><img src="/img/damon_callstack.png" alt="dasmon_callstack_visualization"></p>
-<p>We used the approach for &lsquo;mlock()'-based optimization of a range of other
-realistic benchmark workloads.  The optimized versions achieved up to about
-2.5x performance improvement under memory pressure[1].</p>
-<p>Note: I made the uppermost two figures in above &lsquo;fft&rsquo; visualization (working
+<p>We used the <code>mlock()</code>-based optimization approach to a range of other realistic
+benchmark workloads.  The optimized versions achieved up to about 2.5x
+performance improvement under memory pressure[1].</p>
+<p>Note: I made the uppermost two figures of above &lsquo;fft&rsquo; visualization (working
 set size and access frequency of each memory region by time) via the DAMON user
 space tool[2], while the lowermost one (callstack by time) is made using perf
 and speedscope[3].  We have no descent and totally automated tool for that yet

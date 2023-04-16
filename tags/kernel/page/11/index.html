@@ -578,7 +578,7 @@ This patchset introduces a bulk order-0 page allocator. It also makes the sunrpc
     <div class="article-style">
       
       I realized I didn&rsquo;t introduce a good, intuitive example use case of DAMON[0] for profiling so far, though DAMON is not for only profiling. One straightforward and realistic usage of DAMON as a profiling tool would be recording the monitoring results with callstack and visualize those by timeline together.
-For example, below shows that visualization for a realistic workload, namely &lsquo;fft&rsquo; in SPLASH-2X benchmark suite. From that, you can know there are three memory access bursting phases in the workload and FFT1DOnce.
+For example, below shows that visualization for a realistic workload, namely &lsquo;fft&rsquo; in SPLASH-2X benchmark suite. The upper-most graph shows how DAMON-detected working set size of the workload (y-axis) changes by time (x-axis).
       
     </div>
   </div>
