@@ -29,7 +29,9 @@
     
   
   <meta name="description" content="[PATCH 00/33] Split ptdesc from struct page (Vishal Moola) https://lkml.kernel.org/r/20230417205048.15870-1-vishal.moola@gmail.com
-To reduce the struct page overhead, which is about 1.5% of the whole system memory, people are working on to reduce some fileds in struct page. As one of the approach, this patchset prepares for splitting ptdesc from struct page.">
+To reduce the struct page overhead, which is about 1.5% of the whole system memory, people are working on to reduce some fileds in struct page. As one of the approach, this patchset prepares for splitting ptdesc from struct page.
+[RFC PATCH v1 0/5] Introduce objects folding mechanism (Alexey Romanov) https://lkml.kernel.org/r/20230418062503.62121-1-avromanov@sberdevices.ru
+This patchset adds a feature which allowing folding identical zsmalloc objects into single one.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/lkml_news_v6.3/">
@@ -152,7 +154,9 @@ To reduce the struct page overhead, which is about 1.5% of the whole system memo
   <meta property="og:url" content="https://sjp38.github.io/post/lkml_news_v6.3/">
   <meta property="og:title" content="LKML News v6.3 | hacklog">
   <meta property="og:description" content="[PATCH 00/33] Split ptdesc from struct page (Vishal Moola) https://lkml.kernel.org/r/20230417205048.15870-1-vishal.moola@gmail.com
-To reduce the struct page overhead, which is about 1.5% of the whole system memory, people are working on to reduce some fileds in struct page. As one of the approach, this patchset prepares for splitting ptdesc from struct page."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
+To reduce the struct page overhead, which is about 1.5% of the whole system memory, people are working on to reduce some fileds in struct page. As one of the approach, this patchset prepares for splitting ptdesc from struct page.
+[RFC PATCH v1 0/5] Introduce objects folding mechanism (Alexey Romanov) https://lkml.kernel.org/r/20230418062503.62121-1-avromanov@sberdevices.ru
+This patchset adds a feature which allowing folding identical zsmalloc objects into single one."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -204,7 +208,7 @@ To reduce the struct page overhead, which is about 1.5% of the whole system memo
       "url": "https://sjp38.github.io/img/icon-512.png"
     }
   },
-  "description": "[PATCH 00/33] Split ptdesc from struct page (Vishal Moola) https://lkml.kernel.org/r/20230417205048.15870-1-vishal.moola@gmail.com\nTo reduce the struct page overhead, which is about 1.5% of the whole system memory, people are working on to reduce some fileds in struct page. As one of the approach, this patchset prepares for splitting ptdesc from struct page."
+  "description": "[PATCH 00/33] Split ptdesc from struct page (Vishal Moola) https://lkml.kernel.org/r/20230417205048.15870-1-vishal.moola@gmail.com\nTo reduce the struct page overhead, which is about 1.5% of the whole system memory, people are working on to reduce some fileds in struct page. As one of the approach, this patchset prepares for splitting ptdesc from struct page.\n[RFC PATCH v1 0/5] Introduce objects folding mechanism (Alexey Romanov) https://lkml.kernel.org/r/20230418062503.62121-1-avromanov@sberdevices.ru\nThis patchset adds a feature which allowing folding identical zsmalloc objects into single one."
 }
 </script>
 
@@ -615,6 +619,17 @@ To reduce the struct page overhead, which is about 1.5% of the whole system memo
 <p>To reduce the <code>struct page</code> overhead, which is about 1.5% of the whole system
 memory, people are working on to reduce some fileds in <code>struct page</code>.  As one
 of the approach, this patchset prepares for splitting <code>ptdesc</code> from <code>struct page</code>.</p>
+<h2 id="rfc-patch-v1-05-introduce-objects-folding-mechanism-alexey-romanov">[RFC PATCH v1 0/5] Introduce objects folding mechanism (Alexey Romanov)</h2>
+<p><a href="https://lkml.kernel.org/r/20230418062503.62121-1-avromanov@sberdevices.ru">https://lkml.kernel.org/r/20230418062503.62121-1-avromanov@sberdevices.ru</a></p>
+<p>This patchset adds a feature which allowing folding identical zsmalloc objects
+into single one.</p>
+<h2 id="git-pull-hotfixes-for-63-andrew-morton">[GIT PULL] hotfixes for 6.3 (Andrew Morton)</h2>
+<p><a href="https://lkml.kernel.org/r/20230419163823.f2a0f64f0ef67ddee54c2461@linux-foundation.org">https://lkml.kernel.org/r/20230419163823.f2a0f64f0ef67ddee54c2461@linux-foundation.org</a></p>
+<p>Andrew Morton sent 22 hotfixes for Linux v6.3.</p>
+<h2 id="rfc-patch-0026-mm-reliable-huge-page-allocator-johannes-weiner">[RFC PATCH 00/26] mm: reliable huge page allocator (Johannes Weiner)</h2>
+<p><a href="https://lkml.kernel.org/r/20230418191313.268131-1-hannes@cmpxchg.org">https://lkml.kernel.org/r/20230418191313.268131-1-hannes@cmpxchg.org</a></p>
+<p>Johannes Weiner sent an RFC patchset for mitigating fragmentation issue and
+therefore make THP allocation reliable.</p>
 
     </div>
 
