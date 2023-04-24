@@ -574,7 +574,7 @@ This patchset adds a feature which allowing folding identical zsmalloc objects i
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -634,6 +634,20 @@ therefore make THP allocation reliable.</p>
 <p><a href="https://lkml.kernel.org/r/a27e87a0-04f3-2f8e-2494-3036ed7dabc9@suse.cz">https://lkml.kernel.org/r/a27e87a0-04f3-2f8e-2494-3036ed7dabc9@suse.cz</a></p>
 <p>Vlastimil sent early slab subsystem pull request for v6.4 even before the merge
 window is started.</p>
+<h2 id="linux-63-linus-torvalds">Linux 6.3 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wg02PoScxDO0wwD5EkFpx50DF1c2TxXqyAnzGjdFf71jw@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wg02PoScxDO0wwD5EkFpx50DF1c2TxXqyAnzGjdFf71jw@mail.gmail.com</a></p>
+<p>In the normal release schedule, Linux 6.3 has released.  There are some mm
+fixes in the last week changes, but it sounds scarier than it is.  Most fixes
+are for kmsan like things, not the normal mm code.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.13-rc1..v6.3.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2021-04-24 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
 
     </div>
 

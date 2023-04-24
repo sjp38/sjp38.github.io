@@ -37,6 +37,20 @@ therefore make THP allocation reliable.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/a27e87a0-04f3-2f8e-2494-3036ed7dabc9@suse.cz&#34;&gt;https://lkml.kernel.org/r/a27e87a0-04f3-2f8e-2494-3036ed7dabc9@suse.cz&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Vlastimil sent early slab subsystem pull request for v6.4 even before the merge
 window is started.&lt;/p&gt;
+&lt;h2 id=&#34;linux-63-linus-torvalds&#34;&gt;Linux 6.3 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wg02PoScxDO0wwD5EkFpx50DF1c2TxXqyAnzGjdFf71jw@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wg02PoScxDO0wwD5EkFpx50DF1c2TxXqyAnzGjdFf71jw@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;In the normal release schedule, Linux 6.3 has released.  There are some mm
+fixes in the last week changes, but it sounds scarier than it is.  Most fixes
+are for kmsan like things, not the normal mm code.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/kernel_release_stat/v5.13-rc1..v6.3.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
+below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2021-04-24 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
