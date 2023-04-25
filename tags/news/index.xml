@@ -5,12 +5,27 @@
     <link>https://sjp38.github.io/tags/news/</link>
       <atom:link href="https://sjp38.github.io/tags/news/index.xml" rel="self" type="application/rss+xml" />
     <description>news</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 18 Apr 2023 07:35:18 -0700</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 25 Apr 2023 07:41:36 -0700</lastBuildDate>
     <image>
       <url>https://sjp38.github.io/img/tux.png</url>
       <title>news</title>
       <link>https://sjp38.github.io/tags/news/</link>
     </image>
+    
+    <item>
+      <title>LKML News v6.4-rc1</title>
+      <link>https://sjp38.github.io/post/lkml_news_v6.4-rc1/</link>
+      <pubDate>Tue, 25 Apr 2023 07:41:36 -0700</pubDate>
+      <guid>https://sjp38.github.io/post/lkml_news_v6.4-rc1/</guid>
+      <description>&lt;h2 id=&#34;patch-v2-02-reduce-lock-contention-related-with-large-folio-yin-fengwei&#34;&gt;[PATCH v2 0/2] Reduce lock contention related with large folio (Yin Fengwei)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20230425084627.3573866-1-fengwei.yin@intel.com&#34;&gt;https://lkml.kernel.org/r/20230425084627.3573866-1-fengwei.yin@intel.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Ryan found large anonymous folios exposes some lock contention unlike large
+page cache folios, because anonymous mapping is allocated/freed more
+frequently.  This patchset mitigates the lock contention by avoid acquiring
+queue lock unnecessarily, and allowing batched large folio list adds to lru
+list.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>LKML News v6.3</title>
