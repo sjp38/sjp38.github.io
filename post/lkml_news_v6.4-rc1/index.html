@@ -29,7 +29,9 @@
     
   
   <meta name="description" content="[PATCH v2 0/2] Reduce lock contention related with large folio (Yin Fengwei) https://lkml.kernel.org/r/20230425084627.3573866-1-fengwei.yin@intel.com
-Ryan found large anonymous folios exposes some lock contention unlike large page cache folios, because anonymous mapping is allocated/freed more frequently. This patchset mitigates the lock contention by avoid acquiring queue lock unnecessarily, and allowing batched large folio list adds to lru list.">
+Ryan found large anonymous folios exposes some lock contention unlike large page cache folios, because anonymous mapping is allocated/freed more frequently. This patchset mitigates the lock contention by avoid acquiring queue lock unnecessarily, and allowing batched large folio list adds to lru list.
+[PATCH v2 0/3] fs: multigrain timestamps (Jeff Layton) https://lkml.kernel.org/r/20230424151104.175456-1-jlayton@kernel.org
+This patchset makes file system to support not single-gran timestamp but multi-gran timestamps.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/lkml_news_v6.4-rc1/">
@@ -152,7 +154,9 @@ Ryan found large anonymous folios exposes some lock contention unlike large page
   <meta property="og:url" content="https://sjp38.github.io/post/lkml_news_v6.4-rc1/">
   <meta property="og:title" content="LKML News v6.4-rc1 | hacklog">
   <meta property="og:description" content="[PATCH v2 0/2] Reduce lock contention related with large folio (Yin Fengwei) https://lkml.kernel.org/r/20230425084627.3573866-1-fengwei.yin@intel.com
-Ryan found large anonymous folios exposes some lock contention unlike large page cache folios, because anonymous mapping is allocated/freed more frequently. This patchset mitigates the lock contention by avoid acquiring queue lock unnecessarily, and allowing batched large folio list adds to lru list."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
+Ryan found large anonymous folios exposes some lock contention unlike large page cache folios, because anonymous mapping is allocated/freed more frequently. This patchset mitigates the lock contention by avoid acquiring queue lock unnecessarily, and allowing batched large folio list adds to lru list.
+[PATCH v2 0/3] fs: multigrain timestamps (Jeff Layton) https://lkml.kernel.org/r/20230424151104.175456-1-jlayton@kernel.org
+This patchset makes file system to support not single-gran timestamp but multi-gran timestamps."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -204,7 +208,7 @@ Ryan found large anonymous folios exposes some lock contention unlike large page
       "url": "https://sjp38.github.io/img/icon-512.png"
     }
   },
-  "description": "[PATCH v2 0/2] Reduce lock contention related with large folio (Yin Fengwei) https://lkml.kernel.org/r/20230425084627.3573866-1-fengwei.yin@intel.com\nRyan found large anonymous folios exposes some lock contention unlike large page cache folios, because anonymous mapping is allocated/freed more frequently. This patchset mitigates the lock contention by avoid acquiring queue lock unnecessarily, and allowing batched large folio list adds to lru list."
+  "description": "[PATCH v2 0/2] Reduce lock contention related with large folio (Yin Fengwei) https://lkml.kernel.org/r/20230425084627.3573866-1-fengwei.yin@intel.com\nRyan found large anonymous folios exposes some lock contention unlike large page cache folios, because anonymous mapping is allocated/freed more frequently. This patchset mitigates the lock contention by avoid acquiring queue lock unnecessarily, and allowing batched large folio list adds to lru list.\n[PATCH v2 0/3] fs: multigrain timestamps (Jeff Layton) https://lkml.kernel.org/r/20230424151104.175456-1-jlayton@kernel.org\nThis patchset makes file system to support not single-gran timestamp but multi-gran timestamps."
 }
 </script>
 
@@ -617,6 +621,10 @@ page cache folios, because anonymous mapping is allocated/freed more
 frequently.  This patchset mitigates the lock contention by avoid acquiring
 queue lock unnecessarily, and allowing batched large folio list adds to lru
 list.</p>
+<h2 id="patch-v2-03-fs-multigrain-timestamps-jeff-layton">[PATCH v2 0/3] fs: multigrain timestamps (Jeff Layton)</h2>
+<p><a href="https://lkml.kernel.org/r/20230424151104.175456-1-jlayton@kernel.org">https://lkml.kernel.org/r/20230424151104.175456-1-jlayton@kernel.org</a></p>
+<p>This patchset makes file system to support not single-gran timestamp but
+multi-gran timestamps.</p>
 
     </div>
 
