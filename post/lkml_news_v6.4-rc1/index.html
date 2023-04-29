@@ -629,6 +629,19 @@ multi-gran timestamps.</p>
 <p><a href="https://lkml.kernel.org/r/7443f0e6-6be2-3320-60d9-03da0cca2987@google.com">https://lkml.kernel.org/r/7443f0e6-6be2-3320-60d9-03da0cca2987@google.com</a></p>
 <p>David is suggesting a last minute LSF/MM/BPF topic, regarding the memory
 tiering future.</p>
+<h2 id="git-pull-mm-updates-for-64-rc1-andrew-morton">[GIT PULL] MM updates for 6.4-rc1 (Andrew Morton)</h2>
+<p><a href="https://lkml.kernel.org/r/20230427153345.451d86681f9c6775ea579e5a@linux-foundation.org">https://lkml.kernel.org/r/20230427153345.451d86681f9c6775ea579e5a@linux-foundation.org</a></p>
+<p>Andrew Morton has posted a memory mangement subsystem udpates pull request for
+v6.4-rc1.  This includes Suren&rsquo;s per-VMA locking of <code>mmap_lock</code>.</p>
+<h2 id="patch-v2-02-memcg-oom-log-improvements-yosry-ahmed">[PATCH v2 0/2] memcg: OOM log improvements (Yosry Ahmed)</h2>
+<p><a href="https://lkml.kernel.org/r/20230428132406.2540811-1-yosryahmed@google.com">https://lkml.kernel.org/r/20230428132406.2540811-1-yosryahmed@google.com</a></p>
+<p>This patchset brings back some unnecessarily changed cgroup v1 stat in OOM
+logs, and make it less <code>printk()</code> internals reliant.</p>
+<h2 id="patch-11-mm-change-per-vma-lock-statistics-to-be-disabled-by-default-suren-baghdasaryan">[PATCH 1/1] mm: change per-VMA lock statistics to be disabled by default (Suren Baghdasaryan)</h2>
+<p><a href="https://lkml.kernel.org/r/20230428173533.18158-1-surenb@google.com">https://lkml.kernel.org/r/20230428173533.18158-1-surenb@google.com</a></p>
+<p>Linus asked per-VMA lock statistics to be disabled by default, in reply to the
+MM pull request.  Linus argues all such things for debug should be disabled by
+default.  Suren sent a patch for the change.</p>
 
     </div>
 
