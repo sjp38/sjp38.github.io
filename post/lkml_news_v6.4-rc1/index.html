@@ -574,7 +574,7 @@ This patchset makes file system to support not single-gran timestamp but multi-g
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -642,6 +642,10 @@ logs, and make it less <code>printk()</code> internals reliant.</p>
 <p>Linus asked per-VMA lock statistics to be disabled by default, in reply to the
 MM pull request.  Linus argues all such things for debug should be disabled by
 default.  Suren sent a patch for the change.</p>
+<h2 id="patch-rfc-net-nextmm-v3-02-page_pool-new-approach-for-leak-detection-and-shutdown-phase-jesper-dangaard-brouer">[PATCH RFC net-next/mm V3 0/2] page_pool: new approach for leak detection and shutdown phase (Jesper Dangaard Brouer)</h2>
+<p><a href="https://lkml.kernel.org/r/168269854650.2191653.8465259808498269815.stgit@firesoul">https://lkml.kernel.org/r/168269854650.2191653.8465259808498269815.stgit@firesoul</a></p>
+<p>This patchset moves leak detection algorithm from <code>page_pool</code> to mm layer page
+allocator when <code>CONFIG_DEBUG_VM</code> is on.</p>
 
     </div>
 
