@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="ko-kr">
   
-    <meta property="og:updated_time" content="2023-01-15T10:34:06-08:00">
+    <meta property="og:updated_time" content="2023-05-06T11:27:07-07:00">
   
 
   
@@ -525,6 +525,17 @@
   
   
   <div>
+    <h2><a href="/ko/post/lkml_news_v5.3-rc6/">LKML News v5.3-rc6</a></h2>
+    <div class="article-style">
+      
+      Linux 5.3-rc6 https://lkml.kernel.org/r/CAHk-=wgAKCTq+t5YnG6HzrF62=rr9H=q3LqokEP0_bQRHLwYNw@mail.gmail.com
+오늘은 리눅스의 28번째 생일입니다. 따라서 오늘 rc6 릴리즈는 28년만의 릴리즈이기도 하군요. 토발즈도 감회가 깊었는지 오늘의 릴리즈 메일엔 최초 릴리즈 메일에 적었던 내용과 비슷하게 시작 부분을 꾸몄네요. 감회 깊은 날, 감회 깊은 릴리즈입니다.
+리눅스를 사용하는 여러분들 안녕하세요, 저는 486 AT 클론과 그외의 많은 다른 하드웨어를 위한 (자유) 운영체제를 (취미보단 더 진지하게) 만들고 있습니다. 이 일은 28년째 지속되고 있고, 아직도 끝나지 않았습니다. 이 릴리즈에 의해 만들어진 (또는 그보다 오래된) 모든 버그에 대한 피드백을 부탁드립니다.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/ko/post/lkml_news_v5.3-rc5/">LKML News v5.3-rc5</a></h2>
     <div class="article-style">
       
@@ -634,18 +645,6 @@ Linux 5.2-rc7 https://lkml.kernel.org/r/CAHk-=wgL5GyQ93o=VyiymFPfw=Z0TGHEPBJrCtG
 논의를 위한 패치라 이대로 머지되진 않겠지만, 사용처가 많이 늘어날 것 같네요.
 Linux 5.2-rc6 https://lkml.kernel.org/r/CAHk-=wg+nPKhdn=vKSgJQkfOSGhauTO4jyt=0FH9cnM_QChDLw@mail.gmail.com
 안타깝게도 기대와 달리 이번 릴리즈는 조용하지 않았습니다. 이번 5.2 개발을 위한 릴리즈 중 머지 윈도우와 rc1 을 제외하면 rc6 가 오히려 가장 많은 변화를 담고 있다는군요.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/ko/post/lkml_news_v5.2-rc5/">LKML News v5.2-rc5</a></h2>
-    <div class="article-style">
-      
-      [PATCH v3 0/5] THP aware uprobe https://lkml.kernel.org/r/20190612220320.2223898-1-songliubraving@fb.com
-uprobe 는 THP 로 되어있는 페이지를 쪼갭니다. 이로 인해 성능 향상 효과가 사라지죠. 이 패치셋은 uprobe 가 THP 를 인식하게 해서 이런 문제를 제거합니다.
-[PATCH v2 0/5] Introduce MADV_COLD and MADV_PAGEOUT https://lkml.kernel.org/r/20190610111252.239156-1-minchan@kernel.org
-기존에도 소개한 MADV_COLD 와 MADV_PAGEOUT 을 madvise() 에 추가하는 패치셋의 두번째 버전입니다. 이 패치셋을 ChromeOS 팀의 Brian Geffon 은 가져다가 탭이 백그라운드로 들어가고 45초 이상 그 상태를 유지하면 이 기능을 사용해서 페이지를 proactively swap out 시켰는데, 그 결과 tab 전환 속도가 25% 나 빨라졌다고 합니다.
       
     </div>
   </div>

@@ -28,8 +28,9 @@
   
     
   
-  <meta name="description" content="The trend of increasing data intensive workloads and limited DRAM capacity makes dynamic access pattern based optimal memory management important. Such mechanisms can be made only when not only accurate but also efficient dynamic access pattern monitoring is available.
-DAMON is a Data Access MONitoring framework subsystem for the Linux kernel that developed for such memory management. It is designed with some core mechanism (refer to Design for the detail), which can make it">
+  <meta name="description" content="With increasingly data-intensive workloads and limited DRAM capacity, optimal memory management based on dynamic access patterns is becoming increasingly important. Such mechanisms are only possible if accurate and efficient dynamic access pattern monitoring is available.
+DAMON is a Data Access MONitoring framework subsystem for the Linux kernel developed for such memory management. It is designed with some key mechanism (refer to Design for the detail) that make it
+ accurate (the monitoring output is useful enough for DRAM level memory management; It might not be appropriate for CPU Cache levels, though), light-weight (the monitoring overhead is low enough to be applied online), and scalable (the upper-bound of the overhead is in constant range regardless of the size of target workloads).">
 
   
   <link rel="alternate" hreflang="en" href="https://sjp38.github.io/post/damon/">
@@ -153,8 +154,9 @@ DAMON is a Data Access MONitoring framework subsystem for the Linux kernel that 
   <meta property="og:site_name" content="hacklog">
   <meta property="og:url" content="https://sjp38.github.io/ko/post/damon/">
   <meta property="og:title" content="DAMON: Data Access Monitor | hacklog">
-  <meta property="og:description" content="The trend of increasing data intensive workloads and limited DRAM capacity makes dynamic access pattern based optimal memory management important. Such mechanisms can be made only when not only accurate but also efficient dynamic access pattern monitoring is available.
-DAMON is a Data Access MONitoring framework subsystem for the Linux kernel that developed for such memory management. It is designed with some core mechanism (refer to Design for the detail), which can make it"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
+  <meta property="og:description" content="With increasingly data-intensive workloads and limited DRAM capacity, optimal memory management based on dynamic access patterns is becoming increasingly important. Such mechanisms are only possible if accurate and efficient dynamic access pattern monitoring is available.
+DAMON is a Data Access MONitoring framework subsystem for the Linux kernel developed for such memory management. It is designed with some key mechanism (refer to Design for the detail) that make it
+ accurate (the monitoring output is useful enough for DRAM level memory management; It might not be appropriate for CPU Cache levels, though), light-weight (the monitoring overhead is low enough to be applied online), and scalable (the upper-bound of the overhead is in constant range regardless of the size of target workloads)."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="ko-kr">
   
     
@@ -206,7 +208,7 @@ DAMON is a Data Access MONitoring framework subsystem for the Linux kernel that 
       "url": "https://sjp38.github.io/img/icon-512.png"
     }
   },
-  "description": "The trend of increasing data intensive workloads and limited DRAM capacity makes dynamic access pattern based optimal memory management important. Such mechanisms can be made only when not only accurate but also efficient dynamic access pattern monitoring is available.\nDAMON is a Data Access MONitoring framework subsystem for the Linux kernel that developed for such memory management. It is designed with some core mechanism (refer to Design for the detail), which can make it"
+  "description": "With increasingly data-intensive workloads and limited DRAM capacity, optimal memory management based on dynamic access patterns is becoming increasingly important. Such mechanisms are only possible if accurate and efficient dynamic access pattern monitoring is available.\nDAMON is a Data Access MONitoring framework subsystem for the Linux kernel developed for such memory management. It is designed with some key mechanism (refer to Design for the detail) that make it\n accurate (the monitoring output is useful enough for DRAM level memory management; It might not be appropriate for CPU Cache levels, though), light-weight (the monitoring overhead is low enough to be applied online), and scalable (the upper-bound of the overhead is in constant range regardless of the size of target workloads)."
 }
 </script>
 
@@ -590,7 +592,7 @@ DAMON is a Data Access MONitoring framework subsystem for the Linux kernel that 
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    11 min read
+    7 min read
   </span>
   
 
@@ -667,15 +669,14 @@ DAMON is a Data Access MONitoring framework subsystem for the Linux kernel that 
   <div class="article-container">
 
     <div class="article-style">
-      <p>The trend of increasing data intensive workloads and limited DRAM capacity
-makes dynamic access pattern based optimal memory management important.  Such
-mechanisms can be made only when not only accurate but also efficient dynamic
+      <p>With increasingly data-intensive workloads and limited DRAM capacity, optimal
+memory management based on dynamic access patterns is becoming increasingly
+important. Such mechanisms are only possible if accurate and efficient dynamic
 access pattern monitoring is available.</p>
-<p>DAMON is a Data Access MONitoring framework subsystem for the Linux kernel that
-developed for such memory management.  It is designed with some core mechanism
-(refer to
-<a href="https://docs.kernel.org/mm/damon/design.html">Design</a> for the detail), which
-can make it</p>
+<p>DAMON is a Data Access MONitoring framework subsystem for the Linux kernel
+developed for such memory management.  It is designed with some key mechanism
+(refer to <a href="https://docs.kernel.org/mm/damon/design.html">Design</a> for the
+detail) that make it</p>
 <ul>
 <li>accurate (the monitoring output is useful enough for DRAM level memory
 management; It might not be appropriate for CPU Cache levels, though),</li>
@@ -684,13 +685,13 @@ and</li>
 <li>scalable (the upper-bound of the overhead is in constant range regardless of
 the size of target workloads).</li>
 </ul>
-<p>DAMON therefore makes development of any access pattern based memory management
-available.  For easier development of such system, DAMON further provides a
-feature called DAMOS (DAMon-based Operation Schemes).  Using it, DAMON users
-can develop and run their access-aware memory management with no code but
-simple configurations.  Simple mechanisms made on top of DAMOS
+<p>Therefore, DAMON can be used to develop memory management based on any access
+pattern. To make it easier to develop such systems, DAMON provides a feature
+called DAMON-based Operation Schemes (DAMOS). This allows DAMON users to
+develop and execute access-aware memory management without code but with a
+simple setup. Simple mechanisms based on DAMOS can
 <a href="https://www.amazon.science/publications/daos-data-access-aware-operating-system">achieve</a>
-up to 12% performance improvement and 91% memory saving.</p>
+up to 12% performance improvement and 91% memory savings.</p>
 <p>Detailed evaluation of DAMON and DAMON-based system optimizations are
 available at another <a href="https://sjp38.github.io/ko/post/damon_evaluation/">post</a>.</p>
 <h2 id="demo-video">Demo Video</h2>
@@ -716,10 +717,9 @@ significant changes for Linux v6.3 by an LWN
 <a href="https://lwn.net/Articles/924384/">article</a></p>
 <p><em>2023-02-24</em>: A preprint of an academic paper that compares their approach
 against DAMON has <a href="https://arxiv.org/pdf/2302.09468.pdf">uploaded</a> to ArXiv.</p>
-<p><em>2023-02-13</em>: LSF/MM/BPF topic proposal for DAMON has
-<a href="https://lore.kernel.org/linux-mm/20230214003328.55285-1-sj@kernel.org/">posted</a></p>
-<p><em>2023-02-09</em>: DAMON debugfs deprecation patchset has
-<a href="https://lore.kernel.org/damon/20230209192009.7885-1-sj@kernel.org/">posted</a></p>
+<h2 id="news">News</h2>
+<p>Because the entire list of the news became too long, it has moved to another
+<a href="https://sjp38.github.io/ko/post/damon_news/">post</a>.</p>
 <h2 id="getting-started">Getting Started</h2>
 <p>You can start using DAMON by</p>
 <ul>
@@ -737,9 +737,17 @@ Linux kernel to use it.  To check if you&rsquo;re already running DAMON-enabled
 kernel, you could:</p>
 <pre><code>$ if grep CONFIG_DAMON /boot/config-$(uname -r); then echo &quot;installed&quot;; fi
 </code></pre>
+<p>DAMON is enabled in
+<a href="https://aws.amazon.com/linux/?amazon-linux-whats-new.sort-by=item.additionalFields.postDateTime&amp;amazon-linux-whats-new.sort-order=desc">Amazon Linux</a>
+kernels that based on v5.4 or newer Linux kernels.
+If you are an
+<a href="https://aws.amazon.com/linux/amazon-linux-2023/">Amazon Linux 2023</a> user, you
+may already using a DAMON-enabled kernel, so no additional setup would be
+required.</p>
 <p>If you are an <a href="https://aws.amazon.com/amazon-linux-2/">Amazon Linux 2</a> user,
-you can install a DAMON-enabled Linux kernels which are based on v5.10 or v5.4
-using
+you may or may not using a DAMON-enabled kernel, because the distro supports
+kernels older than v5.4.  If you&rsquo;re not using DAMON-enabled kernel on the
+distro, you can install DAMON-enabled kernels using its package manager,
 <a href="https://aws.amazon.com/premiumsupport/knowledge-center/ec2-install-extras-library-software/">amazon-linux-extras</a>.
 For example, if you want to use DAMON with Amazon Linux v5.10 kernel, below
 commands will work.</p>
@@ -748,8 +756,8 @@ $ sudo amazon-linux-extras install kernel-5.10
 $ sudo reboot
 </code></pre>
 <p>Note that AL2 v5.10.y contains all DAMON features that available on mainline
-while AL2 5.4.y contains only a part of DAMON features, so AL2 v5.10.y is more
-recommended.</p>
+while AL2 5.4.y contains only a part of DAMON features.  We recommend AL2
+v5.10.y for the reason.</p>
 <p>If your package system doesn&rsquo;t support DAMON-enabled kernel, you can
 <a href="#source-code">fetch</a> a DAMON-merged Linux kernel source tree (it has merged in
 Linux mainline tree since v5.15), build, and install it.  Note that you should
@@ -771,22 +779,22 @@ $ make -j$(nproc)
 $ sudo make modules_install install
 </code></pre>
 <h2 id="source-code">Source Code</h2>
-<p>There are several DAMON-merged Linux kernel source trees for different users.
+<p>There are several Linux kernel source trees having DAMON for different users.
 You may pick one among those based on your needs.</p>
 <p>For users who want only a <strong>stable</strong> version of DAMON, below trees are
-available.</p>
+recommended.</p>
 <ul>
 <li>Linus Torvalds&rsquo; <a href="https://git.kernel.org/torvalds/h/master">mainline tree</a>
 contains the latest stable version of DAMON since v5.15.</li>
-<li>Amazon Linux 2
-<a href="https://github.com/amazonlinux/linux/tree/amazon-5.10.y/master">v5.10.y tree</a>
-and
+<li>Amazon Linux kernel
+<a href="https://github.com/amazonlinux/linux/tree/amazon-5.10.y/master">v5.10.y tree</a>,
 <a href="https://github.com/amazonlinux/linux/tree/amazon-5.4.y/master">v5.4.y tree</a>
-also contain stable versions of DAMON.  Note that AL2 v5.10.y contains all
-DAMON features that available on the latest major releases of Linux while AL2
-5.4.y contains only a part of DAMON features, so AL2 v5.10.y is more
-recommended.</li>
+and all trees that based on v5.15 or newer Linux kernel contain stable
+versions of DAMON.</li>
 </ul>
+<p>Note that AL2 v5.10.y contains all DAMON features that available on the
+latest major releases of Linux while AL2 5.4.y contains only a part of DAMON
+features, so AL2 v5.10.y is more recommended.</p>
 <p>If you have interests in DAMON features under <strong>development</strong>, below trees will
 be appropriate.  These trees contain latest version of DAMON which having
 features under development.</p>
@@ -815,7 +823,8 @@ there will be no update to the trees.</p>
 <p>The source code of DAPTRACE, which is a prototype of DAMON, is also
 <a href="https://github.com/daptrace">available</a>.</p>
 <h2 id="user-space-tool">User-space Tool</h2>
-<p>A user-space tool for DAMON, which is called DAMO, is available at
+<p>A user-space tool for DAMON, which is called DAMO (Data Access Monitoring
+Operator), is available at
 <a href="https://github.com/awslabs/damo">Github</a> and
 <a href="https://pypi.org/project/damo/">PyPi</a>.  You may start using DAMON by following
 the <a href="https://github.com/awslabs/damo#getting-started">Getting Started</a> of the
@@ -836,7 +845,7 @@ fails, please report that to the maintainer via mail (<a href="mailto:sj@kernel.
 <p>The official document of DAMON in the latest mainline for
 <a href="https://docs.kernel.org/admin-guide/mm/damon/index.html">users/sysadmins</a> and
 <a href="https://docs.kernel.org/mm/damon/index.html">kernel programmers</a> are
-available.  Document for DAMON in the <a href="#source-code">damon/next</a> tree, which
+available.  Document for DAMON in the <a href="#source-code">damon/next</a> tree, which is
 focused on DAMON only and contains some more DAMON-specific contents, is also
 <a href="https://damonitor.github.io/doc/html/next/">available</a>.</p>
 <h2 id="showcase-website">Showcase Website</h2>
@@ -868,6 +877,9 @@ and</li>
 <h2 id="damon-based-system-optimization-guide">DAMON-based System Optimization Guide</h2>
 <p>A guide for DAMON-based system optimizations are also
 <a href="https://sjp38.github.io/ko/post/damon_optimization_guide/">available</a>.</p>
+<h2 id="profile-guided-optimization-example">Profile-Guided Optimization Example</h2>
+<p>An example of DAMON-based profile-guided optimization is also
+<a href="https://sjp38.github.io/ko/post/damon_profile_callstack_example/">available</a>.</p>
 <h2 id="community">Community</h2>
 <p>DAMON is maintained and developed by its own community, which is a sub-set of
 the linux kernel development community.</p>
@@ -882,7 +894,18 @@ could also read the mails without subscription via
 meeting series for DAMON community called DAMON Beer/Coffee/Tea chat
 <a href="https://lore.kernel.org/damon/20220810225102.124459-1-sj@kernel.org/">series</a>.</p>
 <h2 id="publications-and-presentations">Publications and Presentations</h2>
+<p>Below are featured and/or upcoming publications and presentations covering
+DAMON.
+For more complete list of those, please refer to another
+dedicated <a href="https://sjp38.github.io/ko/post/damon_publications_talks/">post</a>.</p>
 <ul>
+<li>SeongJae Park, <strong>DAMON, DAMOS, and DAMO: Kernel Subsystems and User-Space
+Tools for Data Access-Aware System Analysis/Optimizations.</strong>
+In <em>Open Source Summit North America</em>, May 2023.
+<a href="https://sched.co/1K5HS">Link</a></li>
+<li>SeongJae Park, <strong>DAMON updates and future plans.</strong>
+In <em>Linux Storage | Filesystem | MM &amp; BPF Summit</em>, May 2023.
+<a href="https://events.linuxfoundation.org/lsfmm/program/schedule-at-a-glance/">Link</a></li>
 <li>SeongJae Park, <strong>Current Status and Future Plans of DAMON.</strong>
 In <em>The Linux Kernel Summit</em>, September 2022.
 <a href="https://lpc.events/event/16/contributions/1224/attachments/1107/2137/damon_status_plan_ksummit_2022.pdf">Slides</a>,
@@ -890,31 +913,14 @@ In <em>The Linux Kernel Summit</em>, September 2022.
 <a href="https://lpc.events/event/16/contributions/1224/">Link</a></li>
 <li>Jonathan Corbet, <strong>LRU-list manipulation with DAMON.</strong> In Linux Weekly News,
 August 2022.  <a href="https://lwn.net/Articles/905370/">Article</a></li>
-<li>SeongJae Park, <strong>Current Status, Future Plans, and Possible Collaborations
-for DAMON.</strong> In <em>The Linux Kernel Summit</em>, September 2022.
-<a href="https://lpc.events/event/16/contributions/1224/">Link</a></li>
 <li>SeongJae Park, Madhuparna Bhowmik, Alexandru Uta, <strong>DAOS: Data Access-aware
 Operating System.</strong> In <em>The 31st International ACM Symposium on
 High-Performance Parallel and Distributed Computing (HPDC'22)</em>, June 2022.
 <a href="https://www.amazon.science/publications/daos-data-access-aware-operating-system">Paper</a>,
 <a href="https://damonitor.github.io/misc/daos_hpdc_2022_slides.pdf">Slides</a>,
 <a href="https://damonitor.github.io/misc/daos_hpdc_2022_poster.pdf">Poster</a></li>
-<li>SeongJae Park, <strong>Writing a fine-grained access pattern oriented lightweight
-kernel module using DAMON/DAMOS in 10 minutes.</strong>
-In <em>The Linux Kernel Summit</em>, September 2021.
-<a href="https://linuxplumbersconf.org/event/11/contributions/984/attachments/870/1670/daos_ksummit_2021.pdf">Slides</a>,
-<a href="https://youtu.be/gpFfJkrrEEs?t=5290">Video</a>,
-<a href="https://linuxplumbersconf.org/event/11/contributions/984/">Link</a></li>
 <li>Jonathan Corbet, <strong>Using DAMON for proactive reclaim.</strong> In Linux Weekly News,
 July 2021.  <a href="https://lwn.net/Articles/863753/">Article</a></li>
-<li>SeongJae Park, <strong>DAMON: Data Access Monitoring Framework for Fun and Memory
-Management Optimizations,</strong> In <em>The Linux Kernel Summit</em>, August 2020.
-<a href="https://www.linuxplumbersconf.org/event/7/contributions/659/attachments/503/1195/damon_ksummit_2020.pdf">Slides</a>,
-<a href="https://youtu.be/jOBkKMA0uF0?t=10696">Video</a>,
-<a href="https://www.linuxplumbersconf.org/event/7/contributions/659/">Link</a></li>
-<li>Yunjae Lee, Yunhee Kim, and Heon. Y. Yeom, <strong>Lightweight Memory Tracing for
-Hot Data Identification,</strong> In <em>Cluster computing</em>, 2020.
-<a href="https://link.springer.com/article/10.1007/s10586-020-03130-1">Paper</a></li>
 <li>Jonathan Corbet, <strong>Memory-management optimization with DAMON.</strong> In Linux
 Weekly News, February 2020.
 <a href="https://lwn.net/Articles/812707/">Article</a></li>
@@ -922,193 +928,7 @@ Weekly News, February 2020.
 Patterns with Controlled Overhead and Quality.</strong> In 20th ACM/IFIP
 International Middleware Conference Industry, December 2019.
 <a href="https://dl.acm.org/citation.cfm?id=3368125">Paper</a></li>
-<li>SeongJae Park, <strong>Tracing Data Access Pattern with Bounded Overhead and
-Best-effort Accuracy.</strong> In <em>The Linux Kernel Summit</em>, September 2019.
-<a href="https://linuxplumbersconf.org/event/4/contributions/548/attachments/311/590/damon_ksummit19.pdf">Slides</a>,
-<a href="https://linuxplumbersconf.org/event/4/contributions/548/">Link</a></li>
-<li>SeongJae Park, Yunjae Lee, Yunhee Kim, Heon Y. Yeom, <strong>Profiling Dynamic Data
-Access Patterns with Bounded Overhead and Accuracy.</strong> In IEEE International
-Workshop on Foundations and Applications of Self-* Systems (FAS* 2019),
-June 2019.
-<a href="https://ieeexplore.ieee.org/abstract/document/8791992">Paper</a></li>
 </ul>
-<h2 id="news">News</h2>
-<p><em>2023-05-04</em>: The schedule for DAMON talk/discussion at LSFMM is
-<a href="https://events.linuxfoundation.org/lsfmm/program/schedule-at-a-glance/">available</a>
-now.</p>
-<p><em>2023-03-14</em>: The schedule for DAMON talk at OSSummit NA is
-<a href="https://sched.co/1K5HS">available</a> now.</p>
-<p><em>2023-03-10</em>: A DAMON talk proposal for
-<a href="https://events.linuxfoundation.org/open-source-summit-north-america/">OSSummit NA</a>
-has accepted.</p>
-<p><em>2023-03-06</em>: DAMOS filters feature has introduced as one of the most
-significant changes for Linux v6.3 by an LWN
-<a href="https://lwn.net/Articles/924384/">article</a></p>
-<p><em>2023-02-24</em>: A preprint of an academic paper that compares their approach
-against DAMON has <a href="https://arxiv.org/pdf/2302.09468.pdf">uploaded</a> to ArXiv.</p>
-<p><em>2023-02-13</em>: LSF/MM/BPF topic proposal for DAMON has
-<a href="https://lore.kernel.org/linux-mm/20230214003328.55285-1-sj@kernel.org/">posted</a></p>
-<p><em>2023-02-09</em>: DAMON debugfs deprecation patchset has
-<a href="https://lore.kernel.org/damon/20230209192009.7885-1-sj@kernel.org/">posted</a></p>
-<p><em>2022-12-29</em>: DAMON development summary of 2022 has
-<a href="https://lore.kernel.org/lkml/20221229171209.162356-1-sj@kernel.org/">shared</a>
-and <a href="https://www.phoronix.com/news/DAMON-Linux-2022">featured</a> by Phoronix.</p>
-<p><em>2022-12-16</em>: The DAMOS filtering for anon pages and/or memory
-cgroups have
-<a href="https://lore.kernel.org/mm-commits/20221216235930.526BAC433EF@smtp.kernel.org/">merged</a>
-in mm tree.</p>
-<p><em>2022-10-19</em>: An RFC patchset for efficient query-like DAMON monitoring results
-have
-<a href="https://lore.kernel.org/damon/20221019001317.104270-1-sj@kernel.org/">posted</a></p>
-<p><em>2022-09-15</em>: The <a href="https://youtu.be/e2SZoUPhDRg?t=13245">video</a> for my kernel
-summit DAMON talk this year is now available at Youtube</p>
-<p><em>2022-09-09</em>: The plan for the first in-person DAMON community meetup at LPC
-and the in-person office hour at OSSummit EU has
-<a href="https://lore.kernel.org/damon/20220909173856.55818-1-sj@kernel.org/">announced</a></p>
-<p><em>2022-09-06</em>: AL2 5.10 kernel&rsquo;s DAMON code has
-<a href="https://github.com/amazonlinux/linux/commit/5441c2036382e1957492a6d762f0dfbd172aa225">updated</a>
-to that of v5.19</p>
-<p><em>2022-08-30</em>: AL2 5.10 kernel&rsquo;s DAMON code has
-<a href="https://github.com/amazonlinux/linux/commit/8fde5ce7c81c1ecf6c3ac2595774eac0e6784869">updated</a>
-to that of v5.18</p>
-<p><em>2022-08-22</em>: LWN <a href="https://lwn.net/Articles/905370/">introduced</a> DAMON-based
-LRU-lists manipulation (DAMON_LRU_SORT) in detail</p>
-<p><em>2022-08-15</em>: LWN <a href="https://lwn.net/Articles/904032/">introduced</a> DAMON’s new
-features including &lsquo;LRU_SORT&rsquo; as significant changes for Linux 6.0</p>
-<p><em>2022-08-12</em>: Bi-weekly DAMON Beer/Coffee/Tea Chat series for open, regular,
-and informal community syncups and discussions has
-<a href="https://lore.kernel.org/damon/20220810225102.124459-1-sj@kernel.org/">announced</a>.</p>
-<p><em>2022-07-29</em>: Current status, future plans, and possible collaborations for
-DAMON will be <a href="https://lpc.events/event/16/contributions/1224/">presented</a> at
-the Kernel Summit 2022.</p>
-<p><em>2022-06-26</em>: The poster of the DAOS
-<a href="https://www.amazon.science/publications/daos-data-access-aware-operating-system">paper</a>
-is
-<a href="https://damonitor.github.io/misc/daos_hpdc_2022_poster.pdf">available</a> online.</p>
-<p><em>2022-06-13</em>: DAMON-based LRU-lists sorting patchset has
-<a href="https://lore.kernel.org/damon/20220613192301.8817-1-sj@kernel.org/">posted</a>
-and immediately
-<a href="https://lore.kernel.org/mm-commits/20220613194036.C4AC5C34114@smtp.kernel.org/">merged</a>
-in the -mm tree</p>
-<p><em>2022-05-04</em>: A paper introducing DAMON and related works have accepted by
-<a href="https://www.hpdc.org/2022/program/accepted/">HPDC22</a></p>
-<p><em>2022-05-03</em>: Now DAMON has its own open mailing
-<a href="https://lore.kernel.org/damon/">list</a></p>
-<p><em>2022-04-29</em>: Patches for DAMON online tuning have
-<a href="https://lore.kernel.org/mm-commits/20220429162617.04E08C385A7@smtp.kernel.org/">merged</a>
-in -mm tree</p>
-<p><em>2022-04-27</em>: Android has
-<a href="https://android.googlesource.com/kernel/common/+log/b3190b539a0845d3b849926b723deeeacc7491a4">backported</a>
-and
-<a href="https://android.googlesource.com/kernel/common/+/0496c13ded02bd72426d189b777bf303fe490f62">enabled</a>
-building <code>DAMON</code> and <code>DAMON_RECLAIM</code> for the common kernel.</p>
-<p><em>2022-04-27</em>: Alibaba has
-<a href="https://lore.kernel.org/linux-mm/e3c1beb1-e3d5-6e26-bae2-06785080b57e@linux.alibaba.com/">shared</a>
-thier own DAMON user space
-<a href="https://github.com/aliyun/data-profile-tools">tool</a>.</p>
-<p><em>2022-02-28</em>: The DAMON sysfs interface patchset has
-<a href="https://lore.kernel.org/mm-commits/20220228194808.91315C340F3@smtp.kernel.org/">merged</a>
-in -mm tree.</p>
-<p><em>2022-02-17</em>: An <a href="https://lore.kernel.org/linux-mm/20220217161938.8874-1-sj@kernel.org/">RFC
-patchset</a>
-for sysfs-based DAMON&rsquo;s new user interface has posted.</p>
-<p><em>2022-01-20</em>: A
-<a href="https://lkml.kernel.org/r/20220119133110.24901-1-sj@kernel.org">roadmap</a> of
-DAMON has shared.</p>
-<p><em>2022-01-09</em>: Linux 5.16 is released.  &ldquo;DAMON-based proactive memory
-reclamation, operation schemes and physical memory monitoring&rdquo; are marked as
-prominent features of the release by the <a href="https://kernelnewbies.org/Linux_5.16">Kernel
-newbies</a> and
-<a href="https://kernelnewbies.org/Linux_5.16">LWN</a>.</p>
-<p><em>2021-12-23</em>: A great blog
-<a href="https://stevescargall.com/2021/12/23/how-to-build-a-custom-linux-kernel-to-test-data-access-monitor-damon/">post</a>
-for DAMON-enabled kernel has uploaded</p>
-<p><em>2021-11-07</em>: DAMON patches for automated memory management
-<a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=68536f8e01e571f553f78fa058ba543de3834452">optimization</a>,
-the physical address space monitoring
-<a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=c638072107f52ec35f292c97b6f3df9b9f2ed87d">support</a>,
-and <a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=bec976b69143">proactive
-reclamation</a>
-have merged in the mainline.</p>
-<p><em>2021-11-01</em>: DAMON has
-<a href="https://kernelnewbies.org/Linux_5.15#DAMON.2C_a_data_access_monitor">released</a>
-with Linux <a href="https://lwn.net/Articles/874493">v5.15</a>.</p>
-<p><em>2021-10-14</em>: DAMON_RECLAIM patchset is
-<a href="https://github.com/amazonlinux/linux/commit/99c8ec092e82">merged</a> in the
-Amazon Linux 5.10.y kernel tree.</p>
-<p><em>2021-10-02</em>: DAMOS patchset is
-<a href="https://lore.kernel.org/mm-commits/20211001233339.SV5JeiSqb%25akpm@linux-foundation.org/">merged</a>
-in the -mm tree.</p>
-<p><em>2021-09-23</em>: DAMON and DAMOS are presented in the kernel summit.
-<a href="https://linuxplumbersconf.org/event/11/contributions/984/attachments/870/1670/daos_ksummit_2021.pdf">Slides</a>,
-<a href="https://youtu.be/gpFfJkrrEEs?t=5290">Video</a>,
-<a href="https://linuxplumbersconf.org/event/11/contributions/984/">Link</a></p>
-<p><em>2021-09-16</em>: DAMON development tree on
-<a href="https://git.kernel.org/sj/h/damon/next/about">kernel.org</a> is created.</p>
-<p><em>2021-09-08</em>: DAMON patchset is
-<a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=2d338201d5311bcd79d42f66df4cecbcbc5f4f2c">merged</a>
-in the Linus Torvalds&rsquo; tree, aka
-<a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/mm/damon?id=2d338201d5311bcd79d42f66df4cecbcbc5f4f2c">mainline</a></p>
-<p><em>2021-09-07</em>: DAMON/DAMOS will be
-<a href="https://linuxplumbersconf.org/event/11/contributions/984/">presented</a> at
-the Kernel Summit 2021</p>
-<p><em>2021-08-31</em>: DAMON user-space tool is uploaded to the official Python
-packages system, <a href="https://pypi.org/project/damo/">PyPi</a></p>
-<p><em>2021-08-06</em>: DAMON patchset is
-<a href="https://lore.kernel.org/linux-mm/20210805174324.2aaf0fb67cd19da893a86d80@linux-foundation.org/">merged</a>
-in the -mm tree</p>
-<p><em>2021-07-27</em>: LWN published a second
-<a href="https://lwn.net/Articles/863753/">article</a> introducing DAMON patchset series</p>
-<p><em>2021-06-11</em>: DAMON-based proactive reclamation RFC patchset has shared on the
-<a href="https://news.ycombinator.com/item?id=27459675">hackernews</a> and introduced by a
-Phoronix
-<a href="https://www.phoronix.com/scan.php?page=news_item&amp;px=DAMON-Page-Reclamation-RFC">article</a></p>
-<p><em>2021-05-31</em>: DAMON-based proactive reclamation RFC patchset has
-<a href="https://lore.kernel.org/linux-mm/20210531133816.12689-1-sj38.park@gmail.com/">posted</a></p>
-<p><em>2021-05-26</em>: DAMON-enabled Amazon Linux 2 kernels have <a href="https://twitter.com/sjpark0x00/status/1397484233413832705">deployed to all
-users</a></p>
-<p><em>2021-05-07</em>: DAMON has merged in the public source tree for Amazon Linux
-v5.4.y
-<a href="https://github.com/amazonlinux/linux/tree/amazon-5.4.y/master/mm/damon">kernel</a></p>
-<p><em>2021-04-05</em>: <code>damo</code> now supports heatmap visualization on the
-<a href="https://raw.githubusercontent.com/awslabs/damo/master/for_doc/masim_zigzag_heatmap_ascii.png">terminal</a></p>
-<p><em>2021-03-31</em>: DAMON user-space tool (<code>damo</code>) is released as an
-<a href="https://github.com/awslabs/damo">individual open source project</a></p>
-<p><em>2021-03-19</em>: DAMON has merged in the public source tree for Amazon Linux
-v5.10.y
-<a href="https://github.com/amazonlinux/linux/tree/amazon-5.10.y/master/mm/damon">kernel</a></p>
-<p><em>2021-03-04</em>: DAMON supports for two latest LTS kernels
-<a href="https://lore.kernel.org/linux-mm/20210304100732.7844-1-sjpark@amazon.com/">announced</a></p>
-<p><em>2021-03-03</em>: DAMON is merged in v5.10 based public Amazon Linux kernel
-<a href="https://github.com/amazonlinux/linux/commit/10e0ec07f9085a42f724b28912a1dadc0b5d3c80">tree</a></p>
-<p><em>2021-02-25</em>: An example usage of DAMON for profiling is
-<a href="https://twitter.com/sjpark0x00/status/1364591344300273666">shared</a></p>
-<p><em>2021-01-07</em>: A runtime system for DAMON-based optimal operation scheme finding
-is <a href="https://github.com/awslabs/damoos">released</a></p>
-<p><em>2020-12-03</em>: Further plans around DAMON is
-<a href="https://lore.kernel.org/linux-mm/20201202082731.24828-1-sjpark@amazon.com">shared</a></p>
-<p><em>2020-11-17</em>: A real-world user story of DAMON is
-<a href="https://lore.kernel.org/linux-mm/20201117143021.11883-1-sjpark@amazon.com/">shared</a></p>
-<p><em>2020-09-26</em>: The tests package for DAMON is
-<a href="https://github.com/awslabs/damon-tests">released</a> under GPL v2 license</p>
-<p><em>2020-08-19</em>: A demo video is <a href="https://youtu.be/l63eqbVBZRY">available</a></p>
-<p><em>2020-08-05</em>: DAMON will be
-<a href="https://www.linuxplumbersconf.org/event/7/contributions/659/">presented</a> at
-the Kernel Summit 2020</p>
-<p><em>2020-06-04</em>: Physical Memory Monitoring is now
-<a href="https://lore.kernel.org/linux-mm/20200603141135.10575-1-sjpark@amazon.com/">available</a></p>
-<p><em>2020-05-18</em>: DAMON showcase website is announced</p>
-<p><em>2020-05-13</em>: DAMON official document is uploaded
-<a href="https://damonitor.github.io/doc/html/latest/admin-guide/mm/damon/">online</a></p>
-<p><em>2020-02-20</em>: DAMON has introduced by an LWN
-<a href="https://lwn.net/Articles/812707/">article</a></p>
-<p><em>2020-02-10</em>: The first RFC of Data Access Monitoring-based Operating Schemes
-(DAMOS) has posted to
-<a href="https://lore.kernel.org/linux-mm/20200210150921.32482-1-sjpark@amazon.com/">LKML</a></p>
-<p><em>2020-01-23</em>: The RFC of DAMON has introduced by LWN&rsquo;s <a href="https://lwn.net/Articles/809100/">&lsquo;Kernel patches of
-interest&rsquo;</a></p>
-<p><em>2020-01-20</em>: The first RFC patchset of DAMON has posted to
-<a href="https://lore.kernel.org/linux-mm/20200110131522.29964-1-sjpark@amazon.com/">LKML</a></p>
 
     </div>
 

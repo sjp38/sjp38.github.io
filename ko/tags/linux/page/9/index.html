@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="ko-kr">
   
-    <meta property="og:updated_time" content="2023-01-15T10:36:11-08:00">
+    <meta property="og:updated_time" content="2023-05-06T11:27:07-07:00">
   
 
   
@@ -525,6 +525,19 @@
   
   
   <div>
+    <h2><a href="/ko/post/lkml_news_v4.18-rc6/">LKML News after v4.18-rc6</a></h2>
+    <div class="article-style">
+      
+      Linux 4.18-rc6 https://lkml.kernel.org/r/CA+55aFzMheDA-2z=MdGgJrz-REcrknb+4OEvRKaJipm+x6xEhw@mail.gmail.com
+이번 rc는 평소보다 조금 크게 되었는데, 네트워킹 쪽 메인테이너인 David 가 많은 수정사항을 아직 보내지 않았다가 이번에 모아서 보냈기 때문이라는군요. 그렇다 해도 그렇게 큰 양까진 아니라는 토발즈의 설명입니다.
+지난 rc5 작업 주간을 귀찮게 했던 VM 버그에 대한 두줄의 수정이 rc5 에 들어갔었지만 32비트 환경에 대한 고려가 없었기에 이번에 그 수정이 들어갔다는군요.
+[PATCH 0/7] memory management documentation updates https://lkml.kernel.org/r/1532517970-16409-1-git-send-email-rppt@linux.vnet.ibm.com
+메모리 관리 부분 문서화 업데이트입니다. sphinx 기반 문서화 업데이트를 일부 메인테이너들은 반기지 않는 것도 사실이지만, 확실히 가독성이 좋아진 덕에 이런 문서화 노력이 더 활발해 지는 것 아닌가 하는 생각도 드는군요.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/ko/post/lkml_news_v4.18-rc4/">Lkml_news_v4.18 Rc4</a></h2>
     <div class="article-style">
       
@@ -626,16 +639,6 @@ Cgroup 에 응답시간 (latency) 기반의 I/O 컨트롤러를 추가하는 패
       
       Linux v4.17-rc2 https://lkml.kernel.org/r/CA+55aFwzkGuq5ASF-vhYj7mEX26V0K+uZCLWi1BLYq+9F1n-Rw@mail.gmail.com
 두번째 rc 버전의 릴리즈입니다. perf 와 테스트 스크립트 쪽에 변경사항이 좀 많긴 하지만 평소와 크게 다르지 않은 추이라는군요.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/ko/post/lkml_news_v4.17-rc1/">LKML News after v4.17-rc1</a></h2>
-    <div class="article-style">
-      
-      Linux v4.17-rc1 https://lkml.kernel.org/r/CA+55aFx62iBkj+hOmhLksUtvjwTcm_o1dwcyvaNnVpJ-AmvzVQ@mail.gmail.com
-2주간의 머지 윈도우가 지나고, v4.17-rc1 이 릴리즈 되었습니다. 크게 특별할 것 없이 평범한 머지 윈도우였다고 토발즈는 평하는군요. 그리고 이번에 git objects mark 가 4백만을 넘겼습니다. 따라서 다음 커널이 v5.0 이어도 될 것 같은데, 꼭 다음 버전에서 그렇게 할지는 모르겠다는군요. 리눅스 커널에서 버전은 그저 시간이 흘렀음을 의미할 뿐, 큰 변화가 있어서 메이저 버전 넘버가 바뀌는게 아니기 때문이죠. 참고로 v3.0 과 v4.0 은 각각 git objects mark 2백만과 4백만에서 이루어졌군요.
       
     </div>
   </div>

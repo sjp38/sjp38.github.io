@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2023-04-25T07:41:36-07:00">
+    <meta property="og:updated_time" content="2023-05-06T11:27:07-07:00">
   
 
   
@@ -525,6 +525,20 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.14-rc1/">LKML News v5.14-rc1</a></h2>
+    <div class="article-style">
+      
+      incoming (Andrew Morton) https://lkml.kernel.org/r/20210628193256.008961950a714730751c1423@linux-foundation.org
+The first pull request from Andrew Morton for the v5.14 merge window.
+[PATCH v3 00/18] Folio conversion of memcg (Matthew Wilcox) https://lkml.kernel.org/r/20210630040034.1155892-1-willy@infradead.org
+This patchset was a part of the memory folio patchset, but has split out to individual patchset.
+incoming (Andrew Morton) https://lkml.kernel.org/r/20210630184624.9ca1937310b0dd5ce66b30e7@linux-foundation.org
+Rest of the -mm tree, which dependent on things in -next. Andrew will trickle that over next week, before the merge window is closed.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.13/">LKML News v5.13</a></h2>
     <div class="article-style">
       
@@ -634,17 +648,6 @@ This huge patchset introduces an RCU-safe range based B-tree called maple tree.
 The 10th version of the patchset which allows Hugetlb pages allocated via alloc_contig_range(), dynamically.
 [PATCH v2 0/5] mm/madvise: introduce MADV_POPULATE_(READ|WRITE) to prefault page tables (David Hildenbrand) https://lkml.kernel.org/r/20210419135443.12822-1-david@redhat.com
 This is the second version of the patchset implementing MADV_POPULATE_(READ|WRITE) for madvise() system call.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.12-rc8/">LKML NEws v5.12-rc8</a></h2>
-    <div class="article-style">
-      
-      [PATCH v2 0/5] mm/memcg: Reduce kmemcache memory accounting overhead (Waiman Long) https://lkml.kernel.org/r/20210412225503.15119-1-longman@redhat.com
-Recently introduced new slab memory controller eliminates the need for separate kmemcaches for each memory cgroup and therefore reduce kernel memory usage. However, it also increases memory accouning overhead in kmem cache alloc and free functions. This patchset reduces unnecessary local_irq_save() and local_irq_restore() sequences in the code path as much as possible for minimal overhead.
-[PATCH v7 0/7] Make alloc_contig_range handle Hugetlb pages (Oscar Salvador) https://lkml.
       
     </div>
   </div>

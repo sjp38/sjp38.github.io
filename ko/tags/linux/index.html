@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="ko-kr">
   
-    <meta property="og:updated_time" content="2023-01-15T10:36:11-08:00">
+    <meta property="og:updated_time" content="2023-05-06T11:27:07-07:00">
   
 
   
@@ -525,6 +525,19 @@
   
   
   <div>
+    <h2><a href="/ko/post/damon_news/">DAMON News List</a></h2>
+    <div class="article-style">
+      
+      Below is a list of news around DAMON project.
+This list is not exhaustive but just a DAMON maintainer&rsquo;s collection of news. If you find a news that should be added to this list, please let us know at sj@kernel.org and/or damon@lists.linux.dev.
+ 2023 2023-05-04: The schedule for DAMON talk/discussion at LSFMM is available now.
+2023-03-14: The schedule for DAMON talk at OSSummit NA is available now.
+2023-03-10: A DAMON talk proposal for OSSummit NA has accepted.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/ko/post/damon_optimization_guide/">DAMON-based System Optimization Guide</a></h2>
     <div class="article-style">
       
@@ -619,22 +632,9 @@ https://linuxplumbersconf.org/event/11/contributions/984/
     <h2><a href="/ko/post/damon/">DAMON: Data Access Monitor</a></h2>
     <div class="article-style">
       
-      The trend of increasing data intensive workloads and limited DRAM capacity makes dynamic access pattern based optimal memory management important. Such mechanisms can be made only when not only accurate but also efficient dynamic access pattern monitoring is available.
-DAMON is a Data Access MONitoring framework subsystem for the Linux kernel that developed for such memory management. It is designed with some core mechanism (refer to Design for the detail), which can make it
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/ko/post/lkml_news_v5.4/">LKML News v5.4</a></h2>
-    <div class="article-style">
-      
-      [PATCH RFC v3 00/36] Add KernelMemorySanitizer infrastructure https://lkml.kernel.org/r/20191122112621.204798-1-glider@google.com
-초기화 되지 않은 메모리 영역에 접근함으로써 생기는 에러를 검출해내는 구글의 KMSAN 세번째 RFC 패치셋입니다. 다른 SAN 시리즈와 마찬가지로 구글 syzkaller 에 사용되어 지난 2년간 200개가 넘는 버그를 찾아냈다고 하네요.
-LSF/MM/BPF: 2020: Call for Proposals https://lkml.kernel.org/r/20191122172502.vffyfxlqejthjib6@macbook-pro-91.dhcp.thefacebook.com
-내년 LSF/MM 의 CFP 가 나왔습니다. 근데, 내년부턴 LSF/MM 에 BPF 세션이 추가되네요, 명칭도 LSF/MM/BPF 로 바뀌었습니다. BPF 의 위상이 새삼 느껴지네요!
-Linux 5.4 https://lkml.kernel.org/r/CAHk-=wjmzaD=BZ1hjUYu+RTnSGDLfCRwCdg99GeQpCjEwo9uzw@mail.gmail.com
-여덟번의 rc 릴리즈를 끝으로 드디어 5.
+      With increasingly data-intensive workloads and limited DRAM capacity, optimal memory management based on dynamic access patterns is becoming increasingly important. Such mechanisms are only possible if accurate and efficient dynamic access pattern monitoring is available.
+DAMON is a Data Access MONitoring framework subsystem for the Linux kernel developed for such memory management. It is designed with some key mechanism (refer to Design for the detail) that make it
+ accurate (the monitoring output is useful enough for DRAM level memory management; It might not be appropriate for CPU Cache levels, though), light-weight (the monitoring overhead is low enough to be applied online), and scalable (the upper-bound of the overhead is in constant range regardless of the size of target workloads).
       
     </div>
   </div>

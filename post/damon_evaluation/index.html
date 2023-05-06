@@ -638,12 +638,13 @@ reduces 93.38% of residential sets and 23.63% of system memory footprint while
 incurring only 1.22% runtime overhead in the best case (parsec3/freqmine).</p>
 <h1 id="setup">Setup</h1>
 <p>On QEMU/KVM based virtual machines utilizing 130GB of RAM and 36 vCPUs hosted
-by AWS EC2 i3.metal instances that running a kernel that v24 DAMON patchset is
-applied, I measure runtime and consumed system memory while running various
-realistic workloads with several configurations.  From each of PARSEC3 [3] and
-SPLASH-2X [4] benchmark suites I pick 12 workloads, so I use 24 workloads in
-total.  I use another wrapper scripts [5] for convenient setup and run of the
-workloads.</p>
+by AWS EC2 i3.metal instances that running a Linux v5.10 based kernel that
+<a href="https://lore.kernel.org/linux-mm/20210204153150.15948-1-sjpark@amazon.com/">v24 DAMON patchset</a>
+is <a href="https://github.com/sjp38/linux/releases/tag/damon/patches/v24">applied</a>, I
+measure runtime and consumed system memory while running various realistic
+workloads with several configurations.  From each of PARSEC3 [3] and SPLASH-2X
+[4] benchmark suites I pick 12 workloads, so I use 24 workloads in total.  I
+use another wrapper scripts [5] for convenient setup and run of the workloads.</p>
 <h2 id="measurement">Measurement</h2>
 <p>For the measurement of the amount of consumed memory in system global scope, I
 drop caches before starting each of the workloads and monitor &lsquo;MemFree&rsquo; in the

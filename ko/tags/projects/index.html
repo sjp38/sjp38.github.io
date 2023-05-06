@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="ko-kr">
   
-    <meta property="og:updated_time" content="2023-01-15T10:36:11-08:00">
+    <meta property="og:updated_time" content="2023-05-06T11:27:07-07:00">
   
 
   
@@ -525,6 +525,19 @@
   
   
   <div>
+    <h2><a href="/ko/post/damon_news/">DAMON News List</a></h2>
+    <div class="article-style">
+      
+      Below is a list of news around DAMON project.
+This list is not exhaustive but just a DAMON maintainer&rsquo;s collection of news. If you find a news that should be added to this list, please let us know at sj@kernel.org and/or damon@lists.linux.dev.
+ 2023 2023-05-04: The schedule for DAMON talk/discussion at LSFMM is available now.
+2023-03-14: The schedule for DAMON talk at OSSummit NA is available now.
+2023-03-10: A DAMON talk proposal for OSSummit NA has accepted.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/ko/post/damon_optimization_guide/">DAMON-based System Optimization Guide</a></h2>
     <div class="article-style">
       
@@ -573,8 +586,9 @@ Hugo 와 같은 README 등 표준적 포맷의 plain text 기반 static site gen
     <h2><a href="/ko/post/damon/">DAMON: Data Access Monitor</a></h2>
     <div class="article-style">
       
-      The trend of increasing data intensive workloads and limited DRAM capacity makes dynamic access pattern based optimal memory management important. Such mechanisms can be made only when not only accurate but also efficient dynamic access pattern monitoring is available.
-DAMON is a Data Access MONitoring framework subsystem for the Linux kernel that developed for such memory management. It is designed with some core mechanism (refer to Design for the detail), which can make it
+      With increasingly data-intensive workloads and limited DRAM capacity, optimal memory management based on dynamic access patterns is becoming increasingly important. Such mechanisms are only possible if accurate and efficient dynamic access pattern monitoring is available.
+DAMON is a Data Access MONitoring framework subsystem for the Linux kernel developed for such memory management. It is designed with some key mechanism (refer to Design for the detail) that make it
+ accurate (the monitoring output is useful enough for DRAM level memory management; It might not be appropriate for CPU Cache levels, though), light-weight (the monitoring overhead is low enough to be applied online), and scalable (the upper-bound of the overhead is in constant range regardless of the size of target workloads).
       
     </div>
   </div>
@@ -619,19 +633,17 @@ References [1] https://github.com/sjp38/lkml
     </div>
   </div>
   
-  <div>
-    <h2><a href="/ko/post/perfbook-kokr/">&#34;Is Parallel Programming Hard, And, If So, What Can You Do About It?&#34; Translation</a></h2>
-    <div class="article-style">
-      
-      &ldquo;Is Parallel Programming is Hard, And, If So, What Can You Do About It?&quot;[1] 은 parallel programming 분야에서 대가라 불릴만한 분으로, 이쪽 분야에서 매우 중요한 동기화 메커니즘인 RCU[2] 를 개발했으며 리눅스 커널의 RCU 메인테이너로 활동하고 있는 Paul E. McKenney[3] 가 오픈소스 방식으로 저술하고 있는, parallel programming 에 대한 책입니다.
-개인적으로 이 책의 한국어 번역을 오픈소스[4]로 진행하고 있습니다. 이 프로젝트는 원저작자인 Paul 에게 공식 한국어 번역으로 인증받았습니다[5].
-컨트리뷰션에 대해서도 열려 있으니, 이에 관심 있는 분은 repository 내의 README 문서의 Contribution 섹션[6] 을 참고 바랍니다.
-      
-    </div>
-  </div>
-  
 
   
+<nav>
+  <ul class="pagination justify-content-center">
+    
+    
+    <li class="page-item"><a class="page-link" href="/ko/tags/projects/page/2/">&raquo;</a></li>
+    
+  </ul>
+</nav>
+
 
 </div>
 
