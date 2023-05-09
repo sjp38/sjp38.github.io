@@ -574,7 +574,7 @@ This patchset makes file system to support not single-gran timestamp but multi-g
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    2 min read
+    3 min read
   </span>
   
 
@@ -664,6 +664,21 @@ updates for v6.4.</p>
 <p>This patch introduces a new config <code>RO_RANDMAP_SYSCTL</code>, which sets
 <code>randomize_va_space</code> sysctl permission as <code>0444</code> to disabllow all runtime
 changes.</p>
+<h2 id="linux-64-rc1-linus-torvalds">Linux 6.4-rc1 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wiUxm-NZ1si8dXWVTTJ9n3c+1SRTC0V+Lk7hOE4bDVwJQ@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wiUxm-NZ1si8dXWVTTJ9n3c+1SRTC0V+Lk7hOE4bDVwJQ@mail.gmail.com</a></p>
+<p>After the two weeks, the first release candidate for Linux v6.4-rc1 has
+released.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.13-rc2..v6.4-rc1.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2021-05-08 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc1 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v6.4-rc1-only.png" alt="rc1 release stat"></p>
 
     </div>
 
