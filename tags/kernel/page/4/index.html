@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2023-05-06T11:27:07-07:00">
+    <meta property="og:updated_time" content="2023-05-09T07:31:35-07:00">
   
 
   
@@ -525,6 +525,20 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.1-rc2/">LKML News v6.1-rc2</a></h2>
+    <div class="article-style">
+      
+      [RFC PATCH] mm: Introduce new MADV_NOMOVABLE behavior (Baolin Wang) https://lkml.kernel.org/r/bc27af32b0418ed1138a1c3a41e46f54559025a5.1665991453.git.baolin.wang@linux.alibaba.com
+This RFC patch introduces a new madvise() hint called MADV_NOMOVABLE for long-term pinning of memory.
+[PATCH 0/4] Add MADV_COLLAPSE documentation (Zach O&rsquo;Keefe) https://lkml.kernel.org/r/20221017175523.2048887-1-zokeefe@google.com
+This patchset adds documentation of MADV_COLLAPSE, which is a new madvise() hint that merged in v6.1.
+[PATCH v4 0/3] THP Shrinker (Alexander Zhu) https://lkml.kernel.org/r/cover.1666150565.git.alexlzhu@fb.com
+Alexander posted the fourth version of THP shrinker, which aims to reduce the THP memory inefficiency due to the THP internal fragmentation.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/linux_kernel_contribution_10th_anniversary/">My 10th anniversary of the Linux kernel contribution</a></h2>
     <div class="article-style">
       
@@ -633,18 +647,6 @@ folio_map (Matthew Wilcox) https://lkml.kernel.org/r/YvvdFrtiW33UOkGr@casper.inf
 Matthew explains his proposal on folio_map in detail and asks if others have better ideas.
 [PATCH v3] mm: add thp_utilization metrics to debugfs (Alexander Zhu) https://lkml.kernel.org/r/20220818000112.2722201-1-alexlzhu@fb.com
 This patch adds debugfs file for tracking how THP is utilized well.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.0-rc1/">LKML News v6.0-rc1</a></h2>
-    <div class="article-style">
-      
-      [PATCH] mm: vmscan: fix extreme overreclaim and swap floods (Johannes Weiner) https://lkml.kernel.org/r/20220802162811.39216-1-hannes@cmpxchg.org
-Johannes found proactive reclamation using memory.reclaim sometimes reclaim more pages than requested on specific cgroup use cases. This patch resolves the issue so that the proactive reclamation doesn&rsquo;t over-reclaim pages.
-[RFC PATCH 0/4] propose a auto-run mode for ksm (Xu Xin) https://lkml.kernel.org/r/20220803100306.1653382-1-xu.xin16@zte.con.cn
-KSM operation management is quite manual and sometimes inefficient if not well managed. This patchset introduces auto-run mode that can operate KSM in a better way.
       
     </div>
   </div>
