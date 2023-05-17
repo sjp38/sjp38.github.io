@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2023-05-09T07:31:35-07:00">
+    <meta property="og:updated_time" content="2023-05-16T07:02:19-07:00">
   
 
   
@@ -525,6 +525,17 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.4-rc3/">LKML News v6.4-rc3</a></h2>
+    <div class="article-style">
+      
+      [PATCH v3 00/11] Introduce cmpxchg128() &ndash; aka. the demise of cmpxchg_double() (Peter Zijlstra) https://lkml.kernel.org/r/20230515075659.118447996@infradead.org
+This patchset introduces an alternative for cmpxchg_double(), namely cmpxchg128(), and replace the old usages of cmpxchg_double(). This is because Linus hates cmpxchg_double()[1].
+[1] https://lore.kernel.org/all/Y2U3WdU61FvYlpUh@hirez.programming.kicks-ass.net/T/#u
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.4-rc2/">LKML News v6.4-rc2</a></h2>
     <div class="article-style">
       
@@ -543,9 +554,9 @@ This RFC patch adds working set size reporting structure for each node and total
       
       Below is a list of news around DAMON project.
 This list is not exhaustive but just a DAMON maintainer&rsquo;s collection of news. If you find a news that should be added to this list, please let us know at sj@kernel.org and/or damon@lists.linux.dev.
- 2023 2023-05-04: The schedule for DAMON talk/discussion at LSFMM is available now.
-2023-03-14: The schedule for DAMON talk at OSSummit NA is available now.
-2023-03-10: A DAMON talk proposal for OSSummit NA has accepted.
+ 2023 2023-05-16: Michel from Fedora community is gonna package DAMON user space tool (DAMO) for Fedora!
+2023-05-16: An LWN article for LSF/MM+BPF DAMON discussion has uploaded
+2023-05-04: The schedule for DAMON talk/discussion at LSFMM is available now.
       
     </div>
   </div>
@@ -630,16 +641,6 @@ This patchset consolidates MM initialization code to mm/mm_init.c file for bette
 [PATCH -next v6 0/2] Delay the initialization of zswap (Liu Shixin) https://lkml.kernel.org/r/20230322102006.780624-1-liushixin2@huawei.com
 This patchset delays zswap initialization until it gets enabled to save about 18MB of memory, which is allocated during the initialization.
 [PATCH V6 1/2] mm: compaction: move compaction sysctl to its own file (Minhao Chi) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/ossummit_na_2023_talk/">I will have a talk at the Open Source Summit North America 2023</a></h2>
-    <div class="article-style">
-      
-      I will present DAMON, DAMOS, and DAMO in Open Source Summit North America 2023. The title of the talk is &ldquo;DAMON, DAMOS, and DAMO: Kernel Subsystems and User-Space Tools for Data Access-Aware System Analysis/Optimizations&rdquo;.
-https://sched.co/1K5HS
       
     </div>
   </div>

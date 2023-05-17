@@ -5,12 +5,26 @@
     <link>https://sjp38.github.io/</link>
       <atom:link href="https://sjp38.github.io/index.xml" rel="self" type="application/rss+xml" />
     <description>hacklog</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 09 May 2023 07:31:35 -0700</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 16 May 2023 07:02:19 -0700</lastBuildDate>
     <image>
       <url>https://sjp38.github.io/img/tux.png</url>
       <title>hacklog</title>
       <link>https://sjp38.github.io/</link>
     </image>
+    
+    <item>
+      <title>LKML News v6.4-rc3</title>
+      <link>https://sjp38.github.io/post/lkml_news_v6.4-rc3/</link>
+      <pubDate>Tue, 16 May 2023 07:02:19 -0700</pubDate>
+      <guid>https://sjp38.github.io/post/lkml_news_v6.4-rc3/</guid>
+      <description>&lt;h2 id=&#34;patch-v3-0011-introduce-cmpxchg128----aka-the-demise-of-cmpxchg_double-peter-zijlstra&#34;&gt;[PATCH v3 00/11] Introduce cmpxchg128() &amp;ndash; aka. the demise of cmpxchg_double() (Peter Zijlstra)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20230515075659.118447996@infradead.org&#34;&gt;https://lkml.kernel.org/r/20230515075659.118447996@infradead.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This patchset introduces an alternative for &lt;code&gt;cmpxchg_double()&lt;/code&gt;, namely
+&lt;code&gt;cmpxchg128()&lt;/code&gt;, and replace the old usages of &lt;code&gt;cmpxchg_double()&lt;/code&gt;.  This is
+because Linus hates &lt;code&gt;cmpxchg_double()&lt;/code&gt;[1].&lt;/p&gt;
+&lt;p&gt;[1] &lt;a href=&#34;https://lore.kernel.org/all/Y2U3WdU61FvYlpUh@hirez.programming.kicks-ass.net/T/#u&#34;&gt;https://lore.kernel.org/all/Y2U3WdU61FvYlpUh@hirez.programming.kicks-ass.net/T/#u&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>LKML News v6.4-rc2</title>
@@ -139,6 +153,11 @@ If you find a news that should be added to this list, please let us know at
 &lt;a href=&#34;mailto:sj@kernel.org&#34;&gt;sj@kernel.org&lt;/a&gt; and/or &lt;a href=&#34;mailto:damon@lists.linux.dev&#34;&gt;damon@lists.linux.dev&lt;/a&gt;.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;2023&#34;&gt;2023&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;2023-05-16&lt;/em&gt;: Michel from Fedora community is gonna
+&lt;a href=&#34;https://github.com/awslabs/damo/pull/42#issuecomment-1550415746&#34;&gt;package&lt;/a&gt;
+DAMON user space tool (DAMO) for Fedora!&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;2023-05-16&lt;/em&gt;: An LWN article for LSF/MM+BPF DAMON discussion has
+&lt;a href=&#34;https://lwn.net/Articles/931769/&#34;&gt;uploaded&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;2023-05-04&lt;/em&gt;: The schedule for DAMON talk/discussion at LSFMM is
 &lt;a href=&#34;https://events.linuxfoundation.org/lsfmm/program/schedule-at-a-glance/&#34;&gt;available&lt;/a&gt;
 now.&lt;/p&gt;
@@ -8909,6 +8928,11 @@ available at another &lt;a href=&#34;https://sjp38.github.io/post/damon_evaluati
 &lt;h2 id=&#34;demo-screenshot&#34;&gt;Demo Screenshot&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/masim_stairs_heatmap_ascii.png&#34; alt=&#34;masim stairs heatmap in ascii&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;recent-news&#34;&gt;Recent News&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;2023-05-16&lt;/em&gt;: Michel from Fedora community is gonna
+&lt;a href=&#34;https://github.com/awslabs/damo/pull/42#issuecomment-1550415746&#34;&gt;package&lt;/a&gt;
+DAMON user space tool (DAMO) for Fedora!&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;2023-05-16&lt;/em&gt;: An LWN article for LSF/MM+BPF DAMON discussion has
+&lt;a href=&#34;https://lwn.net/Articles/931769/&#34;&gt;uploaded&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;2023-05-04&lt;/em&gt;: The schedule for DAMON talk/discussion at LSFMM is
 &lt;a href=&#34;https://events.linuxfoundation.org/lsfmm/program/schedule-at-a-glance/&#34;&gt;available&lt;/a&gt;
 now.&lt;/p&gt;
@@ -8917,11 +8941,6 @@ now.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;2023-03-10&lt;/em&gt;: A DAMON talk proposal for
 &lt;a href=&#34;https://events.linuxfoundation.org/open-source-summit-north-america/&#34;&gt;OSSummit NA&lt;/a&gt;
 has accepted.&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;2023-03-06&lt;/em&gt;: DAMOS filters feature has introduced as one of the most
-significant changes for Linux v6.3 by an LWN
-&lt;a href=&#34;https://lwn.net/Articles/924384/&#34;&gt;article&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;2023-02-24&lt;/em&gt;: A preprint of an academic paper that compares their approach
-against DAMON has &lt;a href=&#34;https://arxiv.org/pdf/2302.09468.pdf&#34;&gt;uploaded&lt;/a&gt; to ArXiv.&lt;/p&gt;
 &lt;h2 id=&#34;news&#34;&gt;News&lt;/h2&gt;
 &lt;p&gt;Because the entire list of the news became too long, it has moved to another
 &lt;a href=&#34;https://sjp38.github.io/post/damon_news/&#34;&gt;post&lt;/a&gt;.&lt;/p&gt;

@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2023-05-09T07:31:35-07:00">
+    <meta property="og:updated_time" content="2023-05-16T07:02:19-07:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.8-rc5/">LKML News v5.8-rc5</a></h2>
+    <div class="article-style">
+      
+      [PATCH 0/2] KUnit-Kmemleak Integration (Uriel Guajardo) https://lkml.kernel.org/r/20200706210327.3313498-1-urielguajardojr@gmail.com
+This patchset makes kunit to use kmemleak to catch memory leak in the test code.
+[PATCH] CodingStyle: Inclusive Terminology (Dan Williams) https://lkml.kernel.org/r/159389297140.2210796.13590142254668787525.stgit@dwillia2-desk3.amr.corp.intel.com
+This patch adds a new document for inclusive term usage in the kernel tree. It suggests to stop using the terms, &lsquo;slave&rsquo; and &lsquo;blacklist&rsquo; anymore. This patch was revised two times and the third revision is merged in Torvalds&rsquo; tree by the Friday.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.8-rc4/">LKML News v5.8-rc4</a></h2>
     <div class="article-style">
       
@@ -639,18 +651,6 @@ Ted annouced that the Maintainers / Kernel Summit will be held in virtual this y
 This patchset introduces special memory called PKRAM. It can be used to preserve VM guest memory across kexec boot for fast restart (VMM Fast Restart). Compared to DRAM based PMEM simulation, PKRAM is more flexible as the memory size is not need to be previously fixed.
 [PATCH] mm: Replace zero-length array with flexible-array (Gustavo A. R. Silva) https://lkml.kernel.org/r/20200507185942.GA15193@embeddedor
 The zero-length array of C90 are widely used in the kernel code base, but the flexible array member of C99 would be better choice.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.7-rc4/">LKML News v5.7-rc4</a></h2>
-    <div class="article-style">
-      
-      [PATCH 0/7] Record the mm_struct in the page table pages (Matthew Wilcox) https://lkml.kernel.org/r/20200428194449.22615-1-willy@infradead.org
-Literally, this patchset adds the mm_struct pointer to struct page if it is used for page tables. This will be useful for several cases usch as uncorrectable errors handling and task-page table relation checking, etc.
-[PATCH v4] mm: Proactive compaction (Nitin Gupta) https://lkml.kernel.org/r/20200428221055.598-1-nigupta@nvidia.com
-This patchset makes the compaction to be more proactively done for better THP allocation success and makes user to be able to control the proactiveness using a sysfs file, /sys/kernel/mm/compaction/proactiveness.
       
     </div>
   </div>

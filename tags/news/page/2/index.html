@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2023-05-09T07:31:35-07:00">
+    <meta property="og:updated_time" content="2023-05-16T07:02:19-07:00">
   
 
   
@@ -525,6 +525,19 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.3-rc2/">LKML News v6.3-rc2</a></h2>
+    <div class="article-style">
+      
+      [Invitation] Linux MM Alignment Session on Wednesday (David Rientjes) https://lkml.kernel.org/r/CAE-26VAFJtSu5xEbzNUgPVn3W13-B1bGvvU8-+i-hkS4GtupCw@mail.gmail.com
+David is hosting biweekly meetings for Linux memory management developments called Linux MM Alignment, and he is publicly inviting people to the meetings.
+The next instance will be held on 10:00 PST, 2023-03-08, at https://meet.google.com/csb-wcds-xya
+THP backed thread stacks (Mike Kravetz) https://lkml.kernel.org/r/20230306235730.GA31451@monkey
+Mike found THP-always&rsquo;s memory bloat issue due to THP usage for threads&rsquo; stacks. Mike feels it might make no sense to use THP for stacks even if the THP policy is &lsquo;always&rsquo;, and starting discussions on improvment of the situation.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.3-rc1/">LKML News v6.3-rc1</a></h2>
     <div class="article-style">
       
@@ -634,18 +647,6 @@ Patchset for converting Idle Pages Tracking and DAMON to use Folios instead of P
 [PATCH 1/1] mm: fix vma-&gt;anon_name memory leak for anonymous shmem VMAs (Suren Baghdasaryan) https://lkml.kernel.org/r/20221228194249.170354-1-surenb@google.com
 Shared anonymous pages VMA naming has a memory leak. This patch fixes the leak.
 [QUESTION] about the maple tree and current status of mmap_lock scalability (Hyeonggon Yoo) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.2-rc1/">LKML News v6.2-rc1</a></h2>
-    <div class="article-style">
-      
-      memcg reclaim demotion wrt. isolation (Michal Hocko) https://lkml.kernel.org/r/Y5idFucjKVbjatqc@dhcp22.suse.cz
-Currently pages allocated for demotion targets includes __GFP_KSWAPD_RECALIM, and therefore memcg triggered reclaim could result in reclaims of pages in different hierarchy. Michal suggests simple modification of it.
-[GIT PULL] MM updates for 6.2-rc1 (Andrew Morton) (1+ msgs) (Andrew Morton) https://lkml.kernel.org/r/20221213142614.525a9240506119abc3cef6b6@linux-foundation.org
-Andrew Morton sent the MM pull request for v6.2-rc1 to Linus Torvalds. It includes 28 DAMON patches for cleanup and DAMOS tried regions sysfs.
       
     </div>
   </div>
