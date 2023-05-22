@@ -37,6 +37,21 @@ pte entries from non-architecture dependent code that directry dereferencing
 &lt;h2 id=&#34;git-pull-hotfixes-for-64-rc2-andrew-morton&#34;&gt;[GIT PULL] hotfixes for 6.4-rc2 (Andrew Morton)&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20230518155606.326cc8a860382d3a08cf5e21@linux-foundation.org&#34;&gt;https://lkml.kernel.org/r/20230518155606.326cc8a860382d3a08cf5e21@linux-foundation.org&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Andrew sent hotfixes pull request to Linus Torvalds.&lt;/p&gt;
+&lt;h2 id=&#34;linux-64-rc3-linus-torvalds&#34;&gt;Linux 6.4-rc3 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wgL4Sa64qUZkpAs06t9UKoNyAYqBpzmukefJz8P8sa2=Q@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wgL4Sa64qUZkpAs06t9UKoNyAYqBpzmukefJz8P8sa2=Q@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;After another week, another release candidate for Linux v6.4 has released.  No
+huge change but just usual fixes for vairous subsystems are included.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/kernel_release_stat/v5.13-rc4..v6.4-rc3.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
+below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2021-05-22 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And, below is the diffstat of the -rc3 releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/kernel_release_stat/v6.4-rc3-only.png&#34; alt=&#34;rc3 release stat&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     
