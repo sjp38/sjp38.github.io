@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2023-05-16T07:02:19-07:00">
+    <meta property="og:updated_time" content="2023-05-23T07:41:12-07:00">
   
 
   
@@ -525,6 +525,20 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.6-rc5/">LKML News v5.6-rc5</a></h2>
+    <div class="article-style">
+      
+      [PATCH v1 00/11] virtio-mem: paravirtualized memory https://lkml.kernel.org/r/20200302134941.315212-1-david@redhat.com
+At KVM Forum 2018, virtio-mem&rsquo;s basic idea has presented and now this patchset introduces it. This provides a flexible, cross-architecture memory hot(un)plug solution.
+[PATCH v7 0/7] introduce memory hinting API for external process https://lkml.kernel.org/r/20200302193630.68771-1-minchan@kernel.org
+Finally, this patchset has accepted by Andrew Morton.
+[PATCH v2] mm: Proactive compaction https://lkml.kernel.org/r/20200302213343.2712-1-nigupta@nvidia.com
+This patchset makes kernel to do compaction proactively instead of THP allocation failures, to minimize the latency spike which comes from the compaction.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.6-rc4/">LKML News v5.6-rc4</a></h2>
     <div class="article-style">
       
@@ -630,18 +644,6 @@ Time files, rc5 released. Last week was also another calm week due to the new ye
 This patchset adds tests for the page table helpers. Those tests covers basic page table entry transformations including old, young, dirty, clean, write, write protect etc. The tests are not using the kselftest or kunit, but implemented as a kernel module with new file, mm/debug_vm_pgtable.c.
 Linux 5.5-rc4 https://lkml.kernel.org/r/CAHk-=wjq2b9GkLzpaDE-Xryu5c0zMM72BqkJKeZVsX+4ymH6aA@mail.gmail.com
 Due to the holidays, last week was unsurprisingly quiet. Torvalds says it was hardly even worth making an rc release.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.5-rc3/">LKML News v5.5-rc3</a></h2>
-    <div class="article-style">
-      
-      PROBLEM: Large (256MB) CMA allocation fails from time to time when using Intel VT-d https://lkml.kernel.org/r/5e75d900cb50457784ee1d2050b511ec@MAILER13.tech.ceia
-The author reports a CMA allocation failure that occurs time to time if the system is using Intel VT-d.
-[PATCHv2 0/3] Allow ZRAM to use any zpool-compatible backend https://lkml.kernel.org/r/20191219151928.ad4ccf732b64b7f8a26116db@gmail.com
-ZRAM is an in-memory block device that compresses the content. Currently, ZRAM is used only with zsmalloc. However, the zsmalloc is not an optimal selection in some environment.
       
     </div>
   </div>

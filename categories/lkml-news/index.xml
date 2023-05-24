@@ -5,12 +5,30 @@
     <link>https://sjp38.github.io/categories/lkml-news/</link>
       <atom:link href="https://sjp38.github.io/categories/lkml-news/index.xml" rel="self" type="application/rss+xml" />
     <description>lkml news</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 16 May 2023 07:02:19 -0700</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 23 May 2023 07:41:12 -0700</lastBuildDate>
     <image>
       <url>https://sjp38.github.io/img/tux.png</url>
       <title>lkml news</title>
       <link>https://sjp38.github.io/categories/lkml-news/</link>
     </image>
+    
+    <item>
+      <title>LKML News v6.4-rc4</title>
+      <link>https://sjp38.github.io/post/lkml_news_v6.4-rc4/</link>
+      <pubDate>Tue, 23 May 2023 07:41:12 -0700</pubDate>
+      <guid>https://sjp38.github.io/post/lkml_news_v6.4-rc4/</guid>
+      <description>&lt;h2 id=&#34;patch-09-mitigate-a-vmap-lock-contention-uladzislau-rezki&#34;&gt;[PATCH 0/9] Mitigate a vmap lock contention (Uladzislau Rezki)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20230522110849.2921-1-urezki@gmail.com&#34;&gt;https://lkml.kernel.org/r/20230522110849.2921-1-urezki@gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Uladzislau sent a patchset for vmap lock contention mitigation, as suggested at
+LSFMM+BPF.&lt;/p&gt;
+&lt;h2 id=&#34;patch-mm-deduct-the-number-of-pages-reclaimed-by-madvise-from-workingset-zhaoyang-huang&#34;&gt;[PATCH] mm: deduct the number of pages reclaimed by madvise from workingset (Zhaoyang Huang)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/1684919574-28368-1-git-send-email-zhaoyang.huang@unisoc.com&#34;&gt;https://lkml.kernel.org/r/1684919574-28368-1-git-send-email-zhaoyang.huang@unisoc.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Pages reclaimed by &lt;code&gt;madvise()&lt;/code&gt; with &lt;code&gt;MADV_PAGEOUT&lt;/code&gt; hint doesn&amp;rsquo;t handle the
+workingset, hence leads to large refault distance than it should be.  This
+patch addresses the case by making &lt;code&gt;reclaim_pages()&lt;/code&gt; to receive &lt;code&gt;mm_struct&lt;/code&gt; and
+deduct the pages from workingset.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>LKML News v6.4-rc3</title>
