@@ -624,6 +624,10 @@ LSFMM+BPF.</p>
 workingset, hence leads to large refault distance than it should be.  This
 patch addresses the case by making <code>reclaim_pages()</code> to receive <code>mm_struct</code> and
 deduct the pages from workingset.</p>
+<h2 id="v2-patch-36-mmvmalloc-prevent-flushing-dirty-space-over-and-over-thomas-gleixner">[V2 patch 3/6] mm/vmalloc: Prevent flushing dirty space over and over (Thomas Gleixner)</h2>
+<p><a href="https://lkml.kernel.org/r/20230525124504.692056496@linutronix.de">https://lkml.kernel.org/r/20230525124504.692056496@linutronix.de</a></p>
+<p>To avoid each <code>_vm_unmap_aliases()</code> call flushes dirty ranges, this patch
+resets the flush range after accounting for it.</p>
 
     </div>
 
