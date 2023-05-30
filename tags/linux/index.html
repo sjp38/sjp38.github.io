@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2023-05-23T07:41:12-07:00">
+    <meta property="og:updated_time" content="2023-05-30T07:31:02-07:00">
   
 
   
@@ -525,6 +525,16 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.4-rc5/">LKML News v6.4-rc5</a></h2>
+    <div class="article-style">
+      
+      [PATCH 00/12] mm: free retracted page table by RCU (Hugh Dickins) https://lkml.kernel.org/r/35e983f5-7ed3-b310-d949-9ae8b130cdab@google.com
+This patchset aims to reduce mmap_lock contention by freeing retracted page table by RCU, with preceding and succeeding patchsets. This patchset was in Google data center kernel for three years.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.4-rc4/">LKML News v6.4-rc4</a></h2>
     <div class="article-style">
       
@@ -630,19 +640,6 @@ Memcg lives in the kernel until the reference count drops to zero, even if it&rs
 A patchset for gradually pushing the mmap lock down. No specific regression found, but also no special performance improvement measured.
 [PATCH] memcg-v1: Enable setting memory min, low, high (Shaun Tancheff) https://lkml.kernel.org/r/20230405110107.127156-1-shaun.tancheff@gmail.com
 For users who cannot update to memcg v2, this patch provides a way for memcg v1 to effectively apply memory pressure, which can be used for effectively throttle file I/O.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.3-rc5/">LKML News v6.3-rc5</a></h2>
-    <div class="article-style">
-      
-      [PATCH] LoongArch: Add kernel address sanitizer support (Qing Zhang) https://lkml.kernel.org/r/20230328111714.2056-1-zhangqing@loongson.cn
-Loongarch has arch specific memory holes and mapping formula. This patch adds kasan support for Loongarch.
-[PATCH v2 0/7] Split a folio to any lower order folios (Zi Yan) https://lkml.kernel.org/r/20230329011712.3242298-1-zi.yan@sent.com
-Currently, split_huge_page() splits huge page to only order 0 pages. This patchset adds support of splitting a huge page to any lower order pages.
-[PATCHv9 00/14] mm, x86/cc: Implement support for unaccepted memory (Kirill A.
       
     </div>
   </div>

@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2023-05-23T07:41:12-07:00">
+    <meta property="og:updated_time" content="2023-05-30T07:31:02-07:00">
   
 
   
@@ -525,6 +525,16 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.12-rc7/">LKML News v5.12-rc7</a></h2>
+    <div class="article-style">
+      
+      [RFC PATCH v1 00/11] Manage the top tier memory in a tiered memory (Tim Chen) https://lkml.kernel.org/r/cover.1617642417.git.tim.c.chen@linux.intel.com
+There are two patchsets for better handling of tiered-memory. [PATCH 00/10] [v7] Migrate Pages in lieu of discard (https://lore.kernel.org/linux-mm/20210401183216.443C4443@viggo.jf.intel.com/) makes cold pages to be placed in PMEM instead of DRAM, and [PATCH 0/6] [RFC v6] NUMA balancing: optimize memory placement for memory tiering system (https://lore.kernel.org/linux-mm/20210311081821.138467-1-ying.huang@intel.com/) allows hot pages to be placed in DRAM instead of PMEM.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.12-rc6/">LKML News v5.12-rc6</a></h2>
     <div class="article-style">
       
@@ -633,18 +643,6 @@ This mail shares a part of decade researh/experimentation in memory overcommit a
 If a system has a small DRAM and a large persistent memory (PMEM), reclamation starts when DRAM fills up, and newer allocations will done on PMEM. This patchset makes the reclaim logic to migrate pages to PMEM instead of just discarding it.
 [PATCH v3 00/25] Page folios (Matthew Wilcox) https://lkml.kernel.org/r/20210128070404.1922318-1-willy@infradead.org
 This patchset introduces a new data structure called page folio.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.11-rc5/">LKML News v5.11-rc5</a></h2>
-    <div class="article-style">
-      
-      [PATCH v2 00/27] Page folios (Matthew Wilcox) https://lkml.kernel.org/r/20210118170148.3126186-1-willy@infradead.org
-This is the second version of the page folios patchset. This introduces a new struct named folio. Functions that receive folio as an argument always receives head page, so the function don&rsquo;t need to do compound_head().
-[PATCH -V9 0/3] numa balancing: Migrate on fault among multiple bound nodes (Huang Ying) https://lkml.kernek.org/r/20210120061235.148637-1-ying.huang@intel.com
-This patch make optimization of cross-socket memory accesses for AutoNUMA in case of application is bound to multiple NUMA nodes possible.
       
     </div>
   </div>

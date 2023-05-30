@@ -31,9 +31,9 @@
   <meta name="description" content="Kernel Development Engineer">
 
   
-  <link rel="alternate" hreflang="ko" href="https://sjp38.github.io/ko/tags/news/">
+  <link rel="alternate" hreflang="ko" href="https://sjp38.github.io/ko/tags/lkml/">
   
-  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/tags/news/">
+  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/tags/lkml/">
 
   
 
@@ -133,14 +133,14 @@
 
 
   
-  <link rel="alternate" href="/tags/news/index.xml" type="application/rss+xml" title="hacklog">
+  <link rel="alternate" href="/tags/lkml/index.xml" type="application/rss+xml" title="hacklog">
   
 
   <link rel="manifest" href="/index.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon-32.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://sjp38.github.io/tags/news/">
+  <link rel="canonical" href="https://sjp38.github.io/tags/lkml/">
 
   
   
@@ -152,8 +152,8 @@
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="hacklog">
-  <meta property="og:url" content="https://sjp38.github.io/tags/news/">
-  <meta property="og:title" content="news | hacklog">
+  <meta property="og:url" content="https://sjp38.github.io/tags/lkml/">
+  <meta property="og:title" content="lkml | hacklog">
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
@@ -174,7 +174,7 @@
 
 
 
-  <title>news | hacklog</title>
+  <title>lkml | hacklog</title>
 
 </head>
 
@@ -475,7 +475,7 @@
             <span>English</span>
           </div>
           
-          <a class="dropdown-item" href="/ko/tags/news/">
+          <a class="dropdown-item" href="/ko/tags/lkml/">
             <span>한국어</span>
           </a>
           
@@ -510,7 +510,7 @@
     
   
 <div class="universal-wrapper pt-3">
-  <h1>news</h1>
+  <h1>lkml</h1>
 
   
 
@@ -525,123 +525,12 @@
   
   
   <div>
-    <h2><a href="/post/lkml_news_v5.12-rc8/">LKML NEws v5.12-rc8</a></h2>
+    <h2><a href="/post/lkml_go/">lkml livestream</a></h2>
     <div class="article-style">
       
-      [PATCH v2 0/5] mm/memcg: Reduce kmemcache memory accounting overhead (Waiman Long) https://lkml.kernel.org/r/20210412225503.15119-1-longman@redhat.com
-Recently introduced new slab memory controller eliminates the need for separate kmemcaches for each memory cgroup and therefore reduce kernel memory usage. However, it also increases memory accouning overhead in kmem cache alloc and free functions. This patchset reduces unnecessary local_irq_save() and local_irq_restore() sequences in the code path as much as possible for minimal overhead.
-[PATCH v7 0/7] Make alloc_contig_range handle Hugetlb pages (Oscar Salvador) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.12-rc7/">LKML News v5.12-rc7</a></h2>
-    <div class="article-style">
-      
-      [RFC PATCH v1 00/11] Manage the top tier memory in a tiered memory (Tim Chen) https://lkml.kernel.org/r/cover.1617642417.git.tim.c.chen@linux.intel.com
-There are two patchsets for better handling of tiered-memory. [PATCH 00/10] [v7] Migrate Pages in lieu of discard (https://lore.kernel.org/linux-mm/20210401183216.443C4443@viggo.jf.intel.com/) makes cold pages to be placed in PMEM instead of DRAM, and [PATCH 0/6] [RFC v6] NUMA balancing: optimize memory placement for memory tiering system (https://lore.kernel.org/linux-mm/20210311081821.138467-1-ying.huang@intel.com/) allows hot pages to be placed in DRAM instead of PMEM.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.12-rc6/">LKML News v5.12-rc6</a></h2>
-    <div class="article-style">
-      
-      [RFC] NUMA balancing: reduce TLB flush via delaying mapping on hint page fault (Huang Ying) https://lkml.kernel.org/r/20210329062651.2487905-1-ying.huang@intel.com
-NUMA balancing shots down TLBs on all CPUs that recently run hint-faulted process during the migration of the hint-faulted page to appropriate node. This commit delays the TLB shootdown to reduce the overhead. With pmbench, it reduced TLB shooting IPI up to 99%, though it didn&rsquo;t makde visible benchmark score changes.
-[RFC v2 00/43] PKRAM: Preserved-over-Kexec RAM (Anthony Yznaga) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.12-rc5/">LKML News v5.12-rc5</a></h2>
-    <div class="article-style">
-      
-      [PATCH 0/3 v5] Introduce a bulk order-0 page allocator (Mel Gorman) https://lkml.kernel.org/r/20210322091845.16437-1-mgorman@techsingularity.net
-Fifth version of the order-0 pages bulk allocator. In this version, the API users are dropped from the patchset, because the callers are not confirmed if they prefer an array or list interface.
-[PATCH] mm: cma: add trace events for CMA alloc perf testing (Georgi Djakov) https://lkml.kernel.org/r/20210324160740.15901-1-georgi.djakov@linaro.org
-This patch adds tracepoints for CMA and page migrations. Those aims to be used for performance debugging of CMA.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.12-rc4/">LKML News v5.12-rc4</a></h2>
-    <div class="article-style">
-      
-      File THP and HWPoison (Matthew Wilcox) https://lkml.kernel.org/r/20210316140947.GA3420@casper.infradead.org
-THP is not splitted for file-backed pages when it got memory failure. This mail describes the problem in detail and propose some change to mitigate it.
-Issue with kfence and kmemleak (Luis Henriques) https://lkml.kernel.org/r/YFDf6iKH1p/jGnM0@suse.de
-Luis found a problem when kmemleak and kfence is used together. A fix is made by Marco.
-[PATCH v4 00/13] Introduced multi-preference mempolicy (Feng Tang) https://lkml.kernel.org/r/1615952410-36895-1-git-send-email-feng.tang@intel.com
-This is the fourth version of the patchset.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.12-rc3/">LKML News v5.12-rc3</a></h2>
-    <div class="article-style">
-      
-      [PATCH 00/10] [v6] Migrate Pages in lieu of discard (Dave Hansen) https://lkml.kernel.org/r/20210304235949.7922C1C3@viggo.jf.intel.com
-When the system configured with both DRAM and persistent memory, current kernel starts reclamation when DRAM fulls even though there are some space in persistent memory. And from some point, all page allocation is done on the persistent memory only, even though DRAM has some free slots now.
-This patchset mitigates the problem by migrating pages that about to be reclaimed to persistent memory.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.12-rc2/">LKML News v5.12-rc2</a></h2>
-    <div class="article-style">
-      
-      [PATCH] mm: introduce clear all vm events counters (Pintu Kumar) https://lkml.kernel.org/r/1614595766-7640-1-git-send-email-pintu@codeaurora.org
-Because the vmstat data is only cumulated, users should calculate the diff manually or just reboot. This commit adds a procfs file that can be used to clear all vmstat counters.
-[PATCH 0/5] Introduce a bulk order-0 page allocator with two in-tree users (Mel Gorman) https://lkml.kernel.org/r/20210301161200.18852-1-mgorman@techsingularity.net
-This patchset introduces a bulk order-0 page allocator. It also makes the sunrpc and the network page pool to use that.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.12-rc1/">LKML News v5.12-rc1</a></h2>
-    <div class="article-style">
-      
-      [PATCH v11 00/14] prohibit pinning pages in ZONE_MOVABLE (Pavel Tatashin) https://lkml.kernel.org/r/20210215161349.246722-1-pasha.tatashin@soleen.com
-The 11th version of the patchset making ZONE_MOVABLE really movable. In this version, a build error on i386 is fixed.
-[RFC PATCH] mm, oom: introduce vm.sacrifice_hugepage_on_oom https://lkml.kernel.org/r/20210216030713.79101-1-eiichi.tsukata@nutanix.com
-This RFC patch introduces yet another sysctl knob called vm.sacrifice_hugepage_on_oom. When it is turned on, it tries to free available hugepages before waking oom-killer up.
-[RFC] Hugepage collapse in process context (David Rientjes) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.11/">LKML News v5.11</a></h2>
-    <div class="article-style">
-      
-      [PATCH v2] mm: cma: support sysfs (Minchan Kim) https://lkml.kernel.org/r/20210208180142.2765456-1-minchan@kernel.org
-This patch introduces sysfs interface for CMA that shows stats including number of CMA allocation attempts and failures.
-[PATCH v10 00/14] prohibit pinning pages in ZONE_MOVABLE (Pavel Tatashin) https://lkml.kernel.org/r/20210211162427.618913-1-pasha.tatashin@soleen.com
-The 10th version of the patchset making ZONE_MOVABLE really movable.
-Linux 5.11 (Linus Torvalds) https://lkml.kernel.org/r/CAHk-=wg8LpRi9+P2_V+ehJ2_EoJifNh2QmVf47aLXfkCd-1UAQ@mail.gmail.com
-Nothing strange happened last week, so Linus released v5.11 as expected. The number of changes from the rc7 to this release is actually even smaller than average.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.11-rc7/">LKML News v5.11-rc7</a></h2>
-    <div class="article-style">
-      
-      [RFC 00/20] TLB batching consolidation and enhancements (Nadav Amit) https://lkml.kernel.org/r/20210131001132.3368247-1-namit@vmware.com
-This patchset prepares more aggressive TLB flushing batching by consolidating a few TLB batching methods.
-[PATCH v9 00/14] prohibit pinning pages in ZONE_MOVABLE (Pavel Tatashin) https://lkml.kernel.org/r/20210201153827.444374-1-pasha.tatashin@soleen.com
-This patchset makes ZONE_MOVABLE really movable by prohibiting pinning of pages in the zone.
-Augmented Page Reclaim (Yu Zhao) https://lkml.kernel.org/r/YBkT6175GmMWBvw3@google.com
-This mail shares a part of decade researh/experimentation in memory overcommit at Google. The author wants to start submitting patch based on responses.
+      I wrote a simple, stupid program[1] that showing LKML[2] mails in terminal briefly like twitter livestream in Go language. It is just an early version and so many things to be complemented exists, though. Nevertheless, now it just works as I wanted at first.
+References [1] https://github.com/sjp38/lkml
+[2] https://en.wikipedia.org/wiki/Linux_kernel_mailing_list
       
     </div>
   </div>
@@ -651,10 +540,8 @@ This mail shares a part of decade researh/experimentation in memory overcommit a
 <nav>
   <ul class="pagination justify-content-center">
     
-    <li class="page-item"><a class="page-link" href="/tags/news/page/10/">&laquo;</a></li>
+    <li class="page-item"><a class="page-link" href="/tags/lkml/page/26/">&laquo;</a></li>
     
-    
-    <li class="page-item"><a class="page-link" href="/tags/news/page/12/">&raquo;</a></li>
     
   </ul>
 </nav>
