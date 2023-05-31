@@ -22,6 +22,11 @@
 &lt;p&gt;This patchset aims to reduce &lt;code&gt;mmap_lock&lt;/code&gt; contention by freeing retracted page
 table by RCU, with preceding and succeeding patchsets.  This patchset was in
 Google data center kernel for three years.&lt;/p&gt;
+&lt;h2 id=&#34;patch-mm-madvise-fix-uneven-accounting-of-psi-charan-teja-kalla&#34;&gt;[PATCH] mm: madvise: fix uneven accounting of psi (Charan Teja Kalla)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/1685531374-6091-1-git-send-email-quic_charante@quicinc.com&#34;&gt;https://lkml.kernel.org/r/1685531374-6091-1-git-send-email-quic_charante@quicinc.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;For &lt;code&gt;madvise(MADV_PAGEOUT)&lt;/code&gt; is called for folios, PSI for the folio is not
+always accounted.  This patchset makes it be consistent by  always not
+considering PSI for folios that are reclaimed through &lt;code&gt;madvise(MADV_PAGEOUT)&lt;/code&gt;.&lt;/p&gt;
 </description>
     </item>
     

@@ -29,7 +29,9 @@
     
   
   <meta name="description" content="[PATCH 00/12] mm: free retracted page table by RCU (Hugh Dickins) https://lkml.kernel.org/r/35e983f5-7ed3-b310-d949-9ae8b130cdab@google.com
-This patchset aims to reduce mmap_lock contention by freeing retracted page table by RCU, with preceding and succeeding patchsets. This patchset was in Google data center kernel for three years.">
+This patchset aims to reduce mmap_lock contention by freeing retracted page table by RCU, with preceding and succeeding patchsets. This patchset was in Google data center kernel for three years.
+[PATCH] mm: madvise: fix uneven accounting of psi (Charan Teja Kalla) https://lkml.kernel.org/r/1685531374-6091-1-git-send-email-quic_charante@quicinc.com
+For madvise(MADV_PAGEOUT) is called for folios, PSI for the folio is not always accounted. This patchset makes it be consistent by always not considering PSI for folios that are reclaimed through madvise(MADV_PAGEOUT).">
 
   
   <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/lkml_news_v6.4-rc5/">
@@ -152,7 +154,9 @@ This patchset aims to reduce mmap_lock contention by freeing retracted page tabl
   <meta property="og:url" content="https://sjp38.github.io/post/lkml_news_v6.4-rc5/">
   <meta property="og:title" content="LKML News v6.4-rc5 | hacklog">
   <meta property="og:description" content="[PATCH 00/12] mm: free retracted page table by RCU (Hugh Dickins) https://lkml.kernel.org/r/35e983f5-7ed3-b310-d949-9ae8b130cdab@google.com
-This patchset aims to reduce mmap_lock contention by freeing retracted page table by RCU, with preceding and succeeding patchsets. This patchset was in Google data center kernel for three years."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
+This patchset aims to reduce mmap_lock contention by freeing retracted page table by RCU, with preceding and succeeding patchsets. This patchset was in Google data center kernel for three years.
+[PATCH] mm: madvise: fix uneven accounting of psi (Charan Teja Kalla) https://lkml.kernel.org/r/1685531374-6091-1-git-send-email-quic_charante@quicinc.com
+For madvise(MADV_PAGEOUT) is called for folios, PSI for the folio is not always accounted. This patchset makes it be consistent by always not considering PSI for folios that are reclaimed through madvise(MADV_PAGEOUT)."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -204,7 +208,7 @@ This patchset aims to reduce mmap_lock contention by freeing retracted page tabl
       "url": "https://sjp38.github.io/img/icon-512.png"
     }
   },
-  "description": "[PATCH 00/12] mm: free retracted page table by RCU (Hugh Dickins) https://lkml.kernel.org/r/35e983f5-7ed3-b310-d949-9ae8b130cdab@google.com\nThis patchset aims to reduce mmap_lock contention by freeing retracted page table by RCU, with preceding and succeeding patchsets. This patchset was in Google data center kernel for three years."
+  "description": "[PATCH 00/12] mm: free retracted page table by RCU (Hugh Dickins) https://lkml.kernel.org/r/35e983f5-7ed3-b310-d949-9ae8b130cdab@google.com\nThis patchset aims to reduce mmap_lock contention by freeing retracted page table by RCU, with preceding and succeeding patchsets. This patchset was in Google data center kernel for three years.\n[PATCH] mm: madvise: fix uneven accounting of psi (Charan Teja Kalla) https://lkml.kernel.org/r/1685531374-6091-1-git-send-email-quic_charante@quicinc.com\nFor madvise(MADV_PAGEOUT) is called for folios, PSI for the folio is not always accounted. This patchset makes it be consistent by always not considering PSI for folios that are reclaimed through madvise(MADV_PAGEOUT)."
 }
 </script>
 
@@ -615,6 +619,11 @@ This patchset aims to reduce mmap_lock contention by freeing retracted page tabl
 <p>This patchset aims to reduce <code>mmap_lock</code> contention by freeing retracted page
 table by RCU, with preceding and succeeding patchsets.  This patchset was in
 Google data center kernel for three years.</p>
+<h2 id="patch-mm-madvise-fix-uneven-accounting-of-psi-charan-teja-kalla">[PATCH] mm: madvise: fix uneven accounting of psi (Charan Teja Kalla)</h2>
+<p><a href="https://lkml.kernel.org/r/1685531374-6091-1-git-send-email-quic_charante@quicinc.com">https://lkml.kernel.org/r/1685531374-6091-1-git-send-email-quic_charante@quicinc.com</a></p>
+<p>For <code>madvise(MADV_PAGEOUT)</code> is called for folios, PSI for the folio is not
+always accounted.  This patchset makes it be consistent by  always not
+considering PSI for folios that are reclaimed through <code>madvise(MADV_PAGEOUT)</code>.</p>
 
     </div>
 

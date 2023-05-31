@@ -530,6 +530,8 @@
       
       [PATCH 00/12] mm: free retracted page table by RCU (Hugh Dickins) https://lkml.kernel.org/r/35e983f5-7ed3-b310-d949-9ae8b130cdab@google.com
 This patchset aims to reduce mmap_lock contention by freeing retracted page table by RCU, with preceding and succeeding patchsets. This patchset was in Google data center kernel for three years.
+[PATCH] mm: madvise: fix uneven accounting of psi (Charan Teja Kalla) https://lkml.kernel.org/r/1685531374-6091-1-git-send-email-quic_charante@quicinc.com
+For madvise(MADV_PAGEOUT) is called for folios, PSI for the folio is not always accounted. This patchset makes it be consistent by always not considering PSI for folios that are reclaimed through madvise(MADV_PAGEOUT).
       
     </div>
   </div>
