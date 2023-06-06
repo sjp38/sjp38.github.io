@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2023-05-30T07:31:02-07:00">
+    <meta property="og:updated_time" content="2023-06-06T07:19:57-07:00">
   
 
   
@@ -525,6 +525,19 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.3-rc5/">LKML News v6.3-rc5</a></h2>
+    <div class="article-style">
+      
+      [PATCH] LoongArch: Add kernel address sanitizer support (Qing Zhang) https://lkml.kernel.org/r/20230328111714.2056-1-zhangqing@loongson.cn
+Loongarch has arch specific memory holes and mapping formula. This patch adds kasan support for Loongarch.
+[PATCH v2 0/7] Split a folio to any lower order folios (Zi Yan) https://lkml.kernel.org/r/20230329011712.3242298-1-zi.yan@sent.com
+Currently, split_huge_page() splits huge page to only order 0 pages. This patchset adds support of splitting a huge page to any lower order pages.
+[PATCHv9 00/14] mm, x86/cc: Implement support for unaccepted memory (Kirill A.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.3-rc4/">LKML News v6.3-rc4</a></h2>
     <div class="article-style">
       
@@ -632,16 +645,6 @@ A patch for not ignoring fast_find_migrateblock() found pageblocks made compacti
 Qualcomm&rsquo;s Linux memory team asks upstream&rsquo;s opinion about their userspace deamon approach for controlling VM memory size based on memory demands via monitoring PSI.
 [PATCH v1 0/3] Introduce per NUMA node memory error statistics (Jiaqi Yan) https://lkml.kernel.org/r/20230116193902.1315236-1-jiaqiyan@google.com
 On huge memory systems, memory error is inevitable, so detailed statistics of it helps administrators to operate systems more efficiently.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/damon_evaluation/">DAMON Evaluation</a></h2>
-    <div class="article-style">
-      
-      DAMON is lightweight. It increases system memory usage by 0.39% and slows target workloads down by 1.16%.
-DAMON is accurate and useful for memory management optimizations. An experimental DAMON-based operation scheme for THP, namely &lsquo;ethp&rsquo;, removes 76.15% of THP memory overheads while preserving 51.25% of THP speedup. Another experimental DAMON-based &lsquo;proactive reclamation&rsquo; implementation, namely &lsquo;prcl&rsquo;, reduces 93.38% of residential sets and 23.63% of system memory footprint while incurring only 1.22% runtime overhead in the best case (parsec3/freqmine).
       
     </div>
   </div>

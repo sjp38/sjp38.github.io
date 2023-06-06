@@ -5,12 +5,26 @@
     <link>https://sjp38.github.io/tags/kernel/</link>
       <atom:link href="https://sjp38.github.io/tags/kernel/index.xml" rel="self" type="application/rss+xml" />
     <description>kernel</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 30 May 2023 07:31:02 -0700</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 06 Jun 2023 07:19:57 -0700</lastBuildDate>
     <image>
       <url>https://sjp38.github.io/img/tux.png</url>
       <title>kernel</title>
       <link>https://sjp38.github.io/tags/kernel/</link>
     </image>
+    
+    <item>
+      <title>LKML News v6.4-rc6</title>
+      <link>https://sjp38.github.io/post/lkml_news_v6.4-rc6/</link>
+      <pubDate>Tue, 06 Jun 2023 07:19:57 -0700</pubDate>
+      <guid>https://sjp38.github.io/post/lkml_news_v6.4-rc6/</guid>
+      <description>&lt;p&gt;As of 2023-06-06, for some reason &lt;a href=&#34;https://lore.kernel.org/linux-mm&#34;&gt;https://lore.kernel.org/linux-mm&lt;/a&gt; seems
+stopped being updated since 2023-05-31.&lt;/p&gt;
+&lt;h2 id=&#34;patch-v3-05-riscv-introduce-kaslr-alexandre-ghiti&#34;&gt;[PATCH v3 0/5] riscv: Introduce KASLR (Alexandre Ghiti)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20230606123242.20804-1-alexghiti@rivosinc.com&#34;&gt;https://lkml.kernel.org/r/20230606123242.20804-1-alexghiti@rivosinc.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This patchset introduces KASLR, which allows kernel mapping randomization, for
+riscv.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>LKML News v6.4-rc5</title>
@@ -35,6 +49,22 @@ It is for replacing &lt;code&gt;cmpxchg_double()&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20230530145234.968927611@redhat.com&#34;&gt;https://lkml.kernel.org/r/20230530145234.968927611@redhat.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;This patchset fixes vmstat bugs on &lt;code&gt;nohz_full&lt;/code&gt; CPUs that caused process stalls
 under direct reclaim, and latency increases.&lt;/p&gt;
+&lt;h2 id=&#34;linux-64-rc5-linus-torvalds&#34;&gt;Linux 6.4-rc5 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wifuPqAFXQQTTLkp_+FMzxGFHpSG-hEtZazG-46s=noAw@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wifuPqAFXQQTTLkp_+FMzxGFHpSG-hEtZazG-46s=noAw@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;There was a timing dependent module loading hiccup in rc4.  The comit that
+introduced the bug has reverted.  Other than that, no special thing in rc5.
+Torvalds says it looks like in good shape.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/kernel_release_stat/v5.13-rc6..v6.4-rc5.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
+below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2021-06-05 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And, below is the diffstat of the -rc5 releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/kernel_release_stat/v6.4-rc5-only.png&#34; alt=&#34;rc5 release stat&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     

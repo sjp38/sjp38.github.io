@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2023-05-30T07:31:02-07:00">
+    <meta property="og:updated_time" content="2023-06-06T07:19:57-07:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v4.19-rc3/">LKML News after v4.19-rc3</a></h2>
+    <div class="article-style">
+      
+      Linux 4.19-rc3 https://lkml.kernel.org/r/CA+55aFwSxCt0aKkTxcBstthYXqJ5LtxRbO-CDyqgNwU94Ldq+w@mail.gmail.com
+세번째 rc 릴리즈입니다. 어느새 이번 안정화 기간도 중반을 향하는군요. 시간 참 빠릅니다. 전체적으로 평범한 릴리즈입니다. 딱히 언급할 거리가 없군요.
+[RFC PATCH v2 0/8] lru_lock scalability and SMP list functions https://lkml.kernel.org/r/20180911004240.4758-1-daniel.m.jordan@oracle.com
+올해 LSF/MM 서밋에서도 이야기되었던, lru_lock 의 확장성을 개선하기 위한 노력의 정리입니다. LRU 리스트에 여러 쓰레드가 실제 데이터를 겹쳐 쓰지 않는다면 동시에 접근할 수 있는 새로운 오퍼레이션 세개 (smp_list_del(), smp_list_splice(), smp_list_add())을 추가했구요. 두번째로, lru_lock 을 spinlock 에서 rwlock 으로 교체했군요.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v4.19-rc2/">LKML News after v4.19-rc2</a></h2>
     <div class="article-style">
       
@@ -630,18 +642,6 @@ git object 의 갯수라던지 릴리즈를 위한 스크립트 등이 리눅스
 일곱번째 rc 입니다. 지난 몇주보다는 조금 변경사항이 있었지만 그렇다 해도 그렇게 심한 정도는 아니었기에 아마도 이게 마지막 rc 일 거라는군요.
 [PATCH 00/13] Introdue io.latency io controller for cgroups https://lkml.kernel.org/r/20180529211724.4531-1-josef@toxicpanda.com
 Cgroup 에 응답시간 (latency) 기반의 I/O 컨트롤러를 추가하는 패치셋입니다. Cgroup 은 용량 기반의 컨트롤러는 많지만 응답시간 기반의 컨트롤러가 부족하다고 느껴왔는데, 역시 추가되어 가는군요.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.17-rc6/">LKML News after v4.17-rc6</a></h2>
-    <div class="article-style">
-      
-      Linux v4.17-rc6 https://lkml.kernel.org/r/CA+55aFxxYQFL3mwsQcC+__R23ZmO8c3F0SThi6r44TdK0ePNDQ@mail.gmail.com
-여섯번째 release candidate 버전입니다. 이번 릴리즈에도 특기할 만한 일은 없었습니다. 이제 충분히 안정화 되었을 거라고 하는군요.
-[PATCH -mm -V3 00/21] mm, THP, swap: Swapout/swapin THP in one piece https://lkml.kernel.org/r/20180523082625.6897-1-ying.huang@intel.com
-이전에도 이 시리즈로 소개했던, THP 의 swap out 과 swap in 최적화 마지막 단계 패치의 세번째 버전입니다. 마지막 단계 이야기 하니 문득 인피니티워의 오역 논란이 떠오르는군요 ;) 두번째 버전 이후 특정 컨피규레이션에서의 빌드 버그를 수정했고, mmotm/master 브랜치의 5월 18일자 버전으로 rebase 한게 차이점의 전부군요.
       
     </div>
   </div>
