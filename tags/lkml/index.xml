@@ -31,6 +31,26 @@ riscv.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20230608125501.3960093-1-linus.walleij@linaro.org&#34;&gt;https://lkml.kernel.org/r/20230608125501.3960093-1-linus.walleij@linaro.org&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Linus Walleij wrote down the documentation for page table, based on an earlier
 blog post at people.kernel.org.&lt;/p&gt;
+&lt;h2 id=&#34;patch-v2-06-per-vma-lock-support-for-swap-and-userfaults-suren-baghdasaryan&#34;&gt;[PATCH v2 0/6] Per-vma lock support for swap and userfaults (Suren Baghdasaryan)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20230609005158.2421285-1-surenb@google.com&#34;&gt;https://lkml.kernel.org/r/20230609005158.2421285-1-surenb@google.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The per-vma lock patchset skipped swap and userfaults cases.  This patchset
+further implement logics for supporting those with per-vma lock and add the
+support.&lt;/p&gt;
+&lt;h2 id=&#34;linux-64-rc6-linus-torvalds&#34;&gt;Linux 6.4-rc6 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wgmbjQu3bVSa5JJhEymeQhkr7N3cjg-CoNLVituUnfW8w@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wgmbjQu3bVSa5JJhEymeQhkr7N3cjg-CoNLVituUnfW8w@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The sixth release candidate of Linux v6.4 has released.  No hugely interesting
+happened last week, according to Linus Torvalds&amp;rsquo; opinion.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/kernel_release_stat/v5.13-rc7..v6.4-rc6.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
+below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2021-06-12 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And, below is the diffstat of the -rc7 releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/kernel_release_stat/v6.4-rc6-only.png&#34; alt=&#34;rc6 release stat&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     
