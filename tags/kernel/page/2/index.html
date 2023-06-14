@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2023-06-06T07:19:57-07:00">
+    <meta property="og:updated_time" content="2023-06-13T07:28:47-07:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.3-rc6/">LKML News v6.3-rc6</a></h2>
+    <div class="article-style">
+      
+      [PATCH 0/6] Avoid the mmap lock for fault-around (Matthew Wilcox) https://lkml.kernel.org/r/20230404135850.3673404-1-willy@infradead.org
+A patchset for gradually pushing the mmap lock down. No specific regression found, but also no special performance improvement measured.
+[PATCH] memcg-v1: Enable setting memory min, low, high (Shaun Tancheff) https://lkml.kernel.org/r/20230405110107.127156-1-shaun.tancheff@gmail.com
+For users who cannot update to memcg v2, this patch provides a way for memcg v1 to effectively apply memory pressure, which can be used for effectively throttle file I/O.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.3-rc5/">LKML News v6.3-rc5</a></h2>
     <div class="article-style">
       
@@ -633,18 +645,6 @@ LSFMMBPF proposal [MM]: Lazy RCU memory reclaim (Joel Fernandes) https://lkml.
 This RFC patchset introduces a cgroup limit like RLIMIT_MEMLOCKED but that for pinned pages.
 [RFC PATCH 0/4] Fix excessive CPU usage during compaction (Mel Gorman) https://lkml.kernel.org/r/20230125134434.18017-1-mgorman@techsingularity.net
 A patch for not ignoring fast_find_migrateblock() found pageblocks made compaction shows high CPU and stalls. It therefore once merged in mainline, than reverted, and again merged in mm-unstable.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.2-rc5/">LKML News v6.2-rc5</a></h2>
-    <div class="article-style">
-      
-      [RFC] memory pressure detection in VMs using PSI mechanism for dynamically inflating/deflating VM memory (Sudarshan Rajagopalan) https://lkml.kernel.org/r/DS0PR02MB90787835F5B9CB9771A20329C4C09@DS0PR02MB9078.namprd02.prod.outlook.com
-Qualcomm&rsquo;s Linux memory team asks upstream&rsquo;s opinion about their userspace deamon approach for controlling VM memory size based on memory demands via monitoring PSI.
-[PATCH v1 0/3] Introduce per NUMA node memory error statistics (Jiaqi Yan) https://lkml.kernel.org/r/20230116193902.1315236-1-jiaqiyan@google.com
-On huge memory systems, memory error is inevitable, so detailed statistics of it helps administrators to operate systems more efficiently.
       
     </div>
   </div>

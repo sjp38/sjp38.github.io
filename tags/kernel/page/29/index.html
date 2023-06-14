@@ -31,9 +31,9 @@
   <meta name="description" content="Kernel Development Engineer">
 
   
-  <link rel="alternate" hreflang="ko" href="https://sjp38.github.io/ko/tags/news/">
+  <link rel="alternate" hreflang="ko" href="https://sjp38.github.io/ko/tags/kernel/">
   
-  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/tags/news/">
+  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/tags/kernel/">
 
   
 
@@ -133,14 +133,14 @@
 
 
   
-  <link rel="alternate" href="/tags/news/index.xml" type="application/rss+xml" title="hacklog">
+  <link rel="alternate" href="/tags/kernel/index.xml" type="application/rss+xml" title="hacklog">
   
 
   <link rel="manifest" href="/index.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon-32.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://sjp38.github.io/tags/news/">
+  <link rel="canonical" href="https://sjp38.github.io/tags/kernel/">
 
   
   
@@ -152,8 +152,8 @@
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="hacklog">
-  <meta property="og:url" content="https://sjp38.github.io/tags/news/">
-  <meta property="og:title" content="news | hacklog">
+  <meta property="og:url" content="https://sjp38.github.io/tags/kernel/">
+  <meta property="og:title" content="kernel | hacklog">
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
@@ -174,7 +174,7 @@
 
 
 
-  <title>news | hacklog</title>
+  <title>kernel | hacklog</title>
 
 </head>
 
@@ -475,7 +475,7 @@
             <span>English</span>
           </div>
           
-          <a class="dropdown-item" href="/ko/tags/news/">
+          <a class="dropdown-item" href="/ko/tags/kernel/">
             <span>한국어</span>
           </a>
           
@@ -510,7 +510,7 @@
     
   
 <div class="universal-wrapper pt-3">
-  <h1>news</h1>
+  <h1>kernel</h1>
 
   
 
@@ -525,124 +525,12 @@
   
   
   <div>
-    <h2><a href="/post/lkml_news_v5.17-rc8/">LKML News v5.17-rc8</a></h2>
+    <h2><a href="/post/uninstall-kernel/">uninstall kernel</a></h2>
     <div class="article-style">
       
-      mmotm 2022-03-06-20-33 uploaded (Andrew Morton) https://lkml.kernel.org/r/20220307043435.251DBC340E9@smtp.kernel.org
-The -mm tree has updated. It&rsquo;s based on v5.17-rc6, added 19 patches, modified 6 patches, and dropped 19 patches. In totla, 428 patches in the queue.
-[PATCH v3] mm: add ztree - new allocator for use via zpool API (Ananda) https://lkml.kernel.org/r/20220307142724.14519-1-a.badmaev@clicknet.pro
-Third version of ztree, which is intended to be used for storing compressed objects per ztree block. Comparing to the previous version, compiler warnings have fixed.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.17-rc7/">LKML News v5.17-rc7</a></h2>
-    <div class="article-style">
-      
-      [PATCH/RESEND] mm: add ztree - new allocator for use via zpool API (Ananda) https://lkml.kernel.org/r/20220228110546.151513-1-a.badmaev@clicknet.pro
-Ztree is another zpool backend that superior with regard to the worst execution time.
-mmotm 2022-02-28-14-45 uploaded (Andrew Morton) https://lkml.kernel.org/r/20220228224600.44415C340EE@smtp.kernel.org
-mmotm has updated. It&rsquo;s rebased on 5.17-rc6, added 56 new patches, modified 85 patches, and dropped 55 patches. In total, 378 patches are in the queue.
-[PATCH -V14 0/3] NUMA balancing: optimize memory placement for memory tiering system (Huang Ying) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.17-rc6/">LKML News v5.17-rc6</a></h2>
-    <div class="article-style">
-      
-      [PATCH -V13 0/3] NUMA balancing: optimize memory placement for memory tiering system (Huang Ying) https://lkml.kernel.org/r/20220221084529.1052339-1-ying.huang@intel.com
-The AutoNUMA patchset for tiered memory system has revised again.
-[LSF/MM/BPF TOPIC] page table reclaim (David Hildenbrand) https://lkml.kernel.org/r/7b908208-02f8-6fde-4dfc-13d5e00310a6@redhat.com
-Some workloads allocates a lot of page tables. As page tables are unmovable and unreclaimable, this can contribute to memory pressure. David is proposing making it reclaimable and suggesting discussion in LSF/MM/BPF summit for the idea.
-[RFC PATCH 00/47] Address Space Isolation for KVM (Junaid Shahid) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.17-rc5/">LKML News v5.17-rc5</a></h2>
-    <div class="article-style">
-      
-      [PATCH v3 0/3] Add hugetlb MADV_DONTNEED support (Mike Kravetz) https://lkml.kernel.org/r/20220215002348.128823-1-mike.kravetz@oracle.com
-MADV_DONTNEED can be used for hugetlb but currently prohibits it with a simple check. This commit removes the check to enable MADV_DONENEED for hugetlb.
-mmotm 2022-02-14-17-46 uploaded (Andrew Morton) https://lkml.kernel.org/r/20220215014633.9CD9CC340E9@smtp.kernel.org
-mmotm has updated. It&rsquo;s rebased on 5.17-rc4, added 20 new patches, modified 295 patches, and dropped 10 patches. In total, 316 patches in the queue.
-[PATCH v6 00/71] Introducing the Maple Tree (Liam Howlett) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.17-rc4/">LKML News v5.17-rc4</a></h2>
-    <div class="article-style">
-      
-      [PATCH v2 1/2] arm64: avoid flushing icache multiple times on contiguous HugeTLB (Muchun Song) https://lkml.kernel.org/r/20220208054632.66534-1-songmuchun@bytedance.com
-When a contiguous HugeTLB page is mapped, set_pte_at() is called CONT_PTES / CONT_PMDS times. Because the first flushing covers subsequent flushes, this is unnecessary overhead, so this patchset avoids it.
-[PATCH v7 00/12] Multigenerational LRU Framework (Yu Zhao) https://lkml.kernel.org/r/20220208081902.3550911-1-yuzhao@google.com
-Seventh version of the MGLRU patchset, which aims to reduce performance overhead and improve eviction target pages selection of reclamation logic is posted.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.17-rc3/">LKML News v5.17-rc3</a></h2>
-    <div class="article-style">
-      
-      [PATCH] selftests: kselftest framework: Provide &ldquo;finished&rdquo; helper (Kees Cook) https://lkml.kernel.org/r/20220201013717.2464392-1-keescook@chromium.org
-Users who want to use ksft_exit() need to figure out the internals of kselftest. This commit adds a helper function for that purpose, namely, ksft_finished().
-[LSF/MM/BPF TOPIC] Handling of VMAs (Liam Howlett) https://lkml.kernel.org/r/20220201150521.owa5axfsmpdvc7uo@revolver
-Liam is pointing out the VMAs are quite complicately managed with their cache, tree, linked list, and even reverse mapping. As it now shows its limit with the lock contention and complexity of the handling code, he wants to propose a simpler new way for their management.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.17-rc2/">LKML News v5.17-rc2</a></h2>
-    <div class="article-style">
-      
-      [PATCH 0/7] Allocate module text and data separately (Christophe Leroy) https://lkml.kernel.org/r/cover.1643015752.git.christophe.leroy@csgroup.eu
-Powerpc book3s/32 can set execute permission in 256 MiB segments granularity instead of page granularity. This patchset therefore allow module data be allocated in vmalloc rea instead of module area.
-[PATCH 0/4] mm/memcg: Address PREEMPT_RT problems instead of disabling it. (Sebastian Adrzej Siewior) https://lkml.kernel.org/r/20220125164337.2071854-1-bigeasy@linutronix.de
-This patchset enables MEMCG for PREEMPT_RT instead of disabling it.
-[LSF/MM/BPF TOPIC] Folios (Matthew Wilcox) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.17-rc1/">LKML News v5.17-rc1</a></h2>
-    <div class="article-style">
-      
-      [PATCH 0/3] usable memory range fixes (arm64/fdt/efi) (Frank van der Linden) https://lkml.kernel.org/r/20220110210809.3528-1-fllinden@amazon.com
-This patchset fixes the usable memory range behavior when both DT and EFI are given.
-[PATCHv2 0/7] Implement support for unaccepted memory (Kirill A. Shutemov) https://lkml.kernel.org/r/20220111113314.27173-1-kirill.shutemov@linux.intel.com
-UEFI spec 2.9 introduces a concept of memory acceptance. It requires virtual machine platforms such as Intel TDX or AMD SEV-SNP to accept memory before use it. This patchset makes Linux kernel to support it, and therefore be able to reduce VM booting time by optimizing the acceptance.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.16/">LKML News v5.16</a></h2>
-    <div class="article-style">
-      
-      [PATCH v4 00/32] Separate struct slab from struct page (Vlastimil Babka) https://lkml.kernel.org/r/20220104001046.12263-1-vbabka@suse.cz
-The work for seperating struct slab from struct page for making the struct page simpler is updated to fourth version. As the patchset was in -next tree for a while, Vlastimil would sent a pull request of this to Linus.
-[PATCH 0000/2297] [ANNOUNCE, RFC] &ldquo;Fast Kernel Headers&rdquo; Tree -v1: Eliminate the Linux kernel&rsquo;s &ldquo;Dependency Hell&rdquo; (Ingo Molnar) https://lkml.kernel.org/r/YdIfz+LMewetSaEB@gmail.com
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.16-rc8/">LKML News v5.16-rc8</a></h2>
-    <div class="article-style">
-      
-      [RFC v2] mm: introduce page pin owner (Minchan Kim) https://lkml.kernel.org/r/20211228175904.3739751-1-minchan@kernel.org
-Second version of the RFC for page pinning owner feature, which can be useful for tracking down who pins which page and therefore why contiguous pages allocation or migration fails.
-mmotm 2021-12-29-20-07 uploaded (Andrew Morton) https://lkml.kernel.org/r/20211230040740.SbquJAFf5%akpm@linux-foundation.org
-MM of the moment has updated. It&rsquo;s rebased on v5.16-rc7, adds 32 new patches to the queue, drops 11 patches from the queue, and modifies 100 existing patches.
+      테스트 등을 위해 소스코드로부터 커널을 직접 빌드, 설치하기 시작하면 어느새 수많은 커널이 설치되어 있는 것을 확인할 수 있다. 삭제를 위해선 make install 로 만들어진 파일들을 직접 제거하고 grub 을 업데이트 해줘야 한다.
+예를 들어 시스템이 현재 부팅되어 있는 버전의 커널을 언인스톨하고자 한다면 다음의 일련의 커맨드를 입력하면 된다:
+# rm /boot/vmlinuz-$(uname -r) # rm /boot/initrd.img-$(uname -r) # rm /boot/System.map-$(uname -r) # rm /boot/config-$(uname -r) # rm -fr /lib/modules/$(uname -r) # rm /var/lib/initramfs-tools/$(uname -r) # update-grub2 다른 버전의 설치되어있는 커널을 제거하고 싶다면 위의 $(uname -r) 부분을 제거하고자 하는 커널 버전으로 대체하면 된다.
       
     </div>
   </div>
@@ -652,10 +540,8 @@ MM of the moment has updated. It&rsquo;s rebased on v5.16-rc7, adds 32 new patch
 <nav>
   <ul class="pagination justify-content-center">
     
-    <li class="page-item"><a class="page-link" href="/tags/news/page/6/">&laquo;</a></li>
+    <li class="page-item"><a class="page-link" href="/tags/kernel/page/28/">&laquo;</a></li>
     
-    
-    <li class="page-item"><a class="page-link" href="/tags/news/page/8/">&raquo;</a></li>
     
   </ul>
 </nav>

@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2023-06-06T07:19:57-07:00">
+    <meta property="og:updated_time" content="2023-06-13T07:28:47-07:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.10-rc7/">LKML News v5.10-rc7</a></h2>
+    <div class="article-style">
+      
+      [PATCH] mm: mmap_lock: fix use-after-free race and css ref leak in tracepoints (Axel Rasmussen) https://lkml.kernel.org/r/20201130233504.3725241-1-axelrasmussen@google.com
+This patch fixes a use-after-free bug that reported by syzbot.
+[PATCH 0/6] prohibit pinning pages in ZONE_MOVABLE (Pavel Tatashin) https://lkml.kernel.org/r/20201202052330.474592-1-pasha.tatashin@soleen.com
+Pinned pages in ZONE_MOVABLE is a wellknown problem. This patchset fixes the issue by forcing pinning new page to allocated from a zone other than ZONE_MOVABLE and migrating out existing pages from the zone during pinning.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.10-rc6/">LKML News v5.10-rc6</a></h2>
     <div class="article-style">
       
@@ -638,18 +650,6 @@ This patchset optimizes mremap() by allowing memory regions to be able to mapped
     <div class="article-style">
       
       DAMON contains a number of tests based on the kselftest and kunit in its patchset itself. As it is preferred to contain only tests having short runtime in kernel tree, I organized time consuming tests in a package and used it in my company only. Tests could be used as a good document and essential for contributors. For the reason, I promised I will make it open source in the last kernel summit talk (https://linuxplumbersconf.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.9-rc7/">LKML News v5.9-rc7</a></h2>
-    <div class="article-style">
-      
-      [PATCH v3 00/10] KFENCE: A low-overhead sampling-based memory safety error detector (Marco Elver) https://lkml.kernel.org/r/20200921132611.1700350-1-elver@google.com
-The third version of KFENCE patchset is uploaded.
-Machine lockups on extreme memory pressure (Shakeel Butt) https://lkml.kernel.org/r/CALvZod4FWLsV9byrKQojeus7tMDhHjQHFF5J_JpNsyB0HkaERA@mail.gmail.com
-Shakeel reports a machine lockup due to extreme memory pressure. It&rsquo;s locked up on memcg&rsquo;s vmpressure sr_lock, which is irq-unsafe. And the lockup made in IRQ. He proposes a solution simply changing the lock with irq-safe one, but he also admits it&rsquo;s not a maintainable solution.
       
     </div>
   </div>
