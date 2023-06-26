@@ -574,7 +574,7 @@ This patch adjusts min_free_kbytes calculation so that ZONE_NORMAL is unnecessar
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -637,6 +637,20 @@ reporting.</p>
 virtual address of the pages that are written to.  This patchset implements
 similar one in an efficient manner for Linux, with the name
 <code>PAGEMAP_SCAN_IOCTL</code>.</p>
+<h2 id="linux-64-linus-torvalds">Linux 6.4 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wi7fwNWfqj-QQqEfZTUOB4bbKT8QiEUDHoPk0ecuYA7cA@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wi7fwNWfqj-QQqEfZTUOB4bbKT8QiEUDHoPk0ecuYA7cA@mail.gmail.com</a></p>
+<p>After the seven releae candidate kernels for 6.4, the last wee kwas also quite
+normal with some netfilter fixes, mm reverts, and tracing updates.  So Linux
+v6.4 is out.  Linus already received 15 pull requests for v6.5.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.14-rc1..v6.4.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2021-04-24 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
 
     </div>
 
