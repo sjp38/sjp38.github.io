@@ -22,6 +22,15 @@
 &lt;p&gt;Andrew Morton sent the memory management subsystem pull request for v6.5-rc1.
 Among the change, &lt;code&gt;cachestata()&lt;/code&gt; syscall and Mel Gorman&amp;rsquo;s compaction
 optimization looks interesting to me.&lt;/p&gt;
+&lt;h2 id=&#34;git-pull-slab-updates-for-65-vlastimil-babka&#34;&gt;[GIT PULL] slab updates for 6.5 (Vlastimil Babka)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/1c39c9b0-ec37-f910-2b09-cedf7acf6e91@suse.cz&#34;&gt;https://lkml.kernel.org/r/1c39c9b0-ec37-f910-2b09-cedf7acf6e91@suse.cz&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Vlastimil sent the slab pull request for v6.5 to Linus Torvalds.  This contains
+the SLAB config deprecation renaming (&lt;code&gt;s/CONFIG_SLAB/CONFIG_SLAB_DEPRECATED/&lt;/code&gt;).&lt;/p&gt;
+&lt;h2 id=&#34;patch-v1-05-mmmemory_hotplug-make-offline_and_remove_memory-timeout-instead-of-failing-on-fatal-signals-david-hildenbrand&#34;&gt;[PATCH v1 0/5] mm/memory_hotplug: make offline_and_remove_memory() timeout instead of failing on fatal signals (David Hildenbrand)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20230627112220.229240-1-david@redhat.com&#34;&gt;https://lkml.kernel.org/r/20230627112220.229240-1-david@redhat.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;offline_and_remove_memory()&lt;/code&gt; checks fatal signals to allow timeout.  It works
+for sysfs-based direct offlining, but no much sense for out-of-tree drivers.
+This patchset implements timeout feature directly for the function.&lt;/p&gt;
 </description>
     </item>
     
