@@ -13,7 +13,7 @@
     </image>
     
     <item>
-      <title>LKML News v6.4-rc1</title>
+      <title>LKML News v6.5-rc1</title>
       <link>https://sjp38.github.io/post/lkml_news_v6.5-rc1/</link>
       <pubDate>Tue, 27 Jun 2023 07:35:23 -0700</pubDate>
       <guid>https://sjp38.github.io/post/lkml_news_v6.5-rc1/</guid>
@@ -31,6 +31,11 @@ the SLAB config deprecation renaming (&lt;code&gt;s/CONFIG_SLAB/CONFIG_SLAB_DEPR
 &lt;p&gt;&lt;code&gt;offline_and_remove_memory()&lt;/code&gt; checks fatal signals to allow timeout.  It works
 for sysfs-based direct offlining, but no much sense for out-of-tree drivers.
 This patchset implements timeout feature directly for the function.&lt;/p&gt;
+&lt;h2 id=&#34;patch-writeback-account-the-number-of-pages-written-back-matthew-wilcox&#34;&gt;[PATCH] writeback: Account the number of pages written back (Matthew Wilcox)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20230628185548.981888-1-willy@infradead.org&#34;&gt;https://lkml.kernel.org/r/20230628185548.981888-1-willy@infradead.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Currently &lt;code&gt;nr_to_write&lt;/code&gt; of &lt;code&gt;struct writeback_contro&lt;/code&gt; is wrongly set because
+it&amp;rsquo;s not accounting the number of pages written back.  This commit fixes it to
+account by decreasing the number of pages in the folio we just wrote.&lt;/p&gt;
 </description>
     </item>
     
