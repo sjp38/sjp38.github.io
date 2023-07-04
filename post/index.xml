@@ -61,6 +61,11 @@ and userfaults.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20230701142041.9992-1-fmdefrancesco@gmail.com&#34;&gt;https://lkml.kernel.org/r/20230701142041.9992-1-fmdefrancesco@gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;This patch updates the highmem documentation to add information about
 &lt;code&gt;kmap_local_folio()&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;patch-11-mm-disable-config_per_vma_lock-by-default-until-its-fixed-suren-baghdasaryan&#34;&gt;[PATCH 1/1] mm: disable CONFIG_PER_VMA_LOCK by default until its fixed (Suren Baghdasaryan)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20230703182150.2193578-1-surenb@google.com&#34;&gt;https://lkml.kernel.org/r/20230703182150.2193578-1-surenb@google.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;A memory corruption that supposed to be occurred due to per-VMA lock enabling
+has found.  To fix the regression first, this patch disables per-VMA lock by
+default, until the issue is fixed.&lt;/p&gt;
 </description>
     </item>
     
