@@ -648,6 +648,12 @@ and userfaults.</p>
 <p>A memory corruption that supposed to be occurred due to per-VMA lock enabling
 has found.  To fix the regression first, this patch disables per-VMA lock by
 default, until the issue is fixed.</p>
+<h2 id="patch-11-fork-lock-vmas-of-the-parent-process-when-forking-suren-baghadasaryan">[PATCH 1/1] fork: lock VMAs of the parent process when forking (Suren Baghadasaryan)</h2>
+<p><a href="https://lkml.kernel.org/r/20230704200656.2526715-1-surenb@google.com">https://lkml.kernel.org/r/20230704200656.2526715-1-surenb@google.com</a></p>
+<p>This patch fixes the memory corruption problem due to the per-vma locking.  It
+makes <code>fork()</code> slower, though.  On stress testing, about 5% regression was
+found.  A solution for avoiding the regression is turning <code>CONFIG_PER_VMA_LOCK</code>
+off.</p>
 
     </div>
 
