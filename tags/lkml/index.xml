@@ -55,6 +55,11 @@ default, until the issue is fixed.&lt;/p&gt;
 makes &lt;code&gt;fork()&lt;/code&gt; slower, though.  On stress testing, about 5% regression was
 found.  A solution for avoiding the regression is turning &lt;code&gt;CONFIG_PER_VMA_LOCK&lt;/code&gt;
 off.&lt;/p&gt;
+&lt;h2 id=&#34;patch-memcg-drop-kmemlimit_in_bytes-michal-hocko&#34;&gt;[PATCH] memcg: drop kmem.limit_in_bytes (Michal Hocko)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20230704115240.14672-1-mhocko@kernel.org&#34;&gt;https://lkml.kernel.org/r/20230704115240.14672-1-mhocko@kernel.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;kmem.limit&lt;/code&gt; memcg file has been deprecated since v5.16.  Michal tries to
+entirely remove it, since existence of it only causes confusion and bugs.  He
+further wants the removal to be applied to stable kernels.&lt;/p&gt;
 </description>
     </item>
     
