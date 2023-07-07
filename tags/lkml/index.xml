@@ -60,6 +60,10 @@ off.&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;kmem.limit&lt;/code&gt; memcg file has been deprecated since v5.16.  Michal tries to
 entirely remove it, since existence of it only causes confusion and bugs.  He
 further wants the removal to be applied to stable kernels.&lt;/p&gt;
+&lt;h2 id=&#34;rfc-patch-22-zram-charge-the-compressed-ram-to-the-pages-memcgroup-zhongkun-he&#34;&gt;[RFC PATCH 2/2] zram: charge the compressed RAM to the page&amp;rsquo;s memcgroup (Zhongkun He)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20230707044707.1169285-1-hezhongkun.hzk@bytedance.com&#34;&gt;https://lkml.kernel.org/r/20230707044707.1169285-1-hezhongkun.hzk@bytedance.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The compressed memory for zram is not charged to any memcg but kernel.  This
+patch makes those to be charged to the memcg.&lt;/p&gt;
 </description>
     </item>
     
