@@ -663,6 +663,10 @@ further wants the removal to be applied to stable kernels.</p>
 <p><a href="https://lkml.kernel.org/r/20230707044707.1169285-1-hezhongkun.hzk@bytedance.com">https://lkml.kernel.org/r/20230707044707.1169285-1-hezhongkun.hzk@bytedance.com</a></p>
 <p>The compressed memory for zram is not charged to any memcg but kernel.  This
 patch makes those to be charged to the memcg.</p>
+<h2 id="patch-mmvmscan-fix-inaccurate-reclaim-during-proactive-reclaim-efly-young">[PATCH] mm:vmscan: fix inaccurate reclaim during proactive reclaim (Efly Young)</h2>
+<p><a href="https://lkml.kernel.org/r/20230707103226.38496-1-yangyifei03@kuaishou.com">https://lkml.kernel.org/r/20230707103226.38496-1-yangyifei03@kuaishou.com</a></p>
+<p><code>memory.reclaim</code> memcg file based reclaim is still inaccurate, in terms of the
+amount of memory it reclaims.  This commit further fixes it.</p>
 
     </div>
 
