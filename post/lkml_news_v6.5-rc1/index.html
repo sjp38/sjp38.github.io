@@ -576,7 +576,7 @@ Vlastimil sent the slab pull request for v6.5 to Linus Torvalds. This contains t
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    2 min read
+    3 min read
   </span>
   
 
@@ -667,6 +667,21 @@ patch makes those to be charged to the memcg.</p>
 <p><a href="https://lkml.kernel.org/r/20230707103226.38496-1-yangyifei03@kuaishou.com">https://lkml.kernel.org/r/20230707103226.38496-1-yangyifei03@kuaishou.com</a></p>
 <p><code>memory.reclaim</code> memcg file based reclaim is still inaccurate, in terms of the
 amount of memory it reclaims.  This commit further fixes it.</p>
+<h2 id="linux-65-rc1-linus-torvalds">Linux 6.5-rc1 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wj8sPDVoWgaceAs1AiwZrHV8mtC3vQNGbeV6-RypJi6aw@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wj8sPDVoWgaceAs1AiwZrHV8mtC3vQNGbeV6-RypJi6aw@mail.gmail.com</a></p>
+<p>After the two weeks of the merge window for Linux v6.5, the first release
+candidate has released.  Nothing unusual stands out.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.14-rc2..v6.5-rc1.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2021-07-10 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc1 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v6.5-rc1-only.png" alt="rc1 release stat"></p>
 
     </div>
 

@@ -85,6 +85,21 @@ patch makes those to be charged to the memcg.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20230707103226.38496-1-yangyifei03@kuaishou.com&#34;&gt;https://lkml.kernel.org/r/20230707103226.38496-1-yangyifei03@kuaishou.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;memory.reclaim&lt;/code&gt; memcg file based reclaim is still inaccurate, in terms of the
 amount of memory it reclaims.  This commit further fixes it.&lt;/p&gt;
+&lt;h2 id=&#34;linux-65-rc1-linus-torvalds&#34;&gt;Linux 6.5-rc1 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wj8sPDVoWgaceAs1AiwZrHV8mtC3vQNGbeV6-RypJi6aw@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wj8sPDVoWgaceAs1AiwZrHV8mtC3vQNGbeV6-RypJi6aw@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;After the two weeks of the merge window for Linux v6.5, the first release
+candidate has released.  Nothing unusual stands out.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/kernel_release_stat/v5.14-rc2..v6.5-rc1.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
+below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2021-07-10 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And, below is the diffstat of the -rc1 releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/kernel_release_stat/v6.5-rc1-only.png&#34; alt=&#34;rc1 release stat&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -398,6 +413,10 @@ If you find a news that should be added to this list, please let us know at
 &lt;a href=&#34;mailto:sj@kernel.org&#34;&gt;sj@kernel.org&lt;/a&gt; and/or &lt;a href=&#34;mailto:damon@lists.linux.dev&#34;&gt;damon@lists.linux.dev&lt;/a&gt;.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;2023&#34;&gt;2023&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;2023-07-10&lt;/em&gt;: Hocus wrote an
+&lt;a href=&#34;https://hocus.dev/blog/qemu-vs-firecracker/&#34;&gt;article&lt;/a&gt; introducing DAMON as a
+kernel feature that could be useful for memory efficient VM, with its
+limitations.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;2023-06-30&lt;/em&gt;: DAMON talk for OSSummit EU 2023 has accepted and
 &lt;a href=&#34;https://sched.co/1OGf9&#34;&gt;scheduled&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;2023-06-25&lt;/em&gt;: DAMON userspace tool, &lt;a href=&#34;https://github.com/awslabs/damo&#34;&gt;damo&lt;/a&gt; has
@@ -8684,6 +8703,10 @@ available at another &lt;a href=&#34;https://sjp38.github.io/post/damon_evaluati
 &lt;h2 id=&#34;demo-screenshot&#34;&gt;Demo Screenshot&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/masim_stairs_heatmap_ascii.png&#34; alt=&#34;masim stairs heatmap in ascii&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;recent-news&#34;&gt;Recent News&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;2023-07-10&lt;/em&gt;: Hocus wrote an
+&lt;a href=&#34;https://hocus.dev/blog/qemu-vs-firecracker/&#34;&gt;article&lt;/a&gt; introducing DAMON as a
+kernel feature that could be useful for memory efficient VM, with its
+limitations.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;2023-06-30&lt;/em&gt;: DAMON talk for OSSummit EU 2023 has accepted and
 &lt;a href=&#34;https://sched.co/1OGf9&#34;&gt;scheduled&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;2023-06-25&lt;/em&gt;: DAMON userspace tool, &lt;a href=&#34;https://github.com/awslabs/damo&#34;&gt;damo&lt;/a&gt; has
