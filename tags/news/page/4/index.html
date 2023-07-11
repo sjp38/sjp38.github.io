@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2023-06-27T07:35:23-07:00">
+    <meta property="og:updated_time" content="2023-07-11T07:08:29-07:00">
   
 
   
@@ -525,6 +525,19 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.1-rc7/">LKML News v6.1-rc7</a></h2>
+    <div class="article-style">
+      
+      [PATCH 00/12] Introduce CONFIG_SLUB_TINY and deprecate SLOB (Vlastimil Babka) https://lkml.kernel.org/r/20221121171202.22080-1-vbabka@suse.cz
+Vlastimil has posted a mail[1] for a discussion about SLOB deprecation. As no one has objected at the idea so far, Vlastimil has sent a patchset for that.
+[1] https://lore.kernel.org/all/b35c3f82-f67b-2103-7d82-7a7ba7521439@suse.cz/
+[RFC PATCH v1 0/4] Introduce merge identical pages mechanism (Alexey Romanov) https://lkml.kernel.org/r/20221121190020.66548-1-avromanov@sberdevices.ru
+This RFC patchset introduces a mechanism for merging identical compressed pages, which could be common in zram like use cases.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.1-rc6/">LKML News v6.1-rc6</a></h2>
     <div class="article-style">
       
@@ -638,20 +651,6 @@ There was a recent discussion on when to use BUG() and WARN() and the variants. 
 A new version of MGLRU patchset has posted. Among the changes in this new version, fix of long-tailed direct reclaim latency looks interesting.
 Linux 6.0-rc6 (Linus Torvalds) https://lkml.kernel.org/r/CAHk-=wi=gtuSO8Yz8LDubkMk7TiMsZxpypt9S10jeZRkyaBFnA@mail.gmail.com
 The sixth release candidate for Linux v6.0 has out. Maybe due to the LPC/OSS EU/Maintainers summit which all were held in last week, this release is quite small. Torvalds says it might mean that seventh release will be bigger than usual and therefore it might need one more week for v6.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.0-rc5/">LKML News v6.0-rc5</a></h2>
-    <div class="article-style">
-      
-      [LPC 2022] Kernel Memory Management Microconference - next Monday! (Vlastimil Babka) https://lkml.kernel.org/r/e918dd3c-aa71-c510-4a50-4f9882bca3e8@suse.cz
-Vlastimil and Matthew are reminding about the kernel memory management microconference, which will be held as a part of the LPC this year, in Dublin.
-[PATCH v6 00/44] Add KernelMemorySanitizer infrastructure (Alexander Potapenko) https://lkml.kernel.org/r/20220905122452.2258262-1-glider@google.com
-Sixth iteration of the KMSAN infra patchset has posted.
-[PATCH v3 0/2] Introduce CABA helper process tree (Pavel Tikhomirov) https://lkml.kernel.org/r/20220908140313.313020-1-ptikhomirov@virtuozzo.com
-Current linux process tree looses the information in which subtree the child was originally born, after the children is died and therefore reparented.
       
     </div>
   </div>

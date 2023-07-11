@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2023-06-30T16:01:51-07:00">
+    <meta property="og:updated_time" content="2023-07-11T07:08:29-07:00">
   
 
   
@@ -525,6 +525,19 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.3-rc2/">LKML News v6.3-rc2</a></h2>
+    <div class="article-style">
+      
+      [Invitation] Linux MM Alignment Session on Wednesday (David Rientjes) https://lkml.kernel.org/r/CAE-26VAFJtSu5xEbzNUgPVn3W13-B1bGvvU8-+i-hkS4GtupCw@mail.gmail.com
+David is hosting biweekly meetings for Linux memory management developments called Linux MM Alignment, and he is publicly inviting people to the meetings.
+The next instance will be held on 10:00 PST, 2023-03-08, at https://meet.google.com/csb-wcds-xya
+THP backed thread stacks (Mike Kravetz) https://lkml.kernel.org/r/20230306235730.GA31451@monkey
+Mike found THP-always&rsquo;s memory bloat issue due to THP usage for threads&rsquo; stacks. Mike feels it might make no sense to use THP for stacks even if the THP policy is &lsquo;always&rsquo;, and starting discussions on improvment of the situation.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.3-rc1/">LKML News v6.3-rc1</a></h2>
     <div class="article-style">
       
@@ -628,20 +641,6 @@ For the mmap_lock scalability issue, yet another approach called per-VMA locks h
 [PATCH v2 0/2] docs/mm: start filling out new structure (Mike Rapoport) https://lkml.kernel.org/r/20230110152358.2641910-1-rppt@kernel.org
 MM kernel documentation has restructured to be somewhat more like textbook that can better explaining overall concept and how it manage memory, but the content is empty. Mike starts filling the content.
 LSFMMBPF proposal [General/MM]: SRCU: a case study in memory ordering (Joel Fernandes) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.2-rc3/">LKML News v6.2-rc3</a></h2>
-    <div class="article-style">
-      
-      [PATCH] zram: correctly handle all next_arg() cases (Sergey Senozhatsky) https://lkml.kernel.org/r/20230103030119.1496358-1-senozhatsky@chromium.org
-Handle NULL val pointer case from zram&rsquo;s arguments handling.
-[RFC PATCH 00/25] Upstream kvx Linux port (Yann Sionneau) https://lkml.kernel.org/r/20230103164359.24347-1-ysionneau@kalray.eu
-This patchset adds support of Kalray&rsquo;s kvx family kv3-1 CPU architecture.
-[PATCH 00/46] Based on latest mm-unstable (85b44c25cd1e). (James Houghton) https://lkml.kernel.org/r/20230105101844.1893104-1-jthoughton@google.com
-This patchset introduces HugeTLB high-Granularity Mapping (HGM), which teaches HugeTLB how to map HugeTLB pages at high granularity like how THPs PTE-mapped.
       
     </div>
   </div>
