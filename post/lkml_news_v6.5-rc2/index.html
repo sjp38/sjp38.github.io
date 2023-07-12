@@ -624,6 +624,16 @@ sharing same pages.</p>
 <p><a href="https://lkml.kernel.org/r/20230711044834.72809-1-aneesh.kumar@linux.ibm.com">https://lkml.kernel.org/r/20230711044834.72809-1-aneesh.kumar@linux.ibm.com</a></p>
 <p>This makes the memmap on memory feature more useful for ppc64-like
 architectures having alignment rules that different with 64K page size.</p>
+<h2 id="patch-v1-mmmemory_hotplug-document-the-signal_pending-check-in-offline_pages-david-hildenbrand">[PATCH v1] mm/memory_hotplug: document the signal_pending() check in offline_pages() (David Hildenbrand)</h2>
+<p><a href="https://lkml.kernel.org/r/20230711174050.603820-1-david@redhat.com">https://lkml.kernel.org/r/20230711174050.603820-1-david@redhat.com</a></p>
+<p>This patch adds a comment about <code>signal_pending()</code> in <code>offline_pages()</code>, which
+explains why all signals are checked in the function.</p>
+<h2 id="patch-04-memory-tiering-calculate-abstract-distance-based-on-acpi-hmat-huang-ying">[PATCH 0/4] memory tiering: calculate abstract distance based on ACPI HMAT (Huang Ying)</h2>
+<p><a href="https://lkml.kernel.org/r/20230712074900.404064-1-ying.huang@intel.com">https://lkml.kernel.org/r/20230712074900.404064-1-ying.huang@intel.com</a></p>
+<p>Current tiering system uses fixed abstract distance for each tier.  This patch
+further adds a calculation algorithm management mechanism for the distance,
+provide it based on ACPI HMAT, and further use a general calculation interface
+in dax/kmem driver.</p>
 
     </div>
 
