@@ -574,7 +574,7 @@ This makes the memmap on memory feature more useful for ppc64-like architectures
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -638,6 +638,10 @@ in dax/kmem driver.</p>
 <p><a href="https://lkml.kernel.org/r/20230712060144.3006358-1-fengwei.yin@intel.com">https://lkml.kernel.org/r/20230712060144.3006358-1-fengwei.yin@intel.com</a></p>
 <p>This patch makes large folio to be able to be <code>mlock()</code>-ed for large folio in
 <code>VM_LOCKED</code> vma range case.</p>
+<h2 id="rfc-patch-madvise-make-madvise_cold_or_pageout_pte_range-support-large-folio-yin-fengwei">[RFC PATCH] madvise: make madvise_cold_or_pageout_pte_range() support large folio (Yin Fengwei)</h2>
+<p><a href="https://lkml.kernel.org/r/20230713150558.200545-1-fengwei.yin@intel.com">https://lkml.kernel.org/r/20230713150558.200545-1-fengwei.yin@intel.com</a></p>
+<p>This patch fixes two problems of <code>madivse_cold_or_pageout_pte_range()</code> for
+large folio support.</p>
 
     </div>
 
