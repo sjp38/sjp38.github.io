@@ -642,6 +642,14 @@ in dax/kmem driver.</p>
 <p><a href="https://lkml.kernel.org/r/20230713150558.200545-1-fengwei.yin@intel.com">https://lkml.kernel.org/r/20230713150558.200545-1-fengwei.yin@intel.com</a></p>
 <p>This patch fixes two problems of <code>madivse_cold_or_pageout_pte_range()</code> for
 large folio support.</p>
+<h2 id="patch-mm-kill-frontswap-johannes-weiner">[PATCH] mm: kill frontswap (Johannes Weiner)</h2>
+<p><a href="https://lkml.kernel.org/r/20230714194610.828210-1-hannes@cmpxchg.org">https://lkml.kernel.org/r/20230714194610.828210-1-hannes@cmpxchg.org</a></p>
+<p>This patch removes frontswap by making the only user of it, <code>zswap</code>, to
+directly hook swap code instead of using the indirect layer, <code>frontswap</code>.</p>
+<h2 id="patch-v2-04-more-strict-maple-tree-lockdep-liam-r-howlett">[PATCH v2 0/4] More strict maple tree lockdep (Liam R. Howlett)</h2>
+<p><a href="https://lkml.kernel.org/r/20230714195551.894800-1-Liam.Howlett@oracle.com">https://lkml.kernel.org/r/20230714195551.894800-1-Liam.Howlett@oracle.com</a></p>
+<p>Liam adds more lockdep checks to maple tree, as a response to Linus&rsquo; request.
+Linus immediately acked this.</p>
 
     </div>
 
