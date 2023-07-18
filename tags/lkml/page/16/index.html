@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2023-07-11T07:08:29-07:00">
+    <meta property="og:updated_time" content="2023-07-18T06:49:03-07:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.7-rc4/">LKML News v5.7-rc4</a></h2>
+    <div class="article-style">
+      
+      [PATCH 0/7] Record the mm_struct in the page table pages (Matthew Wilcox) https://lkml.kernel.org/r/20200428194449.22615-1-willy@infradead.org
+Literally, this patchset adds the mm_struct pointer to struct page if it is used for page tables. This will be useful for several cases usch as uncorrectable errors handling and task-page table relation checking, etc.
+[PATCH v4] mm: Proactive compaction (Nitin Gupta) https://lkml.kernel.org/r/20200428221055.598-1-nigupta@nvidia.com
+This patchset makes the compaction to be more proactively done for better THP allocation success and makes user to be able to control the proactiveness using a sysfs file, /sys/kernel/mm/compaction/proactiveness.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.7-rc3/">LKML News v5.7-rc3</a></h2>
     <div class="article-style">
       
@@ -632,18 +644,6 @@ The author of this patchset found some information regarding NUMA is missed in s
 [PATCH v6 0/7] introduce memory hinting API for external process https://lkml.kernel.org/r/20200219014433.88424-1-minchan@kernel.org
 Sixth version of the patchset for new system call, &lsquo;madvise_process()'. Changes are not so big. Support null task argument and requestor&rsquo;s mm for &lsquo;io_madvise()'.
 [PATCH] mm: Stop kswapd early when nothing&rsquo;s waiting for it to free pages https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.6-rc2/">LKML News v5.6-rc2</a></h2>
-    <div class="article-style">
-      
-      [RFC PATCH 0/3] DAMON: Implement The Data Access Pattern Awared Memory Management Rules https://lkml.kernel.org/r/20200210150921.32482-1-sjpark@amazon.com
-This is an RFC patch from me that implementing simple way to run data access pattern awared memory system using DAMON. Proactive reclamation or access awared THP promotion/demotion will be easily available using this change.
-[PATCH 0/9] workingset protection/detection on the anonymous LRU list https://lkml.kernel.org/r/1581401993-20041-1-git-send-email-iamjoonsoo.kim@lge.com
-This patchset is for improving kernel&rsquo;s reclamation scheme in a corner case where pages which used only once evicting hot pages.
       
     </div>
   </div>
