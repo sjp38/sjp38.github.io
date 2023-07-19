@@ -29,7 +29,11 @@
     
   
   <meta name="description" content="[PATCH v4 0/6] Add support for memmap on memory feature on ppc64 (Aneesh Kumar K.V) https://lkml.kernel.org/r/20230718024409.95742-1-aneesh.kumar@linux.ibm.com
-The fourth version of the patchset for support of memmap on memory on ppc64 has posted.">
+The fourth version of the patchset for support of memmap on memory on ppc64 has posted.
+[GIT PULL] hotfixes for 6.5-rc2 (Andrew Morton) https://lkml.kernel.org/r/20230718123131.5ec065527c2127a568e5754c@linux-foundation.org
+Andrew sent mm subsystem hotfixes for 6.5 rc2 to Linus.
+[PATCH v2 0/5] Invalidate secondary IOMMU TLB on permission upgrade (Alistair Popple) https://lkml.kernel.org/r/cover.de78568883814904b78add6317c263bf5bc20234.1689768831.git-series.apopple@nvidia.com
+This patch moves secondary TLB invcalidation mmu notifier callbacks to architecture specific TLB flushing functions.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/lkml_news_v6.5-rc3/">
@@ -152,7 +156,11 @@ The fourth version of the patchset for support of memmap on memory on ppc64 has 
   <meta property="og:url" content="https://sjp38.github.io/post/lkml_news_v6.5-rc3/">
   <meta property="og:title" content="LKML News v6.5-rc3 | hacklog">
   <meta property="og:description" content="[PATCH v4 0/6] Add support for memmap on memory feature on ppc64 (Aneesh Kumar K.V) https://lkml.kernel.org/r/20230718024409.95742-1-aneesh.kumar@linux.ibm.com
-The fourth version of the patchset for support of memmap on memory on ppc64 has posted."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
+The fourth version of the patchset for support of memmap on memory on ppc64 has posted.
+[GIT PULL] hotfixes for 6.5-rc2 (Andrew Morton) https://lkml.kernel.org/r/20230718123131.5ec065527c2127a568e5754c@linux-foundation.org
+Andrew sent mm subsystem hotfixes for 6.5 rc2 to Linus.
+[PATCH v2 0/5] Invalidate secondary IOMMU TLB on permission upgrade (Alistair Popple) https://lkml.kernel.org/r/cover.de78568883814904b78add6317c263bf5bc20234.1689768831.git-series.apopple@nvidia.com
+This patch moves secondary TLB invcalidation mmu notifier callbacks to architecture specific TLB flushing functions."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -204,7 +212,7 @@ The fourth version of the patchset for support of memmap on memory on ppc64 has 
       "url": "https://sjp38.github.io/img/icon-512.png"
     }
   },
-  "description": "[PATCH v4 0/6] Add support for memmap on memory feature on ppc64 (Aneesh Kumar K.V) https://lkml.kernel.org/r/20230718024409.95742-1-aneesh.kumar@linux.ibm.com\nThe fourth version of the patchset for support of memmap on memory on ppc64 has posted."
+  "description": "[PATCH v4 0/6] Add support for memmap on memory feature on ppc64 (Aneesh Kumar K.V) https://lkml.kernel.org/r/20230718024409.95742-1-aneesh.kumar@linux.ibm.com\nThe fourth version of the patchset for support of memmap on memory on ppc64 has posted.\n[GIT PULL] hotfixes for 6.5-rc2 (Andrew Morton) https://lkml.kernel.org/r/20230718123131.5ec065527c2127a568e5754c@linux-foundation.org\nAndrew sent mm subsystem hotfixes for 6.5 rc2 to Linus.\n[PATCH v2 0/5] Invalidate secondary IOMMU TLB on permission upgrade (Alistair Popple) https://lkml.kernel.org/r/cover.de78568883814904b78add6317c263bf5bc20234.1689768831.git-series.apopple@nvidia.com\nThis patch moves secondary TLB invcalidation mmu notifier callbacks to architecture specific TLB flushing functions."
 }
 </script>
 
@@ -614,6 +622,14 @@ The fourth version of the patchset for support of memmap on memory on ppc64 has 
 <p><a href="https://lkml.kernel.org/r/20230718024409.95742-1-aneesh.kumar@linux.ibm.com">https://lkml.kernel.org/r/20230718024409.95742-1-aneesh.kumar@linux.ibm.com</a></p>
 <p>The fourth version of the patchset for support of <code>memmap on memory</code> on ppc64
 has posted.</p>
+<h2 id="git-pull-hotfixes-for-65-rc2-andrew-morton">[GIT PULL] hotfixes for 6.5-rc2 (Andrew Morton)</h2>
+<p><a href="https://lkml.kernel.org/r/20230718123131.5ec065527c2127a568e5754c@linux-foundation.org">https://lkml.kernel.org/r/20230718123131.5ec065527c2127a568e5754c@linux-foundation.org</a></p>
+<p>Andrew sent mm subsystem hotfixes for 6.5 rc2 to Linus.</p>
+<h2 id="patch-v2-05-invalidate-secondary-iommu-tlb-on-permission-upgrade-alistair-popple">[PATCH v2 0/5] Invalidate secondary IOMMU TLB on permission upgrade (Alistair Popple)</h2>
+<p><a href="https://lkml.kernel.org/r/cover.de78568883814904b78add6317c263bf5bc20234.1689768831.git-series.apopple@nvidia.com">https://lkml.kernel.org/r/cover.de78568883814904b78add6317c263bf5bc20234.1689768831.git-series.apopple@nvidia.com</a></p>
+<p>This patch moves secondary TLB invcalidation mmu notifier callbacks to
+architecture specific TLB flushing functions.  The first version of the patch
+make build failures, so v2 has posted.</p>
 
     </div>
 
