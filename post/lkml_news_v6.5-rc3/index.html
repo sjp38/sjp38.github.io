@@ -578,7 +578,7 @@ This patch moves secondary TLB invcalidation mmu notifier callbacks to architect
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -642,6 +642,22 @@ read-write, so that it can be updated at runtime.</p>
 <p><a href="https://lkml.kernel.org/r/20230722004451.7730-1-fmdefrancesco@gmail.com">https://lkml.kernel.org/r/20230722004451.7730-1-fmdefrancesco@gmail.com</a></p>
 <p>This patch extends <code>page_tables.rst</code> by adding  asection for MMU, TLB, and page
 faults.</p>
+<h2 id="linux-65-rc3-linus-torvalds">Linux 6.5-rc3 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wi4Yau-3Bsv2rXYmtXMTLaj3=Wyf4cdM6d89czFvkVsRQ@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wi4Yau-3Bsv2rXYmtXMTLaj3=Wyf4cdM6d89czFvkVsRQ@mail.gmail.com</a></p>
+<p>Like last week, things continue to look pretty normal without anything stands
+out, according to Linus Torvalds.  As a result, the third v6.5 release
+candidate is available.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.14-rc4..v6.5-rc3.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2021-07-24 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc2 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v6.5-rc3-only.png" alt="rc2 release stat"></p>
 
     </div>
 
