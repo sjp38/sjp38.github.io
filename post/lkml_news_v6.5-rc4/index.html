@@ -31,7 +31,8 @@
   <meta name="description" content="[PATCH v5 0/7] Add support for memmap on memory feature on ppc64 (Aneesh Kumar K.V) https://lkml.kernel.org/r/20230725100212.531277-1-aneesh.kumar@linux.ibm.com
 Aneesh continues adding support of memmap_on_memory for more architectures.
 [PATCH mm-unstable v7 00/31] Split ptdesc from struct page (Vishal Moola) https://lkml.kernel.org/r/20230725042051.36691-1-vishal.moola@gmail.com
-The seventh revision of the patchset for splitting page table tracking information out of struct page for making it smaller.">
+The seventh revision of the patchset for splitting page table tracking information out of struct page for making it smaller.
+[PATCH v3 00/49] use refcount&#43;RCU method to implement lockless slab shrink (Qi Zheng) https://lkml.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/lkml_news_v6.5-rc4/">
@@ -156,7 +157,8 @@ The seventh revision of the patchset for splitting page table tracking informati
   <meta property="og:description" content="[PATCH v5 0/7] Add support for memmap on memory feature on ppc64 (Aneesh Kumar K.V) https://lkml.kernel.org/r/20230725100212.531277-1-aneesh.kumar@linux.ibm.com
 Aneesh continues adding support of memmap_on_memory for more architectures.
 [PATCH mm-unstable v7 00/31] Split ptdesc from struct page (Vishal Moola) https://lkml.kernel.org/r/20230725042051.36691-1-vishal.moola@gmail.com
-The seventh revision of the patchset for splitting page table tracking information out of struct page for making it smaller."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
+The seventh revision of the patchset for splitting page table tracking information out of struct page for making it smaller.
+[PATCH v3 00/49] use refcount&#43;RCU method to implement lockless slab shrink (Qi Zheng) https://lkml."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -208,7 +210,7 @@ The seventh revision of the patchset for splitting page table tracking informati
       "url": "https://sjp38.github.io/img/icon-512.png"
     }
   },
-  "description": "[PATCH v5 0/7] Add support for memmap on memory feature on ppc64 (Aneesh Kumar K.V) https://lkml.kernel.org/r/20230725100212.531277-1-aneesh.kumar@linux.ibm.com\nAneesh continues adding support of memmap_on_memory for more architectures.\n[PATCH mm-unstable v7 00/31] Split ptdesc from struct page (Vishal Moola) https://lkml.kernel.org/r/20230725042051.36691-1-vishal.moola@gmail.com\nThe seventh revision of the patchset for splitting page table tracking information out of struct page for making it smaller."
+  "description": "[PATCH v5 0/7] Add support for memmap on memory feature on ppc64 (Aneesh Kumar K.V) https://lkml.kernel.org/r/20230725100212.531277-1-aneesh.kumar@linux.ibm.com\nAneesh continues adding support of memmap_on_memory for more architectures.\n[PATCH mm-unstable v7 00/31] Split ptdesc from struct page (Vishal Moola) https://lkml.kernel.org/r/20230725042051.36691-1-vishal.moola@gmail.com\nThe seventh revision of the patchset for splitting page table tracking information out of struct page for making it smaller.\n[PATCH v3 00/49] use refcount+RCU method to implement lockless slab shrink (Qi Zheng) https://lkml."
 }
 </script>
 
@@ -621,6 +623,11 @@ The seventh revision of the patchset for splitting page table tracking informati
 <p><a href="https://lkml.kernel.org/r/20230725042051.36691-1-vishal.moola@gmail.com">https://lkml.kernel.org/r/20230725042051.36691-1-vishal.moola@gmail.com</a></p>
 <p>The seventh revision of the patchset for splitting page table tracking
 information out of <code>struct page</code> for making it smaller.</p>
+<h2 id="patch-v3-0049-use-refcountrcu-method-to-implement-lockless-slab-shrink-qi-zheng">[PATCH v3 00/49] use refcount+RCU method to implement lockless slab shrink (Qi Zheng)</h2>
+<p><a href="https://lkml.kernel.org/r/20230727080502.77895-1-zhengqi.arch@bytedance.com">https://lkml.kernel.org/r/20230727080502.77895-1-zhengqi.arch@bytedance.com</a></p>
+<p>There was an SRUC-based Slab lockless shrinking approach, but it was reverted
+due to a regression under a stress test.  THis patch revisit it using a
+refcount plus RCU approach.</p>
 
     </div>
 
