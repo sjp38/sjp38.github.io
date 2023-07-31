@@ -29,6 +29,27 @@ information out of &lt;code&gt;struct page&lt;/code&gt; for making it smaller.&l
 &lt;p&gt;There was an SRUC-based Slab lockless shrinking approach, but it was reverted
 due to a regression under a stress test.  THis patch revisit it using a
 refcount plus RCU approach.&lt;/p&gt;
+&lt;h2 id=&#34;patch-documentationpage_tables-add-info-about-mmutlb-and-page-faults-fabio-m-de-francesco&#34;&gt;[PATCH] Documentation/page_tables: Add info about MMU/TLB and Page Faults (Fabio M. De Francesco)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20230728120054.12306-1-fmdefrancesco@gmail.com&#34;&gt;https://lkml.kernel.org/r/20230728120054.12306-1-fmdefrancesco@gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This patch extends &lt;code&gt;page_tables.rst&lt;/code&gt; by adding a section about the role of MMU
+and TLB, to better explain the virtual address to physical address translation.&lt;/p&gt;
+&lt;h2 id=&#34;linux-65-rc4-linus-torvalds&#34;&gt;Linux 6.5-rc4 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wik9NO9Un-OU0rVeo1+dp=6vj=s=K0T=uBVEa+Aqkj66w@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wik9NO9Un-OU0rVeo1+dp=6vj=s=K0T=uBVEa+Aqkj66w@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Things continue to be fairly normal, and yet another boring fourth release
+candidate is released by Linus Torvalds.  One interesting thing is this rc
+release contains exactly 328 non-merge commits, which was same for the rc4 of
+6.2, 6.3.  Probably just a coincidence, though.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/kernel_release_stat/v5.14-rc5..v6.5-rc4.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
+below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2021-07-31 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And, below is the diffstat of the -rc4 releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/kernel_release_stat/v6.5-rc4-only.png&#34; alt=&#34;rc4 release stat&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     
