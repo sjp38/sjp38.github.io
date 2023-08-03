@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2023-07-25T07:06:09-07:00">
+    <meta property="og:updated_time" content="2023-08-01T06:57:11-07:00">
   
 
   
@@ -525,6 +525,16 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v4.16-rc2/">LKML News v4.16-rc2</a></h2>
+    <div class="article-style">
+      
+      Linux 4.16-rc2 https://lkml.kernel.org/r/CA+55aFwDnBq9V6TVbc82DzVYpf-ELF7UcYzHuY0ei1Xjnob+0A@mail.gmail.com
+4.16 두번째 rc 버전의 릴리즈입니다. 이번 한주는 매우 조용한 한주였군요. 머지 윈도우가 끝나고 사람들이 좀 쉬기 때문일수도, 아직 버그를 찾지 못해서일 수도 있고 일반적으로 rc2 는 조용한 편이지만, 어쨌든 토발즈는 만족스러운 눈치입니다. 4.15 에서의 spectre &amp; meltdown 때문에 더 그럴지도 모르겠지만요.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v4.16-rc1/">LKML News after v4.16-rc1</a></h2>
     <div class="article-style">
       
@@ -628,19 +638,6 @@ Lockdep 의 cross release 기능은 너무 느렸고, false positive 가 많다�
 4.15 의 네번째 rc 버전입니다. 지난 rc 버전들이 생각보다 커서 토발즈가 좀 걱정했는데, 이번 릴리즈에 들어서는 평범한 네번째 rc 만큼이나 변화가 많이 없어 충분히 안정화 되기 시작한 것 같다고 하는군요.
 이번에 가장 눈에 띌만한 변화는 suspend/resume 처리를 정리하고 고친 것이라고 합니다. 크로스 락킹 디버깅 기능은 부팅 시간을 늘리는 문제 등도 있어선지 이번에 일단 제거되었네요. 나중에 다시 되살릴 계획은 있는 것 같습니다.
 [PATCH v2 1/1] Move kfree_call_rcu() to slab_common.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.15-rc3/">LKML News after v4.15-rc3</a></h2>
-    <div class="article-style">
-      
-      Linux 4.15-rc3 https://lkml.kernel.org/r/CA+55aFz9O9R8u3ori-QNPz4ALU+0B=Es0gd+oWmsce5qxugxXA@mail.gmail.com
-4.15 의 세번째 rc 버전입니다. 지난주보단 조금 늦게 릴리즈 되었네요.
-일반적으로 rc3 릴리즈는 좀 변경사항이 많지만 이번엔 그중에서도 변경사항이 많은 편이라 걱정된다고 하는군요. 대부분은 드라이버쪽 변경인데 perf 쪽 변경도 꽤 있고 core, networking, kvm, arch, 문서 업데이트도 물론 있습니다. 어쨌든 토발즈는 이제는 정말 안정화가 되어가길 바라는 마음이라는군요.
-[PATCH v2] mm/slab: Do not hash pointers when debugging slab https://lkml.kernel.org/r/1513179267-2509-1-git-send-email-geert+renesas@glider.be
-이번 버전에 들어와 포인터 값을 기반으로 한 예측을 통해 공격이 들어오는 걸 방지하기 위해 &lsquo;%p&rsquo; 가 포인터를 그냥 출력하는게 아니라 hash 한 다음에 출력하도록 바뀌었죠.
       
     </div>
   </div>

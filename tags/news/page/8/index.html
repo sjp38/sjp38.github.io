@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2023-07-25T07:06:09-07:00">
+    <meta property="og:updated_time" content="2023-08-01T06:57:11-07:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.17-rc4/">LKML News v5.17-rc4</a></h2>
+    <div class="article-style">
+      
+      [PATCH v2 1/2] arm64: avoid flushing icache multiple times on contiguous HugeTLB (Muchun Song) https://lkml.kernel.org/r/20220208054632.66534-1-songmuchun@bytedance.com
+When a contiguous HugeTLB page is mapped, set_pte_at() is called CONT_PTES / CONT_PMDS times. Because the first flushing covers subsequent flushes, this is unnecessary overhead, so this patchset avoids it.
+[PATCH v7 00/12] Multigenerational LRU Framework (Yu Zhao) https://lkml.kernel.org/r/20220208081902.3550911-1-yuzhao@google.com
+Seventh version of the MGLRU patchset, which aims to reduce performance overhead and improve eviction target pages selection of reclamation logic is posted.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.17-rc3/">LKML News v5.17-rc3</a></h2>
     <div class="article-style">
       
@@ -629,18 +641,6 @@ mmotm has updated. It&rsquo;s based on v5.16-rc3, adds 52 new patches, modifies 
 [QUESTION] “place pages to tail” regress memory read bandwidth about 10% under our test cases (liupeng) https://lkml.kernel.org/r/3c6349ddd9a34732a251467b7fa4fe93@huawei.com
 Liu Peng found David&rsquo;s patch 7fef431be9c9(mm/page_alloc: place pages to tail in __free_pages_core()) incurring performance regression, and asking some suggestions.
 [RFC PATCH] mm: count zram read/write into PSI_IO_WAIT (Huangzhaoyang) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.16-rc3/">LKML News v5.16-rc3</a></h2>
-    <div class="article-style">
-      
-      [PATCH 0/3] page table check (Pasha Tatashin) https://lkml.kernel.org/r/20211123214814.3756047-1-pasha.tatashin@soleen.com
-Due to reference count of struct page handling issue, some memory were leak from a process and moved in another process. This commit avoids such type of bugs by checking page table at the time of entrieds insertion.
-[PATCH 0/5] *** Transparent Page Placement for Tiered-Memory *** (Hasan Al Maruf) https://lkml.kernel.org/r/20211124163608.33015-1-hasanalmaruf@fb.com
-This patchset augment AutoNUMA mechanism to promote pages from slow tier nodes to toptier nodes.
       
     </div>
   </div>
