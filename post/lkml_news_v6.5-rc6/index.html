@@ -624,6 +624,10 @@ unnecessary TLB-shootdowns.  This RFC patchset proposes a solution for that.</p>
 <p><code>CONFIG_CMA_DEBUG</code> makes all CMA debugging message enabled.  This can results
 in flooding the dmesg buffer.  This patch introduces another debugging config
 that enable only cma bit allocation status.</p>
+<h2 id="patch-mm-sparse-shift-operation-instead-of-division-operation-for-root-index-gui-hui">[PATCH] mm: sparse: shift operation instead of division operation for root index (Gui Hui)</h2>
+<p><a href="https://lkml.kernel.org/r/20230810103829.10007-1-guohui@uniontech.com">https://lkml.kernel.org/r/20230810103829.10007-1-guohui@uniontech.com</a></p>
+<p>This patch makes <code>__nr_to_section()</code> to use shift operation instead of division
+operation to improve the performance.</p>
 
     </div>
 
