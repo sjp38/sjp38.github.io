@@ -40,6 +40,27 @@ still open.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/ab9cfd857e32635f626a906410ad95877a22f0db.camel@HansenPartnership.com&#34;&gt;https://lkml.kernel.org/r/ab9cfd857e32635f626a906410ad95877a22f0db.camel@HansenPartnership.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;James proposes a topic for the kernel maintainer summit of this year to discuss
 about stress of maintainer works.&lt;/p&gt;
+&lt;h2 id=&#34;git-pull-hotfixes-for-65-rc6-andrew-morton&#34;&gt;[GIT PULL] hotfixes for 6.5-rc6 (Andrew Morton)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20230811134809.5f1e6cfc690baaf796ff4072@linux-foundation.org&#34;&gt;https://lkml.kernel.org/r/20230811134809.5f1e6cfc690baaf796ff4072@linux-foundation.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Andrew Morton sent a pull request for mm hotfixes to Linus Torvalds.&lt;/p&gt;
+&lt;h2 id=&#34;linux-65-rc6-linus-torvalds&#34;&gt;Linux 6.5-rc6 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wg4pV_H8bWsfWPQGkcPUyHdVApc6pf6eETkZAF_zxgNNw@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wg4pV_H8bWsfWPQGkcPUyHdVApc6pf6eETkZAF_zxgNNw@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The AMD h/w mitigation patch was somewhat might looks like outstanding for the
+last week.  Torvalds says other than that, everything looks normal, and even
+argues h/w mitigations should be treated as normal, though such fixes would
+require additional fixes for the fixes, mainly because those initial fixes are
+usually made under embargo, without many eyeballs.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/kernel_release_stat/v5.14-rc7..v6.5-rc6.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
+below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2021-08-14 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And, below is the diffstat of the -rc6 releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/kernel_release_stat/v6.5-rc6-only.png&#34; alt=&#34;rc6 release stat&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     
