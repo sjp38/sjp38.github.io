@@ -525,131 +525,12 @@
   
   
   <div>
-    <h2><a href="/post/lkml_news_v5.1/">LKML News v5.1</a></h2>
+    <h2><a href="/post/lkml_go/">lkml livestream</a></h2>
     <div class="article-style">
       
-      [RFC PATCH v4 00/15] Slab Movable Objects (SMO) https://lkml.kernel.org/r/20190430030746.26102-1-tobin@kernel.org
-앞서 이 블로그에서도 공유한 SMO 패치의 새 버전입니다. 이번 버전은 dcache 쪽 코드를 많이 수정했군요.
-Linux 5.1 https://lkml.kernel.org/r/CAHk-=whsbDxdapMJGvy9OkVSrKMsKRJBTrH-Qj-qTbkMUGnWUw@mail.gmail.com
-5.1 릴리즈입니다. 일요일 오후 릴리즈란 점은 평소와 같지만 평소보다 조금 늦은 시간이긴 했는데요, 오늘 갑자기 받은 풀 리퀘스트도 있었고, 이번 머지윈도우 기간에 졸업식에 참석해야 해서 조금 망설였다는군요.
-하지만 풀리퀘스트도 그렇게 크진 않고, 몇일 머지윈도우에 자리 비우는 정도는 어떻게든 할 수 있을거라 생각해서 5.1 릴리즈가 이뤄졌습니다!
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.1-rc7/">LKML News v5.1-rc7</a></h2>
-    <div class="article-style">
-      
-      Re: [LSF/MM] Preliminary agenda ? Anyone &hellip; anyone ? Bueller ? https://lkml.kernel.org/r/83fda245-849a-70cc-dde0-5c451938ee97@kernel.dk
-올해의 LSFMM 스케쥴이 구글 문서로 공유되고 있었군요: https://docs.google.com/spreadsheets/d/1Z1pDL-XeUT1ZwMWrBL8T8q3vtSqZpLPgF3Bzu_jejfk/edit#gid=0
-[LSF/MM TOPIC] Proactive Memory Reclaim https://lkml.kernel.org/r/CALvZod4V+56pZbPkFDYO3+60Xr0_ZjiSgrfJKs_=Bd4AjdvFzA@mail.gmail.com
-이제 LSFMM 이 얼마 안남았습니다만, 또하나의 주제 제안이 올라왔습니다.
-메모리 오버커밋으로 인해 direct reclaim 이 발생하고, 이는 latency sensitive 어플리케이션의 latency 를 크게 저하시키니, 시스템이 좀 더 적극적으로 memory reclaim 을 해서 direct reclaim 을 최소화 시켜보자는 건데요. 잘 접근되지 않는 cold memory 를 추적해서 미리미리 reclaim 시키자는 겁니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.1-rc6/">LKML News v5.1-rc6</a></h2>
-    <div class="article-style">
-      
-      [PATCH v12 00/31] Speculative page faults https://lkml.kernl.org/r/20190416134522.17540-1-ldufour@linux.ibm.com
-오랫만에 업데이트 된 SPF 패치셋으로, 이번 패치셋은 v5.1 위로 리베이스 되었습니다. RCU 에서 Fine-grained reader-writer locking 으로 옮겼던 vma 보호를 다시 RCU 로 되돌린 게 눈에 띄는군요. 기존엔 패치셋만 공개했는데, 이젠 패치셋이 적용된 코드 트리를 github 으로도 제공합니다: https://github.com/ldu4/linux/tree/spf-v12
-[PATCH v3 00/11] Provide generic top-down mmap layout functions https://lkml.kernel.org/r/20190417052247.17809-1-alex@ghiti.fr
-아키텍쳐별로 별도 구현을 하지 않고도 전체 mmap 레이아웃을 접근할 수 있게 해주는 범용 함수들을 구현하는 패치셋입니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.1-rc5/">LKML News v5.1-rc5</a></h2>
-    <div class="article-style">
-      
-      [v2 RFC PATCH 0/9] Another Approach to Use PMEM as NUMA Node https://lkml.kernel.org/r/1554955019-29472-1-git-send-email-yang.shi@linux.alibaba.com
-본 블로그를 통해 지속적으로 소개하고 있는, PMEM as NUMA node 를 위한, 보다 나은 hotness 기반 page location 을 위한 패치셋입니다. 기존 코멘트에 기반해서 두번째 버전을 내놓았군요.
-[RFC PATCH v3 00/15] Slab Movable Objects (SMO) https://lkml.kernel.org/r/20190411013441.5415-1-tobin@kernel.org
-최근 LWN 에서도 소개된 (https://lwn.net/Articles/784964/) 패치입니다. Slab allocator 에서 할당된 object 가 free page 가운데에 박혀 있어 page 를 회수할 수 없는 fragmentation 이 발생합니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.1-rc4/">LKML News v5.1-rc4</a></h2>
-    <div class="article-style">
-      
-      Linux v5.1-rc3 릴리즈 후 Linux v.5.1-rc4 릴리즈 사이 기간에 LKML 에 올라온 흥미로운 메일들을 소개합니다.
-[PATCH v8 00/20] Convert x86 &amp; arm64 to use generic page walk https://lkml.kernel.org/r/20190403141627.11664-1-steven.price@arm.com
-전에 이 블로그에도 공유했던, walk_page_range() 함수가 커널에서 사용하는 페이지 테이블은 지원하지 않아서 아키텍쳐별로 page table walk 기능을 구현한 걸 walk_page_range() 의 개선을 통해 가능하게 하고자 하는 패치의 여덟번째 버전입니다.
-[PATCH] mm: add vm event for page cache miss https://lkml.kernel.org/r/1554185720-26404-1-git-send-email-laoar.shao@gmail.com
-Page cache miss 로 인해 사용중인 데이터베이스에 레이턴시가 증가하는 문제가 있는데, 기존 커널에는 페이지 캐시 미스 카운트를 세는 기능이 없기 때문에 만들어 봤다고 합니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.1-rc3/">LKML News v5.1-rc3</a></h2>
-    <div class="article-style">
-      
-      [PATCH tip/core/rcu 0/4] Documentation updates for v5.2 https://lkml.kernel.org/r/20190326230408.GA17069@linux.ibm.com
-v5.2 에 머지될 목적의 RCU 문서화 업데이트 패치셋입니다.
-[PATCH tip/core/rcu 0/18] Miscellaneous fixes for v5.2 https://lkml.kernel.org/r/20190326231253.GA18343@linux.ibm.com
-v5.2 를 위한 RCU 의 다양한 업데이트 패치셋입니다. rcu 를 위한 메일링 리스트도 추가되었군요. rcu@vger.kernel.org 입니다.
-[PATCH tip/core/rcu 0/9] Torture-test updates for v5.2 https://lkml.kernel.org/r/20190326233054.GA21523@linux.ibm.com
-v5.2 를 위한 torture test 의 업데이트 패치셋입니다. LKMM 이라던지 formal verification 도 많은 발전이 있었지만, torture test 도 없어질 순 없겠죠.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.1-rc2/">LKML News v5.1-rc2</a></h2>
-    <div class="article-style">
-      
-      [PATCH v5 00/19] Convert x86 &amp; arm64 to use generic page walk https://lkml.kernel.org/r/20190321141953.31960-1-steven.price@arm.com
-커널이 walk_page_range() 함수를 제공하긴 하지만 이 함수는 커널에 의해 사용되는 페이지 테이블은 볼수가 없기 때문에 각 아키텍쳐별로 페이지 테이블 순회를 위한 기능을 별도로 만들어 사용하고 있습니다.
-이 패치셋은 walk_page_range() 가 커널의 페이지 테이블을 만질 수 있도록 확장함으로써 그런 불필요한 아키텍쳐별 파편화를 줄이려 합니다.
-[PATCH v6 0/7] psi: pressure stall monitors v6 https://lkml.kernel.org/r/20190319235619.260832-1-surenb@google.com
-시스템이 어떤 부분의 pressure 를 받는지 쉽게 확인하기 위한 pressure stall monitor 구현 패치의 여섯 번째 버전입니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.1-rc1/">LKML News v5.1-rc1</a></h2>
-    <div class="article-style">
-      
-      Linux v5.0 릴리즈 (2019-03-03) 부터 v5.1-rc1 릴리즈 (2019-03-17) 사이의 머지 윈도우 기간 LKML 에 올라온 흥미로운 메일들을 소개합니다.
-CMA allocation failure https://lkml.kernel.org/r/57e0bc63-0be9-498b-8ffc-3b073e01e299@email.android.com
-제게도 GCMA 레이턴시 관련 문의를 보냈던 분인데, LKML 에도 관련 도움을 요청하는 메일을 보냈군요.
-왜 CMA 가 할당에 실패하는지 이유를 묻는 메일인데요, 답은 없습니다.
-[LSF/MM TOPIC] Using XArray to manage the VMA https://lkml.kernel.org/r/7da20892-f92a-68d8-4804-c72c1cb0d090@linux.ibm.com
-MM 의 오랜 숙원 중 하나는 mmap_sem 으로 인한 확장성 문제 해결이죠. 기존의 RB tree 대신 XArray 를 사용하는 것으로 새로운 시도를 시작해 보는건 어떨지 LSFMM 에서 토의해보자는, speculative page fault 의 최근 메인테이너인 Laurent 의 메일입니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.0/">LKML News v5.0</a></h2>
-    <div class="article-style">
-      
-      Linux v5.0-rc8 릴리즈 (2019-02-24) 부터 Linux v5.0 릴리즈 (2019-03-03) 사이 기간에 LKML 에 올라온 흥미로운 메일들을 소개합니다.
-[PATCH 0/5] [v5] Allow persistent memory to be used like normal RAM https://lkml.kernel.org/r/20190225185727.BCBD768C@viggo.jf.intel.com
-앞서 몇번 소개했던, persistent memory 를 좀 많이 느린 numa node 인 것처럼 해서 시스템이 사용할 수 있게 하는 접근법의 패치 다섯번째 버전입니다. 이제 개선은 어느정도 된 것 같으니 슬슬 머지되야하지 않겠냐고 주장하는군요.
-Linux v5.0 https://lkml.kernel.org/r/CAHk-=wjuG6HiGbD7DCGfvDvhr_1WZUR-eYF2qWGbYyn9k6unvg@mail.gmail.com
-마침내 5.0 릴리즈입니다! 제 랩톱에도 바로 받아다가 설치했습니다!
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.0-rc8/">LKML News v5.0-rc8</a></h2>
-    <div class="article-style">
-      
-      Linux v5.0-rc7 릴리즈 (2019년 2월 17일) 부터 v5.0-rc8 릴리즈 (2019년 2월 24일) 사이의 기간에 LKML 에 올라온 흥미로운 메일들을 소개합니다.
-[LSF/MM ATTEND] MM track: NUMA, THP locality, reclaim https://lkml.kernel.org/r/20190218143203.GW9565@techsingularity.net
-Mel Gorman 의 LSF/MM 참여 메일입니다. NUMA remote THP vs NUMA local non-THP, NUMA, 메모리 계층 그리고 디바이스 메모리, NUMA rebalancing 과 메모리 reclaim 에 참여하고 싶다고 이야기 하는군요.
-[LSF/MM TOPIC ][LSF/MM ATTEND] Read-only Mapping of Program Text https://lkml.kernel.org/r/379F21DD-006F-4E33-9BD5-F81F9BA75C10@oracle.com
-THP 를 활용해 read-only text 를 매핑함으로써 성능을 높이려는 시도를 해오고 있는데, 하나의 base page 를 먼저 읽고 이어서 추가적인 page 를 읽는게 진짜로 사용될지 모르는 readahead 때문에 의논을 해보고 싶다고 하네요.
+      I wrote a simple, stupid program[1] that showing LKML[2] mails in terminal briefly like twitter livestream in Go language. It is just an early version and so many things to be complemented exists, though. Nevertheless, now it just works as I wanted at first.
+References [1] https://github.com/sjp38/lkml
+[2] https://en.wikipedia.org/wiki/Linux_kernel_mailing_list
       
     </div>
   </div>
@@ -659,10 +540,8 @@ THP 를 활용해 read-only text 를 매핑함으로써 성능을 높이려는 �
 <nav>
   <ul class="pagination justify-content-center">
     
-    <li class="page-item"><a class="page-link" href="/tags/lkml/page/20/">&laquo;</a></li>
+    <li class="page-item"><a class="page-link" href="/tags/lkml/page/27/">&laquo;</a></li>
     
-    
-    <li class="page-item"><a class="page-link" href="/tags/lkml/page/22/">&raquo;</a></li>
     
   </ul>
 </nav>

@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2023-08-08T06:55:38-07:00">
+    <meta property="og:updated_time" content="2023-08-15T06:38:39-07:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.12-rc2/">LKML News v5.12-rc2</a></h2>
+    <div class="article-style">
+      
+      [PATCH] mm: introduce clear all vm events counters (Pintu Kumar) https://lkml.kernel.org/r/1614595766-7640-1-git-send-email-pintu@codeaurora.org
+Because the vmstat data is only cumulated, users should calculate the diff manually or just reboot. This commit adds a procfs file that can be used to clear all vmstat counters.
+[PATCH 0/5] Introduce a bulk order-0 page allocator with two in-tree users (Mel Gorman) https://lkml.kernel.org/r/20210301161200.18852-1-mgorman@techsingularity.net
+This patchset introduces a bulk order-0 page allocator. It also makes the sunrpc and the network page pool to use that.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/damon_profile_callstack_example/">An example of DAMON usage for profiling</a></h2>
     <div class="article-style">
       
@@ -635,21 +647,6 @@ Due to the holiday season, rc2 ends up fairly small. Maybe we will see rc8 for v
 Below is the diffstat of the releases in the last two years.
 Note that the y-axis is in logarithm. I draw it using https://github.com/sjp38/relstat and https://github.com/sjp38/lazybox using below command:
 $ relstat.py --since 2019-01-04 | ~/lazybox/gnuplot/plot.py \ --data_fmt table --type labeled-lines --xtics_rotate -90 \ --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.11-rc1/">LKML News v5.10-rc1</a></h2>
-    <div class="article-style">
-      
-      incoming (Andrew Morton) https://lkml.kernel.org/r/20201214190237.a17b70ae14f129e2dca3d204@linux-foundation.org
-The pull request for v5.11 from Andrew Morton. The mmap_lock tracepoint patchset series is included in here.
-incoming (Andrew Morton) https://lkml.kernel.org/r/20201215123253.954eca9a5ef4c0d52fd381fa@linux-foundation.org
-Another pull request from Andrew Morton for memcg scalability improvement. This makes per-memcg lru lock.
-[PATCH 00/25] Page folios (Matthew Wilcox) https://lkml.kernel.org/r/20201216182335.27227-1-willy@infradead.org
-This is the patchset for the page folios, which Matthew proposed a few days ago and discussed via zoom.
-Do we still need skip swapcache logic in do_swap_page() for SWP_SYNCHRONOUS_IO?
       
     </div>
   </div>

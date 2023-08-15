@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2023-08-08T06:55:38-07:00">
+    <meta property="og:updated_time" content="2023-08-15T06:38:39-07:00">
   
 
   
@@ -525,6 +525,20 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.0/">LKML News v6.0</a></h2>
+    <div class="article-style">
+      
+      [GIT PULL] hotfixes for 6.0[-rc8] (Andrew Morton) https://lkml.kernel.org/r/20220926123721.2a1edc734b4fc516a9a350b8@linux-foundation.org
+Andrew&rsquo;s mm hotfix patches pull request for Linux v6.0, or v6.0-rc8 has posted.
+[RFC PATCH] mm: sort kmemleak object via backtrace (Zhaoyang Huang) https://lkml.kernel.org/r/1664264570-3716-1-git-send-email-zhaoyang.huang@unisoc.com
+This RFC patch introduces a set of method to sort objects in kmemleak output by backtrace to make the report more easy to read.
+[PATCH 0/3] THP Shrinker (Alexander Zhu) https://lkml.kernel.org/r/cover.1664347167.git.alexlzhu@fb.com
+This patchset introduces a sysfs files for measuring THP utilization and a shrinker for splitting the under-utilized THPs.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.0-rc7/">LKML News v6.0-rc6</a></h2>
     <div class="article-style">
       
@@ -631,19 +645,6 @@ https://lpc.events/event/16/contributions/1224/
 Fourth version of the soft-dirty check fixes for mprotect has posted. This version polishes the commit message and adds tests.
 [PATCH v2 1/2] mm/slub: enable debugging memory wasting of kmalloc (Feng Tang) https://lkml.kernel.org/r/20220725112025.22625-1-feng.tang@intel.com
 As slab allocates memory in only power of 2 bytes size, memory can be wasted when slab allocation is requested for a large number of times for objects that sizes not aligned in power of two bytes.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.19-rc8/">LKML News v5.19-rc8</a></h2>
-    <div class="article-style">
-      
-      [RESEND PATCH v3] arm64: enable THP_SWAP for arm64 (Barry Song) https://lkml.kernel.org/r/20220718090050.2261-1-21cnbao@gmail.com
-This patch enables THP_SWAP which can improve the swap performance for transparent hugepages on ARM64 architecture.
-[PATCH v12 00/69] Introducing the Maple Tree (Liam Howlett) https://lkml.kernel.org/r/20220720021727.17018-1-Liam.Howlett@oracle.com
-Maple tree has already merged in the mm-unstable but a new bug has found, so the 12th version of the patchset has posted.
-[PATCH v10 0/8] mm/demotion: Memory tiers and demotion (Aneesh Kumar K.
       
     </div>
   </div>

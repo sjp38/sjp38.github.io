@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2023-08-08T06:55:38-07:00">
+    <meta property="og:updated_time" content="2023-08-15T06:38:39-07:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.9-rc2/">LKML News v5.9-rc2</a></h2>
+    <div class="article-style">
+      
+      PROBLEM: Long Workqueue delays. (Jim Baxter) https://lkml.kernel.org/r/71aafe68-7fe0-6b77-ea8e-83edd3f16c8d@mentor.com
+Jim Baxter encountered 6.5 seconds delay due to long workqueue delay. He want to ask if this is normal or real problem.
+[RFC PATCH 0/8] memcg: Enable fine-grained per process memory control (Waiman Long) https://lkml.kernel.org/r/20200817140831.30260-1-longman@redhat.com
+The memory cgroup v2 start reclamation if the amount of the memory of the cgroup exceeds &lsquo;memory.high&rsquo; and start OOM killing if if exceeds &lsquo;memory.max&rsquo;. Problem is, the OOM killer can kill any process.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.9-rc1/">LKML News v5.9-rc1</a></h2>
     <div class="article-style">
       
@@ -631,19 +643,6 @@ This is the sixth version of the proactive compaction patchset. It makes compact
 This patchset converts the radix tree for vmap blocks into XArray.
 incoming (Andrew Morton) https://lkml.kernel.org/r/20200608212922.5b7fa74ca3f4e2444441b7f9@linux-foundation.org
 MM-side pull request. It contains the &ldquo;mmap locking API: initial implementation as rwsem wrappers&rdquo; patchset.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.7/">LKML News v5.7</a></h2>
-    <div class="article-style">
-      
-      [PATCH v2 00/16] Introduce kvfree_rcu(1 or 2 arguments) (Uladzislau Rezki) https://lkml.kernel.org/r/20200525214800.93072-1-urezki@gmail.com
-This is the second version of the rcu-protected kvfree().
-[PATCH v2 0/7] Add histogram measuring mmap_lock contention latency (Axel Rasmussen) https://lkml.kernel.org/r/20200528235238.74233-1-axelrasmussen@google.com
-For further analysis of the mmap_sem overhead from both kernel space and user space, this commit adds the latency historgram for mmap_sem acquisition time. Actually, mmap_sem is now renamed into mmap_lock, thanks to Michel&rsquo;s patch.
-[PATCH -V4] swap: Reduce lock contention on swap cache from swap slots allocation (Huang, Ying) https://lkml.
       
     </div>
   </div>
