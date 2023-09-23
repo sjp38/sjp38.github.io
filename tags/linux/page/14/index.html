@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2023-08-15T06:38:39-07:00">
+    <meta property="og:updated_time" content="2023-09-20T12:12:43-07:00">
   
 
   
@@ -525,6 +525,52 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.12-rc3/">LKML News v5.12-rc3</a></h2>
+    <div class="article-style">
+      
+      [PATCH 00/10] [v6] Migrate Pages in lieu of discard (Dave Hansen) https://lkml.kernel.org/r/20210304235949.7922C1C3@viggo.jf.intel.com
+When the system configured with both DRAM and persistent memory, current kernel starts reclamation when DRAM fulls even though there are some space in persistent memory. And from some point, all page allocation is done on the persistent memory only, even though DRAM has some free slots now.
+This patchset mitigates the problem by migrating pages that about to be reclaimed to persistent memory.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v5.12-rc2/">LKML News v5.12-rc2</a></h2>
+    <div class="article-style">
+      
+      [PATCH] mm: introduce clear all vm events counters (Pintu Kumar) https://lkml.kernel.org/r/1614595766-7640-1-git-send-email-pintu@codeaurora.org
+Because the vmstat data is only cumulated, users should calculate the diff manually or just reboot. This commit adds a procfs file that can be used to clear all vmstat counters.
+[PATCH 0/5] Introduce a bulk order-0 page allocator with two in-tree users (Mel Gorman) https://lkml.kernel.org/r/20210301161200.18852-1-mgorman@techsingularity.net
+This patchset introduces a bulk order-0 page allocator. It also makes the sunrpc and the network page pool to use that.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/damon_profile_callstack_example/">An example of DAMON usage for profiling</a></h2>
+    <div class="article-style">
+      
+      I realized I didn&rsquo;t introduce a good, intuitive example use case of DAMON[0] for profiling so far, though DAMON is not for only profiling. One straightforward and realistic usage of DAMON as a profiling tool would be recording the monitoring results with callstack and visualize those by timeline together.
+For example, below shows that visualization for a realistic workload, namely &lsquo;fft&rsquo; in SPLASH-2X benchmark suite. The upper-most graph shows how DAMON-detected working set size of the workload (y-axis) changes by time (x-axis).
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v5.12-rc1/">LKML News v5.12-rc1</a></h2>
+    <div class="article-style">
+      
+      [PATCH v11 00/14] prohibit pinning pages in ZONE_MOVABLE (Pavel Tatashin) https://lkml.kernel.org/r/20210215161349.246722-1-pasha.tatashin@soleen.com
+The 11th version of the patchset making ZONE_MOVABLE really movable. In this version, a build error on i386 is fixed.
+[RFC PATCH] mm, oom: introduce vm.sacrifice_hugepage_on_oom https://lkml.kernel.org/r/20210216030713.79101-1-eiichi.tsukata@nutanix.com
+This RFC patch introduces yet another sysctl knob called vm.sacrifice_hugepage_on_oom. When it is turned on, it tries to free available hugepages before waking oom-killer up.
+[RFC] Hugepage collapse in process context (David Rientjes) https://lkml.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.11/">LKML News v5.11</a></h2>
     <div class="article-style">
       
@@ -599,58 +645,6 @@ This patch makes caches can dropped even when those are smaller than the batch s
 Because hugetlbfs is using reserved memory, it&rsquo;s not reported by the free page reporting feature. This patch makes it able to be reported.
 Linux 5.11-rc3 (Linus Torvalds) https://lkml.kernel.org/r/CAHk-=wizR7--Ub-rasYx2S5XURkooCQ63Sat23BpvTAuN0scQA@mail.gmail.com
 The prediction of Linus for this release was wrong.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.11-rc2/">LKML News v5.11-rc2</a></h2>
-    <div class="article-style">
-      
-      Linux 5.11-rc2 (Linus Torvalds) https://lkml.kernel.org/r/CAHk-=whS+rzNMSsU6vRoLMzrm0JPN-OVg+BxhybMet3NpqpR-Q@mail.gmail.com
-Due to the holiday season, rc2 ends up fairly small. Maybe we will see rc8 for v5.11, but Torvalds just saying let&rsquo;s watch more.
-Below is the diffstat of the releases in the last two years.
-Note that the y-axis is in logarithm. I draw it using https://github.com/sjp38/relstat and https://github.com/sjp38/lazybox using below command:
-$ relstat.py --since 2019-01-04 | ~/lazybox/gnuplot/plot.py \ --data_fmt table --type labeled-lines --xtics_rotate -90 \ --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.11-rc1/">LKML News v5.10-rc1</a></h2>
-    <div class="article-style">
-      
-      incoming (Andrew Morton) https://lkml.kernel.org/r/20201214190237.a17b70ae14f129e2dca3d204@linux-foundation.org
-The pull request for v5.11 from Andrew Morton. The mmap_lock tracepoint patchset series is included in here.
-incoming (Andrew Morton) https://lkml.kernel.org/r/20201215123253.954eca9a5ef4c0d52fd381fa@linux-foundation.org
-Another pull request from Andrew Morton for memcg scalability improvement. This makes per-memcg lru lock.
-[PATCH 00/25] Page folios (Matthew Wilcox) https://lkml.kernel.org/r/20201216182335.27227-1-willy@infradead.org
-This is the patchset for the page folios, which Matthew proposed a few days ago and discussed via zoom.
-Do we still need skip swapcache logic in do_swap_page() for SWP_SYNCHRONOUS_IO?
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.10/">LKML News v5.10</a></h2>
-    <div class="article-style">
-      
-      [RFC V2 00/37] Enhance memory utilization with DMEMFS (Yuley Zhang) https://lkml.kernel.org/r/cover.1607332046.git.yuleixzhang@tencent.com
-This patchset aims to remove the &lsquo;struct page&rsquo; from user-sepcified region of memory and use a file system called &lsquo;dmemfs&rsquo; to minimize the memory region dedicated for &lsquo;struct page&rsquo;s.
-[PATCH] mm: don&rsquo;t SetPageWorkingset unconditionally during swapin (Yu Zhao) https://lkml.kernel.org/r/20201209012400.1771150-1-yuzhao@google.com
-Unconditional &lsquo;SetPageWorkingset&rsquo; miscategorizes read-ahead pages or pages that never belong to the working set as working set because it&rsquo;s called unconditionally.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.10-rc7/">LKML News v5.10-rc7</a></h2>
-    <div class="article-style">
-      
-      [PATCH] mm: mmap_lock: fix use-after-free race and css ref leak in tracepoints (Axel Rasmussen) https://lkml.kernel.org/r/20201130233504.3725241-1-axelrasmussen@google.com
-This patch fixes a use-after-free bug that reported by syzbot.
-[PATCH 0/6] prohibit pinning pages in ZONE_MOVABLE (Pavel Tatashin) https://lkml.kernel.org/r/20201202052330.474592-1-pasha.tatashin@soleen.com
-Pinned pages in ZONE_MOVABLE is a wellknown problem. This patchset fixes the issue by forcing pinning new page to allocated from a zone other than ZONE_MOVABLE and migrating out existing pages from the zone during pinning.
       
     </div>
   </div>

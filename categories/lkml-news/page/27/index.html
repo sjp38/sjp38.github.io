@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2023-08-15T06:38:39-07:00">
+    <meta property="og:updated_time" content="2023-09-20T12:12:43-07:00">
   
 
   
@@ -525,6 +525,54 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v4.15-rc7/">LKML News after v4.15-rc7</a></h2>
+    <div class="article-style">
+      
+      Linux 4.15-rc7 https://lkml.kernel.org/r/CA+55aFwbmKznuQZe_VemxXJPSmB-9yy8uyWsMZcrkA4T=m8xkw@mail.gmail.com
+Meltdown 과 Spectre 로 떠들썩했던 시간을 지나 4.15 의 일곱번째 rc 버전이 릴리즈 되었습니다. 지난 여섯번째 릴리즈 때도 상당히 안정화에 신경써야 할 시점임에도 x86 pti (page table isolation) 업데이트 패치가 많이 머지되어 의아했는데, 이게 Meltdown 과 Spectre 버그 때문이었음도 밝혀졌죠. 그렇다곤 해도 그 외의 부분은 예상대로 상당히 안정화 되어가고 있다고 합니다.
+더불어, Thomas Geixner 등의 인텔쪽 커널 개발자들의 노력 덕에 pti 등 Meltdown 과 Spectre 버그를 위한 패치가 잘 관리되어 비교적 쉽게 머지될 수 있었음에 리누스가 감사를 표하네요.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v4.15-rc6/">LKML News after v4.15-rc6</a></h2>
+    <div class="article-style">
+      
+      Linux 4.15-rc6 https://lkml.kernel.org/r/CA+55aFzU_Q04CVEABo50x24yeTaP-yzzrB1wTPeOiOgAbSKiDA@mail.gmail.com
+한국시간으로는 1월 1일, 토발즈의 현지 시각으로는 2017년의 마지막날, 4.15 의 여섯번째 rc 버전이 릴리즈 되었습니다.
+지난주는 크리스마스 등의 연휴 때문인지 참 조용했죠. 덕분에 이번 릴리즈의 변경사항도 많지 않습니다. 다만 x86 pti 쪽 업데이트가 있었기 때문에 이번엔 rc8 까지 릴리즈 할수도 있을 것 같다고 하는군요.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v4.14-rc4/">LKML News after v4.15-rc5</a></h2>
+    <div class="article-style">
+      
+      Linux 4.15-rc5 https://lkml.kernel.org/r/CA+55aFy1U+uBLEAoCWU3=BqEbROW6rsbaHUdYJArR6iYQQWo_A@mail.gmail.com
+4.15 의 다섯번째 rc 버전이 평소 스케쥴보다 하루 일찍 릴리즈 되었습니다. 원래대로라면 내일일텐데, 미국 시간으로는 크리스마스 이브라서 그냥 오늘 릴리즈 한다는군요.
+이번 rc5 의 변경 사항들도 지난 릴리즈의 rc5 와 비슷했다고 하는데, 다만 x86 의 커널 페이지 테이블 격리화 관련 작업이 진행 중인 게 좀 예외라고 하는군요.
+[RFC v3 PATCH 0/5] Eliminate zone-&gt;lock contention for will-it-scale/page_fault1 and parallel free https://lkml.kernel.org/r/20180509085450.3524-1-aaron.lu@intel.com
+패치셋 저자는 112개 CPU를 갖는 Intel Skylake 서버에서 will-it-scale/page_fult1 워크로드를 돌려보았고 80% CPU 가 zone-&gt;lock 에서 스핀하며 시간을 보내고 있음을 파악했습니다.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v4.15-rc5/">LKML News after v4.15-rc5</a></h2>
+    <div class="article-style">
+      
+      Linux 4.15-rc5 https://lkml.kernel.org/r/CA+55aFy1U+uBLEAoCWU3=BqEbROW6rsbaHUdYJArR6iYQQWo_A@mail.gmail.com
+4.15 의 다섯번째 rc 버전이 평소 스케쥴보다 하루 일찍 릴리즈 되었습니다. 원래대로라면 내일일텐데, 미국 시간으로는 크리스마스 이브라서 그냥 오늘 릴리즈 한다는군요.
+이번 rc5 의 변경 사항들도 지난 릴리즈의 rc5 와 비슷했다고 하는데, 다만 x86 의 커널 페이지 테이블 격리화 관련 작업이 진행 중인 게 좀 예외라고 하는군요.
+Re: About the try to remove cross-release feature entirely by Ingo https://lkml.kernel.org/r/20171229014736.GA10341@X58A-UD3R
+Lockdep 의 cross release 기능은 너무 느렸고, false positive 가 많다는 이유로, 특히 false positive 가 너무 많다는 이유로 Ingo Molnar 에 의해 제거되려 하고 있습니다.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v4.15-rc4/">LKML News after v4.15-rc4</a></h2>
     <div class="article-style">
       
@@ -598,57 +646,6 @@ v4.14 를 향한 (아마도) 마지막 rc 버전의 릴리즈입니다.
     </div>
   </div>
   
-  <div>
-    <h2><a href="/post/lkml_news_v4.14-rc7/">LKML News after v4.14-rc7</a></h2>
-    <div class="article-style">
-      
-      Linux 4.14-rc7 https://lkml.kernel.org/r/CA+55aFwhgxivTE3k88nshbrH9nd-4nhmhXGzw-MxRVGxf-R8Eg@mail.gmail.com
-일곱번째 rc 버전의 릴리즈입니다.
-OSSE 와 kernel summit 으로 프라하를 방문했던 토발즈인데, 집에 잘 돌아왔다는군요. 이번 rc 버전은 기존의 rc7 보다도 작은 편에 가깝다고 합니다만, 다음 한주간이 정말 조용하지 않는한은 rc8 릴리즈를 할 생각이라는군요.
-Re: Page allocator bottleneck https://lkml.kernel.org/r/1c218381-067e-7757-ccc2-4e5befd2bfc3@mellanox.com
-멜라녹스의 빠른 네트워크 카드를 사용하는 환경에서는 page allocator 의 속도가 bottleneck 이 된다는 이야기에 대한 업데이트입니다. 여전히 해당 부분이 bottleneck 이며, queued_spin_lock_slowpath() 가 85 % 가까이 CPU 를 차지하고 있군요.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.14-rc6/">LKML News after v4.14-rc6</a></h2>
-    <div class="article-style">
-      
-      Linux 4.14-rc6 https://lkml.kernel.org/r/CA+55aFxSJGeN=2X-uX-on1Uq2Nb8+v1aiMDz5H1+tKW_N5Q+6g@mail.gmail.com
-여섯번째 rc 버전의 릴리즈입니다.
-토발즈 집 인터넷 문제로 평소보다 늦은 릴리즈였군요. 이번 rc 버전은 기대보다는 좀 많은 내용이 추가되었는데, 때문에 어쩌면 rc8 까지 나올지도 모르겠다고 하는군요. 물론 확정되거나 한건 아니라고 합니다.
-Re: [GIT PULL rcu/next] RCU commits for 4.15 https://lkml.kernel.org/r/20171023204502.GA2776@linux.vnet.ibm.com
-4.15 에 들어가야 할 RCU 쪽 커밋들의 풀리퀘스트 입니다.
-문서, RCU CPU Stall warning 업데이트, rcutorture 쪽 업데이트가 포함되었네요.
-[GIT PULL de-alpha] Make core code not need to know about Alpha for v4.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.14-rc5/">LKML News after v4.14-rc5</a></h2>
-    <div class="article-style">
-      
-      Linux 4.14-rc5 https://lkml.kernel.org/r/CA+55aFyKgEL3dj7XGYsPQd8y_z0GWx91TLZPSQAxjrua1aWOLw@mail.gmail.com
-다섯번째 rc 버전의 릴리즈입니다.
-Lazy TLB flushing 변경은 지나치게 게으르게 TLB flushing 을 해서 AMD 칩 일부에서 문제를 일으키기도 했었다는군요.
-일부 서브시스템에서 fuzzing 을 통한 문제 발견과 수정이 있었는데 좋은 현상이라고도 언급합니다.
-전체적으로 x86, powerpc, mips 에의 arch 업데이트, gpu, networking, usb, sound, misc 드라이버 업데이트, lockdep, networking, mm 쪽 코어 커널 업데이트, 그리고 perf 와 selftest 에의 업데이트가 있었다고 이번 릴리즈를 정리하는군요.
-[PATCH 0/2] mm, thp: introduce dedicated transparent huge page https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_0000/">LKML News - Intro</a></h2>
-    <div class="article-style">
-      
-      LKML 을 모니터링 하면서 흥미가는 패치나 토론을 lkml news 라는 카테고리로 묶어서 비정기적, 비형식적으로 간략히 정리하고 관련 소식을 업데이트 해보고자 합니다. 주로 모니터링 하는 메일은 메모리 매니지먼트 쪽과 rcu 관련 메일들이 될겁니다.
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -656,6 +653,8 @@ Lazy TLB flushing 변경은 지나치게 게으르게 TLB flushing 을 해서 AM
     
     <li class="page-item"><a class="page-link" href="/categories/lkml-news/page/26/">&laquo;</a></li>
     
+    
+    <li class="page-item"><a class="page-link" href="/categories/lkml-news/page/28/">&raquo;</a></li>
     
   </ul>
 </nav>

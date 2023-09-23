@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2023-08-15T06:38:39-07:00">
+    <meta property="og:updated_time" content="2023-09-20T12:12:43-07:00">
   
 
   
@@ -525,6 +525,51 @@
   
   
   <div>
+    <h2><a href="/post/damon/">DAMON: Data Access Monitor</a></h2>
+    <div class="article-style">
+      
+      With increasingly data-intensive workloads and limited DRAM capacity, optimal memory management based on dynamic access patterns is becoming increasingly important. Such mechanisms are only possible if accurate and efficient dynamic access pattern monitoring is available.
+DAMON is a Data Access MONitoring framework subsystem for the Linux kernel developed for such memory management. It is designed with some key mechanism (refer to Design for the detail) that make it
+ accurate (the monitoring output is useful enough for DRAM level memory management; It might not be appropriate for CPU Cache levels, though), light-weight (the monitoring overhead is low enough to be applied online), and scalable (the upper-bound of the overhead is in constant range regardless of the size of target workloads).
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v5.5-rc4/">LKML News v5.5-rc4</a></h2>
+    <div class="article-style">
+      
+      [PATCH V11 RESEND] mm/debug: Add tests validating architecture page table helpers https://lkml.kernel.org/r/1577162322-30303-1-git-send-email-anshuman.khandual@arm.com
+This patchset adds tests for the page table helpers. Those tests covers basic page table entry transformations including old, young, dirty, clean, write, write protect etc. The tests are not using the kselftest or kunit, but implemented as a kernel module with new file, mm/debug_vm_pgtable.c.
+Linux 5.5-rc4 https://lkml.kernel.org/r/CAHk-=wjq2b9GkLzpaDE-Xryu5c0zMM72BqkJKeZVsX+4ymH6aA@mail.gmail.com
+Due to the holidays, last week was unsurprisingly quiet. Torvalds says it was hardly even worth making an rc release.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v5.5-rc3/">LKML News v5.5-rc3</a></h2>
+    <div class="article-style">
+      
+      PROBLEM: Large (256MB) CMA allocation fails from time to time when using Intel VT-d https://lkml.kernel.org/r/5e75d900cb50457784ee1d2050b511ec@MAILER13.tech.ceia
+The author reports a CMA allocation failure that occurs time to time if the system is using Intel VT-d.
+[PATCHv2 0/3] Allow ZRAM to use any zpool-compatible backend https://lkml.kernel.org/r/20191219151928.ad4ccf732b64b7f8a26116db@gmail.com
+ZRAM is an in-memory block device that compresses the content. Currently, ZRAM is used only with zsmalloc. However, the zsmalloc is not an optimal selection in some environment.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v5.5-rc2/">LKML News v5.5-rc2</a></h2>
+    <div class="article-style">
+      
+      [PATCHSET 0/5] Support for RWF_UNCACHED https://lkml.kernel.org/r/20191210162454.8608-1-axboe@kernel.dk
+As the buffered IO uses the page cache, an intensive buffered IO workload using very huge file can cause memory pressure by inflating the page cache. Changing the workload to do direct IO can solve this problem, but the modification is not so simple. Jens Axboe thus implemented RWF_UNCACHED flag, which skips use of the page cache if the given IO target is not in the page cache already.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.5-rc1/">LKML News v5.5-rc1</a></h2>
     <div class="article-style">
       
@@ -590,51 +635,6 @@ False positive 문제가 존재할 수는 있는 모양입니다만, 구글 내�
 서로 다른 아키텍쳐 간의 페이지 테이블 구조로 인해 사용해야 했던 __ARCH_HAS_4LEVEL_HACK 을 제거하는 패치입니다. Alpha, arm, c6x 등의 아키텍쳐가 변경되는군요. UML, qemu 등에서 부팅 테스트를 거쳤군요.
 Linux 5.4-rc5 https://lkml.kernel.org/r/CAHk-=wgpewLxHxnO71tFHh=M4C4iUofJykMqq3r=eRyxUyVsiw@mail.gmail.com
 다섯번째 rc 버전 릴리즈입니다. 하지만 안타깝게도 이번 릴리즈는 마냥 조용하진 않았다는군요. 최근의 다른 rc5 들에 비하면 조금 큰 크기의 릴리즈가 되었습니다. 그렇다곤 해도 아주 특이할 만한 정도는 아니라 토발즈도 큰 걱정은 없다는군요.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.4-rc4/">LKML News v5.4-rc4</a></h2>
-    <div class="article-style">
-      
-      [PATCH 0/8] Add Kernel Concurrency Sanitizer (KCSAN) https://lkml.kernel.org/r/20191016083959.186860-1-elver@google.com
-구글에서 만든 동시성 버그 탐색기능, KCSAN 을 추가하는 패치셋입니다. 처음 세상에 모습을 드러낸건 9월이었고, 최근 컨퍼런스들에서도 발표가 있었죠. 메커니즘은 간단하다면 간단한, 샘플링 기반입니다. 구글 내부 fuzzing tester 인 syzkaller 는 이미 이 기능을 켠채 돌아간다는군요.
-[PATCH 2/2] mm, zswap: Support THP https://lkml.kernel.org/r/1571111349-5041-2-git-send-email-teawater@gmail.com
-Zswap 이THP 를 지원하도록 수정하는 패치입니다. 그냥 zswap_frontswap_store() 함수가 THP 페이지를 연속적인 4 KiB 페이지로 인식하고 처리하게끔 했군요.
-[PATCH RFC v1 00/26] Add KernelMemorySanitizer infrastructure https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.4-rc3/">LKML News v5.4-rc3</a></h2>
-    <div class="article-style">
-      
-      Linux 5.4-rc3 https://lkml.kernel.org/r/CAHk-=wjOhveT=qrq8HHyL7gpA5fmBtDa2ue7sO5ZSEBrrcY6Vg@mail.gmail.com
-세번째 rc 릴리즈입니다. 실제 문제가 발견되고 그에 대한 수정이 본격적으로 시작되는 시즌이라 rc2보단 당연히 크지만 역대 rc3 들과 비교하면 작은 편의 릴리즈라는군요. staging driver 일부가 사라진 게 조금 릴리즈 크기를 크게 보이게 만들 수 있다는게 그나마 유의할 점일까요.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.4-rc2/">LKML News v5.4-rc2</a></h2>
-    <div class="article-style">
-      
-      [PATCH v18 00/19] kunit: introduce KUnit, the Linux kernel unit testing framework https://lkml.kernel.org/r/20190923090249.127984-1-brendanhiggins@google.com
-어떻게 보면 별거 아닌 이유로 5.4 머지윈도우에서 튕겨나가고 만 kunit. 요청받은대로 파일 위치를 하위 디렉토리로 변경한 kunit 새 버전의 패치셋이 올라왔습니다. &lsquo;kunit/&rsquo; 디렉토리와 kunit 을 위한 &lsquo;Kconfig&rsquo; 파일을 &lsquo;lib/&rsquo; 아래로 옮겼군요.
-이후 벌어진 대화가 재미있는데요, 토발즈는 이걸 5.5에 넣을 예정인데, 가능하면 그동안 실제 테스트 코드도 추가되면 좋겠다고 했습니다. 근데 테스트 프레임웍이 머지안되었는데 테스트 코드를? 메인테이너 간에 일이 복잡해지고 컨플릭 날 확률이 높아지니 이걸로 꽤 많은 이야기가 있었습니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.4-rc1/">LKML News v5.4-rc1</a></h2>
-    <div class="article-style">
-      
-      [PATCH 0/2] introduce new perf-script page-reclaim https://lkml.kernel.org/r/1568817522-8754-1-git-send-email-laoar.shao@gmail.com
-Page reclaim 관련 성능 메트릭을 분석하기 위한 perf script 커맨드를 추가하는 패치입니다. Direct reclaim 으로 인한 응답시간 폭증, page reclaim 이 왜 일어났는지, page reclaim 의 효과는 어땠는지 등을 알 수 있다는군요.
-구체적으로는 direct reclaim 이 몇번 일어났는지, 그 latency 분포는 어땠는지, file / anon page 별로 reclaim, scan, sync write, async write 이 몇번 일어났는지, kswapd 는 몇번 일어났는지, kswapd latency 는 어땠는지 등등을 보입니다.
       
     </div>
   </div>

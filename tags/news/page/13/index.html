@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2023-08-15T06:38:39-07:00">
+    <meta property="og:updated_time" content="2023-09-20T12:12:43-07:00">
   
 
   
@@ -525,6 +525,59 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.12-rc2/">LKML News v5.12-rc2</a></h2>
+    <div class="article-style">
+      
+      [PATCH] mm: introduce clear all vm events counters (Pintu Kumar) https://lkml.kernel.org/r/1614595766-7640-1-git-send-email-pintu@codeaurora.org
+Because the vmstat data is only cumulated, users should calculate the diff manually or just reboot. This commit adds a procfs file that can be used to clear all vmstat counters.
+[PATCH 0/5] Introduce a bulk order-0 page allocator with two in-tree users (Mel Gorman) https://lkml.kernel.org/r/20210301161200.18852-1-mgorman@techsingularity.net
+This patchset introduces a bulk order-0 page allocator. It also makes the sunrpc and the network page pool to use that.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v5.12-rc1/">LKML News v5.12-rc1</a></h2>
+    <div class="article-style">
+      
+      [PATCH v11 00/14] prohibit pinning pages in ZONE_MOVABLE (Pavel Tatashin) https://lkml.kernel.org/r/20210215161349.246722-1-pasha.tatashin@soleen.com
+The 11th version of the patchset making ZONE_MOVABLE really movable. In this version, a build error on i386 is fixed.
+[RFC PATCH] mm, oom: introduce vm.sacrifice_hugepage_on_oom https://lkml.kernel.org/r/20210216030713.79101-1-eiichi.tsukata@nutanix.com
+This RFC patch introduces yet another sysctl knob called vm.sacrifice_hugepage_on_oom. When it is turned on, it tries to free available hugepages before waking oom-killer up.
+[RFC] Hugepage collapse in process context (David Rientjes) https://lkml.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v5.11/">LKML News v5.11</a></h2>
+    <div class="article-style">
+      
+      [PATCH v2] mm: cma: support sysfs (Minchan Kim) https://lkml.kernel.org/r/20210208180142.2765456-1-minchan@kernel.org
+This patch introduces sysfs interface for CMA that shows stats including number of CMA allocation attempts and failures.
+[PATCH v10 00/14] prohibit pinning pages in ZONE_MOVABLE (Pavel Tatashin) https://lkml.kernel.org/r/20210211162427.618913-1-pasha.tatashin@soleen.com
+The 10th version of the patchset making ZONE_MOVABLE really movable.
+Linux 5.11 (Linus Torvalds) https://lkml.kernel.org/r/CAHk-=wg8LpRi9+P2_V+ehJ2_EoJifNh2QmVf47aLXfkCd-1UAQ@mail.gmail.com
+Nothing strange happened last week, so Linus released v5.11 as expected. The number of changes from the rc7 to this release is actually even smaller than average.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v5.11-rc7/">LKML News v5.11-rc7</a></h2>
+    <div class="article-style">
+      
+      [RFC 00/20] TLB batching consolidation and enhancements (Nadav Amit) https://lkml.kernel.org/r/20210131001132.3368247-1-namit@vmware.com
+This patchset prepares more aggressive TLB flushing batching by consolidating a few TLB batching methods.
+[PATCH v9 00/14] prohibit pinning pages in ZONE_MOVABLE (Pavel Tatashin) https://lkml.kernel.org/r/20210201153827.444374-1-pasha.tatashin@soleen.com
+This patchset makes ZONE_MOVABLE really movable by prohibiting pinning of pages in the zone.
+Augmented Page Reclaim (Yu Zhao) https://lkml.kernel.org/r/YBkT6175GmMWBvw3@google.com
+This mail shares a part of decade researh/experimentation in memory overcommit at Google. The author wants to start submitting patch based on responses.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.11-rc6/">LKML News v5.11-rc6</a></h2>
     <div class="article-style">
       
@@ -599,57 +652,6 @@ Another pull request from Andrew Morton for memcg scalability improvement. This 
 [PATCH 00/25] Page folios (Matthew Wilcox) https://lkml.kernel.org/r/20201216182335.27227-1-willy@infradead.org
 This is the patchset for the page folios, which Matthew proposed a few days ago and discussed via zoom.
 Do we still need skip swapcache logic in do_swap_page() for SWP_SYNCHRONOUS_IO?
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.10/">LKML News v5.10</a></h2>
-    <div class="article-style">
-      
-      [RFC V2 00/37] Enhance memory utilization with DMEMFS (Yuley Zhang) https://lkml.kernel.org/r/cover.1607332046.git.yuleixzhang@tencent.com
-This patchset aims to remove the &lsquo;struct page&rsquo; from user-sepcified region of memory and use a file system called &lsquo;dmemfs&rsquo; to minimize the memory region dedicated for &lsquo;struct page&rsquo;s.
-[PATCH] mm: don&rsquo;t SetPageWorkingset unconditionally during swapin (Yu Zhao) https://lkml.kernel.org/r/20201209012400.1771150-1-yuzhao@google.com
-Unconditional &lsquo;SetPageWorkingset&rsquo; miscategorizes read-ahead pages or pages that never belong to the working set as working set because it&rsquo;s called unconditionally.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.10-rc7/">LKML News v5.10-rc7</a></h2>
-    <div class="article-style">
-      
-      [PATCH] mm: mmap_lock: fix use-after-free race and css ref leak in tracepoints (Axel Rasmussen) https://lkml.kernel.org/r/20201130233504.3725241-1-axelrasmussen@google.com
-This patch fixes a use-after-free bug that reported by syzbot.
-[PATCH 0/6] prohibit pinning pages in ZONE_MOVABLE (Pavel Tatashin) https://lkml.kernel.org/r/20201202052330.474592-1-pasha.tatashin@soleen.com
-Pinned pages in ZONE_MOVABLE is a wellknown problem. This patchset fixes the issue by forcing pinning new page to allocated from a zone other than ZONE_MOVABLE and migrating out existing pages from the zone during pinning.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.10-rc6/">LKML News v5.10-rc6</a></h2>
-    <div class="article-style">
-      
-      [PATCH v2] mm: memcontrol: account pagetables per node (Shakeel Butt) https://lkml.kernel.org/r/20201123161425.341314-1-shakeelb@google.com
-This commit allows user to account memory size used for page tables per node.
-[PATCH 0/2] userspace memory reaping using process_madvise (Suren Baghdasaryan) https://lkml.kernel.org/r/20201124053943.1684874-1-surenb@google.com
-This commit allows user-space driven OOM reaping using process_madvise(MADV_DONTNEED).
-[PATCH -V6 0/3] autonuma: Migrate on fault among multiple bound nodes (Huang Ying) https://lkml.kernel.org/r/20201126053219.234793-1-ying.huang@intel.com
-The 6th version for autonuma migration among multiple bound nodes. In this version, more benchmark data and example is added.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.10-rc5/">Lkml_news_v5</a></h2>
-    <div class="article-style">
-      
-      [PATCH v9 0/9] mm: introduce memfd_secret system call to create &ldquo;secret&rdquo; memory areas (Mike Rapoport) https://lkml.kernel.org/r/20201117162932.13649-1-rppt@kernel.org
-The 9th version of the memfd_secret patchset.
-[patch V4 0/8] mm/highmem: Preemptible variant of kmap_atomic &amp; friends (Thomas Gleixner) https://lkml.kernel.org/r/20201118194838.753436396@linutronix.de
-As the name suggests, this patchset allow the code using kmap_atomic and similar things to be preemptible. This incur some overhead to highmem, but Thomas claims highmem was always slow.
-[PATCH 0/7] Split huge pages to any lower order pages and selftests.
       
     </div>
   </div>

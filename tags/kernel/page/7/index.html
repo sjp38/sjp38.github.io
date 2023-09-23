@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2023-08-15T06:38:39-07:00">
+    <meta property="og:updated_time" content="2023-09-20T12:12:43-07:00">
   
 
   
@@ -525,6 +525,56 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.19-rc7/">LKML News v5.19-rc7</a></h2>
+    <div class="article-style">
+      
+      [PATCH 0/4] add struct page and Direct I/O support to reserved memory (Li Chen) https://lkml.kernel.org/r/20220711122459.13773-1-me@linux.beauty
+Only buffered I/O is available to reserved memory for ZONE_DEVICE and mhp. This patchset enables direct I/O to the memory for better throughput.
+[PATCH -V4 RESEND 0/3] memory tiering: hot page selection (Huang Ying) https://lkml.kernel.org/r/20220713083954.34196-1-ying.huang@intel.com
+This patchset implements a new hot page identification algorithm based on the latency between NUMA balancing page table scanning and hit page fault, so that it can be somewhat LFU algorithm instead of MRU algorithm.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v5.19-rc6/">LKML News v5.19-rc6</a></h2>
+    <div class="article-style">
+      
+      [PATCH v9 0/9] x86: Show in sysfs if a memory node is able to do encryption (Martin Fernandez) https://lkml.kernel.org/r/20220704135833.1496303-1-martin.fernandez@eclypsium.com
+This patchset makes each memory descriptor node to show if it has the EFI_MEMORY_CPU_CRYPRO attribute.
+[PATCH v3] arm64: enable THP_SWAP for arm64 (Barry Song) https://lkml.kernel.org/r/20220706072707.114376-1-21cnbao@gmail.com
+THP_SWAP, which dealys the split of THP for swap, includes swap throughput and architecture independent, but enabled on x86_64 only. This patch enables it on arm64.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v5.19-rc5/">LKML News v5.19-rc5</a></h2>
+    <div class="article-style">
+      
+      [PATCH v3] docs: rename Documentation/vm to Documentation/mm (Mike Rapoport) https://lkml.kernel.org/r/20220627060026.180439-1-rppt@kernel.org
+As the subject says, this commit renames the Documentation/vm directory to Documentation/mm.
+[PATCH v6 0/4] KVM: mm: count KVM mmu usage in memory stats (Yosry Ahmed) https://lkml.kernel.org/r/20220628220938.3657876-1-yosryahmed@google.com
+This patchset allows users account KVM mmu usages with NR_SECONDARY_PAGETABLE memory stat.
+[RFC PATCH] mm/slub: enable debugging memory wasting of kmalloc (Feng Tang) https://lkml.kernel.org/r/20220630014715.73330-1-feng.tang@intel.com
+As kmalloc allocates memory in power of 2 granularity, it could waste a lot of memory.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v5.19-rc4/">LKML News v5.19-rc4</a></h2>
+    <div class="article-style">
+      
+      [PATCH Part2 v6 00/49] Add AMD Secure Nested Paging (SEV-SNP) (Ashsh Kalra) https://lkml.kernel.org/r/cover.1655761627.git.ashish.kalra@amd.com
+This is second part patchset of Secure Encrypted Paging (SEV-SNP) work, which focuses on the changes required in a host OS for the feature support.
+[PATCH v7 00/12] mm/demotion: Memory tiers and demotion (Aneesh Kumar K.V) https://lkml.kernel.org/r/20220622082513.467538-1-aneesh.kumar@linux.ibm.com
+This patchset improves memory tiers construction to be more explicit and flexible, and memory allocation for demotion to have no change.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.19-rc3/">LKML News v5.19-rc3</a></h2>
     <div class="article-style">
       
@@ -596,61 +646,6 @@ For PTE-cont or PMD-cont size hugetlb pages, migration or unmapping of poisoned 
 There was a discussion about allocating memory inside RCU read critical section with GFP_KERNEL during LSFMM. Paul is summing up his points about it in this mail.
 [PATCH] mm,doc: Add new documentation structure (Matthew Wilcox) https://lkml.kernel.org/r/20220503063032.3680308-1-willy@infradead.org
 There was a session for MM documentation in the LSFMM. Matthew is restructuring the Documentation files to be more similar to Mel Gorman&rsquo;s &ldquo;Understanding the Linux Virtual Memory Manager&rdquo;.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.18-rc5/">LKML News v5.18-rc5</a></h2>
-    <div class="article-style">
-      
-      [PATCH v5 0/4] memcg: introduce per-memcg proactive reclaim (Yosry Ahmed) https://lkml.kernel.org/r/20220425190040.2475377-1-yosryahmed@google.com
-The fifth version of the patchset for adding per-memch proactive reclamation trigger interface.
-mmotm 2022-04-25-17-59 uploaded (Andrew Morton) https://lkml.kernel.org/r/20220426005932.848CBC385A4@smtp.kernel.org
-The mmotm has updated. It has rebased on 5.18-rc4, added 62 new patches, modified 8 patches, and dropped 19 patches. In total, 334 patches in the queue.
-[PATCH -V2 0/3] memory tiering: hot page selection (Huang Ying) https://lkml.kernel.org/r/20220426085105.60822-1-ying.huang@intel.com
-This patchset adds hot pages selection to the tiered memory promotion mechanism for better performance.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.18-rc4/">LKML News v5.18-rc4</a></h2>
-    <div class="article-style">
-      
-      LSF/MM/BPF 2022: Running BOF (Matthew Wilcox) https://lkml.kernel.org/r/Yl7TUDtLcrhXcp1g@casper.infradead.org
-Matthew is proposing a running BOF, which would do discussions while running after a breakfast.
-mmotm 2022-04-20-17-12 uploaded (Andrew Morton) https://lkml.kernel.org/r/20220421001235.5F4E0C385A0@smtp.kernel.org
--mm tree has updated. It&rsquo;s rebased on 5.18-rc3, added 69 patches modified 126 patches, and dropped 35 patches. In total, 291 patches in the queue.
-[PATCH v2] mm: make minimum slab alignment a runtime property (Peter Collingbourne) https://lkml.kernel.org/r/20220421211549.3884453-1-pcc@google.com
-This makes slab alignment a runtime property and only align to 16 if KASAN is enabled at runtime.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.18-rc3/">LKML News v5.18-rc3</a></h2>
-    <div class="article-style">
-      
-      Re: [PATCH v10 00/14] Multi-Gen LRU Framework (Andrew Morton) https://lore.kernel.org/linux-mm/20220411191559.a844c7140faeba2e68d842b7@linux-foundation.org/
-Andrew Morton&rsquo;s overall answer to MGLRU patchset. He would merge the latest MGLRU in -mm and -next, but would request broader update to the code.
-mmotm 2022-04-12-21-05 uploaded (Andrew Morton) https://lkml.kernel.org/r/20220413040610.06AAAC385A4@smtp.kernel.org
-A snapshot of -mm has updated. It added 79 new patches, modified 24 patches, and dropped 10 patches. In total, 257 patches in the queue.
-[PATCH v2 0/5] mm: demotion: Introduce new node state N_DEMOTION_TARGETS (Jagdish Gediya) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.18-rc2/">LKML News v5.18-rc2</a></h2>
-    <div class="article-style">
-      
-      [PATCH v7 00/70] Introducing the Maple Tree (Liam Howlett) https://lkml.kernel.org/r/20220404143501.2016403-1-Liam.Howlett@oracle.com
-The seventh version of the Maple tree patchset has posted. Liam is explicitly asking Andrew to merge it in -mm.
-LSF/MM/BPF: 2022: Call for Proposals VIRTUAL OPTION (Josef Bacik) https://lore.kernel.org/linux-mm/YksmQSfuIx%2FOiNA8@localhost.localdomain/
-CFP for virtual attendee of LSF/MM/BPF has posted. The virtual instance of LSF/MM/BPF will be hosted on Zoom.
-mmotm 2022-04-04-17-10 uploaded (Andrew Morton) https://lkml.kernel.org/r/20220405001100.410E3C2BBE4@smtp.kernel.org
-The mmotm snapshot has updated. It&rsquo;s rebased on v5.
       
     </div>
   </div>

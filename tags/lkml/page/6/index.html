@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2023-08-15T06:38:39-07:00">
+    <meta property="og:updated_time" content="2023-09-20T12:12:43-07:00">
   
 
   
@@ -525,6 +525,56 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.0-rc3/">LKML News v6.0-rc3</a></h2>
+    <div class="article-style">
+      
+      [mm] 96db82a66d: will-it-scale.per_process_ops -95.3% regression (kernel test robot) https://lkml.kernel.org/r/YwIoiIYo4qsYBcgd@xsang-OptiPlex-9020
+A big regression of mm multi-cpu scalability test (will-it-scale) has found by the kernel test robot. The commit 96db82a66d1db0e2966c02dc492e02eeb3a94a75 (&ldquo;mm: align larger anonymous mappings on THP bundaries&rdquo;) is pointed out as the suspect.
+[PATCH v13 00/70] Introducing the Maple Tree (Liam Howlett) https://lkml.kernel.org/r/20220822150128.1562046-1-Liam.Howlett@oracle.com
+The thirteenth version of the maple tree patchset has posted after rebased on latest mm-unstable and fixed some bugs.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v6.0-rc2/">LKML News v6.0-rc2</a></h2>
+    <div class="article-style">
+      
+      [PATCH v14 00/14] Multi-Gen LRU Framework (Yu Zhao) https://lkml.kernel.org/r/20220815071332.627393-1-yuzhao@google.com
+Fourteenth version of MGLRU patch has rebased on the latest mm-unstable and posted again. This may be merged in the mm tree.
+folio_map (Matthew Wilcox) https://lkml.kernel.org/r/YvvdFrtiW33UOkGr@casper.infradead.org
+Matthew explains his proposal on folio_map in detail and asks if others have better ideas.
+[PATCH v3] mm: add thp_utilization metrics to debugfs (Alexander Zhu) https://lkml.kernel.org/r/20220818000112.2722201-1-alexlzhu@fb.com
+This patch adds debugfs file for tracking how THP is utilized well.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v6.0-rc1/">LKML News v6.0-rc1</a></h2>
+    <div class="article-style">
+      
+      [PATCH] mm: vmscan: fix extreme overreclaim and swap floods (Johannes Weiner) https://lkml.kernel.org/r/20220802162811.39216-1-hannes@cmpxchg.org
+Johannes found proactive reclamation using memory.reclaim sometimes reclaim more pages than requested on specific cgroup use cases. This patch resolves the issue so that the proactive reclamation doesn&rsquo;t over-reclaim pages.
+[RFC PATCH 0/4] propose a auto-run mode for ksm (Xu Xin) https://lkml.kernel.org/r/20220803100306.1653382-1-xu.xin16@zte.con.cn
+KSM operation management is quite manual and sometimes inefficient if not well managed. This patchset introduces auto-run mode that can operate KSM in a better way.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v5.19/">LKML News v5.19</a></h2>
+    <div class="article-style">
+      
+      [PATCH v4 0/3] mm/mprotect: Fix soft-dirty checks (Peter Xu) https://lkml.kernel.org/r/20220725142048.30450-1-peterx@redhat.com
+Fourth version of the soft-dirty check fixes for mprotect has posted. This version polishes the commit message and adds tests.
+[PATCH v2 1/2] mm/slub: enable debugging memory wasting of kmalloc (Feng Tang) https://lkml.kernel.org/r/20220725112025.22625-1-feng.tang@intel.com
+As slab allocates memory in only power of 2 bytes size, memory can be wasted when slab allocation is requested for a large number of times for objects that sizes not aligned in power of two bytes.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.19-rc8/">LKML News v5.19-rc8</a></h2>
     <div class="article-style">
       
@@ -596,57 +646,6 @@ After the RFC, official patchset for DAMON-based LRU-lists sorting has posted. T
 [PATCH v12 00/14] Multi-Gen LRU Framework (Yu Zhao) https://lkml.kernel.org/r/20220614071650.206064-1-yuzhao@google.com
 A new version of MGLRU has posted. Compared to the previous version, this version fixes a bug and nits, and contains new test results based on v5.19-rc1.
 Maintainer&rsquo;s / Kernel Summit 2022 CFP (Theodore Ts&rsquo;o) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.19-rc2/">LKML News v5.19-rc2</a></h2>
-    <div class="article-style">
-      
-      [PATCH v3 0/6] introduce mirrored memory support for arm64 (Wupeng Ma) https://lkml.kernel.org/r/20220607093805.1354256-1-mawupeng1@huawei.com
-This patchset adds memory mirroring support, which relies on UEFI and used to separate memory into two separate channels, to arm64.
-[PATCH] mm: mempolicy: N:M interleave policy for tiered memory nodes (Johannes Weiner) https://lkml.kernel.org/r/20220607171949.85796-1-hannes@cmpxchg.org
-Current pages NUMA-interleaving policy is 1:1 mapping, 1 for CPU node, 1 for remote note. As more types of tiered memory systems having CPU-less memory nodes are coming, this patchset introduces an N:M interleave policy, which N pages are allocated from the top-tier node while M pages are allocated from low-tier nodes.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.19-rc1/">LKML News v5.19-rc1</a></h2>
-    <div class="article-style">
-      
-      [PATCH] arm64: enable THP_SWAP for arm64 (Barry Song) https://lkml.kernel.org/r/20220524071403.128644-1-21cnbao@gmail.com
-This patch enables THP_SWAP, which can help swap performance on systems having fast swap storages, for arm64.
-[CFP LPC 2022] Kernel Memory Management Microconference (Vlastimil Babka) https://lkml.kernel.org/r/d24e9ac9-0903-3c15-c446-2962f44a360f@suse.cz
-This year, LPC will have kernel memory management microconference. It will supplement the LSF/MM and lead by Matthew Wilcox and Vlastimil Babka.
-[PATCH v2] arm64: enable THP_SWAP for arm64 (Barry Song) https://lkml.kernel.org/r/20220527100644.293717-1-21cnbao@gmail.com
-Second version of the THP_SWAP enablement for arm64 has posted.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.18/">LKML News v5.18</a></h2>
-    <div class="article-style">
-      
-      [RFC] Add swappiness argument to memory.reclaim (Yosry Ahmed) https://lkml.kernel.org/r/CAJD7tkbDpyoODveCsnaqBBMZEkDvshXJmNdbk51yKSNgD7aGdg@mail.gmail.com
-Yosry is proposing to add swappiness argument to memory.reclaim cgroup file to provide a way to enforce user policy on a stateless per-reclaim basis.
-[PATCH v11 00/14] Multi-Gen LRU Framework (Yu Zhao) https://lkml.kernel.org/r/20220518014632.922072-1-yuzhao@google.com
-The eleventh version of the patchset for MGLRU has posted. Maybe this has revised based on the comments from LSFMM.
-[PATCH] memcg: provide reclaim stats via &lsquo;memory.reclaim&rsquo; (Vaibhav Jain) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.18-rc7/">LKML News v5.18-rc7</a></h2>
-    <div class="article-style">
-      
-      [PATCH v3 0/6] mm: introduce shrinker debugfs interface (Roman Gushchin) https://lkml.kernel.org/r/20220509183820.573666-1-roman.gushchin@linux.dev
-This patchset introduces a descent debugfs interface for debugging the shrinker mechanism.
-[PATCH v3 0/3] Fix CONT-PTE/PMD size hugetlb issue when unmapping or migrating (Baolin Wang) https://lkml.kernel.org/r/cover.1652147571.git.baolin.wang@linux.alibaba.com
-For PTE-cont or PMD-cont size hugetlb pages, migration or unmapping of poisoned hugetlb pages which are using ptep_clear_flush() and set_pte_at() can cause data consistency issue. This patchset tries to fix the issue.
       
     </div>
   </div>

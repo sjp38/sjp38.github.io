@@ -572,7 +572,7 @@ Maintainers Summit 2023 Call for Topics (Theodore Ts&rsquo;o) https://lkml."><me
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    2 min read
+    3 min read
   </span>
   
 
@@ -641,6 +641,37 @@ standard process for ensuring the qulity.</p>
 <p><a href="https://lkml.kernel.org/r/20230816113049.1697849-1-usama.anjum@collabora.com">https://lkml.kernel.org/r/20230816113049.1697849-1-usama.anjum@collabora.com</a></p>
 <p>This patchset adds <code>PAGEMAP_SCAN</code> ioctl to emulate Windows <code>GetWriteWatch()</code>
 and <code>ResetWriteWatch()</code> systemcalls.</p>
+<h2 id="patch--v2-04-memory-tiering-calculate-abstract-distance-based-on-acpi-hmat-huang-ying">[PATCH -V2 0/4] memory tiering: calculate abstract distance based on ACPI HMAT (Huang Ying)</h2>
+<p><a href="https://lkml.kernel.org/r/20230816080024.105554-1-ying.huang@intel.com">https://lkml.kernel.org/r/20230816080024.105554-1-ying.huang@intel.com</a></p>
+<p>Second version of the patchset for adding abstract distance calculation
+algorithm management mecanism for various types of memory devices.</p>
+<h2 id="patch-04-improve-mm-documentation-matthew-wilcox">[PATCH 0/4] Improve mm documentation (Matthew Wilcox)</h2>
+<p><a href="https://lkml.kernel.org/r/20230818200630.2719595-1-willy@infradead.org">https://lkml.kernel.org/r/20230818200630.2719595-1-willy@infradead.org</a></p>
+<p>Willy is fixing kernel documentation comments errors in mm/, and link all of
+those to rst documents.</p>
+<h2 id="linux-65-rc7-linus-torvalds">Linux 6.5-rc7 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=whD0w46GUTwp_tyzjZRg8Nk-U2e3ucM7EntKPfn+iOSAw@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=whD0w46GUTwp_tyzjZRg8Nk-U2e3ucM7EntKPfn+iOSAw@mail.gmail.com</a></p>
+<p>The seventh release candidate, which usually the last rc of the regular
+release, has released a little bit earlier than usual, since Linus is
+travelling in a timezone other than his usual one.  Things continue looking
+normal, though Linus feels many maintainers are on the vacation.  That&rsquo;s same
+for DAMON maintainer ;) Nevertheless, Linus tries to be optimistic, so probably
+we will have the v6.5 Linux kernel next Sunday.</p>
+<p>FYI, I&rsquo;m traveling with a laptop that I don&rsquo;t use for building this blog in
+usual, and having trouble at doing it with the laptop I brought to this travel.
+I don&rsquo;t think I will fix it soon.  I&rsquo;m writing this post in usual time (in
+unusual timezone), but the publishment might be after I finish my travel.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.14..v6.5-rc7.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2021-08-20 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc6 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v6.5-rc7-only.png" alt="rc7 release stat"></p>
 
     </div>
 

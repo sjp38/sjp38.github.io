@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2023-08-15T06:38:39-07:00">
+    <meta property="og:updated_time" content="2023-09-20T12:12:43-07:00">
   
 
   
@@ -525,6 +525,53 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v4.16-rc7/">LKML News after v4.16-rc7</a></h2>
+    <div class="article-style">
+      
+      Linux 4.16-rc7 https://lkml.kernel.org/r/CA+55aFxpxHnWBeTXN+DKqwCMW_=T2cR8UxSBVk_6c8LL7Et5JQ@mail.gmail.com
+4.16을 향한 일곱번째 rc 가 릴리즈 되었습니다. 평소대로라면 이게 마지막 rc 여야 할텐데, 평소와 다름없거나 변경사항이 적은 편이던 그동안의 rc와 달리 이번 rc 는 좀 변경사항이 많군요. 그렇다곤 해도 아마도 네트워킹 쪽 코드 머지가 늦었기 때문으로 보이며 rc8을 릴리즈할 생각은 아직은 없다고 토발즈는 이야기 하네요.
+더불어, 토발즈가 rc 릴리즈 때마다 변경 사항들을 정리하기 위해 주로 사용하는 git 사용 스크립트를 공개했습니다.
+다음주는 4.16이 릴리즈 될까요? 아니면, rc8이?
+[PATCH] mm/list_lru: replace spinlock with RCU in __list_lru_count_one https://lkml.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v4.16-rc6/">LKML News after v4.16-rc6</a></h2>
+    <div class="article-style">
+      
+      Linux 4.16-rc6 https://lkml.kernel.org/r/CA+55aFzV1nffUeriZLksK90noD49T+w+WmgBsYMAO13rTbn3Pg@mail.gmail.com
+4.16 여섯번째 rc 버전이 나왔습니다. 4.16을 향한 이번 사이클은 상당히 순탄하게 진행되는군요. rc7 까진 만들 예정이라고 하는데, 그 후엔 4.16이 안정적으로 나오게 될 것 같습니다.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v4.16-rc5/">LKML News after v4.16-rc5</a></h2>
+    <div class="article-style">
+      
+      Linux 4.16-rc5 https://lkml.kernel.org/r/CA+55aFxXAMHeD8zz1BLv9r_2rjWJ6xE=cNGVAoWOvQJog7oz9A@mail.gmail.com
+여전히 특이사항 없는 한주를 거쳐 다섯번째 rc 버전이 나왔습니다. 이번 릴리즈가 기존의 rc5 단계보단 조금 크지만 특이할 정도는 아닌 모양이군요. 개인적으로 눈에 띈 부분은, overlayfs, xfs 등의 파일시스템의 변경, 그리고 perf 와 selftest 쪽 변경이 있군요.
+[PATCH v9 00/24] Speculative page faults https://lkml.kernel.org/r/1520963994-28477-1-git-send-email-ldufour@linux.vnet.ibm.com
+Speculative page faults 의 9번째 패치셋입니다. Michael Hocko 가 이거 너무 자주 올리는 거 아니냐고 한마디 했고, 패치 저자인 Laurent Dufour 도 오케이 했네요.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v4.16-rc4/">LKML News after v4.16-rc4</a></h2>
+    <div class="article-style">
+      
+      Linux 4.16-rc4 https://lkml.kernel.org/r/CA+55aFxXg8hi+T_DNCG_OrAotqSheyREw-Njf9XgUD1vXqAyHQ@mail.gmail.com
+벌써 개발 단계의 중반이라 할 수 있는 rc4 의 릴리즈입니다. 4.16 버전의 릴리즈도 얼마 남지 않았군요. 여전히 충분히 조용한 한주였습니다. 다만 여기저기에 조금씩 변경사항이 골고루 있군요.
+[PATCH 00/34 v3] PTI support for x32 https://lkml.kernel.org/r/1520245563-8444-1-git-send-email-joro@8bytes.org
+x86-32 를 위한 Page Table Isolation 패치입니다.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v4.16-rc3/">Lkml_news_v4.16 Rc3</a></h2>
     <div class="article-style">
       
@@ -592,54 +639,6 @@ Vulnerable: Minimal generic ASM retpoline 이란 출력이 뜰겁니다.
       
       Linux 4.15-rc8 https://lkml.kernel.org/r/CA+55aFz=PcxdARFpCTyQCJKaJcBwVUB9y6XAXM8VyyxnbRD=bw@mail.gmail.com
 마침내 여덟번째 rc 버전의 릴리즈입니다. 스펙터 버그를 성능 저하 없이 막기 위한 구글의 해결책, Retpoline 지원이 들어갔군요. 그 외에는 드라이버 업데이트여서 일단 rc8 에 걸맞는 조용함이긴 하다고 토발즈는 평하네요. 자, 다음주에는 4.15 가 릴리즈될런지? 아니면 rc9 이 나오고 말런지?
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.15-rc7/">LKML News after v4.15-rc7</a></h2>
-    <div class="article-style">
-      
-      Linux 4.15-rc7 https://lkml.kernel.org/r/CA+55aFwbmKznuQZe_VemxXJPSmB-9yy8uyWsMZcrkA4T=m8xkw@mail.gmail.com
-Meltdown 과 Spectre 로 떠들썩했던 시간을 지나 4.15 의 일곱번째 rc 버전이 릴리즈 되었습니다. 지난 여섯번째 릴리즈 때도 상당히 안정화에 신경써야 할 시점임에도 x86 pti (page table isolation) 업데이트 패치가 많이 머지되어 의아했는데, 이게 Meltdown 과 Spectre 버그 때문이었음도 밝혀졌죠. 그렇다곤 해도 그 외의 부분은 예상대로 상당히 안정화 되어가고 있다고 합니다.
-더불어, Thomas Geixner 등의 인텔쪽 커널 개발자들의 노력 덕에 pti 등 Meltdown 과 Spectre 버그를 위한 패치가 잘 관리되어 비교적 쉽게 머지될 수 있었음에 리누스가 감사를 표하네요.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.15-rc6/">LKML News after v4.15-rc6</a></h2>
-    <div class="article-style">
-      
-      Linux 4.15-rc6 https://lkml.kernel.org/r/CA+55aFzU_Q04CVEABo50x24yeTaP-yzzrB1wTPeOiOgAbSKiDA@mail.gmail.com
-한국시간으로는 1월 1일, 토발즈의 현지 시각으로는 2017년의 마지막날, 4.15 의 여섯번째 rc 버전이 릴리즈 되었습니다.
-지난주는 크리스마스 등의 연휴 때문인지 참 조용했죠. 덕분에 이번 릴리즈의 변경사항도 많지 않습니다. 다만 x86 pti 쪽 업데이트가 있었기 때문에 이번엔 rc8 까지 릴리즈 할수도 있을 것 같다고 하는군요.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.14-rc4/">LKML News after v4.15-rc5</a></h2>
-    <div class="article-style">
-      
-      Linux 4.15-rc5 https://lkml.kernel.org/r/CA+55aFy1U+uBLEAoCWU3=BqEbROW6rsbaHUdYJArR6iYQQWo_A@mail.gmail.com
-4.15 의 다섯번째 rc 버전이 평소 스케쥴보다 하루 일찍 릴리즈 되었습니다. 원래대로라면 내일일텐데, 미국 시간으로는 크리스마스 이브라서 그냥 오늘 릴리즈 한다는군요.
-이번 rc5 의 변경 사항들도 지난 릴리즈의 rc5 와 비슷했다고 하는데, 다만 x86 의 커널 페이지 테이블 격리화 관련 작업이 진행 중인 게 좀 예외라고 하는군요.
-[RFC v3 PATCH 0/5] Eliminate zone-&gt;lock contention for will-it-scale/page_fault1 and parallel free https://lkml.kernel.org/r/20180509085450.3524-1-aaron.lu@intel.com
-패치셋 저자는 112개 CPU를 갖는 Intel Skylake 서버에서 will-it-scale/page_fult1 워크로드를 돌려보았고 80% CPU 가 zone-&gt;lock 에서 스핀하며 시간을 보내고 있음을 파악했습니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.15-rc5/">LKML News after v4.15-rc5</a></h2>
-    <div class="article-style">
-      
-      Linux 4.15-rc5 https://lkml.kernel.org/r/CA+55aFy1U+uBLEAoCWU3=BqEbROW6rsbaHUdYJArR6iYQQWo_A@mail.gmail.com
-4.15 의 다섯번째 rc 버전이 평소 스케쥴보다 하루 일찍 릴리즈 되었습니다. 원래대로라면 내일일텐데, 미국 시간으로는 크리스마스 이브라서 그냥 오늘 릴리즈 한다는군요.
-이번 rc5 의 변경 사항들도 지난 릴리즈의 rc5 와 비슷했다고 하는데, 다만 x86 의 커널 페이지 테이블 격리화 관련 작업이 진행 중인 게 좀 예외라고 하는군요.
-Re: About the try to remove cross-release feature entirely by Ingo https://lkml.kernel.org/r/20171229014736.GA10341@X58A-UD3R
-Lockdep 의 cross release 기능은 너무 느렸고, false positive 가 많다는 이유로, 특히 false positive 가 너무 많다는 이유로 Ingo Molnar 에 의해 제거되려 하고 있습니다.
       
     </div>
   </div>

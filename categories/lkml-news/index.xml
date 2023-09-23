@@ -5,12 +5,199 @@
     <link>https://sjp38.github.io/categories/lkml-news/</link>
       <atom:link href="https://sjp38.github.io/categories/lkml-news/index.xml" rel="self" type="application/rss+xml" />
     <description>lkml news</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 15 Aug 2023 06:38:39 -0700</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 20 Sep 2023 12:12:43 -0700</lastBuildDate>
     <image>
       <url>https://sjp38.github.io/img/tux.png</url>
       <title>lkml news</title>
       <link>https://sjp38.github.io/categories/lkml-news/</link>
     </image>
+    
+    <item>
+      <title>LKML News v6.6-rc3</title>
+      <link>https://sjp38.github.io/post/lkml_news_v6.6-rc3/</link>
+      <pubDate>Wed, 20 Sep 2023 12:12:43 -0700</pubDate>
+      <guid>https://sjp38.github.io/post/lkml_news_v6.6-rc3/</guid>
+      <description>&lt;h2 id=&#34;invitation-linux-mm-alignment-session-on-apis-for-sparse-mappings-on-wednesday-david-rientjes&#34;&gt;[Invitation] Linux MM Alignment Session on APIs for Sparse Mappings on Wednesday (David Rientjes)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/fba78307-e4a3-2621-2917-464f19bb4c57@google.com&#34;&gt;https://lkml.kernel.org/r/fba78307-e4a3-2621-2917-464f19bb4c57@google.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;David is organizing yet another Linux MM alignment session for proper API for
+sparse mappings.&lt;/p&gt;
+&lt;h2 id=&#34;patch-v2-vmscan-add-trace-events-for-lru_gen-jaewon-kim&#34;&gt;[PATCH v2] vmscan: add trace events for lru_gen (Jaewon Kim)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20230921062206.14429-1-jaewon31.kim@samsung.com&#34;&gt;https://lkml.kernel.org/r/20230921062206.14429-1-jaewon31.kim@samsung.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This patch adds two new tracevents called &lt;code&gt;trace_mm_vmscan_lru_gen_scan&lt;/code&gt; and
+&lt;code&gt;trace_mm_vmscan_lru_gen_evict&lt;/code&gt; that similar to &lt;code&gt;trace_mm_vmscan_lru_isolate&lt;/code&gt;
+and &lt;code&gt;trace_mm_vmscan_lru_shrink_[in]active&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;patch-v3-0015-futex-more-futex2-bits-peter-zijlstra&#34;&gt;[PATCH v3 00/15] futex: More futex2 bits (Peter Zijlstra)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20230921104505.717750284@noisy.programming.kicks-ass.net&#34;&gt;https://lkml.kernel.org/r/20230921104505.717750284@noisy.programming.kicks-ass.net&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Peter sent third version of the patchset that introduces a new interface for
+same futex core, futex2.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>LKML News v6.6-rc2</title>
+      <link>https://sjp38.github.io/post/lkml_news_v6.6-rc2/</link>
+      <pubDate>Tue, 12 Sep 2023 06:46:02 -0700</pubDate>
+      <guid>https://sjp38.github.io/post/lkml_news_v6.6-rc2/</guid>
+      <description>&lt;h2 id=&#34;syzbot-monthly-mm-report-sep-2023&#34;&gt;[syzbot] Monthly mm report (Sep 2023)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/000000000000c06b600605127cb3@google.com&#34;&gt;https://lkml.kernel.org/r/000000000000c06b600605127cb3@google.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Syzbot posted its mm subsystem report for last 31 days.  For the period, seven
+new issues were found and two among those were fixed.  In total, 43/232 issues
+are still open.&lt;/p&gt;
+&lt;h2 id=&#34;patch-02-workload-specific-and-memory-pressure-driven-zswap-writeback-nhat-pham&#34;&gt;[PATCH 0/2] workload-specific and memory pressure-driven zswap writeback (Nhat Pham)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20230911164024.2541401-1-nphamcs@gmail.com&#34;&gt;https://lkml.kernel.org/r/20230911164024.2541401-1-nphamcs@gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Zswap has only single LRU list and shrinks under user-defined limit.  This
+patch series seperates the LRU list out to per-memcg and per-NUMA, and perform
+workload-specific writeback under memory pressure.&lt;/p&gt;
+&lt;h2 id=&#34;patch-03-memcg-more-sophisticated-stats-flushing-yosry-ahmed&#34;&gt;[PATCH 0/3] memcg: more sophisticated stats flushing (Yosry Ahmed)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20230913073846.1528938-1-yosryahmed@google.com&#34;&gt;https://lkml.kernel.org/r/20230913073846.1528938-1-yosryahmed@google.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Current memcg stat flushing works in single flusher, so having good efficiency
+but bad accuracy interms of freshness.  This patchset provides a better
+tradeoff between the accuracy and the performance.&lt;/p&gt;
+&lt;h2 id=&#34;patch-03-userfaultfd-remap-option-suren-baghdasaryan&#34;&gt;[PATCH 0/3] userfaultfd remap option (Suren Baghdasaryan)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20230914152620.2743033-1-surenb@google.com&#34;&gt;https://lkml.kernel.org/r/20230914152620.2743033-1-surenb@google.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This patchset introduces a new feature for userfaultfd, namely &lt;code&gt;UFFDIO_REMAP&lt;/code&gt;,
+which was maintained by Andrea in his local tree for long time.&lt;/p&gt;
+&lt;h2 id=&#34;rfc-patch-0014-prevent-cross-cache-attacks-in-the-slub-allocator-matteo-rizzo&#34;&gt;[RFC PATCH 00/14] Prevent cross-cache attacks in the SLUB allocator (Matteo Rizzo)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20230915105933.495735-1-matteorizzo@google.com&#34;&gt;https://lkml.kernel.org/r/20230915105933.495735-1-matteorizzo@google.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Cross-cache attack is making SLUB returns the page containing a victim object
+to the page allocator and then make it uses the same page for different slab
+cache or other objects.  This patchset prevents it by making sure a virtual
+address that used for a slab cache isn&amp;rsquo;t reused for anything except other slabs
+in that cache.&lt;/p&gt;
+&lt;h2 id=&#34;linux-66-rc2-linus-torvalds&#34;&gt;Linux 6.6-rc2 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=whW=fV2tnAreSbtPVpJxq++pyBZa3g+cxX8_V__WSZzCg@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=whW=fV2tnAreSbtPVpJxq++pyBZa3g+cxX8_V__WSZzCg@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Exactly after 32 years from the Linux 0.01 release, Linus Torvalds released
+v6.6-rc2 of Linux.  Other than the random date thing, nothing special changes
+but usual rc2 fixes spareading over.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/kernel_release_stat/v5.15-rc3..v6.6-rc2.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
+below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2021-09-17 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And, below is the diffstat of the -rc2 releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/kernel_release_stat/v6.6-rc2-only.png&#34; alt=&#34;rc2 release stat&#34;&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>LKML News v6.6-rc1</title>
+      <link>https://sjp38.github.io/post/lkml_news_v6.6-rc1/</link>
+      <pubDate>Mon, 28 Aug 2023 06:47:38 -0700</pubDate>
+      <guid>https://sjp38.github.io/post/lkml_news_v6.6-rc1/</guid>
+      <description>&lt;h2 id=&#34;git-pull-mm-updates-for-66-rc1-andrew-morton&#34;&gt;[GIT PULL] MM updates for 6.6-rc1 (Andrew Morton)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20230828184251.bfbc164280503903eacf498c@linux-foundation.org&#34;&gt;https://lkml.kernel.org/r/20230828184251.bfbc164280503903eacf498c@linux-foundation.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Andrew sent the mm subsystem pull request for v6.6-rc1 to Linus Torvalds.  And,
+it pulled.&lt;/p&gt;
+&lt;h2 id=&#34;patch-12-mmvmalloc-add-a-safer-version-of-find_vm_area-for-debug-joel-fernendes&#34;&gt;[PATCH 1/2] mm/vmalloc: Add a safer version of find_vm_area() for debug (Joel Fernendes)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20230830110402.386898-1-joel@joelfernandes.org&#34;&gt;https://lkml.kernel.org/r/20230830110402.386898-1-joel@joelfernandes.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;A patchset implementing safe trylock version of vmalloc dump function.&lt;/p&gt;
+&lt;h2 id=&#34;patch-v2-06-introduce-__mt_dup-to-improve-the-performance-of-fork-peng-zhang&#34;&gt;[PATCH v2 0/6] Introduce &lt;code&gt;__mt_dup()&lt;/code&gt; to improve the performance of fork() (Peng Zhang)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20230830125654.21257-1-zhangpeng.00@bytedance.com&#34;&gt;https://lkml.kernel.org/r/20230830125654.21257-1-zhangpeng.00@bytedance.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;When doing &lt;code&gt;fork()&lt;/code&gt;, vma of the parent should be inserted into the maple tree
+of the child.  It is done one by one, doing rebalancing of the maple tree
+multiple times.  Since maple tree&amp;rsquo;s rebalancing is slower than red-black tree,
+this could show performance issue.  This patch introduces a new maple tree
+function for handling this case.&lt;/p&gt;
+&lt;h2 id=&#34;patch-02-zram-support-for-specific-numa-node-for-zram-ze-zuo&#34;&gt;[PATCH 0/2] zram: support for specific numa node for zram (Ze Zuo)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20230901071942.207010-1-zuoze1@huawei.com&#34;&gt;https://lkml.kernel.org/r/20230901071942.207010-1-zuoze1@huawei.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This patch makes zram to be able to use memory in a specific numa node.&lt;/p&gt;
+&lt;h2 id=&#34;patch-mmkhugepaged-make-reserved-memory-adaptivel-wolfgang-huang&#34;&gt;[PATCH] mm/khugepaged: make reserved memory adaptivel (wolfgang huang)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20230902052611.144972-1-wolfgang9277@126.com&#34;&gt;https://lkml.kernel.org/r/20230902052611.144972-1-wolfgang9277@126.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This patchset makes THP reserved memory to be adaptable to reduce memory usage
+from it when THP is not much used.&lt;/p&gt;
+&lt;h2 id=&#34;patch-v6-07-optimize-mremap-during-mutual-alignment-within-pmd-joel-fernandes&#34;&gt;[PATCH v6 0/7] Optimize mremap during mutual alignment within PMD (Joel Fernandes)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20230903151328.2981432-1-joel@joelfernandes.org&#34;&gt;https://lkml.kernel.org/r/20230903151328.2981432-1-joel@joelfernandes.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Joel posted hopefully final version of his mremap optimization patch.  Only
+second and sixth patches of the patchset needs more tags.&lt;/p&gt;
+&lt;h2 id=&#34;git-pull-remaining-mm-updates-for-66-rc1-andrew-morton&#34;&gt;[GIT PULL] remaining MM updates for 6.6-rc1 (Andrew Morton)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20230904140819.b49a4ff6366047ddcb2d9b1f@linux-foundation.org&#34;&gt;https://lkml.kernel.org/r/20230904140819.b49a4ff6366047ddcb2d9b1f@linux-foundation.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Andrew sent yet another small mm subsystem pull request to Linus.&lt;/p&gt;
+&lt;h2 id=&#34;git-pull-hotfixes-for-66-rc1-andrew-morton&#34;&gt;[GIT PULL] hotfixes for 6.6-rc1 (Andrew Morton)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20230905115619.0df37e92cd7384252d1aa4ee@linux-foundation.org&#34;&gt;https://lkml.kernel.org/r/20230905115619.0df37e92cd7384252d1aa4ee@linux-foundation.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Andrew sent some mm hotfixes for 6.6-rc1.&lt;/p&gt;
+&lt;h2 id=&#34;invitation-linux-mm-alignment-session-on-large-anon-folios-on-wednesday-david-rientjes&#34;&gt;[Invitation] Linux MM Alignment Session on Large Anon Folios on Wednesday (David Rientjes)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAE-26VACpgBHVwD+e3a9-ZOqew7eYbnqLAQU+AHR00Q-0A+6BQ@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAE-26VACpgBHVwD+e3a9-ZOqew7eYbnqLAQU+AHR00Q-0A+6BQ@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;David has hosted yet another Linux MM alignment session for Large Anon Folios.&lt;/p&gt;
+&lt;h2 id=&#34;patch-zswap-change-zswaps-default-allocator-to-zsmalloc-nhat-pham&#34;&gt;[PATCH] zswap: change zswap&amp;rsquo;s default allocator to zsmalloc (Nhat Pham)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20230908235115.2943486-1-nphamcs@gmail.com&#34;&gt;https://lkml.kernel.org/r/20230908235115.2943486-1-nphamcs@gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Zswap supports three different allocators including zsmalloc.  This patch
+argues zsmalloc is the superior in terms of utilization and makes zswap to use
+it by default.&lt;/p&gt;
+&lt;h2 id=&#34;patch-07-riscv-asid-related-and-up-related-tlb-flush-enhancements-samuel-holland&#34;&gt;[PATCH 0/7] riscv: ASID-related and UP-related TLB flush enhancements (Samuel Holland)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20230909201727.10909-1-samuel@sholland.org&#34;&gt;https://lkml.kernel.org/r/20230909201727.10909-1-samuel@sholland.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This patch resolves the prolblem that TLB flushing functions are mostly end up
+as &lt;code&gt;flush_tlb_all()&lt;/code&gt; when SMP is disabled.&lt;/p&gt;
+&lt;h2 id=&#34;patch-mm-memcg-add-thp-swap-out-info-for-anonymous-reclaim-xin-hao&#34;&gt;[PATCH] mm: memcg: add THP swap out info for anonymous reclaim (Xin Hao)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20230909155242.22767-1-vernhao@tencent.com&#34;&gt;https://lkml.kernel.org/r/20230909155242.22767-1-vernhao@tencent.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This patch adds THP swap out per memcg counter.&lt;/p&gt;
+&lt;h2 id=&#34;linux-66-rc1-linus-torvalds&#34;&gt;Linux 6.6-rc1 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wgfL1rwyvELk2VwJTtiLNpwxTFeFtStLeAQ-2rTRd34eQ@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wgfL1rwyvELk2VwJTtiLNpwxTFeFtStLeAQ-2rTRd34eQ@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;After the two weeks of the merge window, Linus Torvalds released the first
+release candidate for Linux v6.6.  It contains 12k+ commits from 1.7k+
+developers.  All the stats are normal.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/kernel_release_stat/v5.15-rc2..v6.6-rc1.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
+below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2021-09-11 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And, below is the diffstat of the -rc1 releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/kernel_release_stat/v6.6-rc1-only.png&#34; alt=&#34;rc1 release stat&#34;&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>LKML News v6.5</title>
+      <link>https://sjp38.github.io/post/lkml_news_v6.5/</link>
+      <pubDate>Tue, 22 Aug 2023 03:44:10 -0700</pubDate>
+      <guid>https://sjp38.github.io/post/lkml_news_v6.5/</guid>
+      <description>&lt;h2 id=&#34;patch-maple_tree-shrink-struct-maple_tree-from-24-to-16-bytes-on-lp64-mateusz-guzik&#34;&gt;[PATCH] maple_tree: shrink struct maple_tree from 24 to 16 bytes on LP64 (Mateusz Guzik)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20230821225145.2169848-1-mjguzik@gmail.com&#34;&gt;https://lkml.kernel.org/r/20230821225145.2169848-1-mjguzik@gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This patchset moves &lt;code&gt;ma_root&lt;/code&gt; field to be placed after &lt;code&gt;ma_flags&lt;/code&gt; to plug a
+padding hole of &lt;code&gt;struct mape_tree&lt;/code&gt;, to reduce the size of the struct.&lt;/p&gt;
+&lt;h2 id=&#34;idea-for-scalable-and-almost-waste-free-percpu-counter-alloc-was-re-patch-02-execve-scalability-issues-part-1-mateusz-guzik&#34;&gt;idea for scalable and almost waste-free percpu counter alloc (was: Re: [PATCH 0/2] execve scalability issues, part 1) (Mateusz Guzik)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAGudoHH-b5R+COHUtns92NTzSVeT1ECMHb22SEcH_108Pi0FTQ@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAGudoHH-b5R+COHUtns92NTzSVeT1ECMHb22SEcH_108Pi0FTQ@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Mateusz is suggesting another idea for scalable and almost-waste-free percpu
+counter alloc.&lt;/p&gt;
+&lt;h2 id=&#34;patch-rfc-delayacct-add-memory-reclaim-delay-in-get_page_from_freelist-wen-yu-li&#34;&gt;[PATCH RFC] delayacct: add memory reclaim delay in get_page_from_freelist (Wen Yu Li)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/SH0PR01MB058780B26AB21BEB8E76B6BBC11CA@SH0PR01MB0587.CHNPR01.prod.partner.outlook.cn&#34;&gt;https://lkml.kernel.org/r/SH0PR01MB058780B26AB21BEB8E76B6BBC11CA@SH0PR01MB0587.CHNPR01.prod.partner.outlook.cn&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;get_page_from_reelist()&lt;/code&gt; also does memory reclaim due to memory loads, but it
+is not counted as the memory reclaim delay statistics for &lt;code&gt;__node_reclaim()&lt;/code&gt;.
+This patch makes it to be counted as such.&lt;/p&gt;
+&lt;h2 id=&#34;patch-mm-page_alloc-remove-stale-cma-guard-code-johannes-weiner&#34;&gt;[PATCH] mm: page_alloc: remove stale CMA guard code (Johannes Weiner)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20230824153821.243148-1-hannes@cmpxchg.org&#34;&gt;https://lkml.kernel.org/r/20230824153821.243148-1-hannes@cmpxchg.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;For historical reason, movable allocations could be disallowed from CAM.
+However, commit 8e3560d963d2 made that&amp;rsquo;s not really needed.  This commit
+further remove the obsolete constraint.&lt;/p&gt;
+&lt;h2 id=&#34;git-pull-hotfixes-for-65-andrew-morton&#34;&gt;[GIT PULL] hotfixes for 6.5 (Andrew Morton)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20230825111108.898f1600c365d22f74e52c70@linux-foundation.org&#34;&gt;https://lkml.kernel.org/r/20230825111108.898f1600c365d22f74e52c70@linux-foundation.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Andrew sent a few more hotfixes for v6.5 to Linus Torvalds.&lt;/p&gt;
+&lt;h2 id=&#34;patch-slub-introduce-config_slub_rcu_debug-jann-horn&#34;&gt;[PATCH] slub: Introduce CONFIG_SLUB_RCU_DEBUG (Jann Horn)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20230825211426.3798691-1-jannh@google.com&#34;&gt;https://lkml.kernel.org/r/20230825211426.3798691-1-jannh@google.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This patch adds SLUB debugging feature for making KASAN available to catch
+use-after-free in &lt;code&gt;SLAB_TYPESAFE_BY_RCU&lt;/code&gt; slabs.&lt;/p&gt;
+&lt;h2 id=&#34;linux-65-linus-torvalds&#34;&gt;Linux 6.5 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wgmKhCrdrOCjp=5v9NO6C=PJ8ZTZcCXj09piHzsZ7qqmw@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wgmKhCrdrOCjp=5v9NO6C=PJ8ZTZcCXj09piHzsZ7qqmw@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;After the seven release candidates, Linus Torvalds released v6.5 Linux kernel
+without delay.  He still worries if it was calm just because many maintainers
+are in their vacation, but he thinks it might be he being paranoid.  This also
+means the merge window for v6.6 is open.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/kernel_release_stat/v5.15-rc1..v6.5.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
+below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2021-08-27 | ~/lazybox/gnuplot/plot.py \
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>LKML News v6.5-rc7</title>
@@ -46,6 +233,37 @@ standard process for ensuring the qulity.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20230816113049.1697849-1-usama.anjum@collabora.com&#34;&gt;https://lkml.kernel.org/r/20230816113049.1697849-1-usama.anjum@collabora.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;This patchset adds &lt;code&gt;PAGEMAP_SCAN&lt;/code&gt; ioctl to emulate Windows &lt;code&gt;GetWriteWatch()&lt;/code&gt;
 and &lt;code&gt;ResetWriteWatch()&lt;/code&gt; systemcalls.&lt;/p&gt;
+&lt;h2 id=&#34;patch--v2-04-memory-tiering-calculate-abstract-distance-based-on-acpi-hmat-huang-ying&#34;&gt;[PATCH -V2 0/4] memory tiering: calculate abstract distance based on ACPI HMAT (Huang Ying)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20230816080024.105554-1-ying.huang@intel.com&#34;&gt;https://lkml.kernel.org/r/20230816080024.105554-1-ying.huang@intel.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Second version of the patchset for adding abstract distance calculation
+algorithm management mecanism for various types of memory devices.&lt;/p&gt;
+&lt;h2 id=&#34;patch-04-improve-mm-documentation-matthew-wilcox&#34;&gt;[PATCH 0/4] Improve mm documentation (Matthew Wilcox)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20230818200630.2719595-1-willy@infradead.org&#34;&gt;https://lkml.kernel.org/r/20230818200630.2719595-1-willy@infradead.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Willy is fixing kernel documentation comments errors in mm/, and link all of
+those to rst documents.&lt;/p&gt;
+&lt;h2 id=&#34;linux-65-rc7-linus-torvalds&#34;&gt;Linux 6.5-rc7 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=whD0w46GUTwp_tyzjZRg8Nk-U2e3ucM7EntKPfn+iOSAw@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=whD0w46GUTwp_tyzjZRg8Nk-U2e3ucM7EntKPfn+iOSAw@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The seventh release candidate, which usually the last rc of the regular
+release, has released a little bit earlier than usual, since Linus is
+travelling in a timezone other than his usual one.  Things continue looking
+normal, though Linus feels many maintainers are on the vacation.  That&amp;rsquo;s same
+for DAMON maintainer ;) Nevertheless, Linus tries to be optimistic, so probably
+we will have the v6.5 Linux kernel next Sunday.&lt;/p&gt;
+&lt;p&gt;FYI, I&amp;rsquo;m traveling with a laptop that I don&amp;rsquo;t use for building this blog in
+usual, and having trouble at doing it with the laptop I brought to this travel.
+I don&amp;rsquo;t think I will fix it soon.  I&amp;rsquo;m writing this post in usual time (in
+unusual timezone), but the publishment might be after I finish my travel.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/kernel_release_stat/v5.14..v6.5-rc7.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
+below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2021-08-20 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And, below is the diffstat of the -rc6 releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/kernel_release_stat/v6.5-rc7-only.png&#34; alt=&#34;rc7 release stat&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     

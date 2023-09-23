@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2023-08-15T06:38:39-07:00">
+    <meta property="og:updated_time" content="2023-09-20T12:12:43-07:00">
   
 
   
@@ -525,6 +525,53 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.5-rc6/">LKML News v5.5-rc6</a></h2>
+    <div class="article-style">
+      
+      OOM killer not nearly agressive enough? https://lkml.kernel.org/r/20200107204412.GA29562@amd
+The author if this mail, Pavel updated his userspace to x86-64 and encountered chromium&rsquo;s memory hogging. He was required to kill the chromium himself, because OOM killer didn&rsquo;t kill it. He asks whether this means OOM killer is not aggressive enough.
+[PATCH 0/4] introduce memory hinting API for external process https://lkml.kernel.org/r/20200110213433.94739-1-minchan@kernel.org
+Minchan has previously posted the patchset introducing the MADV_COLD, MADV_PAGEOUT and external madvise() able code change.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v5.5-rc5/">LKML News v5.5-rc5</a></h2>
+    <div class="article-style">
+      
+      [PATCH v16 QEMU 4/3 RFC] memory: Add support for MADV_FREE as mechanism to lazy discard pages https://lkml.kernel.org/r/20200103212339.29849.99817.stgit@localhost.localdomain
+This RFC patch modifies QEMU to able to use MADV_FREE for discard of pages to avoid the page zeroing cost.
+Linux 5.5-rc5 https://lkml/kernel.org/r/CAHk-=whwmJQwwMD06VfPapDmc52LFQhG3HP6VyVLXVA=nYi_ow@mail.gmail.com
+Time files, rc5 released. Last week was also another calm week due to the new year holidays, and thus this release is small. Linus expects it will be changed in this upcoming weeks, or 5.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/damon/">DAMON: Data Access Monitor</a></h2>
+    <div class="article-style">
+      
+      With increasingly data-intensive workloads and limited DRAM capacity, optimal memory management based on dynamic access patterns is becoming increasingly important. Such mechanisms are only possible if accurate and efficient dynamic access pattern monitoring is available.
+DAMON is a Data Access MONitoring framework subsystem for the Linux kernel developed for such memory management. It is designed with some key mechanism (refer to Design for the detail) that make it
+ accurate (the monitoring output is useful enough for DRAM level memory management; It might not be appropriate for CPU Cache levels, though), light-weight (the monitoring overhead is low enough to be applied online), and scalable (the upper-bound of the overhead is in constant range regardless of the size of target workloads).
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v5.5-rc4/">LKML News v5.5-rc4</a></h2>
+    <div class="article-style">
+      
+      [PATCH V11 RESEND] mm/debug: Add tests validating architecture page table helpers https://lkml.kernel.org/r/1577162322-30303-1-git-send-email-anshuman.khandual@arm.com
+This patchset adds tests for the page table helpers. Those tests covers basic page table entry transformations including old, young, dirty, clean, write, write protect etc. The tests are not using the kselftest or kunit, but implemented as a kernel module with new file, mm/debug_vm_pgtable.c.
+Linux 5.5-rc4 https://lkml.kernel.org/r/CAHk-=wjq2b9GkLzpaDE-Xryu5c0zMM72BqkJKeZVsX+4ymH6aA@mail.gmail.com
+Due to the holidays, last week was unsurprisingly quiet. Torvalds says it was hardly even worth making an rc release.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.5-rc3/">LKML News v5.5-rc3</a></h2>
     <div class="article-style">
       
@@ -587,54 +634,6 @@ The memory model element which is depends only on Alpha, smp_read_barrier_depend
       
       Linux 5.4-rc7 https://lkml.kernel.org/r/CAHk-=wivmGEOTha5XkRHgH6VwfiroiN+PFVMNK3B0r-d0eFLPQ@mail.gmail.com
 일곱번째 rc 버전이 릴리즈 되었습니다. 지난 rc6 때도 변경량이 생각보다 많아 토발즈가 고민했는데, 이번주도 토발즈가 원했던 것보단 변경량이 많았다고 하는군요. 다음주에 rc8 을 낼지 5.4 정식 버전을 낼지는 좀 더 고민해 봐야겠다고 합니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.4-rc6/">LKML News v5.4-rc6</a></h2>
-    <div class="article-style">
-      
-      [PATCH V8] mm/debug: Add tests validating architecture page table helpers https://lkml.kernel.org/r/1572240562-23630-1-git-send-email-anshuman.khandual@arm.com
-아키텍쳐별 페이지 테이블 헬퍼 등을 테스트 하는 코드를 추가하는 패치입니다. CONFIG_DEBUG_VM_PGTABLE 컨피규레이션이 켜져 있으면 동작합니다.
-[PATCH RFC v2 00/25] Add KernelMemorySanitizer infrastructure https://lkml.kernel.org/r/20191030142237.249532-1-glider@google.com
-초기화 되지 않은 메모리 영역에 액세스 하는 에러를 찾아주는 KMSAN 을 커널에 추가하는 패치입니다. KCSAN 과 비슷하게 syzkaller 를 통해 돌아가게끔 되어 있군요.
-False positive 문제가 존재할 수는 있는 모양입니다만, 구글 내부에서 syzbot 을 통해 테스트 한 환경에서는 중요한 false positive 는 나오지 않은 모양입니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.4-rc5/">LKML News v5.4-rc5</a></h2>
-    <div class="article-style">
-      
-      [PATCH 00/12] mm: remove __ARCH_HAS_4LEVEL_HACK https://lkml.kernel.org/r/1571822941-29776-1-git-send-email-rppt@kernel.org
-서로 다른 아키텍쳐 간의 페이지 테이블 구조로 인해 사용해야 했던 __ARCH_HAS_4LEVEL_HACK 을 제거하는 패치입니다. Alpha, arm, c6x 등의 아키텍쳐가 변경되는군요. UML, qemu 등에서 부팅 테스트를 거쳤군요.
-Linux 5.4-rc5 https://lkml.kernel.org/r/CAHk-=wgpewLxHxnO71tFHh=M4C4iUofJykMqq3r=eRyxUyVsiw@mail.gmail.com
-다섯번째 rc 버전 릴리즈입니다. 하지만 안타깝게도 이번 릴리즈는 마냥 조용하진 않았다는군요. 최근의 다른 rc5 들에 비하면 조금 큰 크기의 릴리즈가 되었습니다. 그렇다곤 해도 아주 특이할 만한 정도는 아니라 토발즈도 큰 걱정은 없다는군요.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.4-rc4/">LKML News v5.4-rc4</a></h2>
-    <div class="article-style">
-      
-      [PATCH 0/8] Add Kernel Concurrency Sanitizer (KCSAN) https://lkml.kernel.org/r/20191016083959.186860-1-elver@google.com
-구글에서 만든 동시성 버그 탐색기능, KCSAN 을 추가하는 패치셋입니다. 처음 세상에 모습을 드러낸건 9월이었고, 최근 컨퍼런스들에서도 발표가 있었죠. 메커니즘은 간단하다면 간단한, 샘플링 기반입니다. 구글 내부 fuzzing tester 인 syzkaller 는 이미 이 기능을 켠채 돌아간다는군요.
-[PATCH 2/2] mm, zswap: Support THP https://lkml.kernel.org/r/1571111349-5041-2-git-send-email-teawater@gmail.com
-Zswap 이THP 를 지원하도록 수정하는 패치입니다. 그냥 zswap_frontswap_store() 함수가 THP 페이지를 연속적인 4 KiB 페이지로 인식하고 처리하게끔 했군요.
-[PATCH RFC v1 00/26] Add KernelMemorySanitizer infrastructure https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.4-rc3/">LKML News v5.4-rc3</a></h2>
-    <div class="article-style">
-      
-      Linux 5.4-rc3 https://lkml.kernel.org/r/CAHk-=wjOhveT=qrq8HHyL7gpA5fmBtDa2ue7sO5ZSEBrrcY6Vg@mail.gmail.com
-세번째 rc 릴리즈입니다. 실제 문제가 발견되고 그에 대한 수정이 본격적으로 시작되는 시즌이라 rc2보단 당연히 크지만 역대 rc3 들과 비교하면 작은 편의 릴리즈라는군요. staging driver 일부가 사라진 게 조금 릴리즈 크기를 크게 보이게 만들 수 있다는게 그나마 유의할 점일까요.
       
     </div>
   </div>

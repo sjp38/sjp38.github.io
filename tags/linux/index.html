@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2023-08-15T06:38:39-07:00">
+    <meta property="og:updated_time" content="2023-09-20T12:12:43-07:00">
   
 
   
@@ -525,6 +525,58 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.6-rc3/">LKML News v6.6-rc3</a></h2>
+    <div class="article-style">
+      
+      [Invitation] Linux MM Alignment Session on APIs for Sparse Mappings on Wednesday (David Rientjes) https://lkml.kernel.org/r/fba78307-e4a3-2621-2917-464f19bb4c57@google.com
+David is organizing yet another Linux MM alignment session for proper API for sparse mappings.
+[PATCH v2] vmscan: add trace events for lru_gen (Jaewon Kim) https://lkml.kernel.org/r/20230921062206.14429-1-jaewon31.kim@samsung.com
+This patch adds two new tracevents called trace_mm_vmscan_lru_gen_scan and trace_mm_vmscan_lru_gen_evict that similar to trace_mm_vmscan_lru_isolate and trace_mm_vmscan_lru_shrink_[in]active.
+[PATCH v3 00/15] futex: More futex2 bits (Peter Zijlstra) https://lkml.kernel.org/r/20230921104505.717750284@noisy.programming.kicks-ass.net
+Peter sent third version of the patchset that introduces a new interface for same futex core, futex2.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v6.6-rc2/">LKML News v6.6-rc2</a></h2>
+    <div class="article-style">
+      
+      [syzbot] Monthly mm report (Sep 2023) https://lkml.kernel.org/r/000000000000c06b600605127cb3@google.com
+Syzbot posted its mm subsystem report for last 31 days. For the period, seven new issues were found and two among those were fixed. In total, 43/232 issues are still open.
+[PATCH 0/2] workload-specific and memory pressure-driven zswap writeback (Nhat Pham) https://lkml.kernel.org/r/20230911164024.2541401-1-nphamcs@gmail.com
+Zswap has only single LRU list and shrinks under user-defined limit. This patch series seperates the LRU list out to per-memcg and per-NUMA, and perform workload-specific writeback under memory pressure.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v6.6-rc1/">LKML News v6.6-rc1</a></h2>
+    <div class="article-style">
+      
+      [GIT PULL] MM updates for 6.6-rc1 (Andrew Morton) https://lkml.kernel.org/r/20230828184251.bfbc164280503903eacf498c@linux-foundation.org
+Andrew sent the mm subsystem pull request for v6.6-rc1 to Linus Torvalds. And, it pulled.
+[PATCH 1/2] mm/vmalloc: Add a safer version of find_vm_area() for debug (Joel Fernendes) https://lkml.kernel.org/r/20230830110402.386898-1-joel@joelfernandes.org
+A patchset implementing safe trylock version of vmalloc dump function.
+[PATCH v2 0/6] Introduce __mt_dup() to improve the performance of fork() (Peng Zhang) https://lkml.kernel.org/r/20230830125654.21257-1-zhangpeng.00@bytedance.com
+When doing fork(), vma of the parent should be inserted into the maple tree of the child.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v6.5/">LKML News v6.5</a></h2>
+    <div class="article-style">
+      
+      [PATCH] maple_tree: shrink struct maple_tree from 24 to 16 bytes on LP64 (Mateusz Guzik) https://lkml.kernel.org/r/20230821225145.2169848-1-mjguzik@gmail.com
+This patchset moves ma_root field to be placed after ma_flags to plug a padding hole of struct mape_tree, to reduce the size of the struct.
+idea for scalable and almost waste-free percpu counter alloc (was: Re: [PATCH 0/2] execve scalability issues, part 1) (Mateusz Guzik) https://lkml.kernel.org/r/CAGudoHH-b5R+COHUtns92NTzSVeT1ECMHb22SEcH_108Pi0FTQ@mail.gmail.com
+Mateusz is suggesting another idea for scalable and almost-waste-free percpu counter alloc.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.5-rc7/">LKML News v6.5-rc7</a></h2>
     <div class="article-style">
       
@@ -596,55 +648,6 @@ This patch moves secondary TLB invcalidation mmu notifier callbacks to architect
 David from Google is hosting yet another Linux MM Alignment session on Wednesday. The topic of this week is the process page table sharing, which could be a clear efficiency win for situations where huge number of processes sharing same pages.
 [PATCH v3 0/7] Add support for memmap on memory feature on ppc64 (Aneesh Kumar K.V) https://lkml.kernel.org/r/20230711044834.72809-1-aneesh.kumar@linux.ibm.com
 This makes the memmap on memory feature more useful for ppc64-like architectures having alignment rules that different with 64K page size.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/ossummit_eu_2023_talk/">I will have a talk at the Open Source Summit Europe 2023</a></h2>
-    <div class="article-style">
-      
-      DAMON talk for OSSummit EU 2023 has accepted and scheduled. The talk will focus on its user-space tool, damo. It&rsquo;s mainly for helping more audiences to digest the content easier, and also for accelerating the development of damo. By the time, hopefully the version of damo would reach to, or exceed 2.0.0, and newer interface and features will be introduced together.
-The title of the talk is &ldquo;Data Access Monitoring Operator (DAMO): User-Space Tool/Python Library for Access-Aware Profiling and Optimization of Your Linux Systems&rdquo;.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.5-rc1/">LKML News v6.5-rc1</a></h2>
-    <div class="article-style">
-      
-      [GIT PULL] MM updates for 6.5-rc1 (Andrew Morton) https://lkml.kernel.org/r/20230626085035.e66992e96b4c6d37dad54bd9@linux-foundation.org
-Andrew Morton sent the memory management subsystem pull request for v6.5-rc1. Among the change, cachestata() syscall and Mel Gorman&rsquo;s compaction optimization looks interesting to me.
-[GIT PULL] slab updates for 6.5 (Vlastimil Babka) https://lkml.kernel.org/r/1c39c9b0-ec37-f910-2b09-cedf7acf6e91@suse.cz
-Vlastimil sent the slab pull request for v6.5 to Linus Torvalds. This contains the SLAB config deprecation renaming (s/CONFIG_SLAB/CONFIG_SLAB_DEPRECATED/).
-[PATCH v1 0/5] mm/memory_hotplug: make offline_and_remove_memory() timeout instead of failing on fatal signals (David Hildenbrand) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.4/">LKML News v6.4</a></h2>
-    <div class="article-style">
-      
-      [PATCH] mm/memory_hotplug.c: don&rsquo;t fail hot unplug quite so eagerly (John Hubbard) https://lkml.kernel.org/r/20230620011719.155379-1-jhubbard@nvidia.com
-Some device drivers add and remove memory to the system via memory hot [un]plog. Nevertheless, the ungplugging could fail easily, especially for the pending signal on the process. This patch simply remove the signal check error.
-[PATCH v2] mm/min_free_kbytes: modify min_free_kbytes calculation rules (liuq) https://lkml.kernel.org/r/20230621073912.21747-1-liuq131@chinatelecom.cn
-This patch adjusts min_free_kbytes calculation so that ZONE_NORMAL is unnecessarily be too small when ZONE_MOVABLE exists.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.4-rc7/">LKML News v6.4-rc7</a></h2>
-    <div class="article-style">
-      
-      [GIT PULL] hotfixes for 6.4-rc7 (Andrew Morton) https://lkml.kernel.org/r/20230612122712.f495e24b80f88f58557ea470@linux-foundation.org
-Andrew sent hot fixes pull request to Linus Torvalds. The one for DAMON is also contained.
-[PATCH stable 5.10 0/1] Fix memleak during hotremove memory (Ma Wupeng) https://lkml.kernel.org/r/20230614061900.3296725-1-mawupeng1@huawei.com
-Ma found a memory leak in memory hotplugging, and providing a patch.
-[ANNOUNCE/CFP] CXL Microconference at LPC 2023 (Davidlohr Bueso) https://lkml.kernel.org/r/a4c2gx2tnm4ckax7qkx2trnvmqjssfytc45sb2zikuayd2marc@rpsjp4icgsvn
-Davidlohr announces CXL microconference has accepted for LPC this year, and inviting people in the call for participation.
       
     </div>
   </div>

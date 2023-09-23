@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2023-08-15T06:38:39-07:00">
+    <meta property="og:updated_time" content="2023-09-20T12:12:43-07:00">
   
 
   
@@ -525,6 +525,57 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.13-rc4/">LKML News v5.13-rc4</a></h2>
+    <div class="article-style">
+      
+      [PATCH 0/2] arm64: remove page granularity limitation from KFENCE (Jisheng Zhang) https://lkml.kernel.org/r/20210524172433.015b3b6b@xhacker.debian
+This patchset removes the page granularity mapping requirement for the KFENCE&rsquo;s linear map, to achieve both arm64&rsquo;s block level and contiguous mapping for non-KFENCE pool pages, by allocating the KFENCE pool before paging_init().
+[PATCH v2 00/21] Optimize list lru memory consumption (Muchun Song) https://lkml.kernel.org/r/20210527062148.9361-1-songmuchun@bytedance.com
+Muchun found kmalloc-32 slab cache consuming huge memory due to cgroups initialization, and posting this patchset which expected to fix the problem fundamentally.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v5.13-rc3/">LKML News v5.13-rc3</a></h2>
+    <div class="article-style">
+      
+      RCU tests for Maple Tree (Paul E. McKenney) https://lkml.kernel.org/r/20210517154048.GA2013926@paulmck-ThinkPad-P17-Gen-1
+Paul is asking if there are rcu-related tests for Maple Tree other than rcu_loop() and rcu_val() that Paul needs to looking for.
+[PATCH v20 0/7] mm: introduce memfd_secret system call to create &ldquo;secret&rdquo; memory areas (Mike Rapoport) https://lkml.kernel.org/r/20210518072034.31572-1-rppt@kernel.org
+The 20th version of the patchset that implements &lsquo;secret&rsquo; mappings backed by a file descriptor.
+[PATCH v3 00/14] Multigenerational LRU Framework (Yu Zhao) https://lkml.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v5.13-rc2/">LKML News v5.13-rc2</a></h2>
+    <div class="article-style">
+      
+      [RESEND] LSF/MM/BPF: 2021: Call for Proposals (Josef Bacik) https://lkml.kernel.org/r/60997079.1c69fb81.77f3f.a045@mx.google.com/
+CFG for LSF/MM/BPF 2021 posted. It will be held from 2021-12-06 to 2021-12-08 in Palm Springs, California. As of now, it is supposed to be an in-person conference!
+[LSF/MM/BPF TOPIC] Memory folios (Matthew Wilcox) https://lkml.kernel.org/r/YJlzwcADaxO/JHRE@casper.infradead.org
+Matthew expects the memory folios patchset will be merged soon, but he wants to discuss about it in the LSFMM, if there are something to discuss more.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v5.13-rc1/">LKML News v5.13-rc1</a></h2>
+    <div class="article-style">
+      
+      [PATCH v3] mm/compaction:let proactive compaction order configurable (chukaiping) https://lkml.kernel.org/r/1619313662-30356-1-git-send-email-chukaiping@baidu.com
+Third version of the patchset making compaction order lower than 9. Machines using 1GB hugetlbfs huge pages could be an example user of this feature.
+[PATCH v4] mm/compaction: let proactive compaction order configurable (chukaiping) https://lkml.kernel.org/r/1619576901-9531-1-git-send-email-chukaiping@baidu.com
+Fourth version of the patchset posted quite quickly.
+[PATCH 00/94] Introducing the Maple Tree (Liam Howlett) https://lkml.kernel.org/r/20210428153542.2814175-1-Liam.Howlett@Oracle.com
+This huge patchset introduces an RCU-safe range based B-tree called maple tree.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.12/">LKML News v5.12</a></h2>
     <div class="article-style">
       
@@ -591,52 +642,6 @@ Issue with kfence and kmemleak (Luis Henriques) https://lkml.kernel.org/r/YFDf6i
 Luis found a problem when kmemleak and kfence is used together. A fix is made by Marco.
 [PATCH v4 00/13] Introduced multi-preference mempolicy (Feng Tang) https://lkml.kernel.org/r/1615952410-36895-1-git-send-email-feng.tang@intel.com
 This is the fourth version of the patchset.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.12-rc3/">LKML News v5.12-rc3</a></h2>
-    <div class="article-style">
-      
-      [PATCH 00/10] [v6] Migrate Pages in lieu of discard (Dave Hansen) https://lkml.kernel.org/r/20210304235949.7922C1C3@viggo.jf.intel.com
-When the system configured with both DRAM and persistent memory, current kernel starts reclamation when DRAM fulls even though there are some space in persistent memory. And from some point, all page allocation is done on the persistent memory only, even though DRAM has some free slots now.
-This patchset mitigates the problem by migrating pages that about to be reclaimed to persistent memory.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.12-rc2/">LKML News v5.12-rc2</a></h2>
-    <div class="article-style">
-      
-      [PATCH] mm: introduce clear all vm events counters (Pintu Kumar) https://lkml.kernel.org/r/1614595766-7640-1-git-send-email-pintu@codeaurora.org
-Because the vmstat data is only cumulated, users should calculate the diff manually or just reboot. This commit adds a procfs file that can be used to clear all vmstat counters.
-[PATCH 0/5] Introduce a bulk order-0 page allocator with two in-tree users (Mel Gorman) https://lkml.kernel.org/r/20210301161200.18852-1-mgorman@techsingularity.net
-This patchset introduces a bulk order-0 page allocator. It also makes the sunrpc and the network page pool to use that.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/damon_profile_callstack_example/">An example of DAMON usage for profiling</a></h2>
-    <div class="article-style">
-      
-      I realized I didn&rsquo;t introduce a good, intuitive example use case of DAMON[0] for profiling so far, though DAMON is not for only profiling. One straightforward and realistic usage of DAMON as a profiling tool would be recording the monitoring results with callstack and visualize those by timeline together.
-For example, below shows that visualization for a realistic workload, namely &lsquo;fft&rsquo; in SPLASH-2X benchmark suite. The upper-most graph shows how DAMON-detected working set size of the workload (y-axis) changes by time (x-axis).
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.12-rc1/">LKML News v5.12-rc1</a></h2>
-    <div class="article-style">
-      
-      [PATCH v11 00/14] prohibit pinning pages in ZONE_MOVABLE (Pavel Tatashin) https://lkml.kernel.org/r/20210215161349.246722-1-pasha.tatashin@soleen.com
-The 11th version of the patchset making ZONE_MOVABLE really movable. In this version, a build error on i386 is fixed.
-[RFC PATCH] mm, oom: introduce vm.sacrifice_hugepage_on_oom https://lkml.kernel.org/r/20210216030713.79101-1-eiichi.tsukata@nutanix.com
-This RFC patch introduces yet another sysctl knob called vm.sacrifice_hugepage_on_oom. When it is turned on, it tries to free available hugepages before waking oom-killer up.
-[RFC] Hugepage collapse in process context (David Rientjes) https://lkml.
       
     </div>
   </div>

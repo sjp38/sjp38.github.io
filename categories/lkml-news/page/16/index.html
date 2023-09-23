@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2023-08-15T06:38:39-07:00">
+    <meta property="og:updated_time" content="2023-09-20T12:12:43-07:00">
   
 
   
@@ -525,6 +525,59 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.8-rc4/">LKML News v5.8-rc4</a></h2>
+    <div class="article-style">
+      
+      [Ksummit-discuss] [TECH TOPIC] Inline Encryption Support and new related features (Satya Tangirala) https://lkml.kernel.org/r/20200629092551.GA673684@google.com
+Maybe the last kernel summit proposal. The inline encryption work was presented in the last year LPC and a part of it has merged in the v5.8, being tested in Android. The talk will discuss the todo list of the work.
+[PATCH] mm: define pte_add_end for consistency (Wei Yang) https://lkml.kernel.org/r/20200630031852.45383-1-richard.weiyang@linux.alibaba.com
+This patch adds a helper to get the address of the next boundary for pte level.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v5.8-rc3/">LKML News v5.8-rc3</a></h2>
+    <div class="article-style">
+      
+      [TECH TOPIC] restricted kernel address spaces (Mike Rapoport) https://lkml.kernel.org/r/20200621090539.GM6493@linux.ibm.com
+A new kernel summit talk proposal is made. This topic is recycled from the LSF/MM/BPF, which scheduled but canceled due to the COVID19.
+[PATCH] mm: filemap: clear idle flag for writes (Yang Shi) https://lkml.kernel.org/r/1593020612-13051-1-git-send-email-yang.shi@linux.alibaba.com
+This patch adds missed idle flag clearing in filemap writing.
++ mm-madvise-introduce-process_madvise-syscall-an-external-memory-hinting-api-fix-2.patch added to -mm tree https://marc.info/?l=linux-mm-commits&amp;m=159303823314812&amp;w=2
+The process_madvise() patch has merged in the -mm tree again.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v5.8-rc2/">LKML News v5.8-rc2</a></h2>
+    <div class="article-style">
+      
+      [PATCH v7] mm: Proactive compaction (Nitin Gupta) https://lkml.kernel.org/r/20200615143614.15267-1-nigupta@nvidia.com
+7th version of the proactive compaction patchset. This version fixes compile error while THP is disabled.
+Maintainers / Kernel Summit 2020 submissions (Theodore Y. Ts&rsquo;o) https://lkml.kernel.org/r/20200615155839.GF2863913@mit.edu
+There were only 5 submissions for the kernel summit talk, and no submission for the maintainers summit. Ted asks people to submit until this week.
+[PATCH v6 0/6] workingset protection/detection on the anonymous LRU list https://lkml.kernel.org/r/1592371583-30672-1-git-send-email-iamjoonsoo.kim@lge.com
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v5.8-rc1/">LKML News v5.8-rc1</a></h2>
+    <div class="article-style">
+      
+      [PATCH v6] mm: Proactive compaction (Nitin Gupta) https://lkml.kernel.org/r/20200601194822.30252-1-nigupta@nvidia.com
+This is the sixth version of the proactive compaction patchset. It makes compaction to be able to triggered earlier than final memory pressure using knobs. The goal is better THP allocation success.
+[PATCH] vmalloc: Convert to XArray (Matthew Wilcox) https://lkml.kernel.org/r/20200603171448.5894-1-willy@infradead.org
+This patchset converts the radix tree for vmap blocks into XArray.
+incoming (Andrew Morton) https://lkml.kernel.org/r/20200608212922.5b7fa74ca3f4e2444441b7f9@linux-foundation.org
+MM-side pull request. It contains the &ldquo;mmap locking API: initial implementation as rwsem wrappers&rdquo; patchset.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.7/">LKML News v5.7</a></h2>
     <div class="article-style">
       
@@ -592,56 +645,6 @@ This patchset makes the compaction to be more proactively done for better THP al
       LSFMMBPF 2020 Cancellation announcement (Josef Bacik) https://lkml.kernel.org/r/0b6d3d6f-99de-3603-4b42-c3db5113633d@toxicpanda.com
 Due to the COVID-19, LSFMM, which was supposed to be help April, has delayed before, and now it has just canceled. What a shame, but this might be the right thing to do. This mail also announce the schedule of next year LSFMM. It will be held in Palm Springs, on May 12-14, 2021 at the Riviera Palm Springs.
 [PATCH 2/2] mm: support vector address ranges for process_madvise (Minchan Kim) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.7-rc2/">LKML News after v5.7-rc2</a></h2>
-    <div class="article-style">
-      
-      [RFC] autonuma: Support to scan page table asynchronously (Huang Ying) https://lkml.kernel.org/r/20200414081951.297676-1-ying.huang@intel.com
-AutoNUMA is currently scanning page tables of the processes in the process context and therefore this can increase the latency of the process. This RFC thus makes the page table scanning asynchronous if there are idle CPUs.
-[PATCH v4 00/10] Add a new mmap locking API wrapping mmap_sem calls https://lkml.kernel.org/r/20200415004353.130248-1-walken@google.com
-This is just a repost of the patch series rebased on v5.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.7-rc1/">LKML News v5.7-rc1</a></h2>
-    <div class="article-style">
-      
-      [GIT PULL] XArray for 5.7-rc1 https://lkml.kernel.org/r/20200331141749.GB21484@bombadil.infradead.org
-Matthew&rsquo;s XArray pull request for 5.7 merge window. Quickly merged by Torvald.
-[PATCH v5 00/10] workingset protection/detection on the anonymous LRU list https://lkml.kernel.org/r/1585892447-32059-1-git-send-email-iamjoonsoo.kim@lge.com
-The fifth version of the workingset protection.
-[PATCH v4 0/2] mm: using CMA for 1 GB hugepages allocation https://lkml.kernel.org/r/20200407010431.1286488-1-guro@fb.com
-This patchset make hugetlb to use CMA for 1GB hugepage allocations.
-[PATCH RFC] mm: compaction: avoid migrating non-cma pages to a cma area The compaction algorithm doesn&rsquo;t distinguish CMA from other movable pageblocks.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.6/">LKML News v5.6</a></h2>
-    <div class="article-style">
-      
-      [PATCH v5 00/38] Add KernelMemorySanitizer infrastructure (glider) https://lkml.kernel.org/r/20200325161249.55095-1-glider@google.com
-This is the fifth official patchset for kernel uninitialized memory related error detector, KMSAN.
-[PATCH 1/2] mm: cma: NUMA node interface (Aslan Barikov) https://lkml.kernel.org/r/20200326212718.3798742-1-aslan@fb.com
-CMA provides no way to specify what NUMA node the memory area to be allocated. This commit adds the interface to specify the NUMA node to use for the allocation.
-[PATCH v3 00/10] Add a new mmap locking API wrapping mmap_sem calls (Michel Lespinasse) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.6-rc7/">LKML News v5.6-rc7</a></h2>
-    <div class="article-style">
-      
-      Linux 5.6-rc7 https://lkml.kernel.org/r/CAHk-=wipv1y2Z7=CDQ5ajb2OvSyq-0BL9yLRPm1YqW+sjcSDzQ@mail.gmail.com
-The world is struggling due to the COVID-19, but kernel development seems quite normal. Torvalds released the 7th rc for the Linux 5.6. There is nothing strange or worrysome here. We will get the v5.6 next week, unless something bad happens.
       
     </div>
   </div>

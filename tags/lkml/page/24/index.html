@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2023-08-15T06:38:39-07:00">
+    <meta property="og:updated_time" content="2023-09-20T12:12:43-07:00">
   
 
   
@@ -525,6 +525,53 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v4.19-rc6/">LKML News after v4.19-rc6</a></h2>
+    <div class="article-style">
+      
+      Linux 4.19-rc6 https://lkml.kernel.org/r/20180930150308.GA5010@kroah.com
+이번주도 Greg 에 의해 여섯번째 rc 버전이 릴리즈 되었습니다. 평소 일정대로면 2주일 후 4.19 정식 버전이 릴리즈 될텐데, 아마도 그때까지도 Greg 이 릴리즈 하지 않을까 싶기도 하군요. 전체적으로 특이사항은 없고 Greg 의 시스템에서는 잘 동작하고 있으며 별다른 이슈를 보고받지도 못했다는군요.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v4.19-rc5/">LKML News after v4.19-rc5</a></h2>
+    <div class="article-style">
+      
+      Linux 4.19-rc5 https://lkml.kernel.org/r/20180923175547.GA4462@kroah.com
+지난주 토발즈가 휴식을 선언한 이유로 한동안 릴리즈는 Greg 이 맡게 되었죠. 이번 릴리즈는 그래서 Greg 이 합니다.
+사회적으로야 이런저런 일이 많았지만 (토발즈의 휴가, Code of Conduct 머지에 관련해 갑론을박이 많군요.) 기술적으로는 별 일 없었던 한주라 평가되는군요.
+사소하지만 재밌는 건 Greg 의 자기 서명. greg &quot;keeping the seat warm for a few weeks&quot; k-h 라고 하는군요. 토발즈가 휴가 가있는 동안 의자를 뎁혀 두는 역할이라는 겸손함이 눈에 띄네요.
+[PATCH -V5 RESEND 00/21] swap: Swapout/swapin THP in one piece https://lkml.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v4.19-rc4/">LKML News after v4.19-rc4</a></h2>
+    <div class="article-style">
+      
+      Linux 4.19-rc4 released, an apology, and a maintainership note https://lkml.kernel.org/r/CA+55aFy+Hv9O5citAawS+mVZO+ywCKd9NQ2wxUmGsz9ZJzqgJQ@mail.gmail.com
+한국시간 새벽 네시 좀 넘어 이 메일을 받았습니다. 평범한 릴리즈 메일이겠거니 했는데 제목이 뭔가 심상치 않군요.
+일단 4.19를 위한 네번째 release candidate 릴리즈가 되었습니다. 약 3주 후 정식 4.19 버전이 릴리즈 되겠군요. 하지만 이 메일은 그보다 많은 내용을 담고 있습니다.
+자유분방하고 형식에 구애되지 않는 해커 문화에 기원을 두고 있는 리눅스 커뮤니티는 조금 거친 언어 문화로 유명했습니다. 예를 들어 이상한 코드를 보내면 리누스 토발즈와 커뮤니티의 일부 사람들이 이 코드를 꾸짖을 수 있는데 그 과정에서 욕설도 있을 수 있다는 거죠.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v4.19-rc3/">LKML News after v4.19-rc3</a></h2>
+    <div class="article-style">
+      
+      Linux 4.19-rc3 https://lkml.kernel.org/r/CA+55aFwSxCt0aKkTxcBstthYXqJ5LtxRbO-CDyqgNwU94Ldq+w@mail.gmail.com
+세번째 rc 릴리즈입니다. 어느새 이번 안정화 기간도 중반을 향하는군요. 시간 참 빠릅니다. 전체적으로 평범한 릴리즈입니다. 딱히 언급할 거리가 없군요.
+[RFC PATCH v2 0/8] lru_lock scalability and SMP list functions https://lkml.kernel.org/r/20180911004240.4758-1-daniel.m.jordan@oracle.com
+올해 LSF/MM 서밋에서도 이야기되었던, lru_lock 의 확장성을 개선하기 위한 노력의 정리입니다. LRU 리스트에 여러 쓰레드가 실제 데이터를 겹쳐 쓰지 않는다면 동시에 접근할 수 있는 새로운 오퍼레이션 세개 (smp_list_del(), smp_list_splice(), smp_list_add())을 추가했구요. 두번째로, lru_lock 을 spinlock 에서 rwlock 으로 교체했군요.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v4.19-rc2/">LKML News after v4.19-rc2</a></h2>
     <div class="article-style">
       
@@ -592,56 +639,6 @@ Plumbers 2018 - Performance and Scalability Microconference https://lkml.
 지난 rc5 작업 주간을 귀찮게 했던 VM 버그에 대한 두줄의 수정이 rc5 에 들어갔었지만 32비트 환경에 대한 고려가 없었기에 이번에 그 수정이 들어갔다는군요.
 [PATCH 0/7] memory management documentation updates https://lkml.kernel.org/r/1532517970-16409-1-git-send-email-rppt@linux.vnet.ibm.com
 메모리 관리 부분 문서화 업데이트입니다. sphinx 기반 문서화 업데이트를 일부 메인테이너들은 반기지 않는 것도 사실이지만, 확실히 가독성이 좋아진 덕에 이런 문서화 노력이 더 활발해 지는 것 아닌가 하는 생각도 드는군요.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.18-rc4/">Lkml_news_v4.18 Rc4</a></h2>
-    <div class="article-style">
-      
-      Linux 4.18-rc4 https://lkml.kernel.org/r/CA+55aFwXGyZ1Yx+Z8a93gpvb596ZRJ5ppiQL_+-k7gjeQLtcsQ@mail.gmail.com
-어느덧 네번째 RC 버전 릴리즈입니다. 지루할 정도로 평범한 릴리즈라는군요. 대부분 드라이버쪽 업데이트이고, bpf, cifs, ext4, 스케쥴러, 그리고 일부 arch 업데이트가 대부분입니다.
-[PATCH v9 00/17] Improve shrink_slab() scalability (old complexity was O(n^2), new is O(n)) https://lkml.kernel.org/r/153112469064.4097.2581798353485457328.stgit@localhost.localdomain
-shrink_slab() 의 compexity 를 O(n^2) 에서 O(n) 으로 낮춰 확장성을 높인 패치의 아홉번째 버전입니다.
-[PATCH 0/2] CMA: remove unsupported gfp mask parameter https://lkml.kernel.org/r/20180709122018eucas1p277147b1e6385d552b5a8930d0a8ba91c~-sqSan6292733527335eucas1p2-@eucas1p2.samsung.com
-cma_alloc() 과 dma_alloc_from_contiguous() 함수는 gfp mask 패러미터를 받지만 실질적으론 __GFP_NORARN 플래그만을 지원하고 있습니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.17/">LKML News after v4.17</a></h2>
-    <div class="article-style">
-      
-      Linux 4.17 https://lkml.kernel.org/r/CA+55aFxhx_tKGm02UySguvbyfB_7oTF31QfgOHCK0YkBvmfV0g@mail.gmail.com
-4.17 버전 리눅스 릴리즈입니다. 지난주에 토발즈가 이야기한 것처럼 별다른 지연 없이 릴리즈 되었군요.
-git object 의 갯수라던지 릴리즈를 위한 스크립트 등이 리눅스 5.x 버전으로의 메이저 버전 업데이트가 될 준비가 되었다고 하지만 토발즈는 딱히 5.x 로 아직은 넘어갈 생각이 없군요. 너무 멀지 않은 미래에 넘어가겠지만, 적어도 지금은 아니라고 합니다.
-항상 그렇듯 이 릴리즈는 4.18을 위한 머지 윈도우의 시작이기도 한데, 토발즈는 두번째 주에 여행을 갈거라 가능하면 첫째주에 중요한 머지를 마무리 했으면 한다고 하네요.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.17-rc7/">LKML News after 4.17-rc7</a></h2>
-    <div class="article-style">
-      
-      Linux 4.17-rc7 https://lkml.kernel.org/r/CA+55aFwUqz9z1Rf4Wwr29W7DeKxQ67qKEW5xty+JPyCY3aNQ=A@mail.gmail.com
-일곱번째 rc 입니다. 지난 몇주보다는 조금 변경사항이 있었지만 그렇다 해도 그렇게 심한 정도는 아니었기에 아마도 이게 마지막 rc 일 거라는군요.
-[PATCH 00/13] Introdue io.latency io controller for cgroups https://lkml.kernel.org/r/20180529211724.4531-1-josef@toxicpanda.com
-Cgroup 에 응답시간 (latency) 기반의 I/O 컨트롤러를 추가하는 패치셋입니다. Cgroup 은 용량 기반의 컨트롤러는 많지만 응답시간 기반의 컨트롤러가 부족하다고 느껴왔는데, 역시 추가되어 가는군요.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.17-rc6/">LKML News after v4.17-rc6</a></h2>
-    <div class="article-style">
-      
-      Linux v4.17-rc6 https://lkml.kernel.org/r/CA+55aFxxYQFL3mwsQcC+__R23ZmO8c3F0SThi6r44TdK0ePNDQ@mail.gmail.com
-여섯번째 release candidate 버전입니다. 이번 릴리즈에도 특기할 만한 일은 없었습니다. 이제 충분히 안정화 되었을 거라고 하는군요.
-[PATCH -mm -V3 00/21] mm, THP, swap: Swapout/swapin THP in one piece https://lkml.kernel.org/r/20180523082625.6897-1-ying.huang@intel.com
-이전에도 이 시리즈로 소개했던, THP 의 swap out 과 swap in 최적화 마지막 단계 패치의 세번째 버전입니다. 마지막 단계 이야기 하니 문득 인피니티워의 오역 논란이 떠오르는군요 ;) 두번째 버전 이후 특정 컨피규레이션에서의 빌드 버그를 수정했고, mmotm/master 브랜치의 5월 18일자 버전으로 rebase 한게 차이점의 전부군요.
       
     </div>
   </div>
