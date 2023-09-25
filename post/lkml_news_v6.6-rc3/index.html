@@ -631,6 +631,22 @@ and <code>trace_mm_vmscan_lru_shrink_[in]active</code>.</p>
 <p><a href="https://lkml.kernel.org/r/20230921104505.717750284@noisy.programming.kicks-ass.net">https://lkml.kernel.org/r/20230921104505.717750284@noisy.programming.kicks-ass.net</a></p>
 <p>Peter sent third version of the patchset that introduces a new interface for
 same futex core, futex2.</p>
+<h2 id="linux-66-rc3-linus-torvalds">Linux 6.6-rc3 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wjrZgxjHZuXwrGeFnng_whUmtToCWE5GQ+HORhGSeiX8g@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wjrZgxjHZuXwrGeFnng_whUmtToCWE5GQ+HORhGSeiX8g@mail.gmail.com</a></p>
+<p>The third release candidate for Linux v6.6 has released with changes that a bit
+larger than that of the rc2.  It contains a large chunk of filesystem changes,
+but that&rsquo;s not scary.  All the changes are usual.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.15-rc4..v6.6-rc3.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2021-09-25 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc3 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v6.6-rc3-only.png" alt="rc3 release stat"></p>
 
     </div>
 
