@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2023-09-20T12:12:43-07:00">
+    <meta property="og:updated_time" content="2023-09-26T06:50:25-07:00">
   
 
   
@@ -525,6 +525,19 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v4.19-rc7/">LKML News after v4.19-rc7</a></h2>
+    <div class="article-style">
+      
+      Linux 4.19-rc7 https://lkml.kernel.org/r/20181007154529.GA4493@kroah.com
+토발즈 없이 진행되는 4.19를 위한 일곱번째 rc 릴리즈입니다. 이번에도 그렉이 대신 하는군요. 이번 릴리즈는 후반부임에도 rc6 보다 조금 더 커졌습니다. 하지만 그렇게까지 큰 차이는 아니라고 하는군요.
+일반적이라면 다음 릴리즈가 4.19 정식 릴리즈일텐데, 10월에 컨퍼런스가 많이 있다보니 rc 릴리즈를 한번 더 할 생각이라는군요. 간만에 rc8 을 보겠습니다.
+[PATCH -V6 00/21] swap: Swapout/swapin THP in one piece https://lkml.kernel.org/r/20181010071924.18767-1-ying.huang@intel.com
+THP 를 한방에 swap out / swap in 하는 Huang Ying 의 패치, 여섯번째 버전입니다.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v4.19-rc6/">LKML News after v4.19-rc6</a></h2>
     <div class="article-style">
       
@@ -626,19 +639,6 @@ Plumbers 2018 - Performance and Scalability Microconference https://lkml.
 [PATCH v4 0/6] kmalloc-reclaimable caches https://lkml.kernel.org/r/20180731090649.16028-1-vbabka@suse.cz
 내부적으로 SLAB 할당자를 사용하는 kmem cache 들은 SLAB_RECLAIM_ACCOUNT 플래그를 가지고 생성될 경우에 시스템 메모리가 부족한 경우 기존에 할당받은 오브젝트들을 회수해도 좋다고 알리게 됩니다.
 일반적인 kmem cache 들은 이 플래그 없이 생성되서는 시스템의 메모리가 부족한 경우에 회수되어도 좋은 오브젝트의 할당에 사용되기도 하는데, 다양한 크기의 오브젝트들은 SLAB_RECLAIM_ACCOUNT 플래그를 가진 하나의 kmem cache 에서 처리될 수 없기 때문이죠.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.18-rc6/">LKML News after v4.18-rc6</a></h2>
-    <div class="article-style">
-      
-      Linux 4.18-rc6 https://lkml.kernel.org/r/CA+55aFzMheDA-2z=MdGgJrz-REcrknb+4OEvRKaJipm+x6xEhw@mail.gmail.com
-이번 rc는 평소보다 조금 크게 되었는데, 네트워킹 쪽 메인테이너인 David 가 많은 수정사항을 아직 보내지 않았다가 이번에 모아서 보냈기 때문이라는군요. 그렇다 해도 그렇게 큰 양까진 아니라는 토발즈의 설명입니다.
-지난 rc5 작업 주간을 귀찮게 했던 VM 버그에 대한 두줄의 수정이 rc5 에 들어갔었지만 32비트 환경에 대한 고려가 없었기에 이번에 그 수정이 들어갔다는군요.
-[PATCH 0/7] memory management documentation updates https://lkml.kernel.org/r/1532517970-16409-1-git-send-email-rppt@linux.vnet.ibm.com
-메모리 관리 부분 문서화 업데이트입니다. sphinx 기반 문서화 업데이트를 일부 메인테이너들은 반기지 않는 것도 사실이지만, 확실히 가독성이 좋아진 덕에 이런 문서화 노력이 더 활발해 지는 것 아닌가 하는 생각도 드는군요.
       
     </div>
   </div>
