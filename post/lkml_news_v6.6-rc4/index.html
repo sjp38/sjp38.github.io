@@ -31,7 +31,8 @@
   <meta name="description" content="[PATCH v3 0/4] Smart scanning mode for KSM (Stefan Roesch) https://lkml.kernel.org/r/20230926040939.516161-1-shr@devkernel.io
 KSM scans pages without historic information, so pages that already found to be not eligible for deduplication are scanned unnecessarily. This patchset introduces smart scanning for KSM, which utilizes the historic information.
 [PATCH -V2 00/10] mm: PCP high auto-tuning (Huang Ying) https://lkml.kernel.org/r/20230926060911.266511-1-ying.huang@intel.com
-This patchset implements auto-tuning of Per-CPU Pageset high to optimize page allocation performance.">
+This patchset implements auto-tuning of Per-CPU Pageset high to optimize page allocation performance.
+[PATCH rfc 0/5] mm: improve performance of kernel memory accounting (Roman Gushchin) https://lkml.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/lkml_news_v6.6-rc4/">
@@ -156,7 +157,8 @@ This patchset implements auto-tuning of Per-CPU Pageset high to optimize page al
   <meta property="og:description" content="[PATCH v3 0/4] Smart scanning mode for KSM (Stefan Roesch) https://lkml.kernel.org/r/20230926040939.516161-1-shr@devkernel.io
 KSM scans pages without historic information, so pages that already found to be not eligible for deduplication are scanned unnecessarily. This patchset introduces smart scanning for KSM, which utilizes the historic information.
 [PATCH -V2 00/10] mm: PCP high auto-tuning (Huang Ying) https://lkml.kernel.org/r/20230926060911.266511-1-ying.huang@intel.com
-This patchset implements auto-tuning of Per-CPU Pageset high to optimize page allocation performance."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
+This patchset implements auto-tuning of Per-CPU Pageset high to optimize page allocation performance.
+[PATCH rfc 0/5] mm: improve performance of kernel memory accounting (Roman Gushchin) https://lkml."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -208,7 +210,7 @@ This patchset implements auto-tuning of Per-CPU Pageset high to optimize page al
       "url": "https://sjp38.github.io/img/icon-512.png"
     }
   },
-  "description": "[PATCH v3 0/4] Smart scanning mode for KSM (Stefan Roesch) https://lkml.kernel.org/r/20230926040939.516161-1-shr@devkernel.io\nKSM scans pages without historic information, so pages that already found to be not eligible for deduplication are scanned unnecessarily. This patchset introduces smart scanning for KSM, which utilizes the historic information.\n[PATCH -V2 00/10] mm: PCP high auto-tuning (Huang Ying) https://lkml.kernel.org/r/20230926060911.266511-1-ying.huang@intel.com\nThis patchset implements auto-tuning of Per-CPU Pageset high to optimize page allocation performance."
+  "description": "[PATCH v3 0/4] Smart scanning mode for KSM (Stefan Roesch) https://lkml.kernel.org/r/20230926040939.516161-1-shr@devkernel.io\nKSM scans pages without historic information, so pages that already found to be not eligible for deduplication are scanned unnecessarily. This patchset introduces smart scanning for KSM, which utilizes the historic information.\n[PATCH -V2 00/10] mm: PCP high auto-tuning (Huang Ying) https://lkml.kernel.org/r/20230926060911.266511-1-ying.huang@intel.com\nThis patchset implements auto-tuning of Per-CPU Pageset high to optimize page allocation performance.\n[PATCH rfc 0/5] mm: improve performance of kernel memory accounting (Roman Gushchin) https://lkml."
 }
 </script>
 
@@ -623,6 +625,12 @@ introduces smart scanning for KSM, which utilizes the historic information.</p>
 <p><a href="https://lkml.kernel.org/r/20230926060911.266511-1-ying.huang@intel.com">https://lkml.kernel.org/r/20230926060911.266511-1-ying.huang@intel.com</a></p>
 <p>This patchset implements auto-tuning of Per-CPU Pageset high to optimize page
 allocation performance.</p>
+<h2 id="patch-rfc-05-mm-improve-performance-of-kernel-memory-accounting-roman-gushchin">[PATCH rfc 0/5] mm: improve performance of kernel memory accounting (Roman Gushchin)</h2>
+<p><a href="https://lkml.kernel.org/r/20230927150832.335132-1-roman.gushchin@linux.dev">https://lkml.kernel.org/r/20230927150832.335132-1-roman.gushchin@linux.dev</a></p>
+<p>This RFC patchset reduces the kernel memory accounting overhead by removing
+unnecessary <code>memcg-&gt;objcg</code> conversions and use scope-based protection of
+<code>objcg</code>s.  According to the author&rsquo;s microbenchmark, the overhead has reduced
+by about 30 %.</p>
 
     </div>
 

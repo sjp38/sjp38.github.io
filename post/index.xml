@@ -26,6 +26,12 @@ introduces smart scanning for KSM, which utilizes the historic information.&lt;/
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20230926060911.266511-1-ying.huang@intel.com&#34;&gt;https://lkml.kernel.org/r/20230926060911.266511-1-ying.huang@intel.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;This patchset implements auto-tuning of Per-CPU Pageset high to optimize page
 allocation performance.&lt;/p&gt;
+&lt;h2 id=&#34;patch-rfc-05-mm-improve-performance-of-kernel-memory-accounting-roman-gushchin&#34;&gt;[PATCH rfc 0/5] mm: improve performance of kernel memory accounting (Roman Gushchin)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20230927150832.335132-1-roman.gushchin@linux.dev&#34;&gt;https://lkml.kernel.org/r/20230927150832.335132-1-roman.gushchin@linux.dev&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This RFC patchset reduces the kernel memory accounting overhead by removing
+unnecessary &lt;code&gt;memcg-&amp;gt;objcg&lt;/code&gt; conversions and use scope-based protection of
+&lt;code&gt;objcg&lt;/code&gt;s.  According to the author&amp;rsquo;s microbenchmark, the overhead has reduced
+by about 30 %.&lt;/p&gt;
 </description>
     </item>
     
