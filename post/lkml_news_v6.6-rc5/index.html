@@ -31,7 +31,9 @@
   <meta name="description" content="[PATCH 0/5] riscv: Use READ_ONCE()/WRITE_ONCE() for pte accesses (Alexandre Ghiti) https://lkml.kernel.org/r/20231002151031.110551-1-alexghiti@rivosinc.com
 A patchset for making all page table entries accesses use READ_ONCE()/WRITE_ONCE(), to avoid compiler reordering of the accesses.
 [PATCH v1 0/3] mm/gup: Introduce pin_user_pages_fd() for pinning shmem/hugetlbfs file pages (Vivek Kasireddy) https://lkml.kernel.org/r/20231003074447.3245729-1-vivek.kasireddy@intel.com
-A patchset introducing a new function for long-term pages pinning.">
+A patchset introducing a new function for long-term pages pinning.
+[RFC PATCH v3 0/3] Introduce persistent memory pool (Stanislav Kinsburskii) https://lkml.kernel.org/r/169645773092.11424.7258549771090599226.stgit@skinsburskii.
+An RFC implementing a memory allocator in the kernel for persistent memory has posted.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/lkml_news_v6.6-rc5/">
@@ -156,7 +158,9 @@ A patchset introducing a new function for long-term pages pinning.">
   <meta property="og:description" content="[PATCH 0/5] riscv: Use READ_ONCE()/WRITE_ONCE() for pte accesses (Alexandre Ghiti) https://lkml.kernel.org/r/20231002151031.110551-1-alexghiti@rivosinc.com
 A patchset for making all page table entries accesses use READ_ONCE()/WRITE_ONCE(), to avoid compiler reordering of the accesses.
 [PATCH v1 0/3] mm/gup: Introduce pin_user_pages_fd() for pinning shmem/hugetlbfs file pages (Vivek Kasireddy) https://lkml.kernel.org/r/20231003074447.3245729-1-vivek.kasireddy@intel.com
-A patchset introducing a new function for long-term pages pinning."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
+A patchset introducing a new function for long-term pages pinning.
+[RFC PATCH v3 0/3] Introduce persistent memory pool (Stanislav Kinsburskii) https://lkml.kernel.org/r/169645773092.11424.7258549771090599226.stgit@skinsburskii.
+An RFC implementing a memory allocator in the kernel for persistent memory has posted."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -208,7 +212,7 @@ A patchset introducing a new function for long-term pages pinning."><meta proper
       "url": "https://sjp38.github.io/img/icon-512.png"
     }
   },
-  "description": "[PATCH 0/5] riscv: Use READ_ONCE()/WRITE_ONCE() for pte accesses (Alexandre Ghiti) https://lkml.kernel.org/r/20231002151031.110551-1-alexghiti@rivosinc.com\nA patchset for making all page table entries accesses use READ_ONCE()/WRITE_ONCE(), to avoid compiler reordering of the accesses.\n[PATCH v1 0/3] mm/gup: Introduce pin_user_pages_fd() for pinning shmem/hugetlbfs file pages (Vivek Kasireddy) https://lkml.kernel.org/r/20231003074447.3245729-1-vivek.kasireddy@intel.com\nA patchset introducing a new function for long-term pages pinning."
+  "description": "[PATCH 0/5] riscv: Use READ_ONCE()/WRITE_ONCE() for pte accesses (Alexandre Ghiti) https://lkml.kernel.org/r/20231002151031.110551-1-alexghiti@rivosinc.com\nA patchset for making all page table entries accesses use READ_ONCE()/WRITE_ONCE(), to avoid compiler reordering of the accesses.\n[PATCH v1 0/3] mm/gup: Introduce pin_user_pages_fd() for pinning shmem/hugetlbfs file pages (Vivek Kasireddy) https://lkml.kernel.org/r/20231003074447.3245729-1-vivek.kasireddy@intel.com\nA patchset introducing a new function for long-term pages pinning.\n[RFC PATCH v3 0/3] Introduce persistent memory pool (Stanislav Kinsburskii) https://lkml.kernel.org/r/169645773092.11424.7258549771090599226.stgit@skinsburskii.\nAn RFC implementing a memory allocator in the kernel for persistent memory has posted."
 }
 </script>
 
@@ -621,6 +625,10 @@ A patchset introducing a new function for long-term pages pinning."><meta proper
 <h2 id="patch-v1-03-mmgup-introduce-pin_user_pages_fd-for-pinning-shmemhugetlbfs-file-pages-vivek-kasireddy">[PATCH v1 0/3] mm/gup: Introduce pin_user_pages_fd() for pinning shmem/hugetlbfs file pages (Vivek Kasireddy)</h2>
 <p><a href="https://lkml.kernel.org/r/20231003074447.3245729-1-vivek.kasireddy@intel.com">https://lkml.kernel.org/r/20231003074447.3245729-1-vivek.kasireddy@intel.com</a></p>
 <p>A patchset introducing a new function for long-term pages pinning.</p>
+<h2 id="rfc-patch-v3-03-introduce-persistent-memory-pool-stanislav-kinsburskii">[RFC PATCH v3 0/3] Introduce persistent memory pool (Stanislav Kinsburskii)</h2>
+<p><a href="https://lkml.kernel.org/r/169645773092.11424.7258549771090599226.stgit@skinsburskii">https://lkml.kernel.org/r/169645773092.11424.7258549771090599226.stgit@skinsburskii</a>.</p>
+<p>An RFC implementing a memory allocator in the kernel for persistent memory has
+posted.  It maintains kernel specific states like DAM, IOMMU, and kexec.</p>
 
     </div>
 
