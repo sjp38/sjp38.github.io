@@ -578,7 +578,7 @@ An RFC implementing a memory allocator in the kernel for persistent memory has p
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -633,6 +633,22 @@ posted.  It maintains kernel specific states like DAM, IOMMU, and kexec.</p>
 <p><a href="https://lkml.kernel.org/r/20231005163922.87568-1-leitao@debian.org">https://lkml.kernel.org/r/20231005163922.87568-1-leitao@debian.org</a></p>
 <p>A patsetset for adding a selftest that reproduces a page fault races with
 <code>madvise()</code> has posted.</p>
+<h2 id="linux-66-rc5-linus-torvalds">Linux 6.6-rc5 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wh7awamHE3ujoxZFcGMg3wvLTk8UZYSm3m7vUDhpmP2+A@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wh7awamHE3ujoxZFcGMg3wvLTk8UZYSm3m7vUDhpmP2+A@mail.gmail.com</a></p>
+<p>Unlke the rc4, which looked a little smaller maybe due to absence of the
+networking pull request, rc5 looks back to normal.  The networking pull looks
+more clear than usual, but that&rsquo;s just because of the quiet last week.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.15-rc6..v6.6-rc5.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2021-10-09 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc5 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v6.6-rc5-only.png" alt="rc5 release stat"></p>
 
     </div>
 
