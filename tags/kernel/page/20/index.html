@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2023-10-03T06:47:07-07:00">
+    <meta property="og:updated_time" content="2023-10-10T06:40:48-07:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.4/">LKML News v5.4</a></h2>
+    <div class="article-style">
+      
+      [PATCH RFC v3 00/36] Add KernelMemorySanitizer infrastructure https://lkml.kernel.org/r/20191122112621.204798-1-glider@google.com
+Google&rsquo;s third KMSAN RFC patchset that detects errors caused by accessing uninitialized memory areas. Like other SAN series, it has been used in Google syzkaller and found over 200 bugs in the last two years.
+LSF/MM/BPF: 2020: Call for Proposals https://lkml.kernel.org/r/20191122172502.vffyfxlqejthjib6@macbook-pro-91.dhcp.thefacebook.com
+LSF/MM&rsquo;s CFP for the next year was released. From next year, BPF sessions will be added to LSF/MM, so the name has changed to LSF/MM/BPF.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.4-rc8/">LKML News v5.4-rc8</a></h2>
     <div class="article-style">
       
@@ -624,18 +636,6 @@ Page reclaim 관련 성능 메트릭을 분석하기 위한 perf script 커맨�
 v5.4 에 들어가기엔 좀 늦은 관계로, v5.5 에 들어갈 것 같다는군요.
 Linux 5.3 https://lkml.kernel.org/r/CAHk-=wiP4K8DRJWsCo=20hn_6054xBamGKF2kPgUzpB5aMaofA@mail.gmail.com
 LPC 와 커널 서밋 등으로 인해 한주 늦춰진 5.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.3-rc8/">LKML News v5.3-rc8</a></h2>
-    <div class="article-style">
-      
-      [PATCH RFC 00/14] The new slab memory controller https://lkml.kernel.org/r/20190905214553.1643060-1-guro@fb.com
-슬랩 할당자의 실제 메모리 활용률이 대부분 45-65 퍼센트에 불과했다고 합니다. 이는 슬랩 페이지가 각 메모리 cgroup 마다 배타적으로 사용되기 때문입니다. 적은 메모리만 사용하는 cgroup 여러개가 존재하면 슬랩에서 크게 받아놓은 메모리에서 조금씩만 실제 사용되니까 전체 활용률은 낮게 되는거죠. 이 RFC 패치셋은 서로 다른 cgroup 들이 슬랩 페이지를 공유할 수 있게 함으로써 이 문제를 해결합니다.
-Linux 5.3-rc8 https://lkml.kernel.org/r/CAHk-=whBQ+6c-h+htiv6pp8ndtv97+45AH9WvdZougDRM6M4VQ@mail.gmail.com
-평소대로라면 5.3 정식 릴리즈가 되었을테고 별다른 문제는 없었지만, rc7 릴리즈에서 이야기된대로 LPC 와 커널 서밋도 있고 한 이유로, -rc8 이 릴리즈 되었습니다.
       
     </div>
   </div>

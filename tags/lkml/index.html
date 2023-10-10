@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2023-10-03T06:47:07-07:00">
+    <meta property="og:updated_time" content="2023-10-10T06:40:48-07:00">
   
 
   
@@ -525,6 +525,16 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.6-rc6/">LKML News v6.6-rc6</a></h2>
+    <div class="article-style">
+      
+      [RFC PATCH 0/5] hot page swap to zram, cold page swap to swapfile directly (Lincheng Yang) https://lkml.kernel.org/r/20231008095924.1165106-1-lincheng.yang@transsion.com
+The team has made the kernel feature that swaps hot page to zram and cold pages to swapfile, directly. It aims to reduce zram compression/decompression overhead under memory pressure on Android v4.19 linux kernel, and trying to make it upstreamed due to the GKI limitation.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.6-rc5/">LKML News v6.6-rc5</a></h2>
     <div class="article-style">
       
@@ -636,19 +646,6 @@ Maple Tree Work 2023/08 (Laim R. Howlett) https://lkml.kernel.org/r/202308011948
 Liam shares monthlee update of maple tree work progress and todo for avoid conflict.
 [RFC PATCH 0/2] vmrd: dynamic guest VM memory resizing daemon (Sudarshan Rajagopalan) https://lkml.kernel.org/r/cover.1690836010.git.quic_sudaraja@quicinc.com
 Sudarshan posted an RFC for dynamic guest VM memory resizing based on the guest&rsquo;s memory demand.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.5-rc4/">LKML News v6.5-rc4</a></h2>
-    <div class="article-style">
-      
-      [PATCH v5 0/7] Add support for memmap on memory feature on ppc64 (Aneesh Kumar K.V) https://lkml.kernel.org/r/20230725100212.531277-1-aneesh.kumar@linux.ibm.com
-Aneesh continues adding support of memmap_on_memory for more architectures.
-[PATCH mm-unstable v7 00/31] Split ptdesc from struct page (Vishal Moola) https://lkml.kernel.org/r/20230725042051.36691-1-vishal.moola@gmail.com
-The seventh revision of the patchset for splitting page table tracking information out of struct page for making it smaller.
-[PATCH v3 00/49] use refcount+RCU method to implement lockless slab shrink (Qi Zheng) https://lkml.
       
     </div>
   </div>
