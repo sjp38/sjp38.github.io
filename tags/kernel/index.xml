@@ -23,6 +23,11 @@
 to swapfile, directly.  It aims to reduce zram compression/decompression
 overhead under memory pressure on Android v4.19 linux kernel, and trying to
 make it upstreamed due to the GKI limitation.&lt;/p&gt;
+&lt;h2 id=&#34;rfc-patch-zswap-add-writeback_time_threshold-interface-to-shrink-zswap-pool-zhongkun-he&#34;&gt;[RFC PATCH] zswap: add &lt;code&gt;writeback_time_threshold&lt;/code&gt; interface to shrink zswap pool (Zhongkun He)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20231011051117.2289518-1-hezhongkun.hzk@bytedance.com&#34;&gt;https://lkml.kernel.org/r/20231011051117.2289518-1-hezhongkun.hzk@bytedance.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;A patch for giving users a knob to proactively shrink swap pool, namely
+writeback time threshold, has sent.  The purpose is to avoid zswap&amp;rsquo;s memory
+waste due to it&amp;rsquo;s non-awareness of access pattern of the objects.&lt;/p&gt;
 </description>
     </item>
     

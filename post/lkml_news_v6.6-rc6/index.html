@@ -29,7 +29,8 @@
     
   
   <meta name="description" content="[RFC PATCH 0/5] hot page swap to zram, cold page swap to swapfile directly (Lincheng Yang) https://lkml.kernel.org/r/20231008095924.1165106-1-lincheng.yang@transsion.com
-The team has made the kernel feature that swaps hot page to zram and cold pages to swapfile, directly. It aims to reduce zram compression/decompression overhead under memory pressure on Android v4.19 linux kernel, and trying to make it upstreamed due to the GKI limitation.">
+The team has made the kernel feature that swaps hot page to zram and cold pages to swapfile, directly. It aims to reduce zram compression/decompression overhead under memory pressure on Android v4.19 linux kernel, and trying to make it upstreamed due to the GKI limitation.
+[RFC PATCH] zswap: add writeback_time_threshold interface to shrink zswap pool (Zhongkun He) https://lkml.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/lkml_news_v6.6-rc6/">
@@ -152,7 +153,8 @@ The team has made the kernel feature that swaps hot page to zram and cold pages 
   <meta property="og:url" content="https://sjp38.github.io/post/lkml_news_v6.6-rc6/">
   <meta property="og:title" content="LKML News v6.6-rc6 | hacklog">
   <meta property="og:description" content="[RFC PATCH 0/5] hot page swap to zram, cold page swap to swapfile directly (Lincheng Yang) https://lkml.kernel.org/r/20231008095924.1165106-1-lincheng.yang@transsion.com
-The team has made the kernel feature that swaps hot page to zram and cold pages to swapfile, directly. It aims to reduce zram compression/decompression overhead under memory pressure on Android v4.19 linux kernel, and trying to make it upstreamed due to the GKI limitation."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
+The team has made the kernel feature that swaps hot page to zram and cold pages to swapfile, directly. It aims to reduce zram compression/decompression overhead under memory pressure on Android v4.19 linux kernel, and trying to make it upstreamed due to the GKI limitation.
+[RFC PATCH] zswap: add writeback_time_threshold interface to shrink zswap pool (Zhongkun He) https://lkml."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -204,7 +206,7 @@ The team has made the kernel feature that swaps hot page to zram and cold pages 
       "url": "https://sjp38.github.io/img/icon-512.png"
     }
   },
-  "description": "[RFC PATCH 0/5] hot page swap to zram, cold page swap to swapfile directly (Lincheng Yang) https://lkml.kernel.org/r/20231008095924.1165106-1-lincheng.yang@transsion.com\nThe team has made the kernel feature that swaps hot page to zram and cold pages to swapfile, directly. It aims to reduce zram compression/decompression overhead under memory pressure on Android v4.19 linux kernel, and trying to make it upstreamed due to the GKI limitation."
+  "description": "[RFC PATCH 0/5] hot page swap to zram, cold page swap to swapfile directly (Lincheng Yang) https://lkml.kernel.org/r/20231008095924.1165106-1-lincheng.yang@transsion.com\nThe team has made the kernel feature that swaps hot page to zram and cold pages to swapfile, directly. It aims to reduce zram compression/decompression overhead under memory pressure on Android v4.19 linux kernel, and trying to make it upstreamed due to the GKI limitation.\n[RFC PATCH] zswap: add writeback_time_threshold interface to shrink zswap pool (Zhongkun He) https://lkml."
 }
 </script>
 
@@ -616,6 +618,11 @@ The team has made the kernel feature that swaps hot page to zram and cold pages 
 to swapfile, directly.  It aims to reduce zram compression/decompression
 overhead under memory pressure on Android v4.19 linux kernel, and trying to
 make it upstreamed due to the GKI limitation.</p>
+<h2 id="rfc-patch-zswap-add-writeback_time_threshold-interface-to-shrink-zswap-pool-zhongkun-he">[RFC PATCH] zswap: add <code>writeback_time_threshold</code> interface to shrink zswap pool (Zhongkun He)</h2>
+<p><a href="https://lkml.kernel.org/r/20231011051117.2289518-1-hezhongkun.hzk@bytedance.com">https://lkml.kernel.org/r/20231011051117.2289518-1-hezhongkun.hzk@bytedance.com</a></p>
+<p>A patch for giving users a knob to proactively shrink swap pool, namely
+writeback time threshold, has sent.  The purpose is to avoid zswap&rsquo;s memory
+waste due to it&rsquo;s non-awareness of access pattern of the objects.</p>
 
     </div>
 
