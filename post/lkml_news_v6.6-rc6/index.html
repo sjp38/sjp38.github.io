@@ -623,6 +623,16 @@ make it upstreamed due to the GKI limitation.</p>
 <p>A patch for giving users a knob to proactively shrink swap pool, namely
 writeback time threshold, has sent.  The purpose is to avoid zswap&rsquo;s memory
 waste due to it&rsquo;s non-awareness of access pattern of the objects.</p>
+<h2 id="rfc-patch-v1-02-swap-out-small-sized-thp-without-splitting-ryan-roberts">[RFC PATCH v1 0/2] Swap-out small-sized THP without splitting (Ryan Roberts)</h2>
+<p><a href="https://lkml.kernel.org/r/20231010142111.3997780-1-ryan.roberts@arm.com">https://lkml.kernel.org/r/20231010142111.3997780-1-ryan.roberts@arm.com</a></p>
+<p>Small-sized THP is an upcoming feature for THP that smaller than the
+traditional PMD-sized THP.  This RFC patch is for applying the swapout of THP
+without split to it as the PMD-sized THP does.</p>
+<h2 id="rfc-patch-v2-03-mm-mempolicy-multi-tier-weighted-interleaving-gregory-price">[RFC PATCH v2 0/3] mm: mempolicy: Multi-tier weighted interleaving (Gregory Price)</h2>
+<p><a href="https://lkml.kernel.org/r/20231009204259.875232-1-gregory.price@memverge.com">https://lkml.kernel.org/r/20231009204259.875232-1-gregory.price@memverge.com</a></p>
+<p>This is revisiting of an RFC for tiered memory aware mempolicy improvement,
+which authored by Ravi Shankar originally.  This version is collaborated with
+the original author.</p>
 
     </div>
 
