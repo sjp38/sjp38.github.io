@@ -572,7 +572,7 @@ The team has made the kernel feature that swaps hot page to zram and cold pages 
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -633,6 +633,10 @@ without split to it as the PMD-sized THP does.</p>
 <p>This is revisiting of an RFC for tiered memory aware mempolicy improvement,
 which authored by Ravi Shankar originally.  This version is collaborated with
 the original author.</p>
+<h2 id="rfc-patch-11-mm-only-use-old-generation-and-stable-tier-for-madv_pageout-zhaoyang-huang">[RFC PATCH 1/1] mm: only use old generation and stable tier for madv_pageout (Zhaoyang Huang)</h2>
+<p><a href="https://lkml.kernel.org/r/20231013113028.2720996-1-zhaoyang.huang@unisoc.com">https://lkml.kernel.org/r/20231013113028.2720996-1-zhaoyang.huang@unisoc.com</a></p>
+<p>This RFC patch make <code>MADV_PAGEOUT</code> to skip paging hot pages or pages in stable
+tier.</p>
 
     </div>
 
