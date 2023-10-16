@@ -637,6 +637,25 @@ the original author.</p>
 <p><a href="https://lkml.kernel.org/r/20231013113028.2720996-1-zhaoyang.huang@unisoc.com">https://lkml.kernel.org/r/20231013113028.2720996-1-zhaoyang.huang@unisoc.com</a></p>
 <p>This RFC patch make <code>MADV_PAGEOUT</code> to skip paging hot pages or pages in stable
 tier.</p>
+<h2 id="linux-66-rc6-linus-torvalds">Linux 6.6-rc6 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=whRt+O3rYh+0CxR7AbZVrEFgfTLubR9fLVxRpe9GGvB8g@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=whRt+O3rYh+0CxR7AbZVrEFgfTLubR9fLVxRpe9GGvB8g@mail.gmail.com</a></p>
+<p>Things continue looking calm and normal.  Torvalds also shares a musical video
+documentary (<a href="https://www.youtube.com/watch?v=WxnN05vOuSM)">https://www.youtube.com/watch?v=WxnN05vOuSM)</a>.  Torvalds again says
+everything goes normal, so we would have v6.6 as expected, after two weeks.
+Torvalds says that&rsquo;s not ideal for him since he will have the v6.7 merge window
+while he&rsquo;s off for vacation travel, but seems he will not delay v6.6 for the
+reason.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.15-rc7..v6.6-rc6.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2021-10-16 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc6 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v6.6-rc6-only.png" alt="rc6 release stat"></p>
 
     </div>
 
