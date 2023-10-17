@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2023-10-10T06:40:48-07:00">
+    <meta property="og:updated_time" content="2023-10-17T06:51:28-07:00">
   
 
   
@@ -525,6 +525,17 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.12-rc6/">LKML News v5.12-rc6</a></h2>
+    <div class="article-style">
+      
+      [RFC] NUMA balancing: reduce TLB flush via delaying mapping on hint page fault (Huang Ying) https://lkml.kernel.org/r/20210329062651.2487905-1-ying.huang@intel.com
+NUMA balancing shots down TLBs on all CPUs that recently run hint-faulted process during the migration of the hint-faulted page to appropriate node. This commit delays the TLB shootdown to reduce the overhead. With pmbench, it reduced TLB shooting IPI up to 99%, though it didn&rsquo;t makde visible benchmark score changes.
+[RFC v2 00/43] PKRAM: Preserved-over-Kexec RAM (Anthony Yznaga) https://lkml.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.12-rc5/">LKML News v5.12-rc5</a></h2>
     <div class="article-style">
       
@@ -634,19 +645,6 @@ This patchset introduces a new data structure called page folio.
 This is the second version of the page folios patchset. This introduces a new struct named folio. Functions that receive folio as an argument always receives head page, so the function don&rsquo;t need to do compound_head().
 [PATCH -V9 0/3] numa balancing: Migrate on fault among multiple bound nodes (Huang Ying) https://lkml.kernek.org/r/20210120061235.148637-1-ying.huang@intel.com
 This patch make optimization of cross-socket memory accesses for AutoNUMA in case of application is bound to multiple NUMA nodes possible.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.11-rc4/">LKML News v5.11-rc4</a></h2>
-    <div class="article-style">
-      
-      [PATCH] mm: thp: introduce NR_PARTIAL_THPS (Bin Wang) https://lkml.kernel.org/r/20210112021208.1875-1-wangbin224@huawei.com
-Because partially unmapped THP is not split, the memory stat becomes confusing. This patch add another counter called NR_PARTIAL_THPS in node_stat_item to reduce such confusions.
-[PATCH v2 00/70] RFC mm: Introducing the Maple Tree (Liam R. Howlett) https://lkml.kernel.org/r/20210112161240.2024684-1-Liam.Howlett@Oracle.com
-Second RFC of the Maple tree. It is an RCU-safe B-tree that aims to be used as the vma tree with better scalability.
-[PATCH] mm/debug: Improve memcg debugging (Matthew Wilcox) https://lkml.
       
     </div>
   </div>
