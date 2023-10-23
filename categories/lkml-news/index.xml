@@ -38,6 +38,23 @@ folios.&lt;/p&gt;
 &lt;h2 id=&#34;git-pull-slab-fixes-for-66-rc6-vlastimil-babka&#34;&gt;[GIT PULL] slab fixes for 6.6-rc6 (Vlastimil Babka)&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/06eb77e9-a058-6b0d-d0f6-2f4733e6ca00@suse.cz&#34;&gt;https://lkml.kernel.org/r/06eb77e9-a058-6b0d-d0f6-2f4733e6ca00@suse.cz&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Vlastimil sends one more slab hotfix for v6.6 to Linus Torvalds.&lt;/p&gt;
+&lt;h2 id=&#34;linux-66-rc7-linus-torvalds&#34;&gt;Linux 6.6-rc7 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=whqsbGgnoeYeEuP9fabaZrpPDA=SySMBe3TfQQqVMHvBA@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=whqsbGgnoeYeEuP9fabaZrpPDA=SySMBe3TfQQqVMHvBA@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Things continue to look normal, though the rc7 is bigger than Torvalds wanted
+to be.  Above the rc7 of 6.x kernels, only 6.1 was having a bigger rc7 than
+this, and it had rc8.  Linus says he will release 6.6 anyway if next week is
+quiet and normal.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/kernel_release_stat/v5.15..v6.6-rc7.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
+below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2021-10-23 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And, below is the diffstat of the -rc6 releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/kernel_release_stat/v6.6-rc7-only.png&#34; alt=&#34;rc7 release stat&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     
