@@ -525,131 +525,11 @@
   
   
   <div>
-    <h2><a href="/post/lkml_news_v5.18-rc6/">LKML News v5.18-rc6</a></h2>
+    <h2><a href="/post/us-sues-oracle/">us sues oracle</a></h2>
     <div class="article-style">
       
-      Memory allocation on speculative fastpaths (Paul E. McKenney) https://lkml.kernel.org/r/20220503155913.GA1187610@paulmck-ThinkPad-P17-Gen-1
-There was a discussion about allocating memory inside RCU read critical section with GFP_KERNEL during LSFMM. Paul is summing up his points about it in this mail.
-[PATCH] mm,doc: Add new documentation structure (Matthew Wilcox) https://lkml.kernel.org/r/20220503063032.3680308-1-willy@infradead.org
-There was a session for MM documentation in the LSFMM. Matthew is restructuring the Documentation files to be more similar to Mel Gorman&rsquo;s &ldquo;Understanding the Linux Virtual Memory Manager&rdquo;.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.18-rc5/">LKML News v5.18-rc5</a></h2>
-    <div class="article-style">
-      
-      [PATCH v5 0/4] memcg: introduce per-memcg proactive reclaim (Yosry Ahmed) https://lkml.kernel.org/r/20220425190040.2475377-1-yosryahmed@google.com
-The fifth version of the patchset for adding per-memch proactive reclamation trigger interface.
-mmotm 2022-04-25-17-59 uploaded (Andrew Morton) https://lkml.kernel.org/r/20220426005932.848CBC385A4@smtp.kernel.org
-The mmotm has updated. It has rebased on 5.18-rc4, added 62 new patches, modified 8 patches, and dropped 19 patches. In total, 334 patches in the queue.
-[PATCH -V2 0/3] memory tiering: hot page selection (Huang Ying) https://lkml.kernel.org/r/20220426085105.60822-1-ying.huang@intel.com
-This patchset adds hot pages selection to the tiered memory promotion mechanism for better performance.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.18-rc4/">LKML News v5.18-rc4</a></h2>
-    <div class="article-style">
-      
-      LSF/MM/BPF 2022: Running BOF (Matthew Wilcox) https://lkml.kernel.org/r/Yl7TUDtLcrhXcp1g@casper.infradead.org
-Matthew is proposing a running BOF, which would do discussions while running after a breakfast.
-mmotm 2022-04-20-17-12 uploaded (Andrew Morton) https://lkml.kernel.org/r/20220421001235.5F4E0C385A0@smtp.kernel.org
--mm tree has updated. It&rsquo;s rebased on 5.18-rc3, added 69 patches modified 126 patches, and dropped 35 patches. In total, 291 patches in the queue.
-[PATCH v2] mm: make minimum slab alignment a runtime property (Peter Collingbourne) https://lkml.kernel.org/r/20220421211549.3884453-1-pcc@google.com
-This makes slab alignment a runtime property and only align to 16 if KASAN is enabled at runtime.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.18-rc3/">LKML News v5.18-rc3</a></h2>
-    <div class="article-style">
-      
-      Re: [PATCH v10 00/14] Multi-Gen LRU Framework (Andrew Morton) https://lore.kernel.org/linux-mm/20220411191559.a844c7140faeba2e68d842b7@linux-foundation.org/
-Andrew Morton&rsquo;s overall answer to MGLRU patchset. He would merge the latest MGLRU in -mm and -next, but would request broader update to the code.
-mmotm 2022-04-12-21-05 uploaded (Andrew Morton) https://lkml.kernel.org/r/20220413040610.06AAAC385A4@smtp.kernel.org
-A snapshot of -mm has updated. It added 79 new patches, modified 24 patches, and dropped 10 patches. In total, 257 patches in the queue.
-[PATCH v2 0/5] mm: demotion: Introduce new node state N_DEMOTION_TARGETS (Jagdish Gediya) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.18-rc2/">LKML News v5.18-rc2</a></h2>
-    <div class="article-style">
-      
-      [PATCH v7 00/70] Introducing the Maple Tree (Liam Howlett) https://lkml.kernel.org/r/20220404143501.2016403-1-Liam.Howlett@oracle.com
-The seventh version of the Maple tree patchset has posted. Liam is explicitly asking Andrew to merge it in -mm.
-LSF/MM/BPF: 2022: Call for Proposals VIRTUAL OPTION (Josef Bacik) https://lore.kernel.org/linux-mm/YksmQSfuIx%2FOiNA8@localhost.localdomain/
-CFP for virtual attendee of LSF/MM/BPF has posted. The virtual instance of LSF/MM/BPF will be hosted on Zoom.
-mmotm 2022-04-04-17-10 uploaded (Andrew Morton) https://lkml.kernel.org/r/20220405001100.410E3C2BBE4@smtp.kernel.org
-The mmotm snapshot has updated. It&rsquo;s rebased on v5.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.18-rc1/">LKML News v5.18-rc1</a></h2>
-    <div class="article-style">
-      
-      [LSF/MM TOPIC] Improving OOM debugging (Ken Overstreet) https://lkml.kernel.org/r/20220322005101.actefn6nttzeo2qr@moria.home.lan
-Ken proposes an LSF/MM slot for discussing OOM debugging situation improvement with two ideas from his side.
-incoming (Andrew Morton) https://lkml.kernel.org/r/20220322143803.04a5e59a07e48284f196a2f9@linux-foundation.org
-Andrew Morton has sent 227 patches to Linus Torvalds, as the first batch of the pull requests for v5.18. It includes DAMON patches including pid hiding and its sysfs interface, and merged.
-[PATCH 0/2] mm: madvise: return exact bytes advised with process_madvise under error (Charan Teja Kalla) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.17/">LKML News v5.17</a></h2>
-    <div class="article-style">
-      
-      mmotm 2022-03-14-22-42 uploaded (Andrew Morton) https://lkml.kernel.org/r/20220315054352.5B187C340E8@smtp.kernel.org
-The -mm tree is updated. It is rebased on 5.17-rc8, added 20 new patches, modified 10 patches, and dropped 2 patches. In total, 475 patches in the queue.
-[LSF/MM TOPIC] Better handling of negative dentries (Mattew Wilcox) https://lkml.kernel.org/r/YjDvRPuxPN0GsxLB@casper.infradead.org
-There could be millions of negative dentries on a system having large memory and no memory pressure, because the number of negative dentries is constrained only by memory size.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.17-rc8/">LKML News v5.17-rc8</a></h2>
-    <div class="article-style">
-      
-      mmotm 2022-03-06-20-33 uploaded (Andrew Morton) https://lkml.kernel.org/r/20220307043435.251DBC340E9@smtp.kernel.org
-The -mm tree has updated. It&rsquo;s based on v5.17-rc6, added 19 patches, modified 6 patches, and dropped 19 patches. In totla, 428 patches in the queue.
-[PATCH v3] mm: add ztree - new allocator for use via zpool API (Ananda) https://lkml.kernel.org/r/20220307142724.14519-1-a.badmaev@clicknet.pro
-Third version of ztree, which is intended to be used for storing compressed objects per ztree block. Comparing to the previous version, compiler warnings have fixed.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.17-rc7/">LKML News v5.17-rc7</a></h2>
-    <div class="article-style">
-      
-      [PATCH/RESEND] mm: add ztree - new allocator for use via zpool API (Ananda) https://lkml.kernel.org/r/20220228110546.151513-1-a.badmaev@clicknet.pro
-Ztree is another zpool backend that superior with regard to the worst execution time.
-mmotm 2022-02-28-14-45 uploaded (Andrew Morton) https://lkml.kernel.org/r/20220228224600.44415C340EE@smtp.kernel.org
-mmotm has updated. It&rsquo;s rebased on 5.17-rc6, added 56 new patches, modified 85 patches, and dropped 55 patches. In total, 378 patches are in the queue.
-[PATCH -V14 0/3] NUMA balancing: optimize memory placement for memory tiering system (Huang Ying) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.17-rc6/">LKML News v5.17-rc6</a></h2>
-    <div class="article-style">
-      
-      [PATCH -V13 0/3] NUMA balancing: optimize memory placement for memory tiering system (Huang Ying) https://lkml.kernel.org/r/20220221084529.1052339-1-ying.huang@intel.com
-The AutoNUMA patchset for tiered memory system has revised again.
-[LSF/MM/BPF TOPIC] page table reclaim (David Hildenbrand) https://lkml.kernel.org/r/7b908208-02f8-6fde-4dfc-13d5e00310a6@redhat.com
-Some workloads allocates a lot of page tables. As page tables are unmovable and unreclaimable, this can contribute to memory pressure. David is proposing making it reclaimable and suggesting discussion in LSF/MM/BPF summit for the idea.
-[RFC PATCH 00/47] Address Space Isolation for KVM (Junaid Shahid) https://lkml.
+      오라클이 백인 남성에게 더 많은 월급을 지불하고 아시아인, 그중에서도 인도 사람을 많이 개발직에 채용했다는 이유로 미국 정부가 오라클을 고소.
+http://www.reuters.com/article/us-oracle-usa-labor-idUSKBN1522O6?il=0
       
     </div>
   </div>
@@ -659,10 +539,8 @@ Some workloads allocates a lot of page tables. As page tables are unmovable and 
 <nav>
   <ul class="pagination justify-content-center">
     
-    <li class="page-item"><a class="page-link" href="/tags/news/page/7/">&laquo;</a></li>
+    <li class="page-item"><a class="page-link" href="/tags/news/page/28/">&laquo;</a></li>
     
-    
-    <li class="page-item"><a class="page-link" href="/tags/news/page/9/">&raquo;</a></li>
     
   </ul>
 </nav>

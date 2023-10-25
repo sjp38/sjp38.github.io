@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2023-10-17T06:51:28-07:00">
+    <meta property="og:updated_time" content="2023-10-24T06:48:24-07:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.13/">LKML News v5.13</a></h2>
+    <div class="article-style">
+      
+      [PATCH v4] mm: introduce reference pages (Peter Collingbourne) https://lkml.kernel.org/r/20210619092002.1791322-1-pcc@google.com
+This patch introduces a new syscall, refpage_create(). This system creates a file descriptor which can be mmap-ed using mmap(), which will be similar to anonymous mapping but the memory will be backed by a reference page instead of the zero page.
+[PATCH 0/3] mm/page_reporting: Make page reporting work on arm64 with 64KB page size (Gavin Shan) https://lkml.kernel.org/r/20210621051152.305224-1-gshan@redhat.com
+This patchset makes the page reporting to work on ARM with more realistic threshold, which is 2MB instead of 512MB, when the system&rsquo;s page size is 64KB.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.13-rc7/">LKML News v5.13-rc7</a></h2>
     <div class="article-style">
       
@@ -633,16 +645,6 @@ This is the second version of the patchset implementing MADV_POPULATE_(READ|WRIT
       [PATCH v2 0/5] mm/memcg: Reduce kmemcache memory accounting overhead (Waiman Long) https://lkml.kernel.org/r/20210412225503.15119-1-longman@redhat.com
 Recently introduced new slab memory controller eliminates the need for separate kmemcaches for each memory cgroup and therefore reduce kernel memory usage. However, it also increases memory accouning overhead in kmem cache alloc and free functions. This patchset reduces unnecessary local_irq_save() and local_irq_restore() sequences in the code path as much as possible for minimal overhead.
 [PATCH v7 0/7] Make alloc_contig_range handle Hugetlb pages (Oscar Salvador) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.12-rc7/">LKML News v5.12-rc7</a></h2>
-    <div class="article-style">
-      
-      [RFC PATCH v1 00/11] Manage the top tier memory in a tiered memory (Tim Chen) https://lkml.kernel.org/r/cover.1617642417.git.tim.c.chen@linux.intel.com
-There are two patchsets for better handling of tiered-memory. [PATCH 00/10] [v7] Migrate Pages in lieu of discard (https://lore.kernel.org/linux-mm/20210401183216.443C4443@viggo.jf.intel.com/) makes cold pages to be placed in PMEM instead of DRAM, and [PATCH 0/6] [RFC v6] NUMA balancing: optimize memory placement for memory tiering system (https://lore.kernel.org/linux-mm/20210311081821.138467-1-ying.huang@intel.com/) allows hot pages to be placed in DRAM instead of PMEM.
       
     </div>
   </div>
