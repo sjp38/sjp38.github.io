@@ -634,6 +634,11 @@ user-defined limit based way.</p>
 <p><a href="https://lkml.kernel.org/r/20231025-vv-kmem_memmap-v7-0-4a76d7652df5@intel.com">https://lkml.kernel.org/r/20231025-vv-kmem_memmap-v7-0-4a76d7652df5@intel.com</a></p>
 <p>This patchset makes <code>memmap_on_memory</code> able to be done on more than memblock
 size memory devices like dax/kmem.</p>
+<h2 id="patch-v7-0010-introduce-__mt_dup-to-improve-the-performance-of-fork-peng-zhang">[PATCH v7 00/10] Introduce <code>__mt_dup()</code> to improve the performance of fork() (Peng Zhang)</h2>
+<p><a href="https://lkml.kernel.org/r/20231027033845.90608-1-zhangpeng.00@bytedance.com">https://lkml.kernel.org/r/20231027033845.90608-1-zhangpeng.00@bytedance.com</a></p>
+<p>This patchset introduces a new function for maple tree duplication, namely
+<code>__mt_dup()</code>.  It is assumed to improve the <code>fork()</code> performance since current
+process is copying vmas one by one, while this will be more efficient.</p>
 
     </div>
 
