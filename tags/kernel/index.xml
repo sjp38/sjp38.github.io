@@ -44,6 +44,19 @@ process is copying vmas one by one, while this will be more efficient.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20231028000945.2428830-1-shr@devkernel.io&#34;&gt;https://lkml.kernel.org/r/20231028000945.2428830-1-shr@devkernel.io&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;This patchset introduces kernel samepage merge advisor, which automatically
 manages the pages to scan setting, for achieving the target scan time.&lt;/p&gt;
+&lt;h2 id=&#34;linux-66-linus-torvalds&#34;&gt;Linux 6.6 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wiZuU984NWVgP4snp8sEt4Ux5Mp_pxAN5MNV9VpcGUo+A@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wiZuU984NWVgP4snp8sEt4Ux5Mp_pxAN5MNV9VpcGUo+A@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The last week was pretty calm, according to Linus Torvalds.  As a result, the
+6.6 is out.  This also means the merge window for v6.7 has started.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/kernel_release_stat/v5.16-rc1..v6.6.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
+below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2021-10-30 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     

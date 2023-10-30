@@ -576,7 +576,7 @@ Andrew sent mm hotfixes for v6.6 to Linus Torvalds. One for DAMON also contained
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -643,6 +643,19 @@ process is copying vmas one by one, while this will be more efficient.</p>
 <p><a href="https://lkml.kernel.org/r/20231028000945.2428830-1-shr@devkernel.io">https://lkml.kernel.org/r/20231028000945.2428830-1-shr@devkernel.io</a></p>
 <p>This patchset introduces kernel samepage merge advisor, which automatically
 manages the pages to scan setting, for achieving the target scan time.</p>
+<h2 id="linux-66-linus-torvalds">Linux 6.6 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wiZuU984NWVgP4snp8sEt4Ux5Mp_pxAN5MNV9VpcGUo+A@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wiZuU984NWVgP4snp8sEt4Ux5Mp_pxAN5MNV9VpcGUo+A@mail.gmail.com</a></p>
+<p>The last week was pretty calm, according to Linus Torvalds.  As a result, the
+6.6 is out.  This also means the merge window for v6.7 has started.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.16-rc1..v6.6.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2021-10-30 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
 
     </div>
 
