@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2023-10-24T06:48:24-07:00">
+    <meta property="og:updated_time" content="2023-10-31T07:04:49-07:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.15-rc3/">LKML News v5.15-rc3</a></h2>
+    <div class="article-style">
+      
+      [RFC PATCH] Introducing lockless cache built on top of slab allocator (Hyeonggon Yoo) https://lkml.kernel.org/r/20210919164239.49905-1-42.hyeyoo@gmail.com
+The block layer now has a lockless cache, which increased its IOPS. This RFC generalizes it so that it can be used in some other area, such as NAPI.
+[PATCH v5 0/3] virtio-mem: disallow mapping virtio-mem memory via /dev/mem (David Hildenbrand) https://lkml.kernel.org/r/20210920142856.17758-1-david@redhat.com
+This patchset makes a basic infrastructure to exclude some physical memory regions that marked as IORESOURCE_SYSTEM_RAM from /dev/mem access, even though they are not marked as IORESOURCE_BUSY.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.15-rc2/">LKML News v5.15-rc2</a></h2>
     <div class="article-style">
       
@@ -637,20 +649,6 @@ Six version of the patchset that allows applications to set multiple preferred m
 This patch documents the new madvise() options, MADV_POPULATE_(READ|WRITE).
 Request for folios (David Howells) https://lkml.kernel.org/r/3398985.1626104609@warthog.procyon.org.uk
 David is working for improving local filesystem&rsquo;s caching and network filesystem support library. He thinks the folio work would make his work easier, though it also makes some of his work challenging.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.14-rc1/">LKML News v5.14-rc1</a></h2>
-    <div class="article-style">
-      
-      incoming (Andrew Morton) https://lkml.kernel.org/r/20210628193256.008961950a714730751c1423@linux-foundation.org
-The first pull request from Andrew Morton for the v5.14 merge window.
-[PATCH v3 00/18] Folio conversion of memcg (Matthew Wilcox) https://lkml.kernel.org/r/20210630040034.1155892-1-willy@infradead.org
-This patchset was a part of the memory folio patchset, but has split out to individual patchset.
-incoming (Andrew Morton) https://lkml.kernel.org/r/20210630184624.9ca1937310b0dd5ce66b30e7@linux-foundation.org
-Rest of the -mm tree, which dependent on things in -next. Andrew will trickle that over next week, before the merge window is closed.
       
     </div>
   </div>

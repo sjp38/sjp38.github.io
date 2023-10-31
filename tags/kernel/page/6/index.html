@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2023-10-24T06:48:24-07:00">
+    <meta property="og:updated_time" content="2023-10-31T07:04:49-07:00">
   
 
   
@@ -525,6 +525,20 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.1-rc5/">LKML News v6.1-rc5</a></h2>
+    <div class="article-style">
+      
+      [PATCH v2] mm: anonymous shared memory naming (Pasha Tatashin) https://lkml.kernel.org/r/20221107184715.3950621-1-pasha.tatashin@soleen.com
+Second version of the patch for allowing shared anonymous memory mapping naming has posted.
+Deprecating and removing SLOB (Vlastimil Babka) https://lkml.kernel.org/r/b35c3f82-f67b-2103-7d82-7a7ba7521439@suse.cz
+Vlastimil is describing his proposal for removing SLOB, mainly for the code maintenance overhead, and trying to continue discussions for that.
+[PATCH 1/4] mm: introduce &lsquo;encoded&rsquo; page pointers with embedded extra bits (Linus Torvalds) https://lkml.kernel.org/r/20221109203051.1835763-1-torvalds@linux-foundation.org
+Linus Torvalds has posted a patchset for a new type called struct encoded_page, which is for struct page pointers having extra flags in it.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.1-rc4/">LKML News v6.1-rc4</a></h2>
     <div class="article-style">
       
@@ -636,18 +650,6 @@ Vlastimil and Matthew are reminding about the kernel memory management microconf
 Sixth iteration of the KMSAN infra patchset has posted.
 [PATCH v3 0/2] Introduce CABA helper process tree (Pavel Tikhomirov) https://lkml.kernel.org/r/20220908140313.313020-1-ptikhomirov@virtuozzo.com
 Current linux process tree looses the information in which subtree the child was originally born, after the children is died and therefore reparented.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.0-rc4/">LKML News v6.0-rc4</a></h2>
-    <div class="article-style">
-      
-      [RFC PATCH 00/28] per-VMA locks proposal (Suren Baghdasaryan) https://lkml.kernel.org/r/20220829212531.3184856-1-surenb@google.com
-The VMA lock scalability issue is still there. This RFC patchset shows the proof of the concept for the per-VMA lock idea, which was discussed in LSF/MM this year, as part of the SPF discussion.
-[RFC PATCH 00/30] Code tagging framework and applications (Suren Baghdasaryan) https://lkml.kernel.org/r/20220830214919.53220-1-surenb@google.com
-This RFC patchset introduces code tagging framework which can identify a specific location in the source code when compile.
       
     </div>
   </div>
