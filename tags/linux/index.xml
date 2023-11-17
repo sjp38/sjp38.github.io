@@ -51,6 +51,24 @@ vs full, a.k.a RT) unified.&lt;/p&gt;
 &lt;h2 id=&#34;patch-v2-07-mm-remove-page-idle-and-young-wrapper-kefeng-wang&#34;&gt;[PATCH v2 0/7] mm: remove page idle and young wrapper (Kefeng Wang)&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20231110033324.2455523-1-wangkefeng.wang@huawei.com&#34;&gt;https://lkml.kernel.org/r/20231110033324.2455523-1-wangkefeng.wang@huawei.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;This patchset converts use of page idle/young functions with those for filio.&lt;/p&gt;
+&lt;h2 id=&#34;linux-67-rc1-linus-torvalds&#34;&gt;Linux 6.7-rc1 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=whuO0zmuxp_yorYFWdcrALpqjRPhWkmEy+7wcCnnDcPNA@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=whuO0zmuxp_yorYFWdcrALpqjRPhWkmEy+7wcCnnDcPNA@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The first candidate for v6.7 Linux kernel is released after the two weeks of
+merge window.  The window was the biggiest one of the git history, in terms of
+the number of commits.  The bcachefs merge, which included whole history of the
+development, also committed to the big changes, but even without it, this merge
+window was the biggest one.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/kernel_release_stat/v5.16-rc3..v6.7-rc1.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
+below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2021-11-17 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And, below is the diffstat of the -rc1 releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/kernel_release_stat/v6.7-rc1-only.png&#34; alt=&#34;rc1 release stat&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -1205,6 +1223,13 @@ If you find a news that should be added to this list, please let us know at
 &lt;a href=&#34;mailto:sj@kernel.org&#34;&gt;sj@kernel.org&lt;/a&gt; and/or &lt;a href=&#34;mailto:damon@lists.linux.dev&#34;&gt;damon@lists.linux.dev&lt;/a&gt;.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;2023&#34;&gt;2023&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;2023-11-12&lt;/em&gt;: RFC idea for DAMOS-based tiered memory management is
+&lt;a href=&#34;https://lore.kernel.org/damon/20231112195602.61525-1-sj@kernel.org/&#34;&gt;sent&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;2023-11-12&lt;/em&gt;: RFC idea for Access/Contiguity-aware Memory Auto-scaling is
+&lt;a href=&#34;https://lore.kernel.org/damon/20231112195114.61474-1-sj@kernel.org/&#34;&gt;sent&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;2023-11-12&lt;/em&gt;: RFC patchset for Aim-oriented Feedback-driven DAMOS
+Aggressiveness Auto Tuning is
+&lt;a href=&#34;https://lore.kernel.org/damon/20231112194607.61399-1-sj@kernel.org/&#34;&gt;sent&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;2023-11-08&lt;/em&gt;: The second in-person DAMON community meetup at LPC has
 &lt;a href=&#34;https://lpc.events/event/17/contributions/1652C&#34;&gt;accepted&lt;/a&gt; and
 &lt;a href=&#34;https://lore.kernel.org/damon/20231108145525.12650-1-sj@kernel.org/&#34;&gt;announced&lt;/a&gt;.&lt;/p&gt;
@@ -9550,6 +9575,13 @@ available at another &lt;a href=&#34;https://sjp38.github.io/post/damon_evaluati
 &lt;h2 id=&#34;demo-screenshot&#34;&gt;Demo Screenshot&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/masim_stairs_heatmap_ascii.png&#34; alt=&#34;masim stairs heatmap in ascii&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;recent-news&#34;&gt;Recent News&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;2023-11-12&lt;/em&gt;: RFC idea for DAMOS-based tiered memory management is
+&lt;a href=&#34;https://lore.kernel.org/damon/20231112195602.61525-1-sj@kernel.org/&#34;&gt;sent&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;2023-11-12&lt;/em&gt;: RFC idea for Access/Contiguity-aware Memory Auto-scaling is
+&lt;a href=&#34;https://lore.kernel.org/damon/20231112195114.61474-1-sj@kernel.org/&#34;&gt;sent&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;2023-11-12&lt;/em&gt;: RFC patchset for Aim-oriented Feedback-driven DAMOS
+Aggressiveness Auto Tuning is
+&lt;a href=&#34;https://lore.kernel.org/damon/20231112194607.61399-1-sj@kernel.org/&#34;&gt;sent&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;2023-11-08&lt;/em&gt;: The second in-person DAMON community meetup at LPC has
 &lt;a href=&#34;https://lpc.events/event/17/contributions/1652C&#34;&gt;accepted&lt;/a&gt; and
 &lt;a href=&#34;https://lore.kernel.org/damon/20231108145525.12650-1-sj@kernel.org/&#34;&gt;announced&lt;/a&gt;.&lt;/p&gt;

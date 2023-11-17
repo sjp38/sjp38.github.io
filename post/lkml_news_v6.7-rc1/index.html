@@ -650,6 +650,24 @@ vs full, a.k.a RT) unified.</p>
 <h2 id="patch-v2-07-mm-remove-page-idle-and-young-wrapper-kefeng-wang">[PATCH v2 0/7] mm: remove page idle and young wrapper (Kefeng Wang)</h2>
 <p><a href="https://lkml.kernel.org/r/20231110033324.2455523-1-wangkefeng.wang@huawei.com">https://lkml.kernel.org/r/20231110033324.2455523-1-wangkefeng.wang@huawei.com</a></p>
 <p>This patchset converts use of page idle/young functions with those for filio.</p>
+<h2 id="linux-67-rc1-linus-torvalds">Linux 6.7-rc1 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=whuO0zmuxp_yorYFWdcrALpqjRPhWkmEy+7wcCnnDcPNA@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=whuO0zmuxp_yorYFWdcrALpqjRPhWkmEy+7wcCnnDcPNA@mail.gmail.com</a></p>
+<p>The first candidate for v6.7 Linux kernel is released after the two weeks of
+merge window.  The window was the biggiest one of the git history, in terms of
+the number of commits.  The bcachefs merge, which included whole history of the
+development, also committed to the big changes, but even without it, this merge
+window was the biggest one.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.16-rc3..v6.7-rc1.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2021-11-17 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc1 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v6.7-rc1-only.png" alt="rc1 release stat"></p>
 
     </div>
 
