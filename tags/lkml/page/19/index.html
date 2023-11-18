@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2023-10-31T07:04:49-07:00">
+    <meta property="og:updated_time" content="2023-11-17T07:34:48-08:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.5-rc5/">LKML News v5.5-rc5</a></h2>
+    <div class="article-style">
+      
+      [PATCH v16 QEMU 4/3 RFC] memory: Add support for MADV_FREE as mechanism to lazy discard pages https://lkml.kernel.org/r/20200103212339.29849.99817.stgit@localhost.localdomain
+This RFC patch modifies QEMU to able to use MADV_FREE for discard of pages to avoid the page zeroing cost.
+Linux 5.5-rc5 https://lkml/kernel.org/r/CAHk-=whwmJQwwMD06VfPapDmc52LFQhG3HP6VyVLXVA=nYi_ow@mail.gmail.com
+Time files, rc5 released. Last week was also another calm week due to the new year holidays, and thus this release is small. Linus expects it will be changed in this upcoming weeks, or 5.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.5-rc4/">LKML News v5.5-rc4</a></h2>
     <div class="article-style">
       
@@ -624,19 +636,6 @@ False positive 문제가 존재할 수는 있는 모양입니다만, 구글 내�
 서로 다른 아키텍쳐 간의 페이지 테이블 구조로 인해 사용해야 했던 __ARCH_HAS_4LEVEL_HACK 을 제거하는 패치입니다. Alpha, arm, c6x 등의 아키텍쳐가 변경되는군요. UML, qemu 등에서 부팅 테스트를 거쳤군요.
 Linux 5.4-rc5 https://lkml.kernel.org/r/CAHk-=wgpewLxHxnO71tFHh=M4C4iUofJykMqq3r=eRyxUyVsiw@mail.gmail.com
 다섯번째 rc 버전 릴리즈입니다. 하지만 안타깝게도 이번 릴리즈는 마냥 조용하진 않았다는군요. 최근의 다른 rc5 들에 비하면 조금 큰 크기의 릴리즈가 되었습니다. 그렇다곤 해도 아주 특이할 만한 정도는 아니라 토발즈도 큰 걱정은 없다는군요.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.4-rc4/">LKML News v5.4-rc4</a></h2>
-    <div class="article-style">
-      
-      [PATCH 0/8] Add Kernel Concurrency Sanitizer (KCSAN) https://lkml.kernel.org/r/20191016083959.186860-1-elver@google.com
-구글에서 만든 동시성 버그 탐색기능, KCSAN 을 추가하는 패치셋입니다. 처음 세상에 모습을 드러낸건 9월이었고, 최근 컨퍼런스들에서도 발표가 있었죠. 메커니즘은 간단하다면 간단한, 샘플링 기반입니다. 구글 내부 fuzzing tester 인 syzkaller 는 이미 이 기능을 켠채 돌아간다는군요.
-[PATCH 2/2] mm, zswap: Support THP https://lkml.kernel.org/r/1571111349-5041-2-git-send-email-teawater@gmail.com
-Zswap 이THP 를 지원하도록 수정하는 패치입니다. 그냥 zswap_frontswap_store() 함수가 THP 페이지를 연속적인 4 KiB 페이지로 인식하고 처리하게끔 했군요.
-[PATCH RFC v1 00/26] Add KernelMemorySanitizer infrastructure https://lkml.
       
     </div>
   </div>

@@ -28,7 +28,12 @@
   
     
   
-  <meta name="description" content="">
+  <meta name="description" content="[PATCH v7 00/10] Small-sized THP for anonymous memory (Ryan Roberts) https://lkml.kernel.org/r/20231115132734.931023-1-ryan.roberts@arm.com
+The seventh revision of small-sized anonymout memory THP is posted.
+[PATCH v2 00/14] Transparent Contiguous PTEs for User Mappings (Ryan Roberts) https://lkml.kernel.org/r/20231115163018.1303287-1-ryan.roberts@arm.com
+This patchset makes opportunistic and transparent contpte mappings for user memory when it meets the requirement.
+[GIT PULL] hotfixes for 6.7-rc2 (Andrew Morton) https://lkml.kernel.org/r/20231117140848.02adcf56c301bb3ab85ae75a@linux-foundation.org
+MM subsystem hotfixes for rc2 has sent to Linus Torvalds.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/lkml_news_v6.7-rc2/">
@@ -150,7 +155,12 @@
   <meta property="og:site_name" content="hacklog">
   <meta property="og:url" content="https://sjp38.github.io/post/lkml_news_v6.7-rc2/">
   <meta property="og:title" content="Lkml_news_v6 | hacklog">
-  <meta property="og:description" content=""><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
+  <meta property="og:description" content="[PATCH v7 00/10] Small-sized THP for anonymous memory (Ryan Roberts) https://lkml.kernel.org/r/20231115132734.931023-1-ryan.roberts@arm.com
+The seventh revision of small-sized anonymout memory THP is posted.
+[PATCH v2 00/14] Transparent Contiguous PTEs for User Mappings (Ryan Roberts) https://lkml.kernel.org/r/20231115163018.1303287-1-ryan.roberts@arm.com
+This patchset makes opportunistic and transparent contpte mappings for user memory when it meets the requirement.
+[GIT PULL] hotfixes for 6.7-rc2 (Andrew Morton) https://lkml.kernel.org/r/20231117140848.02adcf56c301bb3ab85ae75a@linux-foundation.org
+MM subsystem hotfixes for rc2 has sent to Linus Torvalds."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -202,7 +212,7 @@
       "url": "https://sjp38.github.io/img/icon-512.png"
     }
   },
-  "description": ""
+  "description": "[PATCH v7 00/10] Small-sized THP for anonymous memory (Ryan Roberts) https://lkml.kernel.org/r/20231115132734.931023-1-ryan.roberts@arm.com\nThe seventh revision of small-sized anonymout memory THP is posted.\n[PATCH v2 00/14] Transparent Contiguous PTEs for User Mappings (Ryan Roberts) https://lkml.kernel.org/r/20231115163018.1303287-1-ryan.roberts@arm.com\nThis patchset makes opportunistic and transparent contpte mappings for user memory when it meets the requirement.\n[GIT PULL] hotfixes for 6.7-rc2 (Andrew Morton) https://lkml.kernel.org/r/20231117140848.02adcf56c301bb3ab85ae75a@linux-foundation.org\nMM subsystem hotfixes for rc2 has sent to Linus Torvalds."
 }
 </script>
 
@@ -568,7 +578,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    0 min read
+    1 min read
   </span>
   
 
@@ -577,6 +587,10 @@
   
 
   
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
   
 
 </div>
@@ -604,7 +618,17 @@
   <div class="article-container">
 
     <div class="article-style">
-      
+      <h2 id="patch-v7-0010-small-sized-thp-for-anonymous-memory-ryan-roberts">[PATCH v7 00/10] Small-sized THP for anonymous memory (Ryan Roberts)</h2>
+<p><a href="https://lkml.kernel.org/r/20231115132734.931023-1-ryan.roberts@arm.com">https://lkml.kernel.org/r/20231115132734.931023-1-ryan.roberts@arm.com</a></p>
+<p>The seventh revision of small-sized anonymout memory THP is posted.</p>
+<h2 id="patch-v2-0014-transparent-contiguous-ptes-for-user-mappings-ryan-roberts">[PATCH v2 00/14] Transparent Contiguous PTEs for User Mappings (Ryan Roberts)</h2>
+<p><a href="https://lkml.kernel.org/r/20231115163018.1303287-1-ryan.roberts@arm.com">https://lkml.kernel.org/r/20231115163018.1303287-1-ryan.roberts@arm.com</a></p>
+<p>This patchset makes opportunistic and transparent contpte mappings for user
+memory when it meets the requirement.</p>
+<h2 id="git-pull-hotfixes-for-67-rc2-andrew-morton">[GIT PULL] hotfixes for 6.7-rc2 (Andrew Morton)</h2>
+<p><a href="https://lkml.kernel.org/r/20231117140848.02adcf56c301bb3ab85ae75a@linux-foundation.org">https://lkml.kernel.org/r/20231117140848.02adcf56c301bb3ab85ae75a@linux-foundation.org</a></p>
+<p>MM subsystem hotfixes for rc2 has sent to Linus Torvalds.</p>
+
     </div>
 
     
@@ -612,6 +636,18 @@
 
 
 
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/linux/">linux</a>
+  
+  <a class="badge badge-light" href="/tags/kernel/">kernel</a>
+  
+  <a class="badge badge-light" href="/tags/lkml/">lkml</a>
+  
+  <a class="badge badge-light" href="/tags/news/">news</a>
+  
+</div>
 
 
 
@@ -797,6 +833,23 @@
 
 
   
+  
+  <div class="article-widget content-widget-hr">
+    <h3>Related</h3>
+    <ul>
+      
+      <li><a href="/post/lkml_news_v6.7-rc1/">LKML News v6.7-rc1</a></li>
+      
+      <li><a href="/post/lkml_news_v6.6/">LKML News v6.6</a></li>
+      
+      <li><a href="/post/lkml_news_v6.6-rc7/">LKML News v6.6-rc7</a></li>
+      
+      <li><a href="/post/lkml_news_v6.6-rc6/">LKML News v6.6-rc6</a></li>
+      
+      <li><a href="/post/lkml_news_v6.6-rc5/">LKML News v6.6-rc5</a></li>
+      
+    </ul>
+  </div>
   
 
 
