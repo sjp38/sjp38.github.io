@@ -33,7 +33,8 @@ The seventh revision of small-sized anonymout memory THP is posted.
 [PATCH v2 00/14] Transparent Contiguous PTEs for User Mappings (Ryan Roberts) https://lkml.kernel.org/r/20231115163018.1303287-1-ryan.roberts@arm.com
 This patchset makes opportunistic and transparent contpte mappings for user memory when it meets the requirement.
 [GIT PULL] hotfixes for 6.7-rc2 (Andrew Morton) https://lkml.kernel.org/r/20231117140848.02adcf56c301bb3ab85ae75a@linux-foundation.org
-MM subsystem hotfixes for rc2 has sent to Linus Torvalds.">
+MM subsystem hotfixes for rc2 has sent to Linus Torvalds.
+Linux 6.7-rc2 (Linus Torvalds) https://lkml.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/lkml_news_v6.7-rc2/">
@@ -160,7 +161,8 @@ The seventh revision of small-sized anonymout memory THP is posted.
 [PATCH v2 00/14] Transparent Contiguous PTEs for User Mappings (Ryan Roberts) https://lkml.kernel.org/r/20231115163018.1303287-1-ryan.roberts@arm.com
 This patchset makes opportunistic and transparent contpte mappings for user memory when it meets the requirement.
 [GIT PULL] hotfixes for 6.7-rc2 (Andrew Morton) https://lkml.kernel.org/r/20231117140848.02adcf56c301bb3ab85ae75a@linux-foundation.org
-MM subsystem hotfixes for rc2 has sent to Linus Torvalds."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
+MM subsystem hotfixes for rc2 has sent to Linus Torvalds.
+Linux 6.7-rc2 (Linus Torvalds) https://lkml."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -212,7 +214,7 @@ MM subsystem hotfixes for rc2 has sent to Linus Torvalds."><meta property="og:im
       "url": "https://sjp38.github.io/img/icon-512.png"
     }
   },
-  "description": "[PATCH v7 00/10] Small-sized THP for anonymous memory (Ryan Roberts) https://lkml.kernel.org/r/20231115132734.931023-1-ryan.roberts@arm.com\nThe seventh revision of small-sized anonymout memory THP is posted.\n[PATCH v2 00/14] Transparent Contiguous PTEs for User Mappings (Ryan Roberts) https://lkml.kernel.org/r/20231115163018.1303287-1-ryan.roberts@arm.com\nThis patchset makes opportunistic and transparent contpte mappings for user memory when it meets the requirement.\n[GIT PULL] hotfixes for 6.7-rc2 (Andrew Morton) https://lkml.kernel.org/r/20231117140848.02adcf56c301bb3ab85ae75a@linux-foundation.org\nMM subsystem hotfixes for rc2 has sent to Linus Torvalds."
+  "description": "[PATCH v7 00/10] Small-sized THP for anonymous memory (Ryan Roberts) https://lkml.kernel.org/r/20231115132734.931023-1-ryan.roberts@arm.com\nThe seventh revision of small-sized anonymout memory THP is posted.\n[PATCH v2 00/14] Transparent Contiguous PTEs for User Mappings (Ryan Roberts) https://lkml.kernel.org/r/20231115163018.1303287-1-ryan.roberts@arm.com\nThis patchset makes opportunistic and transparent contpte mappings for user memory when it meets the requirement.\n[GIT PULL] hotfixes for 6.7-rc2 (Andrew Morton) https://lkml.kernel.org/r/20231117140848.02adcf56c301bb3ab85ae75a@linux-foundation.org\nMM subsystem hotfixes for rc2 has sent to Linus Torvalds.\nLinux 6.7-rc2 (Linus Torvalds) https://lkml."
 }
 </script>
 
@@ -628,6 +630,22 @@ memory when it meets the requirement.</p>
 <h2 id="git-pull-hotfixes-for-67-rc2-andrew-morton">[GIT PULL] hotfixes for 6.7-rc2 (Andrew Morton)</h2>
 <p><a href="https://lkml.kernel.org/r/20231117140848.02adcf56c301bb3ab85ae75a@linux-foundation.org">https://lkml.kernel.org/r/20231117140848.02adcf56c301bb3ab85ae75a@linux-foundation.org</a></p>
 <p>MM subsystem hotfixes for rc2 has sent to Linus Torvalds.</p>
+<h2 id="linux-67-rc2-linus-torvalds">Linux 6.7-rc2 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wj6j3U5r8ixVf_RQXwRYD03DuEqnX2ZsfYwvB-9YxQNLA@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wj6j3U5r8ixVf_RQXwRYD03DuEqnX2ZsfYwvB-9YxQNLA@mail.gmail.com</a></p>
+<p>Last week was having LPC and maintainers summit, so Linus expected the rc2 be
+small, but it resulted in slightly larger than the average.  Linus says nothing
+bad or scary though.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.16-rc3..v6.7-rc2.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2021-11-20 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc2 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v6.7-rc2-only.png" alt="rc2 release stat"></p>
 
     </div>
 
