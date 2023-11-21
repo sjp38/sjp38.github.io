@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2023-11-17T07:34:48-08:00">
+    <meta property="og:updated_time" content="2023-11-21T06:33:44-08:00">
   
 
   
@@ -525,7 +525,17 @@
   
   
   <div>
-    <h2><a href="/post/lkml_news_v6.7-rc2/">Lkml_news_v6</a></h2>
+    <h2><a href="/post/lkml_news_v6.7-rc3/">LKML News v6.7-rc3</a></h2>
+    <div class="article-style">
+      
+      [PATCH v6 0/4] page_owner: print stacks and their counter (Oscar Salvador) https://lkml.kernel.org/r/20231120084300.4368-1-osalvador@suse.de
+This patchset introduces a new read-only file page_owner_stacks. This can be useful for getting the relationship between stacks and allocation/free without fiddling with pages.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v6.7-rc2/">LKML News v6.7-rc2</a></h2>
     <div class="article-style">
       
       [PATCH v7 00/10] Small-sized THP for anonymous memory (Ryan Roberts) https://lkml.kernel.org/r/20231115132734.931023-1-ryan.roberts@arm.com
@@ -637,20 +647,6 @@ Peter sent third version of the patchset that introduces a new interface for sam
 Syzbot posted its mm subsystem report for last 31 days. For the period, seven new issues were found and two among those were fixed. In total, 43/232 issues are still open.
 [PATCH 0/2] workload-specific and memory pressure-driven zswap writeback (Nhat Pham) https://lkml.kernel.org/r/20230911164024.2541401-1-nphamcs@gmail.com
 Zswap has only single LRU list and shrinks under user-defined limit. This patch series seperates the LRU list out to per-memcg and per-NUMA, and perform workload-specific writeback under memory pressure.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.6-rc1/">LKML News v6.6-rc1</a></h2>
-    <div class="article-style">
-      
-      [GIT PULL] MM updates for 6.6-rc1 (Andrew Morton) https://lkml.kernel.org/r/20230828184251.bfbc164280503903eacf498c@linux-foundation.org
-Andrew sent the mm subsystem pull request for v6.6-rc1 to Linus Torvalds. And, it pulled.
-[PATCH 1/2] mm/vmalloc: Add a safer version of find_vm_area() for debug (Joel Fernendes) https://lkml.kernel.org/r/20230830110402.386898-1-joel@joelfernandes.org
-A patchset implementing safe trylock version of vmalloc dump function.
-[PATCH v2 0/6] Introduce __mt_dup() to improve the performance of fork() (Peng Zhang) https://lkml.kernel.org/r/20230830125654.21257-1-zhangpeng.00@bytedance.com
-When doing fork(), vma of the parent should be inserted into the maple tree of the child.
       
     </div>
   </div>
