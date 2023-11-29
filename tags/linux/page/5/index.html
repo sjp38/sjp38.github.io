@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2023-11-21T06:33:44-08:00">
+    <meta property="og:updated_time" content="2023-11-28T06:35:48-08:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.2/">LKML News v6.2</a></h2>
+    <div class="article-style">
+      
+      [PATCH] mm/userfaultfd: Support operation on multiple VMAs (Muhammad Usama Anjum) https://lkml.kernel.org/r/20230213104323.1792839-1-usama.anjum@collabora.com
+mwriteprotect_range() handle only single VMA, but there are usecases which need to handle multiple VMAs in a memory range of interest. This commit fixes the case.
+[v2 PATCH 0/5] Introduce mempool pages bulk allocator and use it in dm-crypt (Yang Shi) https://lkml.kernel.org/r/20230214190221.1156876-1-shy828301@gmail.com
+Noticeable overhead on disc encryption due to page allocations have found. The overhead was because the allocation logic in dm-crypt allocates one page in each pass of a loop.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.2-rc8/">LKML News v6.2-rc8</a></h2>
     <div class="article-style">
       
@@ -628,18 +640,6 @@ This patchset introduces HugeTLB high-Granularity Mapping (HGM), which teaches H
       As today is the last day of 2022, I checked some open source commits statistics using my simple and buggy script[1], and github.
 Linux kernel statistics I ran my buggy script[1] to show some 2022 statistics for memory management subsystem and whole tree of Linux kernel as below.
 Memory Management In 2022, 305 people participated in Linux kernel memory management subsystem development by making 81,631 lines of changes with 2,135 commits.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/damon_stat_2022/">Summary of DAMON Development in 2022</a></h2>
-    <div class="article-style">
-      
-      A summary of DAMON development in 2022 has posted: https://lore.kernel.org/damon/20221229171209.162356-1-sj@kernel.org/
-2022 was a year of active and healthy DAMON development.
-Seven new DAMON major features were delivered to users. Some of those were featured in articles and academic papers.
-It was possible thanks to the DAMON community. The community has expanded with its own mailing list and an open bi-weekly chat series. 40 people contributed their great code to DAMON via making their 275 commits merged into the mainline.
       
     </div>
   </div>
