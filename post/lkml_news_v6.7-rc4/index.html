@@ -574,7 +574,7 @@ Because Linux kernels&rsquo; memory management system is mainly for only host DR
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -631,6 +631,29 @@ free objects in SLUB.  It also modifies maple tree to get benefit from this.</p>
 <h2 id="patch-01-add-swappiness-argument-to-memoryreclaim-dan-schatzberg">[PATCH 0/1] Add swappiness argument to memory.reclaim (Dan Schatzberg)</h2>
 <p><a href="https://lkml.kernel.org/r/20231130153658.527556-1-schatzberg.dan@gmail.com">https://lkml.kernel.org/r/20231130153658.527556-1-schatzberg.dan@gmail.com</a></p>
 <p>This patch adds <code>swappiness=&lt;val&gt;</code> argument to <code>memory.reclaim</code> interface.</p>
+<h2 id="patch-v3-07-mm-security-bpf-fine-grained-control-over-memory-policy-adjustments-with-lsm-bpf-yafang-shao">[PATCH v3 0/7] mm, security, bpf: Fine-grained control over memory policy adjustments with lsm bpf (Yafang Shao)</h2>
+<p><a href="https://lkml.kernel.org/r/20231201094636.19770-1-laoar.shao@gmail.com">https://lkml.kernel.org/r/20231201094636.19770-1-laoar.shao@gmail.com</a></p>
+<p>Since any user can do <code>mbind()</code>, some NUMA node could be out of free memory and
+invoke OOM killer despite of enough system-wide free memory.  This patchset
+introduces LSM hooks for syscalls do disable <code>MPOL_BIND</code>.</p>
+<h2 id="linux-67-rc4-linus-torvalds">Linux 6.7-rc4 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wjsbytYq780PM-Wby_2rPabxg-WT-CRPZZaVYsmLiacHw@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wjsbytYq780PM-Wby_2rPabxg-WT-CRPZZaVYsmLiacHw@mail.gmail.com</a></p>
+<p>The fourth release candidate for Linux 6.7 is out with normal small changes.
+Linus is having his last travel and it made the release in unusual time (still
+Sundasy afternoon in somewhere, though).  There are also holidays that
+previously made the release schedule a bit unusual, but Linus expect that might
+not affect this time.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v5.16-rc5..v6.7-rc4.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2021-12-04 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc4 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v6.7-rc4-only.png" alt="rc4 release stat"></p>
 
     </div>
 
