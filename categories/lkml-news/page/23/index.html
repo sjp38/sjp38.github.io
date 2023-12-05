@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2023-11-28T06:35:48-08:00">
+    <meta property="og:updated_time" content="2023-12-05T06:38:00-08:00">
   
 
   
@@ -525,6 +525,19 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.1-rc2/">LKML News v5.1-rc2</a></h2>
+    <div class="article-style">
+      
+      [PATCH v5 00/19] Convert x86 &amp; arm64 to use generic page walk https://lkml.kernel.org/r/20190321141953.31960-1-steven.price@arm.com
+커널이 walk_page_range() 함수를 제공하긴 하지만 이 함수는 커널에 의해 사용되는 페이지 테이블은 볼수가 없기 때문에 각 아키텍쳐별로 페이지 테이블 순회를 위한 기능을 별도로 만들어 사용하고 있습니다.
+이 패치셋은 walk_page_range() 가 커널의 페이지 테이블을 만질 수 있도록 확장함으로써 그런 불필요한 아키텍쳐별 파편화를 줄이려 합니다.
+[PATCH v6 0/7] psi: pressure stall monitors v6 https://lkml.kernel.org/r/20190319235619.260832-1-surenb@google.com
+시스템이 어떤 부분의 pressure 를 받는지 쉽게 확인하기 위한 pressure stall monitor 구현 패치의 여섯 번째 버전입니다.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.1-rc1/">LKML News v5.1-rc1</a></h2>
     <div class="article-style">
       
@@ -638,18 +651,6 @@ SPF 패치에서 발견된 버그 레포트입니다. ARM 위에서 데드락 �
 vmalloc 의 성능과 스트레스 테스트를 위한 모듈을 구현한 패치입니다. Selftests 에도 테스트 스크립트를 추가했군요.
 [RFC PATCH 0/1] mm: add a warning about high order allocations https://lkml.kernel.org/r/20181225153927.2873-1-khorenko@virtuozzo.com
 특정 노드의 메모리에 접근이 많이 되고 있는 상황에서 해당 메모리가 fragment 되어 있고 이 시점에서 high order allocation 이 요청되면 이걸 위해 compaction 등이 작동하니까 다른 태스크의 latency 가 떨어질 수 있습니다. 이런 상황을 모니터링 할 수 있게끔, 이 패치는 vm.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.20/">LKML News for v4.20</a></h2>
-    <div class="article-style">
-      
-      [PATCH V5 0/3] mm/kvm/vfio/ppc64: Migrate compound pages out of CMA https://lkml.kernel.org/r/20181219034047.16305-1-aneesh.kumar@linux.ibm.com
-ppc64 에서는 guest os page table 을 CMA area 내에 할당하는데, VFIO 를 쓰는 경우 이게 pinning 되어 있다 보니 CMA area 밖으로 migrate 하는데 실패해, guest os page table 할당에 실패하고, 이로 인해 guest 시작조차 불가능하게 되는 문제가 있었습니다.
-이 패치는 compound page 에 대해서도 CMA area 밖으로의 migration 이 가능하게 합니다.
-[RESEND PATCH V3 0/5] arm64/mm: Enable HugeTLB migration https://lkml.
       
     </div>
   </div>

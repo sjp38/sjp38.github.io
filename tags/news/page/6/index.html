@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2023-11-28T06:35:48-08:00">
+    <meta property="og:updated_time" content="2023-12-05T06:38:00-08:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.1-rc6/">LKML News v6.1-rc6</a></h2>
+    <div class="article-style">
+      
+      [PATCH] mm: Make drop_caches keep reclaiming on all nodes (Jan Kara) https://lkml.kernel.org/r/20221115123255.12559-1-jack@suse.cz
+drop_caches works in somewhat loop-until-no-progress manner. It could result in not so aggressive reclamation. This patch makes it to continue reclamation on other node until every node makes no progress.
+[RFC][PATCH 0/4] cachestat: a new syscall for page cache state of files (Nha Pham) https://lkml.kernel.org/r/20221115182901.2755368-1-nphamcs@gmail.com
+Users can know the cache state of files using mincore() system call, but it scales bad for large files.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.1-rc5/">LKML News v6.1-rc5</a></h2>
     <div class="article-style">
       
@@ -640,18 +652,6 @@ Vlastimil and Matthew are reminding about the kernel memory management microconf
 Sixth iteration of the KMSAN infra patchset has posted.
 [PATCH v3 0/2] Introduce CABA helper process tree (Pavel Tikhomirov) https://lkml.kernel.org/r/20220908140313.313020-1-ptikhomirov@virtuozzo.com
 Current linux process tree looses the information in which subtree the child was originally born, after the children is died and therefore reparented.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.0-rc4/">LKML News v6.0-rc4</a></h2>
-    <div class="article-style">
-      
-      [RFC PATCH 00/28] per-VMA locks proposal (Suren Baghdasaryan) https://lkml.kernel.org/r/20220829212531.3184856-1-surenb@google.com
-The VMA lock scalability issue is still there. This RFC patchset shows the proof of the concept for the per-VMA lock idea, which was discussed in LSF/MM this year, as part of the SPF discussion.
-[RFC PATCH 00/30] Code tagging framework and applications (Suren Baghdasaryan) https://lkml.kernel.org/r/20220830214919.53220-1-surenb@google.com
-This RFC patchset introduces code tagging framework which can identify a specific location in the source code when compile.
       
     </div>
   </div>

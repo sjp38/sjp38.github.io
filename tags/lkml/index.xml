@@ -5,12 +5,26 @@
     <link>https://sjp38.github.io/tags/lkml/</link>
       <atom:link href="https://sjp38.github.io/tags/lkml/index.xml" rel="self" type="application/rss+xml" />
     <description>lkml</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 28 Nov 2023 06:35:48 -0800</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 05 Dec 2023 06:38:00 -0800</lastBuildDate>
     <image>
       <url>https://sjp38.github.io/img/tux.png</url>
       <title>lkml</title>
       <link>https://sjp38.github.io/tags/lkml/</link>
     </image>
+    
+    <item>
+      <title>LKML News v6.7-rc5</title>
+      <link>https://sjp38.github.io/post/lkml_news_v6.7-rc5/</link>
+      <pubDate>Tue, 05 Dec 2023 06:38:00 -0800</pubDate>
+      <guid>https://sjp38.github.io/post/lkml_news_v6.7-rc5/</guid>
+      <description>&lt;h2 id=&#34;patch-mmthp-add-config_transparent_hugepage_never-option-dmytro-maluka&#34;&gt;[PATCH] mm/thp: add CONFIG_TRANSPARENT_HUGEPAGE_NEVER option (Dmytro Maluka)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20231204163254.2636289-1-dmaluka@chromium.org&#34;&gt;https://lkml.kernel.org/r/20231204163254.2636289-1-dmaluka@chromium.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Khugepaged has its own memory cost, and it increases &lt;code&gt;vm.min_free_kbytes&lt;/code&gt; as it
+needs when it starts.  On 4GB RAM, 3 mmzones and &lt;code&gt;pageblock_order == MAX_ORDER&lt;/code&gt;, khugepaged increases &lt;code&gt;vm.min_free_kbytes&lt;/code&gt; from 8MB to 132MB.  This
+patch introduces a config to disallow khugepaged starts by default.  It still
+allows the userspace to start khugepaged, though.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>LKML News v6.7-rc4</title>

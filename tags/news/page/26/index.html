@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2023-11-28T06:35:48-08:00">
+    <meta property="og:updated_time" content="2023-12-05T06:38:00-08:00">
   
 
   
@@ -525,6 +525,19 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v4.18-rc6/">LKML News after v4.18-rc6</a></h2>
+    <div class="article-style">
+      
+      Linux 4.18-rc6 https://lkml.kernel.org/r/CA+55aFzMheDA-2z=MdGgJrz-REcrknb+4OEvRKaJipm+x6xEhw@mail.gmail.com
+이번 rc는 평소보다 조금 크게 되었는데, 네트워킹 쪽 메인테이너인 David 가 많은 수정사항을 아직 보내지 않았다가 이번에 모아서 보냈기 때문이라는군요. 그렇다 해도 그렇게 큰 양까진 아니라는 토발즈의 설명입니다.
+지난 rc5 작업 주간을 귀찮게 했던 VM 버그에 대한 두줄의 수정이 rc5 에 들어갔었지만 32비트 환경에 대한 고려가 없었기에 이번에 그 수정이 들어갔다는군요.
+[PATCH 0/7] memory management documentation updates https://lkml.kernel.org/r/1532517970-16409-1-git-send-email-rppt@linux.vnet.ibm.com
+메모리 관리 부분 문서화 업데이트입니다. sphinx 기반 문서화 업데이트를 일부 메인테이너들은 반기지 않는 것도 사실이지만, 확실히 가독성이 좋아진 덕에 이런 문서화 노력이 더 활발해 지는 것 아닌가 하는 생각도 드는군요.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v4.18-rc4/">Lkml_news_v4.18 Rc4</a></h2>
     <div class="article-style">
       
@@ -625,20 +638,6 @@ Cgroup 에 응답시간 (latency) 기반의 I/O 컨트롤러를 추가하는 패
       
       Linux v4.17-rc1 https://lkml.kernel.org/r/CA+55aFx62iBkj+hOmhLksUtvjwTcm_o1dwcyvaNnVpJ-AmvzVQ@mail.gmail.com
 2주간의 머지 윈도우가 지나고, v4.17-rc1 이 릴리즈 되었습니다. 크게 특별할 것 없이 평범한 머지 윈도우였다고 토발즈는 평하는군요. 그리고 이번에 git objects mark 가 4백만을 넘겼습니다. 따라서 다음 커널이 v5.0 이어도 될 것 같은데, 꼭 다음 버전에서 그렇게 할지는 모르겠다는군요. 리눅스 커널에서 버전은 그저 시간이 흘렀음을 의미할 뿐, 큰 변화가 있어서 메이저 버전 넘버가 바뀌는게 아니기 때문이죠. 참고로 v3.0 과 v4.0 은 각각 git objects mark 2백만과 4백만에서 이루어졌군요.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.16/">LKML News after v4.16</a></h2>
-    <div class="article-style">
-      
-      Linux 4.16 https://lkml.kernel.org/r/CA+55aFyxn0bu5jOAJvO_63GHaGMkJ0uA=bVBm2T3HVX9SimZzw@mail.gmail.com
-릴리즈 마지막 주 치고는 네트워킹 쪽에 조금 변경사항이 있었습니다만, 큰 문제가 될 정도는 아니었습니다. 결과, 4.16이 드디어 릴리즈 되었습니다! 동시에 4.17 머지 윈도우가 시작되는군요.
-[PATCH 0/2] Move kfree_rcu out of rcu code and use kfree_bulk https://lkml.kernel.org/r/1522647064-27167-1-git-send-email-rao.shoaib@oracle.com
-kfree_rcu() 대신 kfree_bulk() 라는 새로 만들어진, 더 효율적인 기능을 사용하도록 하는 패치입니다.
-[RFC PATCH 0/1] mm: Support multiple kswapd threads per node https://lkml.kernel.org/r/1522661062-39745-1-git-send-email-buddy.lumpkin@oracle.com
-NUMA 아키텍쳐에서 리눅스 커널은 NUMA 노드당 하나의 kswapd 쓰레드를 띄웁니다.
       
     </div>
   </div>
