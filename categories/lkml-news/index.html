@@ -530,6 +530,7 @@
       
       [PATCH] mm/thp: add CONFIG_TRANSPARENT_HUGEPAGE_NEVER option (Dmytro Maluka) https://lkml.kernel.org/r/20231204163254.2636289-1-dmaluka@chromium.org
 Khugepaged has its own memory cost, and it increases vm.min_free_kbytes as it needs when it starts. On 4GB RAM, 3 mmzones and pageblock_order == MAX_ORDER, khugepaged increases vm.min_free_kbytes from 8MB to 132MB. This patch introduces a config to disallow khugepaged starts by default. It still allows the userspace to start khugepaged, though.
+[PATCH v4 0/2] KSM: support smart-scan feature (Stefan Roesch) https://lkml.kernel.org/r/20231205180952.3843711-1-shr@devkernel.io
       
     </div>
   </div>
