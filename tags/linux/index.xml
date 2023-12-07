@@ -27,6 +27,10 @@ allows the userspace to start khugepaged, though.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20231205180952.3843711-1-shr@devkernel.io&#34;&gt;https://lkml.kernel.org/r/20231205180952.3843711-1-shr@devkernel.io&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;This patchset disables KSM smart scan for ksm tests and add more ksm tests for
 smart scan feature.&lt;/p&gt;
+&lt;h2 id=&#34;patch-07-mmzswap-optimize-the-scalability-of-zswap-rb-tree-chengming-zhou&#34;&gt;[PATCH 0/7] mm/zswap: optimize the scalability of zswap rb-tree (Chengming Zhou)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20231206-zswap-lock-optimize-v1-0-e25b059f9c3a@bytedance.com&#34;&gt;https://lkml.kernel.org/r/20231206-zswap-lock-optimize-v1-0-e25b059f9c3a@bytedance.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Zswap is protecting its internal rb-tree via a spinlock, and hence showing not
+good scalability.  This patchset splits the rb-tree into multiple ones.&lt;/p&gt;
 </description>
     </item>
     
