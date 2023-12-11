@@ -37,6 +37,26 @@ good scalability.  This patchset splits the rb-tree into multiple ones.&lt;/p&gt
 &lt;h2 id=&#34;patch-v3-04-supplement-of-slab-allocator-removal-xiongwei-song&#34;&gt;[PATCH v3 0/4] supplement of slab allocator removal (Xiongwei Song)&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20231209135203.303508-1-sxwjean@me.com&#34;&gt;https://lkml.kernel.org/r/20231209135203.303508-1-sxwjean@me.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;This series cleans up slab code following the slab removal change.&lt;/p&gt;
+&lt;h2 id=&#34;stablelts-test-report-from-kernelci-2023-12-08-gustavo-padovan&#34;&gt;stable/LTS test report from KernelCI (2023-12-08) (Gustavo Padovan)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/738c6c87-527e-a1c2-671f-eed6a1dbaef3@collabora.com&#34;&gt;https://lkml.kernel.org/r/738c6c87-527e-a1c2-671f-eed6a1dbaef3@collabora.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Gustavo starts improving the KernelCI output to be useful for stable kernels
+maintainers.&lt;/p&gt;
+&lt;h2 id=&#34;linux-67-rc5-linus-torvalds&#34;&gt;Linux 6.7-rc5 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wiwpxsPG9vaQnbh3ch9Uh6s6Kf+8x3TnYE_8prKguHDHg@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wiwpxsPG9vaQnbh3ch9Uh6s6Kf+8x3TnYE_8prKguHDHg@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Torvalds was in travel, suffering from jetlag and a cold last week.  However
+the changes for 6.7-rc5 was normal enough for him to work for.  As a result,
+the fifth release candidate for Linux 6.7 has released on the day.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/kernel_release_stat/linux_stat_v6.7-rc5.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
+below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2021-12-11 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And, below is the diffstat of the -rc5 releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/kernel_release_stat/linux_stat_v6.7-rc5-only.png&#34; alt=&#34;rc5 release stat&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     
