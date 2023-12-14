@@ -31,7 +31,8 @@
   <meta name="description" content="[Invitation] Linux MM Alignment Session on remap_file_pages on Wednesday (David Rientjes) https://lkml.kernel.org/r/46f97bec-3a48-e714-0a8d-b5206e1704ba@google.com
 There will be the last Linux MM Alignment Session for re-introducing remap_file_pages(), led by Matthew Wilcox, on 2023-11-13.
 [PATCH] kernel: Introduce a write lock/unlock wrapper for tasklist_lock (Maria Yu) https://lkml.kernel.org/r/20231213101745.4526-1-quic_aiquny@quicinc.com
-There are multiple scenarios for tasklist_lock that could lead to bad responsiveness. To mitigate the situation, this patch introduces a write lock/unlock wrapper for tasklist_lock.">
+There are multiple scenarios for tasklist_lock that could lead to bad responsiveness. To mitigate the situation, this patch introduces a write lock/unlock wrapper for tasklist_lock.
+[PATCH 0/9] Finish two folio conversions (Matthew Wilcox) https://lkml.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/lkml_news_v6.7-rc6/">
@@ -156,7 +157,8 @@ There are multiple scenarios for tasklist_lock that could lead to bad responsive
   <meta property="og:description" content="[Invitation] Linux MM Alignment Session on remap_file_pages on Wednesday (David Rientjes) https://lkml.kernel.org/r/46f97bec-3a48-e714-0a8d-b5206e1704ba@google.com
 There will be the last Linux MM Alignment Session for re-introducing remap_file_pages(), led by Matthew Wilcox, on 2023-11-13.
 [PATCH] kernel: Introduce a write lock/unlock wrapper for tasklist_lock (Maria Yu) https://lkml.kernel.org/r/20231213101745.4526-1-quic_aiquny@quicinc.com
-There are multiple scenarios for tasklist_lock that could lead to bad responsiveness. To mitigate the situation, this patch introduces a write lock/unlock wrapper for tasklist_lock."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
+There are multiple scenarios for tasklist_lock that could lead to bad responsiveness. To mitigate the situation, this patch introduces a write lock/unlock wrapper for tasklist_lock.
+[PATCH 0/9] Finish two folio conversions (Matthew Wilcox) https://lkml."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -208,7 +210,7 @@ There are multiple scenarios for tasklist_lock that could lead to bad responsive
       "url": "https://sjp38.github.io/img/icon-512.png"
     }
   },
-  "description": "[Invitation] Linux MM Alignment Session on remap_file_pages on Wednesday (David Rientjes) https://lkml.kernel.org/r/46f97bec-3a48-e714-0a8d-b5206e1704ba@google.com\nThere will be the last Linux MM Alignment Session for re-introducing remap_file_pages(), led by Matthew Wilcox, on 2023-11-13.\n[PATCH] kernel: Introduce a write lock/unlock wrapper for tasklist_lock (Maria Yu) https://lkml.kernel.org/r/20231213101745.4526-1-quic_aiquny@quicinc.com\nThere are multiple scenarios for tasklist_lock that could lead to bad responsiveness. To mitigate the situation, this patch introduces a write lock/unlock wrapper for tasklist_lock."
+  "description": "[Invitation] Linux MM Alignment Session on remap_file_pages on Wednesday (David Rientjes) https://lkml.kernel.org/r/46f97bec-3a48-e714-0a8d-b5206e1704ba@google.com\nThere will be the last Linux MM Alignment Session for re-introducing remap_file_pages(), led by Matthew Wilcox, on 2023-11-13.\n[PATCH] kernel: Introduce a write lock/unlock wrapper for tasklist_lock (Maria Yu) https://lkml.kernel.org/r/20231213101745.4526-1-quic_aiquny@quicinc.com\nThere are multiple scenarios for tasklist_lock that could lead to bad responsiveness. To mitigate the situation, this patch introduces a write lock/unlock wrapper for tasklist_lock.\n[PATCH 0/9] Finish two folio conversions (Matthew Wilcox) https://lkml."
 }
 </script>
 
@@ -623,6 +625,10 @@ There are multiple scenarios for tasklist_lock that could lead to bad responsive
 <p>There are multiple scenarios for <code>tasklist_lock</code> that could lead to bad
 responsiveness.  To mitigate the situation, this patch introduces a write
 lock/unlock wrapper for <code>tasklist_lock</code>.</p>
+<h2 id="patch-09-finish-two-folio-conversions-matthew-wilcox">[PATCH 0/9] Finish two folio conversions (Matthew Wilcox)</h2>
+<p><a href="https://lkml.kernel.org/r/20231211162214.2146080-1-willy@infradead.org">https://lkml.kernel.org/r/20231211162214.2146080-1-willy@infradead.org</a></p>
+<p>This patchset finishes the folio conversions for <code>page_add_new_anon_ramp()</code> and
+<code>lru_cache_add_inactive_or_unevictable()</code>.</p>
 
     </div>
 
