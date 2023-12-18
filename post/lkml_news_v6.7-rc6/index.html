@@ -576,7 +576,7 @@ There are multiple scenarios for tasklist_lock that could lead to bad responsive
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -644,6 +644,24 @@ protection systemcall, <code>mseal()</code> has posted.</p>
 <p>A patchset for improving DAMON&rsquo;s accuracy using higher level page table
 accessed bit has posted.  It is what used for a recent arXiv paper
 (<a href="https://arxiv.org/pdf/2311.10275.pdf)">https://arxiv.org/pdf/2311.10275.pdf)</a>.</p>
+<h2 id="linux-67-rc6-linus-torvalds">Linux 6.7-rc6 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wi17USyiO=G0yDXP62eqU3V6x3ck0HcnVMPKHNPsBP_ig@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wi17USyiO=G0yDXP62eqU3V6x3ck0HcnVMPKHNPsBP_ig@mail.gmail.com</a></p>
+<p>Linus released the sixth release candidate for Linux v6.7.  Though Mellanox and
+intel iavf ethernet driver, some legacy debugging code removal, and filesystems
+including smb, btrfs, bcachefs and fuse got some unusual changes, but nothing
+really stands out.  If we don&rsquo;t have extension of the rc period, v6.7 would be
+released at 2024-01-01.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/linux_stat_v6.7-rc7.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2021-12-18 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc6 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/linux_stat_v6.7-rc7-only.png" alt="rc6 release stat"></p>
 
     </div>
 
