@@ -28,12 +28,11 @@
   
     
   
-  <meta name="description" content="Kernel Development Engineer">
+  <meta name="description" content="[PATCH v5 0/4] mm/ksm: Add ksm advisor (Stefan Roesch) https://lkml.kernel.org/r/20231218231054.1625219-1-shr@devkernel.io
+Stefan posted the fifth version of the patchset for automatic and efficient tuning of kernel samepage merging.">
 
   
-  <link rel="alternate" hreflang="ko" href="https://sjp38.github.io/ko/categories/lkml-news/">
-  
-  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/categories/lkml-news/">
+  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/lkml_news_v6.7-rc7/">
 
   
 
@@ -133,14 +132,12 @@
 
 
   
-  <link rel="alternate" href="/categories/lkml-news/index.xml" type="application/rss+xml" title="hacklog">
-  
 
   <link rel="manifest" href="/index.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon-32.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://sjp38.github.io/categories/lkml-news/">
+  <link rel="canonical" href="https://sjp38.github.io/post/lkml_news_v6.7-rc7/">
 
   
   
@@ -152,18 +149,66 @@
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="hacklog">
-  <meta property="og:url" content="https://sjp38.github.io/categories/lkml-news/">
-  <meta property="og:title" content="lkml news | hacklog">
-  <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
+  <meta property="og:url" content="https://sjp38.github.io/post/lkml_news_v6.7-rc7/">
+  <meta property="og:title" content="LKML News v6.7-rc7 | hacklog">
+  <meta property="og:description" content="[PATCH v5 0/4] mm/ksm: Add ksm advisor (Stefan Roesch) https://lkml.kernel.org/r/20231218231054.1625219-1-shr@devkernel.io
+Stefan posted the fifth version of the patchset for automatic and efficient tuning of kernel samepage merging."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2023-12-19T06:37:26-08:00">
+    
+      <meta property="article:published_time" content="2023-12-19T06:37:26-08:00">
+    
+    <meta property="article:modified_time" content="2023-12-19T06:37:26-08:00">
   
 
   
 
 
+    
 
+
+
+
+
+
+  
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://sjp38.github.io/post/lkml_news_v6.7-rc7/"
+  },
+  "headline": "LKML News v6.7-rc7",
+  
+  "datePublished": "2023-12-19T06:37:26-08:00",
+  "dateModified": "2023-12-19T06:37:26-08:00",
+  
+  "author": {
+    "@type": "Person",
+    "name": "SeongJae Park"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "hacklog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://sjp38.github.io/img/icon-512.png"
+    }
+  },
+  "description": "[PATCH v5 0/4] mm/ksm: Add ksm advisor (Stefan Roesch) https://lkml.kernel.org/r/20231218231054.1625219-1-shr@devkernel.io\nStefan posted the fifth version of the patchset for automatic and efficient tuning of kernel samepage merging."
+}
+</script>
+
+  
 
   
 
@@ -171,10 +216,13 @@
   
 
 
+  
 
 
 
-  <title>lkml news | hacklog</title>
+
+
+  <title>LKML News v6.7-rc7 | hacklog</title>
 
 </head>
 
@@ -418,7 +466,7 @@
         
 
         <li class="nav-item">
-          <a class="nav-link  active" href="/categories"><span>Categories</span></a>
+          <a class="nav-link " href="/categories"><span>Categories</span></a>
         </li>
 
         
@@ -466,22 +514,6 @@
       
 
       
-      <li class="nav-item dropdown i18n-dropdown">
-        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true">
-          <i class="fas fa-globe mr-1" aria-hidden="true"></i><span class="d-none d-lg-inline">English</span>
-        </a>
-        <div class="dropdown-menu">
-          <div class="dropdown-item i18n-active font-weight-bold">
-            <span>English</span>
-          </div>
-          
-          <a class="dropdown-item" href="/ko/categories/lkml-news/">
-            <span>한국어</span>
-          </a>
-          
-        </div>
-      </li>
-      
 
     </ul>
 
@@ -489,183 +521,327 @@
 </nav>
 
 
-  
-
-
-
-
-
-
-
-
-
-
-
+  <article class="article">
 
   
 
+
+
+
+
+
+
+
+
+
+
+
+  
+
   
   
+  
+<div class="article-container pt-3">
+  <h1>LKML News v6.7-rc7</h1>
+
+  
+
   
     
-  
-<div class="universal-wrapper pt-3">
-  <h1>lkml news</h1>
+
+
+<div class="article-metadata">
 
   
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Tue, Dec 19, 2023
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   
 </div>
 
 
 
-<div class="universal-wrapper">
-  
+  <div class="article-container">
 
-  
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.15/">LKML News v5.15</a></h2>
     <div class="article-style">
-      
-      Dynamically allocated memory descriptors (Matthew Wilcox) https://lkml.kernel.org/r/YXcLqcFhDq3uUwIj@casper.infradead.org
-In this mail, Matthew explains his idea on making struct page only two words and how it could work with buddy allocator freelists.
-[RFC] mm: Disable NUMA_BALANCING_DEFAULT_ENABLED and TRANSPARENT_HUGEPAGE on PREEMPT_RT (Sebastian Andrzej Siewior) https://lkml.kernel.org/r/20211026165100.ahz5bkx44lrrw5pt@linutronix.de
-Mel told RT patchset could incur spikes on NUMA machines when NUMA_BALANCING and THP are turned on. Sebastian request comments on disabling those on RT enabled kernel by default, but still trying to find a good test for that.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.15-rc7/">LKML News v5.15-rc7</a></h2>
-    <div class="article-style">
-      
-      incoming (Andrew Morton) https://lkml.kernel.org/r/20211018151438.f2246e2656c041b6753a8bdd@linux-foundation.org
-19 mm subsystem fix patches have sent to Linus Torvalds.
-[PATCH v11 1/3] mm: rearrange madvise code to allow for reuse (Suren Baghdasaryan) https://lkml.kernel.org/r/20211019215511.3771969-1-surenb@google.com
-This commit refactor some madvise code for vma updates so that those can be reused by prctl.
-mmotm 2021-10-20-20-40 uploaded (Andrew Morton) https://lkml.kernel.org/r/20211021034104.F6VxKBQcG%akpm@linux-foundation.org
-Andrew updated mmotm. It&rsquo;s based on 5.15-rc6, adds 74 new patches modifies 29 existing patches, and drops 22 patches. In total, 366 patches in the queue.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.15-rc6/">LKML News v5.15-rc6</a></h2>
-    <div class="article-style">
-      
-      mmotm 2021-10-10-18-19 uploaded (Andrew Morton) https://lkml.kernel.org/r/20211011012001.mSbkDke0y%akpm@linux-foundation.org
-Update of mmotm. 33 new patches added and 7 old patches dropped. 285 patches in total.
-[PATCH v2 0/2] Introduce simple pidfd to task helper (Christian Brauner) https://lkml.kernel.org/r/20211011133245.1703103-1-brauner@kernel.org
-This patchset adds a simple helper to make code clean without duplications.
-[PATCH v0.7 0/5] sched,mm,x86/uaccess: implement User Managed Concurrency Groups (Peter Oskolkov) https://lkml.kernel.org/r/20211012232522.714898-1-posk@google.com
-This patchset implements the kernel parts for user-space m:n threading. If this is finalized and merged, user-space applications will be able to do the scheduling of their threads on their own.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.15-rc5/">LKML News v5.15-rc5</a></h2>
-    <div class="article-style">
-      
-      [PATCH 0/2] Introduce simple pidfd to task helper (Christian Brauner) https://lkml.kernel.org/r/20211004125050.1153693-1-christian.brauner@ubuntu.com
-This patchset adds a pidfd handling wrapper for removing duplications.
-[PATCH 00/62] Separate struct slab from struct page (Matthew Wilcox) https://lkml.kernel.org/r/20211004134650.4031813-1-willy@infradead.org
-This huge patchset separates struct slab from struct page to make struct page simple and therefore easier to handle.
-[PATCH v3 00/66] Introducing the Maple Tree (Liam Howlett) https://lkml.kernel.org/r/20211005012959.1110504-1-Liam.Howlett@oracle.com
-This patchset introduces Maple tree, which is intended to replace the rb tree for vmas, to improve the scalability.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.15-rc4/">LKML News v5.15-rc4</a></h2>
-    <div class="article-style">
-      
-      [RFC PATCH 0/8] mm/madvise: support process_madvise(MADV_DONTNEED) (Nadav Amit) https://lkml.kernel.org/r/20210926161259.238054-1-namit@vmware.com
-This patchset makes process_madvise() to support MADV_DONTNEED hint.
-mmotm 2021-09-28-19-05 uploaded (Andrew Morton) https://lkml.kernel.org/r/20210929020604.DyNimbxao%akpm@linux-foundation.org
-The mm-of-the-moment snapshot has been updated. 13 drop, 45 add, 37 modified. 184 patches in the broken/ in total.
-[PATCH 1/2] memcg: flush stats only if updated (Shakeel Butt) https://lkml.kernel.org/r/20210930044711.2892660-1-shakeelb@google.com
-This patchset makes memcg stats updated only when needed, as it is currently flushed on every refault and reclaim iteration.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.15-rc3/">LKML News v5.15-rc3</a></h2>
-    <div class="article-style">
-      
-      [RFC PATCH] Introducing lockless cache built on top of slab allocator (Hyeonggon Yoo) https://lkml.kernel.org/r/20210919164239.49905-1-42.hyeyoo@gmail.com
-The block layer now has a lockless cache, which increased its IOPS. This RFC generalizes it so that it can be used in some other area, such as NAPI.
-[PATCH v5 0/3] virtio-mem: disallow mapping virtio-mem memory via /dev/mem (David Hildenbrand) https://lkml.kernel.org/r/20210920142856.17758-1-david@redhat.com
-This patchset makes a basic infrastructure to exclude some physical memory regions that marked as IORESOURCE_SYSTEM_RAM from /dev/mem access, even though they are not marked as IORESOURCE_BUSY.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.15-rc2/">LKML News v5.15-rc2</a></h2>
-    <div class="article-style">
-      
-      [PATCH v1] vmpressure: wake up work only when there is registration event (wangyong) https://lkml.kernel.org/r/1631548441-2784-1-git-send-email-wang.yong12@zte.com.cn
-Currently, vmpressure works are awaken even though there are no vmpressure callbacks. This commit avoids such unnecessary wakeup by counting the number of registered events and skip waking up works if the number is zero.
-[PATCH v3 00/76] Optimize list lru memory consumption (Muchun Song) https://lkml.kernel.org/r/20210914072938.6440-1-songmuchun@bytedance.com
-Muchun found kmalloc-32 for list_lru_one allocation consuming 6 GiB of memory on their server.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.15-rc1/">LKML News v5.15-rc1</a></h2>
-    <div class="article-style">
-      
-      [RFC PATCH] mm/oom: detect and kill task which has allocation forbidden by cpuset limit (Feng Tang) https://lkml.kernel.org/r/1630399085-70431-1-git-send-email-feng.tang@intel.com
-Docker needs to allocate memory in non-movable zones for creation of an OS (e.g., GFP_HIGHUSER). However, if it is binded to a cpuset which has only movable zone, the allocation fails and OOM storm attacks other innocent processes. This patch detects the case and kill only the allocation failing process.
-Folios: Can we resolve this please?
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.14/">LKML News v5.14</a></h2>
-    <div class="article-style">
-      
-      [GIT PULL] Memory folios for v5.15 (Matthew Wilcox) https://lkml.kernel.org/r/YSPwmNNuuQhXNToQ@casper.infradead.org
-Matthew Wilcox sent a pull request for his page folio works to Linus Torvalds. Linus Torvalds replied he wants this to work in reverse. That is, calling head pages as normal pages but calling tail pages something other, as the term, page, is more common and de-facto standard in the industry.
-mmotm 2021-08-23-16-42 uploaded (Andrew Morton) https://lkml.kernel.org/r/20210823234329.H9WD-du1K%akpm@linux-foundation.org
-MMOTM is rebased on v5.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.14-rc7/">LKML News v5.14-rc7</a></h2>
-    <div class="article-style">
-      
-      [PATCH v2 0/3] virtio-mem: disallow mapping virtio-mem memory via /dev/mem (David Hildenbrand) https://lkml.kernel.org/r/20210816142505.28359-1-david@redhat.com
-Once the virtio-mem driver is plugging/unplugging memory of virtual machines, accessing the memory region via /dev/mem from the user space makes no sense. To avoid such insane use case, this patchset adds a basic infrastructure to exclude some physical memory regions completely from /dev/mem.
-[PATCH v2 00/61] Introducing the Maple Tree (Liam Howlett) https://lkml.kernel.org/r/20210817154651.1570984-1-Liam.Howlett@oracle.com
-This patchset introduces a new data structure called maple tree, which intended to replace the rbtree for vm_area_struct.
-      
-    </div>
-  </div>
-  
+      <h2 id="patch-v5-04-mmksm-add-ksm-advisor-stefan-roesch">[PATCH v5 0/4] mm/ksm: Add ksm advisor (Stefan Roesch)</h2>
+<p><a href="https://lkml.kernel.org/r/20231218231054.1625219-1-shr@devkernel.io">https://lkml.kernel.org/r/20231218231054.1625219-1-shr@devkernel.io</a></p>
+<p>Stefan posted the fifth version of the patchset for automatic and efficient
+tuning of kernel samepage merging.</p>
 
+    </div>
+
+    
+
+
+
+
+
+<div class="article-tags">
   
-<nav>
-  <ul class="pagination justify-content-center">
+  <a class="badge badge-light" href="/tags/linux/">linux</a>
+  
+  <a class="badge badge-light" href="/tags/kernel/">kernel</a>
+  
+  <a class="badge badge-light" href="/tags/lkml/">lkml</a>
+  
+  <a class="badge badge-light" href="/tags/news/">news</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
     
-    <li class="page-item"><a class="page-link" href="/categories/lkml-news/page/10/">&laquo;</a></li>
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=https://sjp38.github.io/post/lkml_news_v6.7-rc7/&amp;text=LKML%20News%20v6.7-rc7" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
     
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=https://sjp38.github.io/post/lkml_news_v6.7-rc7/&amp;t=LKML%20News%20v6.7-rc7" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
     
-    <li class="page-item"><a class="page-link" href="/categories/lkml-news/page/12/">&raquo;</a></li>
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=LKML%20News%20v6.7-rc7&amp;body=https://sjp38.github.io/post/lkml_news_v6.7-rc7/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=https://sjp38.github.io/post/lkml_news_v6.7-rc7/&amp;title=LKML%20News%20v6.7-rc7" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=LKML%20News%20v6.7-rc7%20https://sjp38.github.io/post/lkml_news_v6.7-rc7/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=https://sjp38.github.io/post/lkml_news_v6.7-rc7/&amp;title=LKML%20News%20v6.7-rc7" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
     
   </ul>
-</nav>
-
-
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      <img class="portrait mr-3" src="https://s.gravatar.com/avatar/43dc5645c78e68fda997138380dfaaf4?s=200')" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="https://sjp38.github.io/">SeongJae Park</a></h5>
+      <h6 class="card-subtitle">Kernel Development Engineer</h6>
+      <p class="card-text">SeongJae Park is a programmer who loves to analyze and develop systems.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/log/?qt=author&amp;q=seongjae&#43;park" target="_blank" rel="noopener">
+        <i class="fab fa-linux"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/sjp38" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.com/citations?user=jJIiF3AAAAAJ" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  
+  
+  <div class="article-widget content-widget-hr">
+    <h3>Related</h3>
+    <ul>
+      
+      <li><a href="/post/lkml_news_v6.7-rc6/">LKML News v6.7-rc6</a></li>
+      
+      <li><a href="/post/lkml_news_v6.7-rc5/">LKML News v6.7-rc5</a></li>
+      
+      <li><a href="/post/lkml_news_v6.7-rc4/">LKML News v6.7-rc4</a></li>
+      
+      <li><a href="/post/lkml_news_v6.7-rc3/">LKML News v6.7-rc3</a></li>
+      
+      <li><a href="/post/lkml_news_v6.7-rc2/">LKML News v6.7-rc2</a></li>
+      
+    </ul>
+  </div>
+  
+
+
+
+  </div>
+</article>
 
       
 
