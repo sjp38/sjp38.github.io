@@ -31,7 +31,9 @@
   <meta name="description" content="[PATCH v5 0/4] mm/ksm: Add ksm advisor (Stefan Roesch) https://lkml.kernel.org/r/20231218231054.1625219-1-shr@devkernel.io
 Stefan posted the fifth version of the patchset for automatic and efficient tuning of kernel samepage merging.
 [PATCH -next v4 0/2] Make memory reclamation measurable (Bixuan Cui) https://lkml.kernel.org/r/20231220012123.2787-1-cuibixuan@vivo.com
-This patchset adds a new tracer to shrink_active_list(), shrink_inactive_list(), and shrinker-&gt;count_objects() to make memory recycling mesaurable with bpf.">
+This patchset adds a new tracer to shrink_active_list(), shrink_inactive_list(), and shrinker-&gt;count_objects() to make memory recycling mesaurable with bpf.
+[RFC PATCH 1/1] mm: mark folio accessed in minor fault (Zhaoyang Huang) https://lkml.kernel.org/r/20231220102948.1963798-1-zhaoyang.huang@unisoc.com
+Inactive mapped folio is promoted to active only when it is scanned in shrink_inactive_list().">
 
   
   <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/lkml_news_v6.7-rc7/">
@@ -156,7 +158,9 @@ This patchset adds a new tracer to shrink_active_list(), shrink_inactive_list(),
   <meta property="og:description" content="[PATCH v5 0/4] mm/ksm: Add ksm advisor (Stefan Roesch) https://lkml.kernel.org/r/20231218231054.1625219-1-shr@devkernel.io
 Stefan posted the fifth version of the patchset for automatic and efficient tuning of kernel samepage merging.
 [PATCH -next v4 0/2] Make memory reclamation measurable (Bixuan Cui) https://lkml.kernel.org/r/20231220012123.2787-1-cuibixuan@vivo.com
-This patchset adds a new tracer to shrink_active_list(), shrink_inactive_list(), and shrinker-&gt;count_objects() to make memory recycling mesaurable with bpf."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
+This patchset adds a new tracer to shrink_active_list(), shrink_inactive_list(), and shrinker-&gt;count_objects() to make memory recycling mesaurable with bpf.
+[RFC PATCH 1/1] mm: mark folio accessed in minor fault (Zhaoyang Huang) https://lkml.kernel.org/r/20231220102948.1963798-1-zhaoyang.huang@unisoc.com
+Inactive mapped folio is promoted to active only when it is scanned in shrink_inactive_list()."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -208,7 +212,7 @@ This patchset adds a new tracer to shrink_active_list(), shrink_inactive_list(),
       "url": "https://sjp38.github.io/img/icon-512.png"
     }
   },
-  "description": "[PATCH v5 0/4] mm/ksm: Add ksm advisor (Stefan Roesch) https://lkml.kernel.org/r/20231218231054.1625219-1-shr@devkernel.io\nStefan posted the fifth version of the patchset for automatic and efficient tuning of kernel samepage merging.\n[PATCH -next v4 0/2] Make memory reclamation measurable (Bixuan Cui) https://lkml.kernel.org/r/20231220012123.2787-1-cuibixuan@vivo.com\nThis patchset adds a new tracer to shrink_active_list(), shrink_inactive_list(), and shrinker-\u0026gt;count_objects() to make memory recycling mesaurable with bpf."
+  "description": "[PATCH v5 0/4] mm/ksm: Add ksm advisor (Stefan Roesch) https://lkml.kernel.org/r/20231218231054.1625219-1-shr@devkernel.io\nStefan posted the fifth version of the patchset for automatic and efficient tuning of kernel samepage merging.\n[PATCH -next v4 0/2] Make memory reclamation measurable (Bixuan Cui) https://lkml.kernel.org/r/20231220012123.2787-1-cuibixuan@vivo.com\nThis patchset adds a new tracer to shrink_active_list(), shrink_inactive_list(), and shrinker-\u0026gt;count_objects() to make memory recycling mesaurable with bpf.\n[RFC PATCH 1/1] mm: mark folio accessed in minor fault (Zhaoyang Huang) https://lkml.kernel.org/r/20231220102948.1963798-1-zhaoyang.huang@unisoc.com\nInactive mapped folio is promoted to active only when it is scanned in shrink_inactive_list()."
 }
 </script>
 
@@ -623,6 +627,14 @@ tuning of kernel samepage merging.</p>
 <p>This patchset adds a new tracer to <code>shrink_active_list()</code>,
 <code>shrink_inactive_list()</code>, and <code>shrinker-&gt;count_objects()</code> to make memory
 recycling mesaurable with bpf.</p>
+<h2 id="rfc-patch-11-mm-mark-folio-accessed-in-minor-fault-zhaoyang-huang">[RFC PATCH 1/1] mm: mark folio accessed in minor fault (Zhaoyang Huang)</h2>
+<p><a href="https://lkml.kernel.org/r/20231220102948.1963798-1-zhaoyang.huang@unisoc.com">https://lkml.kernel.org/r/20231220102948.1963798-1-zhaoyang.huang@unisoc.com</a></p>
+<p>Inactive mapped folio is promoted to active only when it is scanned in
+<code>shrink_inactive_list()</code>.  This RFC patch marks in accessed in minor fault.</p>
+<h2 id="lsfmmbpf-2024-call-for-proposals-daniel-borkmann">LSF/MM/BPF: 2024: Call for Proposals (Daniel Borkmann)</h2>
+<p><a href="https://lkml.kernel.org/r/4343d07b-b1b2-d43b-c201-a48e89145e5c@iogearbox.net">https://lkml.kernel.org/r/4343d07b-b1b2-d43b-c201-a48e89145e5c@iogearbox.net</a></p>
+<p>LSFMM+BPF 2024 CFP is out.  It will be held from May 13 to May 15 in Salt Lake
+City.  Invitation request should be sent by 2024-03-01.</p>
 
     </div>
 
