@@ -705,14 +705,9 @@ kernel, you could:&lt;/p&gt;
 &lt;p&gt;DAMON is enabled in
 &lt;a href=&#34;https://aws.amazon.com/linux/?amazon-linux-whats-new.sort-by=item.additionalFields.postDateTime&amp;amp;amazon-linux-whats-new.sort-order=desc&#34;&gt;Amazon Linux&lt;/a&gt;
 kernels that based on v5.4 or newer Linux kernels.
-If you are an
-&lt;a href=&#34;https://aws.amazon.com/linux/amazon-linux-2023/&#34;&gt;Amazon Linux 2023&lt;/a&gt; user, you
-may already using a DAMON-enabled kernel, so no additional setup would be
-required.&lt;/p&gt;
-&lt;p&gt;If you are an &lt;a href=&#34;https://aws.amazon.com/amazon-linux-2/&#34;&gt;Amazon Linux 2&lt;/a&gt; user,
-you may or may not using a DAMON-enabled kernel, because the distro supports
-kernels older than v5.4.  If you&amp;rsquo;re not using DAMON-enabled kernel on the
-distro, you can install DAMON-enabled kernels using its package manager,
+If you&amp;rsquo;re using &lt;a href=&#34;https://aws.amazon.com/amazon-linux-2/&#34;&gt;Amazon Linux 2&lt;/a&gt; and
+not using DAMON-enabled kernel on the distro, you can install DAMON-enabled
+kernels using its package manager,
 &lt;a href=&#34;https://aws.amazon.com/premiumsupport/knowledge-center/ec2-install-extras-library-software/&#34;&gt;amazon-linux-extras&lt;/a&gt;.
 For example, if you want to use DAMON with Amazon Linux v5.10 kernel, below
 commands will work.&lt;/p&gt;
@@ -721,8 +716,8 @@ $ sudo amazon-linux-extras install kernel-5.10
 $ sudo reboot
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Note that AL2 v5.10.y contains all DAMON features that available on mainline
-while AL2 5.4.y contains only a part of DAMON features.  We recommend AL2
-v5.10.y for the reason.&lt;/p&gt;
+while AL2 5.4.y contains only a part of DAMON features.  AL2 v5.10.y kernels
+are recommended for the reason.&lt;/p&gt;
 &lt;p&gt;If your package system doesn&amp;rsquo;t support DAMON-enabled kernel, you can
 &lt;a href=&#34;#source-code&#34;&gt;fetch&lt;/a&gt; a DAMON-merged Linux kernel source tree (it has merged in
 Linux mainline tree since v5.15), build, and install it.  Note that you should
@@ -731,13 +726,10 @@ example:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ cd $THE_FETCHED_DAMON_KERNEL_SOURCE_TREE
 $ make olddefconfig
 $ echo &#39;CONFIG_DAMON=y&#39; &amp;gt;&amp;gt; /.config
-$ echo &#39;CONFIG_DAMON_KUNIT_TEST=y&#39; &amp;gt;&amp;gt; /.config
 $ echo &#39;CONFIG_DAMON_VADDR=y&#39; &amp;gt;&amp;gt; /.config
 $ echo &#39;CONFIG_DAMON_PADDR=y&#39; &amp;gt;&amp;gt; /.config
-$ echo &#39;CONFIG_DAMON_VADDR_KUNIT_TEST=y&#39; &amp;gt;&amp;gt; /.config
 $ echo &#39;CONFIG_DAMON_SYSFS=y&#39; &amp;gt;&amp;gt; /.config
 $ echo &#39;CONFIG_DAMON_DBGFS=y&#39; &amp;gt;&amp;gt; /.config
-$ echo &#39;CONFIG_DAMON_DBGFS_KUNIT_TEST=y&#39; &amp;gt;&amp;gt; /.config
 $ echo &#39;CONFIG_DAMON_RECLAIM=y&#39; &amp;gt;&amp;gt; /.config
 $ echo &#39;CONFIG_DAMON_LRU_SORT=y&#39; &amp;gt;&amp;gt; /.config
 $ make -j$(nproc)
@@ -746,8 +738,7 @@ $ sudo make modules_install install
 &lt;h2 id=&#34;source-code&#34;&gt;Source Code&lt;/h2&gt;
 &lt;p&gt;There are several Linux kernel source trees having DAMON for different users.
 You may pick one among those based on your needs.&lt;/p&gt;
-&lt;p&gt;For users who want only a &lt;strong&gt;stable&lt;/strong&gt; version of DAMON, below trees are
-recommended.&lt;/p&gt;
+&lt;p&gt;For users who want a &lt;strong&gt;stable&lt;/strong&gt; version of DAMON, below trees are recommended.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Linus Torvalds&amp;rsquo; &lt;a href=&#34;https://git.kernel.org/torvalds/h/master&#34;&gt;mainline tree&lt;/a&gt;
 contains the latest stable version of DAMON since v5.15.&lt;/li&gt;
@@ -775,7 +766,7 @@ changes that exist only for DAMON hacks itself rather than eventually be
 merged in the mainline.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;For people who have interest in DAMON features under development but use LTS
-kernels as their baseline, there &lt;em&gt;were&lt;/em&gt; trees that based on three latest LTS
+kernels as their baseline, three &lt;em&gt;were&lt;/em&gt; trees that based on three latest LTS
 kernels.&lt;/p&gt;
 &lt;p&gt;NOTE: Below trees were continuously getting DAMON backports on latest 5.4.y,
 5.10.y, and 5.15.y.  But those are deprecated as of 2022-09-03, and therefore
