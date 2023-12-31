@@ -5,12 +5,117 @@
     <link>https://sjp38.github.io/tags/github/</link>
       <atom:link href="https://sjp38.github.io/tags/github/index.xml" rel="self" type="application/rss+xml" />
     <description>github</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sat, 31 Dec 2022 13:48:12 -0800</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sun, 31 Dec 2023 12:57:52 -0800</lastBuildDate>
     <image>
       <url>https://sjp38.github.io/img/tux.png</url>
       <title>github</title>
       <link>https://sjp38.github.io/tags/github/</link>
     </image>
+    
+    <item>
+      <title>My opensource commits statistics in 2023</title>
+      <link>https://sjp38.github.io/post/my_opensource_commits_stat_2023/</link>
+      <pubDate>Sun, 31 Dec 2023 12:57:52 -0800</pubDate>
+      <guid>https://sjp38.github.io/post/my_opensource_commits_stat_2023/</guid>
+      <description>&lt;p&gt;As today is the last day of 2023, I checked some open source commits statistics
+using my simple and buggy script[1], and github.  Similar statistics for 2022
+is available at another
+&lt;a href=&#34;https://sjp38.github.io/post/my_opensource_commits_stat_2022/&#34;&gt;post&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;In short, I made 8th and 4th biggest changes to Linux kernel memory management
+subsystem among the 295 people, for lines of changes (1,910) and commits (66).&lt;/p&gt;
+&lt;p&gt;For the Linux kernel whole tree, the numbers become 264th (3,562 lines) and
+80th (147 commits) among 5,006 people.&lt;/p&gt;
+&lt;h2 id=&#34;linux-kernel-statistics&#34;&gt;Linux kernel statistics&lt;/h2&gt;
+&lt;p&gt;I ran my buggy script[1] to show some 2023 statistics for memory management
+subsystem and whole tree of Linux kernel as below.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ date
+Sun Dec 31 01:26:17 PM PST 2023
+$ ./authors.py ~/linux --commits linus/master --file mm/ \
+&amp;gt;         --since 2023-01-01 --skip_merge_commits \
+&amp;gt;         --sortby lines --max_nr_authors 9
+1. Mike Rapoport (IBM) &amp;lt;rppt@kernel.org&amp;gt;: 5686 lines
+2. Hugh Dickins &amp;lt;hughd@google.com&amp;gt;: 3938 lines
+3. Qi Zheng &amp;lt;zhengqi.arch@bytedance.com&amp;gt;: 2775 lines
+4. Kefeng Wang &amp;lt;wangkefeng.wang@huawei.com&amp;gt;: 2382 lines
+5. Matthew Wilcox (Oracle) &amp;lt;willy@infradead.org&amp;gt;: 2278 lines
+6. Huang Ying &amp;lt;ying.huang@intel.com&amp;gt;: 2149 lines
+7. Liam R. Howlett &amp;lt;Liam.Howlett@Oracle.com&amp;gt;: 1995 lines
+8. SeongJae Park &amp;lt;sj@kernel.org&amp;gt;: 1910 lines
+9. Lorenzo Stoakes &amp;lt;lstoakes@gmail.com&amp;gt;: 1779 lines
+# 272 authors, 57035 lines in total
+$
+$ ./authors.py ~/linux --commits linus/master --file mm/ \
+&amp;gt;         --since 2023-01-01 --skip_merge_commits \
+&amp;gt;         --sortby commits --max_nr_authors 5
+1. Matthew Wilcox (Oracle) &amp;lt;willy@infradead.org&amp;gt;: 111 commits
+2. Hugh Dickins &amp;lt;hughd@google.com&amp;gt;: 77 commits
+3. Kefeng Wang &amp;lt;wangkefeng.wang@huawei.com&amp;gt;: 71 commits
+4. SeongJae Park &amp;lt;sj@kernel.org&amp;gt;: 66 commits
+5. Lorenzo Stoakes &amp;lt;lstoakes@gmail.com&amp;gt;: 41 commits
+# 272 authors, 1690 commits in total
+$
+$ ./authors.py ~/linux --commits linus/master \
+&amp;gt;         --since 2023-01-01 --skip_merge_commits \
+&amp;gt;         --sortby lines --max_nr_authors 7000 &amp;gt; 2023_by_lines
+$ tail -n 1 2023_by_lines
+# 5006 authors, 5253379 lines in total
+$ grep -A1 -B1 sj@kernel.org 2023_by_lines
+263. Claudiu Beznea &amp;lt;claudiu.beznea@microchip.com&amp;gt;: 3581 lines
+264. SeongJae Park &amp;lt;sj@kernel.org&amp;gt;: 3562 lines
+265. Thomas Weißschuh &amp;lt;linux@weissschuh.net&amp;gt;: 3558 lines
+$
+$ ./authors.py ~/linux --commits linus/master \
+&amp;gt;         --since 2023-01-01 --skip_merge_commits \
+&amp;gt;         --sortby commits --max_nr_authors 7000 &amp;gt; 2023_by_commits
+$ tail -n 1 2023_by_commits
+# 5006 authors, 74198 commits in total
+$ grep -A1 -B1 sj@kernel.org 2023_by_commits
+79. Pavel Begunkov &amp;lt;asml.silence@gmail.com&amp;gt;: 150 commits
+80. SeongJae Park &amp;lt;sj@kernel.org&amp;gt;: 147 commits
+81. Andrii Nakryiko &amp;lt;andrii@kernel.org&amp;gt;: 146 commits
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;memory-management&#34;&gt;Memory Management&lt;/h3&gt;
+&lt;p&gt;In 2023, 272 people participated in Linux kernel memory management subsystem
+development by making 57,035 lines of changes with 1,690 commits.&lt;/p&gt;
+&lt;p&gt;I made 8th and 4th biggest changes among the 295 people, for lines of changes
+(1,910) and commits (66).  Note that I counted only files under &lt;code&gt;mm/&lt;/code&gt;
+directory of the source tree, though.&lt;/p&gt;
+&lt;p&gt;Distribution of the numbers can be plotted like below.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ ./authors.py ~/linux --commits linus/master --file mm/ --since 2023-01-01 \
+        --skip_merge_commits --sortby lines --max_nr_authors 300 \
+	--pr_for_plot | ../gnuplot/plot.py --ylog --pointsize 0.2 output.png
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The plot for the distribution of the number of changed lines per author for
+memory management subsystem in 2023 is like below.  Note that y-axis is in
+logscale.  My number on the graph is 1,910.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/2023_open_source_commits_stat/2023_changed_lines_per_author_mm.png&#34; alt=&#34;number of changed lines per author for mm in 2023&#34;&gt;&lt;/p&gt;
+&lt;p&gt;The plot for the distribution of the number of commits per author for memory
+management subsystem in 2023 is like below.  Note that both x-axis and y-axis
+are in logscale.  My number on the graph is 66.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/2023_open_source_commits_stat/2023_commits_per_author_mm.png&#34; alt=&#34;number of commits per author for mm in 2023&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;linux-kernel-whole-tree&#34;&gt;Linux kernel Whole Tree&lt;/h3&gt;
+&lt;p&gt;In 2023, 5,006 people participated in Linux kernel development by making
+5,253,379 lines of changes with 74,198 commits.&lt;/p&gt;
+&lt;p&gt;I made 264th and 80th biggest changes among the 5,006 people, for lines of
+changes (3,562) and commits (147).&lt;/p&gt;
+&lt;p&gt;The plot for the distribution of the number of changed lines per author for the
+whole Linux kernel source tree in 2023 is like below.  Note that both x-axis
+and y-axis are in logscale.  My number on this graph is 3,562.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/2023_open_source_commits_stat/2023_changed_lines_per_author_linux.png&#34; alt=&#34;number of changed lines per author for linux in 2023&#34;&gt;&lt;/p&gt;
+&lt;p&gt;The plot for the distribution of the number of commits per author for the whole
+Linux kernel source treein 2023 is like below.  Note that both x-axis and
+y-axis is in logscale.  My number on this graph is 147.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/2023_open_source_commits_stat/2023_commits_per_author_linux.png&#34; alt=&#34;number of commits per author for linux in 2023&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;github&#34;&gt;Github&lt;/h2&gt;
+&lt;p&gt;On github, I made 3,264 commits in 2023.  It&amp;rsquo;s counting only the commits that I
+made with my github main account&amp;rsquo;s email address, so it doesn&amp;rsquo;t cover some of
+my commits for some projects including Linux kernel.  I made commits everyday
+except three days in 2023.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/2023_open_source_commits_stat/github_sj38_park_3d.png&#34; alt=&#34;github contributions in 3d&#34;&gt;
+&lt;img src=&#34;https://sjp38.github.io/img/2022_open_source_commits_stat/github_sj38_park_2d.png&#34; alt=&#34;github contributions in 2d&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Apparently 2023 was a busy year for me and the world.  Hope I and the community
+to continue happy hacking in 2023.&lt;/p&gt;
+&lt;p&gt;[1] &lt;a href=&#34;https://github.com/sjp38/lazybox/blob/master/git_helpers/authors.py&#34;&gt;https://github.com/sjp38/lazybox/blob/master/git_helpers/authors.py&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>My opensource commits statistics in 2022</title>

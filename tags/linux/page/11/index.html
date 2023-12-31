@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2023-12-26T06:44:18-08:00">
+    <meta property="og:updated_time" content="2023-12-31T12:57:52-08:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.17-rc3/">LKML News v5.17-rc3</a></h2>
+    <div class="article-style">
+      
+      [PATCH] selftests: kselftest framework: Provide &ldquo;finished&rdquo; helper (Kees Cook) https://lkml.kernel.org/r/20220201013717.2464392-1-keescook@chromium.org
+Users who want to use ksft_exit() need to figure out the internals of kselftest. This commit adds a helper function for that purpose, namely, ksft_finished().
+[LSF/MM/BPF TOPIC] Handling of VMAs (Liam Howlett) https://lkml.kernel.org/r/20220201150521.owa5axfsmpdvc7uo@revolver
+Liam is pointing out the VMAs are quite complicately managed with their cache, tree, linked list, and even reverse mapping. As it now shows its limit with the lock contention and complexity of the handling code, he wants to propose a simpler new way for their management.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.17-rc2/">LKML News v5.17-rc2</a></h2>
     <div class="article-style">
       
@@ -628,18 +640,6 @@ mmotm has updated. It&rsquo;s based on v5.16-rc3, adds 52 new patches, modifies 
 [QUESTION] “place pages to tail” regress memory read bandwidth about 10% under our test cases (liupeng) https://lkml.kernel.org/r/3c6349ddd9a34732a251467b7fa4fe93@huawei.com
 Liu Peng found David&rsquo;s patch 7fef431be9c9(mm/page_alloc: place pages to tail in __free_pages_core()) incurring performance regression, and asking some suggestions.
 [RFC PATCH] mm: count zram read/write into PSI_IO_WAIT (Huangzhaoyang) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.16-rc3/">LKML News v5.16-rc3</a></h2>
-    <div class="article-style">
-      
-      [PATCH 0/3] page table check (Pasha Tatashin) https://lkml.kernel.org/r/20211123214814.3756047-1-pasha.tatashin@soleen.com
-Due to reference count of struct page handling issue, some memory were leak from a process and moved in another process. This commit avoids such type of bugs by checking page table at the time of entrieds insertion.
-[PATCH 0/5] *** Transparent Page Placement for Tiered-Memory *** (Hasan Al Maruf) https://lkml.kernel.org/r/20211124163608.33015-1-hasanalmaruf@fb.com
-This patchset augment AutoNUMA mechanism to promote pages from slow tier nodes to toptier nodes.
       
     </div>
   </div>
