@@ -18,9 +18,9 @@
       <pubDate>Sun, 31 Dec 2023 12:57:52 -0800</pubDate>
       <guid>https://sjp38.github.io/post/my_opensource_commits_stat_2023/</guid>
       <description>&lt;p&gt;As today is the last day of 2023, I checked some open source commits statistics
-using my simple and buggy script[1], and github.  Similar statistics for 2022
-is available at another
-&lt;a href=&#34;https://sjp38.github.io/post/my_opensource_commits_stat_2022/&#34;&gt;post&lt;/a&gt;.&lt;/p&gt;
+using my simple and buggy
+&lt;a href=&#34;https://github.com/sjp38/lazybox/blob/master/git_helpers/authors.py&#34;&gt;script&lt;/a&gt;,
+and github.  Similar statistics for 2022 is available at another &lt;a href=&#34;https://sjp38.github.io/post/my_opensource_commits_stat_2022/&#34;&gt;post&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;In short, I made 8th and 4th biggest changes to Linux kernel memory management
 subsystem among the 295 people, for lines of changes (1,910) and commits (66).&lt;/p&gt;
 &lt;p&gt;For the Linux kernel whole tree, the numbers become 264th (3,562 lines) and
@@ -113,7 +113,6 @@ except three days in 2023.&lt;/p&gt;
 &lt;img src=&#34;https://sjp38.github.io/img/2022_open_source_commits_stat/github_sj38_park_2d.png&#34; alt=&#34;github contributions in 2d&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Apparently 2023 was a busy year for me and the world.  Hope I and the community
 to continue happy hacking in 2023.&lt;/p&gt;
-&lt;p&gt;[1] &lt;a href=&#34;https://github.com/sjp38/lazybox/blob/master/git_helpers/authors.py&#34;&gt;https://github.com/sjp38/lazybox/blob/master/git_helpers/authors.py&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -142,6 +141,21 @@ replication on x86_64 has posted.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20231228073055.4046430-1-shakeelb@google.com&#34;&gt;https://lkml.kernel.org/r/20231228073055.4046430-1-shakeelb@google.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Shakeel found a regression due to rstat flush from &lt;code&gt;count_shadow_nodes()&lt;/code&gt;, and
 suggesting rate limiting it.&lt;/p&gt;
+&lt;h2 id=&#34;linux-67-rc8-linus-torvalds&#34;&gt;Linux 6.7-rc8 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=whbyHgacqfOJ0VU_GxB-p=Cz+xsQ6XWrAEx=gT_QO9ERg@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=whbyHgacqfOJ0VU_GxB-p=Cz+xsQ6XWrAEx=gT_QO9ERg@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;As announced before, Linus made the eighth release candidate for v6.7 with
+nearly nothing changes.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/kernel_release_stat/linux_stat_v6.7-rc8.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
+below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2022-01-01 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And, below is the diffstat of the -rc8 releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/kernel_release_stat/linux_stat_v6.7-rc8-only.png&#34; alt=&#34;rc8 release stat&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     

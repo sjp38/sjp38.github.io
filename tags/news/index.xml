@@ -37,6 +37,21 @@ replication on x86_64 has posted.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20231228073055.4046430-1-shakeelb@google.com&#34;&gt;https://lkml.kernel.org/r/20231228073055.4046430-1-shakeelb@google.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Shakeel found a regression due to rstat flush from &lt;code&gt;count_shadow_nodes()&lt;/code&gt;, and
 suggesting rate limiting it.&lt;/p&gt;
+&lt;h2 id=&#34;linux-67-rc8-linus-torvalds&#34;&gt;Linux 6.7-rc8 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=whbyHgacqfOJ0VU_GxB-p=Cz+xsQ6XWrAEx=gT_QO9ERg@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=whbyHgacqfOJ0VU_GxB-p=Cz+xsQ6XWrAEx=gT_QO9ERg@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;As announced before, Linus made the eighth release candidate for v6.7 with
+nearly nothing changes.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/kernel_release_stat/linux_stat_v6.7-rc8.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
+below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2022-01-01 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And, below is the diffstat of the -rc8 releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/kernel_release_stat/linux_stat_v6.7-rc8-only.png&#34; alt=&#34;rc8 release stat&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     
