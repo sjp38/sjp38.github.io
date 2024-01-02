@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2023-12-26T06:44:18-08:00">
+    <meta property="og:updated_time" content="2024-01-02T06:46:21-08:00">
   
 
   
@@ -525,6 +525,20 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.0/">LKML News v6.0</a></h2>
+    <div class="article-style">
+      
+      [GIT PULL] hotfixes for 6.0[-rc8] (Andrew Morton) https://lkml.kernel.org/r/20220926123721.2a1edc734b4fc516a9a350b8@linux-foundation.org
+Andrew&rsquo;s mm hotfix patches pull request for Linux v6.0, or v6.0-rc8 has posted.
+[RFC PATCH] mm: sort kmemleak object via backtrace (Zhaoyang Huang) https://lkml.kernel.org/r/1664264570-3716-1-git-send-email-zhaoyang.huang@unisoc.com
+This RFC patch introduces a set of method to sort objects in kmemleak output by backtrace to make the report more easy to read.
+[PATCH 0/3] THP Shrinker (Alexander Zhu) https://lkml.kernel.org/r/cover.1664347167.git.alexlzhu@fb.com
+This patchset introduces a sysfs files for measuring THP utilization and a shrinker for splitting the under-utilized THPs.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.0-rc7/">LKML News v6.0-rc6</a></h2>
     <div class="article-style">
       
@@ -634,18 +648,6 @@ This patch enables THP_SWAP which can improve the swap performance for transpare
 [PATCH v12 00/69] Introducing the Maple Tree (Liam Howlett) https://lkml.kernel.org/r/20220720021727.17018-1-Liam.Howlett@oracle.com
 Maple tree has already merged in the mm-unstable but a new bug has found, so the 12th version of the patchset has posted.
 [PATCH v10 0/8] mm/demotion: Memory tiers and demotion (Aneesh Kumar K.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.19-rc7/">LKML News v5.19-rc7</a></h2>
-    <div class="article-style">
-      
-      [PATCH 0/4] add struct page and Direct I/O support to reserved memory (Li Chen) https://lkml.kernel.org/r/20220711122459.13773-1-me@linux.beauty
-Only buffered I/O is available to reserved memory for ZONE_DEVICE and mhp. This patchset enables direct I/O to the memory for better throughput.
-[PATCH -V4 RESEND 0/3] memory tiering: hot page selection (Huang Ying) https://lkml.kernel.org/r/20220713083954.34196-1-ying.huang@intel.com
-This patchset implements a new hot page identification algorithm based on the latency between NUMA balancing page table scanning and hit page fault, so that it can be somewhat LFU algorithm instead of MRU algorithm.
       
     </div>
   </div>

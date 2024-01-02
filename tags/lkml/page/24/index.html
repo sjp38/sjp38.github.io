@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2023-12-26T06:44:18-08:00">
+    <meta property="og:updated_time" content="2024-01-02T06:46:21-08:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.0-rc5/">LKML News v5.0-rc5</a></h2>
+    <div class="article-style">
+      
+      [LSF/MM TOPIC] Page flags, can we free up space ? https://lkml.kernel.org/r/20190122201744.GA3939@redhat.com
+리눅스 커널의 page 정보는 PG_ 로 시작하는 플래그를 사용해 현재 상태를 알리는데요, 이걸 저장하는데 사용되는 공간을 더 줄일 수 있을지에 대한 논의를 해보고 싶다는 LSF/MM 제안입니다.
+[LSF/MM TOPIC] Use NVDIMM as NUMA node and NUMA API https://lkml.kernel.org/r/f0d66b0c-c9b6-a040-c485-1606041a70a2@linux.alibaba.com
+알리바바에서는 NVDIMM 을 클라우드 고객들에게 싼 비용의 메모리로 제공하려 한다는군요. 이를 위해 여러 필요성이 있고, 현재 NUMA API 로는 모든 경우를 커퍼하기가 어렵다고 합니다.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.0-rc3/">LKML News v5.0-rc3</a></h2>
     <div class="article-style">
       
@@ -637,17 +649,6 @@ Transparent Huge Page 를 쪼개지 않고 swap out / swap in 함으로써 스�
       
       Linux 4.20-rc3 https://lkml.kernel.org/r/CAHk-=wiZmPvR64hDy-pcVJqcxoAwMRd4GrRhRjK04Mhng4nL4g@mail.gmail.com
 리누스 토발즈의 개인적 여행이 있었다는 점을 제외하고는 이상할 것 없는 한주였습니다만, 이번 릴리즈의 변경 사항은 rc3 치고는 상당히 적었다고 하는군요.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.20-rc2/">LKML News by v4.20-rc2</a></h2>
-    <div class="article-style">
-      
-      [PATCH 0/5] Fragmentation avoidance improvements v2 https://lkml.kernel.org/r/20181107183822.15567-1-mgorman@techsingularity.net
-장시간 운영되는 시스템은 결국 메모리가 단편화 (fragmentation) 되게 되어 있습니다. 페이징을 사용하면 단일 페이지 단위 할당은 문제가 없지만, 물리적으로 연속적인 페이지를 할당받기가 어려워지죠. Mel Gorman 의 이 패치는 이런 메모리 분절화를 좀 더 잘 막을 수 있는 방법을 포함하고 있습니다.
-첫번째 패치는 단일 페이지 또는 적은 물리적 연속 페이지들의 할당 시에 불필요하게 higher order free page zone 을 사용하지 않게 하고, 두번째와 세번째 패치는 kswapd 와 kcompactd 를 사용한 defragmentation 을 좀 더 적극적으로 하게 합니다.
       
     </div>
   </div>
