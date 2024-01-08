@@ -39,6 +39,19 @@ SLAB.&lt;/p&gt;
 &lt;h2 id=&#34;git-pull-hotfixes-for-68-andrew-morton&#34;&gt;[GIT PULL] hotfixes for 6.8 (Andrew Morton)&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20240105114314.820c25628928c57f639058fe@linux-foundation.org&#34;&gt;https://lkml.kernel.org/r/20240105114314.820c25628928c57f639058fe@linux-foundation.org&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Andrew sent yet another hotfix pull request to Linus Torvalds.&lt;/p&gt;
+&lt;h2 id=&#34;linux-67-linus-torvalds&#34;&gt;Linux 6.7 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=widprp4XoHUcsDe7e16YZjLYJWra-dK0hE1MnfPMf6C3Q@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=widprp4XoHUcsDe7e16YZjLYJWra-dK0hE1MnfPMf6C3Q@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;After the rc8 week, Linus released the v6.7 of Linux kernel.  It is the biggest
+one of the history.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/kernel_release_stat/linux_stat_v6.7.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
+below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2022-01-08 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
