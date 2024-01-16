@@ -574,7 +574,7 @@ Andrew sent yet another pull request for out of memory management subsystem chan
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -636,6 +636,24 @@ since the shrinker code has moved to a separate <code>shrinker.c</code>.</p>
 <p>Jeff posted the fifth version of patchset for <code>mseal()</code>, which is a system call
 for protecting the VMAs of a specific virtual memory range against
 modifications such as permission bits changes.</p>
+<h2 id="patch-v3-03-a-solution-to-re-enable-hugetlb-vmemmap-optimize-nanyong-sun">[PATCH v3 0/3] A Solution to Re-enable hugetlb vmemmap optimize (Nanyong Sun)</h2>
+<p><a href="https://lkml.kernel.org/r/20240113094436.2506396-1-sunnanyong@huawei.com">https://lkml.kernel.org/r/20240113094436.2506396-1-sunnanyong@huawei.com</a></p>
+<p>Due to break-before-make logic, hugetlb vmemmap optimization was disabled on
+arm64.  This patchset adds necessary break-before-make logic and enable the
+hugetlb vmemmap optimization.</p>
+<h2 id="git-pull-hotfixes-for-68-rc1-andrew-morton">[GIT PULL] hotfixes for 6.8-rc1 (Andrew Morton)</h2>
+<p><a href="https://lkml.kernel.org/r/20240112165917.67505f1509909230808c06e3@linux-foundation.org">https://lkml.kernel.org/r/20240112165917.67505f1509909230808c06e3@linux-foundation.org</a></p>
+<p>Andrew posted a hotfixes pull request to Linus Torvalds.</p>
+<h2 id="rfc-patch-04-damon-based-2-tier-memory-management-for-cxl-memory-honggyu-kim">[RFC PATCH 0/4] DAMON based 2-tier memory management for CXL memory (Honggyu Kim)</h2>
+<p><a href="https://lkml.kernel.org/r/20240115045253.1775-1-honggyu.kim@sk.com">https://lkml.kernel.org/r/20240115045253.1775-1-honggyu.kim@sk.com</a></p>
+<p>Honggyu proposes two new DAMOS action for 2-tier tiered memory management using
+DAMOS, namely <code>DAMOS_PROMOTE</code> and <code>DAMOS_DEMOTE</code>.  The cover letter is also
+containing nice test results.</p>
+<h2 id="lsfmmbpf-topic-dropping-page-cache-of-individual-fs-christian-brauner">[LSF/MM/BPF TOPIC] Dropping page cache of individual fs (Christian Brauner)</h2>
+<p><a href="https://lkml.kernel.org/r/20240116-tagelang-zugnummer-349edd1b5792@brauner">https://lkml.kernel.org/r/20240116-tagelang-zugnummer-349edd1b5792@brauner</a></p>
+<p>Gnome got 1M Euro award by the Sovereign Tech Fund, and proposed vairous
+projects.  Based on it, Christian proposes dropping page cache of individual fs
+as a LSFMM topic.</p>
 
     </div>
 
