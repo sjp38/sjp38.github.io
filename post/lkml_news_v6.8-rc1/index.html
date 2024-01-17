@@ -654,6 +654,12 @@ containing nice test results.</p>
 <p>Gnome got 1M Euro award by the Sovereign Tech Fund, and proposed vairous
 projects.  Based on it, Christian proposes dropping page cache of individual fs
 as a LSFMM topic.</p>
+<h2 id="patch-v3-toolsmm-add-thpmaps-script-to-dump-thp-usage-info-ryan-roberts">[PATCH v3] tools/mm: Add thpmaps script to dump THP usage info (Ryan Roberts)</h2>
+<p><a href="https://lkml.kernel.org/r/20240116141235.960842-1-ryan.roberts@arm.com">https://lkml.kernel.org/r/20240116141235.960842-1-ryan.roberts@arm.com</a></p>
+<p>This patch adds a script reading <code>/proc/&lt;pid&gt;/{smaps,pagemap}</code> and
+<code>/proc/kpageflags</code> and prints THP information.  This could be useful since THP
+is now adavnced to support file-backed memory and multi size for anonymous
+memory.</p>
 
     </div>
 
