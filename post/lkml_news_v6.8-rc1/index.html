@@ -574,7 +574,7 @@ Andrew sent yet another pull request for out of memory management subsystem chan
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    2 min read
+    3 min read
   </span>
   
 
@@ -664,6 +664,15 @@ memory.</p>
 <p><a href="https://lkml.kernel.org/r/20240118124109.37324-1-lizhe.67@bytedance.com">https://lkml.kernel.org/r/20240118124109.37324-1-lizhe.67@bytedance.com</a></p>
 <p>This RFC patchset make KASAN shadow memory to have accessible memory
 information, to avoid accidental memory modifications due to memory problems.</p>
+<h2 id="patch-02-mmzswap-optimize-the-scalability-of-zswap-rb-tree-chengming-zhou">[PATCH 0/2] mm/zswap: optimize the scalability of zswap rb-tree (Chengming Zhou)</h2>
+<p><a href="https://lkml.kernel.org/r/20240117-b4-zswap-lock-optimize-v1-0-23f6effe5775@bytedance.com">https://lkml.kernel.org/r/20240117-b4-zswap-lock-optimize-v1-0-23f6effe5775@bytedance.com</a></p>
+<p>This patchset splits the single zswap rbtree, which can cause lock contention
+due to the fact that it is protected by a single spinlock, to multiple rbtrees,
+and achieve the lock contention reduction.</p>
+<h2 id="rfc-patch-mm-z3fold-rename-config_z3fold-to-config_z3fold_deprecated-yosry-ahmed">[RFC PATCH] mm: z3fold: rename CONFIG_Z3FOLD to CONFIG_Z3FOLD_DEPRECATED (Yosry Ahmed)</h2>
+<p><a href="https://lkml.kernel.org/r/20240112193103.3798287-1-yosryahmed@google.com">https://lkml.kernel.org/r/20240112193103.3798287-1-yosryahmed@google.com</a></p>
+<p>Yosry sent an RFC patch for making z3fold compressed pages allocator, which is
+not widely used, to be deprecated.</p>
 
     </div>
 
