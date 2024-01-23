@@ -28,12 +28,11 @@
   
     
   
-  <meta name="description" content="Kernel Development Engineer">
+  <meta name="description" content="Project: Improving the PCP allocator (Matthew Wilcox) https://lkml.kernel.org/r/Za6RXtSE_TSdrRm_@casper.infradead.org
+Matthew introduces an idea to improve the PCP allocator, roughly saying, keeping only compound memory on the PCP list.">
 
   
-  <link rel="alternate" hreflang="ko" href="https://sjp38.github.io/ko/post/">
-  
-  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/">
+  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/lkml_news_v6.8-rc2/">
 
   
 
@@ -58,6 +57,14 @@
     
       
     
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
     
 
     
@@ -125,14 +132,12 @@
 
 
   
-  <link rel="alternate" href="/post/index.xml" type="application/rss+xml" title="hacklog">
-  
 
   <link rel="manifest" href="/index.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon-32.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://sjp38.github.io/post/">
+  <link rel="canonical" href="https://sjp38.github.io/post/lkml_news_v6.8-rc2/">
 
   
   
@@ -144,18 +149,66 @@
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="hacklog">
-  <meta property="og:url" content="https://sjp38.github.io/post/">
-  <meta property="og:title" content="Posts | hacklog">
-  <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
+  <meta property="og:url" content="https://sjp38.github.io/post/lkml_news_v6.8-rc2/">
+  <meta property="og:title" content="LKML News v6.8-rc2 | hacklog">
+  <meta property="og:description" content="Project: Improving the PCP allocator (Matthew Wilcox) https://lkml.kernel.org/r/Za6RXtSE_TSdrRm_@casper.infradead.org
+Matthew introduces an idea to improve the PCP allocator, roughly saying, keeping only compound memory on the PCP list."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2017-01-01T00:00:00-08:00">
+    
+      <meta property="article:published_time" content="2024-01-23T06:43:17-08:00">
+    
+    <meta property="article:modified_time" content="2024-01-23T06:43:17-08:00">
   
 
   
 
 
+    
 
+
+
+
+
+
+  
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://sjp38.github.io/post/lkml_news_v6.8-rc2/"
+  },
+  "headline": "LKML News v6.8-rc2",
+  
+  "datePublished": "2024-01-23T06:43:17-08:00",
+  "dateModified": "2024-01-23T06:43:17-08:00",
+  
+  "author": {
+    "@type": "Person",
+    "name": "SeongJae Park"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "hacklog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://sjp38.github.io/img/icon-512.png"
+    }
+  },
+  "description": "Project: Improving the PCP allocator (Matthew Wilcox) https://lkml.kernel.org/r/Za6RXtSE_TSdrRm_@casper.infradead.org\nMatthew introduces an idea to improve the PCP allocator, roughly saying, keeping only compound memory on the PCP list."
+}
+</script>
+
+  
 
   
 
@@ -163,10 +216,13 @@
   
 
 
+  
 
 
 
-  <title>Posts | hacklog</title>
+
+
+  <title>LKML News v6.8-rc2 | hacklog</title>
 
 </head>
 
@@ -458,22 +514,6 @@
       
 
       
-      <li class="nav-item dropdown i18n-dropdown">
-        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true">
-          <i class="fas fa-globe mr-1" aria-hidden="true"></i><span class="d-none d-lg-inline">English</span>
-        </a>
-        <div class="dropdown-menu">
-          <div class="dropdown-item i18n-active font-weight-bold">
-            <span>English</span>
-          </div>
-          
-          <a class="dropdown-item" href="/ko/post/">
-            <span>한국어</span>
-          </a>
-          
-        </div>
-      </li>
-      
 
     </ul>
 
@@ -481,79 +521,33 @@
 </nav>
 
 
-  
-
-
-
-
-
-
-
-
-
-
-
+  <article class="article">
 
   
 
+
+
+
+
+
+
+
+
+
+
+
+  
+
   
   
+  
+<div class="article-container pt-3">
+  <h1>LKML News v6.8-rc2</h1>
+
+  
+
   
     
-  
-<div class="universal-wrapper pt-3">
-  <h1>Posts</h1>
-
-  
-
-  
-</div>
-
-
-
-<div class="universal-wrapper">
-
-  
-
-  
-  
-    
-      
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="/post/lkml_news_v5.2-rc1/" >LKML News v5.2-rc1</a>
-    </h3>
-
-    
-    <div class="article-style">
-      [PATCH] mm: Introduce page_size() https://lkml.kernel.org/r/20190510181242.24580-1-willy@infradead.org
-Huge page 등의 경우를 위해 페이지의 실제 크기를  …
-    </div>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
-      
-        
 
 
 <div class="article-metadata">
@@ -567,7 +561,7 @@ Huge page 등의 경우를 위해 페이지의 실제 크기를  …
     
       
     
-    Wed, May 8, 2019
+    Tue, Jan 23, 2024
   </span>
   
 
@@ -593,824 +587,261 @@ Huge page 등의 경우를 위해 페이지의 실제 크기를  …
 
 </div>
 
-      
-    </div>
-
     
 
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 </div>
 
-    
-  
-    
-      
 
 
+  <div class="article-container">
 
-
-
-
-
-
-
-
-
-
-  
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="/post/lkml_news_v5.1/" >LKML News v5.1</a>
-    </h3>
-
-    
     <div class="article-style">
-      [RFC PATCH v4 00/15] Slab Movable Objects (SMO) https://lkml.kernel.org/r/20190430030746.26102-1-tobin@kernel.org
-앞서 이 블로그에서도 공유한 SMO 패 …
+      <h2 id="project-improving-the-pcp-allocator-matthew-wilcox">Project: Improving the PCP allocator (Matthew Wilcox)</h2>
+<p><a href="https://lkml.kernel.org/r/Za6RXtSE_TSdrRm_@casper.infradead.org">https://lkml.kernel.org/r/Za6RXtSE_TSdrRm_@casper.infradead.org</a></p>
+<p>Matthew introduces an idea to improve the PCP allocator, roughly saying,
+keeping only compound memory on the PCP list.</p>
+
     </div>
+
     
 
-    <div class="stream-meta article-metadata">
 
+
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/linux/">linux</a>
+  
+  <a class="badge badge-light" href="/tags/kernel/">kernel</a>
+  
+  <a class="badge badge-light" href="/tags/lkml/">lkml</a>
+  
+  <a class="badge badge-light" href="/tags/news/">news</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
       
-
+      
       
         
-
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=https://sjp38.github.io/post/lkml_news_v6.8-rc2/&amp;text=LKML%20News%20v6.8-rc2" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
     
       
-    
-    Tue, Apr 30, 2019
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
-  
-
-</div>
-
       
-    </div>
-
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="/post/fedora28_hangul_problem/" >Fedora28 ibus-hangul input problem</a>
-    </h3>
-
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
       
         
-
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=https://sjp38.github.io/post/lkml_news_v6.8-rc2/&amp;t=LKML%20News%20v6.8-rc2" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
     
       
-    
-    Fri, Apr 26, 2019
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fas fa-folder mr-1"></i><a href="/categories/tips/">tips</a></span>
-  
-
-</div>
-
       
-    </div>
-
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="/post/lkml_news_v5.1-rc7/" >LKML News v5.1-rc7</a>
-    </h3>
-
-    
-    <div class="article-style">
-      Re: [LSF/MM] Preliminary agenda ? Anyone &hellip; anyone ? Bueller ? …
-    </div>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
       
         
-
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=LKML%20News%20v6.8-rc2&amp;body=https://sjp38.github.io/post/lkml_news_v6.8-rc2/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
     
       
-    
-    Fri, Apr 26, 2019
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
-  
-
-</div>
-
       
-    </div>
-
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="/post/hotstorage2019_talk/" >I will have a talk at the Hotstorage&#39;19</a>
-    </h3>
-
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
       
         
-
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=https://sjp38.github.io/post/lkml_news_v6.8-rc2/&amp;title=LKML%20News%20v6.8-rc2" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
     
       
-    
-    Thu, Apr 18, 2019
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fas fa-folder mr-1"></i><a href="/categories/publications/">publications</a></span>
-  
-
-</div>
-
       
-    </div>
-
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="/post/lkml_news_v5.1-rc6/" >LKML News v5.1-rc6</a>
-    </h3>
-
-    
-    <div class="article-style">
-      [PATCH v12 00/31] Speculative page faults https://lkml.kernl.org/r/20190416134522.17540-1-ldufour@linux.ibm.com
-오랫만에 업데이트 된 SPF 패치셋으로,  …
-    </div>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
       
         
-
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=LKML%20News%20v6.8-rc2%20https://sjp38.github.io/post/lkml_news_v6.8-rc2/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
     
       
-    
-    Tue, Apr 16, 2019
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
-  
-
-</div>
-
       
-    </div>
-
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="/post/hooking_library_calls/" >Hooking Library Function Calls</a>
-    </h3>
-
-    
-    <div class="article-style">
-      LD_PRELOAD 환경변수를 사용하면 로더가 프로그램을 로드할 때 동적 로드해야 할 바이너리 코드를 해당 변수의 값의 디렉토리에서부터 뒤지도록 합니다. 따라서 이를 이용해 malloc(), free() 등의 일반적으로 사용하는 라이브러리 함 …
-    </div>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
       
         
-
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
       
-    
-    Wed, Apr 10, 2019
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fas fa-folder mr-1"></i><a href="/categories/programming/">programming</a></span>
-  
-
-</div>
-
       
-    </div>
-
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
-</div>
-
-    
-  
-    
       
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="/post/backtrace_c_language/" >Backtrace on C language program</a>
-    </h3>
-
-    
-    <div class="article-style">
-      디버깅 과정에선 현재 어떤 코드가 어떤 함수를 거쳐 수행됐는지를 통한 컨텍스트 파악이 중요합니다. Java, Python, Go 등 대부분의 언어가 이를 위해 콜스택을 뽑을 수 있는 기능을 제공하죠. C 언어의 경우 gdb …
-    </div>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
-      
-        
-
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    Tue, Apr 9, 2019
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-  
-
-  
-  
-
-</div>
-
-      
-    </div>
-
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="/post/lkml_news_v5.1-rc5/" >LKML News v5.1-rc5</a>
-    </h3>
-
-    
-    <div class="article-style">
-      [v2 RFC PATCH 0/9] Another Approach to Use PMEM as NUMA Node …
-    </div>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
-      
-        
-
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    Tue, Apr 9, 2019
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
-  
-
-</div>
-
-      
-    </div>
-
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="/post/lkml_news_v5.1-rc4/" >LKML News v5.1-rc4</a>
-    </h3>
-
-    
-    <div class="article-style">
-      Linux v5.1-rc3 릴리즈 후 Linux v.5.1-rc4 릴리즈 사이 기간에 LKML 에 올라온 흥미로운 메일들을 소개합니다.
-[PATCH v8 00/20] Convert x86 &amp; arm64 to use generic …
-    </div>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
-      
-        
-
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    Sun, Apr 7, 2019
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
-  
-
-</div>
-
-      
-    </div>
-
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
-</div>
-
-    
-  
-
-  
-<nav>
-  <ul class="pagination justify-content-center">
-    
-    <li class="page-item"><a class="page-link" href="/post/page/26/">&laquo;</a></li>
-    
-    
-    <li class="page-item"><a class="page-link" href="/post/page/28/">&raquo;</a></li>
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=https://sjp38.github.io/post/lkml_news_v6.8-rc2/&amp;title=LKML%20News%20v6.8-rc2" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
     
   </ul>
-</nav>
-
-
-
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      <img class="portrait mr-3" src="https://s.gravatar.com/avatar/43dc5645c78e68fda997138380dfaaf4?s=200')" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="https://sjp38.github.io/">SeongJae Park</a></h5>
+      <h6 class="card-subtitle">Kernel Development Engineer</h6>
+      <p class="card-text">SeongJae Park is a programmer who loves to analyze and develop systems.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/log/?qt=author&amp;q=seongjae&#43;park" target="_blank" rel="noopener">
+        <i class="fab fa-linux"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/sjp38" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.com/citations?user=jJIiF3AAAAAJ" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  
+  
+  <div class="article-widget content-widget-hr">
+    <h3>Related</h3>
+    <ul>
+      
+      <li><a href="/post/lkml_news_v6.8-rc1/">LKML News v6.8-rc1</a></li>
+      
+      <li><a href="/post/lkml_news_v6.7/">LKML News v6.7</a></li>
+      
+      <li><a href="/post/lkml_news_v6.7-rc8/">LKML News v6.7-rc8</a></li>
+      
+      <li><a href="/post/lkml_news_v6.7-rc7/">LKML News v6.7-rc7</a></li>
+      
+      <li><a href="/post/lkml_news_v6.7-rc6/">LKML News v6.7-rc6</a></li>
+      
+    </ul>
+  </div>
+  
+
+
+
+  </div>
+</article>
 
       
 
@@ -1428,6 +859,14 @@ Huge page 등의 경우를 위해 페이지의 실제 크기를  …
       
 
       
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js" integrity="sha256-1zu+3BnLYV9LdiY85uXMzii3bdrkelyp37e0ZyTAQh0=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/languages/c.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/languages/bash.min.js"></script>
+        
+      
 
       
       
@@ -1439,6 +878,8 @@ Huge page 등의 경우를 위해 페이지의 실제 크기를  …
     
 
     
+    
+    <script>const code_highlighting = true;</script>
     
 
     
