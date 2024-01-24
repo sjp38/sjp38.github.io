@@ -530,6 +530,10 @@
       
       Project: Improving the PCP allocator (Matthew Wilcox) https://lkml.kernel.org/r/Za6RXtSE_TSdrRm_@casper.infradead.org
 Matthew introduces an idea to improve the PCP allocator, roughly saying, keeping only compound memory on the PCP list.
+[PATCH v2 0/3] Enable &gt;0 order folio memory compaction (Zi Yan) https://lkml.kernel.org/r/20240123034636.1095672-1-zi.yan@sent.com
+Zi enables larger than zero order folio compaction, which is the prerequisite for large folio support.
+[PATCH v2 1/3] mm: make vm_area_struct anon_name field RCU-safe (Suren Baghdasaryan) https://lkml.kernel.org/r/20240123231014.3801041-1-surenb@google.com
+For lockless /proc/pid/maps reads, this patch makes anon_name field of vm_area_struct, which is the only one field that need to be accessed for reading the file but not RCU-protected, to be protected by RCU.
       
     </div>
   </div>
