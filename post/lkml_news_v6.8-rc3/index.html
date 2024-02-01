@@ -631,6 +631,15 @@ actually mean altogether, for better documentation.</p>
 /sys/devices/system/node/nodeN/vmstat called <code>PageMetadata</code> and
 <code>nr_page_metadata</code> respectively, which can helps understand how much memory are
 being used for page metadata.</p>
+<h2 id="patch-mm-memcg-use-larger-chunks-for-proactive-reclaim-tj-mercier">[PATCH] mm: memcg: Use larger chunks for proactive reclaim (T.J. Mercier)</h2>
+<p><a href="https://lkml.kernel.org/r/20240131162442.3487473-1-tjmercier@google.com">https://lkml.kernel.org/r/20240131162442.3487473-1-tjmercier@google.com</a></p>
+<p>There was a change to <code>memory.reclaim</code> memcg file making that to limit the
+amount of pages to reclaim to maximum of 32 for avoiding over-reclaim.  Becase
+it causes regression due to too frequent reclaim start/stop cycle, this patch
+remove the limit but adjusts the size proportionally.</p>
+<h2 id="patch-mmslab-add-slabreclaim-flag-to-slabinfo-fangzheng-zhang">[PATCH] mm/slab: Add slabreclaim flag to slabinfo (Fangzheng Zhang)</h2>
+<p><a href="https://lkml.kernel.org/r/20240131094442.28834-1-fangzheng.zhang@unisoc.com">https://lkml.kernel.org/r/20240131094442.28834-1-fangzheng.zhang@unisoc.com</a></p>
+<p>Fangzheng adds slabreclaim flag to slabinfo for an enhanced slab debugging.</p>
 
     </div>
 

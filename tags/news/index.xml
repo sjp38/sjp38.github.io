@@ -30,6 +30,15 @@ actually mean altogether, for better documentation.&lt;/p&gt;
 /sys/devices/system/node/nodeN/vmstat called &lt;code&gt;PageMetadata&lt;/code&gt; and
 &lt;code&gt;nr_page_metadata&lt;/code&gt; respectively, which can helps understand how much memory are
 being used for page metadata.&lt;/p&gt;
+&lt;h2 id=&#34;patch-mm-memcg-use-larger-chunks-for-proactive-reclaim-tj-mercier&#34;&gt;[PATCH] mm: memcg: Use larger chunks for proactive reclaim (T.J. Mercier)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20240131162442.3487473-1-tjmercier@google.com&#34;&gt;https://lkml.kernel.org/r/20240131162442.3487473-1-tjmercier@google.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;There was a change to &lt;code&gt;memory.reclaim&lt;/code&gt; memcg file making that to limit the
+amount of pages to reclaim to maximum of 32 for avoiding over-reclaim.  Becase
+it causes regression due to too frequent reclaim start/stop cycle, this patch
+remove the limit but adjusts the size proportionally.&lt;/p&gt;
+&lt;h2 id=&#34;patch-mmslab-add-slabreclaim-flag-to-slabinfo-fangzheng-zhang&#34;&gt;[PATCH] mm/slab: Add slabreclaim flag to slabinfo (Fangzheng Zhang)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20240131094442.28834-1-fangzheng.zhang@unisoc.com&#34;&gt;https://lkml.kernel.org/r/20240131094442.28834-1-fangzheng.zhang@unisoc.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Fangzheng adds slabreclaim flag to slabinfo for an enhanced slab debugging.&lt;/p&gt;
 </description>
     </item>
     
