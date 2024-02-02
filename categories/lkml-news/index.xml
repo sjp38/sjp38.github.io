@@ -39,6 +39,24 @@ remove the limit but adjusts the size proportionally.&lt;/p&gt;
 &lt;h2 id=&#34;patch-mmslab-add-slabreclaim-flag-to-slabinfo-fangzheng-zhang&#34;&gt;[PATCH] mm/slab: Add slabreclaim flag to slabinfo (Fangzheng Zhang)&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20240131094442.28834-1-fangzheng.zhang@unisoc.com&#34;&gt;https://lkml.kernel.org/r/20240131094442.28834-1-fangzheng.zhang@unisoc.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Fangzheng adds slabreclaim flag to slabinfo for an enhanced slab debugging.&lt;/p&gt;
+&lt;h2 id=&#34;lsfmmbpf-topic-replacing-task_uninterruptible-with-regions-of-uninterruptibility-david-howells&#34;&gt;[LSF/MM/BPF TOPIC] Replacing &lt;code&gt;TASK_(UN)INTERRUPTIBLE&lt;/code&gt; with regions of uninterruptibility (David Howells)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/2701318.1706863882@warthog.procyon.org.uk&#34;&gt;https://lkml.kernel.org/r/2701318.1706863882@warthog.procyon.org.uk&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;David suggests a new LSFMM topic for replacing
+&lt;code&gt;TASK_{INTERRUPTIBLE,KILLABLE,UNINTERRUPTIBLE}&lt;/code&gt; with a sort of
+&lt;code&gt;begin/end_...()&lt;/code&gt; functions that defines the uninterruptibility in terms of
+execution range.&lt;/p&gt;
+&lt;h2 id=&#34;patch-v5-0025-transparent-contiguous-ptes-for-user-mappings-ryan-roberts&#34;&gt;[PATCH v5 00/25] Transparent Contiguous PTEs for User Mappings (Ryan Roberts)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20240202080756.1453939-1-ryan.roberts@arm.com&#34;&gt;https://lkml.kernel.org/r/20240202080756.1453939-1-ryan.roberts@arm.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;As a part of the variable-sized memory blocks (folios) allocation and mappping
+performance improvement which aims to achieve 16K kernel performance with 4K
+kernel, Ryan posted a patchset for opportunistic and transparent contiguous pte
+mapping usage.  This benefits arm64 directly, and provide cleanup/refactoring
+of x86 and powerpc.&lt;/p&gt;
+&lt;h2 id=&#34;do-we-still-need-slab_mem_spread-and-possibly-others-steven-rostedt&#34;&gt;Do we still need SLAB_MEM_SPREAD (and possibly others)? (Steven Rostedt)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20240131172027.10f64405@gandalf.local.home&#34;&gt;https://lkml.kernel.org/r/20240131172027.10f64405@gandalf.local.home&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Steven is exploring slab flags and found &lt;code&gt;SLAB_MEM_SPREAD&lt;/code&gt;&#39;s only use case was
+removed with commit 16a1d968358a (&amp;ldquo;mm/slab: remove mm/slab.c and slab_def.h&amp;rdquo;),
+so he is asking if the flag is obsolte now.&lt;/p&gt;
 </description>
     </item>
     
