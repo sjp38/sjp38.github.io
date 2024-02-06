@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-01-30T06:37:02-08:00">
+    <meta property="og:updated_time" content="2024-02-06T06:34:11-08:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.2-rc5/">LKML News v6.2-rc5</a></h2>
+    <div class="article-style">
+      
+      [RFC] memory pressure detection in VMs using PSI mechanism for dynamically inflating/deflating VM memory (Sudarshan Rajagopalan) https://lkml.kernel.org/r/DS0PR02MB90787835F5B9CB9771A20329C4C09@DS0PR02MB9078.namprd02.prod.outlook.com
+Qualcomm&rsquo;s Linux memory team asks upstream&rsquo;s opinion about their userspace deamon approach for controlling VM memory size based on memory demands via monitoring PSI.
+[PATCH v1 0/3] Introduce per NUMA node memory error statistics (Jiaqi Yan) https://lkml.kernel.org/r/20230116193902.1315236-1-jiaqiyan@google.com
+On huge memory systems, memory error is inevitable, so detailed statistics of it helps administrators to operate systems more efficiently.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.2-rc4/">LKML News v6.2-rc4</a></h2>
     <div class="article-style">
       
@@ -636,20 +648,6 @@ Deprecating and removing SLOB (Vlastimil Babka) https://lkml.kernel.org/r/b35c3f
 Vlastimil is describing his proposal for removing SLOB, mainly for the code maintenance overhead, and trying to continue discussions for that.
 [PATCH 1/4] mm: introduce &lsquo;encoded&rsquo; page pointers with embedded extra bits (Linus Torvalds) https://lkml.kernel.org/r/20221109203051.1835763-1-torvalds@linux-foundation.org
 Linus Torvalds has posted a patchset for a new type called struct encoded_page, which is for struct page pointers having extra flags in it.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.1-rc4/">LKML News v6.1-rc4</a></h2>
-    <div class="article-style">
-      
-      [PATCH -next] mm/page_reporting: change page_reporting_param_ops to static (Yang Yingliang) https://lkml.kernel.org/r/20221101070022.1930028-1-yangyingliang@huawei.com
-This patch makes page_reporting_param_ops static, as it&rsquo;s used in only the c file.
-[RFC PATCH] mm: introduce accounting of page_owner via backtrace (Zhoyang Huang) https://lkml.kernel.org/r/1667390781-17515-1-git-send-email-zhaoyang.huang@unisoc.com
-This RFC patchset accounts and sorts page_owner output via its backtrace for simplifying it.
-[PATCH v6 0/5] THP Shrinker (Alexander Zhu) https://lkml.kernel.org/r/cover.1667454613.git.alexlzhu@fb.com
-The patchset for THP shrinking, which aims to reduce memory waste due to the THP underutilization, has revised again to the sixth version.
       
     </div>
   </div>

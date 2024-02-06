@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-01-30T06:37:02-08:00">
+    <meta property="og:updated_time" content="2024-02-06T06:34:11-08:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.19-rc6/">LKML News v5.19-rc6</a></h2>
+    <div class="article-style">
+      
+      [PATCH v9 0/9] x86: Show in sysfs if a memory node is able to do encryption (Martin Fernandez) https://lkml.kernel.org/r/20220704135833.1496303-1-martin.fernandez@eclypsium.com
+This patchset makes each memory descriptor node to show if it has the EFI_MEMORY_CPU_CRYPRO attribute.
+[PATCH v3] arm64: enable THP_SWAP for arm64 (Barry Song) https://lkml.kernel.org/r/20220706072707.114376-1-21cnbao@gmail.com
+THP_SWAP, which dealys the split of THP for swap, includes swap throughput and architecture independent, but enabled on x86_64 only. This patch enables it on arm64.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.19-rc5/">LKML News v5.19-rc5</a></h2>
     <div class="article-style">
       
@@ -636,20 +648,6 @@ mmotm 2022-04-25-17-59 uploaded (Andrew Morton) https://lkml.kernel.org/r/202204
 The mmotm has updated. It has rebased on 5.18-rc4, added 62 new patches, modified 8 patches, and dropped 19 patches. In total, 334 patches in the queue.
 [PATCH -V2 0/3] memory tiering: hot page selection (Huang Ying) https://lkml.kernel.org/r/20220426085105.60822-1-ying.huang@intel.com
 This patchset adds hot pages selection to the tiered memory promotion mechanism for better performance.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.18-rc4/">LKML News v5.18-rc4</a></h2>
-    <div class="article-style">
-      
-      LSF/MM/BPF 2022: Running BOF (Matthew Wilcox) https://lkml.kernel.org/r/Yl7TUDtLcrhXcp1g@casper.infradead.org
-Matthew is proposing a running BOF, which would do discussions while running after a breakfast.
-mmotm 2022-04-20-17-12 uploaded (Andrew Morton) https://lkml.kernel.org/r/20220421001235.5F4E0C385A0@smtp.kernel.org
--mm tree has updated. It&rsquo;s rebased on 5.18-rc3, added 69 patches modified 126 patches, and dropped 35 patches. In total, 291 patches in the queue.
-[PATCH v2] mm: make minimum slab alignment a runtime property (Peter Collingbourne) https://lkml.kernel.org/r/20220421211549.3884453-1-pcc@google.com
-This makes slab alignment a runtime property and only align to 16 if KASAN is enabled at runtime.
       
     </div>
   </div>

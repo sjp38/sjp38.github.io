@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-01-30T06:37:02-08:00">
+    <meta property="og:updated_time" content="2024-02-06T06:34:11-08:00">
   
 
   
@@ -525,6 +525,19 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.1-rc3/">LKML News v6.1-rc3</a></h2>
+    <div class="article-style">
+      
+      [PATCH] swap: add a limit for readahead page-cluster value (Kairu Song) https://lkml.kernel.org/r/20221023162533.81561-1-ryncsn@gmail.com
+/proc/sys/vm/page-cluster could overflow because it has no upper limit. This patch set its upper-limit as 2**31, so that at most 2**31 pages could be read in at once.
+[PATCH 0/1] Dead stores in maple-tree (Lukas Bulwahn) https://lkml.kernel.org/r/20221026120029.12555-1-lukas.bulwahn@gmail.com
+This patch fixes some dead stores of maple tree that reported by clang analyzer.
+[PATCH v6 00/21] TDX host kernel support (Kai Huang) https://lkml.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.1-rc2/">LKML News v6.1-rc2</a></h2>
     <div class="article-style">
       
@@ -637,18 +650,6 @@ folio_map (Matthew Wilcox) https://lkml.kernel.org/r/YvvdFrtiW33UOkGr@casper.inf
 Matthew explains his proposal on folio_map in detail and asks if others have better ideas.
 [PATCH v3] mm: add thp_utilization metrics to debugfs (Alexander Zhu) https://lkml.kernel.org/r/20220818000112.2722201-1-alexlzhu@fb.com
 This patch adds debugfs file for tracking how THP is utilized well.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.0-rc1/">LKML News v6.0-rc1</a></h2>
-    <div class="article-style">
-      
-      [PATCH] mm: vmscan: fix extreme overreclaim and swap floods (Johannes Weiner) https://lkml.kernel.org/r/20220802162811.39216-1-hannes@cmpxchg.org
-Johannes found proactive reclamation using memory.reclaim sometimes reclaim more pages than requested on specific cgroup use cases. This patch resolves the issue so that the proactive reclamation doesn&rsquo;t over-reclaim pages.
-[RFC PATCH 0/4] propose a auto-run mode for ksm (Xu Xin) https://lkml.kernel.org/r/20220803100306.1653382-1-xu.xin16@zte.con.cn
-KSM operation management is quite manual and sometimes inefficient if not well managed. This patchset introduces auto-run mode that can operate KSM in a better way.
       
     </div>
   </div>
