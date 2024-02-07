@@ -627,6 +627,11 @@ fallback for unmet requirements on the target node, directly to the kernel log.<
 <p><a href="https://lkml.kernel.org/r/20240205120203.60312-1-jgowans@amazon.com">https://lkml.kernel.org/r/20240205120203.60312-1-jgowans@amazon.com</a></p>
 <p>James sent an RFC for a subsystem called <code>pkenfs</code>, which aims to help live
 update of hypervisors.</p>
+<h2 id="patch-mmmigrate-preserve-exact-soft-dirty-state-paul-gofman">[PATCH] mm/migrate: preserve exact soft-dirty state (Paul Gofman)</h2>
+<p><a href="https://lkml.kernel.org/r/20240206084838.34560-1-usama.anjum@collabora.com">https://lkml.kernel.org/r/20240206084838.34560-1-usama.anjum@collabora.com</a></p>
+<p>Migrating/compacting pages makes those pages dirty even if those were not dirty
+before the migration.  This patchset makes the dirty bits preserved to avoid
+the problem.</p>
 
     </div>
 
