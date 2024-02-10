@@ -42,6 +42,11 @@ the problem.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20240209065036.1412670-1-anshuman.khandual@arm.com&#34;&gt;https://lkml.kernel.org/r/20240209065036.1412670-1-anshuman.khandual@arm.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Anshuman adds warning for a case that &lt;code&gt;MAX_CMA_AREAS&lt;/code&gt; is smaller than
 &lt;code&gt;MAX_NUMNODES&lt;/code&gt;, which is the size for HugeTLB CMA area array.&lt;/p&gt;
+&lt;h2 id=&#34;lsfmmbpf-topic-tracing-the-source-of-errors-miklos-szeredi&#34;&gt;[LSF/MM/BPF TOPIC] tracing the source of errors (Miklos Szeredi)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAJfpegtw0-88qLjy0QDLyYFZEM7PJCG3R-mBMa9s8TNSVZmJTA@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAJfpegtw0-88qLjy0QDLyYFZEM7PJCG3R-mBMa9s8TNSVZmJTA@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Yet another LSFMM topic for letting tracking error number returned code.  Some
+other existing solutions that can cover many such cases are also being
+discussed.&lt;/p&gt;
 </description>
     </item>
     
@@ -1950,6 +1955,18 @@ If you find a news that should be added to this list, please let us know at
 &lt;a href=&#34;mailto:sj@kernel.org&#34;&gt;sj@kernel.org&lt;/a&gt; and/or &lt;a href=&#34;mailto:damon@lists.linux.dev&#34;&gt;damon@lists.linux.dev&lt;/a&gt;.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;2024&#34;&gt;2024&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;2024-02-09&lt;/em&gt;: DAMON in Amazon Linux 5.10.y
+&lt;a href=&#34;https://github.com/amazonlinux/linux/tree/amazon-5.10.y/master/mm/damon&#34;&gt;kernel&lt;/a&gt;
+has updated to that of v6.7 Linux kernel. Major updates on this change include&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;DAMOS apply target regions
+&lt;a href=&#34;https://git.kernel.org/torvalds/c/c603c630b509&#34;&gt;tracing&lt;/a&gt; and&lt;/li&gt;
+&lt;li&gt;Sampling interval granularity monitoring results
+&lt;a href=&#34;https://git.kernel.org/torvalds/c/78fbfb155d20&#34;&gt;generation&lt;/a&gt; and
+&lt;a href=&#34;https://git.kernel.org/torvalds/c/affa87c70818&#34;&gt;DAMOS&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;2024-01-29&lt;/em&gt;: LSF/MM/BPF 2024 topic proposal for DAMON has
+&lt;a href=&#34;https://lore.kernel.org/linux-mm/20240129204749.68549-1-sj@kernel.org/&#34;&gt;posted&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;2024-01-15&lt;/em&gt;: SK Hynix
 &lt;a href=&#34;https://lore.kernel.org/damon/20240115045253.1775-1-honggyu.kim@sk.com/&#34;&gt;shared&lt;/a&gt;
 their DAMOS-based tiered memory management test results showing 4-17%
@@ -10336,6 +10353,18 @@ available at another &lt;a href=&#34;https://sjp38.github.io/post/damon_evaluati
 &lt;h2 id=&#34;recent-news&#34;&gt;Recent News&lt;/h2&gt;
 &lt;p&gt;Below are only a short list of recent news.  For complete list of the news,
 please refer to a dedecated &lt;a href=&#34;https://sjp38.github.io/post/damon_news/&#34;&gt;post&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;2024-02-09&lt;/em&gt;: DAMON in Amazon Linux 5.10.y
+&lt;a href=&#34;https://github.com/amazonlinux/linux/tree/amazon-5.10.y/master/mm/damon&#34;&gt;kernel&lt;/a&gt;
+has updated to that of v6.7 Linux kernel. Major updates on this change include&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;DAMOS apply target regions
+&lt;a href=&#34;https://git.kernel.org/torvalds/c/c603c630b509&#34;&gt;tracing&lt;/a&gt; and&lt;/li&gt;
+&lt;li&gt;Sampling interval granularity monitoring results
+&lt;a href=&#34;https://git.kernel.org/torvalds/c/78fbfb155d20&#34;&gt;generation&lt;/a&gt; and
+&lt;a href=&#34;https://git.kernel.org/torvalds/c/affa87c70818&#34;&gt;DAMOS&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;2024-01-29&lt;/em&gt;: LSF/MM/BPF 2024 topic proposal for DAMON has
+&lt;a href=&#34;https://lore.kernel.org/linux-mm/20240129204749.68549-1-sj@kernel.org/&#34;&gt;posted&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;2024-01-15&lt;/em&gt;: SK Hynix
 &lt;a href=&#34;https://lore.kernel.org/damon/20240115045253.1775-1-honggyu.kim@sk.com/&#34;&gt;shared&lt;/a&gt;
 their DAMOS-based tiered memory management test results showing 4-17%
