@@ -644,6 +644,21 @@ the problem.</p>
 <p>Yet another LSFMM topic for letting tracking error number returned code.  Some
 other existing solutions that can cover many such cases are also being
 discussed.</p>
+<h2 id="linux-68-rc4-linus-torvalds">Linux 6.8-rc4 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wg1c4Q1Ve6BG71DikHu-AEoKUUQoj1QbVdjwGQyTExqCw@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wg1c4Q1Ve6BG71DikHu-AEoKUUQoj1QbVdjwGQyTExqCw@mail.gmail.com</a></p>
+<p>Linus Torvalds released the fourth release candidate of Linux v6.8.  He says
+though there were NTFS3 fix dumps, the overall stat looks normal.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/linux_stat_v6.8-rc4.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2022-02-12 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc3 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/linux_stat_v6.8-rc4-only.png" alt="rc4 release stat"></p>
 
     </div>
 
