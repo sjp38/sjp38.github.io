@@ -627,6 +627,16 @@ patchset.  He says they aim to get this version merged in for v6.9.</p>
 <h2 id="git-pull-hotfixes-for-68-rc4-andrew-morton">[GIT PULL] hotfixes for 6.8-rc4 (Andrew Morton)</h2>
 <p><a href="https://lkml.kernel.org/r/20240210112006.05781090736edc6e02de7e19@linux-foundation.org">https://lkml.kernel.org/r/20240210112006.05781090736edc6e02de7e19@linux-foundation.org</a></p>
 <p>Andrew Morton posted hotfixes for 6.8-rc4 to Linus Torvalds.</p>
+<h2 id="patch-mm-document-memalloc_noreclaim_save-and-memalloc_pin_save-vlastimil-babka">[PATCH] mm: document memalloc_noreclaim_save() and memalloc_pin_save() (Vlastimil Babka)</h2>
+<p><a href="https://lkml.kernel.org/r/20240212182950.32730-2-vbabka@suse.cz">https://lkml.kernel.org/r/20240212182950.32730-2-vbabka@suse.cz</a></p>
+<p>Vlastimil posted a patch for documentation of <code>memalloc_noreclaim_save()</code> and
+<code>memalloc_pin_save()</code>.  Especially to make it clear <code>memalloc_noreclaim_save()</code>
+is not only for avoid reclamation but also need to be used only in contexts
+where the allocation is for freeing memory.</p>
+<h2 id="patch-kasantest-avoid-gcc-warning-for-intentional-overflow-arnd-bergmann">[PATCH] kasan/test: avoid gcc warning for intentional overflow (Arnd Bergmann)</h2>
+<p><a href="https://lkml.kernel.org/r/20240212111609.869266-1-arnd@kernel.org">https://lkml.kernel.org/r/20240212111609.869266-1-arnd@kernel.org</a></p>
+<p>With gcc-14, KASAN&rsquo;s out-of-bound test could generate warning.  This patch hide
+it.</p>
 
     </div>
 

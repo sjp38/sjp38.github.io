@@ -32,6 +32,16 @@ patchset.  He says they aim to get this version merged in for v6.9.&lt;/p&gt;
 &lt;h2 id=&#34;git-pull-hotfixes-for-68-rc4-andrew-morton&#34;&gt;[GIT PULL] hotfixes for 6.8-rc4 (Andrew Morton)&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20240210112006.05781090736edc6e02de7e19@linux-foundation.org&#34;&gt;https://lkml.kernel.org/r/20240210112006.05781090736edc6e02de7e19@linux-foundation.org&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Andrew Morton posted hotfixes for 6.8-rc4 to Linus Torvalds.&lt;/p&gt;
+&lt;h2 id=&#34;patch-mm-document-memalloc_noreclaim_save-and-memalloc_pin_save-vlastimil-babka&#34;&gt;[PATCH] mm: document memalloc_noreclaim_save() and memalloc_pin_save() (Vlastimil Babka)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20240212182950.32730-2-vbabka@suse.cz&#34;&gt;https://lkml.kernel.org/r/20240212182950.32730-2-vbabka@suse.cz&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Vlastimil posted a patch for documentation of &lt;code&gt;memalloc_noreclaim_save()&lt;/code&gt; and
+&lt;code&gt;memalloc_pin_save()&lt;/code&gt;.  Especially to make it clear &lt;code&gt;memalloc_noreclaim_save()&lt;/code&gt;
+is not only for avoid reclamation but also need to be used only in contexts
+where the allocation is for freeing memory.&lt;/p&gt;
+&lt;h2 id=&#34;patch-kasantest-avoid-gcc-warning-for-intentional-overflow-arnd-bergmann&#34;&gt;[PATCH] kasan/test: avoid gcc warning for intentional overflow (Arnd Bergmann)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20240212111609.869266-1-arnd@kernel.org&#34;&gt;https://lkml.kernel.org/r/20240212111609.869266-1-arnd@kernel.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;With gcc-14, KASAN&amp;rsquo;s out-of-bound test could generate warning.  This patch hide
+it.&lt;/p&gt;
 </description>
     </item>
     
