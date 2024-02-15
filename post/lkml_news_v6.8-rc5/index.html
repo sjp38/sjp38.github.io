@@ -572,7 +572,7 @@ Unlike cgroup v1, which was able to find effective memory limit using hierarchic
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -637,6 +637,13 @@ where the allocation is for freeing memory.</p>
 <p><a href="https://lkml.kernel.org/r/20240212111609.869266-1-arnd@kernel.org">https://lkml.kernel.org/r/20240212111609.869266-1-arnd@kernel.org</a></p>
 <p>With gcc-14, KASAN&rsquo;s out-of-bound test could generate warning.  This patch hide
 it.</p>
+<h2 id="patch-v5-03-enable-0-order-folio-memory-compaction-zi-yan">[PATCH v5 0/3] Enable &gt;0 order folio memory compaction (Zi Yan)</h2>
+<p><a href="https://lkml.kernel.org/r/20240214220420.1229173-1-zi.yan@sent.com">https://lkml.kernel.org/r/20240214220420.1229173-1-zi.yan@sent.com</a></p>
+<p>Zi Yan posted fifth version of the &gt;0 order folio memory compaction.  It allows</p>
+<blockquote>
+<p>0 order free pages be used for the compaction without beingsplit into order-0
+and then post-allocation processed but directly being used.</p>
+</blockquote>
 
     </div>
 
