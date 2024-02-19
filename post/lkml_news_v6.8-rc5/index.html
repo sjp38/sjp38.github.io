@@ -648,6 +648,22 @@ and then post-allocation processed but directly being used.</p>
 <p><a href="https://lkml.kernel.org/r/20240215145602.1371274-1-max.kellermann@ionos.com">https://lkml.kernel.org/r/20240215145602.1371274-1-max.kellermann@ionos.com</a></p>
 <p>Max posted this patchset that aims to clean up the <code>mm.h</code> file and reduce
 dependencies on it.</p>
+<h2 id="linux-68-rc5-linus-torvalds">Linux 6.8-rc5 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wi8vZD7EXZfob-yhfDERyfzWxzMOzG9FsOuaKU-v6+PHA@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wi8vZD7EXZfob-yhfDERyfzWxzMOzG9FsOuaKU-v6+PHA@mail.gmail.com</a></p>
+<p>The fifth release candidate for Linux 6.8 is released.  It is a bit larger than
+Torvalds hoped, but nothing stands out.  Also, this release candidate contains
+the new CVE process documentation.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/linux_stat_v6.8-rc4.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2022-02-19 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc5 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/linux_stat_v6.8-rc5-only.png" alt="rc5 release stat"></p>
 
     </div>
 
