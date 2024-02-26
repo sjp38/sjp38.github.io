@@ -40,6 +40,37 @@ profiling patchset based on the comments on the third version.&lt;/p&gt;
 &lt;p&gt;Peter porposes an LSFMM topic for discussion on making hugetlb more easy to be
 maintained, since it was having its own code paths in core mm due to legacy
 reasons, and it is making maintenance more difficult.&lt;/p&gt;
+&lt;h2 id=&#34;lsfmmbpf-topic-dynamic-growth-of-kernel-stacks-pasha-tatashin&#34;&gt;[LSF/MM/BPF TOPIC] Dynamic Growth of Kernel Stacks (Pasha Tatashin)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CA+CK2bBYt9RAVqASB2eLyRQxYT5aiL0fGhUu3TumQCyJCNTWvw@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CA+CK2bBYt9RAVqASB2eLyRQxYT5aiL0fGhUu3TumQCyJCNTWvw@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Pasha introduces Google is maintaining 8K kernel stack to conserve memory while
+the upstream is using 16K kernel stack since 2014.  But Google also getting
+problems at the too small stack size and gonna increase the size.  For more
+efficiency, Pasha proposes dynamic kernel stack size as a topic for LSFMM.&lt;/p&gt;
+&lt;h2 id=&#34;git-pull-hotfixes-for-68-rc6-andrew-morton&#34;&gt;[GIT PULL] hotfixes for 6.8-rc6 (Andrew Morton)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20240222150609.61c32cf2ababec81509bf5fc@linux-foundation.org&#34;&gt;https://lkml.kernel.org/r/20240222150609.61c32cf2ababec81509bf5fc@linux-foundation.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Andrew sent hotfixes of mm subsystem for 6.8-rc6 to Linus Torvalds&lt;/p&gt;
+&lt;h2 id=&#34;patch-rfc-mm-madvise-pageout-ignore-references-rather-than-clearing-young-barry-song&#34;&gt;[PATCH RFC] mm: madvise: pageout: ignore references rather than clearing young (Barry Song)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20240223041550.77157-1-21cnbao@gmail.com&#34;&gt;https://lkml.kernel.org/r/20240223041550.77157-1-21cnbao@gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Barry sent an RFC making &lt;code&gt;MADV_PAGEOUT&lt;/code&gt; to not clear PTE accessed bit.  It adds
+a parameter for ignoring the reference on &lt;code&gt;reclaim_folio_list()&lt;/code&gt;, and modify
+the call from &lt;code&gt;madivise()&lt;/code&gt; to do ignore the references, while keeping the call
+from DAMON paddr operations set to not ignore the references.&lt;/p&gt;
+&lt;h2 id=&#34;linux-68-rc6-linus-torvalds&#34;&gt;Linux 6.8-rc6 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=whZ=iA6DhijePcW-pJjZ8YD4T5qLpLKVSUT+4gWNm_0sA@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=whZ=iA6DhijePcW-pJjZ8YD4T5qLpLKVSUT+4gWNm_0sA@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;After another week, the sixth release candidate for Linux v6.8 is announced.
+The rc6 became technically bit smaller than rc5, but not as small as Torvalds
+hoped.  Torvalds says we &lt;em&gt;might&lt;/em&gt; need rc8 for this release, but nothing fixed.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/kernel_release_stat/linux_stat_v6.8-rc6.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/relstat&#34;&gt;https://github.com/sjp38/relstat&lt;/a&gt; and &lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
+below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2022-02-26 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And, below is the diffstat of the -rc6 releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/kernel_release_stat/linux_stat_v6.8-rc6-only.png&#34; alt=&#34;rc6 release stat&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     

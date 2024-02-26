@@ -576,7 +576,7 @@ Falling back to other NUMA nodes when migrating freed hugetlb is prevented while
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    3 min read
   </span>
   
 
@@ -639,6 +639,37 @@ profiling patchset based on the comments on the third version.</p>
 <p>Peter porposes an LSFMM topic for discussion on making hugetlb more easy to be
 maintained, since it was having its own code paths in core mm due to legacy
 reasons, and it is making maintenance more difficult.</p>
+<h2 id="lsfmmbpf-topic-dynamic-growth-of-kernel-stacks-pasha-tatashin">[LSF/MM/BPF TOPIC] Dynamic Growth of Kernel Stacks (Pasha Tatashin)</h2>
+<p><a href="https://lkml.kernel.org/r/CA+CK2bBYt9RAVqASB2eLyRQxYT5aiL0fGhUu3TumQCyJCNTWvw@mail.gmail.com">https://lkml.kernel.org/r/CA+CK2bBYt9RAVqASB2eLyRQxYT5aiL0fGhUu3TumQCyJCNTWvw@mail.gmail.com</a></p>
+<p>Pasha introduces Google is maintaining 8K kernel stack to conserve memory while
+the upstream is using 16K kernel stack since 2014.  But Google also getting
+problems at the too small stack size and gonna increase the size.  For more
+efficiency, Pasha proposes dynamic kernel stack size as a topic for LSFMM.</p>
+<h2 id="git-pull-hotfixes-for-68-rc6-andrew-morton">[GIT PULL] hotfixes for 6.8-rc6 (Andrew Morton)</h2>
+<p><a href="https://lkml.kernel.org/r/20240222150609.61c32cf2ababec81509bf5fc@linux-foundation.org">https://lkml.kernel.org/r/20240222150609.61c32cf2ababec81509bf5fc@linux-foundation.org</a></p>
+<p>Andrew sent hotfixes of mm subsystem for 6.8-rc6 to Linus Torvalds</p>
+<h2 id="patch-rfc-mm-madvise-pageout-ignore-references-rather-than-clearing-young-barry-song">[PATCH RFC] mm: madvise: pageout: ignore references rather than clearing young (Barry Song)</h2>
+<p><a href="https://lkml.kernel.org/r/20240223041550.77157-1-21cnbao@gmail.com">https://lkml.kernel.org/r/20240223041550.77157-1-21cnbao@gmail.com</a></p>
+<p>Barry sent an RFC making <code>MADV_PAGEOUT</code> to not clear PTE accessed bit.  It adds
+a parameter for ignoring the reference on <code>reclaim_folio_list()</code>, and modify
+the call from <code>madivise()</code> to do ignore the references, while keeping the call
+from DAMON paddr operations set to not ignore the references.</p>
+<h2 id="linux-68-rc6-linus-torvalds">Linux 6.8-rc6 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=whZ=iA6DhijePcW-pJjZ8YD4T5qLpLKVSUT+4gWNm_0sA@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=whZ=iA6DhijePcW-pJjZ8YD4T5qLpLKVSUT+4gWNm_0sA@mail.gmail.com</a></p>
+<p>After another week, the sixth release candidate for Linux v6.8 is announced.
+The rc6 became technically bit smaller than rc5, but not as small as Torvalds
+hoped.  Torvalds says we <em>might</em> need rc8 for this release, but nothing fixed.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/linux_stat_v6.8-rc6.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2022-02-26 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc6 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/linux_stat_v6.8-rc6-only.png" alt="rc6 release stat"></p>
 
     </div>
 
