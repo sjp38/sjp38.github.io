@@ -28,12 +28,14 @@
   
     
   
-  <meta name="description" content="Kernel Development Engineer">
+  <meta name="description" content="[PATCH 1/1] mm/madvise: enhance lazyfreeing with mTHP in madvise_free (Lance Yang) https://lkml.kernel.org/r/20240225123215.86503-1-ioworker0@gmail.com
+Lance improves madvise_free_pte_range() to handle large folios that smaller than PMD-size and optimizes lazy-free of PTE-mapped smaller than PMD-size THPs using this patch.
+[RFC PATCH] mm: Add reclaim type to memory.reclaim (Yafang Shao) https://lkml.kernel.org/r/20240225114204.50459-1-laoar.shao@gmail.com
+This RFC patch extends memory.reclaim memcg file to receive type of memory to reclaim. It supports pagecache only, slabs only, and both.
+[LSF/MM/BPF TOPIC] mm/mempolicy extentions for heterogeneous memory systems (Gregory Price) https://lkml.">
 
   
-  <link rel="alternate" hreflang="ko" href="https://sjp38.github.io/ko/tags/">
-  
-  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/tags/">
+  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/lkml_news_v6.8-rc7/">
 
   
 
@@ -133,14 +135,12 @@
 
 
   
-  <link rel="alternate" href="/tags/index.xml" type="application/rss+xml" title="hacklog">
-  
 
   <link rel="manifest" href="/index.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon-32.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://sjp38.github.io/tags/">
+  <link rel="canonical" href="https://sjp38.github.io/post/lkml_news_v6.8-rc7/">
 
   
   
@@ -152,18 +152,69 @@
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="hacklog">
-  <meta property="og:url" content="https://sjp38.github.io/tags/">
-  <meta property="og:title" content="Tags | hacklog">
-  <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
+  <meta property="og:url" content="https://sjp38.github.io/post/lkml_news_v6.8-rc7/">
+  <meta property="og:title" content="LKML News v6.8-rc7 | hacklog">
+  <meta property="og:description" content="[PATCH 1/1] mm/madvise: enhance lazyfreeing with mTHP in madvise_free (Lance Yang) https://lkml.kernel.org/r/20240225123215.86503-1-ioworker0@gmail.com
+Lance improves madvise_free_pte_range() to handle large folios that smaller than PMD-size and optimizes lazy-free of PTE-mapped smaller than PMD-size THPs using this patch.
+[RFC PATCH] mm: Add reclaim type to memory.reclaim (Yafang Shao) https://lkml.kernel.org/r/20240225114204.50459-1-laoar.shao@gmail.com
+This RFC patch extends memory.reclaim memcg file to receive type of memory to reclaim. It supports pagecache only, slabs only, and both.
+[LSF/MM/BPF TOPIC] mm/mempolicy extentions for heterogeneous memory systems (Gregory Price) https://lkml."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-02-27T06:37:30-08:00">
+    
+      <meta property="article:published_time" content="2024-02-27T06:37:30-08:00">
+    
+    <meta property="article:modified_time" content="2024-02-27T06:37:30-08:00">
   
 
   
 
 
+    
 
+
+
+
+
+
+  
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://sjp38.github.io/post/lkml_news_v6.8-rc7/"
+  },
+  "headline": "LKML News v6.8-rc7",
+  
+  "datePublished": "2024-02-27T06:37:30-08:00",
+  "dateModified": "2024-02-27T06:37:30-08:00",
+  
+  "author": {
+    "@type": "Person",
+    "name": "SeongJae Park"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "hacklog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://sjp38.github.io/img/icon-512.png"
+    }
+  },
+  "description": "[PATCH 1/1] mm/madvise: enhance lazyfreeing with mTHP in madvise_free (Lance Yang) https://lkml.kernel.org/r/20240225123215.86503-1-ioworker0@gmail.com\nLance improves madvise_free_pte_range() to handle large folios that smaller than PMD-size and optimizes lazy-free of PTE-mapped smaller than PMD-size THPs using this patch.\n[RFC PATCH] mm: Add reclaim type to memory.reclaim (Yafang Shao) https://lkml.kernel.org/r/20240225114204.50459-1-laoar.shao@gmail.com\nThis RFC patch extends memory.reclaim memcg file to receive type of memory to reclaim. It supports pagecache only, slabs only, and both.\n[LSF/MM/BPF TOPIC] mm/mempolicy extentions for heterogeneous memory systems (Gregory Price) https://lkml."
+}
+</script>
+
+  
 
   
 
@@ -171,10 +222,13 @@
   
 
 
+  
 
 
 
-  <title>Tags | hacklog</title>
+
+
+  <title>LKML News v6.8-rc7 | hacklog</title>
 
 </head>
 
@@ -396,7 +450,7 @@
         
 
         <li class="nav-item">
-          <a class="nav-link  active" href="/tags"><span>Tags</span></a>
+          <a class="nav-link " href="/tags"><span>Tags</span></a>
         </li>
 
         
@@ -466,22 +520,6 @@
       
 
       
-      <li class="nav-item dropdown i18n-dropdown">
-        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true">
-          <i class="fas fa-globe mr-1" aria-hidden="true"></i><span class="d-none d-lg-inline">English</span>
-        </a>
-        <div class="dropdown-menu">
-          <div class="dropdown-item i18n-active font-weight-bold">
-            <span>English</span>
-          </div>
-          
-          <a class="dropdown-item" href="/ko/tags/">
-            <span>한국어</span>
-          </a>
-          
-        </div>
-      </li>
-      
 
     </ul>
 
@@ -489,117 +527,343 @@
 </nav>
 
 
-  
-
-
-
-
-
-
-
-
-
-
-
+  <article class="article">
 
   
 
+
+
+
+
+
+
+
+
+
+
+
+  
+
   
   
+  
+<div class="article-container pt-3">
+  <h1>LKML News v6.8-rc7</h1>
+
+  
+
   
     
-  
-<div class="universal-wrapper pt-3">
-  <h1>Tags</h1>
+
+
+<div class="article-metadata">
 
   
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Tue, Feb 27, 2024
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   
 </div>
 
 
 
-<div class="universal-wrapper">
-  
+  <div class="article-container">
 
-  
-  
-  <div>
-    <h2><a href="/tags/hugo/">hugo</a></h2>
     <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/theme/">theme</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/artifact/">artifact</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/gadget/">gadget</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/life/">life</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/firefox/">firefox</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/mozilla/">mozilla</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/oracle/">oracle</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/tags/about/">about</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
+      <h2 id="patch-11-mmmadvise-enhance-lazyfreeing-with-mthp-in-madvise_free-lance-yang">[PATCH 1/1] mm/madvise: enhance lazyfreeing with mTHP in madvise_free (Lance Yang)</h2>
+<p><a href="https://lkml.kernel.org/r/20240225123215.86503-1-ioworker0@gmail.com">https://lkml.kernel.org/r/20240225123215.86503-1-ioworker0@gmail.com</a></p>
+<p>Lance improves <code>madvise_free_pte_range()</code> to handle large folios that smaller
+than PMD-size and optimizes lazy-free of PTE-mapped smaller than PMD-size THPs
+using this patch.</p>
+<h2 id="rfc-patch-mm-add-reclaim-type-to-memoryreclaim-yafang-shao">[RFC PATCH] mm: Add reclaim type to memory.reclaim (Yafang Shao)</h2>
+<p><a href="https://lkml.kernel.org/r/20240225114204.50459-1-laoar.shao@gmail.com">https://lkml.kernel.org/r/20240225114204.50459-1-laoar.shao@gmail.com</a></p>
+<p>This RFC patch extends <code>memory.reclaim</code> memcg file to receive type of memory to
+reclaim.  It supports pagecache only, slabs only, and both.</p>
+<h2 id="lsfmmbpf-topic-mmmempolicy-extentions-for-heterogeneous-memory-systems-gregory-price">[LSF/MM/BPF TOPIC] mm/mempolicy extentions for heterogeneous memory systems (Gregory Price)</h2>
+<p><a href="https://lkml.kernel.org/r/Zd2PFXSzYuMMxiQj@memverge.com">https://lkml.kernel.org/r/Zd2PFXSzYuMMxiQj@memverge.com</a></p>
+<p>Gregory proposes an LSFMM topic for discussion of <code>mm/mempolicy</code> extension
+ideas and ongoing works for efficient management of heterogeneous memory such
+as CXL based ones.</p>
+<h2 id="rfc-patch-v2-07-damon-based-2-tier-memory-management-for-cxl-memory-honggyu-kim">[RFC PATCH v2 0/7] DAMON based 2-tier memory management for CXL memory (Honggyu Kim)</h2>
+<p><a href="https://lkml.kernel.org/r/20240226140555.1615-1-honggyu.kim@sk.com">https://lkml.kernel.org/r/20240226140555.1615-1-honggyu.kim@sk.com</a></p>
+<p>Honggyu revised their patchset for extending DAMOS to support
+promotion/demotion for their heterogeneous memory SDK.  They argue the
+DAMON-based approach improves performance about 15-17% to 4-5% compared to the
+default memory policy.</p>
 
+    </div>
+
+    
+
+
+
+
+
+<div class="article-tags">
   
-<nav>
-  <ul class="pagination justify-content-center">
+  <a class="badge badge-light" href="/tags/linux/">linux</a>
+  
+  <a class="badge badge-light" href="/tags/kernel/">kernel</a>
+  
+  <a class="badge badge-light" href="/tags/lkml/">lkml</a>
+  
+  <a class="badge badge-light" href="/tags/news/">news</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
     
-    <li class="page-item"><a class="page-link" href="/tags/page/15/">&laquo;</a></li>
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=https://sjp38.github.io/post/lkml_news_v6.8-rc7/&amp;text=LKML%20News%20v6.8-rc7" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
     
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=https://sjp38.github.io/post/lkml_news_v6.8-rc7/&amp;t=LKML%20News%20v6.8-rc7" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=LKML%20News%20v6.8-rc7&amp;body=https://sjp38.github.io/post/lkml_news_v6.8-rc7/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=https://sjp38.github.io/post/lkml_news_v6.8-rc7/&amp;title=LKML%20News%20v6.8-rc7" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=LKML%20News%20v6.8-rc7%20https://sjp38.github.io/post/lkml_news_v6.8-rc7/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=https://sjp38.github.io/post/lkml_news_v6.8-rc7/&amp;title=LKML%20News%20v6.8-rc7" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
     
   </ul>
-</nav>
-
-
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      <img class="portrait mr-3" src="https://s.gravatar.com/avatar/43dc5645c78e68fda997138380dfaaf4?s=200')" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="https://sjp38.github.io/">SeongJae Park</a></h5>
+      <h6 class="card-subtitle">Kernel Development Engineer</h6>
+      <p class="card-text">SeongJae Park is a programmer who loves to analyze and develop systems.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/log/?qt=author&amp;q=seongjae&#43;park" target="_blank" rel="noopener">
+        <i class="fab fa-linux"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/sjp38" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.com/citations?user=jJIiF3AAAAAJ" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  
+  
+  <div class="article-widget content-widget-hr">
+    <h3>Related</h3>
+    <ul>
+      
+      <li><a href="/post/lkml_news_v6.8-rc6/">LKML News v6.8-rc6</a></li>
+      
+      <li><a href="/post/lkml_news_v6.8-rc5/">LKML News v6.8-rc5</a></li>
+      
+      <li><a href="/post/lkml_news_v6.8-rc4/">LKML News v6.8-rc4</a></li>
+      
+      <li><a href="/post/lkml_news_v6.8-rc3/">LKML News v6.8-rc3</a></li>
+      
+      <li><a href="/post/lkml_news_v6.8-rc2/">LKML News v6.8-rc2</a></li>
+      
+    </ul>
+  </div>
+  
+
+
+
+  </div>
+</article>
 
       
 

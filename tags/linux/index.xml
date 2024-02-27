@@ -5,12 +5,40 @@
     <link>https://sjp38.github.io/tags/linux/</link>
       <atom:link href="https://sjp38.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     <description>linux</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 20 Feb 2024 06:34:52 -0800</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 27 Feb 2024 06:37:30 -0800</lastBuildDate>
     <image>
       <url>https://sjp38.github.io/img/tux.png</url>
       <title>linux</title>
       <link>https://sjp38.github.io/tags/linux/</link>
     </image>
+    
+    <item>
+      <title>LKML News v6.8-rc7</title>
+      <link>https://sjp38.github.io/post/lkml_news_v6.8-rc7/</link>
+      <pubDate>Tue, 27 Feb 2024 06:37:30 -0800</pubDate>
+      <guid>https://sjp38.github.io/post/lkml_news_v6.8-rc7/</guid>
+      <description>&lt;h2 id=&#34;patch-11-mmmadvise-enhance-lazyfreeing-with-mthp-in-madvise_free-lance-yang&#34;&gt;[PATCH 1/1] mm/madvise: enhance lazyfreeing with mTHP in madvise_free (Lance Yang)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20240225123215.86503-1-ioworker0@gmail.com&#34;&gt;https://lkml.kernel.org/r/20240225123215.86503-1-ioworker0@gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Lance improves &lt;code&gt;madvise_free_pte_range()&lt;/code&gt; to handle large folios that smaller
+than PMD-size and optimizes lazy-free of PTE-mapped smaller than PMD-size THPs
+using this patch.&lt;/p&gt;
+&lt;h2 id=&#34;rfc-patch-mm-add-reclaim-type-to-memoryreclaim-yafang-shao&#34;&gt;[RFC PATCH] mm: Add reclaim type to memory.reclaim (Yafang Shao)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20240225114204.50459-1-laoar.shao@gmail.com&#34;&gt;https://lkml.kernel.org/r/20240225114204.50459-1-laoar.shao@gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This RFC patch extends &lt;code&gt;memory.reclaim&lt;/code&gt; memcg file to receive type of memory to
+reclaim.  It supports pagecache only, slabs only, and both.&lt;/p&gt;
+&lt;h2 id=&#34;lsfmmbpf-topic-mmmempolicy-extentions-for-heterogeneous-memory-systems-gregory-price&#34;&gt;[LSF/MM/BPF TOPIC] mm/mempolicy extentions for heterogeneous memory systems (Gregory Price)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/Zd2PFXSzYuMMxiQj@memverge.com&#34;&gt;https://lkml.kernel.org/r/Zd2PFXSzYuMMxiQj@memverge.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Gregory proposes an LSFMM topic for discussion of &lt;code&gt;mm/mempolicy&lt;/code&gt; extension
+ideas and ongoing works for efficient management of heterogeneous memory such
+as CXL based ones.&lt;/p&gt;
+&lt;h2 id=&#34;rfc-patch-v2-07-damon-based-2-tier-memory-management-for-cxl-memory-honggyu-kim&#34;&gt;[RFC PATCH v2 0/7] DAMON based 2-tier memory management for CXL memory (Honggyu Kim)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20240226140555.1615-1-honggyu.kim@sk.com&#34;&gt;https://lkml.kernel.org/r/20240226140555.1615-1-honggyu.kim@sk.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Honggyu revised their patchset for extending DAMOS to support
+promotion/demotion for their heterogeneous memory SDK.  They argue the
+DAMON-based approach improves performance about 15-17% to 4-5% compared to the
+default memory policy.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>LKML News v6.8-rc6</title>
@@ -2105,6 +2133,10 @@ If you find a news that should be added to this list, please let us know at
 &lt;a href=&#34;mailto:sj@kernel.org&#34;&gt;sj@kernel.org&lt;/a&gt; and/or &lt;a href=&#34;mailto:damon@lists.linux.dev&#34;&gt;damon@lists.linux.dev&lt;/a&gt;.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;2024&#34;&gt;2024&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;2024-02-27&lt;/em&gt;: DAMON user-space tool, &lt;a href=&#34;https://damonitor.github.io&#34;&gt;DAMO&lt;/a&gt;, has
+&lt;a href=&#34;https://pypistats.org/packages/damo&#34;&gt;downloaded&lt;/a&gt; from PyPI more than 2,000
+times last month.
+&lt;img src=&#34;https://sjp38.github.io/img/damo_download_2005.png&#34; alt=&#34;damo_2000_monthly_downloads&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;2024-02-21&lt;/em&gt;: Yet another academic
 &lt;a href=&#34;https://pasalabs.org/papers/2024/Eurosys24_M3_Camera_Ready.pdf&#34;&gt;paper&lt;/a&gt;
 exploring DAMON for tiered memory management will be presented at
@@ -10513,6 +10545,10 @@ available at another &lt;a href=&#34;https://sjp38.github.io/post/damon_evaluati
 &lt;h2 id=&#34;recent-news&#34;&gt;Recent News&lt;/h2&gt;
 &lt;p&gt;Below are only a short list of recent news.  For complete list of the news,
 please refer to a dedecated &lt;a href=&#34;https://sjp38.github.io/post/damon_news/&#34;&gt;post&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;2024-02-27&lt;/em&gt;: DAMON user-space tool, &lt;a href=&#34;https://damonitor.github.io&#34;&gt;DAMO&lt;/a&gt;, has
+&lt;a href=&#34;https://pypistats.org/packages/damo&#34;&gt;downloaded&lt;/a&gt; from PyPI more than 2,000
+times last month.
+&lt;img src=&#34;https://sjp38.github.io/img/damo_download_2005.png&#34; alt=&#34;damo_2000_monthly_downloads&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;2024-02-21&lt;/em&gt;: Yet another academic
 &lt;a href=&#34;https://pasalabs.org/papers/2024/Eurosys24_M3_Camera_Ready.pdf&#34;&gt;paper&lt;/a&gt;
 exploring DAMON for tiered memory management will be presented at
@@ -10533,8 +10569,6 @@ has updated to that of v6.7 Linux kernel. Major updates on this change include&l
 &lt;a href=&#34;https://git.kernel.org/torvalds/c/78fbfb155d20&#34;&gt;generation&lt;/a&gt; and
 &lt;a href=&#34;https://git.kernel.org/torvalds/c/affa87c70818&#34;&gt;DAMOS&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;em&gt;2024-01-29&lt;/em&gt;: LSF/MM/BPF 2024 topic proposal for DAMON has
-&lt;a href=&#34;https://lore.kernel.org/linux-mm/20240129204749.68549-1-sj@kernel.org/&#34;&gt;posted&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;getting-started&#34;&gt;Getting Started&lt;/h2&gt;
 &lt;p&gt;You can start using DAMON by&lt;/p&gt;
 &lt;ul&gt;
