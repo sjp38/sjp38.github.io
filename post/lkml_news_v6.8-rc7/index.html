@@ -576,7 +576,7 @@ This RFC patch extends memory.reclaim memcg file to receive type of memory to re
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    2 min read
+    3 min read
   </span>
   
 
@@ -675,6 +675,26 @@ LSFMM topic.  It aims to re-architect the whole swap backend from the scratch.</
 <p>Yu proposes yet another LSFMM topic for THP improvement with a patchset.  It
 introduces THP zones, shattering of THP, and <code>struct page</code> optimization for THP
 which resembles that of HugeTLB.</p>
+<h2 id="patch-v2-mmvmstat-add-orders-information-for-extfrag_index-and-unusable_index-hao-ge">[PATCH v2] mm/vmstat: Add order&rsquo;s information for extfrag_index and unusable_index (Hao Ge)</h2>
+<p><a href="https://lkml.kernel.org/r/20240229141443.99408-1-gehao@kylinos.cn">https://lkml.kernel.org/r/20240229141443.99408-1-gehao@kylinos.cn</a></p>
+<p>Hao posted a patch for adding order information to <code>extfrag/extfrag_index</code>
+under the debugfs for better understanding of the situation.</p>
+<h2 id="linux-68-rc7-linus-torvalds">Linux 6.8-rc7 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wgwt9b3yMxAQRCVJ0Jh6-4Dz1Fgo2au7g_U9VWVxXoS6Q@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wgwt9b3yMxAQRCVJ0Jh6-4Dz1Fgo2au7g_U9VWVxXoS6Q@mail.gmail.com</a></p>
+<p>The seventh release candidate for 6.8-rc7 is released.  The week was pretty
+calm, as much as Linus wanted.  Linus therefore says we&rsquo;ll have the final 6.8
+next weekend unless some bad surprosies happen.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/linux_stat_v6.8-rc7.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2022-03-04 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc7 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/linux_stat_v6.8-rc7-only.png" alt="rc7 release stat"></p>
 
     </div>
 
