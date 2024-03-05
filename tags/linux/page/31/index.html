@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-02-27T06:37:30-08:00">
+    <meta property="og:updated_time" content="2024-03-05T06:22:38-08:00">
   
 
   
@@ -525,6 +525,20 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v4.16/">LKML News after v4.16</a></h2>
+    <div class="article-style">
+      
+      Linux 4.16 https://lkml.kernel.org/r/CA+55aFyxn0bu5jOAJvO_63GHaGMkJ0uA=bVBm2T3HVX9SimZzw@mail.gmail.com
+릴리즈 마지막 주 치고는 네트워킹 쪽에 조금 변경사항이 있었습니다만, 큰 문제가 될 정도는 아니었습니다. 결과, 4.16이 드디어 릴리즈 되었습니다! 동시에 4.17 머지 윈도우가 시작되는군요.
+[PATCH 0/2] Move kfree_rcu out of rcu code and use kfree_bulk https://lkml.kernel.org/r/1522647064-27167-1-git-send-email-rao.shoaib@oracle.com
+kfree_rcu() 대신 kfree_bulk() 라는 새로 만들어진, 더 효율적인 기능을 사용하도록 하는 패치입니다.
+[RFC PATCH 0/1] mm: Support multiple kswapd threads per node https://lkml.kernel.org/r/1522661062-39745-1-git-send-email-buddy.lumpkin@oracle.com
+NUMA 아키텍쳐에서 리눅스 커널은 NUMA 노드당 하나의 kswapd 쓰레드를 띄웁니다.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v4.16-rc7/">LKML News after v4.16-rc7</a></h2>
     <div class="article-style">
       
@@ -629,16 +643,6 @@ Vulnerable: Minimal generic ASM retpoline 이란 출력이 뜰겁니다.
 이번 릴리즈는 x86, arm powerpc, mips 쪽의 arch 업데이트, 드라이버, 그리고 네트워킹 핵심부 업데이트가 주된 변경이군요.
 다음주에는 꼭 4.15를 릴리즈 하고 싶다고 하는데, 아마도 다음주에는 4.15 정식 버전이 릴리즈되길 빕니다.
 [LSF/MM TOPIC] CMA and larger page sizes https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.15-rc8/">LKML News after v4.15-rc8</a></h2>
-    <div class="article-style">
-      
-      Linux 4.15-rc8 https://lkml.kernel.org/r/CA+55aFz=PcxdARFpCTyQCJKaJcBwVUB9y6XAXM8VyyxnbRD=bw@mail.gmail.com
-마침내 여덟번째 rc 버전의 릴리즈입니다. 스펙터 버그를 성능 저하 없이 막기 위한 구글의 해결책, Retpoline 지원이 들어갔군요. 그 외에는 드라이버 업데이트여서 일단 rc8 에 걸맞는 조용함이긴 하다고 토발즈는 평하네요. 자, 다음주에는 4.15 가 릴리즈될런지? 아니면 rc9 이 나오고 말런지?
       
     </div>
   </div>

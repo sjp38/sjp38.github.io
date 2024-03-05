@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-02-27T06:37:30-08:00">
+    <meta property="og:updated_time" content="2024-03-05T06:22:38-08:00">
   
 
   
@@ -525,6 +525,20 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.19-rc5/">LKML News v5.19-rc5</a></h2>
+    <div class="article-style">
+      
+      [PATCH v3] docs: rename Documentation/vm to Documentation/mm (Mike Rapoport) https://lkml.kernel.org/r/20220627060026.180439-1-rppt@kernel.org
+As the subject says, this commit renames the Documentation/vm directory to Documentation/mm.
+[PATCH v6 0/4] KVM: mm: count KVM mmu usage in memory stats (Yosry Ahmed) https://lkml.kernel.org/r/20220628220938.3657876-1-yosryahmed@google.com
+This patchset allows users account KVM mmu usages with NR_SECONDARY_PAGETABLE memory stat.
+[RFC PATCH] mm/slub: enable debugging memory wasting of kmalloc (Feng Tang) https://lkml.kernel.org/r/20220630014715.73330-1-feng.tang@intel.com
+As kmalloc allocates memory in power of 2 granularity, it could waste a lot of memory.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.19-rc4/">LKML News v5.19-rc4</a></h2>
     <div class="article-style">
       
@@ -636,19 +650,6 @@ mmotm 2022-04-20-17-12 uploaded (Andrew Morton) https://lkml.kernel.org/r/202204
 -mm tree has updated. It&rsquo;s rebased on 5.18-rc3, added 69 patches modified 126 patches, and dropped 35 patches. In total, 291 patches in the queue.
 [PATCH v2] mm: make minimum slab alignment a runtime property (Peter Collingbourne) https://lkml.kernel.org/r/20220421211549.3884453-1-pcc@google.com
 This makes slab alignment a runtime property and only align to 16 if KASAN is enabled at runtime.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.18-rc3/">LKML News v5.18-rc3</a></h2>
-    <div class="article-style">
-      
-      Re: [PATCH v10 00/14] Multi-Gen LRU Framework (Andrew Morton) https://lore.kernel.org/linux-mm/20220411191559.a844c7140faeba2e68d842b7@linux-foundation.org/
-Andrew Morton&rsquo;s overall answer to MGLRU patchset. He would merge the latest MGLRU in -mm and -next, but would request broader update to the code.
-mmotm 2022-04-12-21-05 uploaded (Andrew Morton) https://lkml.kernel.org/r/20220413040610.06AAAC385A4@smtp.kernel.org
-A snapshot of -mm has updated. It added 79 new patches, modified 24 patches, and dropped 10 patches. In total, 257 patches in the queue.
-[PATCH v2 0/5] mm: demotion: Introduce new node state N_DEMOTION_TARGETS (Jagdish Gediya) https://lkml.
       
     </div>
   </div>

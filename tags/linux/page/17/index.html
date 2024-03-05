@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-02-27T06:37:30-08:00">
+    <meta property="og:updated_time" content="2024-03-05T06:22:38-08:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.11-rc6/">LKML News v5.11-rc6</a></h2>
+    <div class="article-style">
+      
+      [RFC][PATCH 00/13] [v5] Migrate Pages in lieu of discard (Dave Hansen) https://lkml.kernel.org/r/20210126003411.2AC51464@viggo.jf.intel.com
+If a system has a small DRAM and a large persistent memory (PMEM), reclamation starts when DRAM fills up, and newer allocations will done on PMEM. This patchset makes the reclaim logic to migrate pages to PMEM instead of just discarding it.
+[PATCH v3 00/25] Page folios (Matthew Wilcox) https://lkml.kernel.org/r/20210128070404.1922318-1-willy@infradead.org
+This patchset introduces a new data structure called page folio.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.11-rc5/">LKML News v5.11-rc5</a></h2>
     <div class="article-style">
       
@@ -638,19 +650,6 @@ The 9th version of the memfd_secret patchset.
 [patch V4 0/8] mm/highmem: Preemptible variant of kmap_atomic &amp; friends (Thomas Gleixner) https://lkml.kernel.org/r/20201118194838.753436396@linutronix.de
 As the name suggests, this patchset allow the code using kmap_atomic and similar things to be preemptible. This incur some overhead to highmem, but Thomas claims highmem was always slow.
 [PATCH 0/7] Split huge pages to any lower order pages and selftests.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.10-rc4/">LKML News v5.10-rc4</a></h2>
-    <div class="article-style">
-      
-      [PATCH -V3 0/2] autonuma: Migrate on fault among multiple bound nodes (Huang Ying) https://lkml.kernel.org/r/20201110055951.85085-1-ying.huang@intel.com
-This patchset makes AutoNUMA&rsquo;s cross-socket memory access optimization possible even if the application&rsquo;s memory is bound to multiple NUMA nodes.
-[PATCH] kfence: Avoid stalling work queue task without allocations (Marco Elver) https://lkml.kernel.org/r/20201110135320.3309507-1-elver@google.com
-This commit makes the toggle allocation gate of kfence to have 1 second timeout, to be prepared for allocation stallings.
-[RFC PATCH 0/6] Split huge pages to any lower order pages.
       
     </div>
   </div>

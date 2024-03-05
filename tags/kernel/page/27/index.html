@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-02-27T06:37:30-08:00">
+    <meta property="og:updated_time" content="2024-03-05T06:22:38-08:00">
   
 
   
@@ -525,6 +525,16 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v4.20-rc3/">LKML News by v4.20-rc3</a></h2>
+    <div class="article-style">
+      
+      Linux 4.20-rc3 https://lkml.kernel.org/r/CAHk-=wiZmPvR64hDy-pcVJqcxoAwMRd4GrRhRjK04Mhng4nL4g@mail.gmail.com
+리누스 토발즈의 개인적 여행이 있었다는 점을 제외하고는 이상할 것 없는 한주였습니다만, 이번 릴리즈의 변경 사항은 rc3 치고는 상당히 적었다고 하는군요.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v4.20-rc2/">LKML News by v4.20-rc2</a></h2>
     <div class="article-style">
       
@@ -621,18 +631,6 @@ THP 를 한방에 swap out / swap in 하는 Huang Ying 의 패치, 여섯번째 
 한국시간 새벽 네시 좀 넘어 이 메일을 받았습니다. 평범한 릴리즈 메일이겠거니 했는데 제목이 뭔가 심상치 않군요.
 일단 4.19를 위한 네번째 release candidate 릴리즈가 되었습니다. 약 3주 후 정식 4.19 버전이 릴리즈 되겠군요. 하지만 이 메일은 그보다 많은 내용을 담고 있습니다.
 자유분방하고 형식에 구애되지 않는 해커 문화에 기원을 두고 있는 리눅스 커뮤니티는 조금 거친 언어 문화로 유명했습니다. 예를 들어 이상한 코드를 보내면 리누스 토발즈와 커뮤니티의 일부 사람들이 이 코드를 꾸짖을 수 있는데 그 과정에서 욕설도 있을 수 있다는 거죠.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.19-rc3/">LKML News after v4.19-rc3</a></h2>
-    <div class="article-style">
-      
-      Linux 4.19-rc3 https://lkml.kernel.org/r/CA+55aFwSxCt0aKkTxcBstthYXqJ5LtxRbO-CDyqgNwU94Ldq+w@mail.gmail.com
-세번째 rc 릴리즈입니다. 어느새 이번 안정화 기간도 중반을 향하는군요. 시간 참 빠릅니다. 전체적으로 평범한 릴리즈입니다. 딱히 언급할 거리가 없군요.
-[RFC PATCH v2 0/8] lru_lock scalability and SMP list functions https://lkml.kernel.org/r/20180911004240.4758-1-daniel.m.jordan@oracle.com
-올해 LSF/MM 서밋에서도 이야기되었던, lru_lock 의 확장성을 개선하기 위한 노력의 정리입니다. LRU 리스트에 여러 쓰레드가 실제 데이터를 겹쳐 쓰지 않는다면 동시에 접근할 수 있는 새로운 오퍼레이션 세개 (smp_list_del(), smp_list_splice(), smp_list_add())을 추가했구요. 두번째로, lru_lock 을 spinlock 에서 rwlock 으로 교체했군요.
       
     </div>
   </div>

@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-02-27T06:37:30-08:00">
+    <meta property="og:updated_time" content="2024-03-05T06:22:38-08:00">
   
 
   
@@ -525,6 +525,21 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.9-rc8/">LKML News v5.9-rc8</a></h2>
+    <div class="article-style">
+      
+      [RFC PATCH v2 00/30] 1GB PUD THP support on x86_64 (Zi Yan) https://lkml.kernel.org/r/20200928175428.4110504-1-zi.yan@sent.com
+This patch adds support of 1GB THP using PUD.
+[PATCH v4 00/11] KFENCE: A low-overhead sampling-based memory safety error detector (Marco Elver) https://lkml.kernel.org/r/20200929133814.2834621-1-elver@google.com
+The 4th version of the KFENCE patchset.
+[PATCH 0/5] Speed up mremap on large regions (Kalesh Singh) https://lkml.kernel.org/r/20200930222130.4175584-1-kaleshsingh@google.com
+This patchset optimizes mremap() by allowing memory regions to be able to mapped at PMD/PUD.
+[PATCH] selftests/vm: 10x speedup for hmm-tests https://lkml.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.9-rc7/">LKML News v5.9-rc7</a></h2>
     <div class="article-style">
       
@@ -631,16 +646,6 @@ This patch introduces another madvise hint, MADV_DOEXEC. It preserves an anonymo
       [PATCH 0/6] mm: introduce secretmemfd system call to create &ldquo;secret&rdquo; memory areas (Mike Rapoport) https://lkml.kernel.org/r/20200720092435.17469-1-rppt@kernel.org
 This patchset make another special kind of file for secret memory areas. The file can be opened using secretmemfd(). mmap() of the file creates the secret memory mapping. The mapped pages are marked as not present in the direct map and will have desired protection bits (e..g, uncached).
 [PATCH v7 0/6] workingset protection/detection on the anonymous LRU list (js1304@gmail.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.8-rc6/">LKML News v5.8-rc6</a></h2>
-    <div class="article-style">
-      
-      [PATCH v3] x86/mm: use max memory block size on bare metal (Daniel Jordan) https://lkml.kernel.org/r/20200714205450.945834-1-daniel.m.jordan@oracle.com
-On x86, smallest supported block size is 128MiB. This means it needs to create 16,288 sysfs directories for 2TiB memory system. This sysfs creation takes significant amount of the boot time. As the memory hotplug is frequenlty used for the virtualized systems, this commit makes the kernels that aren&rsquo;t running on a hypervisor to use largest block size (2GiB) on big machines.
       
     </div>
   </div>
