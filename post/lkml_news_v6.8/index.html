@@ -576,7 +576,7 @@ Whne pages of one migratetype end up on the freelists on another type, migratety
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -632,6 +632,25 @@ reboot.</p>
 <p><a href="https://lkml.kernel.org/r/20240306182440.2003814-1-surenb@google.com">https://lkml.kernel.org/r/20240306182440.2003814-1-surenb@google.com</a></p>
 <p>Surent posted the fifth version of the memory allocation profiling patchset
 which uses a new framework, code tagging, internally.</p>
+<h2 id="git-pull-hotfixes-for-68-linus-torvalds">[GIT PULL] hotfixes for 6.8 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/20240307162059.88fcc2a013c9ce1f3f72042d@linux-foundation.org">https://lkml.kernel.org/r/20240307162059.88fcc2a013c9ce1f3f72042d@linux-foundation.org</a></p>
+<p>Andrew Morton sent a small pull request for hotfixes.</p>
+<h2 id="linux-68-linus-torvalds">Linux 6.8 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wiehc0DfPtL6fC2=bFuyzkTnuiuYSQrr6JTQxQao6pq1Q@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wiehc0DfPtL6fC2=bFuyzkTnuiuYSQrr6JTQxQao6pq1Q@mail.gmail.com</a></p>
+<p>It was not super clear if the final 6.8 will be released or not this week,
+since the number of changes didn&rsquo;t reduce as Linus hoped a few weeks ago.  But
+the last two weeks were pretty calm and Linus find no real problematic changes,
+so he released the final 6.8.  Linus also notes that the number of git objects
+for the mainline may exceed 10 million soon.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/linux_stat_v6.7.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/relstat">https://github.com/sjp38/relstat</a> and <a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using
+below command:</p>
+<pre><code>$ relstat.py --since 2022-03-11 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
 
     </div>
 
