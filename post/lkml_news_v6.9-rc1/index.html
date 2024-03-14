@@ -576,7 +576,7 @@ Ryan sent the fourth version of the patchset to swap-out multi-sized THP without
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    3 min read
   </span>
   
 
@@ -627,6 +627,63 @@ without splitting first.  The approach is similar to that for PMD-sized THP.</p>
 <p><a href="https://lkml.kernel.org/r/20240313033417.447216-1-pasha.tatashin@soleen.com">https://lkml.kernel.org/r/20240313033417.447216-1-pasha.tatashin@soleen.com</a></p>
 <p>Pasha sent a patch for extending <code>CONFIG_DEBUG_STACK_USAGE</code> to provide the
 count of actual uses of each kernel stack pages.</p>
+<h2 id="git-pull-mm-updates-for-69-rc1-andrew-morton">[GIT PULL] MM updates for 6.9-rc1 (Andrew Morton)</h2>
+<p><a href="https://lkml.kernel.org/r/20240313200532.34e4cff216acd3db8def4637@linux-foundation.org">https://lkml.kernel.org/r/20240313200532.34e4cff216acd3db8def4637@linux-foundation.org</a></p>
+<p>Andrew sent the memory mangement subsystem pull request for v6.9-rc1 to Linus
+Torvalds.  Interesting changes for zswap, DAMON, huge pages, vmalloc lock
+scalability, and heterogeneous memory are there.  The list of patch series in
+the pull request are, to my humbel script,</p>
+<pre><code>mm-stable: 456 patches
+    Patch series &quot;mm/damon: fix quota status loss due to online tunings&quot;.
+    Patch series &quot;implement &quot;memmap on memory&quot; feature on s390&quot;.
+    Patch series &quot;Convert memcontrol charge moving to use folios&quot;.
+    Patch series &quot;mm: convert mm counter to take a folio&quot;, v3.
+    Patch series &quot;mm/zswap: optimize the scalability of zswap rb-tree&quot;, v2.
+    Patch series &quot;mm: zswap: simplify zswap_swapoff()&quot;, v2.
+    Patch series &quot;Add DAX ABI for memmap_on_memory&quot;, v7.
+    Patch series &quot;mm: zswap: cleanups&quot;.
+    Patch series &quot;mm/damon: make DAMON debugfs interface deprecation
+    Patch series &quot;mm/mempolicy: weighted interleave mempolicy and sysfs
+    Patch series &quot;mm: ptdump: Refactor CONFIG_DEBUG_WX and check_wx_pages
+    Patch series &quot;test_xarray: advanced API multi-index tests&quot;, v2.
+    Patch series &quot;conform tests to TAP format output&quot;, v2.
+    Patch series &quot;mm/memory: optimize fork() with PTE-mapped THP&quot;, v3.
+    Patch series &quot;mm/hugetlb: Restore the reservation&quot;, v2.
+    Patch series &quot;mm/zswap: optimize zswap lru list&quot;, v2.
+    Patch series &quot;selftests/damon: add more tests for core functionalities and
+    Patch series &quot;selftests/mm: Output cleanups for the compaction test&quot;.
+    Patch series &quot;mm/mglru: code cleanup and refactoring&quot;
+    Patch series &quot;fix and extend zswap kselftests&quot;, v3.
+    Patch series &quot;mm/memory: optimize unmap/zap with PTE-mapped THP&quot;, v3.
+    Patch series &quot;Transparent Contiguous PTEs for User Mappings&quot;, v6.
+    Patch series &quot;Introduce cpu_dcache_is_aliasing() to fix DAX regression&quot;,
+    Patch series &quot;per-vma locks in userfaultfd&quot;, v7.
+    Patch series &quot;Docs/mm/damon: misc readability improvements&quot;.
+    Patch series &quot;page_owner: print stacks and their outstanding allocations&quot;,
+    Patch series &quot;Mitigate a vmap lock contention&quot;, v3.
+    Patch series &quot;Split crash out from kexec and clean up related config
+    Patch series &quot;mm/damon: let DAMOS feeds and tame/auto-tune itself&quot;.
+    Patch series &quot;mm/zsmalloc: fix and optimize objects/page migration&quot;.
+    Patch series &quot;mm/zsmalloc: some cleanup for get/set_zspage_mapping()&quot;.
+    Patch series &quot;Enable &gt;0 order folio memory compaction&quot;, v7.
+    Patch series &quot;convert write_cache_pages() to an iterator&quot;, v8.
+    Patch series &quot;mm/zswap: optimize for dynamic zswap_pools&quot;, v3.
+    Patch series &quot;Handle hugetlb faults under the VMA lock&quot;, v2.
+    Patch series &quot;selftests/damon: misc fixes&quot;.
+    Patch series &quot;Address some contpte nits&quot;.
+    Patch series &quot;Split a folio to any lower order folios&quot;, v5.
+    Patch series &quot;mm: remove total_mapcount()&quot;, v2.
+    Patch series &quot;Rearrange batched folio freeing&quot;, v3.
+    Patch series &quot;hugetlb: parallelize hugetlb page init on boot&quot;, v6.
+    Patch series &quot;PageFlags cleanups&quot;.
+    Patch series &quot;minor fixes and supplement for ptdesc&quot;.
+    Patch series &quot;mm/treewide: Replace pXd_large() with pXd_leaf()&quot;, v3.
+    Patch series &quot;page_owner: Fixup and cleanup&quot;.
+    Patch series &quot;selftests/mm: Improve Hugepage Test Handling in MM
+</code></pre><h2 id="rfc-mmvmstat-add-a-single-value-debugfs-fragmentation-metric-luis-chamberlain">[RFC] mm/vmstat: add a single value debugfs fragmentation metric (Luis Chamberlain)</h2>
+<p><a href="https://lkml.kernel.org/r/20240314005710.2964798-1-mcgrof@kernel.org">https://lkml.kernel.org/r/20240314005710.2964798-1-mcgrof@kernel.org</a></p>
+<p>Luis posted an RFC patchset for exposing external fragmentation index per node
+and per zone, per supported order via debugfs.</p>
 
     </div>
 
