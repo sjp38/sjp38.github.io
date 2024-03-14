@@ -13,6 +13,25 @@
     </image>
     
     <item>
+      <title>LKML News v6.9-rc1</title>
+      <link>https://sjp38.github.io/post/lkml_news_v6.9-rc1/</link>
+      <pubDate>Tue, 12 Mar 2024 07:03:45 -0700</pubDate>
+      <guid>https://sjp38.github.io/post/lkml_news_v6.9-rc1/</guid>
+      <description>&lt;h2 id=&#34;git-pull-slab-updates-for-69-vlastimil-babka&#34;&gt;[GIT PULL] slab updates for 6.9 (Vlastimil Babka)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/c021631d-29e5-432f-bfcd-1d75ec28d065@suse.cz&#34;&gt;https://lkml.kernel.org/r/c021631d-29e5-432f-bfcd-1d75ec28d065@suse.cz&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Vlastimil sent the slab pull request for 6.9 to Linus Torvalds.&lt;/p&gt;
+&lt;h2 id=&#34;patch-v4-06-swap-out-mthp-without-splitting-ryan-roberts&#34;&gt;[PATCH v4 0/6] Swap-out mTHP without splitting (Ryan Roberts)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20240311150058.1122862-1-ryan.roberts@arm.com&#34;&gt;https://lkml.kernel.org/r/20240311150058.1122862-1-ryan.roberts@arm.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Ryan sent the fourth version of the patchset to swap-out multi-sized THP
+without splitting first.  The approach is similar to that for PMD-sized THP.&lt;/p&gt;
+&lt;h2 id=&#34;patch-vmstat-keep-count-of-the-maximum-page-reached-by-the-kernel-stack-pasha-tatashin&#34;&gt;[PATCH] vmstat: Keep count of the maximum page reached by the kernel stack (Pasha Tatashin)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20240313033417.447216-1-pasha.tatashin@soleen.com&#34;&gt;https://lkml.kernel.org/r/20240313033417.447216-1-pasha.tatashin@soleen.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Pasha sent a patch for extending &lt;code&gt;CONFIG_DEBUG_STACK_USAGE&lt;/code&gt; to provide the
+count of actual uses of each kernel stack pages.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>LKML News v6.8</title>
       <link>https://sjp38.github.io/post/lkml_news_v6.8/</link>
       <pubDate>Tue, 05 Mar 2024 06:22:38 -0800</pubDate>
@@ -2391,6 +2410,19 @@ If you find a news that should be added to this list, please let us know at
 &lt;a href=&#34;mailto:sj@kernel.org&#34;&gt;sj@kernel.org&lt;/a&gt; and/or &lt;a href=&#34;mailto:damon@lists.linux.dev&#34;&gt;damon@lists.linux.dev&lt;/a&gt;.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;2024&#34;&gt;2024&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;2024-03-13&lt;/em&gt;: Memory management subsystem pull
+&lt;a href=&#34;https://lore.kernel.org/all/20240313200532.34e4cff216acd3db8def4637@linux-foundation.org/&#34;&gt;request&lt;/a&gt;
+for Linux 6.9-rc1 has been posted.  To quote Andrew’s summary for DAMON part:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;More DAMON work from SeongJae Park in the series
+&lt;ul&gt;
+&lt;li&gt;&amp;ldquo;mm/damon: make DAMON debugfs interface deprecation unignorable&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;selftests/damon: add more tests for core functionalities and corner cases&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;Docs/mm/damon: misc readability improvements&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;mm/damon: let DAMOS feeds and tame/auto-tune itself&amp;rdquo;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;&lt;em&gt;2024-03-06&lt;/em&gt;: &lt;a href=&#34;https://events.linuxfoundation.org/lsfmmbpf/&#34;&gt;LSF/MM/BPF 2024&lt;/a&gt;
 DAMON discussion
 &lt;a href=&#34;https://lore.kernel.org/damon/20240129204749.68549-1-sj@kernel.org/&#34;&gt;topic&lt;/a&gt; is
@@ -2435,8 +2467,9 @@ performance slowdown reduction, with patches for that.&lt;/p&gt;
 feedback-driven DAMOS aggressiveness
 &lt;a href=&#34;https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=9294a037c015&#34;&gt;auto-tuning&lt;/a&gt;
 as one of interesting changes for Linux v6.8&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;2024-01-08&lt;/em&gt;: Memory management subsystem pull request[1] for Linux v6.8-rc1
-has posted. To quote Andrew&amp;rsquo;s summary for DAMON part:&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;2024-01-08&lt;/em&gt;: Memory management subsystem pull
+&lt;a href=&#34;https://lore.kernel.org/linux-mm/20240108155039.fd2798712a2a93a108b710ce@linux-foundation.org/&#34;&gt;request&lt;/a&gt;
+for Linux v6.8-rc1 has posted. To quote Andrew&amp;rsquo;s summary for DAMON part:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;DAMON/DAMOS feature and maintenance work from SeongJae Park in
 the series
@@ -11317,6 +11350,19 @@ available at another &lt;a href=&#34;https://sjp38.github.io/post/damon_evaluati
 &lt;h2 id=&#34;recent-news&#34;&gt;Recent News&lt;/h2&gt;
 &lt;p&gt;Below are only a short list of recent news.  For complete list of the news,
 please refer to a dedecated &lt;a href=&#34;https://sjp38.github.io/post/damon_news/&#34;&gt;post&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;2024-03-13&lt;/em&gt;: Memory management subsystem pull
+&lt;a href=&#34;https://lore.kernel.org/all/20240313200532.34e4cff216acd3db8def4637@linux-foundation.org/&#34;&gt;request&lt;/a&gt;
+for Linux 6.9-rc1 has been posted.  To quote Andrew’s summary for DAMON part:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;More DAMON work from SeongJae Park in the series
+&lt;ul&gt;
+&lt;li&gt;&amp;ldquo;mm/damon: make DAMON debugfs interface deprecation unignorable&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;selftests/damon: add more tests for core functionalities and corner cases&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;Docs/mm/damon: misc readability improvements&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;mm/damon: let DAMOS feeds and tame/auto-tune itself&amp;rdquo;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;&lt;em&gt;2024-03-06&lt;/em&gt;: &lt;a href=&#34;https://events.linuxfoundation.org/lsfmmbpf/&#34;&gt;LSF/MM/BPF 2024&lt;/a&gt;
 DAMON discussion
 &lt;a href=&#34;https://lore.kernel.org/damon/20240129204749.68549-1-sj@kernel.org/&#34;&gt;topic&lt;/a&gt; is
