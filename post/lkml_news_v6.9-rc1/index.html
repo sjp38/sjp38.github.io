@@ -688,6 +688,11 @@ and per zone, per supported order via debugfs.</p>
 <p><a href="https://lkml.kernel.org/r/903bf13fc3e68b8dc1f256570d78b55b2dd9c96f.1710493587.git.baolin.wang@linux.alibaba.com">https://lkml.kernel.org/r/903bf13fc3e68b8dc1f256570d78b55b2dd9c96f.1710493587.git.baolin.wang@linux.alibaba.com</a></p>
 <p>Baolin sent the second version of the RFC patch for exclusive mTHP NUMA
 balancing.</p>
+<h2 id="patch-mm-increase-folio-batch-size-matthew-wilcox">[PATCH] mm: Increase folio batch size (Matthew Wilcox)</h2>
+<p><a href="https://lkml.kernel.org/r/20240315140823.2478146-1-willy@infradead.org">https://lkml.kernel.org/r/20240315140823.2478146-1-willy@infradead.org</a></p>
+<p>Intel reported 4.7% performance regression due to a commit reducing the folio
+batch size from 32 to 15.  This patch increases the size from 15 to 31, and it
+results in 12.5% performance increase.</p>
 
     </div>
 
