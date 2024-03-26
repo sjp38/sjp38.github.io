@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-03-12T07:03:45-07:00">
+    <meta property="og:updated_time" content="2024-03-26T06:34:47-07:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.10/">LKML News v5.10</a></h2>
+    <div class="article-style">
+      
+      [RFC V2 00/37] Enhance memory utilization with DMEMFS (Yuley Zhang) https://lkml.kernel.org/r/cover.1607332046.git.yuleixzhang@tencent.com
+This patchset aims to remove the &lsquo;struct page&rsquo; from user-sepcified region of memory and use a file system called &lsquo;dmemfs&rsquo; to minimize the memory region dedicated for &lsquo;struct page&rsquo;s.
+[PATCH] mm: don&rsquo;t SetPageWorkingset unconditionally during swapin (Yu Zhao) https://lkml.kernel.org/r/20201209012400.1771150-1-yuzhao@google.com
+Unconditional &lsquo;SetPageWorkingset&rsquo; miscategorizes read-ahead pages or pages that never belong to the working set as working set because it&rsquo;s called unconditionally.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.10-rc7/">LKML News v5.10-rc7</a></h2>
     <div class="article-style">
       
@@ -641,15 +653,6 @@ The 4th version of the KFENCE patchset.
 [PATCH 0/5] Speed up mremap on large regions (Kalesh Singh) https://lkml.kernel.org/r/20200930222130.4175584-1-kaleshsingh@google.com
 This patchset optimizes mremap() by allowing memory regions to be able to mapped at PMD/PUD.
 [PATCH] selftests/vm: 10x speedup for hmm-tests https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/damon-tests_open_sourced/">Tests package for DAMON is released under GPL v2</a></h2>
-    <div class="article-style">
-      
-      DAMON contains a number of tests based on the kselftest and kunit in its patchset itself. As it is preferred to contain only tests having short runtime in kernel tree, I organized time consuming tests in a package and used it in my company only. Tests could be used as a good document and essential for contributors. For the reason, I promised I will make it open source in the last kernel summit talk (https://linuxplumbersconf.
       
     </div>
   </div>

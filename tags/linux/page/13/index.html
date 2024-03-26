@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-03-12T07:03:45-07:00">
+    <meta property="og:updated_time" content="2024-03-26T06:34:47-07:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.16-rc5/">LKML News v5.16-rc5</a></h2>
+    <div class="article-style">
+      
+      [RFC] mm: introduce page pinner (Minchan Kim) https://lkml.kernel.org/r/20211206184730.858850-1-minchan@kernel.org
+Page migrations commonly fails from temporal referenc count elevation. Worse yet, it&rsquo;s hard to know which kernel subsystem has made the temporal reference count increase. To tracking it available, Minchan is proposing a new feature called page pinner. It tracks page put operations for pages that migration failed.
+mmotm 2021-12-06-22-21 uploaded (Andrew Morton) https://lkml.kernel.org/r/20211207062141.pMgbjXQXy%akpm@linux-foundation.org
+mmotm based on v5.16-rc4 has uploaded. 14 new patches are added, 3 existign patches modified, and 1 existing patch has dropped from the queue.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.16-rc4/">LKML News v5.16-rc4</a></h2>
     <div class="article-style">
       
@@ -639,18 +651,6 @@ mmotm 2021-09-28-19-05 uploaded (Andrew Morton) https://lkml.kernel.org/r/202109
 The mm-of-the-moment snapshot has been updated. 13 drop, 45 add, 37 modified. 184 patches in the broken/ in total.
 [PATCH 1/2] memcg: flush stats only if updated (Shakeel Butt) https://lkml.kernel.org/r/20210930044711.2892660-1-shakeelb@google.com
 This patchset makes memcg stats updated only when needed, as it is currently flushed on every refault and reclaim iteration.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.15-rc3/">LKML News v5.15-rc3</a></h2>
-    <div class="article-style">
-      
-      [RFC PATCH] Introducing lockless cache built on top of slab allocator (Hyeonggon Yoo) https://lkml.kernel.org/r/20210919164239.49905-1-42.hyeyoo@gmail.com
-The block layer now has a lockless cache, which increased its IOPS. This RFC generalizes it so that it can be used in some other area, such as NAPI.
-[PATCH v5 0/3] virtio-mem: disallow mapping virtio-mem memory via /dev/mem (David Hildenbrand) https://lkml.kernel.org/r/20210920142856.17758-1-david@redhat.com
-This patchset makes a basic infrastructure to exclude some physical memory regions that marked as IORESOURCE_SYSTEM_RAM from /dev/mem access, even though they are not marked as IORESOURCE_BUSY.
       
     </div>
   </div>

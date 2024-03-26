@@ -13,6 +13,18 @@
     </image>
     
     <item>
+      <title>LKML News v6.9-rc2</title>
+      <link>https://sjp38.github.io/post/lkml_news_v6.9-rc2/</link>
+      <pubDate>Tue, 26 Mar 2024 06:34:47 -0700</pubDate>
+      <guid>https://sjp38.github.io/post/lkml_news_v6.9-rc2/</guid>
+      <description>&lt;h2 id=&#34;patch-02-support-multi-size-thp-numa-balancing-baolin-wang&#34;&gt;[PATCH 0/2] support multi-size THP numa balancing (Baolin Wang)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/cover.1711453317.git.baolin.wang@linux.alibaba.com&#34;&gt;https://lkml.kernel.org/r/cover.1711453317.git.baolin.wang@linux.alibaba.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Baolin posted a patchset for making NUMA balancing algorithm for multi-sized
+THP (mTHP) to follow the THP strategy as the basic support.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>LKML News v6.9-rc1</title>
       <link>https://sjp38.github.io/post/lkml_news_v6.9-rc1/</link>
       <pubDate>Tue, 12 Mar 2024 07:03:45 -0700</pubDate>
@@ -121,6 +133,22 @@ this version of the patchset has added to the mm tree.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20240322233838.868874-1-boqun.feng@gmail.com&#34;&gt;https://lkml.kernel.org/r/20240322233838.868874-1-boqun.feng@gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Boqun concludes Rust should use Linux Kernel Memory Model rather than its own
 one when it is executed in Linux kernel, and implementing atomic library.&lt;/p&gt;
+&lt;h2 id=&#34;linux-69-rc1-linus-torvalds&#34;&gt;Linux 6.9-rc1 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wgOw_13JuuX4khpn4K+n09cRG3EBQWufAPBWoa0GLLQ0A@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wgOw_13JuuX4khpn4K+n09cRG3EBQWufAPBWoa0GLLQ0A@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;After two weeks of the merge window, Linus Torvalds announced the first release
+candidate of Linux 6.9.  He introduces timer rewrites and BH workqueue supports
+as the meaningful core updates.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/kernel_release_stat/linux_stat_v6.9-rc1.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ ~/lazybox/git_helpers/relstat.py --since 2022-01-22 | \
+        ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And, below is the diffstat of the -rc1 releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/kernel_release_stat/linux_stat_v6.9-rc1-only.png&#34; alt=&#34;rc1 release stat&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     

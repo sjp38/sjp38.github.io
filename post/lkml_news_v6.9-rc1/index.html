@@ -576,7 +576,7 @@ Ryan sent the fourth version of the patchset to swap-out multi-sized THP without
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    4 min read
+    5 min read
   </span>
   
 
@@ -720,6 +720,22 @@ this version of the patchset has added to the mm tree.</p>
 <p><a href="https://lkml.kernel.org/r/20240322233838.868874-1-boqun.feng@gmail.com">https://lkml.kernel.org/r/20240322233838.868874-1-boqun.feng@gmail.com</a></p>
 <p>Boqun concludes Rust should use Linux Kernel Memory Model rather than its own
 one when it is executed in Linux kernel, and implementing atomic library.</p>
+<h2 id="linux-69-rc1-linus-torvalds">Linux 6.9-rc1 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wgOw_13JuuX4khpn4K+n09cRG3EBQWufAPBWoa0GLLQ0A@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wgOw_13JuuX4khpn4K+n09cRG3EBQWufAPBWoa0GLLQ0A@mail.gmail.com</a></p>
+<p>After two weeks of the merge window, Linus Torvalds announced the first release
+candidate of Linux 6.9.  He introduces timer rewrites and BH workqueue supports
+as the meaningful core updates.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/linux_stat_v6.9-rc1.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using below command:</p>
+<pre><code>$ ~/lazybox/git_helpers/relstat.py --since 2022-01-22 | \
+        ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc1 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/linux_stat_v6.9-rc1-only.png" alt="rc1 release stat"></p>
 
     </div>
 
