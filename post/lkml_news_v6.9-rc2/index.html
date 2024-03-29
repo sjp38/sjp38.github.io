@@ -576,7 +576,7 @@ Kemeng posted a patchset that adds two new debugfs file, bdi/xxx/stats and bdi/x
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -628,6 +628,24 @@ THP (mTHP) to follow the THP strategy as the basic support.</p>
 <p><a href="https://lkml.kernel.org/r/20240326-zswap-xarray-v10-1-bf698417c968@kernel.org">https://lkml.kernel.org/r/20240326-zswap-xarray-v10-1-bf698417c968@kernel.org</a></p>
 <p>Chris sent tenth version of the patchset for making zswap uses xarray instead
 of rb tree.</p>
+<h2 id="patch-v5-06-swap-out-mthp-without-splitting-ryan-roberts">[PATCH v5 0/6] Swap-out mTHP without splitting (Ryan Roberts)</h2>
+<p><a href="https://lkml.kernel.org/r/20240327144537.4165578-1-ryan.roberts@arm.com">https://lkml.kernel.org/r/20240327144537.4165578-1-ryan.roberts@arm.com</a></p>
+<p>Ryan posted the fifth version of the patchset for making multi-zied THP (mTHP)
+be swapped out without the need to split first.</p>
+<h2 id="rfc-mm-introduce-uksm-for-user-controlled-ksm-hui-zhu">[RFC] mm: Introduce uKSM for user-controlled KSM (Hui Zhu)</h2>
+<p><a href="https://lkml.kernel.org/r/20240329104035.62942-1-teawater@antgroup.com">https://lkml.kernel.org/r/20240329104035.62942-1-teawater@antgroup.com</a></p>
+<p>Hui sent an RFC for extending KSM to allow users control the KSM via procfs.</p>
+<h2 id="lsfmmbpf-topic-multi-sized-thp-performance-benchmarks-and-analysis-on-arm64-yang-shi">[LSF/MM/BPF TOPIC] Multi-sized THP performance benchmarks and analysis on ARM64 (Yang Shi)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHbLzkq5H6Pht1XbCEJDe_n7=99c=oPOaY+1Dy9d=2gwiHKcWA@mail.gmail.com">https://lkml.kernel.org/r/CAHbLzkq5H6Pht1XbCEJDe_n7=99c=oPOaY+1Dy9d=2gwiHKcWA@mail.gmail.com</a></p>
+<p>Yang Shi suggested a new LSFMM topic for sharing his mTHP benchmarks results.</p>
+<h2 id="patch-rfc-02-mthp-friendly-compression-in-zsmalloc-and-zram-based-on-multi-pages-barry-song">[PATCH RFC 0/2] mTHP-friendly compression in zsmalloc and zram based on multi-pages (Barry Song)</h2>
+<p><a href="https://lkml.kernel.org/r/20240327214816.31191-1-21cnbao@gmail.com">https://lkml.kernel.org/r/20240327214816.31191-1-21cnbao@gmail.com</a></p>
+<p>Barry posted an RFC patchset for making zswap and zsmalloc be mTHP-friendly.
+She mentions she found improvement on compression ratios and CPU utilization
+decrease when large folios are compressed at a larger granularity.</p>
+<h2 id="git-pull-hotfixes-for-69-rc2-andrew-morton">[GIT PULL] hotfixes for 6.9-rc2 (Andrew Morton)</h2>
+<p><a href="https://lkml.kernel.org/r/20240327113214.f0200bec5624169a86371797@linux-foundation.org">https://lkml.kernel.org/r/20240327113214.f0200bec5624169a86371797@linux-foundation.org</a></p>
+<p>Andrew sent a hotfixes pull request to Linus Torvalds.</p>
 
     </div>
 
