@@ -51,6 +51,21 @@ decrease when large folios are compressed at a larger granularity.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20240327213108.2384666-1-yuanchu@google.com&#34;&gt;https://lkml.kernel.org/r/20240327213108.2384666-1-yuanchu@google.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Yuanchu posted an RFC patchset for reporting workingset of the system and
 cgroups.&lt;/p&gt;
+&lt;h2 id=&#34;linux-69-rc2-linus-torvalds&#34;&gt;Linux 6.9-rc2 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wjf=8JusO9TgkMfNziLjjSHdMOUpes_6f5m9_w+7taeBA@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wjf=8JusO9TgkMfNziLjjSHdMOUpes_6f5m9_w+7taeBA@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Despite of the Easter, the 6.9-rc2 release has made without any delay.
+Torvalds states that nothing stands out.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/kernel_release_stat/linux_stat_v6.9-rc2.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using
+below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git_helpers/relstat.py --since 2022-04-01 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And, below is the diffstat of the -rc2 releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/kernel_release_stat/linux_stat_v6.9-rc2-only.png&#34; alt=&#34;rc2 release stat&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     
