@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-03-26T06:34:47-07:00">
+    <meta property="og:updated_time" content="2024-04-02T06:37:44-07:00">
   
 
   
@@ -525,6 +525,19 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.16-rc4/">LKML News v5.16-rc4</a></h2>
+    <div class="article-style">
+      
+      mmotm 2021-11-29-18-58 uploaded (Andrew Morton) https://lkml.kernel.org/r/20211130025839.ZhVoO1W_7%akpm@linux-foundation.org
+mmotm has updated. It&rsquo;s based on v5.16-rc3, adds 52 new patches, modifies 18 existing patches, and drops 2 patches. In total, 224 patches in the queue.
+[QUESTION] “place pages to tail” regress memory read bandwidth about 10% under our test cases (liupeng) https://lkml.kernel.org/r/3c6349ddd9a34732a251467b7fa4fe93@huawei.com
+Liu Peng found David&rsquo;s patch 7fef431be9c9(mm/page_alloc: place pages to tail in __free_pages_core()) incurring performance regression, and asking some suggestions.
+[RFC PATCH] mm: count zram read/write into PSI_IO_WAIT (Huangzhaoyang) https://lkml.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.16-rc3/">LKML News v5.16-rc3</a></h2>
     <div class="article-style">
       
@@ -638,18 +651,6 @@ This patchset makes memcg stats updated only when needed, as it is currently flu
 The block layer now has a lockless cache, which increased its IOPS. This RFC generalizes it so that it can be used in some other area, such as NAPI.
 [PATCH v5 0/3] virtio-mem: disallow mapping virtio-mem memory via /dev/mem (David Hildenbrand) https://lkml.kernel.org/r/20210920142856.17758-1-david@redhat.com
 This patchset makes a basic infrastructure to exclude some physical memory regions that marked as IORESOURCE_SYSTEM_RAM from /dev/mem access, even though they are not marked as IORESOURCE_BUSY.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.15-rc2/">LKML News v5.15-rc2</a></h2>
-    <div class="article-style">
-      
-      [PATCH v1] vmpressure: wake up work only when there is registration event (wangyong) https://lkml.kernel.org/r/1631548441-2784-1-git-send-email-wang.yong12@zte.com.cn
-Currently, vmpressure works are awaken even though there are no vmpressure callbacks. This commit avoids such unnecessary wakeup by counting the number of registered events and skip waking up works if the number is zero.
-[PATCH v3 00/76] Optimize list lru memory consumption (Muchun Song) https://lkml.kernel.org/r/20210914072938.6440-1-songmuchun@bytedance.com
-Muchun found kmalloc-32 for list_lru_one allocation consuming 6 GiB of memory on their server.
       
     </div>
   </div>

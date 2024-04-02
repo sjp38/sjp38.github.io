@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-03-26T06:34:47-07:00">
+    <meta property="og:updated_time" content="2024-04-02T06:37:44-07:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.3-rc7/">LKML News v6.3-rc7</a></h2>
+    <div class="article-style">
+      
+      [PATCH v5] mm: oom: introduce cpuset oom (Gang Li) https://lkml.kernel.org/r/20230411134539.45046-1-ligang.bdlg@bytedance.com
+This patch makes oomkiller to aware of numa nodes of processes that assigned via cpuset so that real memory pressure tirggeered process can be picked as victim of the pressure.
+[LSF/MM/BPF TOPIC] Reducing zombie memcgs (T.J. Mercier) https://lkml.kernel.org/r/CABdmKX2M6koq4Q0Cmp_-=wbP0Qa190HdEGGaHfxNS05gAkUtPA@mail.gmail.com
+Memcg lives in the kernel until the reference count drops to zero, even if it&rsquo;s removed by userspace. This zombie-like memcg consumes system resource and makes kernel operations that get affected by the total number of memcg less efficient.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.3-rc6/">LKML News v6.3-rc6</a></h2>
     <div class="article-style">
       
@@ -630,19 +642,6 @@ Noticeable overhead on disc encryption due to page allocations have found. The o
 Steven Rostedt proposes yet another LSF/MM/BPF topic for using sframe section, which is introduced by binutils, for more efficient user space stack tracing.
 [PATCH v4 00/14] Introduce Copy-On-Write to Page Table (Chih-En Lin) https://lkml.kernel.org/r/20230207035139.272707-1-shiyn.lin@gmail.com
 Fourth version of the patchset making copy-on-write be used for page table, while it is currently only used for the mapped memory.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.2-rc7/">LKML News v6.2-rc7</a></h2>
-    <div class="article-style">
-      
-      [LSF/MM/BPF TOPIC] CXL Fabric Manager (FM) architecture (Viacheslav A.Dubeyko) https://lkml.kernel.org/r/7F001EAF-C512-436A-A9DD-E08730C91214@bytedance.com
-A topic suggestion for LSF/MM/BPF. It suggests to discuss about Fabric Manager (FM) architecture, which requires configuration tool, daemon, and QEMU emulation of CXL hardware features.
-[PATCH V2 0/3] sched/numa: Enhance vma scanning (Ragghavendra K T) https://lkml.kernel.org/r/cover.1675159422.git.raghavendra.kt@amd.com
-A patchset for improving access scanning for NUMA balancing. This uses per-thread VMA scanning idea from Mel.
-LSFMMBPF proposal [MM]: Lazy RCU memory reclaim (Joel Fernandes) https://lkml.
       
     </div>
   </div>
