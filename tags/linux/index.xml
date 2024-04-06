@@ -41,6 +41,20 @@ mangement subsystem that needed by Rust-written Binder.&lt;/p&gt;
 &lt;h2 id=&#34;rfc-patch-v3-07-damon-based-tiered-memory-management-for-cxl-memory-honggyu-kim&#34;&gt;[RFC PATCH v3 0/7] DAMON based tiered memory management for CXL memory (Honggyu Kim)&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20240405060858.2818-1-honggyu.kim@sk.com&#34;&gt;https://lkml.kernel.org/r/20240405060858.2818-1-honggyu.kim@sk.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Honggyu sent the third RFC patchset for DAMON-based tiered memory management.&lt;/p&gt;
+&lt;h2 id=&#34;more-annoying-code-generation-by-clang-linus-torvalds&#34;&gt;More annoying code generation by clang (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/all/CAHk-=whHWjKK1TOMT1XvxFj8e-_uctJnXPxM=SyWHmW63B_EDw@mail.gmail.com/&#34;&gt;https://lkml.kernel.org/all/CAHk-=whHWjKK1TOMT1XvxFj8e-_uctJnXPxM=SyWHmW63B_EDw@mail.gmail.com/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Linus Torvalds shares his thought on clang&amp;rsquo;s annoying code generation behavior.&lt;/p&gt;
+&lt;h2 id=&#34;patch-11-mm-change-inlined-allocation-helpers-to-account-at-the-call-site-suren-baghdasaryan&#34;&gt;[PATCH 1/1] mm: change inlined allocation helpers to account at the call site (Suren Baghdasaryan)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20240404165404.3805498-1-surenb@google.com&#34;&gt;https://lkml.kernel.org/r/20240404165404.3805498-1-surenb@google.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Suren posted a patch to make the memory allocation profiling accounts call
+sites of inlined functions instead of the functions themselves.&lt;/p&gt;
+&lt;h2 id=&#34;rfc-patch-v3-07-damon-based-tiered-memory-management-for-cxl-memory-honggyu-kim-1&#34;&gt;[RFC PATCH v3 0/7] DAMON based tiered memory management for CXL memory (Honggyu Kim)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20240405060858.2818-1-honggyu.kim@sk.com&#34;&gt;https://lkml.kernel.org/r/20240405060858.2818-1-honggyu.kim@sk.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Honggyu posted the third version of DAMON-based tiered memory management
+patchset.&lt;/p&gt;
+&lt;h2 id=&#34;git-pull-hotfixes-for-69-rc3-andrew-morton&#34;&gt;[GIT PULL] hotfixes for 6.9-rc3 (Andrew Morton)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20240405114018.48d320803e1b3920f68f9f96@linux-foundation.org&#34;&gt;https://lkml.kernel.org/r/20240405114018.48d320803e1b3920f68f9f96@linux-foundation.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Andrew sent hotfixes pull request to Linus Torvalds.&lt;/p&gt;
 </description>
     </item>
     
@@ -10929,10 +10943,6 @@ access pattern-based
 &lt;a href=&#34;https://github.com/awslabs/damo/blob/v2.2.4/USAGE.md#profile&#34;&gt;profiling&lt;/a&gt;.
 For example, users can know which code is making their program&amp;rsquo;s memory usage
 unexpectedly high, or which code is intensively accessing memory, and optimize.&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;2024-02-27&lt;/em&gt;: DAMON user-space tool, &lt;a href=&#34;https://damonitor.github.io&#34;&gt;DAMO&lt;/a&gt;, has
-&lt;a href=&#34;https://pypistats.org/packages/damo&#34;&gt;downloaded&lt;/a&gt; from PyPI more than 2,000
-times last month.
-&lt;img src=&#34;https://sjp38.github.io/img/damo_download_2005.png&#34; alt=&#34;damo_2000_monthly_downloads&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;getting-started&#34;&gt;Getting Started&lt;/h2&gt;
 &lt;p&gt;You can start using DAMON by&lt;/p&gt;
 &lt;ul&gt;
@@ -10950,6 +10960,10 @@ Linux kernel to use it.  To check if you&amp;rsquo;re already running DAMON-enab
 kernel, you could:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ if grep CONFIG_DAMON /boot/config-$(uname -r); then echo &amp;quot;installed&amp;quot;; fi
 &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You could also find a list of DAMON-enabled Linux kernels from Oracle&amp;rsquo;s
+kconfigs
+&lt;a href=&#34;https://oracle.github.io/kconfigs/?config=UTS_RELEASE&amp;amp;config=DAMON&#34;&gt;tool&lt;/a&gt;.
+The tool doesn&amp;rsquo;t support every distros at the moment, though.&lt;/p&gt;
 &lt;p&gt;DAMON is enabled in
 &lt;a href=&#34;https://aws.amazon.com/linux/?amazon-linux-whats-new.sort-by=item.additionalFields.postDateTime&amp;amp;amazon-linux-whats-new.sort-order=desc&#34;&gt;Amazon Linux&lt;/a&gt;
 kernels that based on v5.4 or newer Linux kernels.

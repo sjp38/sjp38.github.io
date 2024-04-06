@@ -950,10 +950,6 @@ access pattern-based
 &lt;a href=&#34;https://github.com/awslabs/damo/blob/v2.2.4/USAGE.md#profile&#34;&gt;profiling&lt;/a&gt;.
 For example, users can know which code is making their program&amp;rsquo;s memory usage
 unexpectedly high, or which code is intensively accessing memory, and optimize.&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;2024-02-27&lt;/em&gt;: DAMON user-space tool, &lt;a href=&#34;https://damonitor.github.io&#34;&gt;DAMO&lt;/a&gt;, has
-&lt;a href=&#34;https://pypistats.org/packages/damo&#34;&gt;downloaded&lt;/a&gt; from PyPI more than 2,000
-times last month.
-&lt;img src=&#34;https://sjp38.github.io/img/damo_download_2005.png&#34; alt=&#34;damo_2000_monthly_downloads&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;getting-started&#34;&gt;Getting Started&lt;/h2&gt;
 &lt;p&gt;You can start using DAMON by&lt;/p&gt;
 &lt;ul&gt;
@@ -971,6 +967,10 @@ Linux kernel to use it.  To check if you&amp;rsquo;re already running DAMON-enab
 kernel, you could:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ if grep CONFIG_DAMON /boot/config-$(uname -r); then echo &amp;quot;installed&amp;quot;; fi
 &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You could also find a list of DAMON-enabled Linux kernels from Oracle&amp;rsquo;s
+kconfigs
+&lt;a href=&#34;https://oracle.github.io/kconfigs/?config=UTS_RELEASE&amp;amp;config=DAMON&#34;&gt;tool&lt;/a&gt;.
+The tool doesn&amp;rsquo;t support every distros at the moment, though.&lt;/p&gt;
 &lt;p&gt;DAMON is enabled in
 &lt;a href=&#34;https://aws.amazon.com/linux/?amazon-linux-whats-new.sort-by=item.additionalFields.postDateTime&amp;amp;amazon-linux-whats-new.sort-order=desc&#34;&gt;Amazon Linux&lt;/a&gt;
 kernels that based on v5.4 or newer Linux kernels.
