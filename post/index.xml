@@ -55,6 +55,22 @@ patchset.&lt;/p&gt;
 &lt;h2 id=&#34;git-pull-hotfixes-for-69-rc3-andrew-morton&#34;&gt;[GIT PULL] hotfixes for 6.9-rc3 (Andrew Morton)&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20240405114018.48d320803e1b3920f68f9f96@linux-foundation.org&#34;&gt;https://lkml.kernel.org/r/20240405114018.48d320803e1b3920f68f9f96@linux-foundation.org&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Andrew sent hotfixes pull request to Linus Torvalds.&lt;/p&gt;
+&lt;h2 id=&#34;linux-69-rc3-linus-torvalds&#34;&gt;Linux 6.9-rc3 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=whDuqyVC6xMkOnNt2EeTd-s4uqa3sYghj5UzkELFW2bpw@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=whDuqyVC6xMkOnNt2EeTd-s4uqa3sYghj5UzkELFW2bpw@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Linus Torvalds released the third candidate for Linux v6.9-rc3.  This is not
+usual as it has many fixes for bcachefs.  Linus says it is not weird since
+bcachefs is definitely not stable for now.  Hence he concludes this is not
+really all that big.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/kernel_release_stat/linux_stat_v6.9-rc3.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2022-04-08 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And, below is the diffstat of the -rc3 releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/kernel_release_stat/v6.9-rc3-only.png&#34; alt=&#34;rc3 release stat&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     
