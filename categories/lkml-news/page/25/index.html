@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-04-02T06:37:44-07:00">
+    <meta property="og:updated_time" content="2024-04-09T06:39:36-07:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.0-rc7/">LKML News v5.0-rc7</a></h2>
+    <div class="article-style">
+      
+      [PATCH V15 00/18] block: support multi-page bvec https://lkml.kernel.org/r/20190215111324.30129-1-ming.lei@redhat.com
+시스템의 RAM 이 커지고 huge page 가 널리 사용되면서 물리적으로 연속된 페이지들의 I/O 가 흔해지고 있습니다. 이를 위해 struct bio_bvec 이 물리적으로 연속된 여러 페이지를 다룰 수 있게 해주는 패치의 15번째 버전입니다.
+Memory management facing a 400Gpbs network link https://lkml.kernel.org/r/01000168e2f54113-485312aa-7e08-4963-af92-803f8c7d21e6-000000@email.amazonses.com
+올해 내로 400Gbps 인피니밴드가 가능해질 거라고 합니다! 이건 프로세서-메모리 사이의 밴드위쓰를 넘길 수 있는 스피드죠! 단일 하드웨어 쓰레드는 20GB/s 이기 때문입니다. 이 재미있는 트렌드를 커널은 어떻게 대처해야 할 것인가 하는 메일입니다.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.0-rc6/">LKML News v5.0-rc6</a></h2>
     <div class="article-style">
       
@@ -639,18 +651,6 @@ struct bio_bvec 하나가 물리적으로 연속적인 여러개의 페이지를
 aio 쪽의 ioctx_table 이라는 자료구조가 스펙터에 취약한 자료구조인데, 인덱스 오버플로 문제가 없는 XArray 로 교체하는 패치입니다. 정말 코드가 깔끔해지는군요.
 [PATCH 0/4][V4] drop the mmap_sem when doing IO in the fault path https://lkml.kernel.org/r/20181130195812.19536-1-josef@toxicpanda.com
 ps 등의 도구를 사용해 시스템 상황을 모니터링하는 커다란 어플리케이션을 사용 중인데, 이 과정에서 다른 task 의 mmap_sem 을 down_read() 해야 하는 경우가 종종 생긴다는군요.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.20-rc4/">LKML News by v4.20-rc4</a></h2>
-    <div class="article-style">
-      
-      [PATCH -V7 00/21] swap: Swapout/swapin THP in one piece https://lkml.kernel.org/r/20181120085449.5542-1-ying.huang@intel.com
-Transparent Huge Page 를 쪼개지 않고 swap out / swap in 함으로써 스왑 성능을 최적화 하는 패치의 일곱번째 버전입니다. 이 블로그에서도 소개한 바 있죠. 크게 바뀐 부분은 없지만 최신 버전에 맞춰 리베이스 되었고, Daniel 에 의해 발견된 주소 정렬 관련 문제를 해결했군요.
-[PATCH 0/5] Fragmentation avoidance improvements v5 https://lkml.kernel.org/r/20181123114528.28802-1-mgorman@techsingularity.net
-시스템이 충분히 오래 운영되거나 특정한 패턴의 워크로드가 동작하게 되면 시스템의 메모리는 fragment 되게 마련이어서, 장기적으로 물리적 연속 페이지 할당이 실패하게 됩니다.
       
     </div>
   </div>

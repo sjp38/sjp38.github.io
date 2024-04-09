@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-04-02T06:37:44-07:00">
+    <meta property="og:updated_time" content="2024-04-09T06:39:36-07:00">
   
 
   
@@ -525,6 +525,20 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.2-rc3/">LKML News v6.2-rc3</a></h2>
+    <div class="article-style">
+      
+      [PATCH] zram: correctly handle all next_arg() cases (Sergey Senozhatsky) https://lkml.kernel.org/r/20230103030119.1496358-1-senozhatsky@chromium.org
+Handle NULL val pointer case from zram&rsquo;s arguments handling.
+[RFC PATCH 00/25] Upstream kvx Linux port (Yann Sionneau) https://lkml.kernel.org/r/20230103164359.24347-1-ysionneau@kalray.eu
+This patchset adds support of Kalray&rsquo;s kvx family kv3-1 CPU architecture.
+[PATCH 00/46] Based on latest mm-unstable (85b44c25cd1e). (James Houghton) https://lkml.kernel.org/r/20230105101844.1893104-1-jthoughton@google.com
+This patchset introduces HugeTLB high-Granularity Mapping (HGM), which teaches HugeTLB how to map HugeTLB pages at high granularity like how THPs PTE-mapped.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.2-rc2/">LKML News v6.2-rc2</a></h2>
     <div class="article-style">
       
@@ -636,20 +650,6 @@ The patchset for THP shrinking, which aims to reduce memory waste due to the THP
 [PATCH 0/1] Dead stores in maple-tree (Lukas Bulwahn) https://lkml.kernel.org/r/20221026120029.12555-1-lukas.bulwahn@gmail.com
 This patch fixes some dead stores of maple tree that reported by clang analyzer.
 [PATCH v6 00/21] TDX host kernel support (Kai Huang) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.1-rc2/">LKML News v6.1-rc2</a></h2>
-    <div class="article-style">
-      
-      [RFC PATCH] mm: Introduce new MADV_NOMOVABLE behavior (Baolin Wang) https://lkml.kernel.org/r/bc27af32b0418ed1138a1c3a41e46f54559025a5.1665991453.git.baolin.wang@linux.alibaba.com
-This RFC patch introduces a new madvise() hint called MADV_NOMOVABLE for long-term pinning of memory.
-[PATCH 0/4] Add MADV_COLLAPSE documentation (Zach O&rsquo;Keefe) https://lkml.kernel.org/r/20221017175523.2048887-1-zokeefe@google.com
-This patchset adds documentation of MADV_COLLAPSE, which is a new madvise() hint that merged in v6.1.
-[PATCH v4 0/3] THP Shrinker (Alexander Zhu) https://lkml.kernel.org/r/cover.1666150565.git.alexlzhu@fb.com
-Alexander posted the fourth version of THP shrinker, which aims to reduce the THP memory inefficiency due to the THP internal fragmentation.
       
     </div>
   </div>

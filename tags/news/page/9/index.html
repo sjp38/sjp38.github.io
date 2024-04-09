@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-04-02T06:37:44-07:00">
+    <meta property="og:updated_time" content="2024-04-09T06:39:36-07:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.19/">LKML News v5.19</a></h2>
+    <div class="article-style">
+      
+      [PATCH v4 0/3] mm/mprotect: Fix soft-dirty checks (Peter Xu) https://lkml.kernel.org/r/20220725142048.30450-1-peterx@redhat.com
+Fourth version of the soft-dirty check fixes for mprotect has posted. This version polishes the commit message and adds tests.
+[PATCH v2 1/2] mm/slub: enable debugging memory wasting of kmalloc (Feng Tang) https://lkml.kernel.org/r/20220725112025.22625-1-feng.tang@intel.com
+As slab allocates memory in only power of 2 bytes size, memory can be wasted when slab allocation is requested for a large number of times for objects that sizes not aligned in power of two bytes.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.19-rc8/">LKML News v5.19-rc8</a></h2>
     <div class="article-style">
       
@@ -635,18 +647,6 @@ Yosry is proposing to add swappiness argument to memory.reclaim cgroup file to p
 [PATCH v11 00/14] Multi-Gen LRU Framework (Yu Zhao) https://lkml.kernel.org/r/20220518014632.922072-1-yuzhao@google.com
 The eleventh version of the patchset for MGLRU has posted. Maybe this has revised based on the comments from LSFMM.
 [PATCH] memcg: provide reclaim stats via &lsquo;memory.reclaim&rsquo; (Vaibhav Jain) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.18-rc7/">LKML News v5.18-rc7</a></h2>
-    <div class="article-style">
-      
-      [PATCH v3 0/6] mm: introduce shrinker debugfs interface (Roman Gushchin) https://lkml.kernel.org/r/20220509183820.573666-1-roman.gushchin@linux.dev
-This patchset introduces a descent debugfs interface for debugging the shrinker mechanism.
-[PATCH v3 0/3] Fix CONT-PTE/PMD size hugetlb issue when unmapping or migrating (Baolin Wang) https://lkml.kernel.org/r/cover.1652147571.git.baolin.wang@linux.alibaba.com
-For PTE-cont or PMD-cont size hugetlb pages, migration or unmapping of poisoned hugetlb pages which are using ptep_clear_flush() and set_pte_at() can cause data consistency issue. This patchset tries to fix the issue.
       
     </div>
   </div>
