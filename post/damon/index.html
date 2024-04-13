@@ -794,19 +794,18 @@ $ sudo reboot
 while AL2 5.4.y contains only a part of DAMON features.  AL2 v5.10.y kernels
 are recommended for the reason.</p>
 <p>If your package system doesn&rsquo;t support DAMON-enabled kernel, you can
-<a href="#source-code">fetch</a> a DAMON-merged Linux kernel source tree (it has merged in
-Linux mainline tree since v5.15), build, and install it.  Note that you should
-enable kernel configuration options for DAMON, depending on your demands.  For
-example:</p>
+fetch a DAMON-merged Linux kernel <a href="#source-code">source tree</a>, build, and
+install it.  Note that you should enable kernel configuration options for
+DAMON, depending on your demands.  For example:</p>
 <pre><code>$ cd $THE_FETCHED_DAMON_KERNEL_SOURCE_TREE
 $ make olddefconfig
-$ echo 'CONFIG_DAMON=y' &gt;&gt; /.config
-$ echo 'CONFIG_DAMON_VADDR=y' &gt;&gt; /.config
-$ echo 'CONFIG_DAMON_PADDR=y' &gt;&gt; /.config
-$ echo 'CONFIG_DAMON_SYSFS=y' &gt;&gt; /.config
-$ echo 'CONFIG_DAMON_DBGFS=y' &gt;&gt; /.config
-$ echo 'CONFIG_DAMON_RECLAIM=y' &gt;&gt; /.config
-$ echo 'CONFIG_DAMON_LRU_SORT=y' &gt;&gt; /.config
+$ echo 'CONFIG_DAMON=y' &gt;&gt; ./.config
+$ echo 'CONFIG_DAMON_VADDR=y' &gt;&gt; ./.config
+$ echo 'CONFIG_DAMON_PADDR=y' &gt;&gt; ./.config
+$ echo 'CONFIG_DAMON_SYSFS=y' &gt;&gt; ./.config
+$ echo 'CONFIG_DAMON_DBGFS=y' &gt;&gt; ./.config
+$ echo 'CONFIG_DAMON_RECLAIM=y' &gt;&gt; ./.config
+$ echo 'CONFIG_DAMON_LRU_SORT=y' &gt;&gt; ./.config
 $ make -j$(nproc)
 $ sudo make modules_install install
 </code></pre>

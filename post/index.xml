@@ -11685,19 +11685,18 @@ $ sudo reboot
 while AL2 5.4.y contains only a part of DAMON features.  AL2 v5.10.y kernels
 are recommended for the reason.&lt;/p&gt;
 &lt;p&gt;If your package system doesn&amp;rsquo;t support DAMON-enabled kernel, you can
-&lt;a href=&#34;#source-code&#34;&gt;fetch&lt;/a&gt; a DAMON-merged Linux kernel source tree (it has merged in
-Linux mainline tree since v5.15), build, and install it.  Note that you should
-enable kernel configuration options for DAMON, depending on your demands.  For
-example:&lt;/p&gt;
+fetch a DAMON-merged Linux kernel &lt;a href=&#34;#source-code&#34;&gt;source tree&lt;/a&gt;, build, and
+install it.  Note that you should enable kernel configuration options for
+DAMON, depending on your demands.  For example:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ cd $THE_FETCHED_DAMON_KERNEL_SOURCE_TREE
 $ make olddefconfig
-$ echo &#39;CONFIG_DAMON=y&#39; &amp;gt;&amp;gt; /.config
-$ echo &#39;CONFIG_DAMON_VADDR=y&#39; &amp;gt;&amp;gt; /.config
-$ echo &#39;CONFIG_DAMON_PADDR=y&#39; &amp;gt;&amp;gt; /.config
-$ echo &#39;CONFIG_DAMON_SYSFS=y&#39; &amp;gt;&amp;gt; /.config
-$ echo &#39;CONFIG_DAMON_DBGFS=y&#39; &amp;gt;&amp;gt; /.config
-$ echo &#39;CONFIG_DAMON_RECLAIM=y&#39; &amp;gt;&amp;gt; /.config
-$ echo &#39;CONFIG_DAMON_LRU_SORT=y&#39; &amp;gt;&amp;gt; /.config
+$ echo &#39;CONFIG_DAMON=y&#39; &amp;gt;&amp;gt; ./.config
+$ echo &#39;CONFIG_DAMON_VADDR=y&#39; &amp;gt;&amp;gt; ./.config
+$ echo &#39;CONFIG_DAMON_PADDR=y&#39; &amp;gt;&amp;gt; ./.config
+$ echo &#39;CONFIG_DAMON_SYSFS=y&#39; &amp;gt;&amp;gt; ./.config
+$ echo &#39;CONFIG_DAMON_DBGFS=y&#39; &amp;gt;&amp;gt; ./.config
+$ echo &#39;CONFIG_DAMON_RECLAIM=y&#39; &amp;gt;&amp;gt; ./.config
+$ echo &#39;CONFIG_DAMON_LRU_SORT=y&#39; &amp;gt;&amp;gt; ./.config
 $ make -j$(nproc)
 $ sudo make modules_install install
 &lt;/code&gt;&lt;/pre&gt;
@@ -19635,7 +19634,26 @@ Dec 2013 - Dec 2014&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Software Engineer&lt;/strong&gt; at &lt;strong&gt;Samsung Electronics&lt;/strong&gt;, Feb 2009 - Jul 2011&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Software Engineer&lt;/strong&gt; at &lt;strong&gt;Samsung Software Membership&lt;/strong&gt;, Jan 2008 - Jan 2009&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1 id=&#34;publications-and-presentations&#34;&gt;Publications And Presentations&lt;/h1&gt;
+&lt;h1 id=&#34;recent-linux-kernel-contributions&#34;&gt;Recent Linux Kernel Contributions&lt;/h1&gt;
+&lt;pre&gt;&lt;code&gt;$ git clone https://github.com/sjp38/lazybox
+$ ./lazybox/git_hepers/profile_author.py &amp;quot;SeongJae Park&amp;quot; \
+                      --repo ./linux --branch linus/master  --max_files 10
+since 2023-04-14 until 2024-04-13
+# &amp;lt;changed_lines&amp;gt; &amp;lt;file&amp;gt;
+746 mm/damon/sysfs-schemes.c
+735 Documentation/admin-guide/mm/damon/usage.rst
+646 mm/damon/core.c
+522 Documentation/mm/damon/design.rst
+405 tools/testing/selftests/damon/_damon_sysfs.py
+291 include/linux/damon.h
+273 mm/damon/sysfs.c
+179 mm/damon/core-test.h
+100 Documentation/ABI/testing/sysfs-kernel-mm-damon
+86 mm/damon/sysfs-test.h
+# 5035 total lines
+# 52 total files
+# 172 commits
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;publications-and-presentations&#34;&gt;Publications And Presentations&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;SeongJae Park, &lt;strong&gt;DAMON, DAMOS, and DAMO: Kernel Subsystems and User-Space
 Tools for Data Access-Aware System Analysis/Optimizations.&lt;/strong&gt;
