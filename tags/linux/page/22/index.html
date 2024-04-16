@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-04-09T06:39:36-07:00">
+    <meta property="og:updated_time" content="2024-04-16T06:39:33-07:00">
   
 
   
@@ -525,6 +525,20 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.6-rc5/">LKML News v5.6-rc5</a></h2>
+    <div class="article-style">
+      
+      [PATCH v1 00/11] virtio-mem: paravirtualized memory https://lkml.kernel.org/r/20200302134941.315212-1-david@redhat.com
+At KVM Forum 2018, virtio-mem&rsquo;s basic idea has presented and now this patchset introduces it. This provides a flexible, cross-architecture memory hot(un)plug solution.
+[PATCH v7 0/7] introduce memory hinting API for external process https://lkml.kernel.org/r/20200302193630.68771-1-minchan@kernel.org
+Finally, this patchset has accepted by Andrew Morton.
+[PATCH v2] mm: Proactive compaction https://lkml.kernel.org/r/20200302213343.2712-1-nigupta@nvidia.com
+This patchset makes kernel to do compaction proactively instead of THP allocation failures, to minimize the latency spike which comes from the compaction.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.6-rc4/">LKML News v5.6-rc4</a></h2>
     <div class="article-style">
       
@@ -629,18 +643,6 @@ Time files, rc5 released. Last week was also another calm week due to the new ye
       With increasingly data-intensive workloads and limited DRAM capacity, optimal memory management based on dynamic access patterns is becoming increasingly important. Such mechanisms are only possible if accurate and efficient dynamic access pattern monitoring is available.
 DAMON is a Data Access MONitoring framework subsystem for the Linux kernel developed for such memory management. It is designed with some key mechanism (refer to Design for the detail) that make it
  accurate (the monitoring output is useful enough for DRAM level memory management; It might not be appropriate for CPU Cache levels, though), light-weight (the monitoring overhead is low enough to be applied online), and scalable (the upper-bound of the overhead is in constant range regardless of the size of target workloads).
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.5-rc4/">LKML News v5.5-rc4</a></h2>
-    <div class="article-style">
-      
-      [PATCH V11 RESEND] mm/debug: Add tests validating architecture page table helpers https://lkml.kernel.org/r/1577162322-30303-1-git-send-email-anshuman.khandual@arm.com
-This patchset adds tests for the page table helpers. Those tests covers basic page table entry transformations including old, young, dirty, clean, write, write protect etc. The tests are not using the kselftest or kunit, but implemented as a kernel module with new file, mm/debug_vm_pgtable.c.
-Linux 5.5-rc4 https://lkml.kernel.org/r/CAHk-=wjq2b9GkLzpaDE-Xryu5c0zMM72BqkJKeZVsX+4ymH6aA@mail.gmail.com
-Due to the holidays, last week was unsurprisingly quiet. Torvalds says it was hardly even worth making an rc release.
       
     </div>
   </div>
