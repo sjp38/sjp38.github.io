@@ -27,6 +27,17 @@ virtio-balloon.  The statistics include &lt;code&gt;oom-kill&lt;/code&gt;, &lt;c
 &lt;p&gt;Due to the &lt;code&gt;panic_on_warn&lt;/code&gt; setting, even &lt;code&gt;WARN()&lt;/code&gt; and its friends are not that
 welcomed in multiple situations.  Alex posted a patchset to make this point
 clearer.&lt;/p&gt;
+&lt;h2 id=&#34;patch-05-mm-code-and-data-partitioning-improvements-maxwell-bland&#34;&gt;[PATCH 0/5] mm: code and data partitioning improvements (Maxwell Bland)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20240416122254.868007168-1-mbland@motorola.com&#34;&gt;https://lkml.kernel.org/r/20240416122254.868007168-1-mbland@motorola.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Because of ASLR requirements and static &lt;code&gt;VMALLOC_START&lt;/code&gt;/&lt;code&gt;VMALLOC_END&lt;/code&gt;, managing
+allocations for ensuring uninterleaved code/data pages is impossible.  It
+results in inefficient page table modifications due to the fact the individual
+PTE update is required.  This patch adds minimal arch-specific hooks that can
+be used to mitigate the problem.&lt;/p&gt;
+&lt;h2 id=&#34;patch-v5-04-memory-management-patches-needed-by-rust-binder-alice-ryhl&#34;&gt;[PATCH v5 0/4] Memory management patches needed by Rust Binder (Alice Ryhl)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20240415-alice-mm-v5-0-6f55e4d8ef51@google.com&#34;&gt;https://lkml.kernel.org/r/20240415-alice-mm-v5-0-6f55e4d8ef51@google.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Alice sent the fifth version of the patchset for memory management subsystem
+that are required for Rust Binder.&lt;/p&gt;
 </description>
     </item>
     
