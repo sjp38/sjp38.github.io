@@ -44,6 +44,21 @@ that are required for Rust Binder.&lt;/p&gt;
 &lt;h2 id=&#34;git-pull-hotfixes-for-69-rc5-andrew-morton&#34;&gt;[GIT PULL] hotfixes for 6.9-rc5 (Andrew Morton)&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20240418144340.2f5d96a1c4e0a8fd2dc9cb66@linux-foundation.org&#34;&gt;https://lkml.kernel.org/r/20240418144340.2f5d96a1c4e0a8fd2dc9cb66@linux-foundation.org&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Andrew Morton posted the hotfixes pull request to Linus Torvalds.&lt;/p&gt;
+&lt;h2 id=&#34;linux-69-rc5-linus-torvalds&#34;&gt;Linux 6.9-rc5 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wgfck-6-2YcD3Bzhjo0E0L0g2HGSZksB9pzRCah=Y4HBw@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wgfck-6-2YcD3Bzhjo0E0L0g2HGSZksB9pzRCah=Y4HBw@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Linus Torvalds released the fifth candidate for Linux 6.9.  It contains
+bcachefs fixes and perf tools header sync with the main kernel headers.  Other
+than that, only fairly normal changes exist.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/kernel_release_stat/linux_stat_v6.9-rc5.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2022-04-22 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And, below is the diffstat of the -rc5 releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/kernel_release_stat/v6.9-rc5-only.png&#34; alt=&#34;rc5 release stat&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     

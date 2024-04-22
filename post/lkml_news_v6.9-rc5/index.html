@@ -574,7 +574,7 @@ Due to the panic_on_warn setting, even WARN() and its friends are not that welco
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -641,6 +641,21 @@ that are required for Rust Binder.</p>
 <h2 id="git-pull-hotfixes-for-69-rc5-andrew-morton">[GIT PULL] hotfixes for 6.9-rc5 (Andrew Morton)</h2>
 <p><a href="https://lkml.kernel.org/r/20240418144340.2f5d96a1c4e0a8fd2dc9cb66@linux-foundation.org">https://lkml.kernel.org/r/20240418144340.2f5d96a1c4e0a8fd2dc9cb66@linux-foundation.org</a></p>
 <p>Andrew Morton posted the hotfixes pull request to Linus Torvalds.</p>
+<h2 id="linux-69-rc5-linus-torvalds">Linux 6.9-rc5 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wgfck-6-2YcD3Bzhjo0E0L0g2HGSZksB9pzRCah=Y4HBw@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wgfck-6-2YcD3Bzhjo0E0L0g2HGSZksB9pzRCah=Y4HBw@mail.gmail.com</a></p>
+<p>Linus Torvalds released the fifth candidate for Linux 6.9.  It contains
+bcachefs fixes and perf tools header sync with the main kernel headers.  Other
+than that, only fairly normal changes exist.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/linux_stat_v6.9-rc5.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using below command:</p>
+<pre><code>$ relstat.py --since 2022-04-22 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc5 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v6.9-rc5-only.png" alt="rc5 release stat"></p>
 
     </div>
 
