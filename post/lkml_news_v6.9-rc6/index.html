@@ -631,6 +631,12 @@ patchset.</p>
 <p><a href="https://lkml.kernel.org/r/20240424135148.30422-1-ioworker0@gmail.com">https://lkml.kernel.org/r/20240424135148.30422-1-ioworker0@gmail.com</a></p>
 <p>THP split statistics is not including PTE-mappted mTHP.  This patchset hence
 introduces per-ordr mTHP split counters.</p>
+<h2 id="patch-04-improve-anon_vma-scalability-for-anon-vmas-matthew-wilcox">[PATCH 0/4] Improve anon_vma scalability for anon VMAs (Matthew Wilcox)</h2>
+<p><a href="https://lkml.kernel.org/r/20240426144506.1290619-1-willy@infradead.org">https://lkml.kernel.org/r/20240426144506.1290619-1-willy@infradead.org</a></p>
+<p>Matthew posted a patchset that improving throuput by delaying <code>mmap_lock</code>
+taking until it actually need it for assigning an <code>anon_vma</code> to the vma.
+According to the Intel&rsquo;s kernel test robot, it makes 3x throughput improvement.
+Specifically, the test case was <code>vm-scalability</code>.</p>
 
     </div>
 
