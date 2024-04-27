@@ -574,7 +574,7 @@ In this mail, Matthew introduces his radical idea around Slab allocator, which d
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -637,6 +637,12 @@ introduces per-ordr mTHP split counters.</p>
 taking until it actually need it for assigning an <code>anon_vma</code> to the vma.
 According to the Intel&rsquo;s kernel test robot, it makes 3x throughput improvement.
 Specifically, the test case was <code>vm-scalability</code>.</p>
+<h2 id="patch-v2-07-memcg-reduce-memory-consumption-by-memcg-stats-shakeel-butt">[PATCH v2 0/7] memcg: reduce memory consumption by memcg stats (Shakeel Butt)</h2>
+<p><a href="https://lkml.kernel.org/r/20240427003733.3898961-1-shakeel.butt@linux.dev">https://lkml.kernel.org/r/20240427003733.3898961-1-shakeel.butt@linux.dev</a></p>
+<p>Memcg stats are maintained per-cpu and numa specific stats, and therefore the
+memory overhead increases on large machines having many CPUs and NUMA nodes.
+Shakeel posted a patchset to reduce the overhead by avoid allocating the memory
+for non-memcg specific stats.</p>
 
     </div>
 
