@@ -643,6 +643,21 @@ Specifically, the test case was <code>vm-scalability</code>.</p>
 memory overhead increases on large machines having many CPUs and NUMA nodes.
 Shakeel posted a patchset to reduce the overhead by avoid allocating the memory
 for non-memcg specific stats.</p>
+<h2 id="linux-69-rc6-linus-torvalds">Linux 6.9-rc6 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=witYatGg+jW1kVu2Moq6yF2JNFe3wn7G0sMNhE=H=9voA@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=witYatGg+jW1kVu2Moq6yF2JNFe3wn7G0sMNhE=H=9voA@mail.gmail.com</a></p>
+<p>The sixth candidate for Linux v6.9 is out.  Linus says everything is normal and
+only documentation update diffstat is stading out, which is again not a
+problem.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/linux_stat_v6.9-rc6.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using below command:</p>
+<pre><code>$ relstat.py --since 2022-04-29 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc6 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/v6.9-rc6-only.png" alt="rc6 release stat"></p>
 
     </div>
 
