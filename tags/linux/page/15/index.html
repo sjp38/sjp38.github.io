@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-04-23T06:37:58-07:00">
+    <meta property="og:updated_time" content="2024-04-30T06:44:38-07:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.14-rc7/">LKML News v5.14-rc7</a></h2>
+    <div class="article-style">
+      
+      [PATCH v2 0/3] virtio-mem: disallow mapping virtio-mem memory via /dev/mem (David Hildenbrand) https://lkml.kernel.org/r/20210816142505.28359-1-david@redhat.com
+Once the virtio-mem driver is plugging/unplugging memory of virtual machines, accessing the memory region via /dev/mem from the user space makes no sense. To avoid such insane use case, this patchset adds a basic infrastructure to exclude some physical memory regions completely from /dev/mem.
+[PATCH v2 00/61] Introducing the Maple Tree (Liam Howlett) https://lkml.kernel.org/r/20210817154651.1570984-1-Liam.Howlett@oracle.com
+This patchset introduces a new data structure called maple tree, which intended to replace the rbtree for vm_area_struct.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.14-rc6/">LKML News v5.14-rc6</a></h2>
     <div class="article-style">
       
@@ -642,18 +654,6 @@ This patchset adds a new entry called SwapAvailable in /proc/meminfo. It shows t
 [PATCH v3 0/9] Remove DISCONTIGMEM memory model (Mike Rapoport) https://lkml.kernel.org/r/20210608091316.3622-1-rppt@kernel.org
 This patchset removes DISCONTIGMEM memory model, finally. There are no more architectures requiring it.
 [LSF/MM/BPF TOPIC] Consolidating representations of the physical memory (Mike Rapoport) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.13-rc5/">LKML News v5.13-rc5</a></h2>
-    <div class="article-style">
-      
-      [PATCH V3 0/2] mm: compaction: proactive compaction trigger by user (Charan Teja Reddy) https://lkml.kernel.org/r/cover.1622454385.git.charante@codeaurora.org
-This patchset introduces /proc/sys/vm/compaction_proactiveness file, which can trigger proactive compaction by writing it.
-[RFC PATCH] mm/page_reporting: Adjust threshold according to MAX_ORDER (Gavin Shan) https://lkml.kernel.org/r/20210601033319.100737-1-gshan@redhat.com
-The free pages reporting feature doesn&rsquo;t allow discontiguous pages that smaller than PAGE_REPORTING_MIN_ORDER. Current setting of it makes the feature to never work on specific environment, because it is set to be equal to pageblock_order.
       
     </div>
   </div>

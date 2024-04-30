@@ -28,12 +28,11 @@
   
     
   
-  <meta name="description" content="Kernel Development Engineer">
+  <meta name="description" content="[PATCH] thp: Remove HPAGE_PMD_ORDER minimum assertion (Matthew Wilcox) https://lkml.kernel.org/r/20240429190114.3126789-1-willy@infradead.org
+Willy removes the assumption that THP order is always two or more, since we now handle order-1 folios correctly.">
 
   
-  <link rel="alternate" hreflang="ko" href="https://sjp38.github.io/ko/tags/kernel/">
-  
-  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/tags/kernel/">
+  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/lkml_news_v6.9-rc7/">
 
   
 
@@ -133,14 +132,12 @@
 
 
   
-  <link rel="alternate" href="/tags/kernel/index.xml" type="application/rss+xml" title="hacklog">
-  
 
   <link rel="manifest" href="/index.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon-32.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://sjp38.github.io/tags/kernel/">
+  <link rel="canonical" href="https://sjp38.github.io/post/lkml_news_v6.9-rc7/">
 
   
   
@@ -152,18 +149,66 @@
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="hacklog">
-  <meta property="og:url" content="https://sjp38.github.io/tags/kernel/">
-  <meta property="og:title" content="kernel | hacklog">
-  <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
+  <meta property="og:url" content="https://sjp38.github.io/post/lkml_news_v6.9-rc7/">
+  <meta property="og:title" content="LKML News v6.9-rc7 | hacklog">
+  <meta property="og:description" content="[PATCH] thp: Remove HPAGE_PMD_ORDER minimum assertion (Matthew Wilcox) https://lkml.kernel.org/r/20240429190114.3126789-1-willy@infradead.org
+Willy removes the assumption that THP order is always two or more, since we now handle order-1 folios correctly."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-04-30T06:44:38-07:00">
+    
+      <meta property="article:published_time" content="2024-04-30T06:44:38-07:00">
+    
+    <meta property="article:modified_time" content="2024-04-30T06:44:38-07:00">
   
 
   
 
 
+    
 
+
+
+
+
+
+  
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://sjp38.github.io/post/lkml_news_v6.9-rc7/"
+  },
+  "headline": "LKML News v6.9-rc7",
+  
+  "datePublished": "2024-04-30T06:44:38-07:00",
+  "dateModified": "2024-04-30T06:44:38-07:00",
+  
+  "author": {
+    "@type": "Person",
+    "name": "SeongJae Park"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "hacklog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://sjp38.github.io/img/icon-512.png"
+    }
+  },
+  "description": "[PATCH] thp: Remove HPAGE_PMD_ORDER minimum assertion (Matthew Wilcox) https://lkml.kernel.org/r/20240429190114.3126789-1-willy@infradead.org\nWilly removes the assumption that THP order is always two or more, since we now handle order-1 folios correctly."
+}
+</script>
+
+  
 
   
 
@@ -171,10 +216,13 @@
   
 
 
+  
 
 
 
-  <title>kernel | hacklog</title>
+
+
+  <title>LKML News v6.9-rc7 | hacklog</title>
 
 </head>
 
@@ -396,7 +444,7 @@
         
 
         <li class="nav-item">
-          <a class="nav-link  active" href="/tags"><span>Tags</span></a>
+          <a class="nav-link " href="/tags"><span>Tags</span></a>
         </li>
 
         
@@ -466,22 +514,6 @@
       
 
       
-      <li class="nav-item dropdown i18n-dropdown">
-        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true">
-          <i class="fas fa-globe mr-1" aria-hidden="true"></i><span class="d-none d-lg-inline">English</span>
-        </a>
-        <div class="dropdown-menu">
-          <div class="dropdown-item i18n-active font-weight-bold">
-            <span>English</span>
-          </div>
-          
-          <a class="dropdown-item" href="/ko/tags/kernel/">
-            <span>한국어</span>
-          </a>
-          
-        </div>
-      </li>
-      
 
     </ul>
 
@@ -489,183 +521,327 @@
 </nav>
 
 
-  
-
-
-
-
-
-
-
-
-
-
-
+  <article class="article">
 
   
 
+
+
+
+
+
+
+
+
+
+
+
+  
+
   
   
+  
+<div class="article-container pt-3">
+  <h1>LKML News v6.9-rc7</h1>
+
+  
+
   
     
-  
-<div class="universal-wrapper pt-3">
-  <h1>kernel</h1>
+
+
+<div class="article-metadata">
 
   
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Tue, Apr 30, 2024
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   
 </div>
 
 
 
-<div class="universal-wrapper">
-  
+  <div class="article-container">
 
-  
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.7-rc5/">LKML News v6.7-rc5</a></h2>
     <div class="article-style">
-      
-      [PATCH] mm/thp: add CONFIG_TRANSPARENT_HUGEPAGE_NEVER option (Dmytro Maluka) https://lkml.kernel.org/r/20231204163254.2636289-1-dmaluka@chromium.org
-Khugepaged has its own memory cost, and it increases vm.min_free_kbytes as it needs when it starts. On 4GB RAM, 3 mmzones and pageblock_order == MAX_ORDER, khugepaged increases vm.min_free_kbytes from 8MB to 132MB. This patch introduces a config to disallow khugepaged starts by default. It still allows the userspace to start khugepaged, though.
-[PATCH v4 0/2] KSM: support smart-scan feature (Stefan Roesch) https://lkml.kernel.org/r/20231205180952.3843711-1-shr@devkernel.io
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.7-rc4/">LKML News v6.7-rc4</a></h2>
-    <div class="article-style">
-      
-      [PATCH v2] prctl: Get private anonymous memory region name (Rong Tao) https://lkml.kernel.org/r/tencent_77E0BC1E8E9A21CA1B9009DD66555C72A90A@qq.com
-Now prctl() can set the name of anonymous vmas, but there is no option for getting the name. This patch implements the getter feature.
-[RFC PATCH 0/6] Supporting GMEM (generalized memory management) for external memory devices (Weixi Zhu) https://lkml.kernel.org/r/20231128125025.4449-1-weixi.zhu@huawei.com
-Because Linux kernels&rsquo; memory management system is mainly for only host DRAM, accelerator driver developers need to invent their own external memory management subsystems that feature similar functionality.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.7-rc3/">LKML News v6.7-rc3</a></h2>
-    <div class="article-style">
-      
-      [PATCH v6 0/4] page_owner: print stacks and their counter (Oscar Salvador) https://lkml.kernel.org/r/20231120084300.4368-1-osalvador@suse.de
-This patchset introduces a new read-only file page_owner_stacks. This can be useful for getting the relationship between stacks and allocation/free without fiddling with pages.
-[PATCH v3 0/8] riscv: ASID-related and UP-related TLB flush enhancements (Samuel Holland) https://lkml.kerenl.org/r/20231122010815.3545294-1-samuel.holland@sifive.com
-A patchset for improving some TLB flush inefficiencies in risc-v.
-[RFC] mm: Multi-gen LRU: fix use of mm/page_idle/bitmap (Henry Huang) https://lkml.kernel.org/r/cover.1700719508.git.henry.hj@antgroup.com
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.7-rc2/">LKML News v6.7-rc2</a></h2>
-    <div class="article-style">
-      
-      [PATCH v7 00/10] Small-sized THP for anonymous memory (Ryan Roberts) https://lkml.kernel.org/r/20231115132734.931023-1-ryan.roberts@arm.com
-The seventh revision of small-sized anonymout memory THP is posted.
-[PATCH v2 00/14] Transparent Contiguous PTEs for User Mappings (Ryan Roberts) https://lkml.kernel.org/r/20231115163018.1303287-1-ryan.roberts@arm.com
-This patchset makes opportunistic and transparent contpte mappings for user memory when it meets the requirement.
-[GIT PULL] hotfixes for 6.7-rc2 (Andrew Morton) https://lkml.kernel.org/r/20231117140848.02adcf56c301bb3ab85ae75a@linux-foundation.org
-MM subsystem hotfixes for rc2 has sent to Linus Torvalds.
-Linux 6.7-rc2 (Linus Torvalds) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.7-rc1/">LKML News v6.7-rc1</a></h2>
-    <div class="article-style">
-      
-      NUMA + THP test suites? (John Hubbard) https://lkml.kernel.org/r/21812f89-c1a0-4ca0-9f73-54f20c4d29ef@nvidia.com
-John asks tets suite for NUMA and THP that can be useful for testing patches for the topics.
-[PATCH v4 0/1] mm: report per-page metadata information (Sourav Panda) https://lkml.kernel.org/r/20231031223846.827173-1-souravpanda@google.com
-This patch adds per-node and global page metadata information to sysfs and procfs, to let users know how much memory is being used by the metadata.
-[GIT PULL] MM updates for 6.7-rc1 (Andrew Morton) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.6/">LKML News v6.6</a></h2>
-    <div class="article-style">
-      
-      Virtual Scanning Considered Harmful (Matthew Wilcox) https://lkml.kernel.org/r/ZTc7SHQ4RbPkD3eZ@casper.infradead.org
-Matthew shares his benchmark program that simulates speeds of LRU pages traversal using an linked list, an array, and direct physical addresses. As can expect, the physical address based traversal is fastest.
-[GIT PULL] hotfixes for 6.6 (Andrew Morton) https://lkml.kernel.org/r/20231024094608.f2dc0ca5ed2619d411a31df5@linux-foundation.org
-Andrew sent mm hotfixes for v6.6 to Linus Torvalds. One for DAMON also contained.
-[PATCH v4 0/5] workload-specific and memory pressure-driven zswap writeback (Nhat Pham) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.6-rc7/">LKML News v6.6-rc7</a></h2>
-    <div class="article-style">
-      
-      [PATCH] x86/mm: drop 4MB restriction on minimal NUMA node size (Mike Rapoport) https://lkml.kernel.org/r/20231017062215.171670-1-rppt@kernel.org
-Kernel can panic when less than 4MB NUMA node is configured. The commit which introduced the 4MB limit doesn&rsquo;t clearly explain the reason. This patch drops the limit.
-[Invitation] Linux MM Alignment Session on Small-sized THPs on Wednesday (David Rientjes) https://lkml.kernel.org/r/76c2f454-5ab2-61db-a41f-a30f08a4aa1e@google.com
-The next MM alignment session sill be lead by Ryan Roberts from ARM, for small-sized THP.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.6-rc6/">LKML News v6.6-rc6</a></h2>
-    <div class="article-style">
-      
-      [RFC PATCH 0/5] hot page swap to zram, cold page swap to swapfile directly (Lincheng Yang) https://lkml.kernel.org/r/20231008095924.1165106-1-lincheng.yang@transsion.com
-The team has made the kernel feature that swaps hot page to zram and cold pages to swapfile, directly. It aims to reduce zram compression/decompression overhead under memory pressure on Android v4.19 linux kernel, and trying to make it upstreamed due to the GKI limitation.
-[RFC PATCH] zswap: add writeback_time_threshold interface to shrink zswap pool (Zhongkun He) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.6-rc5/">LKML News v6.6-rc5</a></h2>
-    <div class="article-style">
-      
-      [PATCH 0/5] riscv: Use READ_ONCE()/WRITE_ONCE() for pte accesses (Alexandre Ghiti) https://lkml.kernel.org/r/20231002151031.110551-1-alexghiti@rivosinc.com
-A patchset for making all page table entries accesses use READ_ONCE()/WRITE_ONCE(), to avoid compiler reordering of the accesses.
-[PATCH v1 0/3] mm/gup: Introduce pin_user_pages_fd() for pinning shmem/hugetlbfs file pages (Vivek Kasireddy) https://lkml.kernel.org/r/20231003074447.3245729-1-vivek.kasireddy@intel.com
-A patchset introducing a new function for long-term pages pinning.
-[RFC PATCH v3 0/3] Introduce persistent memory pool (Stanislav Kinsburskii) https://lkml.kernel.org/r/169645773092.11424.7258549771090599226.stgit@skinsburskii.
-An RFC implementing a memory allocator in the kernel for persistent memory has posted.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.6-rc4/">LKML News v6.6-rc4</a></h2>
-    <div class="article-style">
-      
-      [PATCH v3 0/4] Smart scanning mode for KSM (Stefan Roesch) https://lkml.kernel.org/r/20230926040939.516161-1-shr@devkernel.io
-KSM scans pages without historic information, so pages that already found to be not eligible for deduplication are scanned unnecessarily. This patchset introduces smart scanning for KSM, which utilizes the historic information.
-[PATCH -V2 00/10] mm: PCP high auto-tuning (Huang Ying) https://lkml.kernel.org/r/20230926060911.266511-1-ying.huang@intel.com
-This patchset implements auto-tuning of Per-CPU Pageset high to optimize page allocation performance.
-[PATCH rfc 0/5] mm: improve performance of kernel memory accounting (Roman Gushchin) https://lkml.
-      
-    </div>
-  </div>
-  
+      <h2 id="patch-thp-remove-hpage_pmd_order-minimum-assertion-matthew-wilcox">[PATCH] thp: Remove HPAGE_PMD_ORDER minimum assertion (Matthew Wilcox)</h2>
+<p><a href="https://lkml.kernel.org/r/20240429190114.3126789-1-willy@infradead.org">https://lkml.kernel.org/r/20240429190114.3126789-1-willy@infradead.org</a></p>
+<p>Willy removes the assumption that THP order is always two or more, since we now
+handle order-1 folios correctly.</p>
 
+    </div>
+
+    
+
+
+
+
+
+<div class="article-tags">
   
-<nav>
-  <ul class="pagination justify-content-center">
+  <a class="badge badge-light" href="/tags/linux/">linux</a>
+  
+  <a class="badge badge-light" href="/tags/kernel/">kernel</a>
+  
+  <a class="badge badge-light" href="/tags/lkml/">lkml</a>
+  
+  <a class="badge badge-light" href="/tags/news/">news</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
     
-    <li class="page-item"><a class="page-link" href="/tags/kernel/page/2/">&laquo;</a></li>
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=https://sjp38.github.io/post/lkml_news_v6.9-rc7/&amp;text=LKML%20News%20v6.9-rc7" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
     
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=https://sjp38.github.io/post/lkml_news_v6.9-rc7/&amp;t=LKML%20News%20v6.9-rc7" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
     
-    <li class="page-item"><a class="page-link" href="/tags/kernel/page/4/">&raquo;</a></li>
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=LKML%20News%20v6.9-rc7&amp;body=https://sjp38.github.io/post/lkml_news_v6.9-rc7/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=https://sjp38.github.io/post/lkml_news_v6.9-rc7/&amp;title=LKML%20News%20v6.9-rc7" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=LKML%20News%20v6.9-rc7%20https://sjp38.github.io/post/lkml_news_v6.9-rc7/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=https://sjp38.github.io/post/lkml_news_v6.9-rc7/&amp;title=LKML%20News%20v6.9-rc7" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
     
   </ul>
-</nav>
-
-
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      <img class="portrait mr-3" src="https://s.gravatar.com/avatar/43dc5645c78e68fda997138380dfaaf4?s=200')" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="https://sjp38.github.io/">SeongJae Park</a></h5>
+      <h6 class="card-subtitle">Kernel Development Engineer</h6>
+      <p class="card-text">SeongJae Park is a programmer who loves to analyze and develop systems.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/log/?qt=author&amp;q=seongjae&#43;park" target="_blank" rel="noopener">
+        <i class="fab fa-linux"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/sjp38" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.com/citations?user=jJIiF3AAAAAJ" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  
+  
+  <div class="article-widget content-widget-hr">
+    <h3>Related</h3>
+    <ul>
+      
+      <li><a href="/post/lkml_news_v6.9-rc6/">LKML News v6.9-rc6</a></li>
+      
+      <li><a href="/post/lkml_news_v6.9-rc5/">LKML News v6.9-rc5</a></li>
+      
+      <li><a href="/post/lkml_news_v6.9-rc4/">LKML News v6.9-rc4</a></li>
+      
+      <li><a href="/post/lkml_news_v6.9-rc3/">LKML News v6.9-rc3</a></li>
+      
+      <li><a href="/post/lkml_news_v6.9-rc2/">LKML News v6.9-rc2</a></li>
+      
+    </ul>
+  </div>
+  
+
+
+
+  </div>
+</article>
 
       
 

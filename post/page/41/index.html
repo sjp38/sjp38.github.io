@@ -31,9 +31,9 @@
   <meta name="description" content="Kernel Development Engineer">
 
   
-  <link rel="alternate" hreflang="ko" href="https://sjp38.github.io/ko/tags/kernel/">
+  <link rel="alternate" hreflang="ko" href="https://sjp38.github.io/ko/post/">
   
-  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/tags/kernel/">
+  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/">
 
   
 
@@ -58,14 +58,6 @@
     
       
     
-    
-      
-      
-        
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/github.min.css" crossorigin="anonymous" title="hl-light">
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
-        
-      
     
 
     
@@ -133,14 +125,14 @@
 
 
   
-  <link rel="alternate" href="/tags/kernel/index.xml" type="application/rss+xml" title="hacklog">
+  <link rel="alternate" href="/post/index.xml" type="application/rss+xml" title="hacklog">
   
 
   <link rel="manifest" href="/index.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon-32.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://sjp38.github.io/tags/kernel/">
+  <link rel="canonical" href="https://sjp38.github.io/post/">
 
   
   
@@ -152,12 +144,12 @@
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="hacklog">
-  <meta property="og:url" content="https://sjp38.github.io/tags/kernel/">
-  <meta property="og:title" content="kernel | hacklog">
+  <meta property="og:url" content="https://sjp38.github.io/post/">
+  <meta property="og:title" content="Posts | hacklog">
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-04-30T06:44:38-07:00">
+    <meta property="og:updated_time" content="2017-01-01T00:00:00-08:00">
   
 
   
@@ -174,7 +166,7 @@
 
 
 
-  <title>kernel | hacklog</title>
+  <title>Posts | hacklog</title>
 
 </head>
 
@@ -396,7 +388,7 @@
         
 
         <li class="nav-item">
-          <a class="nav-link  active" href="/tags"><span>Tags</span></a>
+          <a class="nav-link " href="/tags"><span>Tags</span></a>
         </li>
 
         
@@ -475,7 +467,7 @@
             <span>English</span>
           </div>
           
-          <a class="dropdown-item" href="/ko/tags/kernel/">
+          <a class="dropdown-item" href="/ko/post/">
             <span>한국어</span>
           </a>
           
@@ -510,7 +502,7 @@
     
   
 <div class="universal-wrapper pt-3">
-  <h1>kernel</h1>
+  <h1>Posts</h1>
 
   
 
@@ -520,149 +512,111 @@
 
 
 <div class="universal-wrapper">
+
   
 
   
   
-  <div>
-    <h2><a href="/post/lkml_news_v6.7-rc5/">LKML News v6.7-rc5</a></h2>
-    <div class="article-style">
+    
       
-      [PATCH] mm/thp: add CONFIG_TRANSPARENT_HUGEPAGE_NEVER option (Dmytro Maluka) https://lkml.kernel.org/r/20231204163254.2636289-1-dmaluka@chromium.org
-Khugepaged has its own memory cost, and it increases vm.min_free_kbytes as it needs when it starts. On 4GB RAM, 3 mmzones and pageblock_order == MAX_ORDER, khugepaged increases vm.min_free_kbytes from 8MB to 132MB. This patch introduces a config to disallow khugepaged starts by default. It still allows the userspace to start khugepaged, though.
-[PATCH v4 0/2] KSM: support smart-scan feature (Stefan Roesch) https://lkml.kernel.org/r/20231205180952.3843711-1-shr@devkernel.io
-      
-    </div>
-  </div>
+
+
+
+
+
+
+
+
+
+
+
+
   
-  <div>
-    <h2><a href="/post/lkml_news_v6.7-rc4/">LKML News v6.7-rc4</a></h2>
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0">
+      <a href="/post/perfbook-kokr/" >&#34;Is Parallel Programming Hard, And, If So, What Can You Do About It?&#34; Translation</a>
+    </h3>
+
+    
     <div class="article-style">
-      
-      [PATCH v2] prctl: Get private anonymous memory region name (Rong Tao) https://lkml.kernel.org/r/tencent_77E0BC1E8E9A21CA1B9009DD66555C72A90A@qq.com
-Now prctl() can set the name of anonymous vmas, but there is no option for getting the name. This patch implements the getter feature.
-[RFC PATCH 0/6] Supporting GMEM (generalized memory management) for external memory devices (Weixi Zhu) https://lkml.kernel.org/r/20231128125025.4449-1-weixi.zhu@huawei.com
-Because Linux kernels&rsquo; memory management system is mainly for only host DRAM, accelerator driver developers need to invent their own external memory management subsystems that feature similar functionality.
-      
+      &ldquo;Is Parallel Programming is Hard, And, If So, What Can You Do About It?&quot;[1] 은 parallel programming 분야에서 대가라 불릴만한 분으로, 이쪽 분야에 …
     </div>
-  </div>
+    
+
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
+
+<div class="article-metadata">
+
   
-  <div>
-    <h2><a href="/post/lkml_news_v6.7-rc3/">LKML News v6.7-rc3</a></h2>
-    <div class="article-style">
-      
-      [PATCH v6 0/4] page_owner: print stacks and their counter (Oscar Salvador) https://lkml.kernel.org/r/20231120084300.4368-1-osalvador@suse.de
-This patchset introduces a new read-only file page_owner_stacks. This can be useful for getting the relationship between stacks and allocation/free without fiddling with pages.
-[PATCH v3 0/8] riscv: ASID-related and UP-related TLB flush enhancements (Samuel Holland) https://lkml.kerenl.org/r/20231122010815.3545294-1-samuel.holland@sifive.com
-A patchset for improving some TLB flush inefficiencies in risc-v.
-[RFC] mm: Multi-gen LRU: fix use of mm/page_idle/bitmap (Henry Huang) https://lkml.kernel.org/r/cover.1700719508.git.henry.hj@antgroup.com
-      
-    </div>
-  </div>
   
-  <div>
-    <h2><a href="/post/lkml_news_v6.7-rc2/">LKML News v6.7-rc2</a></h2>
-    <div class="article-style">
-      
-      [PATCH v7 00/10] Small-sized THP for anonymous memory (Ryan Roberts) https://lkml.kernel.org/r/20231115132734.931023-1-ryan.roberts@arm.com
-The seventh revision of small-sized anonymout memory THP is posted.
-[PATCH v2 00/14] Transparent Contiguous PTEs for User Mappings (Ryan Roberts) https://lkml.kernel.org/r/20231115163018.1303287-1-ryan.roberts@arm.com
-This patchset makes opportunistic and transparent contpte mappings for user memory when it meets the requirement.
-[GIT PULL] hotfixes for 6.7-rc2 (Andrew Morton) https://lkml.kernel.org/r/20231117140848.02adcf56c301bb3ab85ae75a@linux-foundation.org
-MM subsystem hotfixes for rc2 has sent to Linus Torvalds.
-Linux 6.7-rc2 (Linus Torvalds) https://lkml.
-      
-    </div>
-  </div>
+
   
-  <div>
-    <h2><a href="/post/lkml_news_v6.7-rc1/">LKML News v6.7-rc1</a></h2>
-    <div class="article-style">
+  <span class="article-date">
+    
+    
       
-      NUMA + THP test suites? (John Hubbard) https://lkml.kernel.org/r/21812f89-c1a0-4ca0-9f73-54f20c4d29ef@nvidia.com
-John asks tets suite for NUMA and THP that can be useful for testing patches for the topics.
-[PATCH v4 0/1] mm: report per-page metadata information (Sourav Panda) https://lkml.kernel.org/r/20231031223846.827173-1-souravpanda@google.com
-This patch adds per-node and global page metadata information to sysfs and procfs, to let users know how much memory is being used by the metadata.
-[GIT PULL] MM updates for 6.7-rc1 (Andrew Morton) https://lkml.
-      
-    </div>
-  </div>
+    
+    Tue, Jan 10, 2017
+  </span>
   
-  <div>
-    <h2><a href="/post/lkml_news_v6.6/">LKML News v6.6</a></h2>
-    <div class="article-style">
-      
-      Virtual Scanning Considered Harmful (Matthew Wilcox) https://lkml.kernel.org/r/ZTc7SHQ4RbPkD3eZ@casper.infradead.org
-Matthew shares his benchmark program that simulates speeds of LRU pages traversal using an linked list, an array, and direct physical addresses. As can expect, the physical address based traversal is fastest.
-[GIT PULL] hotfixes for 6.6 (Andrew Morton) https://lkml.kernel.org/r/20231024094608.f2dc0ca5ed2619d411a31df5@linux-foundation.org
-Andrew sent mm hotfixes for v6.6 to Linus Torvalds. One for DAMON also contained.
-[PATCH v4 0/5] workload-specific and memory pressure-driven zswap writeback (Nhat Pham) https://lkml.
-      
-    </div>
-  </div>
+
   
-  <div>
-    <h2><a href="/post/lkml_news_v6.6-rc7/">LKML News v6.6-rc7</a></h2>
-    <div class="article-style">
-      
-      [PATCH] x86/mm: drop 4MB restriction on minimal NUMA node size (Mike Rapoport) https://lkml.kernel.org/r/20231017062215.171670-1-rppt@kernel.org
-Kernel can panic when less than 4MB NUMA node is configured. The commit which introduced the 4MB limit doesn&rsquo;t clearly explain the reason. This patch drops the limit.
-[Invitation] Linux MM Alignment Session on Small-sized THPs on Wednesday (David Rientjes) https://lkml.kernel.org/r/76c2f454-5ab2-61db-a41f-a30f08a4aa1e@google.com
-The next MM alignment session sill be lead by Ryan Roberts from ARM, for small-sized THP.
-      
-    </div>
-  </div>
+
   
-  <div>
-    <h2><a href="/post/lkml_news_v6.6-rc6/">LKML News v6.6-rc6</a></h2>
-    <div class="article-style">
-      
-      [RFC PATCH 0/5] hot page swap to zram, cold page swap to swapfile directly (Lincheng Yang) https://lkml.kernel.org/r/20231008095924.1165106-1-lincheng.yang@transsion.com
-The team has made the kernel feature that swaps hot page to zram and cold pages to swapfile, directly. It aims to reduce zram compression/decompression overhead under memory pressure on Android v4.19 linux kernel, and trying to make it upstreamed due to the GKI limitation.
-[RFC PATCH] zswap: add writeback_time_threshold interface to shrink zswap pool (Zhongkun He) https://lkml.
-      
-    </div>
-  </div>
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
   
-  <div>
-    <h2><a href="/post/lkml_news_v6.6-rc5/">LKML News v6.6-rc5</a></h2>
-    <div class="article-style">
-      
-      [PATCH 0/5] riscv: Use READ_ONCE()/WRITE_ONCE() for pte accesses (Alexandre Ghiti) https://lkml.kernel.org/r/20231002151031.110551-1-alexghiti@rivosinc.com
-A patchset for making all page table entries accesses use READ_ONCE()/WRITE_ONCE(), to avoid compiler reordering of the accesses.
-[PATCH v1 0/3] mm/gup: Introduce pin_user_pages_fd() for pinning shmem/hugetlbfs file pages (Vivek Kasireddy) https://lkml.kernel.org/r/20231003074447.3245729-1-vivek.kasireddy@intel.com
-A patchset introducing a new function for long-term pages pinning.
-[RFC PATCH v3 0/3] Introduce persistent memory pool (Stanislav Kinsburskii) https://lkml.kernel.org/r/169645773092.11424.7258549771090599226.stgit@skinsburskii.
-An RFC implementing a memory allocator in the kernel for persistent memory has posted.
-      
-    </div>
-  </div>
+
   
-  <div>
-    <h2><a href="/post/lkml_news_v6.6-rc4/">LKML News v6.6-rc4</a></h2>
-    <div class="article-style">
-      
-      [PATCH v3 0/4] Smart scanning mode for KSM (Stefan Roesch) https://lkml.kernel.org/r/20230926040939.516161-1-shr@devkernel.io
-KSM scans pages without historic information, so pages that already found to be not eligible for deduplication are scanned unnecessarily. This patchset introduces smart scanning for KSM, which utilizes the historic information.
-[PATCH -V2 00/10] mm: PCP high auto-tuning (Huang Ying) https://lkml.kernel.org/r/20230926060911.266511-1-ying.huang@intel.com
-This patchset implements auto-tuning of Per-CPU Pageset high to optimize page allocation performance.
-[PATCH rfc 0/5] mm: improve performance of kernel memory accounting (Roman Gushchin) https://lkml.
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/categories/projects/">projects</a></span>
+  
+
+</div>
+
       
     </div>
+
+    
+
   </div>
+  <div class="ml-3">
+    
+    
+  </div>
+</div>
+
+    
   
 
   
 <nav>
   <ul class="pagination justify-content-center">
     
-    <li class="page-item"><a class="page-link" href="/tags/kernel/page/2/">&laquo;</a></li>
+    <li class="page-item"><a class="page-link" href="/post/page/40/">&laquo;</a></li>
     
-    
-    <li class="page-item"><a class="page-link" href="/tags/kernel/page/4/">&raquo;</a></li>
     
   </ul>
 </nav>
+
 
 
 </div>
@@ -683,14 +637,6 @@ This patchset implements auto-tuning of Per-CPU Pageset high to optimize page al
       
 
       
-        
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js" integrity="sha256-1zu+3BnLYV9LdiY85uXMzii3bdrkelyp37e0ZyTAQh0=" crossorigin="anonymous"></script>
-        
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/languages/c.min.js"></script>
-        
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/languages/bash.min.js"></script>
-        
-      
 
       
       
@@ -702,8 +648,6 @@ This patchset implements auto-tuning of Per-CPU Pageset high to optimize page al
     
 
     
-    
-    <script>const code_highlighting = true;</script>
     
 
     
