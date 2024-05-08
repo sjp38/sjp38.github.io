@@ -649,6 +649,20 @@ text-based <code>maps</code> file reading.</p>
 <p><a href="https://lkml.kernel.org/r/20240504073011.4000534-1-yuanchu@google.com">https://lkml.kernel.org/r/20240504073011.4000534-1-yuanchu@google.com</a></p>
 <p>Yuanchu dropped the RFC tag from his workingset reporting patchset and posted
 the first version.</p>
+<h2 id="linux-69-rc7-linus-torvalds">Linux 6.9-rc7 (Linus Torvalds)</h2>
+<p><a href="https://lkml.kernel.org/r/CAHk-=wiT0EJV+X-=-dMmL+q3_kyQCxV-WPxb8m8Q6dtWOxjCcg@mail.gmail.com">https://lkml.kernel.org/r/CAHk-=wiT0EJV+X-=-dMmL+q3_kyQCxV-WPxb8m8Q6dtWOxjCcg@mail.gmail.com</a></p>
+<p>Linus released the seventh candidate for Linux v6.9.  Statistics looks normal,
+nothing is alarming.  We may get the Linux v6.9 next Sunday.</p>
+<p>Below is the diffstat of the releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/linux_stat_v6.9-rc7.png" alt="Kernel release stat"></p>
+<p>Note that the y-axis is in logarithm.  I draw it using
+<a href="https://github.com/sjp38/lazybox">https://github.com/sjp38/lazybox</a> using below command:</p>
+<pre><code>$ relstat.py --since 2022-04-29 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &quot;Times New Roman, 5pt&quot; --ylog --pointsize 0.3
+</code></pre>
+<p>And, below is the diffstat of the -rc6 releases in the last two years.</p>
+<p><img src="/img/kernel_release_stat/linux_stat_v6.9-rc7-only.png" alt="rc6 release stat"></p>
 
     </div>
 

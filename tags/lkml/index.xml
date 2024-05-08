@@ -5,12 +5,30 @@
     <link>https://sjp38.github.io/tags/lkml/</link>
       <atom:link href="https://sjp38.github.io/tags/lkml/index.xml" rel="self" type="application/rss+xml" />
     <description>lkml</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 30 Apr 2024 06:44:38 -0700</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 07 May 2024 06:36:45 -0700</lastBuildDate>
     <image>
       <url>https://sjp38.github.io/img/tux.png</url>
       <title>lkml</title>
       <link>https://sjp38.github.io/tags/lkml/</link>
     </image>
+    
+    <item>
+      <title>LKML News v6.9</title>
+      <link>https://sjp38.github.io/post/lkml_news_v6.9/</link>
+      <pubDate>Tue, 07 May 2024 06:36:45 -0700</pubDate>
+      <guid>https://sjp38.github.io/post/lkml_news_v6.9/</guid>
+      <description>&lt;h2 id=&#34;lsfmmbpf-topic-locally-attached-memory-tiering-david-rientjes&#34;&gt;[LSF/MM/BPF TOPIC] Locally attached memory tiering (David Rientjes)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lore.kernel.org/e90dc785-c4e6-47e4-8eda-d35325c82ff9@google.com&#34;&gt;https://lore.kernel.org/e90dc785-c4e6-47e4-8eda-d35325c82ff9@google.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;David suggests a new LSFMM topic for local-attached memory tiering.&lt;/p&gt;
+&lt;h2 id=&#34;lsfmmbpf-topic-cxl-development-discussions-adam-manzanares&#34;&gt;[LSF/MM/BPF TOPIC] CXL Development Discussions (Adam Manzanares)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lore.kernel.org/9bf86b97-319f-4f58-b658-1fe3ed0b1993@nmtadam.samsung&#34;&gt;https://lore.kernel.org/9bf86b97-319f-4f58-b658-1fe3ed0b1993@nmtadam.samsung&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Adam suggests a new LSFMM topic for general CXL development.&lt;/p&gt;
+&lt;h2 id=&#34;kdevops-bof-at-lsfmm-luis-chamberlain&#34;&gt;kdevops BoF at LSFMM (Luis Chamberlain)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lore.kernel.org/CAB=NE6XyLS1TaAcgzSWa=1pgezRjFoy8nuVtSWSfB8Qsdsx_xQ@mail.gmail.com&#34;&gt;https://lore.kernel.org/CAB=NE6XyLS1TaAcgzSWa=1pgezRjFoy8nuVtSWSfB8Qsdsx_xQ@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Luis suggests to have a time slot for sharing ongoing developments and changes
+for kdevops, which automates complex kernel development workflows.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>LKML News v6.9-rc7</title>
@@ -50,6 +68,20 @@ text-based &lt;code&gt;maps&lt;/code&gt; file reading.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/20240504073011.4000534-1-yuanchu@google.com&#34;&gt;https://lkml.kernel.org/r/20240504073011.4000534-1-yuanchu@google.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Yuanchu dropped the RFC tag from his workingset reporting patchset and posted
 the first version.&lt;/p&gt;
+&lt;h2 id=&#34;linux-69-rc7-linus-torvalds&#34;&gt;Linux 6.9-rc7 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lkml.kernel.org/r/CAHk-=wiT0EJV+X-=-dMmL+q3_kyQCxV-WPxb8m8Q6dtWOxjCcg@mail.gmail.com&#34;&gt;https://lkml.kernel.org/r/CAHk-=wiT0EJV+X-=-dMmL+q3_kyQCxV-WPxb8m8Q6dtWOxjCcg@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Linus released the seventh candidate for Linux v6.9.  Statistics looks normal,
+nothing is alarming.  We may get the Linux v6.9 next Sunday.&lt;/p&gt;
+&lt;p&gt;Below is the diffstat of the releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/kernel_release_stat/linux_stat_v6.9-rc7.png&#34; alt=&#34;Kernel release stat&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Note that the y-axis is in logarithm.  I draw it using
+&lt;a href=&#34;https://github.com/sjp38/lazybox&#34;&gt;https://github.com/sjp38/lazybox&lt;/a&gt; using below command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ relstat.py --since 2022-04-29 | ~/lazybox/gnuplot/plot.py \
+    --data_fmt table --type labeled-lines --xtics_rotate -90 \
+    --font &amp;quot;Times New Roman, 5pt&amp;quot; --ylog --pointsize 0.3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And, below is the diffstat of the -rc6 releases in the last two years.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjp38.github.io/img/kernel_release_stat/linux_stat_v6.9-rc7-only.png&#34; alt=&#34;rc6 release stat&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     

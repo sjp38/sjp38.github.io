@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-04-30T06:44:38-07:00">
+    <meta property="og:updated_time" content="2024-05-07T06:36:45-07:00">
   
 
   
@@ -525,6 +525,17 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.3-rc6/">LKML News v5.3-rc6</a></h2>
+    <div class="article-style">
+      
+      Linux 5.3-rc6 https://lkml.kernel.org/r/CAHk-=wgAKCTq+t5YnG6HzrF62=rr9H=q3LqokEP0_bQRHLwYNw@mail.gmail.com
+오늘은 리눅스의 28번째 생일입니다. 따라서 오늘 rc6 릴리즈는 28년만의 릴리즈이기도 하군요. 토발즈도 감회가 깊었는지 오늘의 릴리즈 메일엔 최초 릴리즈 메일에 적었던 내용과 비슷하게 시작 부분을 꾸몄네요. 감회 깊은 날, 감회 깊은 릴리즈입니다.
+리눅스를 사용하는 여러분들 안녕하세요, 저는 486 AT 클론과 그외의 많은 다른 하드웨어를 위한 (자유) 운영체제를 (취미보단 더 진지하게) 만들고 있습니다. 이 일은 28년째 지속되고 있고, 아직도 끝나지 않았습니다. 이 릴리즈에 의해 만들어진 (또는 그보다 오래된) 모든 버그에 대한 피드백을 부탁드립니다.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.3-rc5/">LKML News v5.3-rc5</a></h2>
     <div class="article-style">
       
@@ -634,20 +645,6 @@ Linux 5.2-rc6 https://lkml.kernel.org/r/CAHk-=wg+nPKhdn=vKSgJQkfOSGhauTO4jyt=0FH
 uprobe 는 THP 로 되어있는 페이지를 쪼갭니다. 이로 인해 성능 향상 효과가 사라지죠. 이 패치셋은 uprobe 가 THP 를 인식하게 해서 이런 문제를 제거합니다.
 [PATCH v2 0/5] Introduce MADV_COLD and MADV_PAGEOUT https://lkml.kernel.org/r/20190610111252.239156-1-minchan@kernel.org
 기존에도 소개한 MADV_COLD 와 MADV_PAGEOUT 을 madvise() 에 추가하는 패치셋의 두번째 버전입니다. 이 패치셋을 ChromeOS 팀의 Brian Geffon 은 가져다가 탭이 백그라운드로 들어가고 45초 이상 그 상태를 유지하면 이 기능을 사용해서 페이지를 proactively swap out 시켰는데, 그 결과 tab 전환 속도가 25% 나 빨라졌다고 합니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.2-rc4/">LKML News v5.2-rc4</a></h2>
-    <div class="article-style">
-      
-      [PATCH 00/15] Slab Movable Objects (SMO) https://lkml.kernel.org/r/20190603042637.2018-1-tobin@kernel.org
-전에도 RFC 패치셋은 여기서도 소개했었죠. Slab 할당자에 할당받은 객체들의 이동이 가능하게끔 하는 패치셋의 정식 패치 버전이 나왔습니다. 변경된 인터페이스는 XArray 와 dcache 에 적용되는군요.
-[PATCH v1 0/4] Introduce MADV_COLD and MADV_PAGEOUT https://lkml.kernel.org/r/20190603053655.127730-1-minchan@kernel.org
-바로 지난주에도 소개한 external madvise 패치셋이 쪼개졌네요. MADV_COLD 와 MADV_PAGEOUT 두개의 새로운 advice 기능 추가 버전만 담은 패치셋입니다. 이게 더 일찍 머지될 가능성이 생겼군요.
-Linux 5.2-rc4 https://lkml.kernel.org/r/CAHk-=wjm7FQxdF=RKa8Xe23CLNNpbGDOACewgo8e-hwDJ8TyQg@mail.gmail.com
-메일을 받고 깜짝 놀랐습니다, 평소보다 빨랐기 때문이죠.
       
     </div>
   </div>
