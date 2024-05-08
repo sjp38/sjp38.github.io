@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-05-07T06:36:45-07:00">
+    <meta property="og:updated_time" content="2024-05-08T07:48:52-07:00">
   
 
   
@@ -525,6 +525,20 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.0-rc5/">LKML News v6.0-rc5</a></h2>
+    <div class="article-style">
+      
+      [LPC 2022] Kernel Memory Management Microconference - next Monday! (Vlastimil Babka) https://lkml.kernel.org/r/e918dd3c-aa71-c510-4a50-4f9882bca3e8@suse.cz
+Vlastimil and Matthew are reminding about the kernel memory management microconference, which will be held as a part of the LPC this year, in Dublin.
+[PATCH v6 00/44] Add KernelMemorySanitizer infrastructure (Alexander Potapenko) https://lkml.kernel.org/r/20220905122452.2258262-1-glider@google.com
+Sixth iteration of the KMSAN infra patchset has posted.
+[PATCH v3 0/2] Introduce CABA helper process tree (Pavel Tikhomirov) https://lkml.kernel.org/r/20220908140313.313020-1-ptikhomirov@virtuozzo.com
+Current linux process tree looses the information in which subtree the child was originally born, after the children is died and therefore reparented.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.0-rc4/">LKML News v6.0-rc4</a></h2>
     <div class="article-style">
       
@@ -629,20 +643,6 @@ This patchset implements a new hot page identification algorithm based on the la
 This patchset makes each memory descriptor node to show if it has the EFI_MEMORY_CPU_CRYPRO attribute.
 [PATCH v3] arm64: enable THP_SWAP for arm64 (Barry Song) https://lkml.kernel.org/r/20220706072707.114376-1-21cnbao@gmail.com
 THP_SWAP, which dealys the split of THP for swap, includes swap throughput and architecture independent, but enabled on x86_64 only. This patch enables it on arm64.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.19-rc5/">LKML News v5.19-rc5</a></h2>
-    <div class="article-style">
-      
-      [PATCH v3] docs: rename Documentation/vm to Documentation/mm (Mike Rapoport) https://lkml.kernel.org/r/20220627060026.180439-1-rppt@kernel.org
-As the subject says, this commit renames the Documentation/vm directory to Documentation/mm.
-[PATCH v6 0/4] KVM: mm: count KVM mmu usage in memory stats (Yosry Ahmed) https://lkml.kernel.org/r/20220628220938.3657876-1-yosryahmed@google.com
-This patchset allows users account KVM mmu usages with NR_SECONDARY_PAGETABLE memory stat.
-[RFC PATCH] mm/slub: enable debugging memory wasting of kmalloc (Feng Tang) https://lkml.kernel.org/r/20220630014715.73330-1-feng.tang@intel.com
-As kmalloc allocates memory in power of 2 granularity, it could waste a lot of memory.
       
     </div>
   </div>
