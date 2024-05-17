@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-05-07T06:36:45-07:00">
+    <meta property="og:updated_time" content="2024-05-17T06:45:41-07:00">
   
 
   
@@ -525,6 +525,19 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.8-rc7/">LKML News v6.8-rc7</a></h2>
+    <div class="article-style">
+      
+      [PATCH 1/1] mm/madvise: enhance lazyfreeing with mTHP in madvise_free (Lance Yang) https://lkml.kernel.org/r/20240225123215.86503-1-ioworker0@gmail.com
+Lance improves madvise_free_pte_range() to handle large folios that smaller than PMD-size and optimizes lazy-free of PTE-mapped smaller than PMD-size THPs using this patch.
+[RFC PATCH] mm: Add reclaim type to memory.reclaim (Yafang Shao) https://lkml.kernel.org/r/20240225114204.50459-1-laoar.shao@gmail.com
+This RFC patch extends memory.reclaim memcg file to receive type of memory to reclaim. It supports pagecache only, slabs only, and both.
+[LSF/MM/BPF TOPIC] mm/mempolicy extentions for heterogeneous memory systems (Gregory Price) https://lkml.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.8-rc6/">LKML News v6.8-rc6</a></h2>
     <div class="article-style">
       
@@ -634,20 +647,6 @@ A patch introducing a write lock/unlock wrapper for tasklist_lock, to overcome b
 [PATCH v3 00/10] IOMMU memory observability (Pasha Tatashin) https://lkml.kernel.org/r/20231226200205.562565-1-pasha.tatashin@soleen.com
 Third version of patchset to allow monitoring and limiting IOMMU memory usage is posted.
 [GIT PULL] hotfixes for 6.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.7-rc7/">LKML News v6.7-rc7</a></h2>
-    <div class="article-style">
-      
-      [PATCH v5 0/4] mm/ksm: Add ksm advisor (Stefan Roesch) https://lkml.kernel.org/r/20231218231054.1625219-1-shr@devkernel.io
-Stefan posted the fifth version of the patchset for automatic and efficient tuning of kernel samepage merging.
-[PATCH -next v4 0/2] Make memory reclamation measurable (Bixuan Cui) https://lkml.kernel.org/r/20231220012123.2787-1-cuibixuan@vivo.com
-This patchset adds a new tracer to shrink_active_list(), shrink_inactive_list(), and shrinker-&gt;count_objects() to make memory recycling mesaurable with bpf.
-[RFC PATCH 1/1] mm: mark folio accessed in minor fault (Zhaoyang Huang) https://lkml.kernel.org/r/20231220102948.1963798-1-zhaoyang.huang@unisoc.com
-Inactive mapped folio is promoted to active only when it is scanned in shrink_inactive_list().
       
     </div>
   </div>
