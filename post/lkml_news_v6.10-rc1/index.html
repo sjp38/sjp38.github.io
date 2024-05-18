@@ -31,7 +31,9 @@
   <meta name="description" content="[LSFMM] automating measuring memory fragmentation (Luis Chamberlain) https://lore.kernel.org/ZkUOXQvVjXP1T6Nk@bombadil.infradead.org
 Luis suggested yet another LSFMM session for memory fragmentation measurement aiming to be used to understand how bad the current kernel&rsquo;s defragmentation approach is, and how much improvement some new proposal is making.
 page-flags.rst (Matthew Wilcox) https://lore.kernel.org/ZkOu4yXP-sGGtwc4@casper.infradead.org
-Matthew posted the page-flags documentation that he wrote with LSFMM attendees on his session.">
+Matthew posted the page-flags documentation that he wrote with LSFMM attendees on his session.
+[GIT PULL] MM updates for 6.10-rc1 (Andrew Morton) https://lore.kernel.org/20240517192239.9285edd85f8ef893bb508a61@linux-foundation.org
+Andrew sent the memory management part pull request for 6.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/lkml_news_v6.10-rc1/">
@@ -156,7 +158,9 @@ Matthew posted the page-flags documentation that he wrote with LSFMM attendees o
   <meta property="og:description" content="[LSFMM] automating measuring memory fragmentation (Luis Chamberlain) https://lore.kernel.org/ZkUOXQvVjXP1T6Nk@bombadil.infradead.org
 Luis suggested yet another LSFMM session for memory fragmentation measurement aiming to be used to understand how bad the current kernel&rsquo;s defragmentation approach is, and how much improvement some new proposal is making.
 page-flags.rst (Matthew Wilcox) https://lore.kernel.org/ZkOu4yXP-sGGtwc4@casper.infradead.org
-Matthew posted the page-flags documentation that he wrote with LSFMM attendees on his session."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
+Matthew posted the page-flags documentation that he wrote with LSFMM attendees on his session.
+[GIT PULL] MM updates for 6.10-rc1 (Andrew Morton) https://lore.kernel.org/20240517192239.9285edd85f8ef893bb508a61@linux-foundation.org
+Andrew sent the memory management part pull request for 6."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -208,7 +212,7 @@ Matthew posted the page-flags documentation that he wrote with LSFMM attendees o
       "url": "https://sjp38.github.io/img/icon-512.png"
     }
   },
-  "description": "[LSFMM] automating measuring memory fragmentation (Luis Chamberlain) https://lore.kernel.org/ZkUOXQvVjXP1T6Nk@bombadil.infradead.org\nLuis suggested yet another LSFMM session for memory fragmentation measurement aiming to be used to understand how bad the current kernel\u0026rsquo;s defragmentation approach is, and how much improvement some new proposal is making.\npage-flags.rst (Matthew Wilcox) https://lore.kernel.org/ZkOu4yXP-sGGtwc4@casper.infradead.org\nMatthew posted the page-flags documentation that he wrote with LSFMM attendees on his session."
+  "description": "[LSFMM] automating measuring memory fragmentation (Luis Chamberlain) https://lore.kernel.org/ZkUOXQvVjXP1T6Nk@bombadil.infradead.org\nLuis suggested yet another LSFMM session for memory fragmentation measurement aiming to be used to understand how bad the current kernel\u0026rsquo;s defragmentation approach is, and how much improvement some new proposal is making.\npage-flags.rst (Matthew Wilcox) https://lore.kernel.org/ZkOu4yXP-sGGtwc4@casper.infradead.org\nMatthew posted the page-flags documentation that he wrote with LSFMM attendees on his session.\n[GIT PULL] MM updates for 6.10-rc1 (Andrew Morton) https://lore.kernel.org/20240517192239.9285edd85f8ef893bb508a61@linux-foundation.org\nAndrew sent the memory management part pull request for 6."
 }
 </script>
 
@@ -623,6 +627,21 @@ approach is, and how much improvement some new proposal is making.</p>
 <p><a href="https://lore.kernel.org/ZkOu4yXP-sGGtwc4@casper.infradead.org">https://lore.kernel.org/ZkOu4yXP-sGGtwc4@casper.infradead.org</a></p>
 <p>Matthew posted the page-flags documentation that he wrote with LSFMM attendees
 on his session.</p>
+<h2 id="git-pull-mm-updates-for-610-rc1-andrew-morton">[GIT PULL] MM updates for 6.10-rc1 (Andrew Morton)</h2>
+<p><a href="https://lore.kernel.org/20240517192239.9285edd85f8ef893bb508a61@linux-foundation.org">https://lore.kernel.org/20240517192239.9285edd85f8ef893bb508a61@linux-foundation.org</a></p>
+<p>Andrew sent the memory management part pull request for 6.10-rc1.  Lots of
+interesting changes are included.  Among those, I show below changes
+interesting.</p>
+<ul>
+<li>Memory allocation profiling</li>
+<li>mm: page_alloc: freelist migratetype hygiene
+<ul>
+<li>Improve compaction efficiency</li>
+</ul>
+</li>
+<li>mm: add per-order mTHP alloc and swpout counters</li>
+<li>Improve visibility of writeback</li>
+</ul>
 
     </div>
 
