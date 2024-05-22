@@ -48,6 +48,11 @@ interesting.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://lore.kernel.org/20240521023957.2587005-1-jaewon31.kim@samsung.com&#34;&gt;https://lore.kernel.org/20240521023957.2587005-1-jaewon31.kim@samsung.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Jaewon posted a patchset introducing a debugfs node that shows reserved memory
 easily.&lt;/p&gt;
+&lt;h2 id=&#34;patch-02-improve-dump_page-output-for-slab-pages-sukrit-bhatnagar&#34;&gt;[PATCH 0/2] Improve dump_page() output for slab pages (Sukrit Bhatnagar)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lore.kernel.org/20240522074629.2420423-1-Sukrit.Bhatnagar@sony.com&#34;&gt;https://lore.kernel.org/20240522074629.2420423-1-Sukrit.Bhatnagar@sony.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Since &lt;code&gt;struct slab&lt;/code&gt; has separated from &lt;code&gt;struct page&lt;/code&gt;, &lt;code&gt;dump_page()&lt;/code&gt;, which
+accesses &lt;code&gt;-&amp;gt;mapping&lt;/code&gt; of &lt;code&gt;struct page&lt;/code&gt; gets garbage data.  This patchset fixes
+it to show valid output from &lt;code&gt;dump_page()&lt;/code&gt;.&lt;/p&gt;
 </description>
     </item>
     
