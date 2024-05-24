@@ -578,7 +578,7 @@ Andrew sent the memory management part pull request for 6."><meta property="og:i
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -654,6 +654,20 @@ easily.</p>
 <p>Since <code>struct slab</code> has separated from <code>struct page</code>, <code>dump_page()</code>, which
 accesses <code>-&gt;mapping</code> of <code>struct page</code> gets garbage data.  This patchset fixes
 it to show valid output from <code>dump_page()</code>.</p>
+<h2 id="git-pull-additional-mm-updates-for-610-rc1-andrew-morton">[GIT PULL] additional MM updates for 6.10-rc1 (Andrew Morton)</h2>
+<p><a href="https://lore.kernel.org/r/20240522172431.d2aa8775d7a48999afbc29b4@linux-foundation.org">https://lore.kernel.org/r/20240522172431.d2aa8775d7a48999afbc29b4@linux-foundation.org</a></p>
+<p>Andrew Morton posted one more memory management subsystem pull request for
+v6.10-rc1.</p>
+<h2 id="patch-02-improve-dmesg-output-for-swapfilehibernation-sukrit-bhatnagar">[PATCH 0/2] Improve dmesg output for swapfile+hibernation (Sukrit Bhatnagar)</h2>
+<p><a href="https://lore.kernel.org/20240522074658.2420468-1-Sukrit.Bhatnagar@sony.com">https://lore.kernel.org/20240522074658.2420468-1-Sukrit.Bhatnagar@sony.com</a></p>
+<p>Sukrit found doing hibernation while using swapfile needs some tedious setup
+using user space tools such as <code>filefrag</code> for getting the swapfile offset
+value.  This patchset allows the value conveniently printed in dmesg output
+when doing <code>swapon</code>.</p>
+<h2 id="patch-v3-05-enhance-soft-hwpoison-handling-and-injection-jane-chu">[PATCH v3 0/5] Enhance soft hwpoison handling and injection (Jane Chu)</h2>
+<p><a href="https://lore.kernel.org/20240521235429.2368017-1-jane.chu@oracle.com">https://lore.kernel.org/20240521235429.2368017-1-jane.chu@oracle.com</a></p>
+<p>Jane posted a patchset for improving soft hwpoison to behave more like real
+error, and more.</p>
 
     </div>
 
