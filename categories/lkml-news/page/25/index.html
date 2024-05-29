@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-05-17T06:45:41-07:00">
+    <meta property="og:updated_time" content="2024-05-28T06:34:57-07:00">
   
 
   
@@ -525,6 +525,19 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.1-rc4/">LKML News v5.1-rc4</a></h2>
+    <div class="article-style">
+      
+      Linux v5.1-rc3 릴리즈 후 Linux v.5.1-rc4 릴리즈 사이 기간에 LKML 에 올라온 흥미로운 메일들을 소개합니다.
+[PATCH v8 00/20] Convert x86 &amp; arm64 to use generic page walk https://lkml.kernel.org/r/20190403141627.11664-1-steven.price@arm.com
+전에 이 블로그에도 공유했던, walk_page_range() 함수가 커널에서 사용하는 페이지 테이블은 지원하지 않아서 아키텍쳐별로 page table walk 기능을 구현한 걸 walk_page_range() 의 개선을 통해 가능하게 하고자 하는 패치의 여덟번째 버전입니다.
+[PATCH] mm: add vm event for page cache miss https://lkml.kernel.org/r/1554185720-26404-1-git-send-email-laoar.shao@gmail.com
+Page cache miss 로 인해 사용중인 데이터베이스에 레이턴시가 증가하는 문제가 있는데, 기존 커널에는 페이지 캐시 미스 카운트를 세는 기능이 없기 때문에 만들어 봤다고 합니다.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.1-rc3/">LKML News v5.1-rc3</a></h2>
     <div class="article-style">
       
@@ -639,20 +652,6 @@ LSF/MM 을 위한 발표 지원입니다. NUMA API 가 다계층 메모리에 �
 Mel Gorman 의 compaction 개선 패치셋 세번째 버전입니다.
 Linux 5.0-rc3 https://lkml.kernel.org/r/CAHk-=whS=6Z_UxzoMjLANupOk3u-8ycERLPnaZxShMTviW0jkQ@mail.gmail.com
 5.0 세번째 릴리즈입니다. 지난 릴리즈에서 여행 중이지만 항상 그렇듯 일요일 릴리즈를 하려 한다고 했는데, 이번에도 성공적이군요.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.0-rc2/">LKML News v5.0-rc2</a></h2>
-    <div class="article-style">
-      
-      [PATCH v11 00/26] Speculative page faults https://lkml.kernel.org/r/8b0b2c05-89f8-8002-2dce-fa7004907e78@codeaurora.org
-SPF 패치에서 발견된 버그 레포트입니다. ARM 위에서 데드락 문제가 발견되었군요. 버그 발견자가 패치도 같이 내놓았는데, 이에 대한 토론은 아직도 계속되고 있네요.
-[RFC PATCH v7 00/16] Add support for eXclusive Page Frame Ownership https://lkml.kernel.org/r/cover.1547153058.git.khalid.aziz@oracle.com
-&lsquo;ret2dir&rsquo; 보안 공격[1]에 대비하기 위한 패치입니다. 하지만 이로 인해 tlb 를 좀 많이 flush 해야 하는 문제가 있었고, 이 패치셋은 그에 대한 해결책도 의논하고 있습니다.
-[1] http://www.cs.columbia.edu/~vpk/papers/ret2dir.sec14.pdf
-[PATCH 0/4] Allow persistent memory to be used like normal RAM https://lkml.
       
     </div>
   </div>

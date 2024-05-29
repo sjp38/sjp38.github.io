@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-05-17T06:45:41-07:00">
+    <meta property="og:updated_time" content="2024-05-28T06:34:57-07:00">
   
 
   
@@ -525,6 +525,19 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.8/">LKML News v6.8</a></h2>
+    <div class="article-style">
+      
+      [RFC 01/16] mm/hmm: let users to tag specific PFNs (Leon Romanovksy) https://lkml.kernel.org/r/a77609c9c9a09214e38b04133e44eee67fe50ab0.1709631413.git.leon@kernel.org
+This RFC patchset introduces new flag that allows users to tag specific PFNs with extra data.
+[PATCH V3 01/10] mm: page_alloc: freelist migratetype hygiene (Johannes Weiner) https://lkml.kernel.org/r/20240306041526.892167-1-hannes@cmpxchg.org
+Whne pages of one migratetype end up on the freelists on another type, migratetype violations happen. This third version of patchset fixes it.
+[PATCH 0/8] tracing: Persistent traces across a reboot or crash (Steven Rostedt) https://lkml.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.8-rc7/">LKML News v6.8-rc7</a></h2>
     <div class="article-style">
       
@@ -636,20 +649,6 @@ A patch introducing a write lock/unlock wrapper for tasklist_lock, to overcome b
 [PATCH v3 00/10] IOMMU memory observability (Pasha Tatashin) https://lkml.kernel.org/r/20231226200205.562565-1-pasha.tatashin@soleen.com
 Third version of patchset to allow monitoring and limiting IOMMU memory usage is posted.
 [GIT PULL] hotfixes for 6.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.7-rc7/">LKML News v6.7-rc7</a></h2>
-    <div class="article-style">
-      
-      [PATCH v5 0/4] mm/ksm: Add ksm advisor (Stefan Roesch) https://lkml.kernel.org/r/20231218231054.1625219-1-shr@devkernel.io
-Stefan posted the fifth version of the patchset for automatic and efficient tuning of kernel samepage merging.
-[PATCH -next v4 0/2] Make memory reclamation measurable (Bixuan Cui) https://lkml.kernel.org/r/20231220012123.2787-1-cuibixuan@vivo.com
-This patchset adds a new tracer to shrink_active_list(), shrink_inactive_list(), and shrinker-&gt;count_objects() to make memory recycling mesaurable with bpf.
-[RFC PATCH 1/1] mm: mark folio accessed in minor fault (Zhaoyang Huang) https://lkml.kernel.org/r/20231220102948.1963798-1-zhaoyang.huang@unisoc.com
-Inactive mapped folio is promoted to active only when it is scanned in shrink_inactive_list().
       
     </div>
   </div>

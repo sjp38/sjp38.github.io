@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-05-17T06:45:41-07:00">
+    <meta property="og:updated_time" content="2024-05-28T06:34:57-07:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.0-rc6/">LKML News v6.0-rc6</a></h2>
+    <div class="article-style">
+      
+      [PATCH mm-unstable v15 00/14] Multi-Gen LRU Framework (Yu Zhao) https://lkml.kernel.org/r/20220918080010.2920238-1-yuzhao@google.com
+A new version of MGLRU patchset has posted. Among the changes in this new version, fix of long-tailed direct reclaim latency looks interesting.
+Linux 6.0-rc6 (Linus Torvalds) https://lkml.kernel.org/r/CAHk-=wi=gtuSO8Yz8LDubkMk7TiMsZxpypt9S10jeZRkyaBFnA@mail.gmail.com
+The sixth release candidate for Linux v6.0 has out. Maybe due to the LPC/OSS EU/Maintainers summit which all were held in last week, this release is quite small. Torvalds says it might mean that seventh release will be bigger than usual and therefore it might need one more week for v6.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.0-rc5/">LKML News v6.0-rc5</a></h2>
     <div class="article-style">
       
@@ -633,20 +645,6 @@ This patchset implements a new hot page identification algorithm based on the la
 This patchset makes each memory descriptor node to show if it has the EFI_MEMORY_CPU_CRYPRO attribute.
 [PATCH v3] arm64: enable THP_SWAP for arm64 (Barry Song) https://lkml.kernel.org/r/20220706072707.114376-1-21cnbao@gmail.com
 THP_SWAP, which dealys the split of THP for swap, includes swap throughput and architecture independent, but enabled on x86_64 only. This patch enables it on arm64.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.19-rc5/">LKML News v5.19-rc5</a></h2>
-    <div class="article-style">
-      
-      [PATCH v3] docs: rename Documentation/vm to Documentation/mm (Mike Rapoport) https://lkml.kernel.org/r/20220627060026.180439-1-rppt@kernel.org
-As the subject says, this commit renames the Documentation/vm directory to Documentation/mm.
-[PATCH v6 0/4] KVM: mm: count KVM mmu usage in memory stats (Yosry Ahmed) https://lkml.kernel.org/r/20220628220938.3657876-1-yosryahmed@google.com
-This patchset allows users account KVM mmu usages with NR_SECONDARY_PAGETABLE memory stat.
-[RFC PATCH] mm/slub: enable debugging memory wasting of kmalloc (Feng Tang) https://lkml.kernel.org/r/20220630014715.73330-1-feng.tang@intel.com
-As kmalloc allocates memory in power of 2 granularity, it could waste a lot of memory.
       
     </div>
   </div>

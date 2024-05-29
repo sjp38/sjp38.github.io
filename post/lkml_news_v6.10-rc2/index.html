@@ -28,12 +28,13 @@
   
     
   
-  <meta name="description" content="Kernel Development Engineer">
+  <meta name="description" content="[PATCH 0/3] mm: zswap: global shrinker fix and proactive shrink (Takero Funaki) https://lore.kernel.org/20240528043404.39327-2-flintglass@gmail.com
+This patchset fixes two zswap issues coming from global shrinker, and add proactive shrinking of zswap which starts when zswap is 95% full, for 90% accept threshold.
+[PATCH v7 0/4] Memory management patches needed by Rust Binder (Alice Ryhl) https://lore.kernel.org/20240528-alice-mm-v7-0-78222c31b8f4@google.com
+Alice sent the seventh revision for making memory management subsystem changes that needed by Rust Binder implementation.">
 
   
-  <link rel="alternate" hreflang="ko" href="https://sjp38.github.io/ko/tags/news/">
-  
-  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/tags/news/">
+  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/lkml_news_v6.10-rc2/">
 
   
 
@@ -133,14 +134,12 @@
 
 
   
-  <link rel="alternate" href="/tags/news/index.xml" type="application/rss+xml" title="hacklog">
-  
 
   <link rel="manifest" href="/index.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon-32.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://sjp38.github.io/tags/news/">
+  <link rel="canonical" href="https://sjp38.github.io/post/lkml_news_v6.10-rc2/">
 
   
   
@@ -152,18 +151,68 @@
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="hacklog">
-  <meta property="og:url" content="https://sjp38.github.io/tags/news/">
-  <meta property="og:title" content="news | hacklog">
-  <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
+  <meta property="og:url" content="https://sjp38.github.io/post/lkml_news_v6.10-rc2/">
+  <meta property="og:title" content="LKML News v6.10-rc2 | hacklog">
+  <meta property="og:description" content="[PATCH 0/3] mm: zswap: global shrinker fix and proactive shrink (Takero Funaki) https://lore.kernel.org/20240528043404.39327-2-flintglass@gmail.com
+This patchset fixes two zswap issues coming from global shrinker, and add proactive shrinking of zswap which starts when zswap is 95% full, for 90% accept threshold.
+[PATCH v7 0/4] Memory management patches needed by Rust Binder (Alice Ryhl) https://lore.kernel.org/20240528-alice-mm-v7-0-78222c31b8f4@google.com
+Alice sent the seventh revision for making memory management subsystem changes that needed by Rust Binder implementation."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-05-28T06:34:57-07:00">
+    
+      <meta property="article:published_time" content="2024-05-28T06:34:57-07:00">
+    
+    <meta property="article:modified_time" content="2024-05-28T06:34:57-07:00">
   
 
   
 
 
+    
 
+
+
+
+
+
+  
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://sjp38.github.io/post/lkml_news_v6.10-rc2/"
+  },
+  "headline": "LKML News v6.10-rc2",
+  
+  "datePublished": "2024-05-28T06:34:57-07:00",
+  "dateModified": "2024-05-28T06:34:57-07:00",
+  
+  "author": {
+    "@type": "Person",
+    "name": "SeongJae Park"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "hacklog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://sjp38.github.io/img/icon-512.png"
+    }
+  },
+  "description": "[PATCH 0/3] mm: zswap: global shrinker fix and proactive shrink (Takero Funaki) https://lore.kernel.org/20240528043404.39327-2-flintglass@gmail.com\nThis patchset fixes two zswap issues coming from global shrinker, and add proactive shrinking of zswap which starts when zswap is 95% full, for 90% accept threshold.\n[PATCH v7 0/4] Memory management patches needed by Rust Binder (Alice Ryhl) https://lore.kernel.org/20240528-alice-mm-v7-0-78222c31b8f4@google.com\nAlice sent the seventh revision for making memory management subsystem changes that needed by Rust Binder implementation."
+}
+</script>
+
+  
 
   
 
@@ -171,10 +220,13 @@
   
 
 
+  
 
 
 
-  <title>news | hacklog</title>
+
+
+  <title>LKML News v6.10-rc2 | hacklog</title>
 
 </head>
 
@@ -396,7 +448,7 @@
         
 
         <li class="nav-item">
-          <a class="nav-link  active" href="/tags"><span>Tags</span></a>
+          <a class="nav-link " href="/tags"><span>Tags</span></a>
         </li>
 
         
@@ -466,22 +518,6 @@
       
 
       
-      <li class="nav-item dropdown i18n-dropdown">
-        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true">
-          <i class="fas fa-globe mr-1" aria-hidden="true"></i><span class="d-none d-lg-inline">English</span>
-        </a>
-        <div class="dropdown-menu">
-          <div class="dropdown-item i18n-active font-weight-bold">
-            <span>English</span>
-          </div>
-          
-          <a class="dropdown-item" href="/ko/tags/news/">
-            <span>한국어</span>
-          </a>
-          
-        </div>
-      </li>
-      
 
     </ul>
 
@@ -489,176 +525,332 @@
 </nav>
 
 
-  
-
-
-
-
-
-
-
-
-
-
-
+  <article class="article">
 
   
 
+
+
+
+
+
+
+
+
+
+
+
+  
+
   
   
+  
+<div class="article-container pt-3">
+  <h1>LKML News v6.10-rc2</h1>
+
+  
+
   
     
-  
-<div class="universal-wrapper pt-3">
-  <h1>news</h1>
+
+
+<div class="article-metadata">
 
   
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Tue, May 28, 2024
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   
 </div>
 
 
 
-<div class="universal-wrapper">
-  
+  <div class="article-container">
 
-  
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.13-rc5/">LKML News v5.13-rc5</a></h2>
     <div class="article-style">
-      
-      [PATCH V3 0/2] mm: compaction: proactive compaction trigger by user (Charan Teja Reddy) https://lkml.kernel.org/r/cover.1622454385.git.charante@codeaurora.org
-This patchset introduces /proc/sys/vm/compaction_proactiveness file, which can trigger proactive compaction by writing it.
-[RFC PATCH] mm/page_reporting: Adjust threshold according to MAX_ORDER (Gavin Shan) https://lkml.kernel.org/r/20210601033319.100737-1-gshan@redhat.com
-The free pages reporting feature doesn&rsquo;t allow discontiguous pages that smaller than PAGE_REPORTING_MIN_ORDER. Current setting of it makes the feature to never work on specific environment, because it is set to be equal to pageblock_order.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.13-rc4/">LKML News v5.13-rc4</a></h2>
-    <div class="article-style">
-      
-      [PATCH 0/2] arm64: remove page granularity limitation from KFENCE (Jisheng Zhang) https://lkml.kernel.org/r/20210524172433.015b3b6b@xhacker.debian
-This patchset removes the page granularity mapping requirement for the KFENCE&rsquo;s linear map, to achieve both arm64&rsquo;s block level and contiguous mapping for non-KFENCE pool pages, by allocating the KFENCE pool before paging_init().
-[PATCH v2 00/21] Optimize list lru memory consumption (Muchun Song) https://lkml.kernel.org/r/20210527062148.9361-1-songmuchun@bytedance.com
-Muchun found kmalloc-32 slab cache consuming huge memory due to cgroups initialization, and posting this patchset which expected to fix the problem fundamentally.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.13-rc3/">LKML News v5.13-rc3</a></h2>
-    <div class="article-style">
-      
-      RCU tests for Maple Tree (Paul E. McKenney) https://lkml.kernel.org/r/20210517154048.GA2013926@paulmck-ThinkPad-P17-Gen-1
-Paul is asking if there are rcu-related tests for Maple Tree other than rcu_loop() and rcu_val() that Paul needs to looking for.
-[PATCH v20 0/7] mm: introduce memfd_secret system call to create &ldquo;secret&rdquo; memory areas (Mike Rapoport) https://lkml.kernel.org/r/20210518072034.31572-1-rppt@kernel.org
-The 20th version of the patchset that implements &lsquo;secret&rsquo; mappings backed by a file descriptor.
-[PATCH v3 00/14] Multigenerational LRU Framework (Yu Zhao) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.13-rc2/">LKML News v5.13-rc2</a></h2>
-    <div class="article-style">
-      
-      [RESEND] LSF/MM/BPF: 2021: Call for Proposals (Josef Bacik) https://lkml.kernel.org/r/60997079.1c69fb81.77f3f.a045@mx.google.com/
-CFG for LSF/MM/BPF 2021 posted. It will be held from 2021-12-06 to 2021-12-08 in Palm Springs, California. As of now, it is supposed to be an in-person conference!
-[LSF/MM/BPF TOPIC] Memory folios (Matthew Wilcox) https://lkml.kernel.org/r/YJlzwcADaxO/JHRE@casper.infradead.org
-Matthew expects the memory folios patchset will be merged soon, but he wants to discuss about it in the LSFMM, if there are something to discuss more.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.13-rc1/">LKML News v5.13-rc1</a></h2>
-    <div class="article-style">
-      
-      [PATCH v3] mm/compaction:let proactive compaction order configurable (chukaiping) https://lkml.kernel.org/r/1619313662-30356-1-git-send-email-chukaiping@baidu.com
-Third version of the patchset making compaction order lower than 9. Machines using 1GB hugetlbfs huge pages could be an example user of this feature.
-[PATCH v4] mm/compaction: let proactive compaction order configurable (chukaiping) https://lkml.kernel.org/r/1619576901-9531-1-git-send-email-chukaiping@baidu.com
-Fourth version of the patchset posted quite quickly.
-[PATCH 00/94] Introducing the Maple Tree (Liam Howlett) https://lkml.kernel.org/r/20210428153542.2814175-1-Liam.Howlett@Oracle.com
-This huge patchset introduces an RCU-safe range based B-tree called maple tree.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.12/">LKML News v5.12</a></h2>
-    <div class="article-style">
-      
-      [PATCH -next v3 1/2] mm/debug_vm_pgtable: Move {pmd/pud}_huge_tests out of CONFIG_TRANSPARENT_HUGEPAGE (Liu Shixin) The functions are not THP dependent in real, but made dependent. This patch moves it out.
-[PATCH v10 0/7] Make alloc_contig_range handle Hugetlb pages (Oscar Salvador) https://lkml.kernel.org/r/20210419075413.1064-1-osalvador@suse.de
-The 10th version of the patchset which allows Hugetlb pages allocated via alloc_contig_range(), dynamically.
-[PATCH v2 0/5] mm/madvise: introduce MADV_POPULATE_(READ|WRITE) to prefault page tables (David Hildenbrand) https://lkml.kernel.org/r/20210419135443.12822-1-david@redhat.com
-This is the second version of the patchset implementing MADV_POPULATE_(READ|WRITE) for madvise() system call.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.12-rc8/">LKML NEws v5.12-rc8</a></h2>
-    <div class="article-style">
-      
-      [PATCH v2 0/5] mm/memcg: Reduce kmemcache memory accounting overhead (Waiman Long) https://lkml.kernel.org/r/20210412225503.15119-1-longman@redhat.com
-Recently introduced new slab memory controller eliminates the need for separate kmemcaches for each memory cgroup and therefore reduce kernel memory usage. However, it also increases memory accouning overhead in kmem cache alloc and free functions. This patchset reduces unnecessary local_irq_save() and local_irq_restore() sequences in the code path as much as possible for minimal overhead.
-[PATCH v7 0/7] Make alloc_contig_range handle Hugetlb pages (Oscar Salvador) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.12-rc7/">LKML News v5.12-rc7</a></h2>
-    <div class="article-style">
-      
-      [RFC PATCH v1 00/11] Manage the top tier memory in a tiered memory (Tim Chen) https://lkml.kernel.org/r/cover.1617642417.git.tim.c.chen@linux.intel.com
-There are two patchsets for better handling of tiered-memory. [PATCH 00/10] [v7] Migrate Pages in lieu of discard (https://lore.kernel.org/linux-mm/20210401183216.443C4443@viggo.jf.intel.com/) makes cold pages to be placed in PMEM instead of DRAM, and [PATCH 0/6] [RFC v6] NUMA balancing: optimize memory placement for memory tiering system (https://lore.kernel.org/linux-mm/20210311081821.138467-1-ying.huang@intel.com/) allows hot pages to be placed in DRAM instead of PMEM.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.12-rc6/">LKML News v5.12-rc6</a></h2>
-    <div class="article-style">
-      
-      [RFC] NUMA balancing: reduce TLB flush via delaying mapping on hint page fault (Huang Ying) https://lkml.kernel.org/r/20210329062651.2487905-1-ying.huang@intel.com
-NUMA balancing shots down TLBs on all CPUs that recently run hint-faulted process during the migration of the hint-faulted page to appropriate node. This commit delays the TLB shootdown to reduce the overhead. With pmbench, it reduced TLB shooting IPI up to 99%, though it didn&rsquo;t makde visible benchmark score changes.
-[RFC v2 00/43] PKRAM: Preserved-over-Kexec RAM (Anthony Yznaga) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.12-rc5/">LKML News v5.12-rc5</a></h2>
-    <div class="article-style">
-      
-      [PATCH 0/3 v5] Introduce a bulk order-0 page allocator (Mel Gorman) https://lkml.kernel.org/r/20210322091845.16437-1-mgorman@techsingularity.net
-Fifth version of the order-0 pages bulk allocator. In this version, the API users are dropped from the patchset, because the callers are not confirmed if they prefer an array or list interface.
-[PATCH] mm: cma: add trace events for CMA alloc perf testing (Georgi Djakov) https://lkml.kernel.org/r/20210324160740.15901-1-georgi.djakov@linaro.org
-This patch adds tracepoints for CMA and page migrations. Those aims to be used for performance debugging of CMA.
-      
-    </div>
-  </div>
-  
+      <h2 id="patch-03-mm-zswap-global-shrinker-fix-and-proactive-shrink-takero-funaki">[PATCH 0/3] mm: zswap: global shrinker fix and proactive shrink (Takero Funaki)</h2>
+<p><a href="https://lore.kernel.org/20240528043404.39327-2-flintglass@gmail.com">https://lore.kernel.org/20240528043404.39327-2-flintglass@gmail.com</a></p>
+<p>This patchset fixes two zswap issues coming from global shrinker, and add
+proactive shrinking of zswap which starts when zswap is 95% full, for 90%
+accept threshold.</p>
+<h2 id="patch-v7-04-memory-management-patches-needed-by-rust-binder-alice-ryhl">[PATCH v7 0/4] Memory management patches needed by Rust Binder (Alice Ryhl)</h2>
+<p><a href="https://lore.kernel.org/20240528-alice-mm-v7-0-78222c31b8f4@google.com">https://lore.kernel.org/20240528-alice-mm-v7-0-78222c31b8f4@google.com</a></p>
+<p>Alice sent the seventh revision for making memory management subsystem changes
+that needed by Rust Binder implementation.</p>
 
+    </div>
+
+    
+
+
+
+
+
+<div class="article-tags">
   
-<nav>
-  <ul class="pagination justify-content-center">
+  <a class="badge badge-light" href="/tags/linux/">linux</a>
+  
+  <a class="badge badge-light" href="/tags/kernel/">kernel</a>
+  
+  <a class="badge badge-light" href="/tags/lkml/">lkml</a>
+  
+  <a class="badge badge-light" href="/tags/news/">news</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
     
-    <li class="page-item"><a class="page-link" href="/tags/news/page/14/">&laquo;</a></li>
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=https://sjp38.github.io/post/lkml_news_v6.10-rc2/&amp;text=LKML%20News%20v6.10-rc2" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
     
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=https://sjp38.github.io/post/lkml_news_v6.10-rc2/&amp;t=LKML%20News%20v6.10-rc2" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
     
-    <li class="page-item"><a class="page-link" href="/tags/news/page/16/">&raquo;</a></li>
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=LKML%20News%20v6.10-rc2&amp;body=https://sjp38.github.io/post/lkml_news_v6.10-rc2/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=https://sjp38.github.io/post/lkml_news_v6.10-rc2/&amp;title=LKML%20News%20v6.10-rc2" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=LKML%20News%20v6.10-rc2%20https://sjp38.github.io/post/lkml_news_v6.10-rc2/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=https://sjp38.github.io/post/lkml_news_v6.10-rc2/&amp;title=LKML%20News%20v6.10-rc2" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
     
   </ul>
-</nav>
-
-
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      <img class="portrait mr-3" src="https://s.gravatar.com/avatar/43dc5645c78e68fda997138380dfaaf4?s=200')" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="https://sjp38.github.io/">SeongJae Park</a></h5>
+      <h6 class="card-subtitle">Kernel Development Engineer</h6>
+      <p class="card-text">SeongJae Park is a programmer who loves to analyze and develop systems.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/log/?qt=author&amp;q=seongjae&#43;park" target="_blank" rel="noopener">
+        <i class="fab fa-linux"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/sjp38" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.com/citations?user=jJIiF3AAAAAJ" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  
+  
+  <div class="article-widget content-widget-hr">
+    <h3>Related</h3>
+    <ul>
+      
+      <li><a href="/post/lkml_news_v6.10-rc1/">LKML News v6.10-rc1</a></li>
+      
+      <li><a href="/post/lkml_news_v6.9/">LKML News v6.9</a></li>
+      
+      <li><a href="/post/lkml_news_v6.9-rc7/">LKML News v6.9-rc7</a></li>
+      
+      <li><a href="/post/lkml_news_v6.9-rc6/">LKML News v6.9-rc6</a></li>
+      
+      <li><a href="/post/lkml_news_v6.9-rc5/">LKML News v6.9-rc5</a></li>
+      
+    </ul>
+  </div>
+  
+
+
+
+  </div>
+</article>
 
       
 

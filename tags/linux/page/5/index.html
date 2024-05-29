@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-05-17T06:45:41-07:00">
+    <meta property="og:updated_time" content="2024-05-28T06:34:57-07:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.5-rc6/">LKML News v6.5-rc6</a></h2>
+    <div class="article-style">
+      
+      [RFC PATCH 0/3] Reduce NUMA balance caused TLB-shootdowns in a VM (Yan Zhao) https://lkml.kernel.org/r/20230808071329.19995-1-yan.y.zhao@intel.com
+For virtual machines having assigned devices or VFIO mediated devices, all or part of its memory are pinned for long-term. Auto NUMA balancing can cause unnecessary TLB-shootdowns. This RFC patchset proposes a solution for that.
+[PATCH v2] cma: introduce CMA_ALLOC_DEBUG config (Bibek Kumar Patro) https://lkml.kernel.org/r/20230809131640.18791-1-quic_bibekkum@quicinc.com
+CONFIG_CMA_DEBUG makes all CMA debugging message enabled. This can results in flooding the dmesg buffer.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.5-rc5/">LKML News v6.5-rc5</a></h2>
     <div class="article-style">
       
@@ -636,18 +648,6 @@ This patchset introduces KASLR, which allows kernel mapping randomization, for r
 Question about oom-killer (Gou Hao) https://lore.kernel.org/linux-mm/A31B3EA06AF77F13+c7278bd0-2695-4cc0-5a56-531a06ac2389@uniontech.com/
 A question about oom-killer behavior that suspected to be a kernel bug.
 [PATCH v3] Documentation/mm: Initial page table documentation (Linus Walleij) https://lkml.kernel.org/r/20230608125501.3960093-1-linus.walleij@linaro.org
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.4-rc5/">LKML News v6.4-rc5</a></h2>
-    <div class="article-style">
-      
-      [PATCH 00/12] mm: free retracted page table by RCU (Hugh Dickins) https://lkml.kernel.org/r/35e983f5-7ed3-b310-d949-9ae8b130cdab@google.com
-This patchset aims to reduce mmap_lock contention by freeing retracted page table by RCU, with preceding and succeeding patchsets. This patchset was in Google data center kernel for three years.
-[PATCH] mm: madvise: fix uneven accounting of psi (Charan Teja Kalla) https://lkml.kernel.org/r/1685531374-6091-1-git-send-email-quic_charante@quicinc.com
-For madvise(MADV_PAGEOUT) is called for folios, PSI for the folio is not always accounted. This patchset makes it be consistent by always not considering PSI for folios that are reclaimed through madvise(MADV_PAGEOUT).
       
     </div>
   </div>
