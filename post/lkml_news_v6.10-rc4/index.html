@@ -28,12 +28,11 @@
   
     
   
-  <meta name="description" content="Kernel Development Engineer">
+  <meta name="description" content="[PATCH 0/7] arm64 / x86-64: low-level code generation issues (Linus Torvalds) https://lore.kernel.org/20240610204821.230388-1-torvalds@linux-foundation.org
+Linus Torvalds posted another version of runtime const patchset for not only x86_64 but also arm64. He mentions the work was motivated by his Altra box that shows __d_lookup_rcu() like a horror.">
 
   
-  <link rel="alternate" hreflang="ko" href="https://sjp38.github.io/ko/tags/lkml/">
-  
-  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/tags/lkml/">
+  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/lkml_news_v6.10-rc4/">
 
   
 
@@ -133,14 +132,12 @@
 
 
   
-  <link rel="alternate" href="/tags/lkml/index.xml" type="application/rss+xml" title="hacklog">
-  
 
   <link rel="manifest" href="/index.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon-32.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://sjp38.github.io/tags/lkml/">
+  <link rel="canonical" href="https://sjp38.github.io/post/lkml_news_v6.10-rc4/">
 
   
   
@@ -152,18 +149,66 @@
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="hacklog">
-  <meta property="og:url" content="https://sjp38.github.io/tags/lkml/">
-  <meta property="og:title" content="lkml | hacklog">
-  <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
+  <meta property="og:url" content="https://sjp38.github.io/post/lkml_news_v6.10-rc4/">
+  <meta property="og:title" content="LKML News v6.10-rc4 | hacklog">
+  <meta property="og:description" content="[PATCH 0/7] arm64 / x86-64: low-level code generation issues (Linus Torvalds) https://lore.kernel.org/20240610204821.230388-1-torvalds@linux-foundation.org
+Linus Torvalds posted another version of runtime const patchset for not only x86_64 but also arm64. He mentions the work was motivated by his Altra box that shows __d_lookup_rcu() like a horror."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-06-11T06:34:49-07:00">
+    
+      <meta property="article:published_time" content="2024-06-11T06:34:49-07:00">
+    
+    <meta property="article:modified_time" content="2024-06-11T06:34:49-07:00">
   
 
   
 
 
+    
 
+
+
+
+
+
+  
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://sjp38.github.io/post/lkml_news_v6.10-rc4/"
+  },
+  "headline": "LKML News v6.10-rc4",
+  
+  "datePublished": "2024-06-11T06:34:49-07:00",
+  "dateModified": "2024-06-11T06:34:49-07:00",
+  
+  "author": {
+    "@type": "Person",
+    "name": "SeongJae Park"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "hacklog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://sjp38.github.io/img/icon-512.png"
+    }
+  },
+  "description": "[PATCH 0/7] arm64 / x86-64: low-level code generation issues (Linus Torvalds) https://lore.kernel.org/20240610204821.230388-1-torvalds@linux-foundation.org\nLinus Torvalds posted another version of runtime const patchset for not only x86_64 but also arm64. He mentions the work was motivated by his Altra box that shows __d_lookup_rcu() like a horror."
+}
+</script>
+
+  
 
   
 
@@ -171,10 +216,13 @@
   
 
 
+  
 
 
 
-  <title>lkml | hacklog</title>
+
+
+  <title>LKML News v6.10-rc4 | hacklog</title>
 
 </head>
 
@@ -396,7 +444,7 @@
         
 
         <li class="nav-item">
-          <a class="nav-link  active" href="/tags"><span>Tags</span></a>
+          <a class="nav-link " href="/tags"><span>Tags</span></a>
         </li>
 
         
@@ -466,22 +514,6 @@
       
 
       
-      <li class="nav-item dropdown i18n-dropdown">
-        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true">
-          <i class="fas fa-globe mr-1" aria-hidden="true"></i><span class="d-none d-lg-inline">English</span>
-        </a>
-        <div class="dropdown-menu">
-          <div class="dropdown-item i18n-active font-weight-bold">
-            <span>English</span>
-          </div>
-          
-          <a class="dropdown-item" href="/ko/tags/lkml/">
-            <span>한국어</span>
-          </a>
-          
-        </div>
-      </li>
-      
 
     </ul>
 
@@ -489,185 +521,328 @@
 </nav>
 
 
-  
-
-
-
-
-
-
-
-
-
-
-
+  <article class="article">
 
   
 
+
+
+
+
+
+
+
+
+
+
+
+  
+
   
   
+  
+<div class="article-container pt-3">
+  <h1>LKML News v6.10-rc4</h1>
+
+  
+
   
     
-  
-<div class="universal-wrapper pt-3">
-  <h1>lkml</h1>
+
+
+<div class="article-metadata">
 
   
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Tue, Jun 11, 2024
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   
 </div>
 
 
 
-<div class="universal-wrapper">
-  
+  <div class="article-container">
 
-  
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.18-rc4/">LKML News v5.18-rc4</a></h2>
     <div class="article-style">
-      
-      LSF/MM/BPF 2022: Running BOF (Matthew Wilcox) https://lkml.kernel.org/r/Yl7TUDtLcrhXcp1g@casper.infradead.org
-Matthew is proposing a running BOF, which would do discussions while running after a breakfast.
-mmotm 2022-04-20-17-12 uploaded (Andrew Morton) https://lkml.kernel.org/r/20220421001235.5F4E0C385A0@smtp.kernel.org
--mm tree has updated. It&rsquo;s rebased on 5.18-rc3, added 69 patches modified 126 patches, and dropped 35 patches. In total, 291 patches in the queue.
-[PATCH v2] mm: make minimum slab alignment a runtime property (Peter Collingbourne) https://lkml.kernel.org/r/20220421211549.3884453-1-pcc@google.com
-This makes slab alignment a runtime property and only align to 16 if KASAN is enabled at runtime.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.18-rc3/">LKML News v5.18-rc3</a></h2>
-    <div class="article-style">
-      
-      Re: [PATCH v10 00/14] Multi-Gen LRU Framework (Andrew Morton) https://lore.kernel.org/linux-mm/20220411191559.a844c7140faeba2e68d842b7@linux-foundation.org/
-Andrew Morton&rsquo;s overall answer to MGLRU patchset. He would merge the latest MGLRU in -mm and -next, but would request broader update to the code.
-mmotm 2022-04-12-21-05 uploaded (Andrew Morton) https://lkml.kernel.org/r/20220413040610.06AAAC385A4@smtp.kernel.org
-A snapshot of -mm has updated. It added 79 new patches, modified 24 patches, and dropped 10 patches. In total, 257 patches in the queue.
-[PATCH v2 0/5] mm: demotion: Introduce new node state N_DEMOTION_TARGETS (Jagdish Gediya) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.18-rc2/">LKML News v5.18-rc2</a></h2>
-    <div class="article-style">
-      
-      [PATCH v7 00/70] Introducing the Maple Tree (Liam Howlett) https://lkml.kernel.org/r/20220404143501.2016403-1-Liam.Howlett@oracle.com
-The seventh version of the Maple tree patchset has posted. Liam is explicitly asking Andrew to merge it in -mm.
-LSF/MM/BPF: 2022: Call for Proposals VIRTUAL OPTION (Josef Bacik) https://lore.kernel.org/linux-mm/YksmQSfuIx%2FOiNA8@localhost.localdomain/
-CFP for virtual attendee of LSF/MM/BPF has posted. The virtual instance of LSF/MM/BPF will be hosted on Zoom.
-mmotm 2022-04-04-17-10 uploaded (Andrew Morton) https://lkml.kernel.org/r/20220405001100.410E3C2BBE4@smtp.kernel.org
-The mmotm snapshot has updated. It&rsquo;s rebased on v5.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.18-rc1/">LKML News v5.18-rc1</a></h2>
-    <div class="article-style">
-      
-      [LSF/MM TOPIC] Improving OOM debugging (Ken Overstreet) https://lkml.kernel.org/r/20220322005101.actefn6nttzeo2qr@moria.home.lan
-Ken proposes an LSF/MM slot for discussing OOM debugging situation improvement with two ideas from his side.
-incoming (Andrew Morton) https://lkml.kernel.org/r/20220322143803.04a5e59a07e48284f196a2f9@linux-foundation.org
-Andrew Morton has sent 227 patches to Linus Torvalds, as the first batch of the pull requests for v5.18. It includes DAMON patches including pid hiding and its sysfs interface, and merged.
-[PATCH 0/2] mm: madvise: return exact bytes advised with process_madvise under error (Charan Teja Kalla) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.17/">LKML News v5.17</a></h2>
-    <div class="article-style">
-      
-      mmotm 2022-03-14-22-42 uploaded (Andrew Morton) https://lkml.kernel.org/r/20220315054352.5B187C340E8@smtp.kernel.org
-The -mm tree is updated. It is rebased on 5.17-rc8, added 20 new patches, modified 10 patches, and dropped 2 patches. In total, 475 patches in the queue.
-[LSF/MM TOPIC] Better handling of negative dentries (Mattew Wilcox) https://lkml.kernel.org/r/YjDvRPuxPN0GsxLB@casper.infradead.org
-There could be millions of negative dentries on a system having large memory and no memory pressure, because the number of negative dentries is constrained only by memory size.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.17-rc8/">LKML News v5.17-rc8</a></h2>
-    <div class="article-style">
-      
-      mmotm 2022-03-06-20-33 uploaded (Andrew Morton) https://lkml.kernel.org/r/20220307043435.251DBC340E9@smtp.kernel.org
-The -mm tree has updated. It&rsquo;s based on v5.17-rc6, added 19 patches, modified 6 patches, and dropped 19 patches. In totla, 428 patches in the queue.
-[PATCH v3] mm: add ztree - new allocator for use via zpool API (Ananda) https://lkml.kernel.org/r/20220307142724.14519-1-a.badmaev@clicknet.pro
-Third version of ztree, which is intended to be used for storing compressed objects per ztree block. Comparing to the previous version, compiler warnings have fixed.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.17-rc7/">LKML News v5.17-rc7</a></h2>
-    <div class="article-style">
-      
-      [PATCH/RESEND] mm: add ztree - new allocator for use via zpool API (Ananda) https://lkml.kernel.org/r/20220228110546.151513-1-a.badmaev@clicknet.pro
-Ztree is another zpool backend that superior with regard to the worst execution time.
-mmotm 2022-02-28-14-45 uploaded (Andrew Morton) https://lkml.kernel.org/r/20220228224600.44415C340EE@smtp.kernel.org
-mmotm has updated. It&rsquo;s rebased on 5.17-rc6, added 56 new patches, modified 85 patches, and dropped 55 patches. In total, 378 patches are in the queue.
-[PATCH -V14 0/3] NUMA balancing: optimize memory placement for memory tiering system (Huang Ying) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.17-rc6/">LKML News v5.17-rc6</a></h2>
-    <div class="article-style">
-      
-      [PATCH -V13 0/3] NUMA balancing: optimize memory placement for memory tiering system (Huang Ying) https://lkml.kernel.org/r/20220221084529.1052339-1-ying.huang@intel.com
-The AutoNUMA patchset for tiered memory system has revised again.
-[LSF/MM/BPF TOPIC] page table reclaim (David Hildenbrand) https://lkml.kernel.org/r/7b908208-02f8-6fde-4dfc-13d5e00310a6@redhat.com
-Some workloads allocates a lot of page tables. As page tables are unmovable and unreclaimable, this can contribute to memory pressure. David is proposing making it reclaimable and suggesting discussion in LSF/MM/BPF summit for the idea.
-[RFC PATCH 00/47] Address Space Isolation for KVM (Junaid Shahid) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.17-rc5/">LKML News v5.17-rc5</a></h2>
-    <div class="article-style">
-      
-      [PATCH v3 0/3] Add hugetlb MADV_DONTNEED support (Mike Kravetz) https://lkml.kernel.org/r/20220215002348.128823-1-mike.kravetz@oracle.com
-MADV_DONTNEED can be used for hugetlb but currently prohibits it with a simple check. This commit removes the check to enable MADV_DONENEED for hugetlb.
-mmotm 2022-02-14-17-46 uploaded (Andrew Morton) https://lkml.kernel.org/r/20220215014633.9CD9CC340E9@smtp.kernel.org
-mmotm has updated. It&rsquo;s rebased on 5.17-rc4, added 20 new patches, modified 295 patches, and dropped 10 patches. In total, 316 patches in the queue.
-[PATCH v6 00/71] Introducing the Maple Tree (Liam Howlett) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.17-rc4/">LKML News v5.17-rc4</a></h2>
-    <div class="article-style">
-      
-      [PATCH v2 1/2] arm64: avoid flushing icache multiple times on contiguous HugeTLB (Muchun Song) https://lkml.kernel.org/r/20220208054632.66534-1-songmuchun@bytedance.com
-When a contiguous HugeTLB page is mapped, set_pte_at() is called CONT_PTES / CONT_PMDS times. Because the first flushing covers subsequent flushes, this is unnecessary overhead, so this patchset avoids it.
-[PATCH v7 00/12] Multigenerational LRU Framework (Yu Zhao) https://lkml.kernel.org/r/20220208081902.3550911-1-yuzhao@google.com
-Seventh version of the MGLRU patchset, which aims to reduce performance overhead and improve eviction target pages selection of reclamation logic is posted.
-      
-    </div>
-  </div>
-  
+      <h2 id="patch-07-arm64--x86-64-low-level-code-generation-issues-linus-torvalds">[PATCH 0/7] arm64 / x86-64: low-level code generation issues (Linus Torvalds)</h2>
+<p><a href="https://lore.kernel.org/20240610204821.230388-1-torvalds@linux-foundation.org">https://lore.kernel.org/20240610204821.230388-1-torvalds@linux-foundation.org</a></p>
+<p>Linus Torvalds posted another version of runtime const patchset for not only
+x86_64 but also arm64.  He mentions the work was motivated by his Altra box
+that shows <code>__d_lookup_rcu()</code> like a horror.</p>
 
+    </div>
+
+    
+
+
+
+
+
+<div class="article-tags">
   
-<nav>
-  <ul class="pagination justify-content-center">
+  <a class="badge badge-light" href="/tags/linux/">linux</a>
+  
+  <a class="badge badge-light" href="/tags/kernel/">kernel</a>
+  
+  <a class="badge badge-light" href="/tags/lkml/">lkml</a>
+  
+  <a class="badge badge-light" href="/tags/news/">news</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
     
-    <li class="page-item"><a class="page-link" href="/tags/lkml/page/10/">&laquo;</a></li>
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=https://sjp38.github.io/post/lkml_news_v6.10-rc4/&amp;text=LKML%20News%20v6.10-rc4" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
     
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=https://sjp38.github.io/post/lkml_news_v6.10-rc4/&amp;t=LKML%20News%20v6.10-rc4" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
     
-    <li class="page-item"><a class="page-link" href="/tags/lkml/page/12/">&raquo;</a></li>
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=LKML%20News%20v6.10-rc4&amp;body=https://sjp38.github.io/post/lkml_news_v6.10-rc4/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=https://sjp38.github.io/post/lkml_news_v6.10-rc4/&amp;title=LKML%20News%20v6.10-rc4" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=LKML%20News%20v6.10-rc4%20https://sjp38.github.io/post/lkml_news_v6.10-rc4/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=https://sjp38.github.io/post/lkml_news_v6.10-rc4/&amp;title=LKML%20News%20v6.10-rc4" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
     
   </ul>
-</nav>
-
-
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      <img class="portrait mr-3" src="https://s.gravatar.com/avatar/43dc5645c78e68fda997138380dfaaf4?s=200')" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="https://sjp38.github.io/">SeongJae Park</a></h5>
+      <h6 class="card-subtitle">Kernel Development Engineer</h6>
+      <p class="card-text">SeongJae Park is a programmer who loves to analyze and develop systems.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/log/?qt=author&amp;q=seongjae&#43;park" target="_blank" rel="noopener">
+        <i class="fab fa-linux"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/sjp38" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.com/citations?user=jJIiF3AAAAAJ" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  
+  
+  <div class="article-widget content-widget-hr">
+    <h3>Related</h3>
+    <ul>
+      
+      <li><a href="/post/lkml_news_v6.10-rc3/">LKML News v6.10-rc3</a></li>
+      
+      <li><a href="/post/lkml_news_v6.10-rc2/">LKML News v6.10-rc2</a></li>
+      
+      <li><a href="/post/lkml_news_v6.10-rc1/">LKML News v6.10-rc1</a></li>
+      
+      <li><a href="/post/lkml_news_v6.9/">LKML News v6.9</a></li>
+      
+      <li><a href="/post/lkml_news_v6.9-rc7/">LKML News v6.9-rc7</a></li>
+      
+    </ul>
+  </div>
+  
+
+
+
+  </div>
+</article>
 
       
 

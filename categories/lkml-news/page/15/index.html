@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-06-04T06:36:02-07:00">
+    <meta property="og:updated_time" content="2024-06-11T06:34:49-07:00">
   
 
   
@@ -525,6 +525,19 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.13-rc6/">LKML News v5.13-rc6</a></h2>
+    <div class="article-style">
+      
+      [RFC PATCH V3] zram:calculate available memory when zram is used (wangyong) https://lkml.kernel.org/r/1623080354-21453-1-git-send-email-yongw.pur@gmail.com
+This patchset adds a new entry called SwapAvailable in /proc/meminfo. It shows the memory savings when swap devices are used. If zram is used, it considers the compression ratio.
+[PATCH v3 0/9] Remove DISCONTIGMEM memory model (Mike Rapoport) https://lkml.kernel.org/r/20210608091316.3622-1-rppt@kernel.org
+This patchset removes DISCONTIGMEM memory model, finally. There are no more architectures requiring it.
+[LSF/MM/BPF TOPIC] Consolidating representations of the physical memory (Mike Rapoport) https://lkml.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.13-rc5/">LKML News v5.13-rc5</a></h2>
     <div class="article-style">
       
@@ -628,18 +641,6 @@ There are two patchsets for better handling of tiered-memory. [PATCH 00/10] [v7]
       [RFC] NUMA balancing: reduce TLB flush via delaying mapping on hint page fault (Huang Ying) https://lkml.kernel.org/r/20210329062651.2487905-1-ying.huang@intel.com
 NUMA balancing shots down TLBs on all CPUs that recently run hint-faulted process during the migration of the hint-faulted page to appropriate node. This commit delays the TLB shootdown to reduce the overhead. With pmbench, it reduced TLB shooting IPI up to 99%, though it didn&rsquo;t makde visible benchmark score changes.
 [RFC v2 00/43] PKRAM: Preserved-over-Kexec RAM (Anthony Yznaga) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.12-rc5/">LKML News v5.12-rc5</a></h2>
-    <div class="article-style">
-      
-      [PATCH 0/3 v5] Introduce a bulk order-0 page allocator (Mel Gorman) https://lkml.kernel.org/r/20210322091845.16437-1-mgorman@techsingularity.net
-Fifth version of the order-0 pages bulk allocator. In this version, the API users are dropped from the patchset, because the callers are not confirmed if they prefer an array or list interface.
-[PATCH] mm: cma: add trace events for CMA alloc perf testing (Georgi Djakov) https://lkml.kernel.org/r/20210324160740.15901-1-georgi.djakov@linaro.org
-This patch adds tracepoints for CMA and page migrations. Those aims to be used for performance debugging of CMA.
       
     </div>
   </div>

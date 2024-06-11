@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-06-04T06:36:02-07:00">
+    <meta property="og:updated_time" content="2024-06-11T06:34:49-07:00">
   
 
   
@@ -525,6 +525,20 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.4-rc7/">LKML News v6.4-rc7</a></h2>
+    <div class="article-style">
+      
+      [GIT PULL] hotfixes for 6.4-rc7 (Andrew Morton) https://lkml.kernel.org/r/20230612122712.f495e24b80f88f58557ea470@linux-foundation.org
+Andrew sent hot fixes pull request to Linus Torvalds. The one for DAMON is also contained.
+[PATCH stable 5.10 0/1] Fix memleak during hotremove memory (Ma Wupeng) https://lkml.kernel.org/r/20230614061900.3296725-1-mawupeng1@huawei.com
+Ma found a memory leak in memory hotplugging, and providing a patch.
+[ANNOUNCE/CFP] CXL Microconference at LPC 2023 (Davidlohr Bueso) https://lkml.kernel.org/r/a4c2gx2tnm4ckax7qkx2trnvmqjssfytc45sb2zikuayd2marc@rpsjp4icgsvn
+Davidlohr announces CXL microconference has accepted for LPC this year, and inviting people in the call for participation.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.4-rc6/">LKML News v6.4-rc6</a></h2>
     <div class="article-style">
       
@@ -630,18 +644,6 @@ This patchset makes file system to support not single-gran timestamp but multi-g
 To reduce the struct page overhead, which is about 1.5% of the whole system memory, people are working on to reduce some fileds in struct page. As one of the approach, this patchset prepares for splitting ptdesc from struct page.
 [RFC PATCH v1 0/5] Introduce objects folding mechanism (Alexey Romanov) https://lkml.kernel.org/r/20230418062503.62121-1-avromanov@sberdevices.ru
 This patchset adds a feature which allowing folding identical zsmalloc objects into single one.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.3-rc7/">LKML News v6.3-rc7</a></h2>
-    <div class="article-style">
-      
-      [PATCH v5] mm: oom: introduce cpuset oom (Gang Li) https://lkml.kernel.org/r/20230411134539.45046-1-ligang.bdlg@bytedance.com
-This patch makes oomkiller to aware of numa nodes of processes that assigned via cpuset so that real memory pressure tirggeered process can be picked as victim of the pressure.
-[LSF/MM/BPF TOPIC] Reducing zombie memcgs (T.J. Mercier) https://lkml.kernel.org/r/CABdmKX2M6koq4Q0Cmp_-=wbP0Qa190HdEGGaHfxNS05gAkUtPA@mail.gmail.com
-Memcg lives in the kernel until the reference count drops to zero, even if it&rsquo;s removed by userspace. This zombie-like memcg consumes system resource and makes kernel operations that get affected by the total number of memcg less efficient.
       
     </div>
   </div>
