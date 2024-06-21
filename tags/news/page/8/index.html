@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-06-11T06:34:49-07:00">
+    <meta property="og:updated_time" content="2024-06-18T06:09:34-07:00">
   
 
   
@@ -525,6 +525,19 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.2-rc2/">LKML News v6.2-rc2</a></h2>
+    <div class="article-style">
+      
+      [PATCH -next v3 0/7] mm: convert page_idle/damon to use folios (Kefeng Wang) https://lkml.kernel.org/r/20221228113413.10329-1-wangkefeng.wang@huawei.com
+Patchset for converting Idle Pages Tracking and DAMON to use Folios instead of Page where possible has posted.
+[PATCH 1/1] mm: fix vma-&gt;anon_name memory leak for anonymous shmem VMAs (Suren Baghdasaryan) https://lkml.kernel.org/r/20221228194249.170354-1-surenb@google.com
+Shared anonymous pages VMA naming has a memory leak. This patch fixes the leak.
+[QUESTION] about the maple tree and current status of mmap_lock scalability (Hyeonggon Yoo) https://lkml.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.2-rc1/">LKML News v6.2-rc1</a></h2>
     <div class="article-style">
       
@@ -637,18 +650,6 @@ This RFC patch introduces a new madvise() hint called MADV_NOMOVABLE for long-te
 This patchset adds documentation of MADV_COLLAPSE, which is a new madvise() hint that merged in v6.1.
 [PATCH v4 0/3] THP Shrinker (Alexander Zhu) https://lkml.kernel.org/r/cover.1666150565.git.alexlzhu@fb.com
 Alexander posted the fourth version of THP shrinker, which aims to reduce the THP memory inefficiency due to the THP internal fragmentation.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.1-rc1/">LKML News v6.1-rc1</a></h2>
-    <div class="article-style">
-      
-      [RFC UKL 00/10] Unikernel Linux (UKL) (Ali Raza) https://lkml.kernel.org/r/20221003222133.20948-1-aliraza@bu.edu
-This RFC patchset introduces a research project called Unikernel Linux which integrates application specific optimization to the Linux kernel. It links an application directly with kernel and runs it in the supervisor mode.
-[PATCH v6] mm: add zblock - new allocator for use via zpool API (Ananda) https://lkml.kernel.org/r/20221005053302.30387-1-a.badmaev@clicknet.pro
-This patchset introduces a new allocator for zpool API. The author says it is better than zsmalloc in terms of worst execution time and therefore good at real-time usage.
       
     </div>
   </div>

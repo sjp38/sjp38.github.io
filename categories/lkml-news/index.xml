@@ -5,12 +5,49 @@
     <link>https://sjp38.github.io/categories/lkml-news/</link>
       <atom:link href="https://sjp38.github.io/categories/lkml-news/index.xml" rel="self" type="application/rss+xml" />
     <description>lkml news</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 11 Jun 2024 06:34:49 -0700</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 18 Jun 2024 06:09:34 -0700</lastBuildDate>
     <image>
       <url>https://sjp38.github.io/img/tux.png</url>
       <title>lkml news</title>
       <link>https://sjp38.github.io/categories/lkml-news/</link>
     </image>
+    
+    <item>
+      <title>LKML News v6.10-rc5</title>
+      <link>https://sjp38.github.io/post/lkml_news_v6.10-rc5/</link>
+      <pubDate>Tue, 18 Jun 2024 06:09:34 -0700</pubDate>
+      <guid>https://sjp38.github.io/post/lkml_news_v6.10-rc5/</guid>
+      <description>&lt;h2 id=&#34;git-pull-hotfixes-for-610-rc5-andrew-morton&#34;&gt;[GIT PULL] hotfixes for 6.10-rc5 (Andrew Morton)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lore.kernel.org/20240617114712.45d4743f8bacb832dea4b5a9@linux-foundation.org&#34;&gt;https://lore.kernel.org/20240617114712.45d4743f8bacb832dea4b5a9@linux-foundation.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Andrew posted hotfixes pull request to Linus Torvalds.&lt;/p&gt;
+&lt;h2 id=&#34;patch-add-accumulated-call-counter-for-memory-allocation-profiling-david-wang&#34;&gt;[PATCH] Add accumulated call counter for memory allocation profiling (David Wang)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lore.kernel.org/20240617153250.9079-1-00107082@163.com&#34;&gt;https://lore.kernel.org/20240617153250.9079-1-00107082@163.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;David sent a patch for adding accumulated call counter for memory allocation
+profiling.  He argues this could help performance behaviors analysis.&lt;/p&gt;
+&lt;h2 id=&#34;rfc-patch-v1-05-alternative-mthp-swap-allocator-improvements-ryan-roberts&#34;&gt;[RFC PATCH v1 0/5] Alternative mTHP swap allocator improvements (Ryan Roberts)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lore.kernel.org/20240618232648.4090299-1-ryan.roberts@arm.com&#34;&gt;https://lore.kernel.org/20240618232648.4090299-1-ryan.roberts@arm.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Ryan posted this proof-of-concept patchset for achieving 0% fallback at mTHP
+swap.&lt;/p&gt;
+&lt;h2 id=&#34;re-patchset-v6-sched-implement-bpf-extensible-scheduler-class-thomas-gleixner&#34;&gt;Re: [PATCHSET v6] sched: Implement BPF extensible scheduler class (Thomas Gleixner)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lore.kernel.org/878qz0pcir.ffs@tglx&#34;&gt;https://lore.kernel.org/878qz0pcir.ffs@tglx&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Thomas asked Linus to postpone merge of sched-ext for about three months.
+Linus said &amp;ldquo;no&amp;rdquo;, and Thomas posted this not-short response with a proposal of
+maintainers summit topic.&lt;/p&gt;
+&lt;h2 id=&#34;patch-v2-07-static-key-support-for-error-injection-functions-vlastimil-babka&#34;&gt;[PATCH v2 0/7] static key support for error injection functions (Vlastimil Babka)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lore.kernel.org/20240620-fault-injection-statickeys-v2-0-e23947d3d84b@suse.cz&#34;&gt;https://lore.kernel.org/20240620-fault-injection-statickeys-v2-0-e23947d3d84b@suse.cz&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Vlastimil drops the RFC tag and posted the second version of patch series that
+adds static key support for error injection functions.&lt;/p&gt;
+&lt;h2 id=&#34;patch-mmpage_alloc-add-one-pcp-list-for-thp-yangge&#34;&gt;[PATCH] mm/page_alloc: add one PCP list for THP (yangge)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lore.kernel.org/1718801672-30152-1-git-send-email-yangge1116@126.com&#34;&gt;https://lore.kernel.org/1718801672-30152-1-git-send-email-yangge1116@126.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;When large CMA memory is configured, starting a virtual machine with device
+passthrough gets stuck, and it also make negative impacts on CMA itself.  This
+patch fixes the problem by adding one PCP list for THP.&lt;/p&gt;
+&lt;h2 id=&#34;patch-v1-memory-tier-consolidate-the-initialization-of-memory-tiers-ho-ren-jack-chuang&#34;&gt;[PATCH v1] memory tier: consolidate the initialization of memory tiers (Ho-Ren (Jack) Chuang)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lore.kernel.org/20240621044833.3953055-1-horen.chuang@linux.dev&#34;&gt;https://lore.kernel.org/20240621044833.3953055-1-horen.chuang@linux.dev&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Ho-Ren sent a patch consolidating memory tier initialization, which is
+currently distributed in &lt;code&gt;memory_tier_init()&lt;/code&gt; and &lt;code&gt;memory_tier_late_init()&lt;/code&gt;.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>LKML News v6.10-rc4</title>

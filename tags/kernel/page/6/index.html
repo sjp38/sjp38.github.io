@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-06-11T06:34:49-07:00">
+    <meta property="og:updated_time" content="2024-06-18T06:09:34-07:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.4-rc5/">LKML News v6.4-rc5</a></h2>
+    <div class="article-style">
+      
+      [PATCH 00/12] mm: free retracted page table by RCU (Hugh Dickins) https://lkml.kernel.org/r/35e983f5-7ed3-b310-d949-9ae8b130cdab@google.com
+This patchset aims to reduce mmap_lock contention by freeing retracted page table by RCU, with preceding and succeeding patchsets. This patchset was in Google data center kernel for three years.
+[PATCH] mm: madvise: fix uneven accounting of psi (Charan Teja Kalla) https://lkml.kernel.org/r/1685531374-6091-1-git-send-email-quic_charante@quicinc.com
+For madvise(MADV_PAGEOUT) is called for folios, PSI for the folio is not always accounted. This patchset makes it be consistent by always not considering PSI for folios that are reclaimed through madvise(MADV_PAGEOUT).
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.4-rc4/">LKML News v6.4-rc4</a></h2>
     <div class="article-style">
       
@@ -632,19 +644,6 @@ Loongarch has arch specific memory holes and mapping formula. This patch adds ka
 [PATCH v2 0/7] Split a folio to any lower order folios (Zi Yan) https://lkml.kernel.org/r/20230329011712.3242298-1-zi.yan@sent.com
 Currently, split_huge_page() splits huge page to only order 0 pages. This patchset adds support of splitting a huge page to any lower order pages.
 [PATCHv9 00/14] mm, x86/cc: Implement support for unaccepted memory (Kirill A.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.3-rc4/">LKML News v6.3-rc4</a></h2>
-    <div class="article-style">
-      
-      [PATCH 00/15] mm: move core MM initialization to mm/mm_init.c (Mike Rapoport) https://lkml.kernel.org/r/20230319220008.2138576-1-rppt@kernel.org
-This patchset consolidates MM initialization code to mm/mm_init.c file for better maintainability.
-[PATCH -next v6 0/2] Delay the initialization of zswap (Liu Shixin) https://lkml.kernel.org/r/20230322102006.780624-1-liushixin2@huawei.com
-This patchset delays zswap initialization until it gets enabled to save about 18MB of memory, which is allocated during the initialization.
-[PATCH V6 1/2] mm: compaction: move compaction sysctl to its own file (Minhao Chi) https://lkml.
       
     </div>
   </div>

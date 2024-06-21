@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-06-11T06:34:49-07:00">
+    <meta property="og:updated_time" content="2024-06-18T06:09:34-07:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.3-rc3/">LKML News v6.3-rc3</a></h2>
+    <div class="article-style">
+      
+      [LSF/MM/BPF TOPIC] SLOB+SLAB allocators removal and future SLUB improvements (Vlastimil Babka) https://lkml.kernel.org/r/4b9fc9c6-b48c-198f-5f80-811a44737e5f@suse.cz
+Linux kernel has three objects allocators, namely SLOB, SLAB, and SLUB. Vlastimil and many developers have tried to make it only one single allocator. Deprecation of SLOB has made some progress so far. Vlastimil proposes an LSF/MM/BPF topic for discussing deprecation of SLAB and SLUB futur eimprovement.
+[GIT PULL] hotfixes for 6.3-rc1 (Andrew Morton) https://lkml.kernel.org/r/20230314165437.a2d992731a970582fe36aaba@linux-foundation.org
+Yet another mm subsystem hotfixes pull request has sent to Linus Torvalds.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.3-rc2/">LKML News v6.3-rc2</a></h2>
     <div class="article-style">
       
@@ -634,19 +646,6 @@ Handle NULL val pointer case from zram&rsquo;s arguments handling.
 This patchset adds support of Kalray&rsquo;s kvx family kv3-1 CPU architecture.
 [PATCH 00/46] Based on latest mm-unstable (85b44c25cd1e). (James Houghton) https://lkml.kernel.org/r/20230105101844.1893104-1-jthoughton@google.com
 This patchset introduces HugeTLB high-Granularity Mapping (HGM), which teaches HugeTLB how to map HugeTLB pages at high granularity like how THPs PTE-mapped.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.2-rc2/">LKML News v6.2-rc2</a></h2>
-    <div class="article-style">
-      
-      [PATCH -next v3 0/7] mm: convert page_idle/damon to use folios (Kefeng Wang) https://lkml.kernel.org/r/20221228113413.10329-1-wangkefeng.wang@huawei.com
-Patchset for converting Idle Pages Tracking and DAMON to use Folios instead of Page where possible has posted.
-[PATCH 1/1] mm: fix vma-&gt;anon_name memory leak for anonymous shmem VMAs (Suren Baghdasaryan) https://lkml.kernel.org/r/20221228194249.170354-1-surenb@google.com
-Shared anonymous pages VMA naming has a memory leak. This patch fixes the leak.
-[QUESTION] about the maple tree and current status of mmap_lock scalability (Hyeonggon Yoo) https://lkml.
       
     </div>
   </div>

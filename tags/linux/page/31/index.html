@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-06-12T21:22:55-07:00">
+    <meta property="og:updated_time" content="2024-06-18T06:09:34-07:00">
   
 
   
@@ -525,6 +525,16 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v4.18/">Lkml_news_v4.18</a></h2>
+    <div class="article-style">
+      
+      Linux 4.18 https://lkml.kernel.org/r/CA+55aFzos7tr=OLju10Oe-z7r=eB2dSaFa7vwz2ApGO13B=z_g@mail.gmail.com
+자, 오랫만에 rc 버전을 8개나 내며 긴 안정화 기간을 거친 4.18 버전이 릴리즈 되었습니다. 따라서 지난주는 조용해야 했고 실제로 조용했지만 그럼에도 불구하고 vfs 레이스 컨디션 문제 수정 등의 변경도 있긴 했습니다. 이번 정식 릴리즈로 포함된 기능 중 개인적으로는 Restartable Sequence 가 눈에 띄고 흥미롭군요. 아마 2015년? 인가에 서울에서 커널 서밋 열려서 거기서 발표 들었을 때부터 관심있었거든요. 유저스페이스에서 이 기능을 잘 사용하면 멀티코어 성능확장성에 큰 개선이 가능할 것 같습니다.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v4.18-rc8/">LKML News after v4.18-rc8</a></h2>
     <div class="article-style">
       
@@ -629,16 +639,6 @@ Cgroup 에 응답시간 (latency) 기반의 I/O 컨트롤러를 추가하는 패
 4.17을 향한 다섯번째 rc 릴리즈입니다. 이번 릴리즈도 여느 때와 다름없이 평범하군요. 대부분 드라이버 변경들이고, amd gpu 쪽 변경이 있지만 나머지 부분들은 그렇게 많지 않고 대부분 한두줄 짜리 변경들입니다. 이대로라면 이번 4.17 릴리즈는 꽤 무난무난하게 끝나겠군요.
 [PATCH v11 00/26] Speculative page faults https://lkml.kernel.org/r/1526555193-7242-1-git-send-email-ldufour@linux.vnet.ibm.com
 이 블로그에서도 몇차례 소개한, speculative page fault 의 11번째 버전입니다. 지난 LSFMM 에서도 관련해 논의를 한 것 같던데, 아주 긍정적 반응은 아니었던 것 같습니다만, 어쨌든 오랫만에 올라온 새로운 버전의 패치셋이군요.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/qemu_kernel_debugging/">Linux Kernel Debugging Using QEMU</a></h2>
-    <div class="article-style">
-      
-      You can use classical debugger for your Linux kernel programming, though Torvalds doesn&rsquo;t like it. I also do not prefer such use of debuggers, but admit that sometimes debuggers are quite useful. ;)
-There are several ways to debug Linux kernel, but one of above is to set up a Linux virtual machine using QEMU and debugging the Linux kernel of the virtual machine from the host machine. This post summarises how to debug the Linux kernel in this way.
       
     </div>
   </div>
