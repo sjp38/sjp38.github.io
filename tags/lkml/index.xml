@@ -46,6 +46,16 @@ patch fixes the problem by adding one PCP list for THP.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://lore.kernel.org/20240621044833.3953055-1-horen.chuang@linux.dev&#34;&gt;https://lore.kernel.org/20240621044833.3953055-1-horen.chuang@linux.dev&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Ho-Ren sent a patch consolidating memory tier initialization, which is
 currently distributed in &lt;code&gt;memory_tier_init()&lt;/code&gt; and &lt;code&gt;memory_tier_late_init()&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;patch-v2-01-toolsmm-introduce-a-tool-to-assess-swap-entry-allocation-for-thp_swapout-barry-song&#34;&gt;[PATCH v2 0/1] tools/mm: Introduce a tool to assess swap entry allocation for thp_swapout (Barry Song)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lore.kernel.org/20240622071231.576056-1-21cnbao@gmail.com&#34;&gt;https://lore.kernel.org/20240622071231.576056-1-21cnbao@gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Barry introduces a tool for accessing swap entry allocation, so that it can be
+used to assess efficiency of the underlying kernel mechanism.&lt;/p&gt;
+&lt;h2 id=&#34;mm-global-locks-as-core-counts-quadruple-david-rientjes&#34;&gt;MM global locks as core counts quadruple (David Rientjes)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lore.kernel.org/07e7d078-0c9d-6a1f-1ab5-295f86974b72@google.com&#34;&gt;https://lore.kernel.org/07e7d078-0c9d-6a1f-1ab5-295f86974b72@google.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;David and Namhyung found some global locks that used for memory managment have
+some high contention, and worrying about it for upcoming era which will have
+more CPU cores.  Further they are asking how people testing it, and if someone
+working on it.&lt;/p&gt;
 </description>
     </item>
     

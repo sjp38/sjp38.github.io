@@ -647,6 +647,16 @@ patch fixes the problem by adding one PCP list for THP.</p>
 <p><a href="https://lore.kernel.org/20240621044833.3953055-1-horen.chuang@linux.dev">https://lore.kernel.org/20240621044833.3953055-1-horen.chuang@linux.dev</a></p>
 <p>Ho-Ren sent a patch consolidating memory tier initialization, which is
 currently distributed in <code>memory_tier_init()</code> and <code>memory_tier_late_init()</code>.</p>
+<h2 id="patch-v2-01-toolsmm-introduce-a-tool-to-assess-swap-entry-allocation-for-thp_swapout-barry-song">[PATCH v2 0/1] tools/mm: Introduce a tool to assess swap entry allocation for thp_swapout (Barry Song)</h2>
+<p><a href="https://lore.kernel.org/20240622071231.576056-1-21cnbao@gmail.com">https://lore.kernel.org/20240622071231.576056-1-21cnbao@gmail.com</a></p>
+<p>Barry introduces a tool for accessing swap entry allocation, so that it can be
+used to assess efficiency of the underlying kernel mechanism.</p>
+<h2 id="mm-global-locks-as-core-counts-quadruple-david-rientjes">MM global locks as core counts quadruple (David Rientjes)</h2>
+<p><a href="https://lore.kernel.org/07e7d078-0c9d-6a1f-1ab5-295f86974b72@google.com">https://lore.kernel.org/07e7d078-0c9d-6a1f-1ab5-295f86974b72@google.com</a></p>
+<p>David and Namhyung found some global locks that used for memory managment have
+some high contention, and worrying about it for upcoming era which will have
+more CPU cores.  Further they are asking how people testing it, and if someone
+working on it.</p>
 
     </div>
 
