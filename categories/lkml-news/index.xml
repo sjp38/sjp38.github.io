@@ -56,6 +56,16 @@ used to assess efficiency of the underlying kernel mechanism.&lt;/p&gt;
 some high contention, and worrying about it for upcoming era which will have
 more CPU cores.  Further they are asking how people testing it, and if someone
 working on it.&lt;/p&gt;
+&lt;h2 id=&#34;patch-fix-initializing-a-static-union-variable-yabin-cui&#34;&gt;[PATCH] Fix initializing a static union variable (Yabin Cui)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lore.kernel.org/20240620181736.1270455-1-yabinc@google.com&#34;&gt;https://lore.kernel.org/20240620181736.1270455-1-yabinc@google.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Yabin found static union variable initialzied with &lt;code&gt;{}&lt;/code&gt; can incompletely
+initialized according to C11 standard and some clang implementations.  Based on
+it, he fixes one such wrong use case.  Some people including Linus are saying
+it is better to fix combilers instead of only this single point of bug.&lt;/p&gt;
+&lt;h2 id=&#34;linux-610-rc5-linus-torvalds&#34;&gt;Linux 6.10-rc5 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lore.kernel.org/CAHk-=wiMMT-2pfJZ8ckbnGTbSHy5mvvE=+-MyA_ARPUqiy_C1w@mail.gmail.com&#34;&gt;https://lore.kernel.org/CAHk-=wiMMT-2pfJZ8ckbnGTbSHy5mvvE=+-MyA_ARPUqiy_C1w@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Another release candidate for Linux v6.10 is released.  Linus says it continues
+the trend of being fairly calm.&lt;/p&gt;
 </description>
     </item>
     

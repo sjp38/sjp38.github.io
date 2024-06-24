@@ -657,6 +657,16 @@ used to assess efficiency of the underlying kernel mechanism.</p>
 some high contention, and worrying about it for upcoming era which will have
 more CPU cores.  Further they are asking how people testing it, and if someone
 working on it.</p>
+<h2 id="patch-fix-initializing-a-static-union-variable-yabin-cui">[PATCH] Fix initializing a static union variable (Yabin Cui)</h2>
+<p><a href="https://lore.kernel.org/20240620181736.1270455-1-yabinc@google.com">https://lore.kernel.org/20240620181736.1270455-1-yabinc@google.com</a></p>
+<p>Yabin found static union variable initialzied with <code>{}</code> can incompletely
+initialized according to C11 standard and some clang implementations.  Based on
+it, he fixes one such wrong use case.  Some people including Linus are saying
+it is better to fix combilers instead of only this single point of bug.</p>
+<h2 id="linux-610-rc5-linus-torvalds">Linux 6.10-rc5 (Linus Torvalds)</h2>
+<p><a href="https://lore.kernel.org/CAHk-=wiMMT-2pfJZ8ckbnGTbSHy5mvvE=+-MyA_ARPUqiy_C1w@mail.gmail.com">https://lore.kernel.org/CAHk-=wiMMT-2pfJZ8ckbnGTbSHy5mvvE=+-MyA_ARPUqiy_C1w@mail.gmail.com</a></p>
+<p>Another release candidate for Linux v6.10 is released.  Linus says it continues
+the trend of being fairly calm.</p>
 
     </div>
 
