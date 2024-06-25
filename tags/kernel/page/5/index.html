@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-06-18T06:09:34-07:00">
+    <meta property="og:updated_time" content="2024-06-25T06:39:34-07:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.5/">LKML News v6.5</a></h2>
+    <div class="article-style">
+      
+      [PATCH] maple_tree: shrink struct maple_tree from 24 to 16 bytes on LP64 (Mateusz Guzik) https://lkml.kernel.org/r/20230821225145.2169848-1-mjguzik@gmail.com
+This patchset moves ma_root field to be placed after ma_flags to plug a padding hole of struct mape_tree, to reduce the size of the struct.
+idea for scalable and almost waste-free percpu counter alloc (was: Re: [PATCH 0/2] execve scalability issues, part 1) (Mateusz Guzik) https://lkml.kernel.org/r/CAGudoHH-b5R+COHUtns92NTzSVeT1ECMHb22SEcH_108Pi0FTQ@mail.gmail.com
+Mateusz is suggesting another idea for scalable and almost-waste-free percpu counter alloc.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.5-rc7/">LKML News v6.5-rc7</a></h2>
     <div class="article-style">
       
@@ -635,20 +647,6 @@ Andrew sent hot fixes pull request to Linus Torvalds. The one for DAMON is also 
 Ma found a memory leak in memory hotplugging, and providing a patch.
 [ANNOUNCE/CFP] CXL Microconference at LPC 2023 (Davidlohr Bueso) https://lkml.kernel.org/r/a4c2gx2tnm4ckax7qkx2trnvmqjssfytc45sb2zikuayd2marc@rpsjp4icgsvn
 Davidlohr announces CXL microconference has accepted for LPC this year, and inviting people in the call for participation.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.4-rc6/">LKML News v6.4-rc6</a></h2>
-    <div class="article-style">
-      
-      As of 2023-06-06, for some reason https://lore.kernel.org/linux-mm seems stopped being updated since 2023-05-31. On the day of 2023-06-06, the update has resumed.
-[PATCH v3 0/5] riscv: Introduce KASLR (Alexandre Ghiti) https://lkml.kernel.org/r/20230606123242.20804-1-alexghiti@rivosinc.com
-This patchset introduces KASLR, which allows kernel mapping randomization, for riscv.
-Question about oom-killer (Gou Hao) https://lore.kernel.org/linux-mm/A31B3EA06AF77F13+c7278bd0-2695-4cc0-5a56-531a06ac2389@uniontech.com/
-A question about oom-killer behavior that suspected to be a kernel bug.
-[PATCH v3] Documentation/mm: Initial page table documentation (Linus Walleij) https://lkml.kernel.org/r/20230608125501.3960093-1-linus.walleij@linaro.org
       
     </div>
   </div>

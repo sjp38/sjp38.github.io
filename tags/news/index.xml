@@ -5,12 +5,28 @@
     <link>https://sjp38.github.io/tags/news/</link>
       <atom:link href="https://sjp38.github.io/tags/news/index.xml" rel="self" type="application/rss+xml" />
     <description>news</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 18 Jun 2024 06:09:34 -0700</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 25 Jun 2024 06:39:34 -0700</lastBuildDate>
     <image>
       <url>https://sjp38.github.io/img/tux.png</url>
       <title>news</title>
       <link>https://sjp38.github.io/tags/news/</link>
     </image>
+    
+    <item>
+      <title>LKML News v6.10-rc6</title>
+      <link>https://sjp38.github.io/post/lkml_news_v6.10-rc6/</link>
+      <pubDate>Tue, 25 Jun 2024 06:39:34 -0700</pubDate>
+      <guid>https://sjp38.github.io/post/lkml_news_v6.10-rc6/</guid>
+      <description>&lt;h2 id=&#34;patch-memcg-add-a-new-sysctl-parameter-for-automatically-setting-memoryhigh-waiman-long&#34;&gt;[PATCH] memcg: Add a new sysctl parameter for automatically setting memory.high (Waiman Long)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lore.kernel.org/20240623204514.1032662-1-longman@redhat.com&#34;&gt;https://lore.kernel.org/20240623204514.1032662-1-longman@redhat.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;While memcg v1 has only single file for memory limit setting, namely
+&lt;code&gt;memory.limit_in_bytes&lt;/code&gt;, memcg v2 has two files, &lt;code&gt;memory.max&lt;/code&gt; and &lt;code&gt;memory.high&lt;/code&gt;
+for the purpose.  Users migrating from memcg v1 to memcg v2 usually sets only
+&lt;code&gt;memory.max&lt;/code&gt;, and hence get problems sometimes.  This patch add a new knob,
+&lt;code&gt;memory_high_autoset_ratio&lt;/code&gt;, which allows setting &lt;code&gt;memory.high&lt;/code&gt; as a ratio of
+&lt;code&gt;memory.max&lt;/code&gt;.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>LKML News v6.10-rc5</title>

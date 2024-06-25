@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-06-18T06:09:34-07:00">
+    <meta property="og:updated_time" content="2024-06-25T06:39:34-07:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.9-rc6/">LKML News v6.9-rc6</a></h2>
+    <div class="article-style">
+      
+      [RFC PATCH 0/5] add mTHP support for anonymous share pages (Baolin Wang) https://lkml.kernel.org/r/cover.1713755580.git.baolin.wang@linux.alibaba.com
+Baolin adds mTHP support for anonymous shared pages with this RFC patchset. There are some todo items, though.
+[LSF/MM/BPF TOPIC] SLAB BOF (Matthew Wilcox) https://lkml.kernel.org/r/ZiZy2VVpTQMjN-ko@casper.infradead.org
+In this mail, Matthew introduces his radical idea around Slab allocator, which decouples the objects from the page and proposes a BoF to discuss it with not only Vlastimil but more audiences.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.9-rc5/">LKML News v6.9-rc5</a></h2>
     <div class="article-style">
       
@@ -632,17 +644,6 @@ Falling back to other NUMA nodes when migrating freed hugetlb is prevented while
     <div class="article-style">
       
       DAMON talk for OSSummit North America 2024 has been accepted and scheduled. The talk will present DAMOS auto-tuning and hopefully, more new DAMO features. The features are still under development, but hopefully, the power of presentation-driven development will make it. ;) Looking forward to meeting you there!
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.8-rc5/">LKML News v6.8-rc5</a></h2>
-    <div class="article-style">
-      
-      [PATCH v3] cgroup2: New memory.max.effective like cgroup1 hierarchical_memory_limit (Jan Kratochvil) https://lkml.kernel.org/r/ZctiM5RintD_D0Lt@host1.jankratochvil.net
-Unlike cgroup v1, which was able to find effective memory limit using hierarchical_memorylimit and hierarchical_memsw_limit lines, cgoup v2 doesn&rsquo;t have such hierarchical information, so need to read all files in the hierarchy to know the effective memory limit. This patchset adds memory.max.effective and memory.swap.max.effective to let users easily get the information.
-[PATCH v3 00/35] Memory allocation profiling (Suren Baghdasaryan) https://lkml.
       
     </div>
   </div>

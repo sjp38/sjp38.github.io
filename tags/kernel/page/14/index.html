@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-06-18T06:09:34-07:00">
+    <meta property="og:updated_time" content="2024-06-25T06:39:34-07:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.15/">LKML News v5.15</a></h2>
+    <div class="article-style">
+      
+      Dynamically allocated memory descriptors (Matthew Wilcox) https://lkml.kernel.org/r/YXcLqcFhDq3uUwIj@casper.infradead.org
+In this mail, Matthew explains his idea on making struct page only two words and how it could work with buddy allocator freelists.
+[RFC] mm: Disable NUMA_BALANCING_DEFAULT_ENABLED and TRANSPARENT_HUGEPAGE on PREEMPT_RT (Sebastian Andrzej Siewior) https://lkml.kernel.org/r/20211026165100.ahz5bkx44lrrw5pt@linutronix.de
+Mel told RT patchset could incur spikes on NUMA machines when NUMA_BALANCING and THP are turned on. Sebastian request comments on disabling those on RT enabled kernel by default, but still trying to find a good test for that.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.15-rc7/">LKML News v5.15-rc7</a></h2>
     <div class="article-style">
       
@@ -635,20 +647,6 @@ MMOTM is rebased on v5.
 Once the virtio-mem driver is plugging/unplugging memory of virtual machines, accessing the memory region via /dev/mem from the user space makes no sense. To avoid such insane use case, this patchset adds a basic infrastructure to exclude some physical memory regions completely from /dev/mem.
 [PATCH v2 00/61] Introducing the Maple Tree (Liam Howlett) https://lkml.kernel.org/r/20210817154651.1570984-1-Liam.Howlett@oracle.com
 This patchset introduces a new data structure called maple tree, which intended to replace the rbtree for vm_area_struct.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.14-rc6/">LKML News v5.14-rc6</a></h2>
-    <div class="article-style">
-      
-      [PATCH v9 1/2] mm: introduce process_mrelease system call (Suren Baghdasaryan) https://lkml.kernel.org/r/20210809185259.405936-1-surenb@google.com
-9th version of the patchset which introducing a new system call for releasing memory of a process in a speedy manner.
-mmotm 2021-08-09-19-18 uploaded (Andrew Morton) https://lkml.kernel.org/r/20210810021934.XcpwGUEMn%akpm@linux-foundation.org
--mm tree updated.
-[PATCH 0/5] x86: Impplement support for unaccepted memory (Kirill A. Shutemov) https://lkml.kernel.org/r/20210810062626.1012-1-kirill.shutemov@linux.intel.com
-Some platforms like Intel TDX or AMD SEV-SNP require memory to be accepted before it can be used by the guest.
       
     </div>
   </div>

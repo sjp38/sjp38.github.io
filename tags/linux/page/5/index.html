@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-06-18T06:09:34-07:00">
+    <meta property="og:updated_time" content="2024-06-25T06:39:34-07:00">
   
 
   
@@ -525,6 +525,20 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.6-rc3/">LKML News v6.6-rc3</a></h2>
+    <div class="article-style">
+      
+      [Invitation] Linux MM Alignment Session on APIs for Sparse Mappings on Wednesday (David Rientjes) https://lkml.kernel.org/r/fba78307-e4a3-2621-2917-464f19bb4c57@google.com
+David is organizing yet another Linux MM alignment session for proper API for sparse mappings.
+[PATCH v2] vmscan: add trace events for lru_gen (Jaewon Kim) https://lkml.kernel.org/r/20230921062206.14429-1-jaewon31.kim@samsung.com
+This patch adds two new tracevents called trace_mm_vmscan_lru_gen_scan and trace_mm_vmscan_lru_gen_evict that similar to trace_mm_vmscan_lru_isolate and trace_mm_vmscan_lru_shrink_[in]active.
+[PATCH v3 00/15] futex: More futex2 bits (Peter Zijlstra) https://lkml.kernel.org/r/20230921104505.717750284@noisy.programming.kicks-ass.net
+Peter sent third version of the patchset that introduces a new interface for same futex core, futex2.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.6-rc2/">LKML News v6.6-rc2</a></h2>
     <div class="article-style">
       
@@ -634,16 +648,6 @@ This patch moves secondary TLB invcalidation mmu notifier callbacks to architect
 David from Google is hosting yet another Linux MM Alignment session on Wednesday. The topic of this week is the process page table sharing, which could be a clear efficiency win for situations where huge number of processes sharing same pages.
 [PATCH v3 0/7] Add support for memmap on memory feature on ppc64 (Aneesh Kumar K.V) https://lkml.kernel.org/r/20230711044834.72809-1-aneesh.kumar@linux.ibm.com
 This makes the memmap on memory feature more useful for ppc64-like architectures having alignment rules that different with 64K page size.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/ossummit_eu_2023_talk/">I will have a talk at the Open Source Summit Europe 2023</a></h2>
-    <div class="article-style">
-      
-      DAMON talk for OSSummit EU 2023 has accepted and scheduled. The talk will focus on its user-space tool, damo. It&rsquo;s mainly for helping more audiences to digest the content easier, and also for accelerating the development of damo. By the time, hopefully the version of damo would reach to, or exceed 2.0.0, and newer interface and features will be introduced together.
-The title of the talk is &ldquo;Data Access Monitoring Operator (DAMO): User-Space Tool/Python Library for Access-Aware Profiling and Optimization of Your Linux Systems&rdquo;.
       
     </div>
   </div>
