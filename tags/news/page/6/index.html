@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-06-25T06:39:34-07:00">
+    <meta property="og:updated_time" content="2024-07-05T08:20:44-07:00">
   
 
   
@@ -525,6 +525,20 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.4-rc6/">LKML News v6.4-rc6</a></h2>
+    <div class="article-style">
+      
+      As of 2023-06-06, for some reason https://lore.kernel.org/linux-mm seems stopped being updated since 2023-05-31. On the day of 2023-06-06, the update has resumed.
+[PATCH v3 0/5] riscv: Introduce KASLR (Alexandre Ghiti) https://lkml.kernel.org/r/20230606123242.20804-1-alexghiti@rivosinc.com
+This patchset introduces KASLR, which allows kernel mapping randomization, for riscv.
+Question about oom-killer (Gou Hao) https://lore.kernel.org/linux-mm/A31B3EA06AF77F13+c7278bd0-2695-4cc0-5a56-531a06ac2389@uniontech.com/
+A question about oom-killer behavior that suspected to be a kernel bug.
+[PATCH v3] Documentation/mm: Initial page table documentation (Linus Walleij) https://lkml.kernel.org/r/20230608125501.3960093-1-linus.walleij@linaro.org
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.4-rc5/">LKML News v6.4-rc5</a></h2>
     <div class="article-style">
       
@@ -631,19 +645,6 @@ Memcg lives in the kernel until the reference count drops to zero, even if it&rs
 A patchset for gradually pushing the mmap lock down. No specific regression found, but also no special performance improvement measured.
 [PATCH] memcg-v1: Enable setting memory min, low, high (Shaun Tancheff) https://lkml.kernel.org/r/20230405110107.127156-1-shaun.tancheff@gmail.com
 For users who cannot update to memcg v2, this patch provides a way for memcg v1 to effectively apply memory pressure, which can be used for effectively throttle file I/O.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.3-rc5/">LKML News v6.3-rc5</a></h2>
-    <div class="article-style">
-      
-      [PATCH] LoongArch: Add kernel address sanitizer support (Qing Zhang) https://lkml.kernel.org/r/20230328111714.2056-1-zhangqing@loongson.cn
-Loongarch has arch specific memory holes and mapping formula. This patch adds kasan support for Loongarch.
-[PATCH v2 0/7] Split a folio to any lower order folios (Zi Yan) https://lkml.kernel.org/r/20230329011712.3242298-1-zi.yan@sent.com
-Currently, split_huge_page() splits huge page to only order 0 pages. This patchset adds support of splitting a huge page to any lower order pages.
-[PATCHv9 00/14] mm, x86/cc: Implement support for unaccepted memory (Kirill A.
       
     </div>
   </div>

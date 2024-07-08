@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-06-25T06:39:34-07:00">
+    <meta property="og:updated_time" content="2024-07-05T08:20:44-07:00">
   
 
   
@@ -525,6 +525,19 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.3-rc4/">LKML News v6.3-rc4</a></h2>
+    <div class="article-style">
+      
+      [PATCH 00/15] mm: move core MM initialization to mm/mm_init.c (Mike Rapoport) https://lkml.kernel.org/r/20230319220008.2138576-1-rppt@kernel.org
+This patchset consolidates MM initialization code to mm/mm_init.c file for better maintainability.
+[PATCH -next v6 0/2] Delay the initialization of zswap (Liu Shixin) https://lkml.kernel.org/r/20230322102006.780624-1-liushixin2@huawei.com
+This patchset delays zswap initialization until it gets enabled to save about 18MB of memory, which is allocated during the initialization.
+[PATCH V6 1/2] mm: compaction: move compaction sysctl to its own file (Minhao Chi) https://lkml.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.3-rc3/">LKML News v6.3-rc3</a></h2>
     <div class="article-style">
       
@@ -632,20 +645,6 @@ For the mmap_lock scalability issue, yet another approach called per-VMA locks h
 [PATCH v2 0/2] docs/mm: start filling out new structure (Mike Rapoport) https://lkml.kernel.org/r/20230110152358.2641910-1-rppt@kernel.org
 MM kernel documentation has restructured to be somewhat more like textbook that can better explaining overall concept and how it manage memory, but the content is empty. Mike starts filling the content.
 LSFMMBPF proposal [General/MM]: SRCU: a case study in memory ordering (Joel Fernandes) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.2-rc3/">LKML News v6.2-rc3</a></h2>
-    <div class="article-style">
-      
-      [PATCH] zram: correctly handle all next_arg() cases (Sergey Senozhatsky) https://lkml.kernel.org/r/20230103030119.1496358-1-senozhatsky@chromium.org
-Handle NULL val pointer case from zram&rsquo;s arguments handling.
-[RFC PATCH 00/25] Upstream kvx Linux port (Yann Sionneau) https://lkml.kernel.org/r/20230103164359.24347-1-ysionneau@kalray.eu
-This patchset adds support of Kalray&rsquo;s kvx family kv3-1 CPU architecture.
-[PATCH 00/46] Based on latest mm-unstable (85b44c25cd1e). (James Houghton) https://lkml.kernel.org/r/20230105101844.1893104-1-jthoughton@google.com
-This patchset introduces HugeTLB high-Granularity Mapping (HGM), which teaches HugeTLB how to map HugeTLB pages at high granularity like how THPs PTE-mapped.
       
     </div>
   </div>

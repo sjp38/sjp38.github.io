@@ -5,7 +5,7 @@
     <link>https://sjp38.github.io/tags/lkml/</link>
       <atom:link href="https://sjp38.github.io/tags/lkml/index.xml" rel="self" type="application/rss+xml" />
     <description>lkml</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 25 Jun 2024 06:39:34 -0700</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Fri, 05 Jul 2024 08:20:44 -0700</lastBuildDate>
     <image>
       <url>https://sjp38.github.io/img/tux.png</url>
       <title>lkml</title>
@@ -13,35 +13,11 @@
     </image>
     
     <item>
-      <title>LKML News v6.10-rc6</title>
-      <link>https://sjp38.github.io/post/lkml_news_v6.10-rc6/</link>
-      <pubDate>Tue, 25 Jun 2024 06:39:34 -0700</pubDate>
-      <guid>https://sjp38.github.io/post/lkml_news_v6.10-rc6/</guid>
-      <description>&lt;h2 id=&#34;patch-memcg-add-a-new-sysctl-parameter-for-automatically-setting-memoryhigh-waiman-long&#34;&gt;[PATCH] memcg: Add a new sysctl parameter for automatically setting memory.high (Waiman Long)&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://lore.kernel.org/20240623204514.1032662-1-longman@redhat.com&#34;&gt;https://lore.kernel.org/20240623204514.1032662-1-longman@redhat.com&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;While memcg v1 has only single file for memory limit setting, namely
-&lt;code&gt;memory.limit_in_bytes&lt;/code&gt;, memcg v2 has two files, &lt;code&gt;memory.max&lt;/code&gt; and &lt;code&gt;memory.high&lt;/code&gt;
-for the purpose.  Users migrating from memcg v1 to memcg v2 usually sets only
-&lt;code&gt;memory.max&lt;/code&gt;, and hence get problems sometimes.  This patch add a new knob,
-&lt;code&gt;memory_high_autoset_ratio&lt;/code&gt;, which allows setting &lt;code&gt;memory.high&lt;/code&gt; as a ratio of
-&lt;code&gt;memory.max&lt;/code&gt;.&lt;/p&gt;
-&lt;h2 id=&#34;rfc-patch-mm-introduce-gen-information-in-procxxxsmaps-zhaoyang-huang&#34;&gt;[RFC PATCH] mm: introduce gen information in /proc/xxx/smaps (Zhaoyang Huang)&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://lore.kernel.org/20240626084406.2106291-1-zhaoyang.huang@unisoc.com&#34;&gt;https://lore.kernel.org/20240626084406.2106291-1-zhaoyang.huang@unisoc.com&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Zhaoyang posted an RFC for showing generation of folios in vmas on
-&lt;code&gt;proc/&amp;lt;pid&amp;gt;/smaps&lt;/code&gt; file.&lt;/p&gt;
-&lt;h2 id=&#34;git-pull-hotfixes-for-610-rc6-andrew-morton&#34;&gt;[GIT PULL] hotfixes for 6.10-rc6 (Andrew Morton)&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://lore.kernel.org/20240626173017.d4d69c597466bdd42da64da3@linux-foundation.org&#34;&gt;https://lore.kernel.org/20240626173017.d4d69c597466bdd42da64da3@linux-foundation.org&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Andrew sent hotfixes pull request for 6.10-rc6 to Torvalds.  13 hotfixes in
-total.&lt;/p&gt;
-&lt;h2 id=&#34;patch-07-split-list_lru-lock-into-per-cgroup-scope-kairui-song&#34;&gt;[PATCH 0/7] Split list_lru lock into per-cgroup scope (Kairui Song)&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://lore.kernel.org/20240624175313.47329-1-ryncsn@gmail.com&#34;&gt;https://lore.kernel.org/20240624175313.47329-1-ryncsn@gmail.com&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Kairui posted a patch for split &lt;code&gt;list_lru&lt;/code&gt; per-node lock to per-cgroup for
-performance.&lt;/p&gt;
-&lt;h2 id=&#34;linux-610-rc6-linus-torvalds&#34;&gt;Linux 6.10-rc6 (Linus Torvalds)&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://lore.kernel.org/CAHk-=wgQMOscLeeA3QXOs97xOz_CTxdqJjpC20tJ-7bUdHWtSA@mail.gmail.com&#34;&gt;https://lore.kernel.org/CAHk-=wgQMOscLeeA3QXOs97xOz_CTxdqJjpC20tJ-7bUdHWtSA@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Linus releases the sixth candidate for Linux v6.10.  Things continue to be
-fairly calm, and this release candidate is pretty small, according to Linus.&lt;/p&gt;
-&lt;h2 id=&#34;rfc-patch-04-introduce-pmcper-memcg-cache-huan-yang&#34;&gt;[RFC PATCH 0/4] Introduce PMC(PER-MEMCG-CACHE) (Huan Yang)&lt;/h2&gt;
+      <title>LKML News v6.10-rc7</title>
+      <link>https://sjp38.github.io/post/lkml_news_v6.10-rc7/</link>
+      <pubDate>Fri, 05 Jul 2024 08:20:44 -0700</pubDate>
+      <guid>https://sjp38.github.io/post/lkml_news_v6.10-rc7/</guid>
+      <description>&lt;h2 id=&#34;rfc-patch-04-introduce-pmcper-memcg-cache-huan-yang&#34;&gt;[RFC PATCH 0/4] Introduce PMC(PER-MEMCG-CACHE) (Huan Yang)&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lore.kernel.org/20240702084423.1717904-1-link@vivo.com&#34;&gt;https://lore.kernel.org/20240702084423.1717904-1-link@vivo.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Huan posted an RFC for per-memcg-cache, which is for utilizing per-memcg cache
 of certain rules.  The goal is allowing memory that released by an application
@@ -76,6 +52,48 @@ tracepoints.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://lore.kernel.org/20240704043132.28501-1-osalvador@suse.de&#34;&gt;https://lore.kernel.org/20240704043132.28501-1-osalvador@suse.de&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Based on the LSFMM session that led by Peter Xu, Oscar wrote this RFC patch
 series for unifying the page table walk for both hugetlb and generic.&lt;/p&gt;
+&lt;h2 id=&#34;tools-for-explaining-memory-mappingsusagepressure-david-rientjes&#34;&gt;Tools for explaining memory mappings/usage/pressure (David Rientjes)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lore.kernel.org/29c27dab-a590-5df2-c840-279bf9dff090@google.com&#34;&gt;https://lore.kernel.org/29c27dab-a590-5df2-c840-279bf9dff090@google.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;David shares Google&amp;rsquo;s recent usage of some hacky scripts for understanding
+memory behavior, and asks if there are open source tools that can be used
+instead.&lt;/p&gt;
+&lt;h2 id=&#34;linux-610-rc7-linus-torvalds&#34;&gt;Linux 6.10-rc7 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lore.kernel.org/CAHk-=wjv_HoF-5Y5QuNqMfiumwMyNZt63ajO44uKce4dWOeU8Q@mail.gmail.com&#34;&gt;https://lore.kernel.org/CAHk-=wjv_HoF-5Y5QuNqMfiumwMyNZt63ajO44uKce4dWOeU8Q@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Linus Torvalds released the seventh release candidate for Linux 6.10.  Linus
+says things remain calm, though it might be due to the US holiday and Europe
+vacation season start.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>LKML News v6.10-rc6</title>
+      <link>https://sjp38.github.io/post/lkml_news_v6.10-rc6/</link>
+      <pubDate>Tue, 25 Jun 2024 06:39:34 -0700</pubDate>
+      <guid>https://sjp38.github.io/post/lkml_news_v6.10-rc6/</guid>
+      <description>&lt;h2 id=&#34;patch-memcg-add-a-new-sysctl-parameter-for-automatically-setting-memoryhigh-waiman-long&#34;&gt;[PATCH] memcg: Add a new sysctl parameter for automatically setting memory.high (Waiman Long)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lore.kernel.org/20240623204514.1032662-1-longman@redhat.com&#34;&gt;https://lore.kernel.org/20240623204514.1032662-1-longman@redhat.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;While memcg v1 has only single file for memory limit setting, namely
+&lt;code&gt;memory.limit_in_bytes&lt;/code&gt;, memcg v2 has two files, &lt;code&gt;memory.max&lt;/code&gt; and &lt;code&gt;memory.high&lt;/code&gt;
+for the purpose.  Users migrating from memcg v1 to memcg v2 usually sets only
+&lt;code&gt;memory.max&lt;/code&gt;, and hence get problems sometimes.  This patch add a new knob,
+&lt;code&gt;memory_high_autoset_ratio&lt;/code&gt;, which allows setting &lt;code&gt;memory.high&lt;/code&gt; as a ratio of
+&lt;code&gt;memory.max&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;rfc-patch-mm-introduce-gen-information-in-procxxxsmaps-zhaoyang-huang&#34;&gt;[RFC PATCH] mm: introduce gen information in /proc/xxx/smaps (Zhaoyang Huang)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lore.kernel.org/20240626084406.2106291-1-zhaoyang.huang@unisoc.com&#34;&gt;https://lore.kernel.org/20240626084406.2106291-1-zhaoyang.huang@unisoc.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Zhaoyang posted an RFC for showing generation of folios in vmas on
+&lt;code&gt;proc/&amp;lt;pid&amp;gt;/smaps&lt;/code&gt; file.&lt;/p&gt;
+&lt;h2 id=&#34;git-pull-hotfixes-for-610-rc6-andrew-morton&#34;&gt;[GIT PULL] hotfixes for 6.10-rc6 (Andrew Morton)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lore.kernel.org/20240626173017.d4d69c597466bdd42da64da3@linux-foundation.org&#34;&gt;https://lore.kernel.org/20240626173017.d4d69c597466bdd42da64da3@linux-foundation.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Andrew sent hotfixes pull request for 6.10-rc6 to Torvalds.  13 hotfixes in
+total.&lt;/p&gt;
+&lt;h2 id=&#34;patch-07-split-list_lru-lock-into-per-cgroup-scope-kairui-song&#34;&gt;[PATCH 0/7] Split list_lru lock into per-cgroup scope (Kairui Song)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lore.kernel.org/20240624175313.47329-1-ryncsn@gmail.com&#34;&gt;https://lore.kernel.org/20240624175313.47329-1-ryncsn@gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Kairui posted a patch for split &lt;code&gt;list_lru&lt;/code&gt; per-node lock to per-cgroup for
+performance.&lt;/p&gt;
+&lt;h2 id=&#34;linux-610-rc6-linus-torvalds&#34;&gt;Linux 6.10-rc6 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lore.kernel.org/CAHk-=wgQMOscLeeA3QXOs97xOz_CTxdqJjpC20tJ-7bUdHWtSA@mail.gmail.com&#34;&gt;https://lore.kernel.org/CAHk-=wgQMOscLeeA3QXOs97xOz_CTxdqJjpC20tJ-7bUdHWtSA@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Linus releases the sixth candidate for Linux v6.10.  Things continue to be
+fairly calm, and this release candidate is pretty small, according to Linus.&lt;/p&gt;
 </description>
     </item>
     

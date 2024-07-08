@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-06-25T06:39:34-07:00">
+    <meta property="og:updated_time" content="2024-07-05T08:20:44-07:00">
   
 
   
@@ -525,6 +525,19 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.2-rc4/">LKML News v6.2-rc4</a></h2>
+    <div class="article-style">
+      
+      [PATCH 00/41] Per-VMA locks (Suren Baghdasaryan) https://lkml.kernel.org/r/20230109205336.3665937-1-surenb@google.com
+For the mmap_lock scalability issue, yet another approach called per-VMA locks has posted.
+[PATCH v2 0/2] docs/mm: start filling out new structure (Mike Rapoport) https://lkml.kernel.org/r/20230110152358.2641910-1-rppt@kernel.org
+MM kernel documentation has restructured to be somewhat more like textbook that can better explaining overall concept and how it manage memory, but the content is empty. Mike starts filling the content.
+LSFMMBPF proposal [General/MM]: SRCU: a case study in memory ordering (Joel Fernandes) https://lkml.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.2-rc3/">LKML News v6.2-rc3</a></h2>
     <div class="article-style">
       
@@ -637,19 +650,6 @@ This patch makes page_reporting_param_ops static, as it&rsquo;s used in only the
 This RFC patchset accounts and sorts page_owner output via its backtrace for simplifying it.
 [PATCH v6 0/5] THP Shrinker (Alexander Zhu) https://lkml.kernel.org/r/cover.1667454613.git.alexlzhu@fb.com
 The patchset for THP shrinking, which aims to reduce memory waste due to the THP underutilization, has revised again to the sixth version.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.1-rc3/">LKML News v6.1-rc3</a></h2>
-    <div class="article-style">
-      
-      [PATCH] swap: add a limit for readahead page-cluster value (Kairu Song) https://lkml.kernel.org/r/20221023162533.81561-1-ryncsn@gmail.com
-/proc/sys/vm/page-cluster could overflow because it has no upper limit. This patch set its upper-limit as 2**31, so that at most 2**31 pages could be read in at once.
-[PATCH 0/1] Dead stores in maple-tree (Lukas Bulwahn) https://lkml.kernel.org/r/20221026120029.12555-1-lukas.bulwahn@gmail.com
-This patch fixes some dead stores of maple tree that reported by clang analyzer.
-[PATCH v6 00/21] TDX host kernel support (Kai Huang) https://lkml.
       
     </div>
   </div>

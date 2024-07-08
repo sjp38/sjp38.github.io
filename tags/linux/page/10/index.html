@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-06-25T06:39:34-07:00">
+    <meta property="og:updated_time" content="2024-07-05T08:20:44-07:00">
   
 
   
@@ -525,6 +525,20 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.1-rc4/">LKML News v6.1-rc4</a></h2>
+    <div class="article-style">
+      
+      [PATCH -next] mm/page_reporting: change page_reporting_param_ops to static (Yang Yingliang) https://lkml.kernel.org/r/20221101070022.1930028-1-yangyingliang@huawei.com
+This patch makes page_reporting_param_ops static, as it&rsquo;s used in only the c file.
+[RFC PATCH] mm: introduce accounting of page_owner via backtrace (Zhoyang Huang) https://lkml.kernel.org/r/1667390781-17515-1-git-send-email-zhaoyang.huang@unisoc.com
+This RFC patchset accounts and sorts page_owner output via its backtrace for simplifying it.
+[PATCH v6 0/5] THP Shrinker (Alexander Zhu) https://lkml.kernel.org/r/cover.1667454613.git.alexlzhu@fb.com
+The patchset for THP shrinking, which aims to reduce memory waste due to the THP underutilization, has revised again to the sixth version.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.1-rc3/">LKML News v6.1-rc3</a></h2>
     <div class="article-style">
       
@@ -634,18 +648,6 @@ Current linux process tree looses the information in which subtree the child was
 The VMA lock scalability issue is still there. This RFC patchset shows the proof of the concept for the per-VMA lock idea, which was discussed in LSF/MM this year, as part of the SPF discussion.
 [RFC PATCH 00/30] Code tagging framework and applications (Suren Baghdasaryan) https://lkml.kernel.org/r/20220830214919.53220-1-surenb@google.com
 This RFC patchset introduces code tagging framework which can identify a specific location in the source code when compile.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.0-rc3/">LKML News v6.0-rc3</a></h2>
-    <div class="article-style">
-      
-      [mm] 96db82a66d: will-it-scale.per_process_ops -95.3% regression (kernel test robot) https://lkml.kernel.org/r/YwIoiIYo4qsYBcgd@xsang-OptiPlex-9020
-A big regression of mm multi-cpu scalability test (will-it-scale) has found by the kernel test robot. The commit 96db82a66d1db0e2966c02dc492e02eeb3a94a75 (&ldquo;mm: align larger anonymous mappings on THP bundaries&rdquo;) is pointed out as the suspect.
-[PATCH v13 00/70] Introducing the Maple Tree (Liam Howlett) https://lkml.kernel.org/r/20220822150128.1562046-1-Liam.Howlett@oracle.com
-The thirteenth version of the maple tree patchset has posted after rebased on latest mm-unstable and fixed some bugs.
       
     </div>
   </div>

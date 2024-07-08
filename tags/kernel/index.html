@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-06-25T06:39:34-07:00">
+    <meta property="og:updated_time" content="2024-07-05T08:20:44-07:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.10-rc7/">LKML News v6.10-rc7</a></h2>
+    <div class="article-style">
+      
+      [RFC PATCH 0/4] Introduce PMC(PER-MEMCG-CACHE) (Huan Yang) https://lore.kernel.org/20240702084423.1717904-1-link@vivo.com
+Huan posted an RFC for per-memcg-cache, which is for utilizing per-memcg cache of certain rules. The goal is allowing memory that released by an application be allocated with high priority within the application, to improve locality and performance while avoiding unnecessary memory reclamation.
+[PATCH] mm: remove CONFIG_MEMCG_KMEM (Johannes Weiner) https://lore.kernel.org/20240701153148.452230-1-hannes@cmpxchg.org
+Since CONFIG_MEMCG_KMEM was default-enabled and equivalent to CONFIG_MEMCG for almost a decade, Johannes tries to remove the config option.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.10-rc6/">LKML News v6.10-rc6</a></h2>
     <div class="article-style">
       
@@ -636,18 +648,6 @@ Vlastimil proposes an LSFMM session to retrospect the SLAB deprecation, share on
 Baolin adds mTHP support for anonymous shared pages with this RFC patchset. There are some todo items, though.
 [LSF/MM/BPF TOPIC] SLAB BOF (Matthew Wilcox) https://lkml.kernel.org/r/ZiZy2VVpTQMjN-ko@casper.infradead.org
 In this mail, Matthew introduces his radical idea around Slab allocator, which decouples the objects from the page and proposes a BoF to discuss it with not only Vlastimil but more audiences.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.9-rc5/">LKML News v6.9-rc5</a></h2>
-    <div class="article-style">
-      
-      [RFC 0/3] Improve memory statistics for virtio balloon (zhenwei pi) https://lkml.kernel.org/r/20240415084113.1203428-1-pizhenwei@bytedance.com
-This RFC patchset exposes six new VM statistics in the guest to the host via virtio-balloon. The statistics include oom-kill, alloc-stall, scan-async, scan-direct, reclaim-async, and reclaim-direct.
-[PATCH] Documentation: coding-style: don&rsquo;t encourage WARN*() (Alex Elder) https://lkml.kernel.org/r/20240414170850.148122-1-elder@linaro.org
-Due to the panic_on_warn setting, even WARN() and its friends are not that welcomed in multiple situations. Alex posted a patchset to make this point clearer.
       
     </div>
   </div>

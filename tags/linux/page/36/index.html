@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-06-25T06:39:34-07:00">
+    <meta property="og:updated_time" content="2024-07-05T08:20:44-07:00">
   
 
   
@@ -523,6 +523,17 @@
   
 
   
+  
+  <div>
+    <h2><a href="/post/arping-howto/">Using arping to know ip-MAC mapping</a></h2>
+    <div class="article-style">
+      
+      You can use arping to know IP address to MAC address mapping of your local network. Usage is simple:
+arping [-AbDfhqUV] [-c count] [-w deadline] [-s source] -I interface destination For example, you may use the command as below:
+$ arping -I eth0 10.0.0.1 ARPING 10.0.0.1 from 10.0.0.2 eth0 Unicast reply from 10.0.0.1 [11:22:33:44:55:66] 0.123ms Unicast reply from 10.0.0.1 [11:22:33:44:55:66] 0.251ms ... Secret of the tool is ARP protocol [1]. To know the MAC address of the machine that has a specific IP address, IP protocol layer uses the protocol.
+      
+    </div>
+  </div>
   
   <div>
     <h2><a href="/post/uninstall-kernel/">uninstall kernel</a></h2>

@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-06-25T06:39:34-07:00">
+    <meta property="og:updated_time" content="2024-07-05T08:20:44-07:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.2-rc5/">LKML News v6.2-rc5</a></h2>
+    <div class="article-style">
+      
+      [RFC] memory pressure detection in VMs using PSI mechanism for dynamically inflating/deflating VM memory (Sudarshan Rajagopalan) https://lkml.kernel.org/r/DS0PR02MB90787835F5B9CB9771A20329C4C09@DS0PR02MB9078.namprd02.prod.outlook.com
+Qualcomm&rsquo;s Linux memory team asks upstream&rsquo;s opinion about their userspace deamon approach for controlling VM memory size based on memory demands via monitoring PSI.
+[PATCH v1 0/3] Introduce per NUMA node memory error statistics (Jiaqi Yan) https://lkml.kernel.org/r/20230116193902.1315236-1-jiaqiyan@google.com
+On huge memory systems, memory error is inevitable, so detailed statistics of it helps administrators to operate systems more efficiently.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/damon_evaluation/">DAMON Evaluation</a></h2>
     <div class="article-style">
       
@@ -630,19 +642,6 @@ Lockdep and KMSAN are known to work together nowadays, though it could make kern
 [PATCH] mm/huge_memory: add TRANSPARENT_HUGEPAGE_NEVER for THP (ye xingchen) https://lkml.kernel.org/r/202211301651462590168@zte.com.cn
 This patch adds a new kernel config called TRANSPARENT_HUGEPAGE_NEVER, which will set the value of /sys/kernel/mm/transparent_hugepage/enabled [never].
 [RFC PATCH v2] mm: Add nodes= arg to memory.reclaim (Mina Almasry) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.1-rc7/">LKML News v6.1-rc7</a></h2>
-    <div class="article-style">
-      
-      [PATCH 00/12] Introduce CONFIG_SLUB_TINY and deprecate SLOB (Vlastimil Babka) https://lkml.kernel.org/r/20221121171202.22080-1-vbabka@suse.cz
-Vlastimil has posted a mail[1] for a discussion about SLOB deprecation. As no one has objected at the idea so far, Vlastimil has sent a patchset for that.
-[1] https://lore.kernel.org/all/b35c3f82-f67b-2103-7d82-7a7ba7521439@suse.cz/
-[RFC PATCH v1 0/4] Introduce merge identical pages mechanism (Alexey Romanov) https://lkml.kernel.org/r/20221121190020.66548-1-avromanov@sberdevices.ru
-This RFC patchset introduces a mechanism for merging identical compressed pages, which could be common in zram like use cases.
       
     </div>
   </div>
