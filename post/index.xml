@@ -13,6 +13,31 @@
     </image>
     
     <item>
+      <title>LKML News v6.10</title>
+      <link>https://sjp38.github.io/post/lkml_news_v6.10/</link>
+      <pubDate>Tue, 09 Jul 2024 06:36:14 -0700</pubDate>
+      <guid>https://sjp38.github.io/post/lkml_news_v6.10/</guid>
+      <description>&lt;h2 id=&#34;rfcpatch-04-slab-allow-for-type-introspection-during-allocation-kees-cook&#34;&gt;[RFC][PATCH 0/4] slab: Allow for type introspection during allocation (Kees Cook)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lore.kernel.org/20240708190924.work.846-kees@kernel.org&#34;&gt;https://lore.kernel.org/20240708190924.work.846-kees@kernel.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Kees posted this RFC patch, which allows &lt;code&gt;kmalloc()&lt;/code&gt; be able to know the type
+of the object that it is requested to allocate memory for.  It is done by
+letting &lt;code&gt;kmalloc()&lt;/code&gt; optionally receives the pointer instead of the size.&lt;/p&gt;
+&lt;h2 id=&#34;invitation-linux-mm-alignment-session-on-guest_memfd-mapping-hugepages-and-page-pinning-on-wednesday&#34;&gt;[Invitation] Linux MM Alignment Session on guest_memfd() mapping, hugepages, and page pinning on Wednesday&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lore.kernel.org/197a2f19-c71c-fbde-a62a-213dede1f4fd@google.com&#34;&gt;https://lore.kernel.org/197a2f19-c71c-fbde-a62a-213dede1f4fd@google.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;David invites MM community to another instance of the MM alignment.  It will
+address &lt;code&gt;guest_memfd()&lt;/code&gt; mapping, hugepages, and page pinning and led by Elliot
+Berman and Fuad Tabba.&lt;/p&gt;
+&lt;h2 id=&#34;maintainers-summit-device-passthrough-considered-harmful-dan-williams&#34;&gt;[MAINTAINERS SUMMIT] Device Passthrough Considered Harmful? (Dan Williams)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lore.kernel.org/&#34;&gt;https://lore.kernel.org/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Dan proposes yet another maintainers summit topic.&lt;/p&gt;
+&lt;h2 id=&#34;patch-mmcma-export-total-and-free-number-of-pages-for-cma-areas-frank-van-der-linden&#34;&gt;[PATCH] mm/cma: export total and free number of pages for CMA areas (Frank van der Linden)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lore.kernel.org/20240709163053.2514760-1-fvdl@google.com&#34;&gt;https://lore.kernel.org/20240709163053.2514760-1-fvdl@google.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Frank posted a patch for exporting the total and free number of CMA pages per
+area via new CMA sysfs files, namely &lt;code&gt;total_pages&lt;/code&gt; and &lt;code&gt;available_pages&lt;/code&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>LKML News v6.10-rc7</title>
       <link>https://sjp38.github.io/post/lkml_news_v6.10-rc7/</link>
       <pubDate>Fri, 05 Jul 2024 08:20:44 -0700</pubDate>
@@ -12369,8 +12394,6 @@ programmers doc&lt;/a&gt;).&lt;/p&gt;
 get more information of DAMON.
 The site hosts&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;the &lt;a href=&#34;https://damonitor.github.io/doc/html/next/&#34;&gt;documentation&lt;/a&gt; of
-DAMON that contains contents on &lt;a href=&#34;#source-code&#34;&gt;damon/next&lt;/a&gt; tree,&lt;/li&gt;
 &lt;li&gt;the heatmap format dynamic access pattern of various realistic workloads for
 &lt;a href=&#34;https://damonitor.github.io/test/result/visual/latest/rec.heatmap.0.png.html&#34;&gt;heap&lt;/a&gt;
 area,
@@ -12384,8 +12407,8 @@ area,&lt;/li&gt;
 and chronological working set
 size &lt;a href=&#34;https://damonitor.github.io/test/result/visual/latest/rec.wss_time.png.html&#34;&gt;changes&lt;/a&gt;,
 and&lt;/li&gt;
-&lt;li&gt;the latest performance test
-&lt;a href=&#34;https://damonitor.github.io/test/result/perf/latest/html/index.html&#34;&gt;results&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;daily performance test
+&lt;a href=&#34;https://damonitor.github.io/test/result/perf/index.html&#34;&gt;results&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;evaluation-results&#34;&gt;Evaluation Results&lt;/h2&gt;
 &lt;p&gt;Evaluation of DAMON and DAMON-based system optimizations are

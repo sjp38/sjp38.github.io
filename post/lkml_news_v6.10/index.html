@@ -28,12 +28,13 @@
   
     
   
-  <meta name="description" content="Kernel Development Engineer">
+  <meta name="description" content="[RFC][PATCH 0/4] slab: Allow for type introspection during allocation (Kees Cook) https://lore.kernel.org/20240708190924.work.846-kees@kernel.org
+Kees posted this RFC patch, which allows kmalloc() be able to know the type of the object that it is requested to allocate memory for. It is done by letting kmalloc() optionally receives the pointer instead of the size.
+[Invitation] Linux MM Alignment Session on guest_memfd() mapping, hugepages, and page pinning on Wednesday https://lore.kernel.org/197a2f19-c71c-fbde-a62a-213dede1f4fd@google.com
+David invites MM community to another instance of the MM alignment.">
 
   
-  <link rel="alternate" hreflang="ko" href="https://sjp38.github.io/ko/tags/kernel/">
-  
-  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/tags/kernel/">
+  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/lkml_news_v6.10/">
 
   
 
@@ -133,14 +134,12 @@
 
 
   
-  <link rel="alternate" href="/tags/kernel/index.xml" type="application/rss+xml" title="hacklog">
-  
 
   <link rel="manifest" href="/index.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon-32.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://sjp38.github.io/tags/kernel/">
+  <link rel="canonical" href="https://sjp38.github.io/post/lkml_news_v6.10/">
 
   
   
@@ -152,18 +151,68 @@
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="hacklog">
-  <meta property="og:url" content="https://sjp38.github.io/tags/kernel/">
-  <meta property="og:title" content="kernel | hacklog">
-  <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
+  <meta property="og:url" content="https://sjp38.github.io/post/lkml_news_v6.10/">
+  <meta property="og:title" content="LKML News v6.10 | hacklog">
+  <meta property="og:description" content="[RFC][PATCH 0/4] slab: Allow for type introspection during allocation (Kees Cook) https://lore.kernel.org/20240708190924.work.846-kees@kernel.org
+Kees posted this RFC patch, which allows kmalloc() be able to know the type of the object that it is requested to allocate memory for. It is done by letting kmalloc() optionally receives the pointer instead of the size.
+[Invitation] Linux MM Alignment Session on guest_memfd() mapping, hugepages, and page pinning on Wednesday https://lore.kernel.org/197a2f19-c71c-fbde-a62a-213dede1f4fd@google.com
+David invites MM community to another instance of the MM alignment."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-07-09T06:36:14-07:00">
+    
+      <meta property="article:published_time" content="2024-07-09T06:36:14-07:00">
+    
+    <meta property="article:modified_time" content="2024-07-09T06:36:14-07:00">
   
 
   
 
 
+    
 
+
+
+
+
+
+  
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://sjp38.github.io/post/lkml_news_v6.10/"
+  },
+  "headline": "LKML News v6.10",
+  
+  "datePublished": "2024-07-09T06:36:14-07:00",
+  "dateModified": "2024-07-09T06:36:14-07:00",
+  
+  "author": {
+    "@type": "Person",
+    "name": "SeongJae Park"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "hacklog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://sjp38.github.io/img/icon-512.png"
+    }
+  },
+  "description": "[RFC][PATCH 0/4] slab: Allow for type introspection during allocation (Kees Cook) https://lore.kernel.org/20240708190924.work.846-kees@kernel.org\nKees posted this RFC patch, which allows kmalloc() be able to know the type of the object that it is requested to allocate memory for. It is done by letting kmalloc() optionally receives the pointer instead of the size.\n[Invitation] Linux MM Alignment Session on guest_memfd() mapping, hugepages, and page pinning on Wednesday https://lore.kernel.org/197a2f19-c71c-fbde-a62a-213dede1f4fd@google.com\nDavid invites MM community to another instance of the MM alignment."
+}
+</script>
+
+  
 
   
 
@@ -171,10 +220,13 @@
   
 
 
+  
 
 
 
-  <title>kernel | hacklog</title>
+
+
+  <title>LKML News v6.10 | hacklog</title>
 
 </head>
 
@@ -396,7 +448,7 @@
         
 
         <li class="nav-item">
-          <a class="nav-link  active" href="/tags"><span>Tags</span></a>
+          <a class="nav-link " href="/tags"><span>Tags</span></a>
         </li>
 
         
@@ -466,22 +518,6 @@
       
 
       
-      <li class="nav-item dropdown i18n-dropdown">
-        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true">
-          <i class="fas fa-globe mr-1" aria-hidden="true"></i><span class="d-none d-lg-inline">English</span>
-        </a>
-        <div class="dropdown-menu">
-          <div class="dropdown-item i18n-active font-weight-bold">
-            <span>English</span>
-          </div>
-          
-          <a class="dropdown-item" href="/ko/tags/kernel/">
-            <span>한국어</span>
-          </a>
-          
-        </div>
-      </li>
-      
 
     </ul>
 
@@ -489,183 +525,340 @@
 </nav>
 
 
-  
-
-
-
-
-
-
-
-
-
-
-
+  <article class="article">
 
   
 
+
+
+
+
+
+
+
+
+
+
+
+  
+
   
   
+  
+<div class="article-container pt-3">
+  <h1>LKML News v6.10</h1>
+
+  
+
   
     
-  
-<div class="universal-wrapper pt-3">
-  <h1>kernel</h1>
+
+
+<div class="article-metadata">
 
   
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Tue, Jul 9, 2024
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   
 </div>
 
 
 
-<div class="universal-wrapper">
-  
+  <div class="article-container">
 
-  
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.4/">LKML News v6.4</a></h2>
     <div class="article-style">
-      
-      [PATCH] mm/memory_hotplug.c: don&rsquo;t fail hot unplug quite so eagerly (John Hubbard) https://lkml.kernel.org/r/20230620011719.155379-1-jhubbard@nvidia.com
-Some device drivers add and remove memory to the system via memory hot [un]plog. Nevertheless, the ungplugging could fail easily, especially for the pending signal on the process. This patch simply remove the signal check error.
-[PATCH v2] mm/min_free_kbytes: modify min_free_kbytes calculation rules (liuq) https://lkml.kernel.org/r/20230621073912.21747-1-liuq131@chinatelecom.cn
-This patch adjusts min_free_kbytes calculation so that ZONE_NORMAL is unnecessarily be too small when ZONE_MOVABLE exists.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.4-rc7/">LKML News v6.4-rc7</a></h2>
-    <div class="article-style">
-      
-      [GIT PULL] hotfixes for 6.4-rc7 (Andrew Morton) https://lkml.kernel.org/r/20230612122712.f495e24b80f88f58557ea470@linux-foundation.org
-Andrew sent hot fixes pull request to Linus Torvalds. The one for DAMON is also contained.
-[PATCH stable 5.10 0/1] Fix memleak during hotremove memory (Ma Wupeng) https://lkml.kernel.org/r/20230614061900.3296725-1-mawupeng1@huawei.com
-Ma found a memory leak in memory hotplugging, and providing a patch.
-[ANNOUNCE/CFP] CXL Microconference at LPC 2023 (Davidlohr Bueso) https://lkml.kernel.org/r/a4c2gx2tnm4ckax7qkx2trnvmqjssfytc45sb2zikuayd2marc@rpsjp4icgsvn
-Davidlohr announces CXL microconference has accepted for LPC this year, and inviting people in the call for participation.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.4-rc6/">LKML News v6.4-rc6</a></h2>
-    <div class="article-style">
-      
-      As of 2023-06-06, for some reason https://lore.kernel.org/linux-mm seems stopped being updated since 2023-05-31. On the day of 2023-06-06, the update has resumed.
-[PATCH v3 0/5] riscv: Introduce KASLR (Alexandre Ghiti) https://lkml.kernel.org/r/20230606123242.20804-1-alexghiti@rivosinc.com
-This patchset introduces KASLR, which allows kernel mapping randomization, for riscv.
-Question about oom-killer (Gou Hao) https://lore.kernel.org/linux-mm/A31B3EA06AF77F13+c7278bd0-2695-4cc0-5a56-531a06ac2389@uniontech.com/
-A question about oom-killer behavior that suspected to be a kernel bug.
-[PATCH v3] Documentation/mm: Initial page table documentation (Linus Walleij) https://lkml.kernel.org/r/20230608125501.3960093-1-linus.walleij@linaro.org
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.4-rc5/">LKML News v6.4-rc5</a></h2>
-    <div class="article-style">
-      
-      [PATCH 00/12] mm: free retracted page table by RCU (Hugh Dickins) https://lkml.kernel.org/r/35e983f5-7ed3-b310-d949-9ae8b130cdab@google.com
-This patchset aims to reduce mmap_lock contention by freeing retracted page table by RCU, with preceding and succeeding patchsets. This patchset was in Google data center kernel for three years.
-[PATCH] mm: madvise: fix uneven accounting of psi (Charan Teja Kalla) https://lkml.kernel.org/r/1685531374-6091-1-git-send-email-quic_charante@quicinc.com
-For madvise(MADV_PAGEOUT) is called for folios, PSI for the folio is not always accounted. This patchset makes it be consistent by always not considering PSI for folios that are reclaimed through madvise(MADV_PAGEOUT).
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.4-rc4/">LKML News v6.4-rc4</a></h2>
-    <div class="article-style">
-      
-      [PATCH 0/9] Mitigate a vmap lock contention (Uladzislau Rezki) https://lkml.kernel.org/r/20230522110849.2921-1-urezki@gmail.com
-Uladzislau sent a patchset for vmap lock contention mitigation, as suggested at LSFMM+BPF.
-[PATCH] mm: deduct the number of pages reclaimed by madvise from workingset (Zhaoyang Huang) https://lkml.kernel.org/r/1684919574-28368-1-git-send-email-zhaoyang.huang@unisoc.com
-Pages reclaimed by madvise() with MADV_PAGEOUT hint doesn&rsquo;t handle the workingset, hence leads to large refault distance than it should be. This patch addresses the case by making reclaim_pages() to receive mm_struct and deduct the pages from workingset.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.4-rc3/">LKML News v6.4-rc3</a></h2>
-    <div class="article-style">
-      
-      [PATCH v3 00/11] Introduce cmpxchg128() &ndash; aka. the demise of cmpxchg_double() (Peter Zijlstra) https://lkml.kernel.org/r/20230515075659.118447996@infradead.org
-This patchset introduces an alternative for cmpxchg_double(), namely cmpxchg128(), and replace the old usages of cmpxchg_double(). This is because Linus hates cmpxchg_double()[1].
-[1] https://lore.kernel.org/all/Y2U3WdU61FvYlpUh@hirez.programming.kicks-ass.net/T/#u
-[PATCH 0/6] Memory Mapping (VMA) protection using PKU - set 1 (Jeff Xu) https://lkml.kernel.org/r/20230515130553.2311248-1-jeffxu@chromium.org
-[Invitation] Linux MM Alignment Session on Code Tagging on Wednesday (David Rientjes) https://lkml.kernel.org/r/CAE-26VDomF_pZybGjgCBJZuWusX0z3MTEJmkwtuQXx3PyrN6fw@mail.gmail.com
-Google is hosting Linux MM alignment session.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.4-rc2/">LKML News v6.4-rc2</a></h2>
-    <div class="article-style">
-      
-      [PATCH 0/2] Optimization of CMA allocation and reclaiming (Zhaoyang Huang) https://lkml.kernel.org/r/1683538383-19685-1-git-send-email-zhaoyang.huang@unisoc.com
-This patchset avoids being OOMed when all free pages are composed of CMA.
-[RFC PATCH 0/2] mm: Working Set Reporting (Yuanchu Xie) https://lkml.kernel.org/r/20230509185419.1088297-1-yuanchu@google.com
-This RFC patch adds working set size reporting structure for each node and total, using MGLRU as its core, and extends virtio-balloon for letting the host get the information.
-[PATCH] MAINTAINERS: repair pattern in DIALOG SEMICONDUCTOR DRIVERS (Lukas Bulwahn) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/damon_news/">DAMON News List</a></h2>
-    <div class="article-style">
-      
-      Below is a list of news around DAMON project.
-This list is not exhaustive but just a DAMON maintainer&rsquo;s collection of news. If you find a news that should be added to this list, please let us know at sj@kernel.org and/or damon@lists.linux.dev.
- 2024 2024-07-01: DAMON Quaterly Newsletter for 2024-Q2 has posted.
-2024-06-21: HacKerMaiL (hkml) has announced as a mailing tool for DAMON community that the maintainer is committed to support.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.4-rc1/">LKML News v6.4-rc1</a></h2>
-    <div class="article-style">
-      
-      [PATCH v2 0/2] Reduce lock contention related with large folio (Yin Fengwei) https://lkml.kernel.org/r/20230425084627.3573866-1-fengwei.yin@intel.com
-Ryan found large anonymous folios exposes some lock contention unlike large page cache folios, because anonymous mapping is allocated/freed more frequently. This patchset mitigates the lock contention by avoid acquiring queue lock unnecessarily, and allowing batched large folio list adds to lru list.
-[PATCH v2 0/3] fs: multigrain timestamps (Jeff Layton) https://lkml.kernel.org/r/20230424151104.175456-1-jlayton@kernel.org
-This patchset makes file system to support not single-gran timestamp but multi-gran timestamps.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.3/">LKML News v6.3</a></h2>
-    <div class="article-style">
-      
-      [PATCH 00/33] Split ptdesc from struct page (Vishal Moola) https://lkml.kernel.org/r/20230417205048.15870-1-vishal.moola@gmail.com
-To reduce the struct page overhead, which is about 1.5% of the whole system memory, people are working on to reduce some fileds in struct page. As one of the approach, this patchset prepares for splitting ptdesc from struct page.
-[RFC PATCH v1 0/5] Introduce objects folding mechanism (Alexey Romanov) https://lkml.kernel.org/r/20230418062503.62121-1-avromanov@sberdevices.ru
-This patchset adds a feature which allowing folding identical zsmalloc objects into single one.
-      
-    </div>
-  </div>
-  
+      <h2 id="rfcpatch-04-slab-allow-for-type-introspection-during-allocation-kees-cook">[RFC][PATCH 0/4] slab: Allow for type introspection during allocation (Kees Cook)</h2>
+<p><a href="https://lore.kernel.org/20240708190924.work.846-kees@kernel.org">https://lore.kernel.org/20240708190924.work.846-kees@kernel.org</a></p>
+<p>Kees posted this RFC patch, which allows <code>kmalloc()</code> be able to know the type
+of the object that it is requested to allocate memory for.  It is done by
+letting <code>kmalloc()</code> optionally receives the pointer instead of the size.</p>
+<h2 id="invitation-linux-mm-alignment-session-on-guest_memfd-mapping-hugepages-and-page-pinning-on-wednesday">[Invitation] Linux MM Alignment Session on guest_memfd() mapping, hugepages, and page pinning on Wednesday</h2>
+<p><a href="https://lore.kernel.org/197a2f19-c71c-fbde-a62a-213dede1f4fd@google.com">https://lore.kernel.org/197a2f19-c71c-fbde-a62a-213dede1f4fd@google.com</a></p>
+<p>David invites MM community to another instance of the MM alignment.  It will
+address <code>guest_memfd()</code> mapping, hugepages, and page pinning and led by Elliot
+Berman and Fuad Tabba.</p>
+<h2 id="maintainers-summit-device-passthrough-considered-harmful-dan-williams">[MAINTAINERS SUMMIT] Device Passthrough Considered Harmful? (Dan Williams)</h2>
+<p><a href="https://lore.kernel.org/">https://lore.kernel.org/</a></p>
+<p>Dan proposes yet another maintainers summit topic.</p>
+<h2 id="patch-mmcma-export-total-and-free-number-of-pages-for-cma-areas-frank-van-der-linden">[PATCH] mm/cma: export total and free number of pages for CMA areas (Frank van der Linden)</h2>
+<p><a href="https://lore.kernel.org/20240709163053.2514760-1-fvdl@google.com">https://lore.kernel.org/20240709163053.2514760-1-fvdl@google.com</a></p>
+<p>Frank posted a patch for exporting the total and free number of CMA pages per
+area via new CMA sysfs files, namely <code>total_pages</code> and <code>available_pages</code>.</p>
 
+    </div>
+
+    
+
+
+
+
+
+<div class="article-tags">
   
-<nav>
-  <ul class="pagination justify-content-center">
+  <a class="badge badge-light" href="/tags/linux/">linux</a>
+  
+  <a class="badge badge-light" href="/tags/kernel/">kernel</a>
+  
+  <a class="badge badge-light" href="/tags/lkml/">lkml</a>
+  
+  <a class="badge badge-light" href="/tags/news/">news</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
     
-    <li class="page-item"><a class="page-link" href="/tags/kernel/page/5/">&laquo;</a></li>
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=https://sjp38.github.io/post/lkml_news_v6.10/&amp;text=LKML%20News%20v6.10" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
     
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=https://sjp38.github.io/post/lkml_news_v6.10/&amp;t=LKML%20News%20v6.10" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
     
-    <li class="page-item"><a class="page-link" href="/tags/kernel/page/7/">&raquo;</a></li>
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=LKML%20News%20v6.10&amp;body=https://sjp38.github.io/post/lkml_news_v6.10/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=https://sjp38.github.io/post/lkml_news_v6.10/&amp;title=LKML%20News%20v6.10" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=LKML%20News%20v6.10%20https://sjp38.github.io/post/lkml_news_v6.10/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=https://sjp38.github.io/post/lkml_news_v6.10/&amp;title=LKML%20News%20v6.10" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
     
   </ul>
-</nav>
-
-
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      <img class="portrait mr-3" src="https://s.gravatar.com/avatar/43dc5645c78e68fda997138380dfaaf4?s=200')" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="https://sjp38.github.io/">SeongJae Park</a></h5>
+      <h6 class="card-subtitle">Kernel Development Engineer</h6>
+      <p class="card-text">SeongJae Park is a programmer who loves to analyze and develop systems.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/log/?qt=author&amp;q=seongjae&#43;park" target="_blank" rel="noopener">
+        <i class="fab fa-linux"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/sjp38" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.com/citations?user=jJIiF3AAAAAJ" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  
+  
+  <div class="article-widget content-widget-hr">
+    <h3>Related</h3>
+    <ul>
+      
+      <li><a href="/post/lkml_news_v6.10-rc7/">LKML News v6.10-rc7</a></li>
+      
+      <li><a href="/post/lkml_news_v6.10-rc6/">LKML News v6.10-rc6</a></li>
+      
+      <li><a href="/post/lkml_news_v6.10-rc5/">LKML News v6.10-rc5</a></li>
+      
+      <li><a href="/post/lkml_news_v6.10-rc4/">LKML News v6.10-rc4</a></li>
+      
+      <li><a href="/post/lkml_news_v6.10-rc3/">LKML News v6.10-rc3</a></li>
+      
+    </ul>
+  </div>
+  
+
+
+
+  </div>
+</article>
 
       
 
