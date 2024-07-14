@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-06-12T21:22:55-07:00">
+    <meta property="og:updated_time" content="2024-07-13T13:56:02-07:00">
   
 
   
@@ -525,6 +525,16 @@
   
   
   <div>
+    <h2><a href="/post/damon_heatmap_logo/">Creating DAMON logo using DAMON</a></h2>
+    <div class="article-style">
+      
+      I just made a DAMON logo using DAMON, like below.
+$ git clone https://github.com/sjp38/masim &amp;&amp; cd masim $ cat damon_pixel_2 11111111 11 11 111111 11111111 11 11 11111111 11111111 1111 11111111 11111111 11 11 11111111 11111111 1111 11111111 $ ./pixels_to_access_config.py ./damon_pixel_2 $((100*1024*1024)) 300 damon.cfg $ sudo damo record &quot;./masim ./configs/stairs.cfg&quot; $ sudo damo report heatmap --output damon.png The output is below:
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/ossummit_eu_2024_talk/">I will have a talk at the Open Source Summit Euroe 2024</a></h2>
     <div class="article-style">
       
@@ -611,18 +621,6 @@ Check The Signs No optimization can provide same extent of benefit to every case
       
       DAMON is lightweight. It increases system memory usage by 0.39% and slows target workloads down by 1.16%.
 DAMON is accurate and useful for memory management optimizations. An experimental DAMON-based operation scheme for THP, namely &lsquo;ethp&rsquo;, removes 76.15% of THP memory overheads while preserving 51.25% of THP speedup. Another experimental DAMON-based &lsquo;proactive reclamation&rsquo; implementation, namely &lsquo;prcl&rsquo;, reduces 93.38% of residential sets and 23.63% of system memory footprint while incurring only 1.22% runtime overhead in the best case (parsec3/freqmine).
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/damon_stat_2022/">Summary of DAMON Development in 2022</a></h2>
-    <div class="article-style">
-      
-      A summary of DAMON development in 2022 has posted: https://lore.kernel.org/damon/20221229171209.162356-1-sj@kernel.org/
-2022 was a year of active and healthy DAMON development.
-Seven new DAMON major features were delivered to users. Some of those were featured in articles and academic papers.
-It was possible thanks to the DAMON community. The community has expanded with its own mailing list and an open bi-weekly chat series. 40 people contributed their great code to DAMON via making their 275 commits merged into the mainline.
       
     </div>
   </div>

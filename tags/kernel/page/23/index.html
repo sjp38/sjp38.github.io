@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-07-09T06:36:14-07:00">
+    <meta property="og:updated_time" content="2024-07-13T13:56:02-07:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.5-rc6/">LKML News v5.5-rc6</a></h2>
+    <div class="article-style">
+      
+      OOM killer not nearly agressive enough? https://lkml.kernel.org/r/20200107204412.GA29562@amd
+The author if this mail, Pavel updated his userspace to x86-64 and encountered chromium&rsquo;s memory hogging. He was required to kill the chromium himself, because OOM killer didn&rsquo;t kill it. He asks whether this means OOM killer is not aggressive enough.
+[PATCH 0/4] introduce memory hinting API for external process https://lkml.kernel.org/r/20200110213433.94739-1-minchan@kernel.org
+Minchan has previously posted the patchset introducing the MADV_COLD, MADV_PAGEOUT and external madvise() able code change.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.5-rc5/">LKML News v5.5-rc5</a></h2>
     <div class="article-style">
       
@@ -622,19 +634,6 @@ The memory model element which is depends only on Alpha, smp_read_barrier_depend
       
       Linux 5.4-rc7 https://lkml.kernel.org/r/CAHk-=wivmGEOTha5XkRHgH6VwfiroiN+PFVMNK3B0r-d0eFLPQ@mail.gmail.com
 일곱번째 rc 버전이 릴리즈 되었습니다. 지난 rc6 때도 변경량이 생각보다 많아 토발즈가 고민했는데, 이번주도 토발즈가 원했던 것보단 변경량이 많았다고 하는군요. 다음주에 rc8 을 낼지 5.4 정식 버전을 낼지는 좀 더 고민해 봐야겠다고 합니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.4-rc6/">LKML News v5.4-rc6</a></h2>
-    <div class="article-style">
-      
-      [PATCH V8] mm/debug: Add tests validating architecture page table helpers https://lkml.kernel.org/r/1572240562-23630-1-git-send-email-anshuman.khandual@arm.com
-아키텍쳐별 페이지 테이블 헬퍼 등을 테스트 하는 코드를 추가하는 패치입니다. CONFIG_DEBUG_VM_PGTABLE 컨피규레이션이 켜져 있으면 동작합니다.
-[PATCH RFC v2 00/25] Add KernelMemorySanitizer infrastructure https://lkml.kernel.org/r/20191030142237.249532-1-glider@google.com
-초기화 되지 않은 메모리 영역에 액세스 하는 에러를 찾아주는 KMSAN 을 커널에 추가하는 패치입니다. KCSAN 과 비슷하게 syzkaller 를 통해 돌아가게끔 되어 있군요.
-False positive 문제가 존재할 수는 있는 모양입니다만, 구글 내부에서 syzbot 을 통해 테스트 한 환경에서는 중요한 false positive 는 나오지 않은 모양입니다.
       
     </div>
   </div>
