@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-07-09T06:36:14-07:00">
+    <meta property="og:updated_time" content="2024-07-16T07:04:14-07:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.19-rc2/">LKML News v5.19-rc2</a></h2>
+    <div class="article-style">
+      
+      [PATCH v3 0/6] introduce mirrored memory support for arm64 (Wupeng Ma) https://lkml.kernel.org/r/20220607093805.1354256-1-mawupeng1@huawei.com
+This patchset adds memory mirroring support, which relies on UEFI and used to separate memory into two separate channels, to arm64.
+[PATCH] mm: mempolicy: N:M interleave policy for tiered memory nodes (Johannes Weiner) https://lkml.kernel.org/r/20220607171949.85796-1-hannes@cmpxchg.org
+Current pages NUMA-interleaving policy is 1:1 mapping, 1 for CPU node, 1 for remote note. As more types of tiered memory systems having CPU-less memory nodes are coming, this patchset introduces an N:M interleave policy, which N pages are allocated from the top-tier node while M pages are allocated from low-tier nodes.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.19-rc1/">LKML News v5.19-rc1</a></h2>
     <div class="article-style">
       
@@ -639,18 +651,6 @@ Ken proposes an LSF/MM slot for discussing OOM debugging situation improvement w
 incoming (Andrew Morton) https://lkml.kernel.org/r/20220322143803.04a5e59a07e48284f196a2f9@linux-foundation.org
 Andrew Morton has sent 227 patches to Linus Torvalds, as the first batch of the pull requests for v5.18. It includes DAMON patches including pid hiding and its sysfs interface, and merged.
 [PATCH 0/2] mm: madvise: return exact bytes advised with process_madvise under error (Charan Teja Kalla) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.17/">LKML News v5.17</a></h2>
-    <div class="article-style">
-      
-      mmotm 2022-03-14-22-42 uploaded (Andrew Morton) https://lkml.kernel.org/r/20220315054352.5B187C340E8@smtp.kernel.org
-The -mm tree is updated. It is rebased on 5.17-rc8, added 20 new patches, modified 10 patches, and dropped 2 patches. In total, 475 patches in the queue.
-[LSF/MM TOPIC] Better handling of negative dentries (Mattew Wilcox) https://lkml.kernel.org/r/YjDvRPuxPN0GsxLB@casper.infradead.org
-There could be millions of negative dentries on a system having large memory and no memory pressure, because the number of negative dentries is constrained only by memory size.
       
     </div>
   </div>

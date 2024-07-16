@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-07-09T06:36:14-07:00">
+    <meta property="og:updated_time" content="2024-07-16T07:04:14-07:00">
   
 
   
@@ -525,6 +525,20 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.1-rc1/">LKML News v5.1-rc1</a></h2>
+    <div class="article-style">
+      
+      Linux v5.0 릴리즈 (2019-03-03) 부터 v5.1-rc1 릴리즈 (2019-03-17) 사이의 머지 윈도우 기간 LKML 에 올라온 흥미로운 메일들을 소개합니다.
+CMA allocation failure https://lkml.kernel.org/r/57e0bc63-0be9-498b-8ffc-3b073e01e299@email.android.com
+제게도 GCMA 레이턴시 관련 문의를 보냈던 분인데, LKML 에도 관련 도움을 요청하는 메일을 보냈군요.
+왜 CMA 가 할당에 실패하는지 이유를 묻는 메일인데요, 답은 없습니다.
+[LSF/MM TOPIC] Using XArray to manage the VMA https://lkml.kernel.org/r/7da20892-f92a-68d8-4804-c72c1cb0d090@linux.ibm.com
+MM 의 오랜 숙원 중 하나는 mmap_sem 으로 인한 확장성 문제 해결이죠. 기존의 RB tree 대신 XArray 를 사용하는 것으로 새로운 시도를 시작해 보는건 어떨지 LSFMM 에서 토의해보자는, speculative page fault 의 최근 메인테이너인 Laurent 의 메일입니다.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.0/">LKML News v5.0</a></h2>
     <div class="article-style">
       
@@ -636,20 +650,6 @@ vmalloc 의 성능과 스트레스 테스트를 위한 모듈을 구현한 패�
 ppc64 에서는 guest os page table 을 CMA area 내에 할당하는데, VFIO 를 쓰는 경우 이게 pinning 되어 있다 보니 CMA area 밖으로 migrate 하는데 실패해, guest os page table 할당에 실패하고, 이로 인해 guest 시작조차 불가능하게 되는 문제가 있었습니다.
 이 패치는 compound page 에 대해서도 CMA area 밖으로의 migration 이 가능하게 합니다.
 [RESEND PATCH V3 0/5] arm64/mm: Enable HugeTLB migration https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.20-rc7/">LKML News by v4.20-rc7</a></h2>
-    <div class="article-style">
-      
-      [PATCH -V9 00/21] swap: Swapout/swapin THP in one piece https://lkml.kernel.org/r/20181214062754.13723-1-ying.huang@intel.com
-아직 머지되지 못한 THP swap in 패치셋의 아홉번째 버전입니다.
-[RFC 0/3] reduce THP fault thrashing https://lkml.kernel.org/r/20181211142941.20500-1-vbabka@suse.cz
-THP fault 로 인한 로컬 노드 thrashing 을 해결하기 위한 패치의 RFC 입니다. THP fault 성공률을 낮추는 부작용도 있긴 하군요. 아직 테스트도 안된 첫번째 RFC 이니, 이대로 머지되진 않겠지 싶긴 합니다만 재밌네요.
-Linux 4.20-rc76 https://lkml.kernel.org/r/CAHk-=whv9u9aTEPoCz8h83JJbVK4fmHELJF=GG01ht9=1_MaCQ@mail.gmail.com
-일곱번째 rc 버전의 릴리즈입니다&hellip; 만, 이번엔 릴리즈 메일 제목에 오타가 있었군요.
       
     </div>
   </div>

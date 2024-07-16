@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-07-13T13:56:02-07:00">
+    <meta property="og:updated_time" content="2024-07-16T07:04:14-07:00">
   
 
   
@@ -525,6 +525,20 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.5-rc5/">LKML News v6.5-rc5</a></h2>
+    <div class="article-style">
+      
+      [PATCH] MAINTAINERS: Add maple tree mailing list (Liam R. Howlett) https://lkml.kernel.org/r/20230731175542.1653200-1-Liam.Howlett@oracle.com
+Maple tree has its own development mailing list at infradead.org. This patch adds it on the MAINTAINERS file.
+Maple Tree Work 2023/08 (Laim R. Howlett) https://lkml.kernel.org/r/20230801194820.alch3ot7pvrgig5v@revolver
+Liam shares monthlee update of maple tree work progress and todo for avoid conflict.
+[RFC PATCH 0/2] vmrd: dynamic guest VM memory resizing daemon (Sudarshan Rajagopalan) https://lkml.kernel.org/r/cover.1690836010.git.quic_sudaraja@quicinc.com
+Sudarshan posted an RFC for dynamic guest VM memory resizing based on the guest&rsquo;s memory demand.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.5-rc4/">LKML News v6.5-rc4</a></h2>
     <div class="article-style">
       
@@ -634,18 +648,6 @@ A question about oom-killer behavior that suspected to be a kernel bug.
 This patchset aims to reduce mmap_lock contention by freeing retracted page table by RCU, with preceding and succeeding patchsets. This patchset was in Google data center kernel for three years.
 [PATCH] mm: madvise: fix uneven accounting of psi (Charan Teja Kalla) https://lkml.kernel.org/r/1685531374-6091-1-git-send-email-quic_charante@quicinc.com
 For madvise(MADV_PAGEOUT) is called for folios, PSI for the folio is not always accounted. This patchset makes it be consistent by always not considering PSI for folios that are reclaimed through madvise(MADV_PAGEOUT).
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.4-rc4/">LKML News v6.4-rc4</a></h2>
-    <div class="article-style">
-      
-      [PATCH 0/9] Mitigate a vmap lock contention (Uladzislau Rezki) https://lkml.kernel.org/r/20230522110849.2921-1-urezki@gmail.com
-Uladzislau sent a patchset for vmap lock contention mitigation, as suggested at LSFMM+BPF.
-[PATCH] mm: deduct the number of pages reclaimed by madvise from workingset (Zhaoyang Huang) https://lkml.kernel.org/r/1684919574-28368-1-git-send-email-zhaoyang.huang@unisoc.com
-Pages reclaimed by madvise() with MADV_PAGEOUT hint doesn&rsquo;t handle the workingset, hence leads to large refault distance than it should be. This patch addresses the case by making reclaim_pages() to receive mm_struct and deduct the pages from workingset.
       
     </div>
   </div>

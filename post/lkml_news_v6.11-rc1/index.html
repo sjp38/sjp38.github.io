@@ -28,12 +28,13 @@
   
     
   
-  <meta name="description" content="Kernel Development Engineer">
+  <meta name="description" content="[PATCH 00/17] mm: introduce numa_memblks (Mike Rapoport) https://lore.kernel.org/20240716111346.3676969-1-rppt@kernel.org
+Mike Rapoport posted thi spatchset for moving numa_memblks from x86 to the generic code, as a followup of the discussion for CXL memory windows handling on arm64.
+[RFC PATCHv2] mm: introduce reclaim throttle in MGLRU (Zhaoyang Huang) https://lore.kernel.org/20240716094348.2451312-1-zhaoyang.huang@unisoc.com
+Zhaoyang sent a patch that makes direct reclaim of MGLRU be throttled by judging the number of isolated and inactive folios, to prevent issues similar to classic LRU.">
 
   
-  <link rel="alternate" hreflang="ko" href="https://sjp38.github.io/ko/tags/news/">
-  
-  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/tags/news/">
+  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/lkml_news_v6.11-rc1/">
 
   
 
@@ -133,14 +134,12 @@
 
 
   
-  <link rel="alternate" href="/tags/news/index.xml" type="application/rss+xml" title="hacklog">
-  
 
   <link rel="manifest" href="/index.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon-32.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://sjp38.github.io/tags/news/">
+  <link rel="canonical" href="https://sjp38.github.io/post/lkml_news_v6.11-rc1/">
 
   
   
@@ -152,18 +151,68 @@
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="hacklog">
-  <meta property="og:url" content="https://sjp38.github.io/tags/news/">
-  <meta property="og:title" content="news | hacklog">
-  <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
+  <meta property="og:url" content="https://sjp38.github.io/post/lkml_news_v6.11-rc1/">
+  <meta property="og:title" content="LKML News v6.11-rc1 | hacklog">
+  <meta property="og:description" content="[PATCH 00/17] mm: introduce numa_memblks (Mike Rapoport) https://lore.kernel.org/20240716111346.3676969-1-rppt@kernel.org
+Mike Rapoport posted thi spatchset for moving numa_memblks from x86 to the generic code, as a followup of the discussion for CXL memory windows handling on arm64.
+[RFC PATCHv2] mm: introduce reclaim throttle in MGLRU (Zhaoyang Huang) https://lore.kernel.org/20240716094348.2451312-1-zhaoyang.huang@unisoc.com
+Zhaoyang sent a patch that makes direct reclaim of MGLRU be throttled by judging the number of isolated and inactive folios, to prevent issues similar to classic LRU."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-07-16T07:04:14-07:00">
+    
+      <meta property="article:published_time" content="2024-07-16T07:04:14-07:00">
+    
+    <meta property="article:modified_time" content="2024-07-16T07:04:14-07:00">
   
 
   
 
 
+    
 
+
+
+
+
+
+  
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://sjp38.github.io/post/lkml_news_v6.11-rc1/"
+  },
+  "headline": "LKML News v6.11-rc1",
+  
+  "datePublished": "2024-07-16T07:04:14-07:00",
+  "dateModified": "2024-07-16T07:04:14-07:00",
+  
+  "author": {
+    "@type": "Person",
+    "name": "SeongJae Park"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "hacklog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://sjp38.github.io/img/icon-512.png"
+    }
+  },
+  "description": "[PATCH 00/17] mm: introduce numa_memblks (Mike Rapoport) https://lore.kernel.org/20240716111346.3676969-1-rppt@kernel.org\nMike Rapoport posted thi spatchset for moving numa_memblks from x86 to the generic code, as a followup of the discussion for CXL memory windows handling on arm64.\n[RFC PATCHv2] mm: introduce reclaim throttle in MGLRU (Zhaoyang Huang) https://lore.kernel.org/20240716094348.2451312-1-zhaoyang.huang@unisoc.com\nZhaoyang sent a patch that makes direct reclaim of MGLRU be throttled by judging the number of isolated and inactive folios, to prevent issues similar to classic LRU."
+}
+</script>
+
+  
 
   
 
@@ -171,10 +220,13 @@
   
 
 
+  
 
 
 
-  <title>news | hacklog</title>
+
+
+  <title>LKML News v6.11-rc1 | hacklog</title>
 
 </head>
 
@@ -396,7 +448,7 @@
         
 
         <li class="nav-item">
-          <a class="nav-link  active" href="/tags"><span>Tags</span></a>
+          <a class="nav-link " href="/tags"><span>Tags</span></a>
         </li>
 
         
@@ -466,22 +518,6 @@
       
 
       
-      <li class="nav-item dropdown i18n-dropdown">
-        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true">
-          <i class="fas fa-globe mr-1" aria-hidden="true"></i><span class="d-none d-lg-inline">English</span>
-        </a>
-        <div class="dropdown-menu">
-          <div class="dropdown-item i18n-active font-weight-bold">
-            <span>English</span>
-          </div>
-          
-          <a class="dropdown-item" href="/ko/tags/news/">
-            <span>한국어</span>
-          </a>
-          
-        </div>
-      </li>
-      
 
     </ul>
 
@@ -489,175 +525,333 @@
 </nav>
 
 
-  
-
-
-
-
-
-
-
-
-
-
-
+  <article class="article">
 
   
 
+
+
+
+
+
+
+
+
+
+
+
+  
+
   
   
+  
+<div class="article-container pt-3">
+  <h1>LKML News v6.11-rc1</h1>
+
+  
+
   
     
-  
-<div class="universal-wrapper pt-3">
-  <h1>news</h1>
+
+
+<div class="article-metadata">
 
   
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Tue, Jul 16, 2024
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   
 </div>
 
 
 
-<div class="universal-wrapper">
-  
+  <div class="article-container">
 
-  
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.18-rc4/">Lkml_news_v4.18 Rc4</a></h2>
     <div class="article-style">
-      
-      Linux 4.18-rc4 https://lkml.kernel.org/r/CA+55aFwXGyZ1Yx+Z8a93gpvb596ZRJ5ppiQL_+-k7gjeQLtcsQ@mail.gmail.com
-어느덧 네번째 RC 버전 릴리즈입니다. 지루할 정도로 평범한 릴리즈라는군요. 대부분 드라이버쪽 업데이트이고, bpf, cifs, ext4, 스케쥴러, 그리고 일부 arch 업데이트가 대부분입니다.
-[PATCH v9 00/17] Improve shrink_slab() scalability (old complexity was O(n^2), new is O(n)) https://lkml.kernel.org/r/153112469064.4097.2581798353485457328.stgit@localhost.localdomain
-shrink_slab() 의 compexity 를 O(n^2) 에서 O(n) 으로 낮춰 확장성을 높인 패치의 아홉번째 버전입니다.
-[PATCH 0/2] CMA: remove unsupported gfp mask parameter https://lkml.kernel.org/r/20180709122018eucas1p277147b1e6385d552b5a8930d0a8ba91c~-sqSan6292733527335eucas1p2-@eucas1p2.samsung.com
-cma_alloc() 과 dma_alloc_from_contiguous() 함수는 gfp mask 패러미터를 받지만 실질적으론 __GFP_NORARN 플래그만을 지원하고 있습니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.17/">LKML News after v4.17</a></h2>
-    <div class="article-style">
-      
-      Linux 4.17 https://lkml.kernel.org/r/CA+55aFxhx_tKGm02UySguvbyfB_7oTF31QfgOHCK0YkBvmfV0g@mail.gmail.com
-4.17 버전 리눅스 릴리즈입니다. 지난주에 토발즈가 이야기한 것처럼 별다른 지연 없이 릴리즈 되었군요.
-git object 의 갯수라던지 릴리즈를 위한 스크립트 등이 리눅스 5.x 버전으로의 메이저 버전 업데이트가 될 준비가 되었다고 하지만 토발즈는 딱히 5.x 로 아직은 넘어갈 생각이 없군요. 너무 멀지 않은 미래에 넘어가겠지만, 적어도 지금은 아니라고 합니다.
-항상 그렇듯 이 릴리즈는 4.18을 위한 머지 윈도우의 시작이기도 한데, 토발즈는 두번째 주에 여행을 갈거라 가능하면 첫째주에 중요한 머지를 마무리 했으면 한다고 하네요.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.17-rc7/">LKML News after 4.17-rc7</a></h2>
-    <div class="article-style">
-      
-      Linux 4.17-rc7 https://lkml.kernel.org/r/CA+55aFwUqz9z1Rf4Wwr29W7DeKxQ67qKEW5xty+JPyCY3aNQ=A@mail.gmail.com
-일곱번째 rc 입니다. 지난 몇주보다는 조금 변경사항이 있었지만 그렇다 해도 그렇게 심한 정도는 아니었기에 아마도 이게 마지막 rc 일 거라는군요.
-[PATCH 00/13] Introdue io.latency io controller for cgroups https://lkml.kernel.org/r/20180529211724.4531-1-josef@toxicpanda.com
-Cgroup 에 응답시간 (latency) 기반의 I/O 컨트롤러를 추가하는 패치셋입니다. Cgroup 은 용량 기반의 컨트롤러는 많지만 응답시간 기반의 컨트롤러가 부족하다고 느껴왔는데, 역시 추가되어 가는군요.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.17-rc6/">LKML News after v4.17-rc6</a></h2>
-    <div class="article-style">
-      
-      Linux v4.17-rc6 https://lkml.kernel.org/r/CA+55aFxxYQFL3mwsQcC+__R23ZmO8c3F0SThi6r44TdK0ePNDQ@mail.gmail.com
-여섯번째 release candidate 버전입니다. 이번 릴리즈에도 특기할 만한 일은 없었습니다. 이제 충분히 안정화 되었을 거라고 하는군요.
-[PATCH -mm -V3 00/21] mm, THP, swap: Swapout/swapin THP in one piece https://lkml.kernel.org/r/20180523082625.6897-1-ying.huang@intel.com
-이전에도 이 시리즈로 소개했던, THP 의 swap out 과 swap in 최적화 마지막 단계 패치의 세번째 버전입니다. 마지막 단계 이야기 하니 문득 인피니티워의 오역 논란이 떠오르는군요 ;) 두번째 버전 이후 특정 컨피규레이션에서의 빌드 버그를 수정했고, mmotm/master 브랜치의 5월 18일자 버전으로 rebase 한게 차이점의 전부군요.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.17-rc5/">LKML News after v4.17-rc5</a></h2>
-    <div class="article-style">
-      
-      Linux 4.17-rc5 https://lkml.kernel.org/r/CA+55aFxi-Q6hvdHn+JwYSQ9b3feNGoFM3eeAuKNhpkfxVNAGpA@mail.gmail.com
-4.17을 향한 다섯번째 rc 릴리즈입니다. 이번 릴리즈도 여느 때와 다름없이 평범하군요. 대부분 드라이버 변경들이고, amd gpu 쪽 변경이 있지만 나머지 부분들은 그렇게 많지 않고 대부분 한두줄 짜리 변경들입니다. 이대로라면 이번 4.17 릴리즈는 꽤 무난무난하게 끝나겠군요.
-[PATCH v11 00/26] Speculative page faults https://lkml.kernel.org/r/1526555193-7242-1-git-send-email-ldufour@linux.vnet.ibm.com
-이 블로그에서도 몇차례 소개한, speculative page fault 의 11번째 버전입니다. 지난 LSFMM 에서도 관련해 논의를 한 것 같던데, 아주 긍정적 반응은 아니었던 것 같습니다만, 어쨌든 오랫만에 올라온 새로운 버전의 패치셋이군요.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.17-rc4/">LKML News after v4.17-rc4</a></h2>
-    <div class="article-style">
-      
-      Linux 4.17-rc4 https://lkml.kernel.org/r/CA+55aFyry0qeZvYjU5pf8a6zvb_ALmP-2T9+HZH2DHK93P6rQg@mail.gmail.com
-어느새 네번째 rc 버전입니다. v4.17 을 향한 여정이 절반을 넘어가는군요. 이번 릴리즈도 특이사항 없이 평범합니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.17-rc3/">LKML News after v4.17-rc3</a></h2>
-    <div class="article-style">
-      
-      Linux 4.17-rc3 https://lkml.kernel.org/r/CA+55aFyu=y0SBesB+vx3JZFGcOhP+tuVG7sjfrkfBhXHTe0Skg@mail.gmail.com
-세번째 rc 버전이 나왔습니다. 평소보다 좀 일찍 왔군요. rc2 에 비해 커다란 릴리즈이긴 한데, 그렇다 해도 평범한 릴리즈라고 리누스는 이야기 합니다. 대부분의 변경 사항이 드라이버 쪽 수정이기 때문이라고 하는군요.
-[PATCH v4 00/16] Rearrange struct page https://lkml.kernel.org/r/20180430202247.25220-1-willy@infradead.org
-이 블로그에서도 소개했던, Matthew Wilcox 의 &lsquo;struct page&rsquo; 정리 패치의 네번째 버전입니다. 지난주 LSFMM 에서도 소개한 모양인데, 이 변화의 전/후를 google spread sheet 로 정리한 문서도 여기서 공개했나보군요: https://docs.google.com/spreadsheets/d/1tvCszs_7FXrjei9_mtFiKV6nW1FLnYyvPvW-qNZhdog/edit?usp=sharing
-[PATCH v2 0/4] Interface for higher order contiguous allocations https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.17-rc2/">LKML News after v4.17-rc2</a></h2>
-    <div class="article-style">
-      
-      Linux v4.17-rc2 https://lkml.kernel.org/r/CA+55aFwzkGuq5ASF-vhYj7mEX26V0K+uZCLWi1BLYq+9F1n-Rw@mail.gmail.com
-두번째 rc 버전의 릴리즈입니다. perf 와 테스트 스크립트 쪽에 변경사항이 좀 많긴 하지만 평소와 크게 다르지 않은 추이라는군요.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.17-rc1/">LKML News after v4.17-rc1</a></h2>
-    <div class="article-style">
-      
-      Linux v4.17-rc1 https://lkml.kernel.org/r/CA+55aFx62iBkj+hOmhLksUtvjwTcm_o1dwcyvaNnVpJ-AmvzVQ@mail.gmail.com
-2주간의 머지 윈도우가 지나고, v4.17-rc1 이 릴리즈 되었습니다. 크게 특별할 것 없이 평범한 머지 윈도우였다고 토발즈는 평하는군요. 그리고 이번에 git objects mark 가 4백만을 넘겼습니다. 따라서 다음 커널이 v5.0 이어도 될 것 같은데, 꼭 다음 버전에서 그렇게 할지는 모르겠다는군요. 리눅스 커널에서 버전은 그저 시간이 흘렀음을 의미할 뿐, 큰 변화가 있어서 메이저 버전 넘버가 바뀌는게 아니기 때문이죠. 참고로 v3.0 과 v4.0 은 각각 git objects mark 2백만과 4백만에서 이루어졌군요.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.16/">LKML News after v4.16</a></h2>
-    <div class="article-style">
-      
-      Linux 4.16 https://lkml.kernel.org/r/CA+55aFyxn0bu5jOAJvO_63GHaGMkJ0uA=bVBm2T3HVX9SimZzw@mail.gmail.com
-릴리즈 마지막 주 치고는 네트워킹 쪽에 조금 변경사항이 있었습니다만, 큰 문제가 될 정도는 아니었습니다. 결과, 4.16이 드디어 릴리즈 되었습니다! 동시에 4.17 머지 윈도우가 시작되는군요.
-[PATCH 0/2] Move kfree_rcu out of rcu code and use kfree_bulk https://lkml.kernel.org/r/1522647064-27167-1-git-send-email-rao.shoaib@oracle.com
-kfree_rcu() 대신 kfree_bulk() 라는 새로 만들어진, 더 효율적인 기능을 사용하도록 하는 패치입니다.
-[RFC PATCH 0/1] mm: Support multiple kswapd threads per node https://lkml.kernel.org/r/1522661062-39745-1-git-send-email-buddy.lumpkin@oracle.com
-NUMA 아키텍쳐에서 리눅스 커널은 NUMA 노드당 하나의 kswapd 쓰레드를 띄웁니다.
-      
-    </div>
-  </div>
-  
+      <h2 id="patch-0017-mm-introduce-numa_memblks-mike-rapoport">[PATCH 00/17] mm: introduce numa_memblks (Mike Rapoport)</h2>
+<p><a href="https://lore.kernel.org/20240716111346.3676969-1-rppt@kernel.org">https://lore.kernel.org/20240716111346.3676969-1-rppt@kernel.org</a></p>
+<p>Mike Rapoport posted thi spatchset for moving <code>numa_memblks</code> from x86 to the
+generic code, as a followup of the discussion for CXL memory windows handling
+on arm64.</p>
+<h2 id="rfc-patchv2-mm-introduce-reclaim-throttle-in-mglru-zhaoyang-huang">[RFC PATCHv2] mm: introduce reclaim throttle in MGLRU (Zhaoyang Huang)</h2>
+<p><a href="https://lore.kernel.org/20240716094348.2451312-1-zhaoyang.huang@unisoc.com">https://lore.kernel.org/20240716094348.2451312-1-zhaoyang.huang@unisoc.com</a></p>
+<p>Zhaoyang sent a patch that makes direct reclaim of MGLRU be throttled by
+judging the number of isolated and inactive folios, to prevent issues similar
+to classic LRU.</p>
 
+    </div>
+
+    
+
+
+
+
+
+<div class="article-tags">
   
-<nav>
-  <ul class="pagination justify-content-center">
+  <a class="badge badge-light" href="/tags/linux/">linux</a>
+  
+  <a class="badge badge-light" href="/tags/kernel/">kernel</a>
+  
+  <a class="badge badge-light" href="/tags/lkml/">lkml</a>
+  
+  <a class="badge badge-light" href="/tags/news/">news</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
     
-    <li class="page-item"><a class="page-link" href="/tags/news/page/28/">&laquo;</a></li>
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=https://sjp38.github.io/post/lkml_news_v6.11-rc1/&amp;text=LKML%20News%20v6.11-rc1" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
     
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=https://sjp38.github.io/post/lkml_news_v6.11-rc1/&amp;t=LKML%20News%20v6.11-rc1" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
     
-    <li class="page-item"><a class="page-link" href="/tags/news/page/30/">&raquo;</a></li>
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=LKML%20News%20v6.11-rc1&amp;body=https://sjp38.github.io/post/lkml_news_v6.11-rc1/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=https://sjp38.github.io/post/lkml_news_v6.11-rc1/&amp;title=LKML%20News%20v6.11-rc1" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=LKML%20News%20v6.11-rc1%20https://sjp38.github.io/post/lkml_news_v6.11-rc1/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=https://sjp38.github.io/post/lkml_news_v6.11-rc1/&amp;title=LKML%20News%20v6.11-rc1" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
     
   </ul>
-</nav>
-
-
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      <img class="portrait mr-3" src="https://s.gravatar.com/avatar/43dc5645c78e68fda997138380dfaaf4?s=200')" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="https://sjp38.github.io/">SeongJae Park</a></h5>
+      <h6 class="card-subtitle">Kernel Development Engineer</h6>
+      <p class="card-text">SeongJae Park is a programmer who loves to analyze and develop systems.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/log/?qt=author&amp;q=seongjae&#43;park" target="_blank" rel="noopener">
+        <i class="fab fa-linux"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/sjp38" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.com/citations?user=jJIiF3AAAAAJ" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  
+  
+  <div class="article-widget content-widget-hr">
+    <h3>Related</h3>
+    <ul>
+      
+      <li><a href="/post/lkml_news_v6.10/">LKML News v6.10</a></li>
+      
+      <li><a href="/post/lkml_news_v6.10-rc7/">LKML News v6.10-rc7</a></li>
+      
+      <li><a href="/post/lkml_news_v6.10-rc6/">LKML News v6.10-rc6</a></li>
+      
+      <li><a href="/post/lkml_news_v6.10-rc5/">LKML News v6.10-rc5</a></li>
+      
+      <li><a href="/post/lkml_news_v6.10-rc4/">LKML News v6.10-rc4</a></li>
+      
+    </ul>
+  </div>
+  
+
+
+
+  </div>
+</article>
 
       
 
