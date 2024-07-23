@@ -763,7 +763,12 @@ interested.</p>
 <p>DAMON is implemented in the Linux kernel, so you should install DAMON-enabled
 Linux kernel to use it.  To check if you&rsquo;re already running DAMON-enabled
 kernel, you could:</p>
-<pre><code>$ if grep CONFIG_DAMON /boot/config-$(uname -r); then echo &quot;installed&quot;; fi
+<pre><code>$ if grep -q '^CONFIG_DAMON=y' /boot/config-$(uname -r);
+then
+    echo &quot;installed&quot;
+else
+    echo &quot;not installed&quot;
+fi
 </code></pre>
 <p>You could also find a list of DAMON-enabled Linux kernels from Oracle&rsquo;s
 kconfigs
