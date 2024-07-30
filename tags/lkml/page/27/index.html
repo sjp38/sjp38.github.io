@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-07-16T07:04:14-07:00">
+    <meta property="og:updated_time" content="2024-07-30T06:48:17-07:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v4.20/">LKML News for v4.20</a></h2>
+    <div class="article-style">
+      
+      [PATCH V5 0/3] mm/kvm/vfio/ppc64: Migrate compound pages out of CMA https://lkml.kernel.org/r/20181219034047.16305-1-aneesh.kumar@linux.ibm.com
+ppc64 에서는 guest os page table 을 CMA area 내에 할당하는데, VFIO 를 쓰는 경우 이게 pinning 되어 있다 보니 CMA area 밖으로 migrate 하는데 실패해, guest os page table 할당에 실패하고, 이로 인해 guest 시작조차 불가능하게 되는 문제가 있었습니다.
+이 패치는 compound page 에 대해서도 CMA area 밖으로의 migration 이 가능하게 합니다.
+[RESEND PATCH V3 0/5] arm64/mm: Enable HugeTLB migration https://lkml.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v4.20-rc7/">LKML News by v4.20-rc7</a></h2>
     <div class="article-style">
       
@@ -629,16 +641,6 @@ CPU intensive 한 커널의 일을 여러 work queue 를 이용해 병렬화 시
 일반적이라면 다음 릴리즈가 4.19 정식 릴리즈일텐데, 10월에 컨퍼런스가 많이 있다보니 rc 릴리즈를 한번 더 할 생각이라는군요. 간만에 rc8 을 보겠습니다.
 [PATCH -V6 00/21] swap: Swapout/swapin THP in one piece https://lkml.kernel.org/r/20181010071924.18767-1-ying.huang@intel.com
 THP 를 한방에 swap out / swap in 하는 Huang Ying 의 패치, 여섯번째 버전입니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.19-rc6/">LKML News after v4.19-rc6</a></h2>
-    <div class="article-style">
-      
-      Linux 4.19-rc6 https://lkml.kernel.org/r/20180930150308.GA5010@kroah.com
-이번주도 Greg 에 의해 여섯번째 rc 버전이 릴리즈 되었습니다. 평소 일정대로면 2주일 후 4.19 정식 버전이 릴리즈 될텐데, 아마도 그때까지도 Greg 이 릴리즈 하지 않을까 싶기도 하군요. 전체적으로 특이사항은 없고 Greg 의 시스템에서는 잘 동작하고 있으며 별다른 이슈를 보고받지도 못했다는군요.
       
     </div>
   </div>
