@@ -29,7 +29,9 @@
     
   
   <meta name="description" content="[RFC 0/2] mm: introduce THP deferred setting (Nico Pache) https://lore.kernel.org/20240729222727.64319-1-npache@redhat.com
-Nico found increased memory footprint from THP after their customers switching from RHEL7 to RHEL8. To mitigate the issue, Nico is proposing adding a new THP configuration called deferred. It is same to madvise but allows khugepaged to do the work.">
+Nico found increased memory footprint from THP after their customers switching from RHEL7 to RHEL8. To mitigate the issue, Nico is proposing adding a new THP configuration called deferred. It is same to madvise but allows khugepaged to do the work.
+[PATCH v2 0/4] mm: clarify nofail memory allocation (Barry Song) https://lore.kernel.org/20240731000155.109583-1-21cnbao@gmail.com
+Barry posted the second version of their patchset for __GFP_NOFAIL clarification.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/lkml_news_v6.11-rc2/">
@@ -152,7 +154,9 @@ Nico found increased memory footprint from THP after their customers switching f
   <meta property="og:url" content="https://sjp38.github.io/post/lkml_news_v6.11-rc2/">
   <meta property="og:title" content="LKML News v6.11-rc2 | hacklog">
   <meta property="og:description" content="[RFC 0/2] mm: introduce THP deferred setting (Nico Pache) https://lore.kernel.org/20240729222727.64319-1-npache@redhat.com
-Nico found increased memory footprint from THP after their customers switching from RHEL7 to RHEL8. To mitigate the issue, Nico is proposing adding a new THP configuration called deferred. It is same to madvise but allows khugepaged to do the work."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
+Nico found increased memory footprint from THP after their customers switching from RHEL7 to RHEL8. To mitigate the issue, Nico is proposing adding a new THP configuration called deferred. It is same to madvise but allows khugepaged to do the work.
+[PATCH v2 0/4] mm: clarify nofail memory allocation (Barry Song) https://lore.kernel.org/20240731000155.109583-1-21cnbao@gmail.com
+Barry posted the second version of their patchset for __GFP_NOFAIL clarification."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -204,7 +208,7 @@ Nico found increased memory footprint from THP after their customers switching f
       "url": "https://sjp38.github.io/img/icon-512.png"
     }
   },
-  "description": "[RFC 0/2] mm: introduce THP deferred setting (Nico Pache) https://lore.kernel.org/20240729222727.64319-1-npache@redhat.com\nNico found increased memory footprint from THP after their customers switching from RHEL7 to RHEL8. To mitigate the issue, Nico is proposing adding a new THP configuration called deferred. It is same to madvise but allows khugepaged to do the work."
+  "description": "[RFC 0/2] mm: introduce THP deferred setting (Nico Pache) https://lore.kernel.org/20240729222727.64319-1-npache@redhat.com\nNico found increased memory footprint from THP after their customers switching from RHEL7 to RHEL8. To mitigate the issue, Nico is proposing adding a new THP configuration called deferred. It is same to madvise but allows khugepaged to do the work.\n[PATCH v2 0/4] mm: clarify nofail memory allocation (Barry Song) https://lore.kernel.org/20240731000155.109583-1-21cnbao@gmail.com\nBarry posted the second version of their patchset for __GFP_NOFAIL clarification."
 }
 </script>
 
@@ -616,6 +620,13 @@ Nico found increased memory footprint from THP after their customers switching f
 from RHEL7 to RHEL8.  To mitigate the issue, Nico is proposing adding a new THP
 configuration called <code>deferred</code>.  It is same to <code>madvise</code> but allows
 <code>khugepaged</code> to do the work.</p>
+<h2 id="patch-v2-04-mm-clarify-nofail-memory-allocation-barry-song">[PATCH v2 0/4] mm: clarify nofail memory allocation (Barry Song)</h2>
+<p><a href="https://lore.kernel.org/20240731000155.109583-1-21cnbao@gmail.com">https://lore.kernel.org/20240731000155.109583-1-21cnbao@gmail.com</a></p>
+<p>Barry posted the second version of their patchset for <code>__GFP_NOFAIL</code>
+clarification.  The patchset is now merged in mm tree.</p>
+<h2 id="patch-06-mm-split-underutilized-thps-usama-arif">[PATCH 0/6] mm: split underutilized THPs (Usama Arif)</h2>
+<p><a href="https://lore.kernel.org/20240730125346.1580150-1-usamaarif642@gmail.com">https://lore.kernel.org/20240730125346.1580150-1-usamaarif642@gmail.com</a></p>
+<p>Usama reworks underutilized THPs split work for reducing memory overhead.</p>
 
     </div>
 
