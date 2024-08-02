@@ -574,7 +574,7 @@ Barry posted the second version of their patchset for __GFP_NOFAIL clarification
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -636,7 +636,24 @@ hacky fix.  Dev Jain further share it with the community to get feedback.</p>
 <p>BiscuitOS Brolers proposes Scalable Tiered Memory Control (STMC) mechanism,
 which let the application to do the promotion and demotion of memory.  For
 this, they implement two new <code>madvise()</code> hints for promotion and demotion.</p>
-
+<h2 id="patch-v1-12-libhtree-implementation-of-new-hash-tree-jaejoon-jung">[PATCH v1 1/2] lib/htree: Implementation of new Hash Tree (JaeJoon Jung)</h2>
+<p><a href="https://lore.kernel.org/20240802051635.8179-1-rgbi3307@gmail.com">https://lore.kernel.org/20240802051635.8179-1-rgbi3307@gmail.com</a></p>
+<pre><code>new Hash Tree Features
+-------------------------------------------------------------------------------
+* Very small hash tree structure. [16 Bytes]
+* Dynamic memory allocation and free.
+* Both 32-bit and 64-bit indexes are possible
+* Generate hash keys uniformly based on the index.
+* Hash trees are balanced by hash keys, and have no rotation costs.
+* Standard deviation of hash key is 4 or less.
+* Algorithm O(n) is depth(d) x nodes(c)
+* Finding walks is (d x c), min:4, avg:12, max:20
+* First hash table has smallest, largest index, algorithm O(1).
+* The codes implementing of the algorithm is simple.
+* Adjust hash tree depth according to system memory and index nr.
+* Hash list nodes use include/linux/list.h, hlist as their base.
+-------------------------------------------------------------------------------
+</code></pre>
     </div>
 
     

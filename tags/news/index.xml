@@ -39,7 +39,24 @@ hacky fix.  Dev Jain further share it with the community to get feedback.&lt;/p&
 &lt;p&gt;BiscuitOS Brolers proposes Scalable Tiered Memory Control (STMC) mechanism,
 which let the application to do the promotion and demotion of memory.  For
 this, they implement two new &lt;code&gt;madvise()&lt;/code&gt; hints for promotion and demotion.&lt;/p&gt;
-</description>
+&lt;h2 id=&#34;patch-v1-12-libhtree-implementation-of-new-hash-tree-jaejoon-jung&#34;&gt;[PATCH v1 1/2] lib/htree: Implementation of new Hash Tree (JaeJoon Jung)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lore.kernel.org/20240802051635.8179-1-rgbi3307@gmail.com&#34;&gt;https://lore.kernel.org/20240802051635.8179-1-rgbi3307@gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;new Hash Tree Features
+-------------------------------------------------------------------------------
+* Very small hash tree structure. [16 Bytes]
+* Dynamic memory allocation and free.
+* Both 32-bit and 64-bit indexes are possible
+* Generate hash keys uniformly based on the index.
+* Hash trees are balanced by hash keys, and have no rotation costs.
+* Standard deviation of hash key is 4 or less.
+* Algorithm O(n) is depth(d) x nodes(c)
+* Finding walks is (d x c), min:4, avg:12, max:20
+* First hash table has smallest, largest index, algorithm O(1).
+* The codes implementing of the algorithm is simple.
+* Adjust hash tree depth according to system memory and index nr.
+* Hash list nodes use include/linux/list.h, hlist as their base.
+-------------------------------------------------------------------------------
+&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
     
     <item>
