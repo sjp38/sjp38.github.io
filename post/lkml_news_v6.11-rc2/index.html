@@ -653,7 +653,12 @@ this, they implement two new <code>madvise()</code> hints for promotion and demo
 * Adjust hash tree depth according to system memory and index nr.
 * Hash list nodes use include/linux/list.h, hlist as their base.
 -------------------------------------------------------------------------------
-</code></pre>
+</code></pre><h2 id="patch-hitshield--something-new-eviction-process-for-mglru-minwoo-jo">[PATCH] Hitshield : Something new eviction process for MGLRU (Minwoo Jo)</h2>
+<p><a href="https://lore.kernel.org/20240802000546.322036-1-chminoo@g.cbnu.ac.kr">https://lore.kernel.org/20240802000546.322036-1-chminoo@g.cbnu.ac.kr</a></p>
+<p>This patch introduces a way to improve page space occupancy issue based on the
+finding that the current scheme is not accounting the state of the folio during
+the eviction.</p>
+
     </div>
 
     
