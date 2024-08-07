@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-07-30T06:48:17-07:00">
+    <meta property="og:updated_time" content="2024-08-06T06:36:47-07:00">
   
 
   
@@ -525,6 +525,20 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.10-rc6/">LKML News v5.10-rc6</a></h2>
+    <div class="article-style">
+      
+      [PATCH v2] mm: memcontrol: account pagetables per node (Shakeel Butt) https://lkml.kernel.org/r/20201123161425.341314-1-shakeelb@google.com
+This commit allows user to account memory size used for page tables per node.
+[PATCH 0/2] userspace memory reaping using process_madvise (Suren Baghdasaryan) https://lkml.kernel.org/r/20201124053943.1684874-1-surenb@google.com
+This commit allows user-space driven OOM reaping using process_madvise(MADV_DONTNEED).
+[PATCH -V6 0/3] autonuma: Migrate on fault among multiple bound nodes (Huang Ying) https://lkml.kernel.org/r/20201126053219.234793-1-ying.huang@intel.com
+The 6th version for autonuma migration among multiple bound nodes. In this version, more benchmark data and example is added.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.10-rc5/">Lkml_news_v5</a></h2>
     <div class="article-style">
       
@@ -636,20 +650,6 @@ This patchset optimizes mremap() by allowing memory regions to be able to mapped
 The third version of KFENCE patchset is uploaded.
 Machine lockups on extreme memory pressure (Shakeel Butt) https://lkml.kernel.org/r/CALvZod4FWLsV9byrKQojeus7tMDhHjQHFF5J_JpNsyB0HkaERA@mail.gmail.com
 Shakeel reports a machine lockup due to extreme memory pressure. It&rsquo;s locked up on memcg&rsquo;s vmpressure sr_lock, which is irq-unsafe. And the lockup made in IRQ. He proposes a solution simply changing the lock with irq-safe one, but he also admits it&rsquo;s not a maintainable solution.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.9-rc6/">LKML News v5.9-rc6</a></h2>
-    <div class="article-style">
-      
-      [PATCH v14 0/5] KASAN-KUnit Integration (David Gow) https://lkml.kernel.org/r/20200915035828.570483-1-davidgow@google.com
-The 14th patchset for the KASAN and KUnit integration. From the v13, compile warnings in test_kasan_module fixed.
-[PATCH v2 00/10] KFENCE: A low-overhead sampling-based memory safety error detector (Marco Elver) https://lkml.kernel.org/r/20200915132046.3332537-1-elver@google.com
-The second version of the KFENCE posted.
-[PATCH 1/2] fs: Add a filesystem flag for THPs (Matthew Wilcox) https://lkml.kernel.org/r/20200916032717.22917-1-willy@infradead.org
-This patchset caches whether the backing filesystem support THP or not in an address space flags, so that the page cache can determine if it can send THP to the backing filesystem or not.
       
     </div>
   </div>
