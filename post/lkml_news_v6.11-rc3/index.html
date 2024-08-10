@@ -637,6 +637,12 @@ for live update.</p>
 <p><a href="https://lore.kernel.org/20240808163000.25053-1-sidhartha.kumar@oracle.com">https://lore.kernel.org/20240808163000.25053-1-sidhartha.kumar@oracle.com</a></p>
 <p>Sidarthat sent a patch for adding a callback field to the user space
 implementation of <code>struct kmem_cache</code> for testing low memory scenarios.</p>
+<h2 id="rfcpatch-05-slab-allocate-and-use-per-call-site-caches-kees-cook">[RFC][PATCH 0/5] slab: Allocate and use per-call-site caches (Kees Cook)</h2>
+<p><a href="https://lore.kernel.org/20240809072532.work.266-kees@kernel.org">https://lore.kernel.org/20240809072532.work.266-kees@kernel.org</a></p>
+<p>Kees shares his implementation of a defence against heap-grooming attacks that
+construct malicous objects in the same cache as a target object.  The
+implementation uses the code taggign and memory allocation tagging
+infrastructure to make per-call-site kmalloc.</p>
 
     </div>
 
