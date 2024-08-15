@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-08-06T06:36:47-07:00">
+    <meta property="og:updated_time" content="2024-08-13T06:39:19-07:00">
   
 
   
@@ -525,6 +525,20 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.15-rc5/">LKML News v5.15-rc5</a></h2>
+    <div class="article-style">
+      
+      [PATCH 0/2] Introduce simple pidfd to task helper (Christian Brauner) https://lkml.kernel.org/r/20211004125050.1153693-1-christian.brauner@ubuntu.com
+This patchset adds a pidfd handling wrapper for removing duplications.
+[PATCH 00/62] Separate struct slab from struct page (Matthew Wilcox) https://lkml.kernel.org/r/20211004134650.4031813-1-willy@infradead.org
+This huge patchset separates struct slab from struct page to make struct page simple and therefore easier to handle.
+[PATCH v3 00/66] Introducing the Maple Tree (Liam Howlett) https://lkml.kernel.org/r/20211005012959.1110504-1-Liam.Howlett@oracle.com
+This patchset introduces Maple tree, which is intended to replace the rb tree for vmas, to improve the scalability.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.15-rc4/">LKML News v5.15-rc4</a></h2>
     <div class="article-style">
       
@@ -636,19 +650,6 @@ Seven fixup patches from Andrew Morton.
 This patch optimizes THP split for reclaim or migration by dropping subpages that contain only zeroes.
 Linux 5.14-rc4 (Linus Torvalds) https://lkml.kernel.org/r/CAHk-=whv0g5YqoRXc8oxqJX3r+GP1dN3ia_Qg_V6UTjhi8vg8w@mail.gmail.com
 After one week, entirely normal rc4 is released. 5.14 is not so far now.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.14-rc3/">LKML News v5.14-rc3</a></h2>
-    <div class="article-style">
-      
-      [PATCH 0/7] Free user PTE page table pages (Qi Zheng) https://lkml.kernel.org/r/20210718043034.76431-1-zhengqi.arch@bytedance.com
-This patchset frees user PTE page table pages when all PTE entries are empty, to reduce the memory overhead due to page tables.
-[PATCH v15 00/17] Folio support in block + iomap layers (Matthew Wilcox) https://lkml.kernel.org/r/20210719184001.1750630-1-willy@infradead.org
-Seems memory folios patchset is now merged in -mm tree and -next tree. This patchset further updates iomap to use folios.
-Runtime Memory Validation in Intel-TDX and AMD-SNP (Joerg Roedel) https://lkml.
       
     </div>
   </div>
