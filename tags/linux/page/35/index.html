@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-08-13T06:39:19-07:00">
+    <meta property="og:updated_time" content="2024-08-26T18:49:02-07:00">
   
 
   
@@ -525,6 +525,31 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v4.15-rc4/">LKML News after v4.15-rc4</a></h2>
+    <div class="article-style">
+      
+      Linux 4.15-rc4 https://lkml.kernel.org/r/CA+55aFysmVGm_shBvK4kmaS+_PsMEt3Mz_b+Dm0SDrmVtUofbA@mail.gmail.com
+4.15 의 네번째 rc 버전입니다. 지난 rc 버전들이 생각보다 커서 토발즈가 좀 걱정했는데, 이번 릴리즈에 들어서는 평범한 네번째 rc 만큼이나 변화가 많이 없어 충분히 안정화 되기 시작한 것 같다고 하는군요.
+이번에 가장 눈에 띌만한 변화는 suspend/resume 처리를 정리하고 고친 것이라고 합니다. 크로스 락킹 디버깅 기능은 부팅 시간을 늘리는 문제 등도 있어선지 이번에 일단 제거되었네요. 나중에 다시 되살릴 계획은 있는 것 같습니다.
+[PATCH v2 1/1] Move kfree_call_rcu() to slab_common.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v4.15-rc3/">LKML News after v4.15-rc3</a></h2>
+    <div class="article-style">
+      
+      Linux 4.15-rc3 https://lkml.kernel.org/r/CA+55aFz9O9R8u3ori-QNPz4ALU+0B=Es0gd+oWmsce5qxugxXA@mail.gmail.com
+4.15 의 세번째 rc 버전입니다. 지난주보단 조금 늦게 릴리즈 되었네요.
+일반적으로 rc3 릴리즈는 좀 변경사항이 많지만 이번엔 그중에서도 변경사항이 많은 편이라 걱정된다고 하는군요. 대부분은 드라이버쪽 변경인데 perf 쪽 변경도 꽤 있고 core, networking, kvm, arch, 문서 업데이트도 물론 있습니다. 어쨌든 토발즈는 이제는 정말 안정화가 되어가길 바라는 마음이라는군요.
+[PATCH v2] mm/slab: Do not hash pointers when debugging slab https://lkml.kernel.org/r/1513179267-2509-1-git-send-email-geert+renesas@glider.be
+이번 버전에 들어와 포인터 값을 기반으로 한 예측을 통해 공격이 들어오는 걸 방지하기 위해 &lsquo;%p&rsquo; 가 포인터를 그냥 출력하는게 아니라 hash 한 다음에 출력하도록 바뀌었죠.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v4.15-rc2/">LKML News after v4.15-rc2</a></h2>
     <div class="article-style">
       
@@ -622,30 +647,6 @@ OSSummit 컨퍼런스 회장인 힐튼 프라하 호텔은 프라하 시내의 �
       Immigration ![immigration] (/img/osse_02/14.jpg)
 먼저 공항에서 입국심사를 거쳐야 합니다. 한글 표지판이 많이 있어서 영어에 익숙지 않은 분들도 비교적 쉽게 적응할 수 있겠다 싶었습니다.
 제가 가장 많이 다녀온 외국은 미국인데요. 대한민국 여권 소지자는 미국에 갈 때 비자가 필요없지만 E-SATA 로 등록을 해야 하고, 언젠가부터 E-SATA 등록비도 몇만원 정도 생겼죠. 또, 미국은 입국심사가 왠지 날카롭다는 인상입니다. 입국할 때 입국심사 카드도 써야하고 여기 숙소 주소 등도 적어야 하고, 지문도 찍어야 하죠. 공항 보안검색대에선 투시카메라로 사진도 찍고.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.14-rc7/">LKML News after v4.14-rc7</a></h2>
-    <div class="article-style">
-      
-      Linux 4.14-rc7 https://lkml.kernel.org/r/CA+55aFwhgxivTE3k88nshbrH9nd-4nhmhXGzw-MxRVGxf-R8Eg@mail.gmail.com
-일곱번째 rc 버전의 릴리즈입니다.
-OSSE 와 kernel summit 으로 프라하를 방문했던 토발즈인데, 집에 잘 돌아왔다는군요. 이번 rc 버전은 기존의 rc7 보다도 작은 편에 가깝다고 합니다만, 다음 한주간이 정말 조용하지 않는한은 rc8 릴리즈를 할 생각이라는군요.
-Re: Page allocator bottleneck https://lkml.kernel.org/r/1c218381-067e-7757-ccc2-4e5befd2bfc3@mellanox.com
-멜라녹스의 빠른 네트워크 카드를 사용하는 환경에서는 page allocator 의 속도가 bottleneck 이 된다는 이야기에 대한 업데이트입니다. 여전히 해당 부분이 bottleneck 이며, queued_spin_lock_slowpath() 가 85 % 가까이 CPU 를 차지하고 있군요.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/osse2017_01/">OSSummit 2017 Attendence - 01</a></h2>
-    <div class="article-style">
-      
-      ![pargue!] (/img/osse_01/8.jpg)
-Open Source Summit Europe 과 Embedded Linux Conference Europe, 그리고 Annual Kernel Summit 이 합동으로 열린 프라하에 다녀왔습니다. 이에 대한 기록을 남겨봅니다.
-The Event 리눅스 재단에서는 다양한 컨퍼런스를 개최합니다. 2015년까지는 한국에서도 Korea Linux Forum 이라는 행사를 매년 열었죠. 특히 2015년에는 커널 서밋도 함께해서 특히 특별했던 기억입니다. 이런 이벤트들 중에서도 가장 큰 이벤트는 오픈소스 서밋이 아닐까 싶습니다. 이 이벤트는 기존의 리눅스콘 등 행사들이 합쳐진 행사입니다. 가장 큰 이벤트가 오픈소스 서밋이라면 가장 중요한 행사는 커널 서밋이라 할 수 있지 않을까 싶습니다.
       
     </div>
   </div>

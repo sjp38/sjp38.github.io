@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-08-13T06:39:19-07:00">
+    <meta property="og:updated_time" content="2024-08-26T18:49:02-07:00">
   
 
   
@@ -525,6 +525,30 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.8/">LKML News v5.8</a></h2>
+    <div class="article-style">
+      
+      [PATCH v2 0/7] mm: introduce memfd_secret system call to create &ldquo;secret&rdquo; memory areas (Mike Rapoport) https://lkml.kernel.org/r/20200727162935.31714-1-rppt@kernel.org
+This is the second version of the secretmemfd. In this version, the system call has renamed to &lsquo;memfd_secret&rsquo;.
+[RFC PATCH 0/5] madvise MADV_DOEXEC (Anthony Yznaga) https://lkml.kernel.org/r/1595869887-23307-1-git-send-email-anthony.yznaga@oracle.com
+This patch introduces another madvise hint, MADV_DOEXEC. It preserves an anonymous memory range across exec.
+[RFC PATCH 0/6] decrease unnecessary gap due to pmem kmem alignment (Jia He) https://lkml.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v5.8-rc7/">LKML News v5.8-rc7</a></h2>
+    <div class="article-style">
+      
+      [PATCH 0/6] mm: introduce secretmemfd system call to create &ldquo;secret&rdquo; memory areas (Mike Rapoport) https://lkml.kernel.org/r/20200720092435.17469-1-rppt@kernel.org
+This patchset make another special kind of file for secret memory areas. The file can be opened using secretmemfd(). mmap() of the file creates the secret memory mapping. The mapped pages are marked as not present in the direct map and will have desired protection bits (e..g, uncached).
+[PATCH v7 0/6] workingset protection/detection on the anonymous LRU list (js1304@gmail.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.8-rc6/">LKML News v5.8-rc6</a></h2>
     <div class="article-style">
       
@@ -620,35 +644,6 @@ For further analysis of the mmap_sem overhead from both kernel space and user sp
 The 5th version of the proactive compaction. This patchset make the compaction more proactive to make THP allocation easily success.
 [PATCH -V2] swap: Reduce lock contention on swap cache from swap slots allocation (Huang Ying) https://lkml.kernel.org/r/20200520031502.175659-1-ying.huang@intel.com
 After swap device is fragmented, there&rsquo;s no free swap cluster. Therefore, each swap logic of each CPU will linearly scan each swap cluster to find a free slot.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/damon_github_page/">Opening a Showcase Website for DAMON</a></h2>
-    <div class="article-style">
-      
-      A DAMON showcase website[1] is open. There are
- the official documentation of DAMON[2], the heatmap format dynamic access pattern of various realistic workloads for heap area[3], mmap()-ed area[4], and stack[5] area, the dynamic working set size distribution[6] and chronological working set size changes[7], and the latest performance test results[8].  [1] https://damonitor.github.io
-[2] https://damonitor.github.io/doc/html/latest
-[3] https://damonitor.github.io/test/result/visual/latest/heatmap.0.html
-[4] https://damonitor.github.io/test/result/visual/latest/heatmap.1.html
-[5] https://damonitor.github.io/test/result/visual/latest/heatmap.2.html
-[6] https://damonitor.github.io/test/result/visual/latest/wss_sz.html
-[7] https://damonitor.github.io/test/result/visual/latest/wss_time.html
-[8] https://damonitor.github.io/test/result/perf/latest/html/index.html
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.7-rc6/">LKML News v5.7-rc6</a></h2>
-    <div class="article-style">
-      
-      [PATCH v4 00/36] Large pages in the page cache (Matthew Wilcox) https://lkml.kernel.org/r/20200515131656.12890-1-willy@infradead.org
-This is the fourth version of the patchset for the huge pages in the page cache. Still it fails xfstests.
-Maintainers / Kernel Summit 2020 planning kick-off (Theodore Y. Ts&rsquo;o) https://lkml.kernel.org/r/20200515163956.GA2158595@mit.edu
-Ted annouced that the Maintainers / Kernel Summit will be held in virtual this year, of course due to the COVID19. With this announcement, the CFP for the kernel summit is also opened.
       
     </div>
   </div>

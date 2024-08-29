@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-08-13T06:39:19-07:00">
+    <meta property="og:updated_time" content="2024-08-26T18:49:02-07:00">
   
 
   
@@ -525,6 +525,30 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.7-rc7/">LKML News v5.7-rc7</a></h2>
+    <div class="article-style">
+      
+      [PATCH v5] mm: Proactive compaction (Nitin Gupta) https://lkml.kernel.org/r/20200518181446.25759-1-nigupta@nvidia.com
+The 5th version of the proactive compaction. This patchset make the compaction more proactive to make THP allocation easily success.
+[PATCH -V2] swap: Reduce lock contention on swap cache from swap slots allocation (Huang Ying) https://lkml.kernel.org/r/20200520031502.175659-1-ying.huang@intel.com
+After swap device is fragmented, there&rsquo;s no free swap cluster. Therefore, each swap logic of each CPU will linearly scan each swap cluster to find a free slot.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v5.7-rc6/">LKML News v5.7-rc6</a></h2>
+    <div class="article-style">
+      
+      [PATCH v4 00/36] Large pages in the page cache (Matthew Wilcox) https://lkml.kernel.org/r/20200515131656.12890-1-willy@infradead.org
+This is the fourth version of the patchset for the huge pages in the page cache. Still it fails xfstests.
+Maintainers / Kernel Summit 2020 planning kick-off (Theodore Y. Ts&rsquo;o) https://lkml.kernel.org/r/20200515163956.GA2158595@mit.edu
+Ted annouced that the Maintainers / Kernel Summit will be held in virtual this year, of course due to the COVID19. With this announcement, the CFP for the kernel summit is also opened.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.7-rc5/">LKML News v5.7-rc5</a></h2>
     <div class="article-style">
       
@@ -617,32 +641,6 @@ The world is struggling due to the COVID-19, but kernel development seems quite 
 COVID-19 outbreak has finally delayed the LSF/MM/BPF of this year.
 Linux 5.6-rc6 https://lkml.kernel.org/r/CAHk-=whcVTGVPtvdb9SdCcjLawG6tLvbNWfWB_Y6=QhovFy2rg@mail.gmail.com
 Sixth rc release, Torvalds says things looks quite normal. I&rsquo;m looking forward for 5.6 official release.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.6-rc5/">LKML News v5.6-rc5</a></h2>
-    <div class="article-style">
-      
-      [PATCH v1 00/11] virtio-mem: paravirtualized memory https://lkml.kernel.org/r/20200302134941.315212-1-david@redhat.com
-At KVM Forum 2018, virtio-mem&rsquo;s basic idea has presented and now this patchset introduces it. This provides a flexible, cross-architecture memory hot(un)plug solution.
-[PATCH v7 0/7] introduce memory hinting API for external process https://lkml.kernel.org/r/20200302193630.68771-1-minchan@kernel.org
-Finally, this patchset has accepted by Andrew Morton.
-[PATCH v2] mm: Proactive compaction https://lkml.kernel.org/r/20200302213343.2712-1-nigupta@nvidia.com
-This patchset makes kernel to do compaction proactively instead of THP allocation failures, to minimize the latency spike which comes from the compaction.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.6-rc4/">LKML News v5.6-rc4</a></h2>
-    <div class="article-style">
-      
-      [LSF/MM ATTEND]: page fault and mmap_sem scalabity https://lkml.kernel.org/r/e67a9e90-5a64-b3cc-5014-2fd1e5bf3895@linux.ibm.com
-A short mail from Laurent saying he is interested in attending the discussions about the page fault and mmap_sem scalability issue.
-Linux 5.6-rc4 https://lkml.kernel.org/r/CAHk-=wgD3=ryAapzdpcZumMK2RQWBvWVE70qp_ft_cjdRX9htQ@mail.gmail.com
-Fourthe rc release. 5.6 official release is not so far. Torvalds says this is fairly reasonsable sized release.
       
     </div>
   </div>

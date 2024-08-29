@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-08-13T06:39:19-07:00">
+    <meta property="og:updated_time" content="2024-08-26T18:49:02-07:00">
   
 
   
@@ -525,6 +525,31 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.18-rc1/">LKML News v5.18-rc1</a></h2>
+    <div class="article-style">
+      
+      [LSF/MM TOPIC] Improving OOM debugging (Ken Overstreet) https://lkml.kernel.org/r/20220322005101.actefn6nttzeo2qr@moria.home.lan
+Ken proposes an LSF/MM slot for discussing OOM debugging situation improvement with two ideas from his side.
+incoming (Andrew Morton) https://lkml.kernel.org/r/20220322143803.04a5e59a07e48284f196a2f9@linux-foundation.org
+Andrew Morton has sent 227 patches to Linus Torvalds, as the first batch of the pull requests for v5.18. It includes DAMON patches including pid hiding and its sysfs interface, and merged.
+[PATCH 0/2] mm: madvise: return exact bytes advised with process_madvise under error (Charan Teja Kalla) https://lkml.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v5.17/">LKML News v5.17</a></h2>
+    <div class="article-style">
+      
+      mmotm 2022-03-14-22-42 uploaded (Andrew Morton) https://lkml.kernel.org/r/20220315054352.5B187C340E8@smtp.kernel.org
+The -mm tree is updated. It is rebased on 5.17-rc8, added 20 new patches, modified 10 patches, and dropped 2 patches. In total, 475 patches in the queue.
+[LSF/MM TOPIC] Better handling of negative dentries (Mattew Wilcox) https://lkml.kernel.org/r/YjDvRPuxPN0GsxLB@casper.infradead.org
+There could be millions of negative dentries on a system having large memory and no memory pressure, because the number of negative dentries is constrained only by memory size.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.17-rc8/">LKML News v5.17-rc8</a></h2>
     <div class="article-style">
       
@@ -620,29 +645,6 @@ This patchset enables MEMCG for PREEMPT_RT instead of disabling it.
 This patchset fixes the usable memory range behavior when both DT and EFI are given.
 [PATCHv2 0/7] Implement support for unaccepted memory (Kirill A. Shutemov) https://lkml.kernel.org/r/20220111113314.27173-1-kirill.shutemov@linux.intel.com
 UEFI spec 2.9 introduces a concept of memory acceptance. It requires virtual machine platforms such as Intel TDX or AMD SEV-SNP to accept memory before use it. This patchset makes Linux kernel to support it, and therefore be able to reduce VM booting time by optimizing the acceptance.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.16/">LKML News v5.16</a></h2>
-    <div class="article-style">
-      
-      [PATCH v4 00/32] Separate struct slab from struct page (Vlastimil Babka) https://lkml.kernel.org/r/20220104001046.12263-1-vbabka@suse.cz
-The work for seperating struct slab from struct page for making the struct page simpler is updated to fourth version. As the patchset was in -next tree for a while, Vlastimil would sent a pull request of this to Linus.
-[PATCH 0000/2297] [ANNOUNCE, RFC] &ldquo;Fast Kernel Headers&rdquo; Tree -v1: Eliminate the Linux kernel&rsquo;s &ldquo;Dependency Hell&rdquo; (Ingo Molnar) https://lkml.kernel.org/r/YdIfz+LMewetSaEB@gmail.com
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.16-rc8/">LKML News v5.16-rc8</a></h2>
-    <div class="article-style">
-      
-      [RFC v2] mm: introduce page pin owner (Minchan Kim) https://lkml.kernel.org/r/20211228175904.3739751-1-minchan@kernel.org
-Second version of the RFC for page pinning owner feature, which can be useful for tracking down who pins which page and therefore why contiguous pages allocation or migration fails.
-mmotm 2021-12-29-20-07 uploaded (Andrew Morton) https://lkml.kernel.org/r/20211230040740.SbquJAFf5%akpm@linux-foundation.org
-MM of the moment has updated. It&rsquo;s rebased on v5.16-rc7, adds 32 new patches to the queue, drops 11 patches from the queue, and modifies 100 existing patches.
       
     </div>
   </div>

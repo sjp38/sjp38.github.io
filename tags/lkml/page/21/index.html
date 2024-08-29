@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-08-13T06:39:19-07:00">
+    <meta property="og:updated_time" content="2024-08-26T18:49:02-07:00">
   
 
   
@@ -525,6 +525,30 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.7-rc6/">LKML News v5.7-rc6</a></h2>
+    <div class="article-style">
+      
+      [PATCH v4 00/36] Large pages in the page cache (Matthew Wilcox) https://lkml.kernel.org/r/20200515131656.12890-1-willy@infradead.org
+This is the fourth version of the patchset for the huge pages in the page cache. Still it fails xfstests.
+Maintainers / Kernel Summit 2020 planning kick-off (Theodore Y. Ts&rsquo;o) https://lkml.kernel.org/r/20200515163956.GA2158595@mit.edu
+Ted annouced that the Maintainers / Kernel Summit will be held in virtual this year, of course due to the COVID19. With this announcement, the CFP for the kernel summit is also opened.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v5.7-rc5/">LKML News v5.7-rc5</a></h2>
+    <div class="article-style">
+      
+      [RFC 00/43] PKRAM: Preserved-over-Kexec RAM (Anthony Yznaga) https://lkml.kernel.org/r/1588812129-8596-1-git-send-email-anthony.yznaga@oracle.com
+This patchset introduces special memory called PKRAM. It can be used to preserve VM guest memory across kexec boot for fast restart (VMM Fast Restart). Compared to DRAM based PMEM simulation, PKRAM is more flexible as the memory size is not need to be previously fixed.
+[PATCH] mm: Replace zero-length array with flexible-array (Gustavo A. R. Silva) https://lkml.kernel.org/r/20200507185942.GA15193@embeddedor
+The zero-length array of C90 are widely used in the kernel code base, but the flexible array member of C99 would be better choice.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.7-rc4/">LKML News v5.7-rc4</a></h2>
     <div class="article-style">
       
@@ -619,31 +643,6 @@ At KVM Forum 2018, virtio-mem&rsquo;s basic idea has presented and now this patc
 Finally, this patchset has accepted by Andrew Morton.
 [PATCH v2] mm: Proactive compaction https://lkml.kernel.org/r/20200302213343.2712-1-nigupta@nvidia.com
 This patchset makes kernel to do compaction proactively instead of THP allocation failures, to minimize the latency spike which comes from the compaction.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.6-rc4/">LKML News v5.6-rc4</a></h2>
-    <div class="article-style">
-      
-      [LSF/MM ATTEND]: page fault and mmap_sem scalabity https://lkml.kernel.org/r/e67a9e90-5a64-b3cc-5014-2fd1e5bf3895@linux.ibm.com
-A short mail from Laurent saying he is interested in attending the discussions about the page fault and mmap_sem scalability issue.
-Linux 5.6-rc4 https://lkml.kernel.org/r/CAHk-=wgD3=ryAapzdpcZumMK2RQWBvWVE70qp_ft_cjdRX9htQ@mail.gmail.com
-Fourthe rc release. 5.6 official release is not so far. Torvalds says this is fairly reasonsable sized release.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.6-rc3/">LKML News v5.6-rc3</a></h2>
-    <div class="article-style">
-      
-      [PATCH 0/2] slabinfo: parse all NUMA attributes https://lkml.kernel.org/r/20200217084828.9092-1-tobin@kernel.org
-The author of this patchset found some information regarding NUMA is missed in slabinfo. This patchset adds the info.
-[PATCH v6 0/7] introduce memory hinting API for external process https://lkml.kernel.org/r/20200219014433.88424-1-minchan@kernel.org
-Sixth version of the patchset for new system call, &lsquo;madvise_process()'. Changes are not so big. Support null task argument and requestor&rsquo;s mm for &lsquo;io_madvise()'.
-[PATCH] mm: Stop kswapd early when nothing&rsquo;s waiting for it to free pages https://lkml.
       
     </div>
   </div>

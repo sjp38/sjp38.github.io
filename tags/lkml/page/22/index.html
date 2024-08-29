@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-08-13T06:39:19-07:00">
+    <meta property="og:updated_time" content="2024-08-26T18:49:02-07:00">
   
 
   
@@ -525,6 +525,31 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.6-rc4/">LKML News v5.6-rc4</a></h2>
+    <div class="article-style">
+      
+      [LSF/MM ATTEND]: page fault and mmap_sem scalabity https://lkml.kernel.org/r/e67a9e90-5a64-b3cc-5014-2fd1e5bf3895@linux.ibm.com
+A short mail from Laurent saying he is interested in attending the discussions about the page fault and mmap_sem scalability issue.
+Linux 5.6-rc4 https://lkml.kernel.org/r/CAHk-=wgD3=ryAapzdpcZumMK2RQWBvWVE70qp_ft_cjdRX9htQ@mail.gmail.com
+Fourthe rc release. 5.6 official release is not so far. Torvalds says this is fairly reasonsable sized release.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v5.6-rc3/">LKML News v5.6-rc3</a></h2>
+    <div class="article-style">
+      
+      [PATCH 0/2] slabinfo: parse all NUMA attributes https://lkml.kernel.org/r/20200217084828.9092-1-tobin@kernel.org
+The author of this patchset found some information regarding NUMA is missed in slabinfo. This patchset adds the info.
+[PATCH v6 0/7] introduce memory hinting API for external process https://lkml.kernel.org/r/20200219014433.88424-1-minchan@kernel.org
+Sixth version of the patchset for new system call, &lsquo;madvise_process()'. Changes are not so big. Support null task argument and requestor&rsquo;s mm for &lsquo;io_madvise()'.
+[PATCH] mm: Stop kswapd early when nothing&rsquo;s waiting for it to free pages https://lkml.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.6-rc2/">LKML News v5.6-rc2</a></h2>
     <div class="article-style">
       
@@ -617,28 +642,6 @@ Due to the holidays, last week was unsurprisingly quiet. Torvalds says it was ha
 The author reports a CMA allocation failure that occurs time to time if the system is using Intel VT-d.
 [PATCHv2 0/3] Allow ZRAM to use any zpool-compatible backend https://lkml.kernel.org/r/20191219151928.ad4ccf732b64b7f8a26116db@gmail.com
 ZRAM is an in-memory block device that compresses the content. Currently, ZRAM is used only with zsmalloc. However, the zsmalloc is not an optimal selection in some environment.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.5-rc2/">LKML News v5.5-rc2</a></h2>
-    <div class="article-style">
-      
-      [PATCHSET 0/5] Support for RWF_UNCACHED https://lkml.kernel.org/r/20191210162454.8608-1-axboe@kernel.dk
-As the buffered IO uses the page cache, an intensive buffered IO workload using very huge file can cause memory pressure by inflating the page cache. Changing the workload to do direct IO can solve this problem, but the modification is not so simple. Jens Axboe thus implemented RWF_UNCACHED flag, which skips use of the page cache if the given IO target is not in the page cache already.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.5-rc1/">LKML News v5.5-rc1</a></h2>
-    <div class="article-style">
-      
-      Splitting the mmap_sem https://lkml.kernel.org/r/20191203222147.GV20752@bombadil.infradead.org
-The mmap_sem is a big scalability bottleneck and there are several projects for solving it. In this mail, Matthew Wilcox suggests his plan for his solution and asks whether a exceptional case in his solution is acceptable to other people.
-Linux 5.5-rc1 https://lkml.kernel.org/r/CAHk-=wiEJK=yo9vEhX_4b4ROvCqUA_rjK7g996h-5MbfOMeDrw@mail.gmail.com
-Linux 5.5 merge window closed and the -rc1 has released. It was a tiny bit larger release compared to recent several releases, but fairly regular overall.
       
     </div>
   </div>
