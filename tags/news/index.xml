@@ -20,6 +20,11 @@
       <description>&lt;h2 id=&#34;rfc-patch--next-03-fs-introduce-the-scope-based-resource-management-for-folio_lockunlock-li-zetao&#34;&gt;[RFC PATCH -next 0/3] fs: Introduce the scope-based resource management for folio_lock/unlock (Li Zetao)&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://lore.kernel.org/20240826071036.2445717-1-lizetao1@huawei.com&#34;&gt;https://lore.kernel.org/20240826071036.2445717-1-lizetao1@huawei.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Li proposes scope-based resource management for folio locking.&lt;/p&gt;
+&lt;h2 id=&#34;patch-bcachefs-switch-to-memalloc_flags_do-for-vmalloc-allocations-kent-overstreet&#34;&gt;[PATCH] bcachefs: Switch to memalloc_flags_do() for vmalloc allocations (Kent Overstreet)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lore.kernel.org/20240828140638.3204253-1-kent.overstreet@linux.dev&#34;&gt;https://lore.kernel.org/20240828140638.3204253-1-kent.overstreet@linux.dev&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Kent tries to fix a potential deadlock from gfp usage of &lt;code&gt;vmalloc()&lt;/code&gt;.  However
+the similar approach was NAK-ed by MM people before.  The previous approach was
+merged anyway by bcachefs.  So another discussion is started.&lt;/p&gt;
 </description>
     </item>
     

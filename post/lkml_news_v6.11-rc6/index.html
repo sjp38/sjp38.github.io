@@ -29,7 +29,9 @@
     
   
   <meta name="description" content="[RFC PATCH -next 0/3] fs: Introduce the scope-based resource management for folio_lock/unlock (Li Zetao) https://lore.kernel.org/20240826071036.2445717-1-lizetao1@huawei.com
-Li proposes scope-based resource management for folio locking.">
+Li proposes scope-based resource management for folio locking.
+[PATCH] bcachefs: Switch to memalloc_flags_do() for vmalloc allocations (Kent Overstreet) https://lore.kernel.org/20240828140638.3204253-1-kent.overstreet@linux.dev
+Kent tries to fix a potential deadlock from gfp usage of vmalloc(). However the similar approach was NAK-ed by MM people before. The previous approach was merged anyway by bcachefs. So another discussion is started.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/lkml_news_v6.11-rc6/">
@@ -152,7 +154,9 @@ Li proposes scope-based resource management for folio locking.">
   <meta property="og:url" content="https://sjp38.github.io/post/lkml_news_v6.11-rc6/">
   <meta property="og:title" content="LKML News v6.11-rc6 | hacklog">
   <meta property="og:description" content="[RFC PATCH -next 0/3] fs: Introduce the scope-based resource management for folio_lock/unlock (Li Zetao) https://lore.kernel.org/20240826071036.2445717-1-lizetao1@huawei.com
-Li proposes scope-based resource management for folio locking."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
+Li proposes scope-based resource management for folio locking.
+[PATCH] bcachefs: Switch to memalloc_flags_do() for vmalloc allocations (Kent Overstreet) https://lore.kernel.org/20240828140638.3204253-1-kent.overstreet@linux.dev
+Kent tries to fix a potential deadlock from gfp usage of vmalloc(). However the similar approach was NAK-ed by MM people before. The previous approach was merged anyway by bcachefs. So another discussion is started."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -204,7 +208,7 @@ Li proposes scope-based resource management for folio locking."><meta property="
       "url": "https://sjp38.github.io/img/icon-512.png"
     }
   },
-  "description": "[RFC PATCH -next 0/3] fs: Introduce the scope-based resource management for folio_lock/unlock (Li Zetao) https://lore.kernel.org/20240826071036.2445717-1-lizetao1@huawei.com\nLi proposes scope-based resource management for folio locking."
+  "description": "[RFC PATCH -next 0/3] fs: Introduce the scope-based resource management for folio_lock/unlock (Li Zetao) https://lore.kernel.org/20240826071036.2445717-1-lizetao1@huawei.com\nLi proposes scope-based resource management for folio locking.\n[PATCH] bcachefs: Switch to memalloc_flags_do() for vmalloc allocations (Kent Overstreet) https://lore.kernel.org/20240828140638.3204253-1-kent.overstreet@linux.dev\nKent tries to fix a potential deadlock from gfp usage of vmalloc(). However the similar approach was NAK-ed by MM people before. The previous approach was merged anyway by bcachefs. So another discussion is started."
 }
 </script>
 
@@ -613,6 +617,11 @@ Li proposes scope-based resource management for folio locking."><meta property="
       <h2 id="rfc-patch--next-03-fs-introduce-the-scope-based-resource-management-for-folio_lockunlock-li-zetao">[RFC PATCH -next 0/3] fs: Introduce the scope-based resource management for folio_lock/unlock (Li Zetao)</h2>
 <p><a href="https://lore.kernel.org/20240826071036.2445717-1-lizetao1@huawei.com">https://lore.kernel.org/20240826071036.2445717-1-lizetao1@huawei.com</a></p>
 <p>Li proposes scope-based resource management for folio locking.</p>
+<h2 id="patch-bcachefs-switch-to-memalloc_flags_do-for-vmalloc-allocations-kent-overstreet">[PATCH] bcachefs: Switch to memalloc_flags_do() for vmalloc allocations (Kent Overstreet)</h2>
+<p><a href="https://lore.kernel.org/20240828140638.3204253-1-kent.overstreet@linux.dev">https://lore.kernel.org/20240828140638.3204253-1-kent.overstreet@linux.dev</a></p>
+<p>Kent tries to fix a potential deadlock from gfp usage of <code>vmalloc()</code>.  However
+the similar approach was NAK-ed by MM people before.  The previous approach was
+merged anyway by bcachefs.  So another discussion is started.</p>
 
     </div>
 

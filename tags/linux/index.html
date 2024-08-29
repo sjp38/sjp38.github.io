@@ -530,6 +530,8 @@
       
       [RFC PATCH -next 0/3] fs: Introduce the scope-based resource management for folio_lock/unlock (Li Zetao) https://lore.kernel.org/20240826071036.2445717-1-lizetao1@huawei.com
 Li proposes scope-based resource management for folio locking.
+[PATCH] bcachefs: Switch to memalloc_flags_do() for vmalloc allocations (Kent Overstreet) https://lore.kernel.org/20240828140638.3204253-1-kent.overstreet@linux.dev
+Kent tries to fix a potential deadlock from gfp usage of vmalloc(). However the similar approach was NAK-ed by MM people before. The previous approach was merged anyway by bcachefs. So another discussion is started.
       
     </div>
   </div>
