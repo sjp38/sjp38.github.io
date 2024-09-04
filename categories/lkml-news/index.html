@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-08-26T18:49:02-07:00">
+    <meta property="og:updated_time" content="2024-09-04T06:10:40-07:00">
   
 
   
@@ -525,6 +525,19 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.11-rc7/">LKML News v6.11-rc7</a></h2>
+    <div class="article-style">
+      
+      [PATCH 00/15] timers: Cleanup delay/sleep related mess (Anna-Maria Behnsen) https://lore.kernel.org/20240904-devel-anna-maria-b4-timers-flseep-v1-0-e98760256370@linutronix.de
+A discussion started from a question about acpi_os_sleep() concluded the documentation is outdated, and same for some code for the same reason. This patchset tries to update the documents and code.
+[PATCH 0/2 v2] remove PF_MEMALLOC_NORECLAIM (Michal Hocko) https://lore.kernel.org/20240902095203.1559361-1-mhocko@kernel.org
+Michal sent the second revision of PF_MEMALLOC_NORECLAIM removal patchset with Reviewed-by: tags in a more formal version.
+[GIT PULL] hotfixes for 6.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.11-rc6/">LKML News v6.11-rc6</a></h2>
     <div class="article-style">
       
@@ -632,20 +645,6 @@ Since CONFIG_MEMCG_KMEM was default-enabled and equivalent to CONFIG_MEMCG for a
       
       [PATCH] memcg: Add a new sysctl parameter for automatically setting memory.high (Waiman Long) https://lore.kernel.org/20240623204514.1032662-1-longman@redhat.com
 While memcg v1 has only single file for memory limit setting, namely memory.limit_in_bytes, memcg v2 has two files, memory.max and memory.high for the purpose. Users migrating from memcg v1 to memcg v2 usually sets only memory.max, and hence get problems sometimes. This patch add a new knob, memory_high_autoset_ratio, which allows setting memory.high as a ratio of memory.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.10-rc5/">LKML News v6.10-rc5</a></h2>
-    <div class="article-style">
-      
-      [GIT PULL] hotfixes for 6.10-rc5 (Andrew Morton) https://lore.kernel.org/20240617114712.45d4743f8bacb832dea4b5a9@linux-foundation.org
-Andrew posted hotfixes pull request to Linus Torvalds.
-[PATCH] Add accumulated call counter for memory allocation profiling (David Wang) https://lore.kernel.org/20240617153250.9079-1-00107082@163.com
-David sent a patch for adding accumulated call counter for memory allocation profiling. He argues this could help performance behaviors analysis.
-[RFC PATCH v1 0/5] Alternative mTHP swap allocator improvements (Ryan Roberts) https://lore.kernel.org/20240618232648.4090299-1-ryan.roberts@arm.com
-Ryan posted this proof-of-concept patchset for achieving 0% fallback at mTHP swap.
       
     </div>
   </div>

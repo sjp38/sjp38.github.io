@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Development Engineer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-08-26T18:49:02-07:00">
+    <meta property="og:updated_time" content="2024-09-04T06:10:40-07:00">
   
 
   
@@ -525,6 +525,15 @@
   
   
   <div>
+    <h2><a href="/post/kunit_intro/">Unit test for the Linux kernel using Kunit</a></h2>
+    <div class="article-style">
+      
+      Update (2020-01-01): KUnit has merged in v5.5 merge window. From the writing of this post, it had some changes, so below content, especially the test setup and running will not work. Recommend you to refer to the official document in the kernel for detailed tutorial. It also has a python version dependency now, so you would encounter a problem with Ubuntu 16.04. Recommend you to use later Python or Ubuntu 18.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.1-rc2/">LKML News v5.1-rc2</a></h2>
     <div class="article-style">
       
@@ -639,18 +648,6 @@ SPF 패치에서 발견된 버그 레포트입니다. ARM 위에서 데드락 �
 &lsquo;ret2dir&rsquo; 보안 공격[1]에 대비하기 위한 패치입니다. 하지만 이로 인해 tlb 를 좀 많이 flush 해야 하는 문제가 있었고, 이 패치셋은 그에 대한 해결책도 의논하고 있습니다.
 [1] http://www.cs.columbia.edu/~vpk/papers/ret2dir.sec14.pdf
 [PATCH 0/4] Allow persistent memory to be used like normal RAM https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.0-rc1/">LKML News v5.0-rc1</a></h2>
-    <div class="article-style">
-      
-      [RFC v3 0/3] test driver to analyse vmalloc allocator https://lkml.kernel.org/r/20190102085924.14145-1-urezki@gmail.com
-vmalloc 의 성능과 스트레스 테스트를 위한 모듈을 구현한 패치입니다. Selftests 에도 테스트 스크립트를 추가했군요.
-[RFC PATCH 0/1] mm: add a warning about high order allocations https://lkml.kernel.org/r/20181225153927.2873-1-khorenko@virtuozzo.com
-특정 노드의 메모리에 접근이 많이 되고 있는 상황에서 해당 메모리가 fragment 되어 있고 이 시점에서 high order allocation 이 요청되면 이걸 위해 compaction 등이 작동하니까 다른 태스크의 latency 가 떨어질 수 있습니다. 이런 상황을 모니터링 할 수 있게끔, 이 패치는 vm.
       
     </div>
   </div>
