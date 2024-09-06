@@ -30,9 +30,9 @@
   
   <meta name="description" content="[RFC PATCH -next 0/3] fs: Introduce the scope-based resource management for folio_lock/unlock (Li Zetao) https://lore.kernel.org/20240826071036.2445717-1-lizetao1@huawei.com
 Li proposes scope-based resource management for folio locking.
-[PATCH] bcachefs: Switch to memalloc_flags_do() for vmalloc allocations (Kent Overstreet) https://lore.kernel.org/20240828140638.3204253-1-kent.overstreet@linux.dev
-Kent tries to fix a potential deadlock from gfp usage of vmalloc(). However the similar approach was NAK-ed by MM people before. The previous approach was merged anyway by bcachefs. So another discussion is started.
-[PATCH v5 0/6] mm: split underused THPs (Usama Arif) https://lore.">
+[PATCH 0/2] get rid of PF_MEMALLOC_NORECLAIM (Michal Hocko) https://lore.kernel.org/20240826085347.1152675-1-mhocko@kernel.org
+Michal argues PF_MEMALLOC_NORECLAIM has merged even though MM people pushed it back, and attempts to get rid of it by updating its users to use explicit GFP_NOWAIT allocation context.
+[PATCH] bcachefs: Switch to memalloc_flags_do() for vmalloc allocations (Kent Overstreet) https://lore.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/lkml_news_v6.11-rc6/">
@@ -156,9 +156,9 @@ Kent tries to fix a potential deadlock from gfp usage of vmalloc(). However the 
   <meta property="og:title" content="LKML News v6.11-rc6 | hacklog">
   <meta property="og:description" content="[RFC PATCH -next 0/3] fs: Introduce the scope-based resource management for folio_lock/unlock (Li Zetao) https://lore.kernel.org/20240826071036.2445717-1-lizetao1@huawei.com
 Li proposes scope-based resource management for folio locking.
-[PATCH] bcachefs: Switch to memalloc_flags_do() for vmalloc allocations (Kent Overstreet) https://lore.kernel.org/20240828140638.3204253-1-kent.overstreet@linux.dev
-Kent tries to fix a potential deadlock from gfp usage of vmalloc(). However the similar approach was NAK-ed by MM people before. The previous approach was merged anyway by bcachefs. So another discussion is started.
-[PATCH v5 0/6] mm: split underused THPs (Usama Arif) https://lore."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
+[PATCH 0/2] get rid of PF_MEMALLOC_NORECLAIM (Michal Hocko) https://lore.kernel.org/20240826085347.1152675-1-mhocko@kernel.org
+Michal argues PF_MEMALLOC_NORECLAIM has merged even though MM people pushed it back, and attempts to get rid of it by updating its users to use explicit GFP_NOWAIT allocation context.
+[PATCH] bcachefs: Switch to memalloc_flags_do() for vmalloc allocations (Kent Overstreet) https://lore."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -210,7 +210,7 @@ Kent tries to fix a potential deadlock from gfp usage of vmalloc(). However the 
       "url": "https://sjp38.github.io/img/icon-512.png"
     }
   },
-  "description": "[RFC PATCH -next 0/3] fs: Introduce the scope-based resource management for folio_lock/unlock (Li Zetao) https://lore.kernel.org/20240826071036.2445717-1-lizetao1@huawei.com\nLi proposes scope-based resource management for folio locking.\n[PATCH] bcachefs: Switch to memalloc_flags_do() for vmalloc allocations (Kent Overstreet) https://lore.kernel.org/20240828140638.3204253-1-kent.overstreet@linux.dev\nKent tries to fix a potential deadlock from gfp usage of vmalloc(). However the similar approach was NAK-ed by MM people before. The previous approach was merged anyway by bcachefs. So another discussion is started.\n[PATCH v5 0/6] mm: split underused THPs (Usama Arif) https://lore."
+  "description": "[RFC PATCH -next 0/3] fs: Introduce the scope-based resource management for folio_lock/unlock (Li Zetao) https://lore.kernel.org/20240826071036.2445717-1-lizetao1@huawei.com\nLi proposes scope-based resource management for folio locking.\n[PATCH 0/2] get rid of PF_MEMALLOC_NORECLAIM (Michal Hocko) https://lore.kernel.org/20240826085347.1152675-1-mhocko@kernel.org\nMichal argues PF_MEMALLOC_NORECLAIM has merged even though MM people pushed it back, and attempts to get rid of it by updating its users to use explicit GFP_NOWAIT allocation context.\n[PATCH] bcachefs: Switch to memalloc_flags_do() for vmalloc allocations (Kent Overstreet) https://lore."
 }
 </script>
 
@@ -619,6 +619,11 @@ Kent tries to fix a potential deadlock from gfp usage of vmalloc(). However the 
       <h2 id="rfc-patch--next-03-fs-introduce-the-scope-based-resource-management-for-folio_lockunlock-li-zetao">[RFC PATCH -next 0/3] fs: Introduce the scope-based resource management for folio_lock/unlock (Li Zetao)</h2>
 <p><a href="https://lore.kernel.org/20240826071036.2445717-1-lizetao1@huawei.com">https://lore.kernel.org/20240826071036.2445717-1-lizetao1@huawei.com</a></p>
 <p>Li proposes scope-based resource management for folio locking.</p>
+<h2 id="patch-02-get-rid-of-pf_memalloc_noreclaim-michal-hocko">[PATCH 0/2] get rid of PF_MEMALLOC_NORECLAIM (Michal Hocko)</h2>
+<p><a href="https://lore.kernel.org/20240826085347.1152675-1-mhocko@kernel.org">https://lore.kernel.org/20240826085347.1152675-1-mhocko@kernel.org</a></p>
+<p>Michal argues <code>PF_MEMALLOC_NORECLAIM</code> has merged even though MM people pushed
+it back, and attempts to get rid of it by updating its users to use explicit
+<code>GFP_NOWAIT</code> allocation context.</p>
 <h2 id="patch-bcachefs-switch-to-memalloc_flags_do-for-vmalloc-allocations-kent-overstreet">[PATCH] bcachefs: Switch to memalloc_flags_do() for vmalloc allocations (Kent Overstreet)</h2>
 <p><a href="https://lore.kernel.org/20240828140638.3204253-1-kent.overstreet@linux.dev">https://lore.kernel.org/20240828140638.3204253-1-kent.overstreet@linux.dev</a></p>
 <p>Kent tries to fix a potential deadlock from gfp usage of <code>vmalloc()</code>.  However
@@ -787,7 +792,7 @@ particularly odd, still, though.</p>
       
     
     <li>
-      <a href="https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/log/?qt=author&amp;q=seongjae&#43;park" target="_blank" rel="noopener">
+      <a href="https://social.kernel.org/sj" target="_blank" rel="noopener">
         <i class="fab fa-linux"></i>
       </a>
     </li>

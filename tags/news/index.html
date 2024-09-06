@@ -543,9 +543,9 @@ Michal sent the second revision of PF_MEMALLOC_NORECLAIM removal patchset with R
       
       [RFC PATCH -next 0/3] fs: Introduce the scope-based resource management for folio_lock/unlock (Li Zetao) https://lore.kernel.org/20240826071036.2445717-1-lizetao1@huawei.com
 Li proposes scope-based resource management for folio locking.
-[PATCH] bcachefs: Switch to memalloc_flags_do() for vmalloc allocations (Kent Overstreet) https://lore.kernel.org/20240828140638.3204253-1-kent.overstreet@linux.dev
-Kent tries to fix a potential deadlock from gfp usage of vmalloc(). However the similar approach was NAK-ed by MM people before. The previous approach was merged anyway by bcachefs. So another discussion is started.
-[PATCH v5 0/6] mm: split underused THPs (Usama Arif) https://lore.
+[PATCH 0/2] get rid of PF_MEMALLOC_NORECLAIM (Michal Hocko) https://lore.kernel.org/20240826085347.1152675-1-mhocko@kernel.org
+Michal argues PF_MEMALLOC_NORECLAIM has merged even though MM people pushed it back, and attempts to get rid of it by updating its users to use explicit GFP_NOWAIT allocation context.
+[PATCH] bcachefs: Switch to memalloc_flags_do() for vmalloc allocations (Kent Overstreet) https://lore.
       
     </div>
   </div>
