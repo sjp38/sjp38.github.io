@@ -636,6 +636,10 @@ allocation references storing memory overhead reduction.</p>
 <p><a href="https://lore.kernel.org/20240904162740.1043168-1-dave@stgolabs.net">https://lore.kernel.org/20240904162740.1043168-1-dave@stgolabs.net</a></p>
 <p>Davidlohr reposted the per-node proactive reclaim interface patch saying he now
 believes the semantics and expectations became clearer.</p>
+<h2 id="patch-02-uprobesmm-speculative-lockless-vma-to-uprobe-lookup-andrii-nakryiko">[PATCH 0/2] uprobes,mm: speculative lockless VMA-to-uprobe lookup (Andrii Nakryiko)</h2>
+<p><a href="https://lore.kernel.org/20240906051205.530219-1-andrii@kernel.org">https://lore.kernel.org/20240906051205.530219-1-andrii@kernel.org</a></p>
+<p>Andrii sent a patch series for doing <code>vm_area</code> to <code>inode</code> to <code>uprobe</code> while
+bypassing read-acquiring <code>mmap_lock</code> if possible.</p>
 
     </div>
 
