@@ -576,7 +576,7 @@ Michal sent the second revision of PF_MEMALLOC_NORECLAIM removal patchset with R
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -640,6 +640,23 @@ believes the semantics and expectations became clearer.</p>
 <p><a href="https://lore.kernel.org/20240906051205.530219-1-andrii@kernel.org">https://lore.kernel.org/20240906051205.530219-1-andrii@kernel.org</a></p>
 <p>Andrii sent a patch series for doing <code>vm_area</code> to <code>inode</code> to <code>uprobe</code> while
 bypassing read-acquiring <code>mmap_lock</code> if possible.</p>
+<h2 id="patch-mm-move-mm-flags-to-mm_typesh-nanyong-sun">[PATCH] mm: move mm flags to mm_types.h (Nanyong Sun)</h2>
+<p><a href="https://lore.kernel.org/20240905152622.1205046-1-sunnanyong@huawei.com">https://lore.kernel.org/20240905152622.1205046-1-sunnanyong@huawei.com</a></p>
+<p>Nanyong posted a patch moving mm flags from <code>linux/sched/coredump.h</code> to
+<code>linux/mm_types.h</code>, since the flags are not only for the core dump related
+features anymore.</p>
+<h2 id="linux-611-rc7-linus-torvalds">Linux 6.11-rc7 (Linus Torvalds)</h2>
+<p><a href="https://lore.kernel.org/CAHk-=whHwbceFq8XCK2uLCK9_aGywqmgMq3Udp5OJwFvLixpEA@mail.gmail.com">https://lore.kernel.org/CAHk-=whHwbceFq8XCK2uLCK9_aGywqmgMq3Udp5OJwFvLixpEA@mail.gmail.com</a></p>
+<p>Linus Torvalds did the seventh Linux v6.11 candidate release on the usual
+Sunday time after returning to his regular timezone.  Linus says the size of
+the rc7 is not really what he wanted.  It is bigger than not only usual rc7 but
+even more than rc6 and rc5 were.  Also if he does the usual release of the
+usual timeline, the next merge window will open during the maintainers summit
+week.  Both the big size of the candidate and the conflict with travel are
+possible reasons for delaying the release.  But he also says those are not
+necessarily the reason since he shows no scary changes, and maintainers could
+finish works before the maintianers summit travel.  So, we&rsquo;ll see how it will
+go next Sunday.</p>
 
     </div>
 
