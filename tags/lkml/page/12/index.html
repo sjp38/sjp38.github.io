@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-09-04T06:10:40-07:00">
+    <meta property="og:updated_time" content="2024-09-11T09:41:15-07:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.18-rc6/">LKML News v5.18-rc6</a></h2>
+    <div class="article-style">
+      
+      Memory allocation on speculative fastpaths (Paul E. McKenney) https://lkml.kernel.org/r/20220503155913.GA1187610@paulmck-ThinkPad-P17-Gen-1
+There was a discussion about allocating memory inside RCU read critical section with GFP_KERNEL during LSFMM. Paul is summing up his points about it in this mail.
+[PATCH] mm,doc: Add new documentation structure (Matthew Wilcox) https://lkml.kernel.org/r/20220503063032.3680308-1-willy@infradead.org
+There was a session for MM documentation in the LSFMM. Matthew is restructuring the Documentation files to be more similar to Mel Gorman&rsquo;s &ldquo;Understanding the Linux Virtual Memory Manager&rdquo;.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.18-rc5/">LKML News v5.18-rc5</a></h2>
     <div class="article-style">
       
@@ -638,19 +650,6 @@ The AutoNUMA patchset for tiered memory system has revised again.
 [LSF/MM/BPF TOPIC] page table reclaim (David Hildenbrand) https://lkml.kernel.org/r/7b908208-02f8-6fde-4dfc-13d5e00310a6@redhat.com
 Some workloads allocates a lot of page tables. As page tables are unmovable and unreclaimable, this can contribute to memory pressure. David is proposing making it reclaimable and suggesting discussion in LSF/MM/BPF summit for the idea.
 [RFC PATCH 00/47] Address Space Isolation for KVM (Junaid Shahid) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.17-rc5/">LKML News v5.17-rc5</a></h2>
-    <div class="article-style">
-      
-      [PATCH v3 0/3] Add hugetlb MADV_DONTNEED support (Mike Kravetz) https://lkml.kernel.org/r/20220215002348.128823-1-mike.kravetz@oracle.com
-MADV_DONTNEED can be used for hugetlb but currently prohibits it with a simple check. This commit removes the check to enable MADV_DONENEED for hugetlb.
-mmotm 2022-02-14-17-46 uploaded (Andrew Morton) https://lkml.kernel.org/r/20220215014633.9CD9CC340E9@smtp.kernel.org
-mmotm has updated. It&rsquo;s rebased on 5.17-rc4, added 20 new patches, modified 295 patches, and dropped 10 patches. In total, 316 patches in the queue.
-[PATCH v6 00/71] Introducing the Maple Tree (Liam Howlett) https://lkml.
       
     </div>
   </div>

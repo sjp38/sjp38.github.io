@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-09-04T06:10:40-07:00">
+    <meta property="og:updated_time" content="2024-09-11T09:41:15-07:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v4.20/">LKML News for v4.20</a></h2>
+    <div class="article-style">
+      
+      [PATCH V5 0/3] mm/kvm/vfio/ppc64: Migrate compound pages out of CMA https://lkml.kernel.org/r/20181219034047.16305-1-aneesh.kumar@linux.ibm.com
+ppc64 에서는 guest os page table 을 CMA area 내에 할당하는데, VFIO 를 쓰는 경우 이게 pinning 되어 있다 보니 CMA area 밖으로 migrate 하는데 실패해, guest os page table 할당에 실패하고, 이로 인해 guest 시작조차 불가능하게 되는 문제가 있었습니다.
+이 패치는 compound page 에 대해서도 CMA area 밖으로의 migration 이 가능하게 합니다.
+[RESEND PATCH V3 0/5] arm64/mm: Enable HugeTLB migration https://lkml.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v4.20-rc7/">LKML News by v4.20-rc7</a></h2>
     <div class="article-style">
       
@@ -625,17 +637,6 @@ herd7 install LKMM 은 버전 7.49 의 &ldquo;herd7&rdquo; 과 &ldquo;klitmus7&r
       리눅스 4.19 버전 릴리즈 후부터 4.20-rc1 버전의 릴리즈까지 LKML 에 오간 메일 중 흥미로운 메일들을 소개합니다.
 [RFC PATCH v4 00/13] ktask: multithread CPU-intensive kernel work https://lkml.kernel.org/r/20181105165558.11698-1-daniel.m.jordan@oracle.com
 CPU intensive 한 커널의 일을 여러 work queue 를 이용해 병렬화 시키기 위한 새로운 프레임웍, ktask 구현 및 적용 패치입니다. 이 프레임웍을 이용해 병렬화 시킬 일은 여러가지가 있을텐데, 이 패치는 ktask 프레임웍의 구현과 함께 VFIO 페이지 pinning, 부팅 시점에서의 struct page 초기화, gigantic page 의 초기화, 그리고 HugeTLB 페이지의 할당에 ktask 를 적용하고 있습니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.19/">LKML News after v4.19</a></h2>
-    <div class="article-style">
-      
-      Linux 4.19 https://lkml.kernel.org/r/20181022073224.GA5658@kroah.com
-드디어 9 주간의 안정화를 거쳐 4.19 버전이 릴리즈 되었습니다. 역시 토발즈가 쉬고 있는 관계로 Greg KroahHartman 이 릴리즈 했습니다. 지난 네번의 릴리즈 가운데 가장 큰 릴리즈군요. 그리고 이 버전은 &ldquo;Long Tern&rdquo; 커널 중 하나가 될 예정입니다.
-이번 릴리즈 메일은 토발즈가 잠시 쉬겠다고 했던 메일을 연상케 할정도로 내용이 긴데요, 꽤 많은 부분은 이번 버전 개발 과정에서 이야기 되었던, 새로운 커뮤니티 참여자들과의 관계와 태도에 대한 내용입니다. Greg 이 매년 발표하고 있는 커널 커뮤니티의 작업 방식 이야기를 예로 들며 설명하네요.
       
     </div>
   </div>

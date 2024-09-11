@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-09-04T06:10:40-07:00">
+    <meta property="og:updated_time" content="2024-09-11T09:41:15-07:00">
   
 
   
@@ -525,6 +525,16 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.11/">Lkml_news_v6</a></h2>
+    <div class="article-style">
+      
+      [PATCH hotfix 6.11] minmax: reduce egregious min/max macro expansion (Lorenzo Stoakes) https://lore.kernel.org/20240911153457.1005227-1-lorenzo.stoakes@oracle.com
+Lorenzo sent a patch for resolving min()/max() expansions causing kernel build time issue by fixing a few known-bad cases of nested macro usages.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.11-rc7/">LKML News v6.11-rc7</a></h2>
     <div class="article-style">
       
@@ -635,16 +645,6 @@ David invites MM community to another instance of the MM alignment.
 Huan posted an RFC for per-memcg-cache, which is for utilizing per-memcg cache of certain rules. The goal is allowing memory that released by an application be allocated with high priority within the application, to improve locality and performance while avoiding unnecessary memory reclamation.
 [PATCH] mm: remove CONFIG_MEMCG_KMEM (Johannes Weiner) https://lore.kernel.org/20240701153148.452230-1-hannes@cmpxchg.org
 Since CONFIG_MEMCG_KMEM was default-enabled and equivalent to CONFIG_MEMCG for almost a decade, Johannes tries to remove the config option.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.10-rc6/">LKML News v6.10-rc6</a></h2>
-    <div class="article-style">
-      
-      [PATCH] memcg: Add a new sysctl parameter for automatically setting memory.high (Waiman Long) https://lore.kernel.org/20240623204514.1032662-1-longman@redhat.com
-While memcg v1 has only single file for memory limit setting, namely memory.limit_in_bytes, memcg v2 has two files, memory.max and memory.high for the purpose. Users migrating from memcg v1 to memcg v2 usually sets only memory.max, and hence get problems sometimes. This patch add a new knob, memory_high_autoset_ratio, which allows setting memory.high as a ratio of memory.
       
     </div>
   </div>

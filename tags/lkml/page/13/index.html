@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-09-04T06:10:40-07:00">
+    <meta property="og:updated_time" content="2024-09-11T09:41:15-07:00">
   
 
   
@@ -525,6 +525,19 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.17-rc5/">LKML News v5.17-rc5</a></h2>
+    <div class="article-style">
+      
+      [PATCH v3 0/3] Add hugetlb MADV_DONTNEED support (Mike Kravetz) https://lkml.kernel.org/r/20220215002348.128823-1-mike.kravetz@oracle.com
+MADV_DONTNEED can be used for hugetlb but currently prohibits it with a simple check. This commit removes the check to enable MADV_DONENEED for hugetlb.
+mmotm 2022-02-14-17-46 uploaded (Andrew Morton) https://lkml.kernel.org/r/20220215014633.9CD9CC340E9@smtp.kernel.org
+mmotm has updated. It&rsquo;s rebased on 5.17-rc4, added 20 new patches, modified 295 patches, and dropped 10 patches. In total, 316 patches in the queue.
+[PATCH v6 00/71] Introducing the Maple Tree (Liam Howlett) https://lkml.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.17-rc4/">LKML News v5.17-rc4</a></h2>
     <div class="article-style">
       
@@ -628,19 +641,6 @@ Andrew Morton uploaded new mmotm.
 Page migrations commonly fails from temporal referenc count elevation. Worse yet, it&rsquo;s hard to know which kernel subsystem has made the temporal reference count increase. To tracking it available, Minchan is proposing a new feature called page pinner. It tracks page put operations for pages that migration failed.
 mmotm 2021-12-06-22-21 uploaded (Andrew Morton) https://lkml.kernel.org/r/20211207062141.pMgbjXQXy%akpm@linux-foundation.org
 mmotm based on v5.16-rc4 has uploaded. 14 new patches are added, 3 existign patches modified, and 1 existing patch has dropped from the queue.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.16-rc4/">LKML News v5.16-rc4</a></h2>
-    <div class="article-style">
-      
-      mmotm 2021-11-29-18-58 uploaded (Andrew Morton) https://lkml.kernel.org/r/20211130025839.ZhVoO1W_7%akpm@linux-foundation.org
-mmotm has updated. It&rsquo;s based on v5.16-rc3, adds 52 new patches, modifies 18 existing patches, and drops 2 patches. In total, 224 patches in the queue.
-[QUESTION] “place pages to tail” regress memory read bandwidth about 10% under our test cases (liupeng) https://lkml.kernel.org/r/3c6349ddd9a34732a251467b7fa4fe93@huawei.com
-Liu Peng found David&rsquo;s patch 7fef431be9c9(mm/page_alloc: place pages to tail in __free_pages_core()) incurring performance regression, and asking some suggestions.
-[RFC PATCH] mm: count zram read/write into PSI_IO_WAIT (Huangzhaoyang) https://lkml.
       
     </div>
   </div>
