@@ -525,6 +525,20 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.4-rc6/">LKML News v6.4-rc6</a></h2>
+    <div class="article-style">
+      
+      As of 2023-06-06, for some reason https://lore.kernel.org/linux-mm seems stopped being updated since 2023-05-31. On the day of 2023-06-06, the update has resumed.
+[PATCH v3 0/5] riscv: Introduce KASLR (Alexandre Ghiti) https://lkml.kernel.org/r/20230606123242.20804-1-alexghiti@rivosinc.com
+This patchset introduces KASLR, which allows kernel mapping randomization, for riscv.
+Question about oom-killer (Gou Hao) https://lore.kernel.org/linux-mm/A31B3EA06AF77F13+c7278bd0-2695-4cc0-5a56-531a06ac2389@uniontech.com/
+A question about oom-killer behavior that suspected to be a kernel bug.
+[PATCH v3] Documentation/mm: Initial page table documentation (Linus Walleij) https://lkml.kernel.org/r/20230608125501.3960093-1-linus.walleij@linaro.org
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.4-rc5/">LKML News v6.4-rc5</a></h2>
     <div class="article-style">
       
@@ -581,8 +595,8 @@ This RFC patch adds working set size reporting structure for each node and total
       
       Below is a list of news around DAMON project.
 This list is not exhaustive but just a DAMON maintainer&rsquo;s collection of news. If you find a news that should be added to this list, please let us know at sj@kernel.org and/or damon@lists.linux.dev.
- 2024 2024-08-14: GitHub repos for non-kernel parts of DAMON project including &lsquo;damo&rsquo;, &lsquo;damon-tests&rsquo; and &lsquo;damoos&rsquo; will be moved from &lsquo;awslabs&rsquo; to &lsquo;damonitor', by 2024-09-05
-2024-07-29: VLDB paper about Aurora Serverless V2, which reveals their usage of DAMON on the product, is now available.
+ 2024 2024-09-19: An academic paper preprint that optimizing THP using DAMON and BPF, titled &ldquo;eBPF-mm: Userspace-guided memory management in Linux with eBPF&rdquo; is uploaded to ArXiv
+2024-09-16: CONFIG_DAMON is enabled on Debian kernel
       
     </div>
   </div>
@@ -631,19 +645,6 @@ Memcg lives in the kernel until the reference count drops to zero, even if it&rs
 A patchset for gradually pushing the mmap lock down. No specific regression found, but also no special performance improvement measured.
 [PATCH] memcg-v1: Enable setting memory min, low, high (Shaun Tancheff) https://lkml.kernel.org/r/20230405110107.127156-1-shaun.tancheff@gmail.com
 For users who cannot update to memcg v2, this patch provides a way for memcg v1 to effectively apply memory pressure, which can be used for effectively throttle file I/O.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.3-rc5/">LKML News v6.3-rc5</a></h2>
-    <div class="article-style">
-      
-      [PATCH] LoongArch: Add kernel address sanitizer support (Qing Zhang) https://lkml.kernel.org/r/20230328111714.2056-1-zhangqing@loongson.cn
-Loongarch has arch specific memory holes and mapping formula. This patch adds kasan support for Loongarch.
-[PATCH v2 0/7] Split a folio to any lower order folios (Zi Yan) https://lkml.kernel.org/r/20230329011712.3242298-1-zi.yan@sent.com
-Currently, split_huge_page() splits huge page to only order 0 pages. This patchset adds support of splitting a huge page to any lower order pages.
-[PATCHv9 00/14] mm, x86/cc: Implement support for unaccepted memory (Kirill A.
       
     </div>
   </div>

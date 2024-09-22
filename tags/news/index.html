@@ -525,7 +525,7 @@
   
   
   <div>
-    <h2><a href="/post/lkml_news_v6.11/">Lkml_news_v6</a></h2>
+    <h2><a href="/post/lkml_news_v6.11/">LKML News v6.11</a></h2>
     <div class="article-style">
       
       [PATCH hotfix 6.11] minmax: reduce egregious min/max macro expansion (Lorenzo Stoakes) https://lore.kernel.org/20240911153457.1005227-1-lorenzo.stoakes@oracle.com
@@ -545,6 +545,20 @@ A discussion started from a question about acpi_os_sleep() concluded the documen
 [PATCH 0/2 v2] remove PF_MEMALLOC_NORECLAIM (Michal Hocko) https://lore.kernel.org/20240902095203.1559361-1-mhocko@kernel.org
 Michal sent the second revision of PF_MEMALLOC_NORECLAIM removal patchset with Reviewed-by: tags in a more formal version.
 [GIT PULL] hotfixes for 6.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v6.12-rc1/">LKML News v6.12-rc1</a></h2>
+    <div class="article-style">
+      
+      [GIT PULL] slab updates for 6.11 (Vlastimil Babka) https://lore.kernel.org/8d6c5d10-5750-4472-858c-eadc105453be@suse.cz
+Vlastimil sent the slab pull request for Linux 6.12-rc1. Apparently the title is a typo.
+[RFC PATCH 0/4] Add hazard pointers to kernel (Boqun Feng) https://lore.kernel.org/20240917143402.930114-1-boqun.feng@gmail.com
+Boqun posted a patch series for introducing hazard pointers for kernel space, which is &ldquo;a scalable reference counting mechanism with RCU-like API&rdquo;.
+[GIT PULL] hotfixes for 6.12-rc1 (Andrew Morton) https://lore.kernel.org/20240919003557.1777673c0f759f9e4ebaa328@linux-foundation.org
+Andrew sent a hotfixes pull request for 6.
       
     </div>
   </div>
@@ -635,18 +649,6 @@ Zhaoyang sent a patch that makes direct reclaim of MGLRU be throttled by judging
 Kees posted this RFC patch, which allows kmalloc() be able to know the type of the object that it is requested to allocate memory for. It is done by letting kmalloc() optionally receives the pointer instead of the size.
 [Invitation] Linux MM Alignment Session on guest_memfd() mapping, hugepages, and page pinning on Wednesday https://lore.kernel.org/197a2f19-c71c-fbde-a62a-213dede1f4fd@google.com
 David invites MM community to another instance of the MM alignment.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.10-rc7/">LKML News v6.10-rc7</a></h2>
-    <div class="article-style">
-      
-      [RFC PATCH 0/4] Introduce PMC(PER-MEMCG-CACHE) (Huan Yang) https://lore.kernel.org/20240702084423.1717904-1-link@vivo.com
-Huan posted an RFC for per-memcg-cache, which is for utilizing per-memcg cache of certain rules. The goal is allowing memory that released by an application be allocated with high priority within the application, to improve locality and performance while avoiding unnecessary memory reclamation.
-[PATCH] mm: remove CONFIG_MEMCG_KMEM (Johannes Weiner) https://lore.kernel.org/20240701153148.452230-1-hannes@cmpxchg.org
-Since CONFIG_MEMCG_KMEM was default-enabled and equivalent to CONFIG_MEMCG for almost a decade, Johannes tries to remove the config option.
       
     </div>
   </div>
