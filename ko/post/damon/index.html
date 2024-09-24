@@ -592,7 +592,7 @@ DAMON is a Data Access MONitoring framework subsystem for the Linux kernel devel
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    9 min read
+    8 min read
   </span>
   
 
@@ -774,26 +774,12 @@ else
     echo &quot;not installed&quot;
 fi
 </code></pre>
-<p>You could also find a list of DAMON-enabled Linux kernels from Oracle&rsquo;s
+<p>As of 2024-09-23, kernels of Amazon Linux, Android, Arch, CentOS, Debian,
+Fedora, and Oracle Linux are known to have enabled DAMON.</p>
+<p>You could further find a list of DAMON-enabled Linux kernels from Oracle&rsquo;s
 kconfigs
 <a href="https://oracle.github.io/kconfigs/?config=UTS_RELEASE&amp;config=DAMON">tool</a>.
 The tool doesn&rsquo;t support every distros at the moment, though.</p>
-<p>DAMON is enabled in
-<a href="https://aws.amazon.com/linux/?amazon-linux-whats-new.sort-by=item.additionalFields.postDateTime&amp;amazon-linux-whats-new.sort-order=desc">Amazon Linux</a>
-kernels that based on v5.4 or newer Linux kernels.
-If you&rsquo;re using <a href="https://aws.amazon.com/amazon-linux-2/">Amazon Linux 2</a> and
-not using DAMON-enabled kernel on the distro, you can install DAMON-enabled
-kernels using its package manager,
-<a href="https://aws.amazon.com/premiumsupport/knowledge-center/ec2-install-extras-library-software/">amazon-linux-extras</a>.
-For example, if you want to use DAMON with Amazon Linux v5.10 kernel, below
-commands will work.</p>
-<pre><code>$ sudo yum install -y amazon-linux-extras
-$ sudo amazon-linux-extras install kernel-5.10
-$ sudo reboot
-</code></pre>
-<p>Note that AL2 v5.10.y contains all DAMON features that available on mainline
-while AL2 5.4.y contains only a part of DAMON features.  AL2 v5.10.y kernels
-are recommended for the reason.</p>
 <p>If your package system doesn&rsquo;t support DAMON-enabled kernel, you can
 fetch a DAMON-merged Linux kernel <a href="#source-code">source tree</a>, build, and
 install it.  Note that you should enable kernel configuration options for
@@ -813,19 +799,8 @@ $ sudo make modules_install install
 <h2 id="source-code">Source Code</h2>
 <p>There are several Linux kernel source trees having DAMON for different users.
 You may pick one among those based on your needs.</p>
-<p>For users who want a <strong>stable</strong> version of DAMON, below trees are recommended.</p>
-<ul>
-<li>Linus Torvalds&rsquo; <a href="https://git.kernel.org/torvalds/h/master">mainline tree</a>
-contains the latest stable version of DAMON since v5.15.</li>
-<li>Amazon Linux kernel
-<a href="https://github.com/amazonlinux/linux/tree/amazon-5.10.y/master">v5.10.y tree</a>,
-<a href="https://github.com/amazonlinux/linux/tree/amazon-5.4.y/master">v5.4.y tree</a>
-and all trees that based on v5.15 or newer Linux kernel contain stable
-versions of DAMON.</li>
-</ul>
-<p>Note that AL2 v5.10.y contains all DAMON features that available on the
-latest major releases of Linux while AL2 5.4.y contains only a part of DAMON
-features, so AL2 v5.10.y is more recommended.</p>
+<p>For users who want a <strong>stable</strong> version of DAMON, Linus Torvalds&rsquo;
+<a href="https://git.kernel.org/torvalds/h/master">mainline tree</a> is recommended.</p>
 <p>If you have interests in DAMON features under <strong>development</strong>, below trees will
 be appropriate.  These trees contain latest version of DAMON which having
 features under development.</p>
