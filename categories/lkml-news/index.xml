@@ -135,6 +135,22 @@ Yu&amp;rsquo;s question.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://lore.kernel.org/20240925171020.32142-1-ryncsn@gmail.com&#34;&gt;https://lore.kernel.org/20240925171020.32142-1-ryncsn@gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Kairui sent the second version of the patch series for splitting &lt;code&gt;list_lru&lt;/code&gt;
 lock per cgroup instead of per node, to reduce the lock contention.&lt;/p&gt;
+&lt;h2 id=&#34;rfcpatch-bpf-next-03-bpf-add-slab-iterator-and-kfunc-v1-namhyung-kim&#34;&gt;[RFC/PATCH bpf-next 0/3] bpf: Add slab iterator and kfunc (v1) (Namhyung Kim)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lore.kernel.org/20240925223023.735947-1-namhyung@kernel.org&#34;&gt;https://lore.kernel.org/20240925223023.735947-1-namhyung@kernel.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Namhyung proposes a new iterator and a kfunc for slab to get &lt;code&gt;/proc/slabinfo&lt;/code&gt;
+like infomration for each &lt;code&gt;kmem_cache&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;rfc-patch-04-implement-lightweight-guard-pages-lorenzo-stoakes&#34;&gt;[RFC PATCH 0/4] implement lightweight guard pages (Lorenzo Stoakes)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lore.kernel.org/cover.1727440966.git.lorenzo.stoakes@oracle.com&#34;&gt;https://lore.kernel.org/cover.1727440966.git.lorenzo.stoakes@oracle.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Lorenzo proposes a light approach for &amp;lsquo;guard pages&amp;rsquo; that doesn&amp;rsquo;t rely on
+additional &lt;code&gt;vma&lt;/code&gt;.  The approach add the &amp;lsquo;guard&amp;rsquo; information in page tables
+instead of additional vmas.  The implementation uses new &lt;code&gt;madvise()&lt;/code&gt; hints,
+namely &lt;code&gt;MADV_GUARD_POISON&lt;/code&gt; and &lt;code&gt;MADV_GUARD_UNPOISON&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;linux-612-rc1-linus-torvalds&#34;&gt;Linux 6.12-rc1 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lore.kernel.org/CAHk-=wiwVOCZsC6a4dLdb1UjL2fS_CnLNjrPL0XGFbDd9C26Cg@mail.gmail.com&#34;&gt;https://lore.kernel.org/CAHk-=wiwVOCZsC6a4dLdb1UjL2fS_CnLNjrPL0XGFbDd9C26Cg@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;After the two weeks of the merge window, Linus Torvalds announces the first
+release candidate for Linux v6.12 and closes the merge window.  Torvalds
+further introduces &lt;code&gt;PREEMT_RT&lt;/code&gt; and &lt;code&gt;sched_ext&lt;/code&gt; as noticeable new features for
+Linux v6.12.&lt;/p&gt;
 </description>
     </item>
     

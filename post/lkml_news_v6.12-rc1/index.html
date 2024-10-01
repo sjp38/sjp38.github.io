@@ -655,6 +655,22 @@ Yu&rsquo;s question.</p>
 <p><a href="https://lore.kernel.org/20240925171020.32142-1-ryncsn@gmail.com">https://lore.kernel.org/20240925171020.32142-1-ryncsn@gmail.com</a></p>
 <p>Kairui sent the second version of the patch series for splitting <code>list_lru</code>
 lock per cgroup instead of per node, to reduce the lock contention.</p>
+<h2 id="rfcpatch-bpf-next-03-bpf-add-slab-iterator-and-kfunc-v1-namhyung-kim">[RFC/PATCH bpf-next 0/3] bpf: Add slab iterator and kfunc (v1) (Namhyung Kim)</h2>
+<p><a href="https://lore.kernel.org/20240925223023.735947-1-namhyung@kernel.org">https://lore.kernel.org/20240925223023.735947-1-namhyung@kernel.org</a></p>
+<p>Namhyung proposes a new iterator and a kfunc for slab to get <code>/proc/slabinfo</code>
+like infomration for each <code>kmem_cache</code>.</p>
+<h2 id="rfc-patch-04-implement-lightweight-guard-pages-lorenzo-stoakes">[RFC PATCH 0/4] implement lightweight guard pages (Lorenzo Stoakes)</h2>
+<p><a href="https://lore.kernel.org/cover.1727440966.git.lorenzo.stoakes@oracle.com">https://lore.kernel.org/cover.1727440966.git.lorenzo.stoakes@oracle.com</a></p>
+<p>Lorenzo proposes a light approach for &lsquo;guard pages&rsquo; that doesn&rsquo;t rely on
+additional <code>vma</code>.  The approach add the &lsquo;guard&rsquo; information in page tables
+instead of additional vmas.  The implementation uses new <code>madvise()</code> hints,
+namely <code>MADV_GUARD_POISON</code> and <code>MADV_GUARD_UNPOISON</code>.</p>
+<h2 id="linux-612-rc1-linus-torvalds">Linux 6.12-rc1 (Linus Torvalds)</h2>
+<p><a href="https://lore.kernel.org/CAHk-=wiwVOCZsC6a4dLdb1UjL2fS_CnLNjrPL0XGFbDd9C26Cg@mail.gmail.com">https://lore.kernel.org/CAHk-=wiwVOCZsC6a4dLdb1UjL2fS_CnLNjrPL0XGFbDd9C26Cg@mail.gmail.com</a></p>
+<p>After the two weeks of the merge window, Linus Torvalds announces the first
+release candidate for Linux v6.12 and closes the merge window.  Torvalds
+further introduces <code>PREEMT_RT</code> and <code>sched_ext</code> as noticeable new features for
+Linux v6.12.</p>
 
     </div>
 
