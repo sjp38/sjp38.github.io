@@ -31,6 +31,19 @@ topic will be &amp;ldquo;Add support for shared PTEs across processes&amp;rdquo;
 &lt;p&gt;Yipeng posted an RFC patch series for making cpu frequency governors extensible
 using BPF, similar to &lt;code&gt;sched_ext&lt;/code&gt;.  One quick question from Alexei is that
 isn&amp;rsquo;t it also available using &lt;code&gt;sched_ext&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;patch-slab-hotfixes-v2-02-slub-kunit-tests-fixes-for-612-vlastimil-babka&#34;&gt;[PATCH slab hotfixes v2 0/2] slub kunit tests fixes for 6.12 (Vlastimil Babka)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lore.kernel.org/20241001-b4-slub-kunit-fix-v2-0-2d995d3ecb49@suse.cz&#34;&gt;https://lore.kernel.org/20241001-b4-slub-kunit-fix-v2-0-2d995d3ecb49@suse.cz&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Vlastimil sent hotfixes for SLAB kunit tests, which was added for Linux v6.12.&lt;/p&gt;
+&lt;h2 id=&#34;rfc-patch-04-schedmm-track-lazy-active-mm-existence-with-hazard-pointers-mathiew-desnoyers&#34;&gt;[RFC PATCH 0/4] sched+mm: Track lazy active mm existence with hazard pointers (Mathiew Desnoyers)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lore.kernel.org/20241002010205.1341915-1-mathieu.desnoyers@efficios.com&#34;&gt;https://lore.kernel.org/20241002010205.1341915-1-mathieu.desnoyers@efficios.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Matthew found hazard pointers could be goot for replacing reference counting
+based lazy active mm tracking, and sent an RFC patch series for that.  On the
+cover letter, he shares 3-28% speedup of will-it-scale
+&lt;code&gt;context_switch1_threads&lt;/code&gt; results.&lt;/p&gt;
+&lt;h2 id=&#34;patch-v8-0029-generic-allocator-support-for-rust-danilo-krummrich&#34;&gt;[PATCH v8 00/29] Generic &lt;code&gt;Allocator&lt;/code&gt; support for Rust (Danilo Krummrich)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lore.kernel.org/20241001150008.183102-1-dakr@kernel.org&#34;&gt;https://lore.kernel.org/20241001150008.183102-1-dakr@kernel.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Dasnilo sent the eighth version of the patch series that adds generic kernel
+allocator support for Rust.&lt;/p&gt;
 </description>
     </item>
     
@@ -3376,6 +3389,9 @@ If you find a news that should be added to this list, please let us know at
 &lt;a href=&#34;mailto:sj@kernel.org&#34;&gt;sj@kernel.org&lt;/a&gt; and/or &lt;a href=&#34;mailto:damon@lists.linux.dev&#34;&gt;damon@lists.linux.dev&lt;/a&gt;.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;2024&#34;&gt;2024&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;2024-10-01&lt;/em&gt;: 2024-Q3 DAMON news letter including news for new features,
+more users, repos reorganizations, and conference talks is
+&lt;a href=&#34;https://lore.kernel.org/20241001191425.588219-1-sj@kernel.org&#34;&gt;posted&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;2024-09-30&lt;/em&gt;: DAMON User Space Tool, DAMO,
 &lt;a href=&#34;https://pypistats.org/packages/damo&#34;&gt;surpasses&lt;/a&gt; 4,000 monthly PyPI downloads!
 &lt;img src=&#34;https://sjp38.github.io/img/damo_download_4122.png&#34; alt=&#34;damo_4000_monthly_downloads&#34;&gt;&lt;/p&gt;
