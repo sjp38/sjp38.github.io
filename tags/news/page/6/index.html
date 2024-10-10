@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-10-01T06:54:08-07:00">
+    <meta property="og:updated_time" content="2024-10-08T07:54:17-07:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.6-rc2/">LKML News v6.6-rc2</a></h2>
+    <div class="article-style">
+      
+      [syzbot] Monthly mm report (Sep 2023) https://lkml.kernel.org/r/000000000000c06b600605127cb3@google.com
+Syzbot posted its mm subsystem report for last 31 days. For the period, seven new issues were found and two among those were fixed. In total, 43/232 issues are still open.
+[PATCH 0/2] workload-specific and memory pressure-driven zswap writeback (Nhat Pham) https://lkml.kernel.org/r/20230911164024.2541401-1-nphamcs@gmail.com
+Zswap has only single LRU list and shrinks under user-defined limit. This patch series seperates the LRU list out to per-memcg and per-NUMA, and perform workload-specific writeback under memory pressure.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.6-rc1/">LKML News v6.6-rc1</a></h2>
     <div class="article-style">
       
@@ -635,18 +647,6 @@ Andrew Morton sent the memory management subsystem pull request for v6.5-rc1. Am
 [GIT PULL] slab updates for 6.5 (Vlastimil Babka) https://lkml.kernel.org/r/1c39c9b0-ec37-f910-2b09-cedf7acf6e91@suse.cz
 Vlastimil sent the slab pull request for v6.5 to Linus Torvalds. This contains the SLAB config deprecation renaming (s/CONFIG_SLAB/CONFIG_SLAB_DEPRECATED/).
 [PATCH v1 0/5] mm/memory_hotplug: make offline_and_remove_memory() timeout instead of failing on fatal signals (David Hildenbrand) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.4/">LKML News v6.4</a></h2>
-    <div class="article-style">
-      
-      [PATCH] mm/memory_hotplug.c: don&rsquo;t fail hot unplug quite so eagerly (John Hubbard) https://lkml.kernel.org/r/20230620011719.155379-1-jhubbard@nvidia.com
-Some device drivers add and remove memory to the system via memory hot [un]plog. Nevertheless, the ungplugging could fail easily, especially for the pending signal on the process. This patch simply remove the signal check error.
-[PATCH v2] mm/min_free_kbytes: modify min_free_kbytes calculation rules (liuq) https://lkml.kernel.org/r/20230621073912.21747-1-liuq131@chinatelecom.cn
-This patch adjusts min_free_kbytes calculation so that ZONE_NORMAL is unnecessarily be too small when ZONE_MOVABLE exists.
       
     </div>
   </div>

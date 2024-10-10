@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-10-01T06:54:08-07:00">
+    <meta property="og:updated_time" content="2024-10-08T07:54:17-07:00">
   
 
   
@@ -525,6 +525,19 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.9-rc7/">LKML News v6.9-rc7</a></h2>
+    <div class="article-style">
+      
+      [PATCH] thp: Remove HPAGE_PMD_ORDER minimum assertion (Matthew Wilcox) https://lkml.kernel.org/r/20240429190114.3126789-1-willy@infradead.org
+Willy removes the assumption that THP order is always two or more, since we now handle order-1 folios correctly.
+[LSF/MM/BPF TOPIC] SLUB: what&rsquo;s next? (Vlastimil Babka) https://lkml.kernel.org/r/b929d5fb-8e88-4f23-8ec7-6bdaf61f84f9@suse.cz
+Vlastimil proposes an LSFMM session to retrospect the SLAB deprecation, share ongoing works, and discuss possible future works for reducing similar allocators such as objpool or mempool.
+[LSF/MM/BPF TOPIC] Maple Tree Proposed Features (Liam R.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.9-rc6/">LKML News v6.9-rc6</a></h2>
     <div class="article-style">
       
@@ -635,17 +648,6 @@ This patchset updates slabinfo to version 2.2 and adds slabreclaim column for re
 [RFC PATCH 0/3] make the hugetlb migration strategy consistent (Baolin Wang) https://lkml.kernel.org/r/cover.1708507022.git.baolin.wang@linux.alibaba.com
 Falling back to other NUMA nodes when migrating freed hugetlb is prevented while it is allowed for in-use hugetlb. This patchset make it more clear and consistent.
 [Invitation] Linux MM Alignment Session on Cold Page Detection on Wednesday (David Rientjes) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.8-rc5/">LKML News v6.8-rc5</a></h2>
-    <div class="article-style">
-      
-      [PATCH v3] cgroup2: New memory.max.effective like cgroup1 hierarchical_memory_limit (Jan Kratochvil) https://lkml.kernel.org/r/ZctiM5RintD_D0Lt@host1.jankratochvil.net
-Unlike cgroup v1, which was able to find effective memory limit using hierarchical_memorylimit and hierarchical_memsw_limit lines, cgoup v2 doesn&rsquo;t have such hierarchical information, so need to read all files in the hierarchy to know the effective memory limit. This patchset adds memory.max.effective and memory.swap.max.effective to let users easily get the information.
-[PATCH v3 00/35] Memory allocation profiling (Suren Baghdasaryan) https://lkml.
       
     </div>
   </div>

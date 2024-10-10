@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-10-01T06:54:08-07:00">
+    <meta property="og:updated_time" content="2024-10-08T07:54:17-07:00">
   
 
   
@@ -906,6 +906,95 @@ Dec 2013 - Dec 2014</li>
   <div class="media-body">
 
     <h3 class="article-title mb-0 mt-0">
+      <a href="/post/lkml_news_v6.12-rc3/" >LKML News v6.12-rc3</a>
+    </h3>
+
+    
+    <div class="article-style">
+      [RFC PATCH v3 0/4] sched+mm: Track lazy active mm existence with hazard pointers (Mathew Desnoyers) …
+    </div>
+    
+
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Tue, Oct 8, 2024
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
+  
+
+</div>
+
+      
+    </div>
+
+    
+
+  </div>
+  <div class="ml-3">
+    
+    
+  </div>
+</div>
+
+      
+    
+      
+        
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0">
       <a href="/post/lkml_news_v6.12-rc2/" >LKML News v6.12-rc2</a>
     </h3>
 
@@ -1242,95 +1331,6 @@ Vlastimil sent …
 
       
     
-      
-        
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="/post/lkml_news_v6.11-rc6/" >LKML News v6.11-rc6</a>
-    </h3>
-
-    
-    <div class="article-style">
-      [RFC PATCH -next 0/3] fs: Introduce the scope-based resource management for folio_lock/unlock (Li Zetao) …
-    </div>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
-      
-        
-
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    Mon, Aug 26, 2024
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
-  
-
-</div>
-
-      
-    </div>
-
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
-</div>
-
-      
-    
 
     
     <div class="see-all">
@@ -1511,14 +1511,15 @@ Vlastimil sent …
 <li>SeongJae Park, <strong>DAMON: Long-term Plans for Kernel That {Just
 Works,Extensible}.</strong> In Linux Kernel Memory Management Microconferenct at
 Linux Plumbers, Sep 2024.
-<a href="https://lpc.events/event/18/contributions/1768/">Link</a>,
 <a href="https://lpc.events/event/18/contributions/1768/attachments/1637/3383/damon_longtern_plans_kmm_mc_lpc.pdf">Slides</a>,
-<a href="https://www.youtube.com/live/CTWQ-d7pj5s?feature=shared&amp;t=20182">Video</a></li>
+<a href="https://youtu.be/mRU1ZeNB9WY?feature=shared">Video</a>,
+<a href="https://lpc.events/event/18/contributions/1768/">Link</a></li>
 <li>SeongJae Park, <strong>DAMON Recipes: Ways to Save Memory Using a Linux Kernel
 Subsystem in the Real World.</strong> In Open Source Summit Europe, Sep 2024.
-<a href="https://sched.co/1ej2S">Link</a>,
 <a href="https://static.sched.com/hosted_files/osseu2024/50/damon_recipes_osseu_2024_overall.pdf?_gl=1*9ygnyb*_gcl_au*MTE4NTExNjkzLjE3MjU5MjQ4NzQ.*FPAU*MTk0NDY0NTM3LjE3MjI0MzA5MjA.">Slides 1</a>,
-<a href="https://static.sched.com/hosted_files/osseu2024/68/damon_recipes_osseu_hmsdk.pdf?_gl=1*9ygnyb*_gcl_au*MTE4NTExNjkzLjE3MjU5MjQ4NzQ.*FPAU*MTk0NDY0NTM3LjE3MjI0MzA5MjA.">Slides 2</a></li>
+<a href="https://static.sched.com/hosted_files/osseu2024/68/damon_recipes_osseu_hmsdk.pdf?_gl=1*9ygnyb*_gcl_au*MTE4NTExNjkzLjE3MjU5MjQ4NzQ.*FPAU*MTk0NDY0NTM3LjE3MjI0MzA5MjA.">Slides 2</a>,
+<a href="https://youtu.be/xKJO4kLTHOI?feature=shared">Video</a>,
+<a href="https://sched.co/1ej2S">Link</a></li>
 <li>SeongJae Park, <strong>DAMON Updates and Plans: Automation of DAMON tuning,
 tiering, and VM guest scaling.</strong>
 In <em>Linux Storage | Filesystem | MM &amp; BPF Summit</em>, May 2024.
@@ -1875,7 +1876,7 @@ Yeom, <strong>Scalable Serializable Snapshot Isolation for Multicore Systems.</s
           
           
           
-          <a href="/tags/kernel/" style="font-size:7.65742062938337rem">kernel</a>
+          <a href="/tags/kernel/" style="font-size:7.662210864161941rem">kernel</a>
         
           
           
@@ -1885,7 +1886,7 @@ Yeom, <strong>Scalable Serializable Snapshot Isolation for Multicore Systems.</s
           
           
           
-          <a href="/tags/linux/" style="font-size:7.755198568836723rem">linux</a>
+          <a href="/tags/linux/" style="font-size:7.759712822653979rem">linux</a>
         
           
           
@@ -1895,7 +1896,7 @@ Yeom, <strong>Scalable Serializable Snapshot Isolation for Multicore Systems.</s
           
           
           
-          <a href="/tags/lkml/" style="font-size:7.558565411712354rem">lkml</a>
+          <a href="/tags/lkml/" style="font-size:7.563651797476105rem">lkml</a>
         
           
           
@@ -1905,7 +1906,7 @@ Yeom, <strong>Scalable Serializable Snapshot Isolation for Multicore Systems.</s
           
           
           
-          <a href="/tags/news/" style="font-size:7.563651797476105rem">news</a>
+          <a href="/tags/news/" style="font-size:7.56872250868261rem">news</a>
         
           
           

@@ -5,12 +5,37 @@
     <link>https://sjp38.github.io/tags/kernel/</link>
       <atom:link href="https://sjp38.github.io/tags/kernel/index.xml" rel="self" type="application/rss+xml" />
     <description>kernel</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 01 Oct 2024 06:54:08 -0700</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 08 Oct 2024 07:54:17 -0700</lastBuildDate>
     <image>
       <url>https://sjp38.github.io/img/tux.png</url>
       <title>kernel</title>
       <link>https://sjp38.github.io/tags/kernel/</link>
     </image>
+    
+    <item>
+      <title>LKML News v6.12-rc3</title>
+      <link>https://sjp38.github.io/post/lkml_news_v6.12-rc3/</link>
+      <pubDate>Tue, 08 Oct 2024 07:54:17 -0700</pubDate>
+      <guid>https://sjp38.github.io/post/lkml_news_v6.12-rc3/</guid>
+      <description>&lt;h2 id=&#34;rfc-patch-v3-04-schedmm-track-lazy-active-mm-existence-with-hazard-pointers-mathew-desnoyers&#34;&gt;[RFC PATCH v3 0/4] sched+mm: Track lazy active mm existence with hazard pointers (Mathew Desnoyers)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lore.kernel.org/20241008135034.1982519-1-mathieu.desnoyers@efficios.com&#34;&gt;https://lore.kernel.org/20241008135034.1982519-1-mathieu.desnoyers@efficios.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Mathiew Desnoyers posted the third version of his hazard pointer patch series
+for optimizing &lt;code&gt;active_mm&lt;/code&gt; tracking following comments from Peter Zijlstra and
+Paul E. McKenney on the previous versions of the patch series.&lt;/p&gt;
+&lt;h2 id=&#34;rfc-patch-01-buddy-allocator-like-folio-split-zi-yan&#34;&gt;[RFC PATCH 0/1] Buddy allocator like folio split (Zi Yan)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lore.kernel.org/20241008223748.555845-1-ziy@nvidia.com&#34;&gt;https://lore.kernel.org/20241008223748.555845-1-ziy@nvidia.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Zi Yan posted an RFC patch for making folio split behaves like the Buddy
+allocator, to reduce total number of folios after splits.&lt;/p&gt;
+&lt;h2 id=&#34;proposal-bi-weekly-guest_memfd-upstream-call-david-hildenbrand&#34;&gt;Proposal: bi-weekly guest_memfd upstream call (David Hildenbrand)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lore.kernel.org/4b49248b-1cf1-44dc-9b50-ee551e1671ac@redhat.com&#34;&gt;https://lore.kernel.org/4b49248b-1cf1-44dc-9b50-ee551e1671ac@redhat.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;David Hildenbrand proposes having a bi-weekly meeting for ongoing &lt;code&gt;guest_memfd&lt;/code&gt;
+development, for Thursday 9:00-10:00 PDT.&lt;/p&gt;
+&lt;h2 id=&#34;git-pull-hotfixes-for-612-rc3-andrew-morton&#34;&gt;[GIT PULL] hotfixes for 6.12-rc3 (Andrew Morton)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lore.kernel.org/20241009155033.485bc6df1a01b6dfca93a9d9@linux-foundation.org&#34;&gt;https://lore.kernel.org/20241009155033.485bc6df1a01b6dfca93a9d9@linux-foundation.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Andre posted the hotfixes for next Linux v6.12 release candidate.  It contains
+Michal&amp;rsquo;s &lt;code&gt;PF_MEMALLOC_NORECLAIM&lt;/code&gt; revert series.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>LKML News v6.12-rc2</title>
@@ -3543,6 +3568,11 @@ If you find a news that should be added to this list, please let us know at
 &lt;a href=&#34;mailto:sj@kernel.org&#34;&gt;sj@kernel.org&lt;/a&gt; and/or &lt;a href=&#34;mailto:damon@lists.linux.dev&#34;&gt;damon@lists.linux.dev&lt;/a&gt;.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;2024&#34;&gt;2024&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;2024-10-08&lt;/em&gt;: Videos for
+&lt;a href=&#34;https://youtu.be/xKJO4kLTHOI?feature=shared&#34;&gt;DAMON recipes&lt;/a&gt; at Open Source
+Summit EU&#39;2024 and
+&lt;a href=&#34;https://youtu.be/mRU1ZeNB9WY?feature=shared&#34;&gt;DAMON long-term plans&lt;/a&gt; at Kernel
+Memory Management Microconference&#39;2024 are uploaded to YouTube.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;2024-10-01&lt;/em&gt;: 2024-Q3 DAMON news letter including news for new features,
 more users, repos reorganizations, and conference talks is
 &lt;a href=&#34;https://lore.kernel.org/20241001191425.588219-1-sj@kernel.org&#34;&gt;posted&lt;/a&gt;.&lt;/p&gt;
@@ -11829,6 +11859,11 @@ and SK hynix &lt;a href=&#34;https://github.com/skhynix/hmsdk/tree/hmsdk-v2.0&#3
 &lt;h2 id=&#34;recent-news&#34;&gt;Recent News&lt;/h2&gt;
 &lt;p&gt;Below are only a short list of recent news.  For &lt;strong&gt;complete list of the news&lt;/strong&gt;,
 please refer to a dedicated &lt;a href=&#34;https://sjp38.github.io/post/damon_news/&#34;&gt;post&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;2024-10-08&lt;/em&gt;: Videos for
+&lt;a href=&#34;https://youtu.be/xKJO4kLTHOI?feature=shared&#34;&gt;DAMON recipes&lt;/a&gt; at Open Source
+Summit EU&#39;2024 and
+&lt;a href=&#34;https://youtu.be/mRU1ZeNB9WY?feature=shared&#34;&gt;DAMON long-term plans&lt;/a&gt; at Kernel
+Memory Management Microconference&#39;2024 are uploaded to YouTube.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;2024-10-01&lt;/em&gt;: 2024-Q3 DAMON news letter including news for new features,
 more users, repos reorganizations, and conference talks is
 &lt;a href=&#34;https://lore.kernel.org/20241001191425.588219-1-sj@kernel.org&#34;&gt;posted&lt;/a&gt;.&lt;/p&gt;
@@ -12026,14 +12061,15 @@ operations) and user-space driven auto-tuning.&lt;/p&gt;
 &lt;li&gt;SeongJae Park, &lt;strong&gt;DAMON: Long-term Plans for Kernel That {Just
 Works,Extensible}.&lt;/strong&gt; In Linux Kernel Memory Management Microconferenct at
 Linux Plumbers, Sep 2024.
-&lt;a href=&#34;https://lpc.events/event/18/contributions/1768/&#34;&gt;Link&lt;/a&gt;,
 &lt;a href=&#34;https://lpc.events/event/18/contributions/1768/attachments/1637/3383/damon_longtern_plans_kmm_mc_lpc.pdf&#34;&gt;Slides&lt;/a&gt;,
-&lt;a href=&#34;https://www.youtube.com/live/CTWQ-d7pj5s?feature=shared&amp;amp;t=20182&#34;&gt;Video&lt;/a&gt;&lt;/li&gt;
+&lt;a href=&#34;https://youtu.be/mRU1ZeNB9WY?feature=shared&#34;&gt;Video&lt;/a&gt;,
+&lt;a href=&#34;https://lpc.events/event/18/contributions/1768/&#34;&gt;Link&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;SeongJae Park, &lt;strong&gt;DAMON Recipes: Ways to Save Memory Using a Linux Kernel
 Subsystem in the Real World.&lt;/strong&gt; In Open Source Summit Europe, Sep 2024.
-&lt;a href=&#34;https://sched.co/1ej2S&#34;&gt;Link&lt;/a&gt;,
 &lt;a href=&#34;https://static.sched.com/hosted_files/osseu2024/50/damon_recipes_osseu_2024_overall.pdf?_gl=1*9ygnyb*_gcl_au*MTE4NTExNjkzLjE3MjU5MjQ4NzQ.*FPAU*MTk0NDY0NTM3LjE3MjI0MzA5MjA.&#34;&gt;Slides 1&lt;/a&gt;,
-&lt;a href=&#34;https://static.sched.com/hosted_files/osseu2024/68/damon_recipes_osseu_hmsdk.pdf?_gl=1*9ygnyb*_gcl_au*MTE4NTExNjkzLjE3MjU5MjQ4NzQ.*FPAU*MTk0NDY0NTM3LjE3MjI0MzA5MjA.&#34;&gt;Slides 2&lt;/a&gt;,&lt;/li&gt;
+&lt;a href=&#34;https://static.sched.com/hosted_files/osseu2024/68/damon_recipes_osseu_hmsdk.pdf?_gl=1*9ygnyb*_gcl_au*MTE4NTExNjkzLjE3MjU5MjQ4NzQ.*FPAU*MTk0NDY0NTM3LjE3MjI0MzA5MjA.&#34;&gt;Slides 2&lt;/a&gt;,
+&lt;a href=&#34;https://youtu.be/xKJO4kLTHOI?feature=shared&#34;&gt;Video&lt;/a&gt;,
+&lt;a href=&#34;https://sched.co/1ej2S&#34;&gt;Link&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Jonathan Corbet, &lt;strong&gt;An update and future plans for DAMON.&lt;/strong&gt; In Linux Weekly
 News, May 2024.
 &lt;a href=&#34;https://lwn.net/Articles/973702/&#34;&gt;Article&lt;/a&gt;&lt;/li&gt;
