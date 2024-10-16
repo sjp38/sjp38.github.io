@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-10-08T07:54:17-07:00">
+    <meta property="og:updated_time" content="2024-10-15T06:37:20-07:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.5/">LKML News v5.5</a></h2>
+    <div class="article-style">
+      
+      [PATCH 0/8] Introduce Data Access MONitor (DAMON) https://lkml.kernel.org/r/20200120162757.32375-1-sjpark@amazon.com
+This is the patchset for the DAMON.
+Paging out when free memory is low but not exhausted (and available memory remains high) https://lkml.kernel.org/r/e994b0a76099437b8edbae925e9ccac8@its-mail-p04.registry.otago.ac.nz
+This mail introduces an issue on 5.3 and 5.4 kernel that page out is occurred needlessly. The author uses stress and dd to stress memory but still leave some memory in the system. However, the system does swap excessively.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.5-rc7/">LKML News v5.5-rc7</a></h2>
     <div class="article-style">
       
@@ -625,17 +637,6 @@ Linux 5.5 merge window closed and the -rc1 has released. It was a tiny bit large
 Google&rsquo;s third KMSAN RFC patchset that detects errors caused by accessing uninitialized memory areas. Like other SAN series, it has been used in Google syzkaller and found over 200 bugs in the last two years.
 LSF/MM/BPF: 2020: Call for Proposals https://lkml.kernel.org/r/20191122172502.vffyfxlqejthjib6@macbook-pro-91.dhcp.thefacebook.com
 LSF/MM&rsquo;s CFP for the next year was released. From next year, BPF sessions will be added to LSF/MM, so the name has changed to LSF/MM/BPF.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.4-rc8/">LKML News v5.4-rc8</a></h2>
-    <div class="article-style">
-      
-      [PATCH 00/13] Finish off [smp_]read_barrier_depends() https://lkml.kernel.org/r/20191108170120.22331-1-will@kernel.org
-The memory model element which is depends only on Alpha, smp_read_barrier_depends() is built into READ_ONCE(), so that you don&rsquo;t have to worry about Alpha in non-alpha-specific kernel code. Nevertheless, the author of this patchset concerned about the continuing uploads of the code that cares it. This patchset removes the description of the feature from all documentation and comments in the kernel code.
-[PATCH v4 00/10] Add Kernel Concurrency Sanitizer (KCSAN) https://lkml.
       
     </div>
   </div>

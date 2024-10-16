@@ -28,12 +28,13 @@
   
     
   
-  <meta name="description" content="Kernel Programmer">
+  <meta name="description" content="[Invitation] bi-weekly guest_memfd upstream call on 2024-10-17 (David Hildenbrand) https://lore.kernel.org/df619e65-e65e-4856-b4ca-9938e8e08f18@redhat.com
+David starts a bi-weekly call series for discussing guest_memfd. The first instance will be held on 2024-10-17 9am PT.
+[Invitation] Linux MM Alignment Session on IOMMU(fd) persistence and Kexec Hand Over (KHO) on Wednesday (David Rientjes) https://lore.kernel.org/c85a45fb-7b21-4f9f-568a-e86debbd001a@google.com
+David invites people to next MM alignment session. The topic will be Amazon&rsquo;s kexec hand-over for making iommu persistent during live update of kernel.">
 
   
-  <link rel="alternate" hreflang="ko" href="https://sjp38.github.io/ko/post/">
-  
-  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/">
+  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/lkml_news_v6.12-rc4/">
 
   
 
@@ -58,6 +59,14 @@
     
       
     
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
     
 
     
@@ -125,14 +134,12 @@
 
 
   
-  <link rel="alternate" href="/post/index.xml" type="application/rss+xml" title="hacklog">
-  
 
   <link rel="manifest" href="/index.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon-32.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://sjp38.github.io/post/">
+  <link rel="canonical" href="https://sjp38.github.io/post/lkml_news_v6.12-rc4/">
 
   
   
@@ -144,18 +151,68 @@
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="hacklog">
-  <meta property="og:url" content="https://sjp38.github.io/post/">
-  <meta property="og:title" content="Posts | hacklog">
-  <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
+  <meta property="og:url" content="https://sjp38.github.io/post/lkml_news_v6.12-rc4/">
+  <meta property="og:title" content="LKML News v6.12-rc4 | hacklog">
+  <meta property="og:description" content="[Invitation] bi-weekly guest_memfd upstream call on 2024-10-17 (David Hildenbrand) https://lore.kernel.org/df619e65-e65e-4856-b4ca-9938e8e08f18@redhat.com
+David starts a bi-weekly call series for discussing guest_memfd. The first instance will be held on 2024-10-17 9am PT.
+[Invitation] Linux MM Alignment Session on IOMMU(fd) persistence and Kexec Hand Over (KHO) on Wednesday (David Rientjes) https://lore.kernel.org/c85a45fb-7b21-4f9f-568a-e86debbd001a@google.com
+David invites people to next MM alignment session. The topic will be Amazon&rsquo;s kexec hand-over for making iommu persistent during live update of kernel."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2017-01-01T00:00:00-08:00">
+    
+      <meta property="article:published_time" content="2024-10-15T06:37:20-07:00">
+    
+    <meta property="article:modified_time" content="2024-10-15T06:37:20-07:00">
   
 
   
 
 
+    
 
+
+
+
+
+
+  
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://sjp38.github.io/post/lkml_news_v6.12-rc4/"
+  },
+  "headline": "LKML News v6.12-rc4",
+  
+  "datePublished": "2024-10-15T06:37:20-07:00",
+  "dateModified": "2024-10-15T06:37:20-07:00",
+  
+  "author": {
+    "@type": "Person",
+    "name": "SeongJae Park (SJ)"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "hacklog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://sjp38.github.io/img/icon-512.png"
+    }
+  },
+  "description": "[Invitation] bi-weekly guest_memfd upstream call on 2024-10-17 (David Hildenbrand) https://lore.kernel.org/df619e65-e65e-4856-b4ca-9938e8e08f18@redhat.com\nDavid starts a bi-weekly call series for discussing guest_memfd. The first instance will be held on 2024-10-17 9am PT.\n[Invitation] Linux MM Alignment Session on IOMMU(fd) persistence and Kexec Hand Over (KHO) on Wednesday (David Rientjes) https://lore.kernel.org/c85a45fb-7b21-4f9f-568a-e86debbd001a@google.com\nDavid invites people to next MM alignment session. The topic will be Amazon\u0026rsquo;s kexec hand-over for making iommu persistent during live update of kernel."
+}
+</script>
+
+  
 
   
 
@@ -163,10 +220,13 @@
   
 
 
+  
 
 
 
-  <title>Posts | hacklog</title>
+
+
+  <title>LKML News v6.12-rc4 | hacklog</title>
 
 </head>
 
@@ -458,22 +518,6 @@
       
 
       
-      <li class="nav-item dropdown i18n-dropdown">
-        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true">
-          <i class="fas fa-globe mr-1" aria-hidden="true"></i><span class="d-none d-lg-inline">English</span>
-        </a>
-        <div class="dropdown-menu">
-          <div class="dropdown-item i18n-active font-weight-bold">
-            <span>English</span>
-          </div>
-          
-          <a class="dropdown-item" href="/ko/post/">
-            <span>한국어</span>
-          </a>
-          
-        </div>
-      </li>
-      
 
     </ul>
 
@@ -481,78 +525,33 @@
 </nav>
 
 
-  
-
-
-
-
-
-
-
-
-
-
-
+  <article class="article">
 
   
 
+
+
+
+
+
+
+
+
+
+
+
+  
+
   
   
+  
+<div class="article-container pt-3">
+  <h1>LKML News v6.12-rc4</h1>
+
+  
+
   
     
-  
-<div class="universal-wrapper pt-3">
-  <h1>Posts</h1>
-
-  
-
-  
-</div>
-
-
-
-<div class="universal-wrapper">
-
-  
-
-  
-  
-    
-      
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="/post/lkml_news_v4.20-rc4/" >LKML News by v4.20-rc4</a>
-    </h3>
-
-    
-    <div class="article-style">
-      [PATCH -V7 00/21] swap: Swapout/swapin THP in one piece https://lkml.kernel.org/r/20181120085449.5542-1-ying.huang@intel.com …
-    </div>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
-      
-        
 
 
 <div class="article-metadata">
@@ -566,90 +565,7 @@
     
       
     
-    Mon, Nov 26, 2018
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
-  
-
-</div>
-
-      
-    </div>
-
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="/post/lkml_news_v4.20-rc3/" >LKML News by v4.20-rc3</a>
-    </h3>
-
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
-      
-        
-
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    Mon, Nov 19, 2018
+    Tue, Oct 15, 2024
   </span>
   
 
@@ -675,737 +591,286 @@
 
 </div>
 
-      
-    </div>
-
     
 
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 </div>
 
-    
-  
-    
-      
 
 
+  <div class="article-container">
 
-
-
-
-
-
-
-
-
-
-  
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="/post/lkml_news_v4.20-rc2/" >LKML News by v4.20-rc2</a>
-    </h3>
-
-    
     <div class="article-style">
-      [PATCH 0/5] Fragmentation avoidance improvements v2 https://lkml.kernel.org/r/20181107183822.15567-1-mgorman@techsingularity.net
-장시간 운영 …
+      <h2 id="invitation-bi-weekly-guest_memfd-upstream-call-on-2024-10-17-david-hildenbrand">[Invitation] bi-weekly guest_memfd upstream call on 2024-10-17 (David Hildenbrand)</h2>
+<p><a href="https://lore.kernel.org/df619e65-e65e-4856-b4ca-9938e8e08f18@redhat.com">https://lore.kernel.org/df619e65-e65e-4856-b4ca-9938e8e08f18@redhat.com</a></p>
+<p>David starts a bi-weekly call series for discussing <code>guest_memfd</code>.  The first
+instance will be held on 2024-10-17 9am PT.</p>
+<h2 id="invitation-linux-mm-alignment-session-on-iommufd-persistence-and-kexec-hand-over-kho-on-wednesday-david-rientjes">[Invitation] Linux MM Alignment Session on IOMMU(fd) persistence and Kexec Hand Over (KHO) on Wednesday (David Rientjes)</h2>
+<p><a href="https://lore.kernel.org/c85a45fb-7b21-4f9f-568a-e86debbd001a@google.com">https://lore.kernel.org/c85a45fb-7b21-4f9f-568a-e86debbd001a@google.com</a></p>
+<p>David invites people to next MM alignment session.  The topic will be Amazon&rsquo;s
+kexec hand-over for making iommu persistent during live update of kernel.</p>
+<h2 id="patch-v3-05-page-allocation-tag-compression-suren-baghdasaryan">[PATCH v3 0/5] page allocation tag compression (Suren Baghdasaryan)</h2>
+<p><a href="https://lore.kernel.org/20241014203646.1952505-1-surenb@google.com">https://lore.kernel.org/20241014203646.1952505-1-surenb@google.com</a></p>
+<p>Suren posted the third version of the patch series for reducing page allocation
+profiling&rsquo;s memory overhead.</p>
+
     </div>
+
     
 
-    <div class="stream-meta article-metadata">
 
+
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/linux/">linux</a>
+  
+  <a class="badge badge-light" href="/tags/kernel/">kernel</a>
+  
+  <a class="badge badge-light" href="/tags/lkml/">lkml</a>
+  
+  <a class="badge badge-light" href="/tags/news/">news</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
       
-
+      
       
         
-
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=https://sjp38.github.io/post/lkml_news_v6.12-rc4/&amp;text=LKML%20News%20v6.12-rc4" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
     
       
-    
-    Mon, Nov 12, 2018
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
-  
-
-</div>
-
       
-    </div>
-
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="/post/ksummit2018_talk/" >I will have a talk at the kernel summit</a>
-    </h3>
-
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
       
         
-
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=https://sjp38.github.io/post/lkml_news_v6.12-rc4/&amp;t=LKML%20News%20v6.12-rc4" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
     
       
-    
-    Thu, Nov 8, 2018
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fas fa-folder mr-1"></i><a href="/categories/talks/">talks</a></span>
-  
-
-</div>
-
       
-    </div>
-
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="/post/lkmm-install/" >LKMM Setup and Usage</a>
-    </h3>
-
-    
-    <div class="article-style">
-      리눅스 커널은 Formalised and executable memory consistent model 을 제공합니다. 줄여서 linux kernel memory model (LKMM) 이라고 하죠. 이 글은 4.19 버전을 기준으로 LKMM …
-    </div>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
       
         
-
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=LKML%20News%20v6.12-rc4&amp;body=https://sjp38.github.io/post/lkml_news_v6.12-rc4/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
     
       
-    
-    Thu, Nov 8, 2018
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fas fa-folder mr-1"></i><a href="/categories/linux-kernel/">linux kernel</a></span>
-  
-
-</div>
-
       
-    </div>
-
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="/post/lkml_news_v4.20-rc1/" >LKML News by v4.20-rc1</a>
-    </h3>
-
-    
-    <div class="article-style">
-      리눅스 4.19 버전 릴리즈 후부터 4.20-rc1 버전의 릴리즈까지 LKML 에 오간 메일 중 흥미로운 메일들을 소개합니다.
-[RFC PATCH v4 00/13] ktask: multithread CPU-intensive kernel …
-    </div>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
       
         
-
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=https://sjp38.github.io/post/lkml_news_v6.12-rc4/&amp;title=LKML%20News%20v6.12-rc4" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
     
       
-    
-    Wed, Nov 7, 2018
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
-  
-
-</div>
-
       
-    </div>
-
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="/post/lkml_news_v4.19/" >LKML News after v4.19</a>
-    </h3>
-
-    
-    <div class="article-style">
-      Linux 4.19 https://lkml.kernel.org/r/20181022073224.GA5658@kroah.com
-드디어 9 주간의 안정화를 거쳐 4.19 버전이 릴리즈 되었습니다. 역시 토발즈가 쉬고 있는 관계로 Greg …
-    </div>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
       
         
-
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=LKML%20News%20v6.12-rc4%20https://sjp38.github.io/post/lkml_news_v6.12-rc4/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
     
       
-    
-    Mon, Oct 22, 2018
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
-  
-
-  
-  
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
-  
-
-</div>
-
       
-    </div>
-
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="/post/lkml_news_v4.19-rc8/" >LKML News after v4.19-rc8</a>
-    </h3>
-
-    
-    <div class="article-style">
-      Linux 4.19-rc8 https://lkml.kernel.org/r/20181015064915.GA10710@kroah.com
-여덟번째 rc 버전입니다. 여전히 그렉이 릴리즈 하는군요. 여덟번째 rc 인만큼, 큰 변화는 없었고, 대부분  …
-    </div>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
       
         
-
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
       
-    
-    Mon, Oct 15, 2018
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  
-
-  
-  
-
-</div>
-
       
-    </div>
-
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
-</div>
-
-    
-  
-    
       
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="/post/lkml_news_v4.19-rc7/" >LKML News after v4.19-rc7</a>
-    </h3>
-
-    
-    <div class="article-style">
-      Linux 4.19-rc7 https://lkml.kernel.org/r/20181007154529.GA4493@kroah.com
-토발즈 없이 진행되는 4.19를 위한 일곱번째 rc 릴리즈입니다. 이번에도 그렉이 대신 하는군요. …
-    </div>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
-      
-        
-
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    Mon, Oct 8, 2018
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
-  
-
-</div>
-
-      
-    </div>
-
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
-</div>
-
-    
-  
-    
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="/post/lkml_news_v4.19-rc6/" >LKML News after v4.19-rc6</a>
-    </h3>
-
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
-      
-        
-
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    Mon, Oct 1, 2018
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
-  
-
-</div>
-
-      
-    </div>
-
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
-</div>
-
-    
-  
-
-  
-<nav>
-  <ul class="pagination justify-content-center">
-    
-    <li class="page-item"><a class="page-link" href="/post/page/33/">&laquo;</a></li>
-    
-    
-    <li class="page-item"><a class="page-link" href="/post/page/35/">&raquo;</a></li>
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=https://sjp38.github.io/post/lkml_news_v6.12-rc4/&amp;title=LKML%20News%20v6.12-rc4" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
     
   </ul>
-</nav>
-
-
-
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      <img class="portrait mr-3" src="https://s.gravatar.com/avatar/43dc5645c78e68fda997138380dfaaf4?s=200')" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="https://sjp38.github.io/">SeongJae Park (SJ)</a></h5>
+      <h6 class="card-subtitle">Kernel Programmer</h6>
+      <p class="card-text">SeongJae Park (SJ) is a programmer who loves to analyze and develop systems.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://social.kernel.org/sj" target="_blank" rel="noopener">
+        <i class="fab fa-linux"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/sjp38" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://www.linkedin.com/in/seongjae-park-1a5b9954/" target="_blank" rel="noopener">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.com/citations?user=jJIiF3AAAAAJ" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  
+  
+  <div class="article-widget content-widget-hr">
+    <h3>Related</h3>
+    <ul>
+      
+      <li><a href="/post/lkml_news_v6.12-rc3/">LKML News v6.12-rc3</a></li>
+      
+      <li><a href="/post/lkml_news_v6.12-rc2/">LKML News v6.12-rc2</a></li>
+      
+      <li><a href="/post/lkml_news_v6.11/">LKML News v6.11</a></li>
+      
+      <li><a href="/post/lkml_news_v6.11-rc7/">LKML News v6.11-rc7</a></li>
+      
+      <li><a href="/post/lkml_news_v6.12-rc1/">LKML News v6.12-rc1</a></li>
+      
+    </ul>
+  </div>
+  
+
+
+
+  </div>
+</article>
 
       
 
@@ -1423,6 +888,14 @@
       
 
       
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js" integrity="sha256-1zu+3BnLYV9LdiY85uXMzii3bdrkelyp37e0ZyTAQh0=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/languages/c.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/languages/bash.min.js"></script>
+        
+      
 
       
       
@@ -1434,6 +907,8 @@
     
 
     
+    
+    <script>const code_highlighting = true;</script>
     
 
     

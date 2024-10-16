@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-10-08T07:54:17-07:00">
+    <meta property="og:updated_time" content="2024-10-15T06:37:20-07:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.2-rc5/">LKML News v6.2-rc5</a></h2>
+    <div class="article-style">
+      
+      [RFC] memory pressure detection in VMs using PSI mechanism for dynamically inflating/deflating VM memory (Sudarshan Rajagopalan) https://lkml.kernel.org/r/DS0PR02MB90787835F5B9CB9771A20329C4C09@DS0PR02MB9078.namprd02.prod.outlook.com
+Qualcomm&rsquo;s Linux memory team asks upstream&rsquo;s opinion about their userspace deamon approach for controlling VM memory size based on memory demands via monitoring PSI.
+[PATCH v1 0/3] Introduce per NUMA node memory error statistics (Jiaqi Yan) https://lkml.kernel.org/r/20230116193902.1315236-1-jiaqiyan@google.com
+On huge memory systems, memory error is inevitable, so detailed statistics of it helps administrators to operate systems more efficiently.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/damon_optimization_guide/">DAMON-based System Optimization Guide</a></h2>
     <div class="article-style">
       
@@ -628,19 +640,6 @@ Andrew Morton sent the MM pull request for v6.2-rc1 to Linus Torvalds. It includ
 There was a patch for enabling demotion via memory.reclaim memcg file. It made try_to_free_mem_cgroup_pages() behavior changed. As the changed behavior is somewhat the users of the caller didn&rsquo;t expect, this patch fixes it.
 [PATCHv8 00/14] mm, x86/cc: Implement support for unaccepted memory (Kirill A. Shutemov) https://lkml.kernel.org/r/20221207014933.8435-1-kirill.shutemov@linux.intel.com
 Some confidential VM approaches like Intel TDX or AMD SEV-SNP requires the guests to accept memory that they will use before use.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.1-rc8/">LKML News v6.1-rc8</a></h2>
-    <div class="article-style">
-      
-      [PATCH 1/2] lockdep: allow instrumenting lockdep.c with KMSAN (Alexander Potapenko) https://lkml.kernel.org/r/20221128094541.2645890-1-glider@google.com
-Lockdep and KMSAN are known to work together nowadays, though it could make kernel run slower. This patch fixes KMSAN&rsquo;s false positives on wq_head-&gt;lock-&gt;dep_map.
-[PATCH] mm/huge_memory: add TRANSPARENT_HUGEPAGE_NEVER for THP (ye xingchen) https://lkml.kernel.org/r/202211301651462590168@zte.com.cn
-This patch adds a new kernel config called TRANSPARENT_HUGEPAGE_NEVER, which will set the value of /sys/kernel/mm/transparent_hugepage/enabled [never].
-[RFC PATCH v2] mm: Add nodes= arg to memory.reclaim (Mina Almasry) https://lkml.
       
     </div>
   </div>
