@@ -626,6 +626,17 @@ kexec hand-over for making iommu persistent during live update of kernel.</p>
 <p><a href="https://lore.kernel.org/20241014203646.1952505-1-surenb@google.com">https://lore.kernel.org/20241014203646.1952505-1-surenb@google.com</a></p>
 <p>Suren posted the third version of the patch series for reducing page allocation
 profiling&rsquo;s memory overhead.</p>
+<h2 id="rfc-02-rwsem-introduce-upgrade_read-interface-li-zhe">[RFC 0/2] rwsem: introduce upgrade_read interface (Li Zhe)</h2>
+<p><a href="https://lore.kernel.org/20241016043600.35139-1-lizhe.67@bytedance.com">https://lore.kernel.org/20241016043600.35139-1-lizhe.67@bytedance.com</a></p>
+<p>Li sent an RFC patch for introducing new reader-writer semaphore feature for
+upgrading it from read lock to write lock.  He mentions khugepaged as an
+example that can get benefit from the new feature.  There are some questions
+about the fundamental problem of the semantic though.</p>
+<h2 id="pmemfsguestmemfs-discussion-recap-and-open-questions-david-rientjes">Pmemfs/guestmemfs discussion recap and open questions (David Rientjes)</h2>
+<p><a href="https://lore.kernel.org/f44f317a-2dcb-cfe2-013c-7508907ce3df@google.com">https://lore.kernel.org/f44f317a-2dcb-cfe2-013c-7508907ce3df@google.com</a></p>
+<p>David shares a summary of yesterday&rsquo;s MM alignment session for live hypervisor
+kernel upgrade using KHO, with open questions that not got aligned answers
+yesterdasy.</p>
 
     </div>
 
