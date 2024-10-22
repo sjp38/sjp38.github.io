@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-10-15T06:37:20-07:00">
+    <meta property="og:updated_time" content="2024-10-22T07:40:31-07:00">
   
 
   
@@ -525,6 +525,19 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.2-rc7/">LKML News v6.2-rc7</a></h2>
+    <div class="article-style">
+      
+      [LSF/MM/BPF TOPIC] CXL Fabric Manager (FM) architecture (Viacheslav A.Dubeyko) https://lkml.kernel.org/r/7F001EAF-C512-436A-A9DD-E08730C91214@bytedance.com
+A topic suggestion for LSF/MM/BPF. It suggests to discuss about Fabric Manager (FM) architecture, which requires configuration tool, daemon, and QEMU emulation of CXL hardware features.
+[PATCH V2 0/3] sched/numa: Enhance vma scanning (Ragghavendra K T) https://lkml.kernel.org/r/cover.1675159422.git.raghavendra.kt@amd.com
+A patchset for improving access scanning for NUMA balancing. This uses per-thread VMA scanning idea from Mel.
+LSFMMBPF proposal [MM]: Lazy RCU memory reclaim (Joel Fernandes) https://lkml.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.2-rc6/">LKML News v6.2-rc6</a></h2>
     <div class="article-style">
       
@@ -634,18 +647,6 @@ Vlastimil has posted a mail[1] for a discussion about SLOB deprecation. As no on
 [1] https://lore.kernel.org/all/b35c3f82-f67b-2103-7d82-7a7ba7521439@suse.cz/
 [RFC PATCH v1 0/4] Introduce merge identical pages mechanism (Alexey Romanov) https://lkml.kernel.org/r/20221121190020.66548-1-avromanov@sberdevices.ru
 This RFC patchset introduces a mechanism for merging identical compressed pages, which could be common in zram like use cases.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.1-rc6/">LKML News v6.1-rc6</a></h2>
-    <div class="article-style">
-      
-      [PATCH] mm: Make drop_caches keep reclaiming on all nodes (Jan Kara) https://lkml.kernel.org/r/20221115123255.12559-1-jack@suse.cz
-drop_caches works in somewhat loop-until-no-progress manner. It could result in not so aggressive reclamation. This patch makes it to continue reclamation on other node until every node makes no progress.
-[RFC][PATCH 0/4] cachestat: a new syscall for page cache state of files (Nha Pham) https://lkml.kernel.org/r/20221115182901.2755368-1-nphamcs@gmail.com
-Users can know the cache state of files using mincore() system call, but it scales bad for large files.
       
     </div>
   </div>
