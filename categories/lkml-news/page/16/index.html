@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-10-22T07:40:31-07:00">
+    <meta property="og:updated_time" content="2024-10-28T22:03:33-07:00">
   
 
   
@@ -525,6 +525,20 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.14-rc6/">LKML News v5.14-rc6</a></h2>
+    <div class="article-style">
+      
+      [PATCH v9 1/2] mm: introduce process_mrelease system call (Suren Baghdasaryan) https://lkml.kernel.org/r/20210809185259.405936-1-surenb@google.com
+9th version of the patchset which introducing a new system call for releasing memory of a process in a speedy manner.
+mmotm 2021-08-09-19-18 uploaded (Andrew Morton) https://lkml.kernel.org/r/20210810021934.XcpwGUEMn%akpm@linux-foundation.org
+-mm tree updated.
+[PATCH 0/5] x86: Impplement support for unaccepted memory (Kirill A. Shutemov) https://lkml.kernel.org/r/20210810062626.1012-1-kirill.shutemov@linux.intel.com
+Some platforms like Intel TDX or AMD SEV-SNP require memory to be accepted before it can be used by the guest.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.14-rc5/">LKML News v5.14-rc5</a></h2>
     <div class="article-style">
       
@@ -640,18 +654,6 @@ This patchset removes DISCONTIGMEM memory model, finally. There are no more arch
 This patchset introduces /proc/sys/vm/compaction_proactiveness file, which can trigger proactive compaction by writing it.
 [RFC PATCH] mm/page_reporting: Adjust threshold according to MAX_ORDER (Gavin Shan) https://lkml.kernel.org/r/20210601033319.100737-1-gshan@redhat.com
 The free pages reporting feature doesn&rsquo;t allow discontiguous pages that smaller than PAGE_REPORTING_MIN_ORDER. Current setting of it makes the feature to never work on specific environment, because it is set to be equal to pageblock_order.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.13-rc4/">LKML News v5.13-rc4</a></h2>
-    <div class="article-style">
-      
-      [PATCH 0/2] arm64: remove page granularity limitation from KFENCE (Jisheng Zhang) https://lkml.kernel.org/r/20210524172433.015b3b6b@xhacker.debian
-This patchset removes the page granularity mapping requirement for the KFENCE&rsquo;s linear map, to achieve both arm64&rsquo;s block level and contiguous mapping for non-KFENCE pool pages, by allocating the KFENCE pool before paging_init().
-[PATCH v2 00/21] Optimize list lru memory consumption (Muchun Song) https://lkml.kernel.org/r/20210527062148.9361-1-songmuchun@bytedance.com
-Muchun found kmalloc-32 slab cache consuming huge memory due to cgroups initialization, and posting this patchset which expected to fix the problem fundamentally.
       
     </div>
   </div>

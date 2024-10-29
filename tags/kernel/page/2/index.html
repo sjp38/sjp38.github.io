@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-10-22T07:40:31-07:00">
+    <meta property="og:updated_time" content="2024-10-28T22:03:33-07:00">
   
 
   
@@ -525,6 +525,20 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.11-rc4/">LKML News v6.11-rc4</a></h2>
+    <div class="article-style">
+      
+      [PATCH v3 0/6] mm: split underutilized THPs (Usama Arif) https://lore.kernel.org/20240813120328.1275952-1-usamaarif642@gmail.com
+Usama posted the third version of THP split patch series.
+[PATCH] Reenable NUMA policy support in the slab allocator (Christoph Lameter) https://lore.kernel.org/20240812-numa_policy-v1-1-1732602b976c@gentwo.org
+Christoph sent a patch that reverts previous commit that disabled the numa policy support in the slab allocator.
+[RFC PATCH v1 0/4] mm: ZSWAP swap-out of mTHP folios (Kanchan P Sridhar) https://lore.kernel.org/20240814062830.26833-1-kanchana.p.sridhar@intel.com
+Kanchan sent an RFC patch series for enabling zswap_store() storing mTHP folios.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.11-rc3/">LKML News v6.11-rc3</a></h2>
     <div class="article-style">
       
@@ -629,20 +643,6 @@ Ryan posted this proof-of-concept patchset for achieving 0% fallback at mTHP swa
 Linus Torvalds posted another version of runtime const patchset for not only x86_64 but also arm64. He mentions the work was motivated by his Altra box that shows __d_lookup_rcu() like a horror.
 [PATCH v2 1/2] virt: pvmemcontrol: control guest physical memory properties (Yuanchu Xie) https://lore.kernel.org/20240612021207.3314369-1-yuanchu@google.com
 Yuanchu posted a patchset for letting guest control its physical memory properties, security features and optimizations.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.10-rc3/">LKML News v6.10-rc3</a></h2>
-    <div class="article-style">
-      
-      [PATCH v2 0/8] mm: workingset reporting (Yuanchu Xie) https://lore.kernel.org/20240604020549.1017540-1-yuanchu@google.com
-Yuanchu posted second version of the MGLRU-based workingset reporting patchset.
-[PATCH 0/2] mm/pstore: Reserve named unspecified memory across boots (Steven Rostedt) https://lore.kernel.org/20240603233330.801075898@goodmis.org
-Steven posted a patch for reserving part of memory for pstore, which is currently being reserved via firmware, via a new kernel command line parameter, reserve_mem.
-[PATCH v4 00/11] riscv: Memory Hot(Un)Plug support (Björn Töpel) https://lore.kernel.org/20240605114100.315918-1-bjorn@kernel.org
-Björn posted the fourth version of the patchset for supporting memory hot-[un]plugging and ZONE_DEVICE support on RISC-V.
       
     </div>
   </div>
