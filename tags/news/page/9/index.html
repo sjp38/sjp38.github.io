@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-10-28T22:03:33-07:00">
+    <meta property="og:updated_time" content="2024-11-05T06:40:52-08:00">
   
 
   
@@ -525,6 +525,19 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.3-rc1/">LKML News v6.3-rc1</a></h2>
+    <div class="article-style">
+      
+      [GIT PULL] MM updates for 6.3-rc1 (Andrew Morton) https://lkml.kernel.org/r/20230220135225.91b0f28344c01d5306c31230@linux-foundation.org
+The mm updates pull request for v6.3-rc1 has posted by Andrew.
+[GIT PULL] Compute Express Link (CXL) for 6.3 (Dan Williams) https://lkml.kernel.org/r/63f5a4e2277b1_c94229453@dwillia2-mobl3.amr.corp.intel.com.notmuch
+A pull request for makincg CXL handling including CXL memory layout parsing/updating and events/errors reporting has posted for v6.3. Without this patchset, currently the works are dependents on platform-firmware.
+[RFC v2 0/5] tmpfs: add the option to disable swap (Luis Chamberlain) https://lkml.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.2/">LKML News v6.2</a></h2>
     <div class="article-style">
       
@@ -633,18 +646,6 @@ Shared anonymous pages VMA naming has a memory leak. This patch fixes the leak.
 Currently pages allocated for demotion targets includes __GFP_KSWAPD_RECALIM, and therefore memcg triggered reclaim could result in reclaims of pages in different hierarchy. Michal suggests simple modification of it.
 [GIT PULL] MM updates for 6.2-rc1 (Andrew Morton) (1+ msgs) (Andrew Morton) https://lkml.kernel.org/r/20221213142614.525a9240506119abc3cef6b6@linux-foundation.org
 Andrew Morton sent the MM pull request for v6.2-rc1 to Linus Torvalds. It includes 28 DAMON patches for cleanup and DAMOS tried regions sysfs.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.1/">LKML News v6.1</a></h2>
-    <div class="article-style">
-      
-      [PATCH v3] [mm-unstable] mm: Fix memcg reclaim on memory tiered systems (Mina Almasry) https://lkml.kernel.org/r/20221206023406.3182800-1-almasrymina@google.com
-There was a patch for enabling demotion via memory.reclaim memcg file. It made try_to_free_mem_cgroup_pages() behavior changed. As the changed behavior is somewhat the users of the caller didn&rsquo;t expect, this patch fixes it.
-[PATCHv8 00/14] mm, x86/cc: Implement support for unaccepted memory (Kirill A. Shutemov) https://lkml.kernel.org/r/20221207014933.8435-1-kirill.shutemov@linux.intel.com
-Some confidential VM approaches like Intel TDX or AMD SEV-SNP requires the guests to accept memory that they will use before use.
       
     </div>
   </div>

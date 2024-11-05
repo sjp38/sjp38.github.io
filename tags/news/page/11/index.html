@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-10-28T22:03:33-07:00">
+    <meta property="og:updated_time" content="2024-11-05T06:40:52-08:00">
   
 
   
@@ -525,6 +525,19 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.0-rc7/">LKML News v6.0-rc6</a></h2>
+    <div class="article-style">
+      
+      [RFC PATCH] mm: track bad page via kmemleak (Zhaoyang Huang) https://lkml.kernel.org/r/1663679468-16757-1-git-send-email-zhaoyang.huang@unisoc.com
+This RFC patch makes bad pages to be tracked via kmemleak.
+[PATCH v1 0/3] coding-style.rst: document BUG() and WARN() rules (David Hildenbrand) https://lkml.kernel.org/r/20220920122302.99195-1-david@redhat.com
+There was a recent discussion on when to use BUG() and WARN() and the variants. This patch tries to make it clearly described in coding-style doc and checkpatch script.
+[RFC 0/6] migrate_pages(): batch TLB flushing (Huang Ying) https://lkml.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.0-rc6/">LKML News v6.0-rc6</a></h2>
     <div class="article-style">
       
@@ -633,18 +646,6 @@ Maple tree has already merged in the mm-unstable but a new bug has found, so the
 Only buffered I/O is available to reserved memory for ZONE_DEVICE and mhp. This patchset enables direct I/O to the memory for better throughput.
 [PATCH -V4 RESEND 0/3] memory tiering: hot page selection (Huang Ying) https://lkml.kernel.org/r/20220713083954.34196-1-ying.huang@intel.com
 This patchset implements a new hot page identification algorithm based on the latency between NUMA balancing page table scanning and hit page fault, so that it can be somewhat LFU algorithm instead of MRU algorithm.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.19-rc6/">LKML News v5.19-rc6</a></h2>
-    <div class="article-style">
-      
-      [PATCH v9 0/9] x86: Show in sysfs if a memory node is able to do encryption (Martin Fernandez) https://lkml.kernel.org/r/20220704135833.1496303-1-martin.fernandez@eclypsium.com
-This patchset makes each memory descriptor node to show if it has the EFI_MEMORY_CPU_CRYPRO attribute.
-[PATCH v3] arm64: enable THP_SWAP for arm64 (Barry Song) https://lkml.kernel.org/r/20220706072707.114376-1-21cnbao@gmail.com
-THP_SWAP, which dealys the split of THP for swap, includes swap throughput and architecture independent, but enabled on x86_64 only. This patch enables it on arm64.
       
     </div>
   </div>
