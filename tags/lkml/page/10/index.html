@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-11-05T06:40:52-08:00">
+    <meta property="og:updated_time" content="2024-11-12T06:38:12-08:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.1/">LKML News v6.1</a></h2>
+    <div class="article-style">
+      
+      [PATCH v3] [mm-unstable] mm: Fix memcg reclaim on memory tiered systems (Mina Almasry) https://lkml.kernel.org/r/20221206023406.3182800-1-almasrymina@google.com
+There was a patch for enabling demotion via memory.reclaim memcg file. It made try_to_free_mem_cgroup_pages() behavior changed. As the changed behavior is somewhat the users of the caller didn&rsquo;t expect, this patch fixes it.
+[PATCHv8 00/14] mm, x86/cc: Implement support for unaccepted memory (Kirill A. Shutemov) https://lkml.kernel.org/r/20221207014933.8435-1-kirill.shutemov@linux.intel.com
+Some confidential VM approaches like Intel TDX or AMD SEV-SNP requires the guests to accept memory that they will use before use.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.1-rc8/">LKML News v6.1-rc8</a></h2>
     <div class="article-style">
       
@@ -639,19 +651,6 @@ Andrew&rsquo;s mm hotfix patches pull request for Linux v6.0, or v6.0-rc8 has po
 This RFC patch introduces a set of method to sort objects in kmemleak output by backtrace to make the report more easy to read.
 [PATCH 0/3] THP Shrinker (Alexander Zhu) https://lkml.kernel.org/r/cover.1664347167.git.alexlzhu@fb.com
 This patchset introduces a sysfs files for measuring THP utilization and a shrinker for splitting the under-utilized THPs.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.0-rc7/">LKML News v6.0-rc6</a></h2>
-    <div class="article-style">
-      
-      [RFC PATCH] mm: track bad page via kmemleak (Zhaoyang Huang) https://lkml.kernel.org/r/1663679468-16757-1-git-send-email-zhaoyang.huang@unisoc.com
-This RFC patch makes bad pages to be tracked via kmemleak.
-[PATCH v1 0/3] coding-style.rst: document BUG() and WARN() rules (David Hildenbrand) https://lkml.kernel.org/r/20220920122302.99195-1-david@redhat.com
-There was a recent discussion on when to use BUG() and WARN() and the variants. This patch tries to make it clearly described in coding-style doc and checkpatch script.
-[RFC 0/6] migrate_pages(): batch TLB flushing (Huang Ying) https://lkml.
       
     </div>
   </div>

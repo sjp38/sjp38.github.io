@@ -28,12 +28,11 @@
   
     
   
-  <meta name="description" content="Kernel Programmer">
+  <meta name="description" content="[PATCH 0/4] move per-vma lock into vm_area_struct (Suren Baghdasaryan) https://lore.kernel.org/20241111205506.3404479-1-surenb@google.com
+Suren posted a patch moving vm_lock back into vm_area_struct after confirming the performance regression found before happens only on limited cases (old Broadwell microarchitecture).">
 
   
-  <link rel="alternate" hreflang="ko" href="https://sjp38.github.io/ko/tags/linux/">
-  
-  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/tags/linux/">
+  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/lkml_news_v6.12/">
 
   
 
@@ -133,14 +132,12 @@
 
 
   
-  <link rel="alternate" href="/tags/linux/index.xml" type="application/rss+xml" title="hacklog">
-  
 
   <link rel="manifest" href="/index.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon-32.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://sjp38.github.io/tags/linux/">
+  <link rel="canonical" href="https://sjp38.github.io/post/lkml_news_v6.12/">
 
   
   
@@ -152,18 +149,66 @@
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="hacklog">
-  <meta property="og:url" content="https://sjp38.github.io/tags/linux/">
-  <meta property="og:title" content="linux | hacklog">
-  <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
+  <meta property="og:url" content="https://sjp38.github.io/post/lkml_news_v6.12/">
+  <meta property="og:title" content="LKML News v6.12 | hacklog">
+  <meta property="og:description" content="[PATCH 0/4] move per-vma lock into vm_area_struct (Suren Baghdasaryan) https://lore.kernel.org/20241111205506.3404479-1-surenb@google.com
+Suren posted a patch moving vm_lock back into vm_area_struct after confirming the performance regression found before happens only on limited cases (old Broadwell microarchitecture)."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-11-12T06:38:12-08:00">
+    
+      <meta property="article:published_time" content="2024-11-12T06:38:12-08:00">
+    
+    <meta property="article:modified_time" content="2024-11-12T06:38:12-08:00">
   
 
   
 
 
+    
 
+
+
+
+
+
+  
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://sjp38.github.io/post/lkml_news_v6.12/"
+  },
+  "headline": "LKML News v6.12",
+  
+  "datePublished": "2024-11-12T06:38:12-08:00",
+  "dateModified": "2024-11-12T06:38:12-08:00",
+  
+  "author": {
+    "@type": "Person",
+    "name": "SeongJae Park (SJ)"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "hacklog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://sjp38.github.io/img/icon-512.png"
+    }
+  },
+  "description": "[PATCH 0/4] move per-vma lock into vm_area_struct (Suren Baghdasaryan) https://lore.kernel.org/20241111205506.3404479-1-surenb@google.com\nSuren posted a patch moving vm_lock back into vm_area_struct after confirming the performance regression found before happens only on limited cases (old Broadwell microarchitecture)."
+}
+</script>
+
+  
 
   
 
@@ -171,10 +216,13 @@
   
 
 
+  
 
 
 
-  <title>linux | hacklog</title>
+
+
+  <title>LKML News v6.12 | hacklog</title>
 
 </head>
 
@@ -396,7 +444,7 @@
         
 
         <li class="nav-item">
-          <a class="nav-link  active" href="/tags"><span>Tags</span></a>
+          <a class="nav-link " href="/tags"><span>Tags</span></a>
         </li>
 
         
@@ -466,22 +514,6 @@
       
 
       
-      <li class="nav-item dropdown i18n-dropdown">
-        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true">
-          <i class="fas fa-globe mr-1" aria-hidden="true"></i><span class="d-none d-lg-inline">English</span>
-        </a>
-        <div class="dropdown-menu">
-          <div class="dropdown-item i18n-active font-weight-bold">
-            <span>English</span>
-          </div>
-          
-          <a class="dropdown-item" href="/ko/tags/linux/">
-            <span>한국어</span>
-          </a>
-          
-        </div>
-      </li>
-      
 
     </ul>
 
@@ -489,184 +521,345 @@
 </nav>
 
 
-  
-
-
-
-
-
-
-
-
-
-
-
+  <article class="article">
 
   
 
+
+
+
+
+
+
+
+
+
+
+
+  
+
   
   
+  
+<div class="article-container pt-3">
+  <h1>LKML News v6.12</h1>
+
+  
+
   
     
-  
-<div class="universal-wrapper pt-3">
-  <h1>linux</h1>
+
+
+<div class="article-metadata">
 
   
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Tue, Nov 12, 2024
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   
 </div>
 
 
 
-<div class="universal-wrapper">
-  
+  <div class="article-container">
 
-  
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.8-rc4/">LKML News v6.8-rc4</a></h2>
     <div class="article-style">
-      
-      [PATCH] mm/cma: Add sysfs file &lsquo;release_pages_success&rsquo; (Anshuman Khandual) https://lkml.kernel.org/r/20240206045731.472759-1-anshuman.khandual@arm.com
-This patch adds a new sysfs file for tracking the number of successfully released pages from a given CMA heap area. It aims to be hulpful at determining available active CMA pages.
-[PATCH v2] mm/demotion: print demotion targets (Li Zhijian) https://lkml.kernel.org/r/20240206020151.605516-1-lizhijian@fujitsu.com
-Li Zhijian sent a patch for printing demotion target information in case of fallback for unmet requirements on the target node, directly to the kernel log.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.8-rc3/">LKML News v6.8-rc3</a></h2>
-    <div class="article-style">
-      
-      [GIT PULL] hotfixes for 6.8-rc3 (Andrew Morton) https://lkml.kernel.org/r/20240128232759.7535e6774bec152556fb9730@linux-foundation.org
-Andrew Morton sent a hotfixes pull request to Linus Torvalds.
-[LSF/MM/BPF TOPIC] Reclaiming &amp; documenting page flags (Matthew Wilcox) https://lkml.kernel.org/r/Zbcn-P4QKgBhyxdO@casper.infradead.org
-Matthew proposes yet another LSFMM topic for discussing what page flags actually mean altogether, for better documentation.
-[PATCH v7 0/1] mm: report per-page metadata information (Sourav Panda) https://lkml.kernel.org/r/20240129224204.1812062-1-souravpanda@google.com
-Sourav from Google posted a patch for adding a new field on /proc/meminfo and /sys/devices/system/node/nodeN/vmstat called PageMetadata and nr_page_metadata respectively, which can helps understand how much memory are being used for page metadata.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.8-rc2/">LKML News v6.8-rc2</a></h2>
-    <div class="article-style">
-      
-      Project: Improving the PCP allocator (Matthew Wilcox) https://lkml.kernel.org/r/Za6RXtSE_TSdrRm_@casper.infradead.org
-Matthew introduces an idea to improve the PCP allocator, roughly saying, keeping only compound memory on the PCP list.
-[PATCH v2 0/3] Enable &gt;0 order folio memory compaction (Zi Yan) https://lkml.kernel.org/r/20240123034636.1095672-1-zi.yan@sent.com
-Zi enables larger than zero order folio compaction, which is the prerequisite for large folio support.
-[PATCH v2 1/3] mm: make vm_area_struct anon_name field RCU-safe (Suren Baghdasaryan) https://lkml.kernel.org/r/20240123231014.3801041-1-surenb@google.com
-For lockless /proc/pid/maps reads, this patch makes anon_name field of vm_area_struct, which is the only one field that need to be accessed for reading the file but not RCU-protected, to be protected by RCU.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.8-rc1/">LKML News v6.8-rc1</a></h2>
-    <div class="article-style">
-      
-      [GIT PULL] MM updates for 6.8-rc1 (Andrew Morton) https://lkml.kernel.org/r/20240108155039.fd2798712a2a93a108b710ce@linux-foundation.org/
-Andrew Morton sent the memory management subsystem side pull request for Linux v6.8-rc1 to Linus Torvalds. The request has many interesting changes including zswap writeback improvement, Feedback-based DAMOS autotuning, Multi-size anon THP, KSM advisor and many more.
-[GIT PULL] non-MM updates for 6.8-rc1 (Andrew Morton) https://lkml.kernel.org/r/20240109110420.dcdefe80d76257d9ff645a32@linux-foundation.org
-Andrew sent yet another pull request for out of memory management subsystem changes to Linus Torvalds.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.7/">LKML News v6.7</a></h2>
-    <div class="article-style">
-      
-      [PATCH v3 0/7] hugetlb: parallelize hugetlb page init on boot (Gang Li) https://lkml.kernel.org/r/20240102131249.76622-1-gang.li@linux.dev
-The thrid version of hugetlb initialization prallelization patchset has posted.
-[PATCH v3 00/11] Mitigate a vmap lock contention v3 (Uladzislau Rezki) https://lkml.kernel.org/r/20240102184633.748113-1-urezki@gmail.com
-Third version of vmap lock contention mitigation patch has posted.
-[PATCH v6 0/2] Add swappiness argument to memory.reclaim (Dan Schatzberg) https://lkml.kernel.org/r/20240103164841.2800183-1-schatzberg.dan@gmail.com
-Sixth version of the patchset for letting memory.reclaim memcg file be used with swappiness argument has posted.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/my_opensource_commits_stat_2023/">My opensource commits statistics in 2023</a></h2>
-    <div class="article-style">
-      
-      As today is the last day of 2023, I checked some open source commits statistics using my simple and buggy script, and github. Similar statistics for 2022 is available at another post.
-In short, I made 8th and 4th biggest changes to Linux kernel memory management subsystem among the 295 people, for lines of changes (1,910) and commits (66).
-For the Linux kernel whole tree, the numbers become 264th (3,562 lines) and 80th (147 commits) among 5,006 people.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.7-rc8/">LKML News v6.7-rc8</a></h2>
-    <div class="article-style">
-      
-      [PATCH] kernel: Introduce a write lock/unlock wrapper for tasklist_lock (Maria Yu) https://lkml.kernel.org/r/20231225081932.17752-1-quic_aiquny@quicinc.com
-A patch introducing a write lock/unlock wrapper for tasklist_lock, to overcome bad responsive performance of system that coming from scenarios that acquiring read lock which wrote lock needed to be waiting for.
-[PATCH v3 00/10] IOMMU memory observability (Pasha Tatashin) https://lkml.kernel.org/r/20231226200205.562565-1-pasha.tatashin@soleen.com
-Third version of patchset to allow monitoring and limiting IOMMU memory usage is posted.
-[GIT PULL] hotfixes for 6.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.7-rc7/">LKML News v6.7-rc7</a></h2>
-    <div class="article-style">
-      
-      [PATCH v5 0/4] mm/ksm: Add ksm advisor (Stefan Roesch) https://lkml.kernel.org/r/20231218231054.1625219-1-shr@devkernel.io
-Stefan posted the fifth version of the patchset for automatic and efficient tuning of kernel samepage merging.
-[PATCH -next v4 0/2] Make memory reclamation measurable (Bixuan Cui) https://lkml.kernel.org/r/20231220012123.2787-1-cuibixuan@vivo.com
-This patchset adds a new tracer to shrink_active_list(), shrink_inactive_list(), and shrinker-&gt;count_objects() to make memory recycling mesaurable with bpf.
-[RFC PATCH 1/1] mm: mark folio accessed in minor fault (Zhaoyang Huang) https://lkml.kernel.org/r/20231220102948.1963798-1-zhaoyang.huang@unisoc.com
-Inactive mapped folio is promoted to active only when it is scanned in shrink_inactive_list().
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.7-rc6/">LKML News v6.7-rc6</a></h2>
-    <div class="article-style">
-      
-      [Invitation] Linux MM Alignment Session on remap_file_pages on Wednesday (David Rientjes) https://lkml.kernel.org/r/46f97bec-3a48-e714-0a8d-b5206e1704ba@google.com
-There will be the last Linux MM Alignment Session for re-introducing remap_file_pages(), led by Matthew Wilcox, on 2023-11-13.
-[PATCH] kernel: Introduce a write lock/unlock wrapper for tasklist_lock (Maria Yu) https://lkml.kernel.org/r/20231213101745.4526-1-quic_aiquny@quicinc.com
-There are multiple scenarios for tasklist_lock that could lead to bad responsiveness. To mitigate the situation, this patch introduces a write lock/unlock wrapper for tasklist_lock.
-[PATCH 0/9] Finish two folio conversions (Matthew Wilcox) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.7-rc5/">LKML News v6.7-rc5</a></h2>
-    <div class="article-style">
-      
-      [PATCH] mm/thp: add CONFIG_TRANSPARENT_HUGEPAGE_NEVER option (Dmytro Maluka) https://lkml.kernel.org/r/20231204163254.2636289-1-dmaluka@chromium.org
-Khugepaged has its own memory cost, and it increases vm.min_free_kbytes as it needs when it starts. On 4GB RAM, 3 mmzones and pageblock_order == MAX_ORDER, khugepaged increases vm.min_free_kbytes from 8MB to 132MB. This patch introduces a config to disallow khugepaged starts by default. It still allows the userspace to start khugepaged, though.
-[PATCH v4 0/2] KSM: support smart-scan feature (Stefan Roesch) https://lkml.kernel.org/r/20231205180952.3843711-1-shr@devkernel.io
-      
-    </div>
-  </div>
-  
+      <h2 id="patch-04-move-per-vma-lock-into-vm_area_struct-suren-baghdasaryan">[PATCH 0/4] move per-vma lock into vm_area_struct (Suren Baghdasaryan)</h2>
+<p><a href="https://lore.kernel.org/20241111205506.3404479-1-surenb@google.com">https://lore.kernel.org/20241111205506.3404479-1-surenb@google.com</a></p>
+<p>Suren posted a patch moving <code>vm_lock</code> back into <code>vm_area_struct</code> after
+confirming the performance regression found before happens only on limited
+cases (old Broadwell microarchitecture).</p>
 
+    </div>
+
+    
+
+
+
+
+
+<div class="article-tags">
   
-<nav>
-  <ul class="pagination justify-content-center">
+  <a class="badge badge-light" href="/tags/linux/">linux</a>
+  
+  <a class="badge badge-light" href="/tags/kernel/">kernel</a>
+  
+  <a class="badge badge-light" href="/tags/lkml/">lkml</a>
+  
+  <a class="badge badge-light" href="/tags/news/">news</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
     
-    <li class="page-item"><a class="page-link" href="/tags/linux/page/4/">&laquo;</a></li>
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=https://sjp38.github.io/post/lkml_news_v6.12/&amp;text=LKML%20News%20v6.12" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
     
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=https://sjp38.github.io/post/lkml_news_v6.12/&amp;t=LKML%20News%20v6.12" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
     
-    <li class="page-item"><a class="page-link" href="/tags/linux/page/6/">&raquo;</a></li>
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=LKML%20News%20v6.12&amp;body=https://sjp38.github.io/post/lkml_news_v6.12/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=https://sjp38.github.io/post/lkml_news_v6.12/&amp;title=LKML%20News%20v6.12" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=LKML%20News%20v6.12%20https://sjp38.github.io/post/lkml_news_v6.12/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=https://sjp38.github.io/post/lkml_news_v6.12/&amp;title=LKML%20News%20v6.12" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
     
   </ul>
-</nav>
-
-
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      <img class="portrait mr-3" src="https://s.gravatar.com/avatar/43dc5645c78e68fda997138380dfaaf4?s=200')" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="https://sjp38.github.io/">SeongJae Park (SJ)</a></h5>
+      <h6 class="card-subtitle">Kernel Programmer</h6>
+      <p class="card-text">SeongJae Park (SJ) is a programmer who loves to analyze and develop systems.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://social.kernel.org/sj" target="_blank" rel="noopener">
+        <i class="fab fa-linux"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/sjp38" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://www.linkedin.com/in/seongjae-park-1a5b9954/" target="_blank" rel="noopener">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.com/citations?user=jJIiF3AAAAAJ" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  
+  
+  <div class="article-widget content-widget-hr">
+    <h3>Related</h3>
+    <ul>
+      
+      <li><a href="/post/lkml_news_v6.12-rc7/">LKML News v6.12-rc7</a></li>
+      
+      <li><a href="/post/lkml_news_v6.12-rc6/">LKML News v6.12-rc6</a></li>
+      
+      <li><a href="/post/lkml_news_v6.12-rc5/">LKML News v6.12-rc5</a></li>
+      
+      <li><a href="/post/lkml_news_v6.12-rc4/">LKML News v6.12-rc4</a></li>
+      
+      <li><a href="/post/lkml_news_v6.12-rc3/">LKML News v6.12-rc3</a></li>
+      
+    </ul>
+  </div>
+  
+
+
+
+  </div>
+</article>
 
       
 

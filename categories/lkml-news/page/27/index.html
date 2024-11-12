@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-11-05T06:40:52-08:00">
+    <meta property="og:updated_time" content="2024-11-12T06:38:12-08:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.1-rc6/">LKML News v5.1-rc6</a></h2>
+    <div class="article-style">
+      
+      [PATCH v12 00/31] Speculative page faults https://lkml.kernl.org/r/20190416134522.17540-1-ldufour@linux.ibm.com
+오랫만에 업데이트 된 SPF 패치셋으로, 이번 패치셋은 v5.1 위로 리베이스 되었습니다. RCU 에서 Fine-grained reader-writer locking 으로 옮겼던 vma 보호를 다시 RCU 로 되돌린 게 눈에 띄는군요. 기존엔 패치셋만 공개했는데, 이젠 패치셋이 적용된 코드 트리를 github 으로도 제공합니다: https://github.com/ldu4/linux/tree/spf-v12
+[PATCH v3 00/11] Provide generic top-down mmap layout functions https://lkml.kernel.org/r/20190417052247.17809-1-alex@ghiti.fr
+아키텍쳐별로 별도 구현을 하지 않고도 전체 mmap 레이아웃을 접근할 수 있게 해주는 범용 함수들을 구현하는 패치셋입니다.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.1-rc5/">LKML News v5.1-rc5</a></h2>
     <div class="article-style">
       
@@ -636,18 +648,6 @@ Memory management facing a 400Gpbs network link https://lkml.kernel.org/r/010001
 시스템의 메모리 부족 등의 현상이 어떻게 일어나고 있는지 쉽게 파악할 수 있는 장치를 추가하는 패치입니다.
 [LSF/MM TOPIC] Address space isolation inside the kernel https://lkml.kernel.org/r/20190207072421.GA9120@rapoport-lnx
 리눅스의 어드레스 스페이스 기능은 유저스페이스 프로그램들이 서로에게 영향을 끼치지 못하게 해줘서 컨테이너 등에 쓰이고 있죠. 하지만 커널은 공유하기 때문에 커널 버그는 여전히 영향을 끼칠 수 있습니다. 커널 코드도 어드레스 스페이스를 어느정도 인식하고 코드 분류를 시킴으로써 그 문제를 줄여보자는 LSF/MM 토론 주제 제안입니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.0-rc5/">LKML News v5.0-rc5</a></h2>
-    <div class="article-style">
-      
-      [LSF/MM TOPIC] Page flags, can we free up space ? https://lkml.kernel.org/r/20190122201744.GA3939@redhat.com
-리눅스 커널의 page 정보는 PG_ 로 시작하는 플래그를 사용해 현재 상태를 알리는데요, 이걸 저장하는데 사용되는 공간을 더 줄일 수 있을지에 대한 논의를 해보고 싶다는 LSF/MM 제안입니다.
-[LSF/MM TOPIC] Use NVDIMM as NUMA node and NUMA API https://lkml.kernel.org/r/f0d66b0c-c9b6-a040-c485-1606041a70a2@linux.alibaba.com
-알리바바에서는 NVDIMM 을 클라우드 고객들에게 싼 비용의 메모리로 제공하려 한다는군요. 이를 위해 여러 필요성이 있고, 현재 NUMA API 로는 모든 경우를 커퍼하기가 어렵다고 합니다.
       
     </div>
   </div>

@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-11-05T06:40:52-08:00">
+    <meta property="og:updated_time" content="2024-11-12T06:38:12-08:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.16-rc3/">LKML News v5.16-rc3</a></h2>
+    <div class="article-style">
+      
+      [PATCH 0/3] page table check (Pasha Tatashin) https://lkml.kernel.org/r/20211123214814.3756047-1-pasha.tatashin@soleen.com
+Due to reference count of struct page handling issue, some memory were leak from a process and moved in another process. This commit avoids such type of bugs by checking page table at the time of entrieds insertion.
+[PATCH 0/5] *** Transparent Page Placement for Tiered-Memory *** (Hasan Al Maruf) https://lkml.kernel.org/r/20211124163608.33015-1-hasanalmaruf@fb.com
+This patchset augment AutoNUMA mechanism to promote pages from slow tier nodes to toptier nodes.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.16-rc2/">LKML News v5.16-rc2</a></h2>
     <div class="article-style">
       
@@ -638,17 +650,6 @@ This patchset makes a basic infrastructure to exclude some physical memory regio
 Currently, vmpressure works are awaken even though there are no vmpressure callbacks. This commit avoids such unnecessary wakeup by counting the number of registered events and skip waking up works if the number is zero.
 [PATCH v3 00/76] Optimize list lru memory consumption (Muchun Song) https://lkml.kernel.org/r/20210914072938.6440-1-songmuchun@bytedance.com
 Muchun found kmalloc-32 for list_lru_one allocation consuming 6 GiB of memory on their server.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.15-rc1/">LKML News v5.15-rc1</a></h2>
-    <div class="article-style">
-      
-      [RFC PATCH] mm/oom: detect and kill task which has allocation forbidden by cpuset limit (Feng Tang) https://lkml.kernel.org/r/1630399085-70431-1-git-send-email-feng.tang@intel.com
-Docker needs to allocate memory in non-movable zones for creation of an OS (e.g., GFP_HIGHUSER). However, if it is binded to a cpuset which has only movable zone, the allocation fails and OOM storm attacks other innocent processes. This patch detects the case and kill only the allocation failing process.
-Folios: Can we resolve this please?
       
     </div>
   </div>
