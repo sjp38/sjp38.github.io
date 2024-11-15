@@ -29,7 +29,9 @@
     
   
   <meta name="description" content="[PATCH 0/4] move per-vma lock into vm_area_struct (Suren Baghdasaryan) https://lore.kernel.org/20241111205506.3404479-1-surenb@google.com
-Suren posted a patch moving vm_lock back into vm_area_struct after confirming the performance regression found before happens only on limited cases (old Broadwell microarchitecture).">
+Suren posted a patch moving vm_lock back into vm_area_struct after confirming the performance regression found before happens only on limited cases (old Broadwell microarchitecture).
+[PATCH] lib/alloc_tag: Remove the sysctl configuration to prevent users from disabling it at runtime (Hao Ge) https://lore.kernel.org/20241108075004.131911-1-hao.ge@linux.dev
+Hao tries to remove runtime memory allocation profiling on/off knob, since he believes it is only making users confused.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/lkml_news_v6.12/">
@@ -152,7 +154,9 @@ Suren posted a patch moving vm_lock back into vm_area_struct after confirming th
   <meta property="og:url" content="https://sjp38.github.io/post/lkml_news_v6.12/">
   <meta property="og:title" content="LKML News v6.12 | hacklog">
   <meta property="og:description" content="[PATCH 0/4] move per-vma lock into vm_area_struct (Suren Baghdasaryan) https://lore.kernel.org/20241111205506.3404479-1-surenb@google.com
-Suren posted a patch moving vm_lock back into vm_area_struct after confirming the performance regression found before happens only on limited cases (old Broadwell microarchitecture)."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
+Suren posted a patch moving vm_lock back into vm_area_struct after confirming the performance regression found before happens only on limited cases (old Broadwell microarchitecture).
+[PATCH] lib/alloc_tag: Remove the sysctl configuration to prevent users from disabling it at runtime (Hao Ge) https://lore.kernel.org/20241108075004.131911-1-hao.ge@linux.dev
+Hao tries to remove runtime memory allocation profiling on/off knob, since he believes it is only making users confused."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -204,7 +208,7 @@ Suren posted a patch moving vm_lock back into vm_area_struct after confirming th
       "url": "https://sjp38.github.io/img/icon-512.png"
     }
   },
-  "description": "[PATCH 0/4] move per-vma lock into vm_area_struct (Suren Baghdasaryan) https://lore.kernel.org/20241111205506.3404479-1-surenb@google.com\nSuren posted a patch moving vm_lock back into vm_area_struct after confirming the performance regression found before happens only on limited cases (old Broadwell microarchitecture)."
+  "description": "[PATCH 0/4] move per-vma lock into vm_area_struct (Suren Baghdasaryan) https://lore.kernel.org/20241111205506.3404479-1-surenb@google.com\nSuren posted a patch moving vm_lock back into vm_area_struct after confirming the performance regression found before happens only on limited cases (old Broadwell microarchitecture).\n[PATCH] lib/alloc_tag: Remove the sysctl configuration to prevent users from disabling it at runtime (Hao Ge) https://lore.kernel.org/20241108075004.131911-1-hao.ge@linux.dev\nHao tries to remove runtime memory allocation profiling on/off knob, since he believes it is only making users confused."
 }
 </script>
 
@@ -615,6 +619,20 @@ Suren posted a patch moving vm_lock back into vm_area_struct after confirming th
 <p>Suren posted a patch moving <code>vm_lock</code> back into <code>vm_area_struct</code> after
 confirming the performance regression found before happens only on limited
 cases (old Broadwell microarchitecture).</p>
+<h2 id="patch-liballoc_tag-remove-the-sysctl-configuration-to-prevent-users-from-disabling-it-at-runtime-hao-ge">[PATCH] lib/alloc_tag: Remove the sysctl configuration to prevent users from disabling it at runtime (Hao Ge)</h2>
+<p><a href="https://lore.kernel.org/20241108075004.131911-1-hao.ge@linux.dev">https://lore.kernel.org/20241108075004.131911-1-hao.ge@linux.dev</a></p>
+<p>Hao tries to remove runtime memory allocation profiling on/off knob, since he
+believes it is only making users confused.</p>
+<h2 id="git-pull-hotfixes-for-612-andrew-morton">[GIT PULL] hotfixes for 6.12 (Andrew Morton)</h2>
+<p><a href="https://lore.kernel.org/20241112164128.20f96b224ec3e2be9403fee2@linux-foundation.org">https://lore.kernel.org/20241112164128.20f96b224ec3e2be9403fee2@linux-foundation.org</a></p>
+<p>Andrew posted the hotfixes pull request for Linux v6.12 to Linus Torvalds.</p>
+<h2 id="patch-rfc-06-slub-percpu-sheaves-vlastimil-babka">[PATCH RFC 0/6] SLUB percpu sheaves (Vlastimil Babka)</h2>
+<p><a href="https://lore.kernel.org/20241112-slub-percpu-caches-v1-0-ddc0bdc27e05@suse.cz">https://lore.kernel.org/20241112-slub-percpu-caches-v1-0-ddc0bdc27e05@suse.cz</a></p>
+<p>Vlastimil posted an RFC for adding per-cpu array based caching layer to SLUB,
+which can be opted-in by the users.</p>
+<h2 id="git-pull-slab-updates-for-613-vlastimil-babka">[GIT PULL] slab updates for 6.13 (Vlastimil Babka)</h2>
+<p><a href="https://lore.kernel.org/03ec75a9-aade-4457-ac21-5649116afa98@suse.cz">https://lore.kernel.org/03ec75a9-aade-4457-ac21-5649116afa98@suse.cz</a></p>
+<p>Vlastimil posted the slab pull request for v6.13.</p>
 
     </div>
 

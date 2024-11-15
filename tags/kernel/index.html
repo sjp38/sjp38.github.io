@@ -530,6 +530,8 @@
       
       [PATCH 0/4] move per-vma lock into vm_area_struct (Suren Baghdasaryan) https://lore.kernel.org/20241111205506.3404479-1-surenb@google.com
 Suren posted a patch moving vm_lock back into vm_area_struct after confirming the performance regression found before happens only on limited cases (old Broadwell microarchitecture).
+[PATCH] lib/alloc_tag: Remove the sysctl configuration to prevent users from disabling it at runtime (Hao Ge) https://lore.kernel.org/20241108075004.131911-1-hao.ge@linux.dev
+Hao tries to remove runtime memory allocation profiling on/off knob, since he believes it is only making users confused.
       
     </div>
   </div>
