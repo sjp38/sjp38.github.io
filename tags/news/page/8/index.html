@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-11-12T06:38:12-08:00">
+    <meta property="og:updated_time" content="2024-11-19T06:35:06-08:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.4-rc4/">LKML News v6.4-rc4</a></h2>
+    <div class="article-style">
+      
+      [PATCH 0/9] Mitigate a vmap lock contention (Uladzislau Rezki) https://lkml.kernel.org/r/20230522110849.2921-1-urezki@gmail.com
+Uladzislau sent a patchset for vmap lock contention mitigation, as suggested at LSFMM+BPF.
+[PATCH] mm: deduct the number of pages reclaimed by madvise from workingset (Zhaoyang Huang) https://lkml.kernel.org/r/1684919574-28368-1-git-send-email-zhaoyang.huang@unisoc.com
+Pages reclaimed by madvise() with MADV_PAGEOUT hint doesn&rsquo;t handle the workingset, hence leads to large refault distance than it should be. This patch addresses the case by making reclaim_pages() to receive mm_struct and deduct the pages from workingset.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.4-rc3/">LKML News v6.4-rc3</a></h2>
     <div class="article-style">
       
@@ -634,18 +646,6 @@ This patchset consolidates MM initialization code to mm/mm_init.c file for bette
 [PATCH -next v6 0/2] Delay the initialization of zswap (Liu Shixin) https://lkml.kernel.org/r/20230322102006.780624-1-liushixin2@huawei.com
 This patchset delays zswap initialization until it gets enabled to save about 18MB of memory, which is allocated during the initialization.
 [PATCH V6 1/2] mm: compaction: move compaction sysctl to its own file (Minhao Chi) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.3-rc3/">LKML News v6.3-rc3</a></h2>
-    <div class="article-style">
-      
-      [LSF/MM/BPF TOPIC] SLOB+SLAB allocators removal and future SLUB improvements (Vlastimil Babka) https://lkml.kernel.org/r/4b9fc9c6-b48c-198f-5f80-811a44737e5f@suse.cz
-Linux kernel has three objects allocators, namely SLOB, SLAB, and SLUB. Vlastimil and many developers have tried to make it only one single allocator. Deprecation of SLOB has made some progress so far. Vlastimil proposes an LSF/MM/BPF topic for discussing deprecation of SLAB and SLUB futur eimprovement.
-[GIT PULL] hotfixes for 6.3-rc1 (Andrew Morton) https://lkml.kernel.org/r/20230314165437.a2d992731a970582fe36aaba@linux-foundation.org
-Yet another mm subsystem hotfixes pull request has sent to Linus Torvalds.
       
     </div>
   </div>
