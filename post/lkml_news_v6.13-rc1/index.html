@@ -578,7 +578,7 @@ Pasha posted an RFC patch series for better debugging of page status."><meta pro
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -645,6 +645,24 @@ on ATC'24.</p>
 <p>David announces the schedule and the topic for the next MM alignement session.
 The topic will be the followup of the permanent guest memory support for live
 update, specifically focused on only kexec hand over.</p>
+<h2 id="patch-v4-09-mm-workingset-reporting-yuanchu-xie">[PATCH v4 0/9] mm: workingset reporting (Yuanchu Xie)</h2>
+<p><a href="https://lore.kernel.org/20241127025728.3689245-1-yuanchu@google.com">https://lore.kernel.org/20241127025728.3689245-1-yuanchu@google.com</a></p>
+<p>Yuanchu posted the fourth version lruvec-based workingset reporting patch
+series.</p>
+<h2 id="rfc-patch-04-promotion-of-unmapped-page-cache-folios-gregory-price">[RFC PATCH 0/4] Promotion of Unmapped Page Cache Folios. (Gregory Price)</h2>
+<p><a href="https://lore.kernel.org/20241127082201.1276-1-gourry@gourry.net">https://lore.kernel.org/20241127082201.1276-1-gourry@gourry.net</a></p>
+<p>The AutoNUMA-based promotion cannot do the promotion of unmapped pages since
+those are literally unmapped, and therefore no fault protection can be
+installed.  Gregory posted a patch series for making this happen leveraging
+<code>folio_mark_accessed()</code>.</p>
+<h2 id="kexec-handover-kho-discussion-recap-and-open-questions-david-rientjes">Kexec HandOver (KHO) discussion recap and open questions (David Rientjes)</h2>
+<p><a href="https://lore.kernel.org/52e189fa-bbb4-f031-8a64-716ddee14599@google.com">https://lore.kernel.org/52e189fa-bbb4-f031-8a64-716ddee14599@google.com</a></p>
+<p>David summarizes the discussions about KHO that held on MM alignemnt session on
+2024-11-27.</p>
+<h2 id="rfc-patch-v0-010-mm-slowtier-page-promotion-based-on-pte-a-bit-raghavendra-k-t">[RFC PATCH V0 0/10] mm: slowtier page promotion based on PTE A bit (Raghavendra K T)</h2>
+<p><a href="https://lore.kernel.org/20241201153818.2633616-1-raghavendra.kt@amd.com">https://lore.kernel.org/20241201153818.2633616-1-raghavendra.kt@amd.com</a></p>
+<p>Raghavendra posted an RFC patch series that introduces a kernel thread that
+scans PTE Accessed bits and migrate hot pages on tiered memory systems.</p>
 
     </div>
 
