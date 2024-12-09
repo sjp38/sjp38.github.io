@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-11-19T06:35:06-08:00">
+    <meta property="og:updated_time" content="2024-12-09T07:18:30-08:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.15/">LKML News v5.15</a></h2>
+    <div class="article-style">
+      
+      Dynamically allocated memory descriptors (Matthew Wilcox) https://lkml.kernel.org/r/YXcLqcFhDq3uUwIj@casper.infradead.org
+In this mail, Matthew explains his idea on making struct page only two words and how it could work with buddy allocator freelists.
+[RFC] mm: Disable NUMA_BALANCING_DEFAULT_ENABLED and TRANSPARENT_HUGEPAGE on PREEMPT_RT (Sebastian Andrzej Siewior) https://lkml.kernel.org/r/20211026165100.ahz5bkx44lrrw5pt@linutronix.de
+Mel told RT patchset could incur spikes on NUMA machines when NUMA_BALANCING and THP are turned on. Sebastian request comments on disabling those on RT enabled kernel by default, but still trying to find a good test for that.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.15-rc7/">LKML News v5.15-rc7</a></h2>
     <div class="article-style">
       
@@ -633,18 +645,6 @@ Folios: Can we resolve this please?
 Matthew Wilcox sent a pull request for his page folio works to Linus Torvalds. Linus Torvalds replied he wants this to work in reverse. That is, calling head pages as normal pages but calling tail pages something other, as the term, page, is more common and de-facto standard in the industry.
 mmotm 2021-08-23-16-42 uploaded (Andrew Morton) https://lkml.kernel.org/r/20210823234329.H9WD-du1K%akpm@linux-foundation.org
 MMOTM is rebased on v5.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.14-rc7/">LKML News v5.14-rc7</a></h2>
-    <div class="article-style">
-      
-      [PATCH v2 0/3] virtio-mem: disallow mapping virtio-mem memory via /dev/mem (David Hildenbrand) https://lkml.kernel.org/r/20210816142505.28359-1-david@redhat.com
-Once the virtio-mem driver is plugging/unplugging memory of virtual machines, accessing the memory region via /dev/mem from the user space makes no sense. To avoid such insane use case, this patchset adds a basic infrastructure to exclude some physical memory regions completely from /dev/mem.
-[PATCH v2 00/61] Introducing the Maple Tree (Liam Howlett) https://lkml.kernel.org/r/20210817154651.1570984-1-Liam.Howlett@oracle.com
-This patchset introduces a new data structure called maple tree, which intended to replace the rbtree for vm_area_struct.
       
     </div>
   </div>
