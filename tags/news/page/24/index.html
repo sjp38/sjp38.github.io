@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-12-09T07:18:30-08:00">
+    <meta property="og:updated_time" content="2024-12-09T11:18:02-08:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.5-rc6/">LKML News v5.5-rc6</a></h2>
+    <div class="article-style">
+      
+      OOM killer not nearly agressive enough? https://lkml.kernel.org/r/20200107204412.GA29562@amd
+The author if this mail, Pavel updated his userspace to x86-64 and encountered chromium&rsquo;s memory hogging. He was required to kill the chromium himself, because OOM killer didn&rsquo;t kill it. He asks whether this means OOM killer is not aggressive enough.
+[PATCH 0/4] introduce memory hinting API for external process https://lkml.kernel.org/r/20200110213433.94739-1-minchan@kernel.org
+Minchan has previously posted the patchset introducing the MADV_COLD, MADV_PAGEOUT and external madvise() able code change.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.5-rc5/">LKML News v5.5-rc5</a></h2>
     <div class="article-style">
       
@@ -624,18 +636,6 @@ The memory model element which is depends only on Alpha, smp_read_barrier_depend
 [PATCH RFC v2 00/25] Add KernelMemorySanitizer infrastructure https://lkml.kernel.org/r/20191030142237.249532-1-glider@google.com
 초기화 되지 않은 메모리 영역에 액세스 하는 에러를 찾아주는 KMSAN 을 커널에 추가하는 패치입니다. KCSAN 과 비슷하게 syzkaller 를 통해 돌아가게끔 되어 있군요.
 False positive 문제가 존재할 수는 있는 모양입니다만, 구글 내부에서 syzbot 을 통해 테스트 한 환경에서는 중요한 false positive 는 나오지 않은 모양입니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.4-rc5/">LKML News v5.4-rc5</a></h2>
-    <div class="article-style">
-      
-      [PATCH 00/12] mm: remove __ARCH_HAS_4LEVEL_HACK https://lkml.kernel.org/r/1571822941-29776-1-git-send-email-rppt@kernel.org
-서로 다른 아키텍쳐 간의 페이지 테이블 구조로 인해 사용해야 했던 __ARCH_HAS_4LEVEL_HACK 을 제거하는 패치입니다. Alpha, arm, c6x 등의 아키텍쳐가 변경되는군요. UML, qemu 등에서 부팅 테스트를 거쳤군요.
-Linux 5.4-rc5 https://lkml.kernel.org/r/CAHk-=wgpewLxHxnO71tFHh=M4C4iUofJykMqq3r=eRyxUyVsiw@mail.gmail.com
-다섯번째 rc 버전 릴리즈입니다. 하지만 안타깝게도 이번 릴리즈는 마냥 조용하진 않았다는군요. 최근의 다른 rc5 들에 비하면 조금 큰 크기의 릴리즈가 되었습니다. 그렇다곤 해도 아주 특이할 만한 정도는 아니라 토발즈도 큰 걱정은 없다는군요.
       
     </div>
   </div>

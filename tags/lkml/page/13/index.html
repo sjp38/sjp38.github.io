@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-12-09T07:18:30-08:00">
+    <meta property="og:updated_time" content="2024-12-09T11:18:02-08:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.18-rc7/">LKML News v5.18-rc7</a></h2>
+    <div class="article-style">
+      
+      [PATCH v3 0/6] mm: introduce shrinker debugfs interface (Roman Gushchin) https://lkml.kernel.org/r/20220509183820.573666-1-roman.gushchin@linux.dev
+This patchset introduces a descent debugfs interface for debugging the shrinker mechanism.
+[PATCH v3 0/3] Fix CONT-PTE/PMD size hugetlb issue when unmapping or migrating (Baolin Wang) https://lkml.kernel.org/r/cover.1652147571.git.baolin.wang@linux.alibaba.com
+For PTE-cont or PMD-cont size hugetlb pages, migration or unmapping of poisoned hugetlb pages which are using ptep_clear_flush() and set_pte_at() can cause data consistency issue. This patchset tries to fix the issue.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.18-rc6/">LKML News v5.18-rc6</a></h2>
     <div class="article-style">
       
@@ -637,19 +649,6 @@ Ztree is another zpool backend that superior with regard to the worst execution 
 mmotm 2022-02-28-14-45 uploaded (Andrew Morton) https://lkml.kernel.org/r/20220228224600.44415C340EE@smtp.kernel.org
 mmotm has updated. It&rsquo;s rebased on 5.17-rc6, added 56 new patches, modified 85 patches, and dropped 55 patches. In total, 378 patches are in the queue.
 [PATCH -V14 0/3] NUMA balancing: optimize memory placement for memory tiering system (Huang Ying) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.17-rc6/">LKML News v5.17-rc6</a></h2>
-    <div class="article-style">
-      
-      [PATCH -V13 0/3] NUMA balancing: optimize memory placement for memory tiering system (Huang Ying) https://lkml.kernel.org/r/20220221084529.1052339-1-ying.huang@intel.com
-The AutoNUMA patchset for tiered memory system has revised again.
-[LSF/MM/BPF TOPIC] page table reclaim (David Hildenbrand) https://lkml.kernel.org/r/7b908208-02f8-6fde-4dfc-13d5e00310a6@redhat.com
-Some workloads allocates a lot of page tables. As page tables are unmovable and unreclaimable, this can contribute to memory pressure. David is proposing making it reclaimable and suggesting discussion in LSF/MM/BPF summit for the idea.
-[RFC PATCH 00/47] Address Space Isolation for KVM (Junaid Shahid) https://lkml.
       
     </div>
   </div>
