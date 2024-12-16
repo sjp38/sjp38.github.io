@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-12-09T11:18:02-08:00">
+    <meta property="og:updated_time" content="2024-12-13T09:08:43-07:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.10-rc3/">LKML News v5.10-rc3</a></h2>
+    <div class="article-style">
+      
+      [PATCH v7 0/9] KFENCE: A low-overhead sampling-based memory safety error detector (Marco Elver) https://lkml.kernel.org/r/20201103175841.3495947-1-elver@google.com
+The 7th version of KFENCE. Now the authors say they believe this is ready to be included in the mm tree. And, it has now merged in the -mm tree.
+[PATCH] page_frag: Recover from memory pressure (Matthew Wilcox) https://lkml.kernel.org/r/20201105042140.5253-1-willy@infradead.org
+After an extreme memory pressure, some non-essential packets can be dropped because the &lsquo;page_frag&rsquo; allocator do the drops to recover from the memory pressure but it doesn&rsquo;t change back the behavior even after the recovery.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.10-rc2/">LKML News v5.10-rc2</a></h2>
     <div class="article-style">
       
@@ -637,18 +649,6 @@ After the rejection, this patchset posted again. Linus&rsquo;s opinion about dro
 And, this patchset merged in the &lsquo;-mm&rsquo; tree again. Hopefully it will be merged in mainline by 5.10!
 [PATCH v6 0/3] Anonymous VMA naming patches (Sumit Semwal) https://lkml.kernel.org/r/20200901091901.19779-1-sumit.semwal@linaro.org
 This is reposting of old patchset which Colin Cross sent before.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.9-rc3/">LkML New v5.9-rc3</a></h2>
-    <div class="article-style">
-      
-      [RFC -V3 0/5] autonuma: Optimize memory placement for memory tiering system (Huang Ying) https://lkml.kernel.org/r/20200825002354.17038-1-ying.huang@intel.com
-The third RFC of autonuma for help placing of data items on systems utilizing both DRAM and PMEM as different NUMA nodes.
-Linux 5.9-rc3 https://lkml.kernel.org/r/CAHk-=wiD1yujm_WvWLYL7gZsWMvZyWMg1rfU7dWmnYYc3a7Gsg@mail.gmail.com
-This week rc release is also quite normal. The &lsquo;fallthought&rsquo; comment conversion made fairly evenly distributed changes. Torvalds says it was quite calm. Indeed, only one patchset got my interest this week.
       
     </div>
   </div>
