@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-12-09T11:18:02-08:00">
+    <meta property="og:updated_time" content="2024-12-17T06:49:17-08:00">
   
 
   
@@ -525,6 +525,17 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.7-rc5/">LKML News v6.7-rc5</a></h2>
+    <div class="article-style">
+      
+      [PATCH] mm/thp: add CONFIG_TRANSPARENT_HUGEPAGE_NEVER option (Dmytro Maluka) https://lkml.kernel.org/r/20231204163254.2636289-1-dmaluka@chromium.org
+Khugepaged has its own memory cost, and it increases vm.min_free_kbytes as it needs when it starts. On 4GB RAM, 3 mmzones and pageblock_order == MAX_ORDER, khugepaged increases vm.min_free_kbytes from 8MB to 132MB. This patch introduces a config to disallow khugepaged starts by default. It still allows the userspace to start khugepaged, though.
+[PATCH v4 0/2] KSM: support smart-scan feature (Stefan Roesch) https://lkml.kernel.org/r/20231205180952.3843711-1-shr@devkernel.io
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.7-rc4/">LKML News v6.7-rc4</a></h2>
     <div class="article-style">
       
@@ -636,20 +647,6 @@ KSM scans pages without historic information, so pages that already found to be 
 [PATCH -V2 00/10] mm: PCP high auto-tuning (Huang Ying) https://lkml.kernel.org/r/20230926060911.266511-1-ying.huang@intel.com
 This patchset implements auto-tuning of Per-CPU Pageset high to optimize page allocation performance.
 [PATCH rfc 0/5] mm: improve performance of kernel memory accounting (Roman Gushchin) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.6-rc3/">LKML News v6.6-rc3</a></h2>
-    <div class="article-style">
-      
-      [Invitation] Linux MM Alignment Session on APIs for Sparse Mappings on Wednesday (David Rientjes) https://lkml.kernel.org/r/fba78307-e4a3-2621-2917-464f19bb4c57@google.com
-David is organizing yet another Linux MM alignment session for proper API for sparse mappings.
-[PATCH v2] vmscan: add trace events for lru_gen (Jaewon Kim) https://lkml.kernel.org/r/20230921062206.14429-1-jaewon31.kim@samsung.com
-This patch adds two new tracevents called trace_mm_vmscan_lru_gen_scan and trace_mm_vmscan_lru_gen_evict that similar to trace_mm_vmscan_lru_isolate and trace_mm_vmscan_lru_shrink_[in]active.
-[PATCH v3 00/15] futex: More futex2 bits (Peter Zijlstra) https://lkml.kernel.org/r/20230921104505.717750284@noisy.programming.kicks-ass.net
-Peter sent third version of the patchset that introduces a new interface for same futex core, futex2.
       
     </div>
   </div>

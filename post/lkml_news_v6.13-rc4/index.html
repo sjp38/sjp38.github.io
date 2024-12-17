@@ -28,12 +28,13 @@
   
     
   
-  <meta name="description" content="Kernel Programmer">
+  <meta name="description" content="[RFC PATCH 00/12] khugepaged: Asynchronous mTHP collapse (Dev Jain) https://lore.kernel.org/20241216165105.56185-1-dev.jain@arm.com
+Dev Jain posted an RFC patch series that makes khugepaged collapses multi-sized THP.
+[PATCH] mm/page_idle: Constify &lsquo;struct bin_attribute&rsquo; (Thomas Weißschuh) https://lore.kernel.org/20241216-sysfs-const-bin_attr-page_idle-v1-1-cc01ecc55196@weissschuh.net
+Thomas marks struct bin_attribute objects that used in page_idle to be marked as const, since it is now supported.">
 
   
-  <link rel="alternate" hreflang="ko" href="https://sjp38.github.io/ko/tags/kernel/">
-  
-  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/tags/kernel/">
+  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/lkml_news_v6.13-rc4/">
 
   
 
@@ -133,14 +134,12 @@
 
 
   
-  <link rel="alternate" href="/tags/kernel/index.xml" type="application/rss+xml" title="hacklog">
-  
 
   <link rel="manifest" href="/index.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon-32.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://sjp38.github.io/tags/kernel/">
+  <link rel="canonical" href="https://sjp38.github.io/post/lkml_news_v6.13-rc4/">
 
   
   
@@ -152,18 +151,68 @@
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="hacklog">
-  <meta property="og:url" content="https://sjp38.github.io/tags/kernel/">
-  <meta property="og:title" content="kernel | hacklog">
-  <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
+  <meta property="og:url" content="https://sjp38.github.io/post/lkml_news_v6.13-rc4/">
+  <meta property="og:title" content="LKML News v6.13-rc4 | hacklog">
+  <meta property="og:description" content="[RFC PATCH 00/12] khugepaged: Asynchronous mTHP collapse (Dev Jain) https://lore.kernel.org/20241216165105.56185-1-dev.jain@arm.com
+Dev Jain posted an RFC patch series that makes khugepaged collapses multi-sized THP.
+[PATCH] mm/page_idle: Constify &lsquo;struct bin_attribute&rsquo; (Thomas Weißschuh) https://lore.kernel.org/20241216-sysfs-const-bin_attr-page_idle-v1-1-cc01ecc55196@weissschuh.net
+Thomas marks struct bin_attribute objects that used in page_idle to be marked as const, since it is now supported."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-12-17T06:49:17-08:00">
+    
+      <meta property="article:published_time" content="2024-12-17T06:49:17-08:00">
+    
+    <meta property="article:modified_time" content="2024-12-17T06:49:17-08:00">
   
 
   
 
 
+    
 
+
+
+
+
+
+  
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://sjp38.github.io/post/lkml_news_v6.13-rc4/"
+  },
+  "headline": "LKML News v6.13-rc4",
+  
+  "datePublished": "2024-12-17T06:49:17-08:00",
+  "dateModified": "2024-12-17T06:49:17-08:00",
+  
+  "author": {
+    "@type": "Person",
+    "name": "SeongJae Park (SJ)"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "hacklog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://sjp38.github.io/img/icon-512.png"
+    }
+  },
+  "description": "[RFC PATCH 00/12] khugepaged: Asynchronous mTHP collapse (Dev Jain) https://lore.kernel.org/20241216165105.56185-1-dev.jain@arm.com\nDev Jain posted an RFC patch series that makes khugepaged collapses multi-sized THP.\n[PATCH] mm/page_idle: Constify \u0026lsquo;struct bin_attribute\u0026rsquo; (Thomas Weißschuh) https://lore.kernel.org/20241216-sysfs-const-bin_attr-page_idle-v1-1-cc01ecc55196@weissschuh.net\nThomas marks struct bin_attribute objects that used in page_idle to be marked as const, since it is now supported."
+}
+</script>
+
+  
 
   
 
@@ -171,10 +220,13 @@
   
 
 
+  
 
 
 
-  <title>kernel | hacklog</title>
+
+
+  <title>LKML News v6.13-rc4 | hacklog</title>
 
 </head>
 
@@ -396,7 +448,7 @@
         
 
         <li class="nav-item">
-          <a class="nav-link  active" href="/tags"><span>Tags</span></a>
+          <a class="nav-link " href="/tags"><span>Tags</span></a>
         </li>
 
         
@@ -466,22 +518,6 @@
       
 
       
-      <li class="nav-item dropdown i18n-dropdown">
-        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true">
-          <i class="fas fa-globe mr-1" aria-hidden="true"></i><span class="d-none d-lg-inline">English</span>
-        </a>
-        <div class="dropdown-menu">
-          <div class="dropdown-item i18n-active font-weight-bold">
-            <span>English</span>
-          </div>
-          
-          <a class="dropdown-item" href="/ko/tags/kernel/">
-            <span>한국어</span>
-          </a>
-          
-        </div>
-      </li>
-      
 
     </ul>
 
@@ -489,172 +525,348 @@
 </nav>
 
 
-  
-
-
-
-
-
-
-
-
-
-
-
+  <article class="article">
 
   
 
+
+
+
+
+
+
+
+
+
+
+
+  
+
   
   
+  
+<div class="article-container pt-3">
+  <h1>LKML News v6.13-rc4</h1>
+
+  
+
   
     
-  
-<div class="universal-wrapper pt-3">
-  <h1>kernel</h1>
+
+
+<div class="article-metadata">
 
   
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Tue, Dec 17, 2024
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   
 </div>
 
 
 
-<div class="universal-wrapper">
-  
+  <div class="article-container">
 
-  
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.4-rc6/">LKML News v5.4-rc6</a></h2>
     <div class="article-style">
-      
-      [PATCH V8] mm/debug: Add tests validating architecture page table helpers https://lkml.kernel.org/r/1572240562-23630-1-git-send-email-anshuman.khandual@arm.com
-아키텍쳐별 페이지 테이블 헬퍼 등을 테스트 하는 코드를 추가하는 패치입니다. CONFIG_DEBUG_VM_PGTABLE 컨피규레이션이 켜져 있으면 동작합니다.
-[PATCH RFC v2 00/25] Add KernelMemorySanitizer infrastructure https://lkml.kernel.org/r/20191030142237.249532-1-glider@google.com
-초기화 되지 않은 메모리 영역에 액세스 하는 에러를 찾아주는 KMSAN 을 커널에 추가하는 패치입니다. KCSAN 과 비슷하게 syzkaller 를 통해 돌아가게끔 되어 있군요.
-False positive 문제가 존재할 수는 있는 모양입니다만, 구글 내부에서 syzbot 을 통해 테스트 한 환경에서는 중요한 false positive 는 나오지 않은 모양입니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.4-rc5/">LKML News v5.4-rc5</a></h2>
-    <div class="article-style">
-      
-      [PATCH 00/12] mm: remove __ARCH_HAS_4LEVEL_HACK https://lkml.kernel.org/r/1571822941-29776-1-git-send-email-rppt@kernel.org
-서로 다른 아키텍쳐 간의 페이지 테이블 구조로 인해 사용해야 했던 __ARCH_HAS_4LEVEL_HACK 을 제거하는 패치입니다. Alpha, arm, c6x 등의 아키텍쳐가 변경되는군요. UML, qemu 등에서 부팅 테스트를 거쳤군요.
-Linux 5.4-rc5 https://lkml.kernel.org/r/CAHk-=wgpewLxHxnO71tFHh=M4C4iUofJykMqq3r=eRyxUyVsiw@mail.gmail.com
-다섯번째 rc 버전 릴리즈입니다. 하지만 안타깝게도 이번 릴리즈는 마냥 조용하진 않았다는군요. 최근의 다른 rc5 들에 비하면 조금 큰 크기의 릴리즈가 되었습니다. 그렇다곤 해도 아주 특이할 만한 정도는 아니라 토발즈도 큰 걱정은 없다는군요.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.4-rc4/">LKML News v5.4-rc4</a></h2>
-    <div class="article-style">
-      
-      [PATCH 0/8] Add Kernel Concurrency Sanitizer (KCSAN) https://lkml.kernel.org/r/20191016083959.186860-1-elver@google.com
-구글에서 만든 동시성 버그 탐색기능, KCSAN 을 추가하는 패치셋입니다. 처음 세상에 모습을 드러낸건 9월이었고, 최근 컨퍼런스들에서도 발표가 있었죠. 메커니즘은 간단하다면 간단한, 샘플링 기반입니다. 구글 내부 fuzzing tester 인 syzkaller 는 이미 이 기능을 켠채 돌아간다는군요.
-[PATCH 2/2] mm, zswap: Support THP https://lkml.kernel.org/r/1571111349-5041-2-git-send-email-teawater@gmail.com
-Zswap 이THP 를 지원하도록 수정하는 패치입니다. 그냥 zswap_frontswap_store() 함수가 THP 페이지를 연속적인 4 KiB 페이지로 인식하고 처리하게끔 했군요.
-[PATCH RFC v1 00/26] Add KernelMemorySanitizer infrastructure https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.4-rc3/">LKML News v5.4-rc3</a></h2>
-    <div class="article-style">
-      
-      Linux 5.4-rc3 https://lkml.kernel.org/r/CAHk-=wjOhveT=qrq8HHyL7gpA5fmBtDa2ue7sO5ZSEBrrcY6Vg@mail.gmail.com
-세번째 rc 릴리즈입니다. 실제 문제가 발견되고 그에 대한 수정이 본격적으로 시작되는 시즌이라 rc2보단 당연히 크지만 역대 rc3 들과 비교하면 작은 편의 릴리즈라는군요. staging driver 일부가 사라진 게 조금 릴리즈 크기를 크게 보이게 만들 수 있다는게 그나마 유의할 점일까요.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.4-rc2/">LKML News v5.4-rc2</a></h2>
-    <div class="article-style">
-      
-      [PATCH v18 00/19] kunit: introduce KUnit, the Linux kernel unit testing framework https://lkml.kernel.org/r/20190923090249.127984-1-brendanhiggins@google.com
-어떻게 보면 별거 아닌 이유로 5.4 머지윈도우에서 튕겨나가고 만 kunit. 요청받은대로 파일 위치를 하위 디렉토리로 변경한 kunit 새 버전의 패치셋이 올라왔습니다. &lsquo;kunit/&rsquo; 디렉토리와 kunit 을 위한 &lsquo;Kconfig&rsquo; 파일을 &lsquo;lib/&rsquo; 아래로 옮겼군요.
-이후 벌어진 대화가 재미있는데요, 토발즈는 이걸 5.5에 넣을 예정인데, 가능하면 그동안 실제 테스트 코드도 추가되면 좋겠다고 했습니다. 근데 테스트 프레임웍이 머지안되었는데 테스트 코드를? 메인테이너 간에 일이 복잡해지고 컨플릭 날 확률이 높아지니 이걸로 꽤 많은 이야기가 있었습니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.4-rc1/">LKML News v5.4-rc1</a></h2>
-    <div class="article-style">
-      
-      [PATCH 0/2] introduce new perf-script page-reclaim https://lkml.kernel.org/r/1568817522-8754-1-git-send-email-laoar.shao@gmail.com
-Page reclaim 관련 성능 메트릭을 분석하기 위한 perf script 커맨드를 추가하는 패치입니다. Direct reclaim 으로 인한 응답시간 폭증, page reclaim 이 왜 일어났는지, page reclaim 의 효과는 어땠는지 등을 알 수 있다는군요.
-구체적으로는 direct reclaim 이 몇번 일어났는지, 그 latency 분포는 어땠는지, file / anon page 별로 reclaim, scan, sync write, async write 이 몇번 일어났는지, kswapd 는 몇번 일어났는지, kswapd latency 는 어땠는지 등등을 보입니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.3/">LKML News v5.3</a></h2>
-    <div class="article-style">
-      
-      [PATCH] x86/mm: Enable 5-level paging support by default https://lkml.kernel.org/r/20190913095452.40592-1-kirill.shutemov@linux.intel.com
-5 레벨 페이지 테이블 기능이 들어간지도 어느덧 시간이 지났죠. 인텔 내부적 테스트 상으론 이 기능을 켰을 때 4 레벨 페이지 테이블 기계에서도 딱히 리그레션 등은 나타나지 않았고, 주요 배포판들은 5 레벨 페이지 테이블 서포트를 기본으로 켤것으로 보인다고 합니다. 따라서 이 기능을 아예 디폴트로 켜져있게 하는 패치입니다.
-v5.4 에 들어가기엔 좀 늦은 관계로, v5.5 에 들어갈 것 같다는군요.
-Linux 5.3 https://lkml.kernel.org/r/CAHk-=wiP4K8DRJWsCo=20hn_6054xBamGKF2kPgUzpB5aMaofA@mail.gmail.com
-LPC 와 커널 서밋 등으로 인해 한주 늦춰진 5.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.3-rc8/">LKML News v5.3-rc8</a></h2>
-    <div class="article-style">
-      
-      [PATCH RFC 00/14] The new slab memory controller https://lkml.kernel.org/r/20190905214553.1643060-1-guro@fb.com
-슬랩 할당자의 실제 메모리 활용률이 대부분 45-65 퍼센트에 불과했다고 합니다. 이는 슬랩 페이지가 각 메모리 cgroup 마다 배타적으로 사용되기 때문입니다. 적은 메모리만 사용하는 cgroup 여러개가 존재하면 슬랩에서 크게 받아놓은 메모리에서 조금씩만 실제 사용되니까 전체 활용률은 낮게 되는거죠. 이 RFC 패치셋은 서로 다른 cgroup 들이 슬랩 페이지를 공유할 수 있게 함으로써 이 문제를 해결합니다.
-Linux 5.3-rc8 https://lkml.kernel.org/r/CAHk-=whBQ+6c-h+htiv6pp8ndtv97+45AH9WvdZougDRM6M4VQ@mail.gmail.com
-평소대로라면 5.3 정식 릴리즈가 되었을테고 별다른 문제는 없었지만, rc7 릴리즈에서 이야기된대로 LPC 와 커널 서밋도 있고 한 이유로, -rc8 이 릴리즈 되었습니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.3-rc7/">LKML News v5.3-rc7</a></h2>
-    <div class="article-style">
-      
-      평소보다 늦은 월요일 아침 릴리즈가 이뤄졌습니다. 일요일에 토발즈가 컴퓨터로부터 떨어져 있었다는군요.
-늦어진 릴리즈 덕분에 뒤늦게 들어온 풀리퀘스트를 더 받을 수 있었고, 이로 인해 이번 rc 릴리즈는 평소보다 좀 사이즈가 큽니다. 따라서 이번 릴리즈의 크기가 불안정성을 의미하는 게 아니라 5.3 정식 릴리즈를 늦출 필요는 없습니다만, 공교롭게도 또한 다음주는 LPC 와 커널 서밋이 있죠. 토발즈도 그렇고 많은 다른 개발자들도 이때 LPC 와 커널 서밋에 참가할 거라, rc7 을 마지막으로 5.3 릴리즈를 하면 5.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.3-rc6/">LKML News v5.3-rc6</a></h2>
-    <div class="article-style">
-      
-      Linux 5.3-rc6 https://lkml.kernel.org/r/CAHk-=wgAKCTq+t5YnG6HzrF62=rr9H=q3LqokEP0_bQRHLwYNw@mail.gmail.com
-오늘은 리눅스의 28번째 생일입니다. 따라서 오늘 rc6 릴리즈는 28년만의 릴리즈이기도 하군요. 토발즈도 감회가 깊었는지 오늘의 릴리즈 메일엔 최초 릴리즈 메일에 적었던 내용과 비슷하게 시작 부분을 꾸몄네요. 감회 깊은 날, 감회 깊은 릴리즈입니다.
-리눅스를 사용하는 여러분들 안녕하세요, 저는 486 AT 클론과 그외의 많은 다른 하드웨어를 위한 (자유) 운영체제를 (취미보단 더 진지하게) 만들고 있습니다. 이 일은 28년째 지속되고 있고, 아직도 끝나지 않았습니다. 이 릴리즈에 의해 만들어진 (또는 그보다 오래된) 모든 버그에 대한 피드백을 부탁드립니다.
-      
-    </div>
-  </div>
-  
+      <h2 id="rfc-patch-0012-khugepaged-asynchronous-mthp-collapse-dev-jain">[RFC PATCH 00/12] khugepaged: Asynchronous mTHP collapse (Dev Jain)</h2>
+<p><a href="https://lore.kernel.org/20241216165105.56185-1-dev.jain@arm.com">https://lore.kernel.org/20241216165105.56185-1-dev.jain@arm.com</a></p>
+<p>Dev Jain posted an RFC patch series that makes khugepaged collapses multi-sized
+THP.</p>
+<h2 id="patch-mmpage_idle-constify-struct-bin_attribute-thomas-weißschuh">[PATCH] mm/page_idle: Constify &lsquo;struct bin_attribute&rsquo; (Thomas Weißschuh)</h2>
+<p><a href="https://lore.kernel.org/20241216-sysfs-const-bin_attr-page_idle-v1-1-cc01ecc55196@weissschuh.net">https://lore.kernel.org/20241216-sysfs-const-bin_attr-page_idle-v1-1-cc01ecc55196@weissschuh.net</a></p>
+<p>Thomas marks <code>struct bin_attribute</code> objects that used in <code>page_idle</code> to be
+marked as <code>const</code>, since it is now supported.</p>
 
+    </div>
+
+    
+
+
+
+
+
+<div class="article-tags">
   
-<nav>
-  <ul class="pagination justify-content-center">
+  <a class="badge badge-light" href="/tags/linux/">linux</a>
+  
+  <a class="badge badge-light" href="/tags/kernel/">kernel</a>
+  
+  <a class="badge badge-light" href="/tags/lkml/">lkml</a>
+  
+  <a class="badge badge-light" href="/tags/news/">news</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
     
-    <li class="page-item"><a class="page-link" href="/tags/kernel/page/25/">&laquo;</a></li>
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=https://sjp38.github.io/post/lkml_news_v6.13-rc4/&amp;text=LKML%20News%20v6.13-rc4" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
     
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=https://sjp38.github.io/post/lkml_news_v6.13-rc4/&amp;t=LKML%20News%20v6.13-rc4" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
     
-    <li class="page-item"><a class="page-link" href="/tags/kernel/page/27/">&raquo;</a></li>
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=LKML%20News%20v6.13-rc4&amp;body=https://sjp38.github.io/post/lkml_news_v6.13-rc4/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=https://sjp38.github.io/post/lkml_news_v6.13-rc4/&amp;title=LKML%20News%20v6.13-rc4" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=LKML%20News%20v6.13-rc4%20https://sjp38.github.io/post/lkml_news_v6.13-rc4/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=https://sjp38.github.io/post/lkml_news_v6.13-rc4/&amp;title=LKML%20News%20v6.13-rc4" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
     
   </ul>
-</nav>
-
-
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      <img class="portrait mr-3" src="https://s.gravatar.com/avatar/43dc5645c78e68fda997138380dfaaf4?s=200')" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="https://sjp38.github.io/">SeongJae Park (SJ)</a></h5>
+      <h6 class="card-subtitle">Kernel Programmer</h6>
+      <p class="card-text">SeongJae Park (SJ) is a programmer who loves to analyze and develop systems.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://social.kernel.org/sj" target="_blank" rel="noopener">
+        <i class="fab fa-linux"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/sjp38" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://www.linkedin.com/in/seongjae-park-1a5b9954/" target="_blank" rel="noopener">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.com/citations?user=jJIiF3AAAAAJ" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  
+  
+  <div class="article-widget content-widget-hr">
+    <h3>Related</h3>
+    <ul>
+      
+      <li><a href="/post/lkml_news_v6.13-rc3/">LKML News v6.13-rc3</a></li>
+      
+      <li><a href="/post/lkml_news_v6.13-rc2/">LKML News v6.13-rc2</a></li>
+      
+      <li><a href="/post/lkml_news_v6.13-rc1/">LKML News v6.13-rc1</a></li>
+      
+      <li><a href="/post/lkml_news_v6.12/">LKML News v6.12</a></li>
+      
+      <li><a href="/post/lkml_news_v6.12-rc7/">LKML News v6.12-rc7</a></li>
+      
+    </ul>
+  </div>
+  
+
+
+
+  </div>
+</article>
 
       
 
