@@ -31,7 +31,9 @@
   <meta name="description" content="[RFC PATCH 00/12] khugepaged: Asynchronous mTHP collapse (Dev Jain) https://lore.kernel.org/20241216165105.56185-1-dev.jain@arm.com
 Dev Jain posted an RFC patch series that makes khugepaged collapses multi-sized THP.
 [PATCH] mm/page_idle: Constify &lsquo;struct bin_attribute&rsquo; (Thomas Weißschuh) https://lore.kernel.org/20241216-sysfs-const-bin_attr-page_idle-v1-1-cc01ecc55196@weissschuh.net
-Thomas marks struct bin_attribute objects that used in page_idle to be marked as const, since it is now supported.">
+Thomas marks struct bin_attribute objects that used in page_idle to be marked as const, since it is now supported.
+Slow-tier Page Promotion discussion recap and open questions (David Rientjes) https://lore.kernel.org/6d582bb6-3ba5-1768-92f2-6025340a3cd4@google.com
+David shares his summary of the discussions around asynchronous page promotion approach from AMD that was held on last MM alignment session.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/lkml_news_v6.13-rc4/">
@@ -156,7 +158,9 @@ Thomas marks struct bin_attribute objects that used in page_idle to be marked as
   <meta property="og:description" content="[RFC PATCH 00/12] khugepaged: Asynchronous mTHP collapse (Dev Jain) https://lore.kernel.org/20241216165105.56185-1-dev.jain@arm.com
 Dev Jain posted an RFC patch series that makes khugepaged collapses multi-sized THP.
 [PATCH] mm/page_idle: Constify &lsquo;struct bin_attribute&rsquo; (Thomas Weißschuh) https://lore.kernel.org/20241216-sysfs-const-bin_attr-page_idle-v1-1-cc01ecc55196@weissschuh.net
-Thomas marks struct bin_attribute objects that used in page_idle to be marked as const, since it is now supported."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
+Thomas marks struct bin_attribute objects that used in page_idle to be marked as const, since it is now supported.
+Slow-tier Page Promotion discussion recap and open questions (David Rientjes) https://lore.kernel.org/6d582bb6-3ba5-1768-92f2-6025340a3cd4@google.com
+David shares his summary of the discussions around asynchronous page promotion approach from AMD that was held on last MM alignment session."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
     
@@ -208,7 +212,7 @@ Thomas marks struct bin_attribute objects that used in page_idle to be marked as
       "url": "https://sjp38.github.io/img/icon-512.png"
     }
   },
-  "description": "[RFC PATCH 00/12] khugepaged: Asynchronous mTHP collapse (Dev Jain) https://lore.kernel.org/20241216165105.56185-1-dev.jain@arm.com\nDev Jain posted an RFC patch series that makes khugepaged collapses multi-sized THP.\n[PATCH] mm/page_idle: Constify \u0026lsquo;struct bin_attribute\u0026rsquo; (Thomas Weißschuh) https://lore.kernel.org/20241216-sysfs-const-bin_attr-page_idle-v1-1-cc01ecc55196@weissschuh.net\nThomas marks struct bin_attribute objects that used in page_idle to be marked as const, since it is now supported."
+  "description": "[RFC PATCH 00/12] khugepaged: Asynchronous mTHP collapse (Dev Jain) https://lore.kernel.org/20241216165105.56185-1-dev.jain@arm.com\nDev Jain posted an RFC patch series that makes khugepaged collapses multi-sized THP.\n[PATCH] mm/page_idle: Constify \u0026lsquo;struct bin_attribute\u0026rsquo; (Thomas Weißschuh) https://lore.kernel.org/20241216-sysfs-const-bin_attr-page_idle-v1-1-cc01ecc55196@weissschuh.net\nThomas marks struct bin_attribute objects that used in page_idle to be marked as const, since it is now supported.\nSlow-tier Page Promotion discussion recap and open questions (David Rientjes) https://lore.kernel.org/6d582bb6-3ba5-1768-92f2-6025340a3cd4@google.com\nDavid shares his summary of the discussions around asynchronous page promotion approach from AMD that was held on last MM alignment session."
 }
 </script>
 
@@ -622,6 +626,10 @@ THP.</p>
 <p><a href="https://lore.kernel.org/20241216-sysfs-const-bin_attr-page_idle-v1-1-cc01ecc55196@weissschuh.net">https://lore.kernel.org/20241216-sysfs-const-bin_attr-page_idle-v1-1-cc01ecc55196@weissschuh.net</a></p>
 <p>Thomas marks <code>struct bin_attribute</code> objects that used in <code>page_idle</code> to be
 marked as <code>const</code>, since it is now supported.</p>
+<h2 id="slow-tier-page-promotion-discussion-recap-and-open-questions-david-rientjes">Slow-tier Page Promotion discussion recap and open questions (David Rientjes)</h2>
+<p><a href="https://lore.kernel.org/6d582bb6-3ba5-1768-92f2-6025340a3cd4@google.com">https://lore.kernel.org/6d582bb6-3ba5-1768-92f2-6025340a3cd4@google.com</a></p>
+<p>David shares his summary of the discussions around asynchronous page promotion
+approach from AMD that was held on last MM alignment session.</p>
 
     </div>
 
