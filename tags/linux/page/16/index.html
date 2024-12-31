@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-12-17T06:49:17-08:00">
+    <meta property="og:updated_time" content="2024-12-30T16:28:09-08:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.17-rc4/">LKML News v5.17-rc4</a></h2>
+    <div class="article-style">
+      
+      [PATCH v2 1/2] arm64: avoid flushing icache multiple times on contiguous HugeTLB (Muchun Song) https://lkml.kernel.org/r/20220208054632.66534-1-songmuchun@bytedance.com
+When a contiguous HugeTLB page is mapped, set_pte_at() is called CONT_PTES / CONT_PMDS times. Because the first flushing covers subsequent flushes, this is unnecessary overhead, so this patchset avoids it.
+[PATCH v7 00/12] Multigenerational LRU Framework (Yu Zhao) https://lkml.kernel.org/r/20220208081902.3550911-1-yuzhao@google.com
+Seventh version of the MGLRU patchset, which aims to reduce performance overhead and improve eviction target pages selection of reclamation logic is posted.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.17-rc3/">LKML News v5.17-rc3</a></h2>
     <div class="article-style">
       
@@ -627,19 +639,6 @@ Andrew Morton uploaded new mmotm.
 Page migrations commonly fails from temporal referenc count elevation. Worse yet, it&rsquo;s hard to know which kernel subsystem has made the temporal reference count increase. To tracking it available, Minchan is proposing a new feature called page pinner. It tracks page put operations for pages that migration failed.
 mmotm 2021-12-06-22-21 uploaded (Andrew Morton) https://lkml.kernel.org/r/20211207062141.pMgbjXQXy%akpm@linux-foundation.org
 mmotm based on v5.16-rc4 has uploaded. 14 new patches are added, 3 existign patches modified, and 1 existing patch has dropped from the queue.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.16-rc4/">LKML News v5.16-rc4</a></h2>
-    <div class="article-style">
-      
-      mmotm 2021-11-29-18-58 uploaded (Andrew Morton) https://lkml.kernel.org/r/20211130025839.ZhVoO1W_7%akpm@linux-foundation.org
-mmotm has updated. It&rsquo;s based on v5.16-rc3, adds 52 new patches, modifies 18 existing patches, and drops 2 patches. In total, 224 patches in the queue.
-[QUESTION] “place pages to tail” regress memory read bandwidth about 10% under our test cases (liupeng) https://lkml.kernel.org/r/3c6349ddd9a34732a251467b7fa4fe93@huawei.com
-Liu Peng found David&rsquo;s patch 7fef431be9c9(mm/page_alloc: place pages to tail in __free_pages_core()) incurring performance regression, and asking some suggestions.
-[RFC PATCH] mm: count zram read/write into PSI_IO_WAIT (Huangzhaoyang) https://lkml.
       
     </div>
   </div>

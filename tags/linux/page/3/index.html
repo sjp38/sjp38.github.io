@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-12-17T06:49:17-08:00">
+    <meta property="og:updated_time" content="2024-12-30T16:28:09-08:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.11-rc2/">LKML News v6.11-rc2</a></h2>
+    <div class="article-style">
+      
+      [RFC 0/2] mm: introduce THP deferred setting (Nico Pache) https://lore.kernel.org/20240729222727.64319-1-npache@redhat.com
+Nico found increased memory footprint from THP after their customers switching from RHEL7 to RHEL8. To mitigate the issue, Nico is proposing adding a new THP configuration called deferred. It is same to madvise but allows khugepaged to do the work.
+[PATCH v2 0/4] mm: clarify nofail memory allocation (Barry Song) https://lore.kernel.org/20240731000155.109583-1-21cnbao@gmail.com
+Barry posted the second version of their patchset for __GFP_NOFAIL clarification.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.11-rc1/">LKML News v6.11-rc1</a></h2>
     <div class="article-style">
       
@@ -627,18 +639,6 @@ Yuanchu posted second version of the MGLRU-based workingset reporting patchset.
 Steven posted a patch for reserving part of memory for pstore, which is currently being reserved via firmware, via a new kernel command line parameter, reserve_mem.
 [PATCH v4 00/11] riscv: Memory Hot(Un)Plug support (Björn Töpel) https://lore.kernel.org/20240605114100.315918-1-bjorn@kernel.org
 Björn posted the fourth version of the patchset for supporting memory hot-[un]plugging and ZONE_DEVICE support on RISC-V.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.10-rc2/">LKML News v6.10-rc2</a></h2>
-    <div class="article-style">
-      
-      [PATCH 0/3] mm: zswap: global shrinker fix and proactive shrink (Takero Funaki) https://lore.kernel.org/20240528043404.39327-2-flintglass@gmail.com
-This patchset fixes two zswap issues coming from global shrinker, and add proactive shrinking of zswap which starts when zswap is 95% full, for 90% accept threshold.
-[PATCH v7 0/4] Memory management patches needed by Rust Binder (Alice Ryhl) https://lore.kernel.org/20240528-alice-mm-v7-0-78222c31b8f4@google.com
-Alice sent the seventh revision for making memory management subsystem changes that needed by Rust Binder implementation.
       
     </div>
   </div>

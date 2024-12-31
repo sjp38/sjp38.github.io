@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-12-17T06:49:17-08:00">
+    <meta property="og:updated_time" content="2024-12-30T16:28:09-08:00">
   
 
   
@@ -525,6 +525,19 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.6-rc4/">LKML News v6.6-rc4</a></h2>
+    <div class="article-style">
+      
+      [PATCH v3 0/4] Smart scanning mode for KSM (Stefan Roesch) https://lkml.kernel.org/r/20230926040939.516161-1-shr@devkernel.io
+KSM scans pages without historic information, so pages that already found to be not eligible for deduplication are scanned unnecessarily. This patchset introduces smart scanning for KSM, which utilizes the historic information.
+[PATCH -V2 00/10] mm: PCP high auto-tuning (Huang Ying) https://lkml.kernel.org/r/20230926060911.266511-1-ying.huang@intel.com
+This patchset implements auto-tuning of Per-CPU Pageset high to optimize page allocation performance.
+[PATCH rfc 0/5] mm: improve performance of kernel memory accounting (Roman Gushchin) https://lkml.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.6-rc3/">LKML News v6.6-rc3</a></h2>
     <div class="article-style">
       
@@ -636,18 +649,6 @@ The fourth version of the patchset for support of memmap on memory on ppc64 has 
 Andrew sent mm subsystem hotfixes for 6.5 rc2 to Linus.
 [PATCH v2 0/5] Invalidate secondary IOMMU TLB on permission upgrade (Alistair Popple) https://lkml.kernel.org/r/cover.de78568883814904b78add6317c263bf5bc20234.1689768831.git-series.apopple@nvidia.com
 This patch moves secondary TLB invcalidation mmu notifier callbacks to architecture specific TLB flushing functions.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.5-rc2/">LKML News v6.5-rc2</a></h2>
-    <div class="article-style">
-      
-      [Invitation] Linux MM Alignment Session on mshare on Wednesday (David Rientjes) https://lkml.kernel.org/r/CAE-26VAZZ+buEX0wbqHTz0k1hshYzYP3KzMmXT6jc6=NucPa0Q@mail.gmail.com
-David from Google is hosting yet another Linux MM Alignment session on Wednesday. The topic of this week is the process page table sharing, which could be a clear efficiency win for situations where huge number of processes sharing same pages.
-[PATCH v3 0/7] Add support for memmap on memory feature on ppc64 (Aneesh Kumar K.V) https://lkml.kernel.org/r/20230711044834.72809-1-aneesh.kumar@linux.ibm.com
-This makes the memmap on memory feature more useful for ppc64-like architectures having alignment rules that different with 64K page size.
       
     </div>
   </div>
