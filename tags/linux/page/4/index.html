@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-12-30T16:28:09-08:00">
+    <meta property="og:updated_time" content="2024-12-31T10:16:21-08:00">
   
 
   
@@ -525,6 +525,20 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.10-rc3/">LKML News v6.10-rc3</a></h2>
+    <div class="article-style">
+      
+      [PATCH v2 0/8] mm: workingset reporting (Yuanchu Xie) https://lore.kernel.org/20240604020549.1017540-1-yuanchu@google.com
+Yuanchu posted second version of the MGLRU-based workingset reporting patchset.
+[PATCH 0/2] mm/pstore: Reserve named unspecified memory across boots (Steven Rostedt) https://lore.kernel.org/20240603233330.801075898@goodmis.org
+Steven posted a patch for reserving part of memory for pstore, which is currently being reserved via firmware, via a new kernel command line parameter, reserve_mem.
+[PATCH v4 00/11] riscv: Memory Hot(Un)Plug support (Björn Töpel) https://lore.kernel.org/20240605114100.315918-1-bjorn@kernel.org
+Björn posted the fourth version of the patchset for supporting memory hot-[un]plugging and ZONE_DEVICE support on RISC-V.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.10-rc2/">LKML News v6.10-rc2</a></h2>
     <div class="article-style">
       
@@ -634,19 +648,6 @@ KernelCI project announces Community Engagement Working Group which will purpose
 James posted the third version of the patchset for adding KVM&rsquo;s test-and-clear-access-bits fast path that doesn&rsquo;t take mmu_lock. It is RFC because the author wants to do more performance tests, and unusre if the arm64 part is correct.
 [PATCH] mm, mmap: remove vma_merge() (Vlastimil Babka) https://lkml.kernel.org/r/20240401192623.18575-2-vbabka@suse.cz
 After the successful removal of SLAB, Vlastimil suggests to remove vma_merge(). But the patch has sent on 2024-04-01 :)
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.9-rc2/">LKML News v6.9-rc2</a></h2>
-    <div class="article-style">
-      
-      [PATCH 0/2] support multi-size THP numa balancing (Baolin Wang) https://lkml.kernel.org/r/cover.1711453317.git.baolin.wang@linux.alibaba.com
-Baolin posted a patchset for making NUMA balancing algorithm for multi-sized THP (mTHP) to follow the THP strategy as the basic support.
-[PATCH v2 0/6] Improve visibility of writeback (Kemeng Shi) https://lkml.kernel.org/r/20240327155751.3536-1-shikemeng@huaweicloud.com
-Kemeng posted a patchset that adds two new debugfs file, bdi/xxx/stats and bdi/xxx/wb_stats to show whole bdi and per-wb writeback information.
-[PATCH v10] zswap: replace RB tree with xarray (Chris Li) https://lkml.
       
     </div>
   </div>
