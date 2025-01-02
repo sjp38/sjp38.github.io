@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-12-30T16:28:09-08:00">
+    <meta property="og:updated_time" content="2025-01-02T07:00:45-08:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.11-rc2/">LKML News v6.11-rc2</a></h2>
+    <div class="article-style">
+      
+      [RFC 0/2] mm: introduce THP deferred setting (Nico Pache) https://lore.kernel.org/20240729222727.64319-1-npache@redhat.com
+Nico found increased memory footprint from THP after their customers switching from RHEL7 to RHEL8. To mitigate the issue, Nico is proposing adding a new THP configuration called deferred. It is same to madvise but allows khugepaged to do the work.
+[PATCH v2 0/4] mm: clarify nofail memory allocation (Barry Song) https://lore.kernel.org/20240731000155.109583-1-21cnbao@gmail.com
+Barry posted the second version of their patchset for __GFP_NOFAIL clarification.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.11-rc1/">LKML News v6.11-rc1</a></h2>
     <div class="article-style">
       
@@ -632,21 +644,6 @@ page-flags.rst (Matthew Wilcox) https://lore.kernel.org/ZkOu4yXP-sGGtwc4@casper.
 Matthew posted the page-flags documentation that he wrote with LSFMM attendees on his session.
 [GIT PULL] MM updates for 6.10-rc1 (Andrew Morton) https://lore.kernel.org/20240517192239.9285edd85f8ef893bb508a61@linux-foundation.org
 Andrew sent the memory management part pull request for 6.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.9/">LKML News v6.9</a></h2>
-    <div class="article-style">
-      
-      [LSF/MM/BPF TOPIC] Locally attached memory tiering (David Rientjes) https://lore.kernel.org/e90dc785-c4e6-47e4-8eda-d35325c82ff9@google.com
-David suggests a new LSFMM topic for local-attached memory tiering.
-[LSF/MM/BPF TOPIC] CXL Development Discussions (Adam Manzanares) https://lore.kernel.org/9bf86b97-319f-4f58-b658-1fe3ed0b1993@nmtadam.samsung
-Adam suggests a new LSFMM topic for general CXL development.
-kdevops BoF at LSFMM (Luis Chamberlain) https://lore.kernel.org/CAB=NE6XyLS1TaAcgzSWa=1pgezRjFoy8nuVtSWSfB8Qsdsx_xQ@mail.gmail.com
-Luis suggests to have a time slot for sharing ongoing developments and changes for kdevops, which automates complex kernel development workflows.
-[RFC PATCH 0/2] introduce budgt control in readahead (Zhaoyang Huang) https://lore.
       
     </div>
   </div>

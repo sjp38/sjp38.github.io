@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-12-30T16:28:09-08:00">
+    <meta property="og:updated_time" content="2025-01-02T07:00:45-08:00">
   
 
   
@@ -525,6 +525,20 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.6-rc3/">LKML News v6.6-rc3</a></h2>
+    <div class="article-style">
+      
+      [Invitation] Linux MM Alignment Session on APIs for Sparse Mappings on Wednesday (David Rientjes) https://lkml.kernel.org/r/fba78307-e4a3-2621-2917-464f19bb4c57@google.com
+David is organizing yet another Linux MM alignment session for proper API for sparse mappings.
+[PATCH v2] vmscan: add trace events for lru_gen (Jaewon Kim) https://lkml.kernel.org/r/20230921062206.14429-1-jaewon31.kim@samsung.com
+This patch adds two new tracevents called trace_mm_vmscan_lru_gen_scan and trace_mm_vmscan_lru_gen_evict that similar to trace_mm_vmscan_lru_isolate and trace_mm_vmscan_lru_shrink_[in]active.
+[PATCH v3 00/15] futex: More futex2 bits (Peter Zijlstra) https://lkml.kernel.org/r/20230921104505.717750284@noisy.programming.kicks-ass.net
+Peter sent third version of the patchset that introduces a new interface for same futex core, futex2.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.6-rc2/">LKML News v6.6-rc2</a></h2>
     <div class="article-style">
       
@@ -634,19 +648,6 @@ This patch moves secondary TLB invcalidation mmu notifier callbacks to architect
 David from Google is hosting yet another Linux MM Alignment session on Wednesday. The topic of this week is the process page table sharing, which could be a clear efficiency win for situations where huge number of processes sharing same pages.
 [PATCH v3 0/7] Add support for memmap on memory feature on ppc64 (Aneesh Kumar K.V) https://lkml.kernel.org/r/20230711044834.72809-1-aneesh.kumar@linux.ibm.com
 This makes the memmap on memory feature more useful for ppc64-like architectures having alignment rules that different with 64K page size.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.5-rc1/">LKML News v6.5-rc1</a></h2>
-    <div class="article-style">
-      
-      [GIT PULL] MM updates for 6.5-rc1 (Andrew Morton) https://lkml.kernel.org/r/20230626085035.e66992e96b4c6d37dad54bd9@linux-foundation.org
-Andrew Morton sent the memory management subsystem pull request for v6.5-rc1. Among the change, cachestata() syscall and Mel Gorman&rsquo;s compaction optimization looks interesting to me.
-[GIT PULL] slab updates for 6.5 (Vlastimil Babka) https://lkml.kernel.org/r/1c39c9b0-ec37-f910-2b09-cedf7acf6e91@suse.cz
-Vlastimil sent the slab pull request for v6.5 to Linus Torvalds. This contains the SLAB config deprecation renaming (s/CONFIG_SLAB/CONFIG_SLAB_DEPRECATED/).
-[PATCH v1 0/5] mm/memory_hotplug: make offline_and_remove_memory() timeout instead of failing on fatal signals (David Hildenbrand) https://lkml.
       
     </div>
   </div>

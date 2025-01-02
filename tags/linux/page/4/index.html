@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-12-31T10:16:21-08:00">
+    <meta property="og:updated_time" content="2025-01-02T07:00:45-08:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.10-rc4/">LKML News v6.10-rc4</a></h2>
+    <div class="article-style">
+      
+      [PATCH 0/7] arm64 / x86-64: low-level code generation issues (Linus Torvalds) https://lore.kernel.org/20240610204821.230388-1-torvalds@linux-foundation.org
+Linus Torvalds posted another version of runtime const patchset for not only x86_64 but also arm64. He mentions the work was motivated by his Altra box that shows __d_lookup_rcu() like a horror.
+[PATCH v2 1/2] virt: pvmemcontrol: control guest physical memory properties (Yuanchu Xie) https://lore.kernel.org/20240612021207.3314369-1-yuanchu@google.com
+Yuanchu posted a patchset for letting guest control its physical memory properties, security features and optimizations.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.10-rc3/">LKML News v6.10-rc3</a></h2>
     <div class="article-style">
       
@@ -636,18 +648,6 @@ Alex sent the first patchset for making KSM uses folios.
 Marco sent a patch for adding a new tracepoint. The tracepoint is for tracing a case where new exec starts while having original state including the mm.
 Announcing Community Engagement Working Group (Nikolai Kondrashov) https://lkml.kernel.org/r/bf81be70-61ec-4169-b66a-5c3136869107@gmail.com/
 KernelCI project announces Community Engagement Working Group which will purpose to connect with kernel maintainers and discuss test quality improvement for their subsystems.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.9-rc3/">LKML News v6.9-rc3</a></h2>
-    <div class="article-style">
-      
-      [PATCH v3 0/7] mm/kvm: Improve parallelism for access bit harvesting (James Houghton) https://lkml.kernel.org/r/20240401232946.1837665-1-jthoughton@google.com
-James posted the third version of the patchset for adding KVM&rsquo;s test-and-clear-access-bits fast path that doesn&rsquo;t take mmu_lock. It is RFC because the author wants to do more performance tests, and unusre if the arm64 part is correct.
-[PATCH] mm, mmap: remove vma_merge() (Vlastimil Babka) https://lkml.kernel.org/r/20240401192623.18575-2-vbabka@suse.cz
-After the successful removal of SLAB, Vlastimil suggests to remove vma_merge(). But the patch has sent on 2024-04-01 :)
       
     </div>
   </div>

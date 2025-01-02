@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2024-12-31T10:16:21-08:00">
+    <meta property="og:updated_time" content="2025-01-02T07:00:45-08:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.2-rc1/">LKML News v6.2-rc1</a></h2>
+    <div class="article-style">
+      
+      memcg reclaim demotion wrt. isolation (Michal Hocko) https://lkml.kernel.org/r/Y5idFucjKVbjatqc@dhcp22.suse.cz
+Currently pages allocated for demotion targets includes __GFP_KSWAPD_RECALIM, and therefore memcg triggered reclaim could result in reclaims of pages in different hierarchy. Michal suggests simple modification of it.
+[GIT PULL] MM updates for 6.2-rc1 (Andrew Morton) (1+ msgs) (Andrew Morton) https://lkml.kernel.org/r/20221213142614.525a9240506119abc3cef6b6@linux-foundation.org
+Andrew Morton sent the MM pull request for v6.2-rc1 to Linus Torvalds. It includes 28 DAMON patches for cleanup and DAMOS tried regions sysfs.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.1/">LKML News v6.1</a></h2>
     <div class="article-style">
       
@@ -635,18 +647,6 @@ Alexander posted the fourth version of THP shrinker, which aims to reduce the TH
       
       Today is the 10th anniversary of my Linux kernel contribution. Including the tiny and trivial patch, I made 381 patches merged in the mainline during the 10 years.
 $ git log --author SeongJae --reverse commit cf174b0ef52ad8184779e1da4132e2d9d17247e5 Author: SeongJae Park &lt;sj38.park@gmail.com&gt; Date: Tue Oct 16 16:47:50 2012 +0900 staging: csr: csr_framework_ext_types.h: fix coding style Fix coding style of csr_framework_ext_types.h Signed-off-by: SeongJae Park &lt;sj38.park@gmail.com&gt; Signed-off-by: Greg Kroah-Hartman &lt;gregkh@linuxfoundation.org&gt; [...] $ git log --author SeongJae --oneline | wc -l 381 I&rsquo;m looking forward to the next 10 years.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.1-rc1/">LKML News v6.1-rc1</a></h2>
-    <div class="article-style">
-      
-      [RFC UKL 00/10] Unikernel Linux (UKL) (Ali Raza) https://lkml.kernel.org/r/20221003222133.20948-1-aliraza@bu.edu
-This RFC patchset introduces a research project called Unikernel Linux which integrates application specific optimization to the Linux kernel. It links an application directly with kernel and runs it in the supervisor mode.
-[PATCH v6] mm: add zblock - new allocator for use via zpool API (Ananda) https://lkml.kernel.org/r/20221005053302.30387-1-a.badmaev@clicknet.pro
-This patchset introduces a new allocator for zpool API. The author says it is better than zsmalloc in terms of worst execution time and therefore good at real-time usage.
       
     </div>
   </div>
