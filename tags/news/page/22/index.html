@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-01-02T07:00:45-08:00">
+    <meta property="og:updated_time" content="2025-01-07T07:27:02-08:00">
   
 
   
@@ -525,6 +525,16 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.8-rc6/">LKML News v5.8-rc6</a></h2>
+    <div class="article-style">
+      
+      [PATCH v3] x86/mm: use max memory block size on bare metal (Daniel Jordan) https://lkml.kernel.org/r/20200714205450.945834-1-daniel.m.jordan@oracle.com
+On x86, smallest supported block size is 128MiB. This means it needs to create 16,288 sysfs directories for 2TiB memory system. This sysfs creation takes significant amount of the boot time. As the memory hotplug is frequenlty used for the virtualized systems, this commit makes the kernels that aren&rsquo;t running on a hypervisor to use largest block size (2GiB) on big machines.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.8-rc5/">LKML News v5.8-rc5</a></h2>
     <div class="article-style">
       
@@ -634,18 +644,6 @@ Ted annouced that the Maintainers / Kernel Summit will be held in virtual this y
 This patchset introduces special memory called PKRAM. It can be used to preserve VM guest memory across kexec boot for fast restart (VMM Fast Restart). Compared to DRAM based PMEM simulation, PKRAM is more flexible as the memory size is not need to be previously fixed.
 [PATCH] mm: Replace zero-length array with flexible-array (Gustavo A. R. Silva) https://lkml.kernel.org/r/20200507185942.GA15193@embeddedor
 The zero-length array of C90 are widely used in the kernel code base, but the flexible array member of C99 would be better choice.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.7-rc4/">LKML News v5.7-rc4</a></h2>
-    <div class="article-style">
-      
-      [PATCH 0/7] Record the mm_struct in the page table pages (Matthew Wilcox) https://lkml.kernel.org/r/20200428194449.22615-1-willy@infradead.org
-Literally, this patchset adds the mm_struct pointer to struct page if it is used for page tables. This will be useful for several cases usch as uncorrectable errors handling and task-page table relation checking, etc.
-[PATCH v4] mm: Proactive compaction (Nitin Gupta) https://lkml.kernel.org/r/20200428221055.598-1-nigupta@nvidia.com
-This patchset makes the compaction to be more proactively done for better THP allocation success and makes user to be able to control the proactiveness using a sysfs file, /sys/kernel/mm/compaction/proactiveness.
       
     </div>
   </div>

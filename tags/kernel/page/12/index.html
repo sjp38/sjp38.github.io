@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-01-02T07:00:45-08:00">
+    <meta property="og:updated_time" content="2025-01-07T07:27:02-08:00">
   
 
   
@@ -525,6 +525,19 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.1-rc3/">LKML News v6.1-rc3</a></h2>
+    <div class="article-style">
+      
+      [PATCH] swap: add a limit for readahead page-cluster value (Kairu Song) https://lkml.kernel.org/r/20221023162533.81561-1-ryncsn@gmail.com
+/proc/sys/vm/page-cluster could overflow because it has no upper limit. This patch set its upper-limit as 2**31, so that at most 2**31 pages could be read in at once.
+[PATCH 0/1] Dead stores in maple-tree (Lukas Bulwahn) https://lkml.kernel.org/r/20221026120029.12555-1-lukas.bulwahn@gmail.com
+This patch fixes some dead stores of maple tree that reported by clang analyzer.
+[PATCH v6 00/21] TDX host kernel support (Kai Huang) https://lkml.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.1-rc2/">LKML News v6.1-rc2</a></h2>
     <div class="article-style">
       
@@ -633,20 +646,6 @@ This RFC patchset introduces code tagging framework which can identify a specifi
 A big regression of mm multi-cpu scalability test (will-it-scale) has found by the kernel test robot. The commit 96db82a66d1db0e2966c02dc492e02eeb3a94a75 (&ldquo;mm: align larger anonymous mappings on THP bundaries&rdquo;) is pointed out as the suspect.
 [PATCH v13 00/70] Introducing the Maple Tree (Liam Howlett) https://lkml.kernel.org/r/20220822150128.1562046-1-Liam.Howlett@oracle.com
 The thirteenth version of the maple tree patchset has posted after rebased on latest mm-unstable and fixed some bugs.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.0-rc2/">LKML News v6.0-rc2</a></h2>
-    <div class="article-style">
-      
-      [PATCH v14 00/14] Multi-Gen LRU Framework (Yu Zhao) https://lkml.kernel.org/r/20220815071332.627393-1-yuzhao@google.com
-Fourteenth version of MGLRU patch has rebased on the latest mm-unstable and posted again. This may be merged in the mm tree.
-folio_map (Matthew Wilcox) https://lkml.kernel.org/r/YvvdFrtiW33UOkGr@casper.infradead.org
-Matthew explains his proposal on folio_map in detail and asks if others have better ideas.
-[PATCH v3] mm: add thp_utilization metrics to debugfs (Alexander Zhu) https://lkml.kernel.org/r/20220818000112.2722201-1-alexlzhu@fb.com
-This patch adds debugfs file for tracking how THP is utilized well.
       
     </div>
   </div>

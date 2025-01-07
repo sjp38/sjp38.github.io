@@ -28,12 +28,13 @@
   
     
   
-  <meta name="description" content="Kernel Programmer">
+  <meta name="description" content="[PATCH] tools/mm: Introduce a tool to handle entries in allocinfo (Hao Ge) https://lore.kernel.org/20250106112103.25401-1-hao.ge@linux.dev
+Hao posted a patch adding a tool for handling of the kernel&rsquo;s memory allocation profilier output.
+[Invitation] Linux MM Alignment Session on Cgroup-based THP Control on Wednesday (David Rientjes) https://lore.kernel.org/5535fc79-c566-93a0-6134-bfdf1cf5171a@google.com
+David invites people for next Linux MM Alignment session. The topic will be cgroup-based THP control, led by Gutierez Asier, who proposed the idea.">
 
   
-  <link rel="alternate" hreflang="ko" href="https://sjp38.github.io/ko/tags/lkml/">
-  
-  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/tags/lkml/">
+  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/lkml_news_v6.13-rc7/">
 
   
 
@@ -133,14 +134,12 @@
 
 
   
-  <link rel="alternate" href="/tags/lkml/index.xml" type="application/rss+xml" title="hacklog">
-  
 
   <link rel="manifest" href="/index.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon-32.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://sjp38.github.io/tags/lkml/">
+  <link rel="canonical" href="https://sjp38.github.io/post/lkml_news_v6.13-rc7/">
 
   
   
@@ -152,18 +151,68 @@
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="hacklog">
-  <meta property="og:url" content="https://sjp38.github.io/tags/lkml/">
-  <meta property="og:title" content="lkml | hacklog">
-  <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
+  <meta property="og:url" content="https://sjp38.github.io/post/lkml_news_v6.13-rc7/">
+  <meta property="og:title" content="LKML News v6.13-rc7 | hacklog">
+  <meta property="og:description" content="[PATCH] tools/mm: Introduce a tool to handle entries in allocinfo (Hao Ge) https://lore.kernel.org/20250106112103.25401-1-hao.ge@linux.dev
+Hao posted a patch adding a tool for handling of the kernel&rsquo;s memory allocation profilier output.
+[Invitation] Linux MM Alignment Session on Cgroup-based THP Control on Wednesday (David Rientjes) https://lore.kernel.org/5535fc79-c566-93a0-6134-bfdf1cf5171a@google.com
+David invites people for next Linux MM Alignment session. The topic will be cgroup-based THP control, led by Gutierez Asier, who proposed the idea."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-01-07T07:27:02-08:00">
+    
+      <meta property="article:published_time" content="2025-01-07T07:27:02-08:00">
+    
+    <meta property="article:modified_time" content="2025-01-07T07:27:02-08:00">
   
 
   
 
 
+    
 
+
+
+
+
+
+  
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://sjp38.github.io/post/lkml_news_v6.13-rc7/"
+  },
+  "headline": "LKML News v6.13-rc7",
+  
+  "datePublished": "2025-01-07T07:27:02-08:00",
+  "dateModified": "2025-01-07T07:27:02-08:00",
+  
+  "author": {
+    "@type": "Person",
+    "name": "SeongJae Park (SJ)"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "hacklog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://sjp38.github.io/img/icon-512.png"
+    }
+  },
+  "description": "[PATCH] tools/mm: Introduce a tool to handle entries in allocinfo (Hao Ge) https://lore.kernel.org/20250106112103.25401-1-hao.ge@linux.dev\nHao posted a patch adding a tool for handling of the kernel\u0026rsquo;s memory allocation profilier output.\n[Invitation] Linux MM Alignment Session on Cgroup-based THP Control on Wednesday (David Rientjes) https://lore.kernel.org/5535fc79-c566-93a0-6134-bfdf1cf5171a@google.com\nDavid invites people for next Linux MM Alignment session. The topic will be cgroup-based THP control, led by Gutierez Asier, who proposed the idea."
+}
+</script>
+
+  
 
   
 
@@ -171,10 +220,13 @@
   
 
 
+  
 
 
 
-  <title>lkml | hacklog</title>
+
+
+  <title>LKML News v6.13-rc7 | hacklog</title>
 
 </head>
 
@@ -396,7 +448,7 @@
         
 
         <li class="nav-item">
-          <a class="nav-link  active" href="/tags"><span>Tags</span></a>
+          <a class="nav-link " href="/tags"><span>Tags</span></a>
         </li>
 
         
@@ -466,22 +518,6 @@
       
 
       
-      <li class="nav-item dropdown i18n-dropdown">
-        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true">
-          <i class="fas fa-globe mr-1" aria-hidden="true"></i><span class="d-none d-lg-inline">English</span>
-        </a>
-        <div class="dropdown-menu">
-          <div class="dropdown-item i18n-active font-weight-bold">
-            <span>English</span>
-          </div>
-          
-          <a class="dropdown-item" href="/ko/tags/lkml/">
-            <span>한국어</span>
-          </a>
-          
-        </div>
-      </li>
-      
 
     </ul>
 
@@ -489,182 +525,349 @@
 </nav>
 
 
-  
-
-
-
-
-
-
-
-
-
-
-
+  <article class="article">
 
   
 
+
+
+
+
+
+
+
+
+
+
+
+  
+
   
   
+  
+<div class="article-container pt-3">
+  <h1>LKML News v6.13-rc7</h1>
+
+  
+
   
     
-  
-<div class="universal-wrapper pt-3">
-  <h1>lkml</h1>
+
+
+<div class="article-metadata">
 
   
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Tue, Jan 7, 2025
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   
 </div>
 
 
 
-<div class="universal-wrapper">
-  
+  <div class="article-container">
 
-  
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.13-rc7/">LKML News v6.13-rc7</a></h2>
     <div class="article-style">
-      
-      [PATCH] tools/mm: Introduce a tool to handle entries in allocinfo (Hao Ge) https://lore.kernel.org/20250106112103.25401-1-hao.ge@linux.dev
-Hao posted a patch adding a tool for handling of the kernel&rsquo;s memory allocation profilier output.
-[Invitation] Linux MM Alignment Session on Cgroup-based THP Control on Wednesday (David Rientjes) https://lore.kernel.org/5535fc79-c566-93a0-6134-bfdf1cf5171a@google.com
-David invites people for next Linux MM Alignment session. The topic will be cgroup-based THP control, led by Gutierez Asier, who proposed the idea.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.13-rc6/">LKML News v6.13-rc6</a></h2>
-    <div class="article-style">
-      
-      [PATCH v3 00/12] AMD broadcast TLB invalidation (Rik van Riel) https://lore.kernel.org/20241230175550.4046587-1-riel@surriel.com
-Rik posted the third version of the patch series for AMD TLB invalidastion broadcasting support.
-[PATCH mm-unstable v4 0/7] mm/mglru: performance optimizations (Yu Zhao) https://lore.kernel.org/20241231043538.4075764-1-yuzhao@google.com
-Yu posted the fourth version of MGLRU performance optimization, which fixes two more regressions.
-[RFC PATCH 0/9 v2] cgroup: separate per-subsystem rstat trees (JP Kobryn) https://lore.kernel.org/20250103015020.78547-1-inwardvessel@gmail.com
-JP posted second version of the RFC patch sereis that reduce per-subsystem stat reading overhead by separating the data structure per subsystem.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.13-rc5/">LKML News v6.13-rc5</a></h2>
-    <div class="article-style">
-      
-      Linus 6.13-rc5 (Linus Torvalds) https://lore.kernel.org/&lt;CAHk-=wh=sk+uzFj5edCwdSmUuhfe40mH+G04XQXZtzbx_XBnvQ@mail.gmail.com
-After yet another calm week of holidays, Linus released the fifth candidate for Linux 6.13. It it again a tiny one, having less than a hundred non-merge commits.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.13-rc4/">LKML News v6.13-rc4</a></h2>
-    <div class="article-style">
-      
-      [RFC PATCH 00/12] khugepaged: Asynchronous mTHP collapse (Dev Jain) https://lore.kernel.org/20241216165105.56185-1-dev.jain@arm.com
-Dev Jain posted an RFC patch series that makes khugepaged collapses multi-sized THP.
-[PATCH] mm/page_idle: Constify &lsquo;struct bin_attribute&rsquo; (Thomas Weißschuh) https://lore.kernel.org/20241216-sysfs-const-bin_attr-page_idle-v1-1-cc01ecc55196@weissschuh.net
-Thomas marks struct bin_attribute objects that used in page_idle to be marked as const, since it is now supported.
-Slow-tier Page Promotion discussion recap and open questions (David Rientjes) https://lore.kernel.org/6d582bb6-3ba5-1768-92f2-6025340a3cd4@google.com
-David shares his summary of the discussions around asynchronous page promotion approach from AMD that was held on last MM alignment session.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.13-rc3/">LKML News v6.13-rc3</a></h2>
-    <div class="article-style">
-      
-      [Invitation] Linux MM Alignment Session on Slow-tier Page Promotion on Wednesday (David Rientjes) https://lore.kernel.org/52a4867a-f330-4d3f-2da8-0919bc49c6ea@google.com
-David Rientjes invites MM people to the next alignment session. The topic is slow-tier page promotion, led by RaghavendraKT from AMD. They have RFC, too: https://lore.kernel.org/linux-mm/20241201153818.2633616-1-raghavendra.kt@amd.com/T/#t
-[PATCH mm-unstable 00/17] mm: Introduce arch_mmap_hint() (Kalesh Singh) https://lore.kernel.org/20241210024119.2488608-1-kaleshsingh@google.com
-Kalesh posted a patch that introducing per-architecture mmap_hint() implementation and fixing the mmap hint being ignored due to THP in some cases.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.13-rc2/">LKML News v6.13-rc2</a></h2>
-    <div class="article-style">
-      
-      [PATCH] MAINTAINERS: group all VMA-related files into the VMA section (Lorenzo Stoakes) https://lore.kernel.org/20241206191600.45119-1-lorenzo.stoakes@oracle.com
-Lorenzo posted a patch adding more source files for VMA section of MAINTAINERS file, to avoid people sending patches without Cc-ing VMA maintainers.
-Linux 6.13-rc2 (Linus Torvalds) https://lore.kernel.org/CAHk-=wgDe9JfGynY9KQ1exkL0DM-cyLYdeYdOxbCXNHm=qAgSQ@mail.gmail.com
-Linus released the second candidate of Linux v6.13. Some autoamted cleanup changes made the diff bit noisy, and there are some real fixes for drivers, networking and bpf.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.13-rc1/">LKML News v6.13-rc1</a></h2>
-    <div class="article-style">
-      
-      [GIT PULL] MM updates for 6.13-rc1 (Andrew Morton) https://lore.kernel.org/20241118193001.6aefcadd7426feafedf824e1@linux-foundation.org
-Andrew posted memory management subsystem pull request for v6.13-rc1 to Linus Torvalds.
-[PATCHSET v5 0/17] Uncached buffered IO (Jens Axboe) https://lore.kernel.org/20241114152743.2381672-2-axboe@kernel.dk
-Jens is continuing his work on support of buffered IO that isn&rsquo;t page cache persistent. The motivation is the fact that device speed is getting faster while reclaim is not.
-[RFCv1 0/6] Page Detective (Pasha Tatashin) https://lore.kernel.org/20241116175922.3265872-1-pasha.tatashin@soleen.com
-Pasha posted an RFC patch series for better debugging of page status.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.12/">LKML News v6.12</a></h2>
-    <div class="article-style">
-      
-      [PATCH 0/4] move per-vma lock into vm_area_struct (Suren Baghdasaryan) https://lore.kernel.org/20241111205506.3404479-1-surenb@google.com
-Suren posted a patch moving vm_lock back into vm_area_struct after confirming the performance regression found before happens only on limited cases (old Broadwell microarchitecture).
-[PATCH] lib/alloc_tag: Remove the sysctl configuration to prevent users from disabling it at runtime (Hao Ge) https://lore.kernel.org/20241108075004.131911-1-hao.ge@linux.dev
-Hao tries to remove runtime memory allocation profiling on/off knob, since he believes it is only making users confused.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.12-rc7/">LKML News v6.12-rc7</a></h2>
-    <div class="article-style">
-      
-      [PATCH 0/3] Introduce acctmem (Matthew Wilcox) https://lore.kernel.org/20241104210602.374975-1-willy@infradead.org
-Willy tries to split out page-&gt;memcg_data reference counting using a new abstract, acctmem.
-[linus:master] [mm, mmap] d4148aeab4: will-it-scale.per_process_ops 3888.9% improvement (kernel test robot) https://lore.kernel.org/202411072132.a8d2cf0f-oliver.sang@intel.com
-Kernel test robot reports huge improvement on will-it-scale benchmark, coming from commit d4148aeab412 (&ldquo;mm, mmap: limit THP alignment of anonymous mappings to PMD-aligned sizes&rdquo;).
-Linux 6.12-rc7 (Linus Torvalds) https://lore.kernel.org/CAHk-=wiWK-GCmFGNqknDZzWMZM-u58tmP=jZ9ooTo9b8NURvgQ@mail.gmail.com
-Linus released the seventh candidate for Linux v6.12. Linus says no big surprises found, so he anticipates final 6.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.12-rc6/">LKML News v6.12-rc6</a></h2>
-    <div class="article-style">
-      
-      [GIT PULL] hotfixes for 6.12-rc6 (Andrew Morton) https://lore.kernel.org/20241028203743.3fe4d95463aaafe23a239b51@linux-foundation.org
-Andrew posted mm hotfixes for v6.12-rc6.
-[PATCH v2 0/4] mm: add more kernel parameters to control mTHP (Maíra Canal) https://lore.kernel.org/20241029002324.1062723-1-mcanal@igalia.com
-Maira posted a patch series for adding kernel parameters to control mTHP for shmem.
-[Invitation] Linux MM Alignment Session on Memory Error Detector on Wednesday (David Rientjes) https://lore.kernel.org/9242f7cc-6b9d-b807-9079-db0ca81f3c6d@google.com
-David invites kernel developers to another MM alignment session. The topic is how to make user-space control memory failure recovery.
-      
-    </div>
-  </div>
-  
+      <h2 id="patch-toolsmm-introduce-a-tool-to-handle-entries-in-allocinfo-hao-ge">[PATCH] tools/mm: Introduce a tool to handle entries in allocinfo (Hao Ge)</h2>
+<p><a href="https://lore.kernel.org/20250106112103.25401-1-hao.ge@linux.dev">https://lore.kernel.org/20250106112103.25401-1-hao.ge@linux.dev</a></p>
+<p>Hao posted a patch adding a tool for handling of the kernel&rsquo;s memory allocation
+profilier output.</p>
+<h2 id="invitation-linux-mm-alignment-session-on-cgroup-based-thp-control-on-wednesday-david-rientjes">[Invitation] Linux MM Alignment Session on Cgroup-based THP Control on Wednesday (David Rientjes)</h2>
+<p><a href="https://lore.kernel.org/5535fc79-c566-93a0-6134-bfdf1cf5171a@google.com">https://lore.kernel.org/5535fc79-c566-93a0-6134-bfdf1cf5171a@google.com</a></p>
+<p>David invites people for next Linux MM Alignment session.  The topic will be
+cgroup-based THP control, led by Gutierez Asier, who proposed the
+<a href="https://lore.kernel.org/linux-mm/8e55d735-b65d-428f-8689-8f0b729d56c4@huawei.com/T/">idea</a>.</p>
 
+    </div>
+
+    
+
+
+
+
+
+<div class="article-tags">
   
-<nav>
-  <ul class="pagination justify-content-center">
+  <a class="badge badge-light" href="/tags/linux/">linux</a>
+  
+  <a class="badge badge-light" href="/tags/kernel/">kernel</a>
+  
+  <a class="badge badge-light" href="/tags/lkml/">lkml</a>
+  
+  <a class="badge badge-light" href="/tags/news/">news</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
     
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=https://sjp38.github.io/post/lkml_news_v6.13-rc7/&amp;text=LKML%20News%20v6.13-rc7" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
     
-    <li class="page-item"><a class="page-link" href="/tags/lkml/page/2/">&raquo;</a></li>
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=https://sjp38.github.io/post/lkml_news_v6.13-rc7/&amp;t=LKML%20News%20v6.13-rc7" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=LKML%20News%20v6.13-rc7&amp;body=https://sjp38.github.io/post/lkml_news_v6.13-rc7/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=https://sjp38.github.io/post/lkml_news_v6.13-rc7/&amp;title=LKML%20News%20v6.13-rc7" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=LKML%20News%20v6.13-rc7%20https://sjp38.github.io/post/lkml_news_v6.13-rc7/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=https://sjp38.github.io/post/lkml_news_v6.13-rc7/&amp;title=LKML%20News%20v6.13-rc7" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
     
   </ul>
-</nav>
-
-
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      <img class="portrait mr-3" src="https://s.gravatar.com/avatar/43dc5645c78e68fda997138380dfaaf4?s=200')" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="https://sjp38.github.io/">SeongJae Park (SJ)</a></h5>
+      <h6 class="card-subtitle">Kernel Programmer</h6>
+      <p class="card-text">SeongJae Park (SJ) is a programmer who loves to analyze and develop systems.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://social.kernel.org/sj" target="_blank" rel="noopener">
+        <i class="fab fa-linux"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/sjp38" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://www.linkedin.com/in/seongjae-park-1a5b9954/" target="_blank" rel="noopener">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.com/citations?user=jJIiF3AAAAAJ" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  
+  
+  <div class="article-widget content-widget-hr">
+    <h3>Related</h3>
+    <ul>
+      
+      <li><a href="/post/lkml_news_v6.13-rc6/">LKML News v6.13-rc6</a></li>
+      
+      <li><a href="/post/lkml_news_v6.13-rc5/">LKML News v6.13-rc5</a></li>
+      
+      <li><a href="/post/lkml_news_v6.13-rc4/">LKML News v6.13-rc4</a></li>
+      
+      <li><a href="/post/lkml_news_v6.13-rc3/">LKML News v6.13-rc3</a></li>
+      
+      <li><a href="/post/lkml_news_v6.13-rc2/">LKML News v6.13-rc2</a></li>
+      
+    </ul>
+  </div>
+  
+
+
+
+  </div>
+</article>
 
       
 
