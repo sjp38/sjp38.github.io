@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-01-07T07:27:02-08:00">
+    <meta property="og:updated_time" content="2025-01-14T07:09:05-08:00">
   
 
   
@@ -525,6 +525,20 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.10-rc5/">LKML News v6.10-rc5</a></h2>
+    <div class="article-style">
+      
+      [GIT PULL] hotfixes for 6.10-rc5 (Andrew Morton) https://lore.kernel.org/20240617114712.45d4743f8bacb832dea4b5a9@linux-foundation.org
+Andrew posted hotfixes pull request to Linus Torvalds.
+[PATCH] Add accumulated call counter for memory allocation profiling (David Wang) https://lore.kernel.org/20240617153250.9079-1-00107082@163.com
+David sent a patch for adding accumulated call counter for memory allocation profiling. He argues this could help performance behaviors analysis.
+[RFC PATCH v1 0/5] Alternative mTHP swap allocator improvements (Ryan Roberts) https://lore.kernel.org/20240618232648.4090299-1-ryan.roberts@arm.com
+Ryan posted this proof-of-concept patchset for achieving 0% fallback at mTHP swap.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/ossummit_eu_2024_talk/">I will have a talk at the Open Source Summit Euroe 2024</a></h2>
     <div class="article-style">
       
@@ -632,18 +646,6 @@ Vlastimil proposes an LSFMM session to retrospect the SLAB deprecation, share on
 Baolin adds mTHP support for anonymous shared pages with this RFC patchset. There are some todo items, though.
 [LSF/MM/BPF TOPIC] SLAB BOF (Matthew Wilcox) https://lkml.kernel.org/r/ZiZy2VVpTQMjN-ko@casper.infradead.org
 In this mail, Matthew introduces his radical idea around Slab allocator, which decouples the objects from the page and proposes a BoF to discuss it with not only Vlastimil but more audiences.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.9-rc5/">LKML News v6.9-rc5</a></h2>
-    <div class="article-style">
-      
-      [RFC 0/3] Improve memory statistics for virtio balloon (zhenwei pi) https://lkml.kernel.org/r/20240415084113.1203428-1-pizhenwei@bytedance.com
-This RFC patchset exposes six new VM statistics in the guest to the host via virtio-balloon. The statistics include oom-kill, alloc-stall, scan-async, scan-direct, reclaim-async, and reclaim-direct.
-[PATCH] Documentation: coding-style: don&rsquo;t encourage WARN*() (Alex Elder) https://lkml.kernel.org/r/20240414170850.148122-1-elder@linaro.org
-Due to the panic_on_warn setting, even WARN() and its friends are not that welcomed in multiple situations. Alex posted a patchset to make this point clearer.
       
     </div>
   </div>
