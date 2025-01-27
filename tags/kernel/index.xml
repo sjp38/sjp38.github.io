@@ -5,12 +5,44 @@
     <link>https://sjp38.github.io/tags/kernel/</link>
       <atom:link href="https://sjp38.github.io/tags/kernel/index.xml" rel="self" type="application/rss+xml" />
     <description>kernel</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 14 Jan 2025 07:09:05 -0800</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 22 Jan 2025 07:00:31 -0800</lastBuildDate>
     <image>
       <url>https://sjp38.github.io/img/tux.png</url>
       <title>kernel</title>
       <link>https://sjp38.github.io/tags/kernel/</link>
     </image>
+    
+    <item>
+      <title>LKML News v6.14-rc1</title>
+      <link>https://sjp38.github.io/post/lkml_news_v6.14-rc1/</link>
+      <pubDate>Wed, 22 Jan 2025 07:00:31 -0800</pubDate>
+      <guid>https://sjp38.github.io/post/lkml_news_v6.14-rc1/</guid>
+      <description>&lt;h2 id=&#34;patch-mm-optimize-tlb-flushes-during-page-reclaim-vinay-banakar&#34;&gt;[PATCH] mm: Optimize TLB flushes during page reclaim (Vinay Banakar)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lore.kernel.org/CALf+9Yc3WjbG89uRWiDC_qYshJ5z_9WCrbEJe42Vbv+gJjs26g@mail.gmail.com&#34;&gt;https://lore.kernel.org/CALf+9Yc3WjbG89uRWiDC_qYshJ5z_9WCrbEJe42Vbv+gJjs26g@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Vinay optimizes &lt;code&gt;shrink_folio_list()&lt;/code&gt; to do TLB flush in batch instead of per
+page being reclaimed.&lt;/p&gt;
+&lt;h2 id=&#34;lsfmmbpf-topic-overhauling-hot-page-detection-and-promotion-based-on-pte-a-bit-scanning-raghavendra-k-t&#34;&gt;[LSF/MM/BPF TOPIC] Overhauling hot page detection and promotion based on PTE A bit scanning (Raghavendra K T)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lore.kernel.org/20250123105721.424117-1-raghavendra.kt@amd.com&#34;&gt;https://lore.kernel.org/20250123105721.424117-1-raghavendra.kt@amd.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Raghavendra proposes an LSFMMBPF topic for discussions around multiple ways to
+find hot pages, and possible future composition of those.&lt;/p&gt;
+&lt;h2 id=&#34;lsfmmbpf-topic-enhancements-to-page-migration-with-multi-threading-and-batch-offloading-to-dma-shivank-garg&#34;&gt;[LSF/MM/BPF TOPIC] Enhancements to Page Migration with Multi-threading and Batch Offloading to DMA (Shivank Garg)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lore.kernel.org/cf6fc05d-c0b0-4de3-985e-5403977aa3aa@amd.com&#34;&gt;https://lore.kernel.org/cf6fc05d-c0b0-4de3-985e-5403977aa3aa@amd.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Shivank proposes an LSFMMBPF topic for multi-threading and batching based page
+migration acceleration.&lt;/p&gt;
+&lt;h2 id=&#34;rfc-patch-introduce-generalized-data-temperature-estimation-framework-viacheslav-dubeyko&#34;&gt;[RFC PATCH] Introduce generalized data temperature estimation framework (Viacheslav Dubeyko)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lore.kernel.org/20250123202455.11338-1-slava@dubeyko.com&#34;&gt;https://lore.kernel.org/20250123202455.11338-1-slava@dubeyko.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Viacheslav proposes a generalized data temperature estimation framework that
+estimates temperature based on how long consistent update is made to a specific
+file.  He also proposes an LSFMMBPF topic for that:
+&lt;a href=&#34;https://lore.kernel.org/20250123203319.11420-1-slava@dubeyko.com&#34;&gt;https://lore.kernel.org/20250123203319.11420-1-slava@dubeyko.com&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;git-pull-mm-updates-for-614-rc1-andrew-morton&#34;&gt;[GIT PULL] MM updates for 6.14-rc1 (Andrew Morton)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lore.kernel.org/20250124162248.60104eec848619a187242392@linux-foundation.org&#34;&gt;https://lore.kernel.org/20250124162248.60104eec848619a187242392@linux-foundation.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Andrew posted the MM pull request for 6.14-rc1.  It turned out it has a build
+error, though.  Andrew posted another
+&lt;a href=&#34;https://lore.kernel.org/20250126150532.2b75f7ac330cdde40d13d788@linux-foundation.org&#34;&gt;one&lt;/a&gt;
+after removing the problematic patch, and the second take has merged.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>LKML News v6.13</title>
@@ -37,6 +69,15 @@ unmapped MGLRU page cache pages promotion on memory tiering.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://lore.kernel.org/CAJnrk1a38pv3OgFZRfdTiDMXuPWuBgN8KY47XfOsYHj=N2wxAg@mail.gmail.com&#34;&gt;https://lore.kernel.org/CAJnrk1a38pv3OgFZRfdTiDMXuPWuBgN8KY47XfOsYHj=N2wxAg@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Joanne proposes an LSFMMBPF topic for dirty large folios writeback performance,
 especially for the writeback granularity and balancing.&lt;/p&gt;
+&lt;h2 id=&#34;lsfmmbpf-topic-virtual-swap-space-nhat-pham&#34;&gt;[LSF/MM/BPF TOPIC] Virtual Swap Space (Nhat Pham)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lore.kernel.org/20250116092254.204549-1-nphamcs@gmail.com&#34;&gt;https://lore.kernel.org/20250116092254.204549-1-nphamcs@gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Nhat proposes a LSFMMBPF topic for virtual swap space, which was floated by Rik
+since 2011 and also discussed on LSFMMBPF last year.&lt;/p&gt;
+&lt;h2 id=&#34;linux-613-linus-torvalds&#34;&gt;Linux 6.13 (Linus Torvalds)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://lore.kernel.org/CAHk-=wiprabAQcCwb3qNhrT5P50MJNqunC9JU5v99kdvM-2rsg@mail.gmail.com&#34;&gt;https://lore.kernel.org/CAHk-=wiprabAQcCwb3qNhrT5P50MJNqunC9JU5v99kdvM-2rsg@mail.gmail.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Linus Torvalds released the 6.13 as expected.  The last week of the
+stabilization was calm and normal.  Linus also shares the list of the guitar
+pedal winners.&lt;/p&gt;
 </description>
     </item>
     

@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-01-14T07:09:05-08:00">
+    <meta property="og:updated_time" content="2025-01-22T07:00:31-08:00">
   
 
   
@@ -525,6 +525,19 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.11-rc6/">LKML News v6.11-rc6</a></h2>
+    <div class="article-style">
+      
+      [RFC PATCH -next 0/3] fs: Introduce the scope-based resource management for folio_lock/unlock (Li Zetao) https://lore.kernel.org/20240826071036.2445717-1-lizetao1@huawei.com
+Li proposes scope-based resource management for folio locking.
+[PATCH 0/2] get rid of PF_MEMALLOC_NORECLAIM (Michal Hocko) https://lore.kernel.org/20240826085347.1152675-1-mhocko@kernel.org
+Michal argues PF_MEMALLOC_NORECLAIM has merged even though MM people pushed it back, and attempts to get rid of it by updating its users to use explicit GFP_NOWAIT allocation context.
+[PATCH] bcachefs: Switch to memalloc_flags_do() for vmalloc allocations (Kent Overstreet) https://lore.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.11-rc5/">LKML News v6.11-rc5</a></h2>
     <div class="article-style">
       
@@ -630,20 +643,6 @@ Since CONFIG_MEMCG_KMEM was default-enabled and equivalent to CONFIG_MEMCG for a
       
       [PATCH] memcg: Add a new sysctl parameter for automatically setting memory.high (Waiman Long) https://lore.kernel.org/20240623204514.1032662-1-longman@redhat.com
 While memcg v1 has only single file for memory limit setting, namely memory.limit_in_bytes, memcg v2 has two files, memory.max and memory.high for the purpose. Users migrating from memcg v1 to memcg v2 usually sets only memory.max, and hence get problems sometimes. This patch add a new knob, memory_high_autoset_ratio, which allows setting memory.high as a ratio of memory.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.10-rc5/">LKML News v6.10-rc5</a></h2>
-    <div class="article-style">
-      
-      [GIT PULL] hotfixes for 6.10-rc5 (Andrew Morton) https://lore.kernel.org/20240617114712.45d4743f8bacb832dea4b5a9@linux-foundation.org
-Andrew posted hotfixes pull request to Linus Torvalds.
-[PATCH] Add accumulated call counter for memory allocation profiling (David Wang) https://lore.kernel.org/20240617153250.9079-1-00107082@163.com
-David sent a patch for adding accumulated call counter for memory allocation profiling. He argues this could help performance behaviors analysis.
-[RFC PATCH v1 0/5] Alternative mTHP swap allocator improvements (Ryan Roberts) https://lore.kernel.org/20240618232648.4090299-1-ryan.roberts@arm.com
-Ryan posted this proof-of-concept patchset for achieving 0% fallback at mTHP swap.
       
     </div>
   </div>
