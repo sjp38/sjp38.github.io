@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-01-22T07:00:31-08:00">
+    <meta property="og:updated_time" content="2025-02-04T06:44:30-08:00">
   
 
   
@@ -525,6 +525,19 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.11-rc6/">LKML News v6.11-rc6</a></h2>
+    <div class="article-style">
+      
+      [RFC PATCH -next 0/3] fs: Introduce the scope-based resource management for folio_lock/unlock (Li Zetao) https://lore.kernel.org/20240826071036.2445717-1-lizetao1@huawei.com
+Li proposes scope-based resource management for folio locking.
+[PATCH 0/2] get rid of PF_MEMALLOC_NORECLAIM (Michal Hocko) https://lore.kernel.org/20240826085347.1152675-1-mhocko@kernel.org
+Michal argues PF_MEMALLOC_NORECLAIM has merged even though MM people pushed it back, and attempts to get rid of it by updating its users to use explicit GFP_NOWAIT allocation context.
+[PATCH] bcachefs: Switch to memalloc_flags_do() for vmalloc allocations (Kent Overstreet) https://lore.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.11-rc5/">LKML News v6.11-rc5</a></h2>
     <div class="article-style">
       
@@ -633,18 +646,6 @@ Andrew posted hotfixes pull request to Linus Torvalds.
 David sent a patch for adding accumulated call counter for memory allocation profiling. He argues this could help performance behaviors analysis.
 [RFC PATCH v1 0/5] Alternative mTHP swap allocator improvements (Ryan Roberts) https://lore.kernel.org/20240618232648.4090299-1-ryan.roberts@arm.com
 Ryan posted this proof-of-concept patchset for achieving 0% fallback at mTHP swap.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.10-rc4/">LKML News v6.10-rc4</a></h2>
-    <div class="article-style">
-      
-      [PATCH 0/7] arm64 / x86-64: low-level code generation issues (Linus Torvalds) https://lore.kernel.org/20240610204821.230388-1-torvalds@linux-foundation.org
-Linus Torvalds posted another version of runtime const patchset for not only x86_64 but also arm64. He mentions the work was motivated by his Altra box that shows __d_lookup_rcu() like a horror.
-[PATCH v2 1/2] virt: pvmemcontrol: control guest physical memory properties (Yuanchu Xie) https://lore.kernel.org/20240612021207.3314369-1-yuanchu@google.com
-Yuanchu posted a patchset for letting guest control its physical memory properties, security features and optimizations.
       
     </div>
   </div>
