@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-02-04T06:44:30-08:00">
+    <meta property="og:updated_time" content="2025-02-11T07:35:39-08:00">
   
 
   
@@ -525,6 +525,20 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.3-rc3/">LKML News v5.3-rc3</a></h2>
+    <div class="article-style">
+      
+      [PATCH v5 00/14] Provide generic top-down mmap layout functions https://lkml.kernel.org/r/20190730055113.23635-1-alex@ghiti.fr
+아키텍쳐별로 다르게 구현되어 있던 mmap 레이아웃 함수들을 범용화 시키는 패치셋, 다섯번째 버전입니다.
+[PATCH v10 00/22] Generic page walk and ptdump https://lkml.kernel.org/r/20190731154603.41797-1-steven.price@arm.com
+역시 아키텍쳐별로 다르게 구현되어 있던 page table walk 과 page table dump 기능을 범용화 시키는 패치입니다. 벌써 10번째 버전이군요.
+[PATCH 0/3] address hugetlb page allocation stalls https://lkml.kernel.org/r/20190802223930.30971-1-mike.kravetz@oracle.com
+sysctl 이나 procfs 를 통한 hugetlb 페이지 할당은 수분이나 수시간까지도 오래 걸릴 수 있습니다.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lwn_memory_flat_discontiguous_sparse/">Memory: the flat, the discontiguous, and the sparse (Korean)</a></h2>
     <div class="article-style">
       
@@ -638,18 +652,6 @@ RCU 문서 업데이트를 담고 있는 패치셋입니다. rcuref 의 실제 �
 [PATCH tip/core/rcu 0/21] Torture-test updates for v5.3 https://lkml.kernel.org/r/20190530151650.GA422@linux.ibm.com
 RCU 와 spinlock 등을 위해 사용되는 torture 테스트 업데이트를 담은 패치셋입니다. 무려 21개 패치네요!
 [RFCv2 0/6] introduce memory hinting API for external process https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.2-rc2/">LKML News v5.2-rc2</a></h2>
-    <div class="article-style">
-      
-      [RFC PATCH v5 00/16] Slab Movable Objects (SMO) https://lkml.kernel.org/r/20190520054017.32299-1-tobin@kernel.org
-이 블로그에서도 소개한 Slab movable objects 패치셋의 다섯번째 버전입니다. RFC 로는 아마도 마지막 버전이 될거라는군요.
-[RFC PATCH 00/14] mmap_sem range locking https://lkml.kernel.org/r/20190521045242.24378-1-dave@stgolabs.net
-이번 LSFMM 에서 개인적으로 가장 기대했던 세션이 mmap_sem 해결에 대한 세션이었습니다. 해당 세션에서는 예전부터 이야기가 나온 range locking 에 대해서도 이야기가 있었는데요, 이 패치셋은 이 range locking 을 사용한 mmap_sem 문제 해결 시도를 다시 정리해 RFC 의 형태로 올린 것입니다.
       
     </div>
   </div>
