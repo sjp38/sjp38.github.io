@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-02-11T07:35:39-08:00">
+    <meta property="og:updated_time" content="2025-02-19T07:11:05-08:00">
   
 
   
@@ -525,6 +525,19 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v4.14/">LKML News after v4.14</a></h2>
+    <div class="article-style">
+      
+      Linux 4.14 htpps://lkml.kernel.org/r/CA+55aFwqXh4rgJJ3T98k8wa-JYF7t8mWuwUjdxkbZyOyDEcGzQ@mail.gmail.com
+드디어 v4.14 의 릴리즈입니다. 이번 버전은 또하나의 LTS 커널이 될 예정이군요.
+동시에, v4.15 를 위한 머지 윈도우가 열렸습니다. 이번 머지 윈도우는 thanks giving 이랑 겹치게 되었는데, 이때문에 머지 윈도우를 연장할지 아니면 아예 1주일 줄일지 토발즈는 고민중인 것 같네요.
+[RFC PATCH v11 for 4.15 01/24] Restartable sequences system call https://lkml.kernel.org/r/20171114200414.2188-2-mathieu.desnoyers@efficios.com
+몇년전부터 올라오고 있으나 아직 머지되지 못한, restartable sequence 패치의 최신 버전이 또 올라왔습니다. 유저스페이스의 크리티컬 섹션을 커널에게 제어할 수 있도록 도와주는 기능입니다.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v4.14-rc8/">LKML News after v4.14-rc8</a></h2>
     <div class="article-style">
       
@@ -626,16 +639,6 @@ Lazy TLB flushing 변경은 지나치게 게으르게 TLB flushing 을 해서 AM
       
       최근 커널은 stakc dump 에서 콜 트레이스(Call Trace) 에 각 코드의 메모리 어드레스를 찍어주지 않습니다. 이에 대해 포스팅을 해봅니다.
 Call Trace 커널은 문제가 발생하거나 하면 문제의 원인을 찾을 수 있는 다양한 정보를 담고 있는 stack dump 를 로그로 뿌려 줍니다. 문제의 원인을 찾는데 매우 소중한 정보입니다. 그 정보 중에서도 중요한 것 중 하나가 콜 트레이스로, 이 문제의 순간에 오기까지 어느 함수의 어느 지점에서 어느 함수를 호출해서 여기까지 왔는가를 담는 정보입니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/fetching-linux-source-code/">Fetching linux kernel source code</a></h2>
-    <div class="article-style">
-      
-      리눅스 커널은 오픈 소스 소프트웨어이므로 그 소스코드가 공개되어 있어 누구나 인터넷을 통해 쉽게 얻을 수 있습니다. 이 글에서는 리눅스 커널 소스코드를 받아올 수 있는 몇가지 방법을 설명합니다.
-kernel.org 리눅스 커널 소스 코드를 받아오기 위한 기본적 공식 사이트는 [kernel.org] (https://www.kernel.org) 라 할 수 있겠는데, 이 사이트에는 소스 코드를 포함해 리눅스 커널을 위한 다양한 리소스가 정리되어 있습니다. 이 사이트에 웹브라우저를 통해 들어가보면 첫페이지에서부터 가장 최근에 릴리즈된 버전의 소스코드, 가장 최근의 안정화된 버전의 소스코드 등을 tar.
       
     </div>
   </div>

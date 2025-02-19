@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-02-11T07:35:39-08:00">
+    <meta property="og:updated_time" content="2025-02-19T07:11:05-08:00">
   
 
   
@@ -525,6 +525,19 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.18-rc3/">LKML News v5.18-rc3</a></h2>
+    <div class="article-style">
+      
+      Re: [PATCH v10 00/14] Multi-Gen LRU Framework (Andrew Morton) https://lore.kernel.org/linux-mm/20220411191559.a844c7140faeba2e68d842b7@linux-foundation.org/
+Andrew Morton&rsquo;s overall answer to MGLRU patchset. He would merge the latest MGLRU in -mm and -next, but would request broader update to the code.
+mmotm 2022-04-12-21-05 uploaded (Andrew Morton) https://lkml.kernel.org/r/20220413040610.06AAAC385A4@smtp.kernel.org
+A snapshot of -mm has updated. It added 79 new patches, modified 24 patches, and dropped 10 patches. In total, 257 patches in the queue.
+[PATCH v2 0/5] mm: demotion: Introduce new node state N_DEMOTION_TARGETS (Jagdish Gediya) https://lkml.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.18-rc2/">LKML News v5.18-rc2</a></h2>
     <div class="article-style">
       
@@ -634,19 +647,6 @@ Seventh version of the MGLRU patchset, which aims to reduce performance overhead
 Users who want to use ksft_exit() need to figure out the internals of kselftest. This commit adds a helper function for that purpose, namely, ksft_finished().
 [LSF/MM/BPF TOPIC] Handling of VMAs (Liam Howlett) https://lkml.kernel.org/r/20220201150521.owa5axfsmpdvc7uo@revolver
 Liam is pointing out the VMAs are quite complicately managed with their cache, tree, linked list, and even reverse mapping. As it now shows its limit with the lock contention and complexity of the handling code, he wants to propose a simpler new way for their management.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.17-rc2/">LKML News v5.17-rc2</a></h2>
-    <div class="article-style">
-      
-      [PATCH 0/7] Allocate module text and data separately (Christophe Leroy) https://lkml.kernel.org/r/cover.1643015752.git.christophe.leroy@csgroup.eu
-Powerpc book3s/32 can set execute permission in 256 MiB segments granularity instead of page granularity. This patchset therefore allow module data be allocated in vmalloc rea instead of module area.
-[PATCH 0/4] mm/memcg: Address PREEMPT_RT problems instead of disabling it. (Sebastian Adrzej Siewior) https://lkml.kernel.org/r/20220125164337.2071854-1-bigeasy@linutronix.de
-This patchset enables MEMCG for PREEMPT_RT instead of disabling it.
-[LSF/MM/BPF TOPIC] Folios (Matthew Wilcox) https://lkml.
       
     </div>
   </div>

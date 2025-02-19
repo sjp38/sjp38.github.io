@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-02-11T07:35:39-08:00">
+    <meta property="og:updated_time" content="2025-02-19T07:11:05-08:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.2-rc6/">LKML News v6.2-rc6</a></h2>
+    <div class="article-style">
+      
+      [RFC PATCH 00/19] mm: Introduce a cgroup to limit the amount of locked and pinned memory (Alistair Popple) https://lkml.kernel.org/r/cover.f52b9eb2792bccb8a9ecd6bc95055705cfe2ae03.1674538665.git-series.apopple@nvidia.com
+This RFC patchset introduces a cgroup limit like RLIMIT_MEMLOCKED but that for pinned pages.
+[RFC PATCH 0/4] Fix excessive CPU usage during compaction (Mel Gorman) https://lkml.kernel.org/r/20230125134434.18017-1-mgorman@techsingularity.net
+A patch for not ignoring fast_find_migrateblock() found pageblocks made compaction shows high CPU and stalls. It therefore once merged in mainline, than reverted, and again merged in mm-unstable.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.2-rc5/">LKML News v6.2-rc5</a></h2>
     <div class="article-style">
       
@@ -631,19 +643,6 @@ Andrew Morton sent the MM pull request for v6.2-rc1 to Linus Torvalds. It includ
 There was a patch for enabling demotion via memory.reclaim memcg file. It made try_to_free_mem_cgroup_pages() behavior changed. As the changed behavior is somewhat the users of the caller didn&rsquo;t expect, this patch fixes it.
 [PATCHv8 00/14] mm, x86/cc: Implement support for unaccepted memory (Kirill A. Shutemov) https://lkml.kernel.org/r/20221207014933.8435-1-kirill.shutemov@linux.intel.com
 Some confidential VM approaches like Intel TDX or AMD SEV-SNP requires the guests to accept memory that they will use before use.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.1-rc8/">LKML News v6.1-rc8</a></h2>
-    <div class="article-style">
-      
-      [PATCH 1/2] lockdep: allow instrumenting lockdep.c with KMSAN (Alexander Potapenko) https://lkml.kernel.org/r/20221128094541.2645890-1-glider@google.com
-Lockdep and KMSAN are known to work together nowadays, though it could make kernel run slower. This patch fixes KMSAN&rsquo;s false positives on wq_head-&gt;lock-&gt;dep_map.
-[PATCH] mm/huge_memory: add TRANSPARENT_HUGEPAGE_NEVER for THP (ye xingchen) https://lkml.kernel.org/r/202211301651462590168@zte.com.cn
-This patch adds a new kernel config called TRANSPARENT_HUGEPAGE_NEVER, which will set the value of /sys/kernel/mm/transparent_hugepage/enabled [never].
-[RFC PATCH v2] mm: Add nodes= arg to memory.reclaim (Mina Almasry) https://lkml.
       
     </div>
   </div>

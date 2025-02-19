@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-02-11T07:35:39-08:00">
+    <meta property="og:updated_time" content="2025-02-19T07:11:05-08:00">
   
 
   
@@ -525,6 +525,16 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.10-rc6/">LKML News v6.10-rc6</a></h2>
+    <div class="article-style">
+      
+      [PATCH] memcg: Add a new sysctl parameter for automatically setting memory.high (Waiman Long) https://lore.kernel.org/20240623204514.1032662-1-longman@redhat.com
+While memcg v1 has only single file for memory limit setting, namely memory.limit_in_bytes, memcg v2 has two files, memory.max and memory.high for the purpose. Users migrating from memcg v1 to memcg v2 usually sets only memory.max, and hence get problems sometimes. This patch add a new knob, memory_high_autoset_ratio, which allows setting memory.high as a ratio of memory.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.10-rc5/">LKML News v6.10-rc5</a></h2>
     <div class="article-style">
       
@@ -638,20 +648,6 @@ In this mail, Matthew introduces his radical idea around Slab allocator, which d
 This RFC patchset exposes six new VM statistics in the guest to the host via virtio-balloon. The statistics include oom-kill, alloc-stall, scan-async, scan-direct, reclaim-async, and reclaim-direct.
 [PATCH] Documentation: coding-style: don&rsquo;t encourage WARN*() (Alex Elder) https://lkml.kernel.org/r/20240414170850.148122-1-elder@linaro.org
 Due to the panic_on_warn setting, even WARN() and its friends are not that welcomed in multiple situations. Alex posted a patchset to make this point clearer.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.9-rc4/">LKML News v6.9-rc4</a></h2>
-    <div class="article-style">
-      
-      [PATCH v4 0/9] transfer page to folio in KSM (Alex Shi) https://lkml.kernel.org/r/20240409092826.1733637-1-alexs@kernel.org
-Alex sent the first patchset for making KSM uses folios.
-[PATCH] tracing: Add new_exec tracepoint (Marco Elver) https://lkml.kernel.org/r/20240408090205.3714934-1-elver@google.com
-Marco sent a patch for adding a new tracepoint. The tracepoint is for tracing a case where new exec starts while having original state including the mm.
-Announcing Community Engagement Working Group (Nikolai Kondrashov) https://lkml.kernel.org/r/bf81be70-61ec-4169-b66a-5c3136869107@gmail.com/
-KernelCI project announces Community Engagement Working Group which will purpose to connect with kernel maintainers and discuss test quality improvement for their subsystems.
       
     </div>
   </div>
