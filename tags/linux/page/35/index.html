@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-02-19T07:11:05-08:00">
+    <meta property="og:updated_time" content="2025-02-25T06:40:30-08:00">
   
 
   
@@ -525,6 +525,20 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v4.18-rc4/">Lkml_news_v4.18 Rc4</a></h2>
+    <div class="article-style">
+      
+      Linux 4.18-rc4 https://lkml.kernel.org/r/CA+55aFwXGyZ1Yx+Z8a93gpvb596ZRJ5ppiQL_+-k7gjeQLtcsQ@mail.gmail.com
+어느덧 네번째 RC 버전 릴리즈입니다. 지루할 정도로 평범한 릴리즈라는군요. 대부분 드라이버쪽 업데이트이고, bpf, cifs, ext4, 스케쥴러, 그리고 일부 arch 업데이트가 대부분입니다.
+[PATCH v9 00/17] Improve shrink_slab() scalability (old complexity was O(n^2), new is O(n)) https://lkml.kernel.org/r/153112469064.4097.2581798353485457328.stgit@localhost.localdomain
+shrink_slab() 의 compexity 를 O(n^2) 에서 O(n) 으로 낮춰 확장성을 높인 패치의 아홉번째 버전입니다.
+[PATCH 0/2] CMA: remove unsupported gfp mask parameter https://lkml.kernel.org/r/20180709122018eucas1p277147b1e6385d552b5a8930d0a8ba91c~-sqSan6292733527335eucas1p2-@eucas1p2.samsung.com
+cma_alloc() 과 dma_alloc_from_contiguous() 함수는 gfp mask 패러미터를 받지만 실질적으론 __GFP_NORARN 플래그만을 지원하고 있습니다.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v4.17/">LKML News after v4.17</a></h2>
     <div class="article-style">
       
@@ -621,20 +635,6 @@ There are several ways to debug Linux kernel, but one of above is to set up a Li
       
       Linux v4.17-rc1 https://lkml.kernel.org/r/CA+55aFx62iBkj+hOmhLksUtvjwTcm_o1dwcyvaNnVpJ-AmvzVQ@mail.gmail.com
 2주간의 머지 윈도우가 지나고, v4.17-rc1 이 릴리즈 되었습니다. 크게 특별할 것 없이 평범한 머지 윈도우였다고 토발즈는 평하는군요. 그리고 이번에 git objects mark 가 4백만을 넘겼습니다. 따라서 다음 커널이 v5.0 이어도 될 것 같은데, 꼭 다음 버전에서 그렇게 할지는 모르겠다는군요. 리눅스 커널에서 버전은 그저 시간이 흘렀음을 의미할 뿐, 큰 변화가 있어서 메이저 버전 넘버가 바뀌는게 아니기 때문이죠. 참고로 v3.0 과 v4.0 은 각각 git objects mark 2백만과 4백만에서 이루어졌군요.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.16/">LKML News after v4.16</a></h2>
-    <div class="article-style">
-      
-      Linux 4.16 https://lkml.kernel.org/r/CA+55aFyxn0bu5jOAJvO_63GHaGMkJ0uA=bVBm2T3HVX9SimZzw@mail.gmail.com
-릴리즈 마지막 주 치고는 네트워킹 쪽에 조금 변경사항이 있었습니다만, 큰 문제가 될 정도는 아니었습니다. 결과, 4.16이 드디어 릴리즈 되었습니다! 동시에 4.17 머지 윈도우가 시작되는군요.
-[PATCH 0/2] Move kfree_rcu out of rcu code and use kfree_bulk https://lkml.kernel.org/r/1522647064-27167-1-git-send-email-rao.shoaib@oracle.com
-kfree_rcu() 대신 kfree_bulk() 라는 새로 만들어진, 더 효율적인 기능을 사용하도록 하는 패치입니다.
-[RFC PATCH 0/1] mm: Support multiple kswapd threads per node https://lkml.kernel.org/r/1522661062-39745-1-git-send-email-buddy.lumpkin@oracle.com
-NUMA 아키텍쳐에서 리눅스 커널은 NUMA 노드당 하나의 kswapd 쓰레드를 띄웁니다.
       
     </div>
   </div>

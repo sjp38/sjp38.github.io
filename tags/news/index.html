@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-02-19T07:11:05-08:00">
+    <meta property="og:updated_time" content="2025-02-25T06:40:30-08:00">
   
 
   
@@ -525,6 +525,20 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.14-rc5/">LKML News v6.14-rc5</a></h2>
+    <div class="article-style">
+      
+      [RFC PATCH 0/3] sched/numa: Introduce per cgroup numa balance control (Chen Yu) https://lore.kernel.org/cover.1740483690.git.yu.c.chen@intel.com
+Chen posted an RFC for cgroup based numa balancing control, following recent approach from Kaiyang Zhao.
+[LSF/MM/BPF TOPIC] SLUB allocator, mainly the sheaves caching layer (Vlastimil Babka) https://lore.kernel.org/14422cf1-4a63-4115-87cb-92685e7dd91b@suse.cz
+Vlastimil proposes an LSFMMBPF topic for his SLUB sheaves patch series.
+[RFC PATCH 0/2] SKSM: Synchronous Kernel Samepage Merging (Mathieu Desnoyers) https://lore.kernel.org/20250228023043.83726-1-mathieu.desnoyers@efficios.com
+Matthieu proposes a variant of KSM that works in synchronous manner, unlike KSM.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.14-rc4/">LKML News v6.14-rc4</a></h2>
     <div class="article-style">
       
@@ -641,18 +655,6 @@ Dev Jain posted an RFC patch series that makes khugepaged collapses multi-sized 
 Thomas marks struct bin_attribute objects that used in page_idle to be marked as const, since it is now supported.
 Slow-tier Page Promotion discussion recap and open questions (David Rientjes) https://lore.kernel.org/6d582bb6-3ba5-1768-92f2-6025340a3cd4@google.com
 David shares his summary of the discussions around asynchronous page promotion approach from AMD that was held on last MM alignment session.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.13-rc3/">LKML News v6.13-rc3</a></h2>
-    <div class="article-style">
-      
-      [Invitation] Linux MM Alignment Session on Slow-tier Page Promotion on Wednesday (David Rientjes) https://lore.kernel.org/52a4867a-f330-4d3f-2da8-0919bc49c6ea@google.com
-David Rientjes invites MM people to the next alignment session. The topic is slow-tier page promotion, led by RaghavendraKT from AMD. They have RFC, too: https://lore.kernel.org/linux-mm/20241201153818.2633616-1-raghavendra.kt@amd.com/T/#t
-[PATCH mm-unstable 00/17] mm: Introduce arch_mmap_hint() (Kalesh Singh) https://lore.kernel.org/20241210024119.2488608-1-kaleshsingh@google.com
-Kalesh posted a patch that introducing per-architecture mmap_hint() implementation and fixing the mmap hint being ignored due to THP in some cases.
       
     </div>
   </div>
