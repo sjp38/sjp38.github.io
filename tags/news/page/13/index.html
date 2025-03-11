@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-03-04T06:54:33-08:00">
+    <meta property="og:updated_time" content="2025-03-11T07:24:37-07:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.0-rc3/">LKML News v6.0-rc3</a></h2>
+    <div class="article-style">
+      
+      [mm] 96db82a66d: will-it-scale.per_process_ops -95.3% regression (kernel test robot) https://lkml.kernel.org/r/YwIoiIYo4qsYBcgd@xsang-OptiPlex-9020
+A big regression of mm multi-cpu scalability test (will-it-scale) has found by the kernel test robot. The commit 96db82a66d1db0e2966c02dc492e02eeb3a94a75 (&ldquo;mm: align larger anonymous mappings on THP bundaries&rdquo;) is pointed out as the suspect.
+[PATCH v13 00/70] Introducing the Maple Tree (Liam Howlett) https://lkml.kernel.org/r/20220822150128.1562046-1-Liam.Howlett@oracle.com
+The thirteenth version of the maple tree patchset has posted after rebased on latest mm-unstable and fixed some bugs.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.0-rc2/">LKML News v6.0-rc2</a></h2>
     <div class="article-style">
       
@@ -634,18 +646,6 @@ After the RFC, official patchset for DAMON-based LRU-lists sorting has posted. T
 [PATCH v12 00/14] Multi-Gen LRU Framework (Yu Zhao) https://lkml.kernel.org/r/20220614071650.206064-1-yuzhao@google.com
 A new version of MGLRU has posted. Compared to the previous version, this version fixes a bug and nits, and contains new test results based on v5.19-rc1.
 Maintainer&rsquo;s / Kernel Summit 2022 CFP (Theodore Ts&rsquo;o) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.19-rc2/">LKML News v5.19-rc2</a></h2>
-    <div class="article-style">
-      
-      [PATCH v3 0/6] introduce mirrored memory support for arm64 (Wupeng Ma) https://lkml.kernel.org/r/20220607093805.1354256-1-mawupeng1@huawei.com
-This patchset adds memory mirroring support, which relies on UEFI and used to separate memory into two separate channels, to arm64.
-[PATCH] mm: mempolicy: N:M interleave policy for tiered memory nodes (Johannes Weiner) https://lkml.kernel.org/r/20220607171949.85796-1-hannes@cmpxchg.org
-Current pages NUMA-interleaving policy is 1:1 mapping, 1 for CPU node, 1 for remote note. As more types of tiered memory systems having CPU-less memory nodes are coming, this patchset introduces an N:M interleave policy, which N pages are allocated from the top-tier node while M pages are allocated from low-tier nodes.
       
     </div>
   </div>

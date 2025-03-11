@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-03-04T06:54:33-08:00">
+    <meta property="og:updated_time" content="2025-03-11T07:24:37-07:00">
   
 
   
@@ -525,6 +525,19 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.7-rc1/">LKML News v6.7-rc1</a></h2>
+    <div class="article-style">
+      
+      NUMA + THP test suites? (John Hubbard) https://lkml.kernel.org/r/21812f89-c1a0-4ca0-9f73-54f20c4d29ef@nvidia.com
+John asks tets suite for NUMA and THP that can be useful for testing patches for the topics.
+[PATCH v4 0/1] mm: report per-page metadata information (Sourav Panda) https://lkml.kernel.org/r/20231031223846.827173-1-souravpanda@google.com
+This patch adds per-node and global page metadata information to sysfs and procfs, to let users know how much memory is being used by the metadata.
+[GIT PULL] MM updates for 6.7-rc1 (Andrew Morton) https://lkml.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.6/">LKML News v6.6</a></h2>
     <div class="article-style">
       
@@ -635,17 +648,6 @@ When doing fork(), vma of the parent should be inserted into the maple tree of t
 This patchset moves ma_root field to be placed after ma_flags to plug a padding hole of struct mape_tree, to reduce the size of the struct.
 idea for scalable and almost waste-free percpu counter alloc (was: Re: [PATCH 0/2] execve scalability issues, part 1) (Mateusz Guzik) https://lkml.kernel.org/r/CAGudoHH-b5R+COHUtns92NTzSVeT1ECMHb22SEcH_108Pi0FTQ@mail.gmail.com
 Mateusz is suggesting another idea for scalable and almost-waste-free percpu counter alloc.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.5-rc7/">LKML News v6.5-rc7</a></h2>
-    <div class="article-style">
-      
-      [MAINTAINERS SUMMIT] Handling of embargoed security issues &ndash; security@korg vs. linux-distros@ (Jiri Kosina) https://lkml.kernel.org/r/nycvar.YFH.7.76.2308150927190.14207@cbobk.fhfr.pm
-Yet another maintainers summit agenda proposal about security issue handling has posted. There are securitiy@korg and linux-distros@. The kernel community wants to do handling of the security fixes from only security@, without being bothered by linux-distros@. Jiri proposes to discuss about if it could eventually better handled with linux-distros@.
-Maintainers Summit 2023 Call for Topics (Theodore Ts&rsquo;o) https://lkml.
       
     </div>
   </div>

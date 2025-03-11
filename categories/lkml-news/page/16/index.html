@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-03-04T06:54:33-08:00">
+    <meta property="og:updated_time" content="2025-03-11T07:24:37-07:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.16-rc7/">LKML News v5.16-rc7</a></h2>
+    <div class="article-style">
+      
+      [PATCH v5 00/16] Optimize list lru memory consumption (Muchun Song) https://lkml.kernel.org/r/20211220085649.8196-1-songmuchun@bytedance.com
+Fifth version of the patchset for reducing lru memory consumption. This version fixes a sleep-in-atomic-context bug which is reported by the kernel test robot, applies some requests from Johannes, and collect Acked-by from Johannes.
+[PATCH 0/2] Add a new scheme to support demotion on tiered memory system (Baolin Wang) https://lkml.kernel.org/r/cover.1640077468.git.baolin.wang@linux.alibaba.com
+This patchset makes DAMOS supports demotion of memory regions.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.16-rc6/">LKML News v5.16-rc6</a></h2>
     <div class="article-style">
       
@@ -635,20 +647,6 @@ Update of mmotm. 33 new patches added and 7 old patches dropped. 285 patches in 
 This patchset adds a simple helper to make code clean without duplications.
 [PATCH v0.7 0/5] sched,mm,x86/uaccess: implement User Managed Concurrency Groups (Peter Oskolkov) https://lkml.kernel.org/r/20211012232522.714898-1-posk@google.com
 This patchset implements the kernel parts for user-space m:n threading. If this is finalized and merged, user-space applications will be able to do the scheduling of their threads on their own.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.15-rc5/">LKML News v5.15-rc5</a></h2>
-    <div class="article-style">
-      
-      [PATCH 0/2] Introduce simple pidfd to task helper (Christian Brauner) https://lkml.kernel.org/r/20211004125050.1153693-1-christian.brauner@ubuntu.com
-This patchset adds a pidfd handling wrapper for removing duplications.
-[PATCH 00/62] Separate struct slab from struct page (Matthew Wilcox) https://lkml.kernel.org/r/20211004134650.4031813-1-willy@infradead.org
-This huge patchset separates struct slab from struct page to make struct page simple and therefore easier to handle.
-[PATCH v3 00/66] Introducing the Maple Tree (Liam Howlett) https://lkml.kernel.org/r/20211005012959.1110504-1-Liam.Howlett@oracle.com
-This patchset introduces Maple tree, which is intended to replace the rb tree for vmas, to improve the scalability.
       
     </div>
   </div>

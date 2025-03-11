@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-03-04T06:54:33-08:00">
+    <meta property="og:updated_time" content="2025-03-11T07:24:37-07:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.4/">LKML News v6.4</a></h2>
+    <div class="article-style">
+      
+      [PATCH] mm/memory_hotplug.c: don&rsquo;t fail hot unplug quite so eagerly (John Hubbard) https://lkml.kernel.org/r/20230620011719.155379-1-jhubbard@nvidia.com
+Some device drivers add and remove memory to the system via memory hot [un]plog. Nevertheless, the ungplugging could fail easily, especially for the pending signal on the process. This patch simply remove the signal check error.
+[PATCH v2] mm/min_free_kbytes: modify min_free_kbytes calculation rules (liuq) https://lkml.kernel.org/r/20230621073912.21747-1-liuq131@chinatelecom.cn
+This patch adjusts min_free_kbytes calculation so that ZONE_NORMAL is unnecessarily be too small when ZONE_MOVABLE exists.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.4-rc7/">LKML News v6.4-rc7</a></h2>
     <div class="article-style">
       
@@ -635,18 +647,6 @@ This patchset adds a feature which allowing folding identical zsmalloc objects i
 This patch makes oomkiller to aware of numa nodes of processes that assigned via cpuset so that real memory pressure tirggeered process can be picked as victim of the pressure.
 [LSF/MM/BPF TOPIC] Reducing zombie memcgs (T.J. Mercier) https://lkml.kernel.org/r/CABdmKX2M6koq4Q0Cmp_-=wbP0Qa190HdEGGaHfxNS05gAkUtPA@mail.gmail.com
 Memcg lives in the kernel until the reference count drops to zero, even if it&rsquo;s removed by userspace. This zombie-like memcg consumes system resource and makes kernel operations that get affected by the total number of memcg less efficient.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.3-rc6/">LKML News v6.3-rc6</a></h2>
-    <div class="article-style">
-      
-      [PATCH 0/6] Avoid the mmap lock for fault-around (Matthew Wilcox) https://lkml.kernel.org/r/20230404135850.3673404-1-willy@infradead.org
-A patchset for gradually pushing the mmap lock down. No specific regression found, but also no special performance improvement measured.
-[PATCH] memcg-v1: Enable setting memory min, low, high (Shaun Tancheff) https://lkml.kernel.org/r/20230405110107.127156-1-shaun.tancheff@gmail.com
-For users who cannot update to memcg v2, this patch provides a way for memcg v1 to effectively apply memory pressure, which can be used for effectively throttle file I/O.
       
     </div>
   </div>

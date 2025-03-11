@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-03-04T06:54:33-08:00">
+    <meta property="og:updated_time" content="2025-03-11T07:24:37-07:00">
   
 
   
@@ -525,6 +525,20 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.10-rc1/">LKML News v6.10-rc1</a></h2>
+    <div class="article-style">
+      
+      [LSFMM] automating measuring memory fragmentation (Luis Chamberlain) https://lore.kernel.org/ZkUOXQvVjXP1T6Nk@bombadil.infradead.org
+Luis suggested yet another LSFMM session for memory fragmentation measurement aiming to be used to understand how bad the current kernel&rsquo;s defragmentation approach is, and how much improvement some new proposal is making.
+page-flags.rst (Matthew Wilcox) https://lore.kernel.org/ZkOu4yXP-sGGtwc4@casper.infradead.org
+Matthew posted the page-flags documentation that he wrote with LSFMM attendees on his session.
+[GIT PULL] MM updates for 6.10-rc1 (Andrew Morton) https://lore.kernel.org/20240517192239.9285edd85f8ef893bb508a61@linux-foundation.org
+Andrew sent the memory management part pull request for 6.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.9/">LKML News v6.9</a></h2>
     <div class="article-style">
       
@@ -637,19 +651,6 @@ This RFC patchset introduces new flag that allows users to tag specific PFNs wit
 [PATCH V3 01/10] mm: page_alloc: freelist migratetype hygiene (Johannes Weiner) https://lkml.kernel.org/r/20240306041526.892167-1-hannes@cmpxchg.org
 Whne pages of one migratetype end up on the freelists on another type, migratetype violations happen. This third version of patchset fixes it.
 [PATCH 0/8] tracing: Persistent traces across a reboot or crash (Steven Rostedt) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.8-rc7/">LKML News v6.8-rc7</a></h2>
-    <div class="article-style">
-      
-      [PATCH 1/1] mm/madvise: enhance lazyfreeing with mTHP in madvise_free (Lance Yang) https://lkml.kernel.org/r/20240225123215.86503-1-ioworker0@gmail.com
-Lance improves madvise_free_pte_range() to handle large folios that smaller than PMD-size and optimizes lazy-free of PTE-mapped smaller than PMD-size THPs using this patch.
-[RFC PATCH] mm: Add reclaim type to memory.reclaim (Yafang Shao) https://lkml.kernel.org/r/20240225114204.50459-1-laoar.shao@gmail.com
-This RFC patch extends memory.reclaim memcg file to receive type of memory to reclaim. It supports pagecache only, slabs only, and both.
-[LSF/MM/BPF TOPIC] mm/mempolicy extentions for heterogeneous memory systems (Gregory Price) https://lkml.
       
     </div>
   </div>
