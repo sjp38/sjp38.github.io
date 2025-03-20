@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-03-11T07:24:37-07:00">
+    <meta property="og:updated_time" content="2025-03-20T07:09:29-07:00">
   
 
   
@@ -525,6 +525,20 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.12-rc5/">LKML News v6.12-rc5</a></h2>
+    <div class="article-style">
+      
+      [PATCH v1 0/6] mm/arm64: re-enable HVO (Yu Zhao) https://lore.kernel.org/20241021042218.746659-1-yuzhao@google.com
+There were a few attempts to enable hugetlb vmemmap optimization (HVO) on arm64. Yu posted another approach.
+linus-next: improving functional testing for to-be-merged pull requests (Sasha Levin) https://lore.kernel.org/ZxZ8MStt4e8JXeJb@sashalap
+Sasha proposes having a new test-purpose tree for Linus&rsquo; concern about testing.
+Re: [GIT PULL] bcachefs fixes for 6.12-rc5 (Sasha Levin) https://lore.kernel.org/Zxf3vp82MfPTWNLx@sashalap
+Following the feedback to linus-next proposal, Sasha implemented a bot for simple pre-merge check of pull requests, and showcase it on a random pull request.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.12-rc4/">LKML News v6.12-rc4</a></h2>
     <div class="article-style">
       
@@ -635,20 +649,6 @@ Usama posted the third version of THP split patch series.
 Christoph sent a patch that reverts previous commit that disabled the numa policy support in the slab allocator.
 [RFC PATCH v1 0/4] mm: ZSWAP swap-out of mTHP folios (Kanchan P Sridhar) https://lore.kernel.org/20240814062830.26833-1-kanchana.p.sridhar@intel.com
 Kanchan sent an RFC patch series for enabling zswap_store() storing mTHP folios.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.11-rc3/">LKML News v6.11-rc3</a></h2>
-    <div class="article-style">
-      
-      [PATCH 00/10] mm: remove vma_merge() (Lorenzo Stoakes) https://lore.kernel.org/cover.1722849859.git.lorenzo.stoakes@oracle.com
-Lorenzo posted a patchset for removing the infamous vma_merge(), which caused too much complexity, and the prior attempt remove it was failed.
-[RFC PATCH 0/4] mm/arm64: re-enable HVO (Yu Zhao) https://lore.kernel.org/20240806022114.3320543-1-yuzhao@google.com
-Yu sent an RFC patchset for re-enabling HugeTLB Vmemmap Optimization on arm64.
-[PATCH 00/10] Introduce guestmemfs: persistent in-memory filesystem (James Gowans) https://lore.kernel.org/20240805093245.889357-1-jgowans@amazon.com
-James Gowans posted a patch series for a new in-memory filesystem that designed for live update.
       
     </div>
   </div>

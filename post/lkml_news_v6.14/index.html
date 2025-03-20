@@ -28,12 +28,15 @@
   
     
   
-  <meta name="description" content="Kernel Programmer">
+  <meta name="description" content="[RFC v1 0/3] Live Update Orchestrator (Pasha Tatashin) https://lore.kernel.org/20250320024011.2995837-1-pasha.tatashin@soleen.com
+Pasha posted an RFC patch series for Linux kernel live update that uses kexec hand over as a way to preserve memory state from old kernel.
+[GIT PULL] slab updates for 6.15 (Vlastimil Babka) https://lore.kernel.org/2f7985a8-0460-42de-9af0-4f966b937695@suse.cz
+Vlastimil posted Slab pull request for Linux v6.15 to Linus.
+[PATCH v5 00/16] kexec: introduce Kexec HandOver (KHO) (Changyuan Lyu) https://lore.kernel.org/20250320015551.2157511-1-changyuanl@google.com
+Changyuan posted the fifth version of kexec handover patch series.">
 
   
-  <link rel="alternate" hreflang="ko" href="https://sjp38.github.io/ko/tags/kernel/">
-  
-  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/tags/kernel/">
+  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/lkml_news_v6.14/">
 
   
 
@@ -133,14 +136,12 @@
 
 
   
-  <link rel="alternate" href="/tags/kernel/index.xml" type="application/rss+xml" title="hacklog">
-  
 
   <link rel="manifest" href="/index.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon-32.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://sjp38.github.io/tags/kernel/">
+  <link rel="canonical" href="https://sjp38.github.io/post/lkml_news_v6.14/">
 
   
   
@@ -152,18 +153,70 @@
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="hacklog">
-  <meta property="og:url" content="https://sjp38.github.io/tags/kernel/">
-  <meta property="og:title" content="kernel | hacklog">
-  <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
+  <meta property="og:url" content="https://sjp38.github.io/post/lkml_news_v6.14/">
+  <meta property="og:title" content="LKML News v6.14 | hacklog">
+  <meta property="og:description" content="[RFC v1 0/3] Live Update Orchestrator (Pasha Tatashin) https://lore.kernel.org/20250320024011.2995837-1-pasha.tatashin@soleen.com
+Pasha posted an RFC patch series for Linux kernel live update that uses kexec hand over as a way to preserve memory state from old kernel.
+[GIT PULL] slab updates for 6.15 (Vlastimil Babka) https://lore.kernel.org/2f7985a8-0460-42de-9af0-4f966b937695@suse.cz
+Vlastimil posted Slab pull request for Linux v6.15 to Linus.
+[PATCH v5 00/16] kexec: introduce Kexec HandOver (KHO) (Changyuan Lyu) https://lore.kernel.org/20250320015551.2157511-1-changyuanl@google.com
+Changyuan posted the fifth version of kexec handover patch series."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-03-20T07:09:29-07:00">
+    
+      <meta property="article:published_time" content="2025-03-20T07:09:29-07:00">
+    
+    <meta property="article:modified_time" content="2025-03-20T07:09:29-07:00">
   
 
   
 
 
+    
 
+
+
+
+
+
+  
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://sjp38.github.io/post/lkml_news_v6.14/"
+  },
+  "headline": "LKML News v6.14",
+  
+  "datePublished": "2025-03-20T07:09:29-07:00",
+  "dateModified": "2025-03-20T07:09:29-07:00",
+  
+  "author": {
+    "@type": "Person",
+    "name": "SeongJae Park (SJ)"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "hacklog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://sjp38.github.io/img/icon-512.png"
+    }
+  },
+  "description": "[RFC v1 0/3] Live Update Orchestrator (Pasha Tatashin) https://lore.kernel.org/20250320024011.2995837-1-pasha.tatashin@soleen.com\nPasha posted an RFC patch series for Linux kernel live update that uses kexec hand over as a way to preserve memory state from old kernel.\n[GIT PULL] slab updates for 6.15 (Vlastimil Babka) https://lore.kernel.org/2f7985a8-0460-42de-9af0-4f966b937695@suse.cz\nVlastimil posted Slab pull request for Linux v6.15 to Linus.\n[PATCH v5 00/16] kexec: introduce Kexec HandOver (KHO) (Changyuan Lyu) https://lore.kernel.org/20250320015551.2157511-1-changyuanl@google.com\nChangyuan posted the fifth version of kexec handover patch series."
+}
+</script>
+
+  
 
   
 
@@ -171,10 +224,13 @@
   
 
 
+  
 
 
 
-  <title>kernel | hacklog</title>
+
+
+  <title>LKML News v6.14 | hacklog</title>
 
 </head>
 
@@ -396,7 +452,7 @@
         
 
         <li class="nav-item">
-          <a class="nav-link  active" href="/tags"><span>Tags</span></a>
+          <a class="nav-link " href="/tags"><span>Tags</span></a>
         </li>
 
         
@@ -466,22 +522,6 @@
       
 
       
-      <li class="nav-item dropdown i18n-dropdown">
-        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true">
-          <i class="fas fa-globe mr-1" aria-hidden="true"></i><span class="d-none d-lg-inline">English</span>
-        </a>
-        <div class="dropdown-menu">
-          <div class="dropdown-item i18n-active font-weight-bold">
-            <span>English</span>
-          </div>
-          
-          <a class="dropdown-item" href="/ko/tags/kernel/">
-            <span>한국어</span>
-          </a>
-          
-        </div>
-      </li>
-      
 
     </ul>
 
@@ -489,172 +529,354 @@
 </nav>
 
 
-  
-
-
-
-
-
-
-
-
-
-
-
+  <article class="article">
 
   
 
+
+
+
+
+
+
+
+
+
+
+
+  
+
   
   
+  
+<div class="article-container pt-3">
+  <h1>LKML News v6.14</h1>
+
+  
+
   
     
-  
-<div class="universal-wrapper pt-3">
-  <h1>kernel</h1>
+
+
+<div class="article-metadata">
 
   
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Thu, Mar 20, 2025
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   
 </div>
 
 
 
-<div class="universal-wrapper">
-  
+  <div class="article-container">
 
-  
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.4/">LKML News v5.4</a></h2>
     <div class="article-style">
-      
-      [PATCH RFC v3 00/36] Add KernelMemorySanitizer infrastructure https://lkml.kernel.org/r/20191122112621.204798-1-glider@google.com
-Google&rsquo;s third KMSAN RFC patchset that detects errors caused by accessing uninitialized memory areas. Like other SAN series, it has been used in Google syzkaller and found over 200 bugs in the last two years.
-LSF/MM/BPF: 2020: Call for Proposals https://lkml.kernel.org/r/20191122172502.vffyfxlqejthjib6@macbook-pro-91.dhcp.thefacebook.com
-LSF/MM&rsquo;s CFP for the next year was released. From next year, BPF sessions will be added to LSF/MM, so the name has changed to LSF/MM/BPF.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.4-rc8/">LKML News v5.4-rc8</a></h2>
-    <div class="article-style">
-      
-      [PATCH 00/13] Finish off [smp_]read_barrier_depends() https://lkml.kernel.org/r/20191108170120.22331-1-will@kernel.org
-The memory model element which is depends only on Alpha, smp_read_barrier_depends() is built into READ_ONCE(), so that you don&rsquo;t have to worry about Alpha in non-alpha-specific kernel code. Nevertheless, the author of this patchset concerned about the continuing uploads of the code that cares it. This patchset removes the description of the feature from all documentation and comments in the kernel code.
-[PATCH v4 00/10] Add Kernel Concurrency Sanitizer (KCSAN) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.4-rc7/">LKML News v5.4-rc7</a></h2>
-    <div class="article-style">
-      
-      Linux 5.4-rc7 https://lkml.kernel.org/r/CAHk-=wivmGEOTha5XkRHgH6VwfiroiN+PFVMNK3B0r-d0eFLPQ@mail.gmail.com
-일곱번째 rc 버전이 릴리즈 되었습니다. 지난 rc6 때도 변경량이 생각보다 많아 토발즈가 고민했는데, 이번주도 토발즈가 원했던 것보단 변경량이 많았다고 하는군요. 다음주에 rc8 을 낼지 5.4 정식 버전을 낼지는 좀 더 고민해 봐야겠다고 합니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.4-rc6/">LKML News v5.4-rc6</a></h2>
-    <div class="article-style">
-      
-      [PATCH V8] mm/debug: Add tests validating architecture page table helpers https://lkml.kernel.org/r/1572240562-23630-1-git-send-email-anshuman.khandual@arm.com
-아키텍쳐별 페이지 테이블 헬퍼 등을 테스트 하는 코드를 추가하는 패치입니다. CONFIG_DEBUG_VM_PGTABLE 컨피규레이션이 켜져 있으면 동작합니다.
-[PATCH RFC v2 00/25] Add KernelMemorySanitizer infrastructure https://lkml.kernel.org/r/20191030142237.249532-1-glider@google.com
-초기화 되지 않은 메모리 영역에 액세스 하는 에러를 찾아주는 KMSAN 을 커널에 추가하는 패치입니다. KCSAN 과 비슷하게 syzkaller 를 통해 돌아가게끔 되어 있군요.
-False positive 문제가 존재할 수는 있는 모양입니다만, 구글 내부에서 syzbot 을 통해 테스트 한 환경에서는 중요한 false positive 는 나오지 않은 모양입니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.4-rc5/">LKML News v5.4-rc5</a></h2>
-    <div class="article-style">
-      
-      [PATCH 00/12] mm: remove __ARCH_HAS_4LEVEL_HACK https://lkml.kernel.org/r/1571822941-29776-1-git-send-email-rppt@kernel.org
-서로 다른 아키텍쳐 간의 페이지 테이블 구조로 인해 사용해야 했던 __ARCH_HAS_4LEVEL_HACK 을 제거하는 패치입니다. Alpha, arm, c6x 등의 아키텍쳐가 변경되는군요. UML, qemu 등에서 부팅 테스트를 거쳤군요.
-Linux 5.4-rc5 https://lkml.kernel.org/r/CAHk-=wgpewLxHxnO71tFHh=M4C4iUofJykMqq3r=eRyxUyVsiw@mail.gmail.com
-다섯번째 rc 버전 릴리즈입니다. 하지만 안타깝게도 이번 릴리즈는 마냥 조용하진 않았다는군요. 최근의 다른 rc5 들에 비하면 조금 큰 크기의 릴리즈가 되었습니다. 그렇다곤 해도 아주 특이할 만한 정도는 아니라 토발즈도 큰 걱정은 없다는군요.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.4-rc4/">LKML News v5.4-rc4</a></h2>
-    <div class="article-style">
-      
-      [PATCH 0/8] Add Kernel Concurrency Sanitizer (KCSAN) https://lkml.kernel.org/r/20191016083959.186860-1-elver@google.com
-구글에서 만든 동시성 버그 탐색기능, KCSAN 을 추가하는 패치셋입니다. 처음 세상에 모습을 드러낸건 9월이었고, 최근 컨퍼런스들에서도 발표가 있었죠. 메커니즘은 간단하다면 간단한, 샘플링 기반입니다. 구글 내부 fuzzing tester 인 syzkaller 는 이미 이 기능을 켠채 돌아간다는군요.
-[PATCH 2/2] mm, zswap: Support THP https://lkml.kernel.org/r/1571111349-5041-2-git-send-email-teawater@gmail.com
-Zswap 이THP 를 지원하도록 수정하는 패치입니다. 그냥 zswap_frontswap_store() 함수가 THP 페이지를 연속적인 4 KiB 페이지로 인식하고 처리하게끔 했군요.
-[PATCH RFC v1 00/26] Add KernelMemorySanitizer infrastructure https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.4-rc3/">LKML News v5.4-rc3</a></h2>
-    <div class="article-style">
-      
-      Linux 5.4-rc3 https://lkml.kernel.org/r/CAHk-=wjOhveT=qrq8HHyL7gpA5fmBtDa2ue7sO5ZSEBrrcY6Vg@mail.gmail.com
-세번째 rc 릴리즈입니다. 실제 문제가 발견되고 그에 대한 수정이 본격적으로 시작되는 시즌이라 rc2보단 당연히 크지만 역대 rc3 들과 비교하면 작은 편의 릴리즈라는군요. staging driver 일부가 사라진 게 조금 릴리즈 크기를 크게 보이게 만들 수 있다는게 그나마 유의할 점일까요.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.4-rc2/">LKML News v5.4-rc2</a></h2>
-    <div class="article-style">
-      
-      [PATCH v18 00/19] kunit: introduce KUnit, the Linux kernel unit testing framework https://lkml.kernel.org/r/20190923090249.127984-1-brendanhiggins@google.com
-어떻게 보면 별거 아닌 이유로 5.4 머지윈도우에서 튕겨나가고 만 kunit. 요청받은대로 파일 위치를 하위 디렉토리로 변경한 kunit 새 버전의 패치셋이 올라왔습니다. &lsquo;kunit/&rsquo; 디렉토리와 kunit 을 위한 &lsquo;Kconfig&rsquo; 파일을 &lsquo;lib/&rsquo; 아래로 옮겼군요.
-이후 벌어진 대화가 재미있는데요, 토발즈는 이걸 5.5에 넣을 예정인데, 가능하면 그동안 실제 테스트 코드도 추가되면 좋겠다고 했습니다. 근데 테스트 프레임웍이 머지안되었는데 테스트 코드를? 메인테이너 간에 일이 복잡해지고 컨플릭 날 확률이 높아지니 이걸로 꽤 많은 이야기가 있었습니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.4-rc1/">LKML News v5.4-rc1</a></h2>
-    <div class="article-style">
-      
-      [PATCH 0/2] introduce new perf-script page-reclaim https://lkml.kernel.org/r/1568817522-8754-1-git-send-email-laoar.shao@gmail.com
-Page reclaim 관련 성능 메트릭을 분석하기 위한 perf script 커맨드를 추가하는 패치입니다. Direct reclaim 으로 인한 응답시간 폭증, page reclaim 이 왜 일어났는지, page reclaim 의 효과는 어땠는지 등을 알 수 있다는군요.
-구체적으로는 direct reclaim 이 몇번 일어났는지, 그 latency 분포는 어땠는지, file / anon page 별로 reclaim, scan, sync write, async write 이 몇번 일어났는지, kswapd 는 몇번 일어났는지, kswapd latency 는 어땠는지 등등을 보입니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.3/">LKML News v5.3</a></h2>
-    <div class="article-style">
-      
-      [PATCH] x86/mm: Enable 5-level paging support by default https://lkml.kernel.org/r/20190913095452.40592-1-kirill.shutemov@linux.intel.com
-5 레벨 페이지 테이블 기능이 들어간지도 어느덧 시간이 지났죠. 인텔 내부적 테스트 상으론 이 기능을 켰을 때 4 레벨 페이지 테이블 기계에서도 딱히 리그레션 등은 나타나지 않았고, 주요 배포판들은 5 레벨 페이지 테이블 서포트를 기본으로 켤것으로 보인다고 합니다. 따라서 이 기능을 아예 디폴트로 켜져있게 하는 패치입니다.
-v5.4 에 들어가기엔 좀 늦은 관계로, v5.5 에 들어갈 것 같다는군요.
-Linux 5.3 https://lkml.kernel.org/r/CAHk-=wiP4K8DRJWsCo=20hn_6054xBamGKF2kPgUzpB5aMaofA@mail.gmail.com
-LPC 와 커널 서밋 등으로 인해 한주 늦춰진 5.
-      
-    </div>
-  </div>
-  
+      <h2 id="rfc-v1-03-live-update-orchestrator-pasha-tatashin">[RFC v1 0/3] Live Update Orchestrator (Pasha Tatashin)</h2>
+<p><a href="https://lore.kernel.org/20250320024011.2995837-1-pasha.tatashin@soleen.com">https://lore.kernel.org/20250320024011.2995837-1-pasha.tatashin@soleen.com</a></p>
+<p>Pasha posted an RFC patch series for Linux kernel live update that uses kexec
+hand over as a way to preserve memory state from old kernel.</p>
+<h2 id="git-pull-slab-updates-for-615-vlastimil-babka">[GIT PULL] slab updates for 6.15 (Vlastimil Babka)</h2>
+<p><a href="https://lore.kernel.org/2f7985a8-0460-42de-9af0-4f966b937695@suse.cz">https://lore.kernel.org/2f7985a8-0460-42de-9af0-4f966b937695@suse.cz</a></p>
+<p>Vlastimil posted Slab pull request for Linux v6.15 to Linus.</p>
+<h2 id="patch-v5-0016-kexec-introduce-kexec-handover-kho-changyuan-lyu">[PATCH v5 00/16] kexec: introduce Kexec HandOver (KHO) (Changyuan Lyu)</h2>
+<p><a href="https://lore.kernel.org/20250320015551.2157511-1-changyuanl@google.com">https://lore.kernel.org/20250320015551.2157511-1-changyuanl@google.com</a></p>
+<p>Changyuan posted the fifth version of kexec handover patch series.</p>
+<h2 id="lsfmmbpf-topic-v2-unifying-sources-of-page-temperature-information---what-info-is-actually-wanted-jonathan-cameron">[LSF/MM/BPF TOPIC v2] Unifying sources of page temperature information - what info is actually wanted? (Jonathan Cameron)</h2>
+<p><a href="https://lore.kernel.org/20250319124552.0000344a@huawei.com">https://lore.kernel.org/20250319124552.0000344a@huawei.com</a></p>
+<p>Jonathan revised and posted his LSFMMBPF topic proposal for unified page
+temperature information as v2.</p>
 
+    </div>
+
+    
+
+
+
+
+
+<div class="article-tags">
   
-<nav>
-  <ul class="pagination justify-content-center">
+  <a class="badge badge-light" href="/tags/linux/">linux</a>
+  
+  <a class="badge badge-light" href="/tags/kernel/">kernel</a>
+  
+  <a class="badge badge-light" href="/tags/lkml/">lkml</a>
+  
+  <a class="badge badge-light" href="/tags/news/">news</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
     
-    <li class="page-item"><a class="page-link" href="/tags/kernel/page/26/">&laquo;</a></li>
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=https://sjp38.github.io/post/lkml_news_v6.14/&amp;text=LKML%20News%20v6.14" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
     
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=https://sjp38.github.io/post/lkml_news_v6.14/&amp;t=LKML%20News%20v6.14" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
     
-    <li class="page-item"><a class="page-link" href="/tags/kernel/page/28/">&raquo;</a></li>
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=LKML%20News%20v6.14&amp;body=https://sjp38.github.io/post/lkml_news_v6.14/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=https://sjp38.github.io/post/lkml_news_v6.14/&amp;title=LKML%20News%20v6.14" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=LKML%20News%20v6.14%20https://sjp38.github.io/post/lkml_news_v6.14/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=https://sjp38.github.io/post/lkml_news_v6.14/&amp;title=LKML%20News%20v6.14" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
     
   </ul>
-</nav>
-
-
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      <img class="portrait mr-3" src="https://s.gravatar.com/avatar/43dc5645c78e68fda997138380dfaaf4?s=200')" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="https://sjp38.github.io/">SeongJae Park (SJ)</a></h5>
+      <h6 class="card-subtitle">Kernel Programmer</h6>
+      <p class="card-text">SeongJae Park (SJ) is a programmer who loves to analyze and develop systems.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://social.kernel.org/sj" target="_blank" rel="noopener">
+        <i class="fab fa-linux"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/sjp38" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://www.linkedin.com/in/seongjae-park-1a5b9954/" target="_blank" rel="noopener">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.com/citations?user=jJIiF3AAAAAJ" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  
+  
+  <div class="article-widget content-widget-hr">
+    <h3>Related</h3>
+    <ul>
+      
+      <li><a href="/post/lkml_news_v6.14-rc7/">LKML News v6.14-rc7</a></li>
+      
+      <li><a href="/post/lkml_news_v6.14-rc6/">LKML News v6.14-rc6</a></li>
+      
+      <li><a href="/post/lkml_news_v6.14-rc5/">LKML News v6.14-rc5</a></li>
+      
+      <li><a href="/post/lkml_news_v6.14-rc4/">LKML News v6.14-rc4</a></li>
+      
+      <li><a href="/post/lkml_news_v6.14-rc3/">LKML News v6.14-rc3</a></li>
+      
+    </ul>
+  </div>
+  
+
+
+
+  </div>
+</article>
 
       
 
