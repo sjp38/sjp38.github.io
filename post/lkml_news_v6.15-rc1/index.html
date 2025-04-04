@@ -578,7 +578,7 @@ Oscar posted a patchset for extending memory notifier for only NUMA state change
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -640,6 +640,19 @@ NUMA configurations.</p>
 <p><a href="https://lore.kernel.org/20250401171754.2686501-1-vitaly.wool@konsulko.se">https://lore.kernel.org/20250401171754.2686501-1-vitaly.wool@konsulko.se</a></p>
 <p>Vitaly posted a patch for introducing a new compressed page allocator, named
 zblock.</p>
+<h2 id="git-pull-additional-mm-updates-for-615-rc1-andrew-morton">[GIT PULL] Additional MM updates for 6.15-rc1 (Andrew Morton)</h2>
+<p><a href="https://lore.kernel.org/20250402221540.435857db0b10cfeb489ae299@linux-foundation.org">https://lore.kernel.org/20250402221540.435857db0b10cfeb489ae299@linux-foundation.org</a></p>
+<p>Andrew posted additional MM pull request for 6.15-rc1 for changes.</p>
+<h2 id="patch-mm-vmscan-apply-proportional-reclaim-pressure-for-memcg-when-mglru-is-enabled-koichiro-den">[PATCH] mm: vmscan: apply proportional reclaim pressure for memcg when MGLRU is enabled (Koichiro Den)</h2>
+<p><a href="https://lore.kernel.org/20250404141118.3895592-1-koichiro.den@canonical.com">https://lore.kernel.org/20250404141118.3895592-1-koichiro.den@canonical.com</a></p>
+<p>Koichiro points out MGLRU&rsquo;s scan implementation was missing proportional
+reclaim pressure for memcg and implementing the part.</p>
+<h2 id="patch-v4-02-mmcompaction-allow-more-aggressive-proactive-compaction-michal-clapinski">[PATCH v4 0/2] mm/compaction: allow more aggressive proactive compaction (Michal Clapinski)</h2>
+<p><a href="https://lore.kernel.org/20250404111103.1994507-1-mclapinski@google.com">https://lore.kernel.org/20250404111103.1994507-1-mclapinski@google.com</a></p>
+<p>Michal Clapinski make compaction can be more aggressive by allowing users set
+leeway (compaction watermark high-low difference) instead of using the
+hardcoded value , 10.  The author also mentions this is for free pages
+reporting enabled VM guests.</p>
 
     </div>
 
