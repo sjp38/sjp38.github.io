@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-03-31T07:12:14-07:00">
+    <meta property="og:updated_time" content="2025-04-09T07:08:04-07:00">
   
 
   
@@ -525,6 +525,17 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.4-rc1/">LKML News v5.4-rc1</a></h2>
+    <div class="article-style">
+      
+      [PATCH 0/2] introduce new perf-script page-reclaim https://lkml.kernel.org/r/1568817522-8754-1-git-send-email-laoar.shao@gmail.com
+Page reclaim 관련 성능 메트릭을 분석하기 위한 perf script 커맨드를 추가하는 패치입니다. Direct reclaim 으로 인한 응답시간 폭증, page reclaim 이 왜 일어났는지, page reclaim 의 효과는 어땠는지 등을 알 수 있다는군요.
+구체적으로는 direct reclaim 이 몇번 일어났는지, 그 latency 분포는 어땠는지, file / anon page 별로 reclaim, scan, sync write, async write 이 몇번 일어났는지, kswapd 는 몇번 일어났는지, kswapd latency 는 어땠는지 등등을 보입니다.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.3/">LKML News v5.3</a></h2>
     <div class="article-style">
       
@@ -628,19 +639,6 @@ sysctl 이나 procfs 를 통한 hugetlb 페이지 할당은 수분이나 수시�
 일곱번째 버전도 빠르게 올라왔군요: https://lkml.kernel.org/r/20190726023435.214162-1-minchan@kernel.org 단순히 mmotm 최신 버전 위로 리베이스 한 것 같네요.
 [PATCH v9 00/21] Generic page walk and ptdump https://lkml.kernel.org/r/20190722154210.42799-1-steven.price@arm.com
 x86 과 arm64 가 범용적 페이지 테이블 워킹을 하도록 했던 해치셋을 조금 더 확장한 버전입니다. 기존 대비 페이지 테이블 덤프 기능도 일반화 시킨게 차이군요.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.3-rc1/">LKML News v5.3-rc1</a></h2>
-    <div class="article-style">
-      
-      [PATCH v5 0/5] Introduce MADV_COLD and MADV_PAGEOUT https://lkml.kernel.org/r/20190714233401.36909-1-minchan@kernel.org
-MADV_COLD 와 MADV_PAGEOUT 을 구현하는 패치, 어느새 다섯번째 버전입니다. 큰 변경은 없는 것 같군요.
-[PATCH v2 0/3] Make working with compound pages easier https://lkml.kernel.org/r/20190721104612.19120-1-willy@infradead.org
-Huge page 를 다루기 쉽게끔 page_size(), page_shift(), 그리고 compound_nr() 이라는 세개의 helper 함수를 추가하고 이 함수들을 사용하게끔 기존 코드를 다듬는 패치셋입니다.
-PAGE_SIZE &lt;&lt; compound_order(page) 는 page_size(page) 가, PAGE_SHIFT + compound_order(page) 는 page_shift(page) 가, 그리고 1 &lt;&lt; compound_order(page) 는 compound_nr(page) 가 되는 것이죠.
       
     </div>
   </div>

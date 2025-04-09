@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-04-07T21:12:06-07:00">
+    <meta property="og:updated_time" content="2025-04-09T07:08:04-07:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.10-rc7/">LKML News v6.10-rc7</a></h2>
+    <div class="article-style">
+      
+      [RFC PATCH 0/4] Introduce PMC(PER-MEMCG-CACHE) (Huan Yang) https://lore.kernel.org/20240702084423.1717904-1-link@vivo.com
+Huan posted an RFC for per-memcg-cache, which is for utilizing per-memcg cache of certain rules. The goal is allowing memory that released by an application be allocated with high priority within the application, to improve locality and performance while avoiding unnecessary memory reclamation.
+[PATCH] mm: remove CONFIG_MEMCG_KMEM (Johannes Weiner) https://lore.kernel.org/20240701153148.452230-1-hannes@cmpxchg.org
+Since CONFIG_MEMCG_KMEM was default-enabled and equivalent to CONFIG_MEMCG for almost a decade, Johannes tries to remove the config option.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.10-rc6/">LKML News v6.10-rc6</a></h2>
     <div class="article-style">
       
@@ -631,19 +643,6 @@ Adam suggests a new LSFMM topic for general CXL development.
 kdevops BoF at LSFMM (Luis Chamberlain) https://lore.kernel.org/CAB=NE6XyLS1TaAcgzSWa=1pgezRjFoy8nuVtSWSfB8Qsdsx_xQ@mail.gmail.com
 Luis suggests to have a time slot for sharing ongoing developments and changes for kdevops, which automates complex kernel development workflows.
 [RFC PATCH 0/2] introduce budgt control in readahead (Zhaoyang Huang) https://lore.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.9-rc7/">LKML News v6.9-rc7</a></h2>
-    <div class="article-style">
-      
-      [PATCH] thp: Remove HPAGE_PMD_ORDER minimum assertion (Matthew Wilcox) https://lkml.kernel.org/r/20240429190114.3126789-1-willy@infradead.org
-Willy removes the assumption that THP order is always two or more, since we now handle order-1 folios correctly.
-[LSF/MM/BPF TOPIC] SLUB: what&rsquo;s next? (Vlastimil Babka) https://lkml.kernel.org/r/b929d5fb-8e88-4f23-8ec7-6bdaf61f84f9@suse.cz
-Vlastimil proposes an LSFMM session to retrospect the SLAB deprecation, share ongoing works, and discuss possible future works for reducing similar allocators such as objpool or mempool.
-[LSF/MM/BPF TOPIC] Maple Tree Proposed Features (Liam R.
       
     </div>
   </div>
