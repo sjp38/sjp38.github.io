@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-04-09T07:08:04-07:00">
+    <meta property="og:updated_time" content="2025-04-15T07:02:32-07:00">
   
 
   
@@ -525,6 +525,20 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.7-rc7/">LKML News v6.7-rc7</a></h2>
+    <div class="article-style">
+      
+      [PATCH v5 0/4] mm/ksm: Add ksm advisor (Stefan Roesch) https://lkml.kernel.org/r/20231218231054.1625219-1-shr@devkernel.io
+Stefan posted the fifth version of the patchset for automatic and efficient tuning of kernel samepage merging.
+[PATCH -next v4 0/2] Make memory reclamation measurable (Bixuan Cui) https://lkml.kernel.org/r/20231220012123.2787-1-cuibixuan@vivo.com
+This patchset adds a new tracer to shrink_active_list(), shrink_inactive_list(), and shrinker-&gt;count_objects() to make memory recycling mesaurable with bpf.
+[RFC PATCH 1/1] mm: mark folio accessed in minor fault (Zhaoyang Huang) https://lkml.kernel.org/r/20231220102948.1963798-1-zhaoyang.huang@unisoc.com
+Inactive mapped folio is promoted to active only when it is scanned in shrink_inactive_list().
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.7-rc6/">LKML News v6.7-rc6</a></h2>
     <div class="article-style">
       
@@ -633,20 +647,6 @@ The next MM alignment session sill be lead by Ryan Roberts from ARM, for small-s
       [RFC PATCH 0/5] hot page swap to zram, cold page swap to swapfile directly (Lincheng Yang) https://lkml.kernel.org/r/20231008095924.1165106-1-lincheng.yang@transsion.com
 The team has made the kernel feature that swaps hot page to zram and cold pages to swapfile, directly. It aims to reduce zram compression/decompression overhead under memory pressure on Android v4.19 linux kernel, and trying to make it upstreamed due to the GKI limitation.
 [RFC PATCH] zswap: add writeback_time_threshold interface to shrink zswap pool (Zhongkun He) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.6-rc5/">LKML News v6.6-rc5</a></h2>
-    <div class="article-style">
-      
-      [PATCH 0/5] riscv: Use READ_ONCE()/WRITE_ONCE() for pte accesses (Alexandre Ghiti) https://lkml.kernel.org/r/20231002151031.110551-1-alexghiti@rivosinc.com
-A patchset for making all page table entries accesses use READ_ONCE()/WRITE_ONCE(), to avoid compiler reordering of the accesses.
-[PATCH v1 0/3] mm/gup: Introduce pin_user_pages_fd() for pinning shmem/hugetlbfs file pages (Vivek Kasireddy) https://lkml.kernel.org/r/20231003074447.3245729-1-vivek.kasireddy@intel.com
-A patchset introducing a new function for long-term pages pinning.
-[RFC PATCH v3 0/3] Introduce persistent memory pool (Stanislav Kinsburskii) https://lkml.kernel.org/r/169645773092.11424.7258549771090599226.stgit@skinsburskii.
-An RFC implementing a memory allocator in the kernel for persistent memory has posted.
       
     </div>
   </div>

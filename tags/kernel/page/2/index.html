@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-04-09T07:08:04-07:00">
+    <meta property="og:updated_time" content="2025-04-15T07:02:32-07:00">
   
 
   
@@ -525,6 +525,19 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.14-rc1/">LKML News v6.14-rc1</a></h2>
+    <div class="article-style">
+      
+      [PATCH] mm: Optimize TLB flushes during page reclaim (Vinay Banakar) https://lore.kernel.org/CALf+9Yc3WjbG89uRWiDC_qYshJ5z_9WCrbEJe42Vbv+gJjs26g@mail.gmail.com
+Vinay optimizes shrink_folio_list() to do TLB flush in batch instead of per page being reclaimed.
+[LSF/MM/BPF TOPIC] Overhauling hot page detection and promotion based on PTE A bit scanning (Raghavendra K T) https://lore.kernel.org/20250123105721.424117-1-raghavendra.kt@amd.com
+Raghavendra proposes an LSFMMBPF topic for discussions around multiple ways to find hot pages, and possible future composition of those.
+[LSF/MM/BPF TOPIC] Enhancements to Page Migration with Multi-threading and Batch Offloading to DMA (Shivank Garg) https://lore.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.13/">LKML News v6.13</a></h2>
     <div class="article-style">
       
@@ -634,18 +647,6 @@ Andrew posted memory management subsystem pull request for v6.13-rc1 to Linus To
 Jens is continuing his work on support of buffered IO that isn&rsquo;t page cache persistent. The motivation is the fact that device speed is getting faster while reclaim is not.
 [RFCv1 0/6] Page Detective (Pasha Tatashin) https://lore.kernel.org/20241116175922.3265872-1-pasha.tatashin@soleen.com
 Pasha posted an RFC patch series for better debugging of page status.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.12/">LKML News v6.12</a></h2>
-    <div class="article-style">
-      
-      [PATCH 0/4] move per-vma lock into vm_area_struct (Suren Baghdasaryan) https://lore.kernel.org/20241111205506.3404479-1-surenb@google.com
-Suren posted a patch moving vm_lock back into vm_area_struct after confirming the performance regression found before happens only on limited cases (old Broadwell microarchitecture).
-[PATCH] lib/alloc_tag: Remove the sysctl configuration to prevent users from disabling it at runtime (Hao Ge) https://lore.kernel.org/20241108075004.131911-1-hao.ge@linux.dev
-Hao tries to remove runtime memory allocation profiling on/off knob, since he believes it is only making users confused.
       
     </div>
   </div>

@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-04-09T07:08:04-07:00">
+    <meta property="og:updated_time" content="2025-04-15T07:02:32-07:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.0-rc4/">LKML News v6.0-rc4</a></h2>
+    <div class="article-style">
+      
+      [RFC PATCH 00/28] per-VMA locks proposal (Suren Baghdasaryan) https://lkml.kernel.org/r/20220829212531.3184856-1-surenb@google.com
+The VMA lock scalability issue is still there. This RFC patchset shows the proof of the concept for the per-VMA lock idea, which was discussed in LSF/MM this year, as part of the SPF discussion.
+[RFC PATCH 00/30] Code tagging framework and applications (Suren Baghdasaryan) https://lkml.kernel.org/r/20220830214919.53220-1-surenb@google.com
+This RFC patchset introduces code tagging framework which can identify a specific location in the source code when compile.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.0-rc3/">LKML News v6.0-rc3</a></h2>
     <div class="article-style">
       
@@ -631,18 +643,6 @@ As the subject says, this commit renames the Documentation/vm directory to Docum
 This patchset allows users account KVM mmu usages with NR_SECONDARY_PAGETABLE memory stat.
 [RFC PATCH] mm/slub: enable debugging memory wasting of kmalloc (Feng Tang) https://lkml.kernel.org/r/20220630014715.73330-1-feng.tang@intel.com
 As kmalloc allocates memory in power of 2 granularity, it could waste a lot of memory.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.19-rc4/">LKML News v5.19-rc4</a></h2>
-    <div class="article-style">
-      
-      [PATCH Part2 v6 00/49] Add AMD Secure Nested Paging (SEV-SNP) (Ashsh Kalra) https://lkml.kernel.org/r/cover.1655761627.git.ashish.kalra@amd.com
-This is second part patchset of Secure Encrypted Paging (SEV-SNP) work, which focuses on the changes required in a host OS for the feature support.
-[PATCH v7 00/12] mm/demotion: Memory tiers and demotion (Aneesh Kumar K.V) https://lkml.kernel.org/r/20220622082513.467538-1-aneesh.kumar@linux.ibm.com
-This patchset improves memory tiers construction to be more explicit and flexible, and memory allocation for demotion to have no change.
       
     </div>
   </div>
