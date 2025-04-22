@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-04-15T07:02:32-07:00">
+    <meta property="og:updated_time" content="2025-04-22T07:34:36-07:00">
   
 
   
@@ -525,6 +525,17 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.15-rc1/">LKML News v5.15-rc1</a></h2>
+    <div class="article-style">
+      
+      [RFC PATCH] mm/oom: detect and kill task which has allocation forbidden by cpuset limit (Feng Tang) https://lkml.kernel.org/r/1630399085-70431-1-git-send-email-feng.tang@intel.com
+Docker needs to allocate memory in non-movable zones for creation of an OS (e.g., GFP_HIGHUSER). However, if it is binded to a cpuset which has only movable zone, the allocation fails and OOM storm attacks other innocent processes. This patch detects the case and kill only the allocation failing process.
+Folios: Can we resolve this please?
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.14/">LKML News v5.14</a></h2>
     <div class="article-style">
       
@@ -640,19 +651,6 @@ Rest of the -mm tree, which dependent on things in -next. Andrew will trickle th
 This patch introduces a new syscall, refpage_create(). This system creates a file descriptor which can be mmap-ed using mmap(), which will be similar to anonymous mapping but the memory will be backed by a reference page instead of the zero page.
 [PATCH 0/3] mm/page_reporting: Make page reporting work on arm64 with 64KB page size (Gavin Shan) https://lkml.kernel.org/r/20210621051152.305224-1-gshan@redhat.com
 This patchset makes the page reporting to work on ARM with more realistic threshold, which is 2MB instead of 512MB, when the system&rsquo;s page size is 64KB.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.13-rc7/">LKML News v5.13-rc7</a></h2>
-    <div class="article-style">
-      
-      [PATCH v11 00/33] Memory folios (&ldquo;Matthew Wilcox (Oracle)&quot;) (33+ msgs) (Matthew Wilcox) https://lkml.kernel.org/r/20210614201435.1379188-1-willy@infradead.org
-Eleventh version of the memory folios patchset. It helps easier handling of head and tails of compounded pages.
-[LSF/MM TOPIC] Tiered memory accounting and management (Tim Chen) https://lkml.kernel.org/r/475cbc62-a430-2c60-34cc-72ea8baebf2c@linux.intel.com
-Another LSF/MM topic for discussion of tiered memory accounting and management, including the DRAM to PMEM demotion and PMEM to DRAM promotion.
-[REMINDER] LSF/MM/BPF: 2021: Call for Proposals (Josef Bacik) https://lkml.
       
     </div>
   </div>
