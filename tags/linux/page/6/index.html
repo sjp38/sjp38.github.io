@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-04-22T07:34:36-07:00">
+    <meta property="og:updated_time" content="2025-05-05T06:59:50-07:00">
   
 
   
@@ -525,6 +525,20 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.10-rc1/">LKML News v6.10-rc1</a></h2>
+    <div class="article-style">
+      
+      [LSFMM] automating measuring memory fragmentation (Luis Chamberlain) https://lore.kernel.org/ZkUOXQvVjXP1T6Nk@bombadil.infradead.org
+Luis suggested yet another LSFMM session for memory fragmentation measurement aiming to be used to understand how bad the current kernel&rsquo;s defragmentation approach is, and how much improvement some new proposal is making.
+page-flags.rst (Matthew Wilcox) https://lore.kernel.org/ZkOu4yXP-sGGtwc4@casper.infradead.org
+Matthew posted the page-flags documentation that he wrote with LSFMM attendees on his session.
+[GIT PULL] MM updates for 6.10-rc1 (Andrew Morton) https://lore.kernel.org/20240517192239.9285edd85f8ef893bb508a61@linux-foundation.org
+Andrew sent the memory management part pull request for 6.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lsfmmbpf_2024_talk/">I will have a session for DAMON at LSFMM 2024</a></h2>
     <div class="article-style">
       
@@ -634,19 +648,6 @@ Vlastimil sent the slab pull request for 6.9 to Linus Torvalds.
 [PATCH v4 0/6] Swap-out mTHP without splitting (Ryan Roberts) https://lkml.kernel.org/r/20240311150058.1122862-1-ryan.roberts@arm.com
 Ryan sent the fourth version of the patchset to swap-out multi-sized THP without splitting first. The approach is similar to that for PMD-sized THP.
 [PATCH] vmstat: Keep count of the maximum page reached by the kernel stack (Pasha Tatashin) https://lkml.kernel.org/r/20240313033417.447216-1-pasha.tatashin@soleen.com
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.8/">LKML News v6.8</a></h2>
-    <div class="article-style">
-      
-      [RFC 01/16] mm/hmm: let users to tag specific PFNs (Leon Romanovksy) https://lkml.kernel.org/r/a77609c9c9a09214e38b04133e44eee67fe50ab0.1709631413.git.leon@kernel.org
-This RFC patchset introduces new flag that allows users to tag specific PFNs with extra data.
-[PATCH V3 01/10] mm: page_alloc: freelist migratetype hygiene (Johannes Weiner) https://lkml.kernel.org/r/20240306041526.892167-1-hannes@cmpxchg.org
-Whne pages of one migratetype end up on the freelists on another type, migratetype violations happen. This third version of patchset fixes it.
-[PATCH 0/8] tracing: Persistent traces across a reboot or crash (Steven Rostedt) https://lkml.
       
     </div>
   </div>
