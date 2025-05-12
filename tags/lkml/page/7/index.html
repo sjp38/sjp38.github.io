@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-05-05T06:59:50-07:00">
+    <meta property="og:updated_time" content="2025-05-07T07:33:52-07:00">
   
 
   
@@ -525,6 +525,20 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.8-rc2/">LKML News v6.8-rc2</a></h2>
+    <div class="article-style">
+      
+      Project: Improving the PCP allocator (Matthew Wilcox) https://lkml.kernel.org/r/Za6RXtSE_TSdrRm_@casper.infradead.org
+Matthew introduces an idea to improve the PCP allocator, roughly saying, keeping only compound memory on the PCP list.
+[PATCH v2 0/3] Enable &gt;0 order folio memory compaction (Zi Yan) https://lkml.kernel.org/r/20240123034636.1095672-1-zi.yan@sent.com
+Zi enables larger than zero order folio compaction, which is the prerequisite for large folio support.
+[PATCH v2 1/3] mm: make vm_area_struct anon_name field RCU-safe (Suren Baghdasaryan) https://lkml.kernel.org/r/20240123231014.3801041-1-surenb@google.com
+For lockless /proc/pid/maps reads, this patch makes anon_name field of vm_area_struct, which is the only one field that need to be accessed for reading the file but not RCU-protected, to be protected by RCU.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.8-rc1/">LKML News v6.8-rc1</a></h2>
     <div class="article-style">
       
@@ -637,19 +651,6 @@ This patchset makes opportunistic and transparent contpte mappings for user memo
 [GIT PULL] hotfixes for 6.7-rc2 (Andrew Morton) https://lkml.kernel.org/r/20231117140848.02adcf56c301bb3ab85ae75a@linux-foundation.org
 MM subsystem hotfixes for rc2 has sent to Linus Torvalds.
 Linux 6.7-rc2 (Linus Torvalds) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.7-rc1/">LKML News v6.7-rc1</a></h2>
-    <div class="article-style">
-      
-      NUMA + THP test suites? (John Hubbard) https://lkml.kernel.org/r/21812f89-c1a0-4ca0-9f73-54f20c4d29ef@nvidia.com
-John asks tets suite for NUMA and THP that can be useful for testing patches for the topics.
-[PATCH v4 0/1] mm: report per-page metadata information (Sourav Panda) https://lkml.kernel.org/r/20231031223846.827173-1-souravpanda@google.com
-This patch adds per-node and global page metadata information to sysfs and procfs, to let users know how much memory is being used by the metadata.
-[GIT PULL] MM updates for 6.7-rc1 (Andrew Morton) https://lkml.
       
     </div>
   </div>

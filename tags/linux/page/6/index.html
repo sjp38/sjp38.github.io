@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-05-05T06:59:50-07:00">
+    <meta property="og:updated_time" content="2025-05-07T07:33:52-07:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.10-rc2/">LKML News v6.10-rc2</a></h2>
+    <div class="article-style">
+      
+      [PATCH 0/3] mm: zswap: global shrinker fix and proactive shrink (Takero Funaki) https://lore.kernel.org/20240528043404.39327-2-flintglass@gmail.com
+This patchset fixes two zswap issues coming from global shrinker, and add proactive shrinking of zswap which starts when zswap is 95% full, for 90% accept threshold.
+[PATCH v7 0/4] Memory management patches needed by Rust Binder (Alice Ryhl) https://lore.kernel.org/20240528-alice-mm-v7-0-78222c31b8f4@google.com
+Alice sent the seventh revision for making memory management subsystem changes that needed by Rust Binder implementation.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.10-rc1/">LKML News v6.10-rc1</a></h2>
     <div class="article-style">
       
@@ -635,19 +647,6 @@ Baolin posted a patchset for making NUMA balancing algorithm for multi-sized THP
 [PATCH v2 0/6] Improve visibility of writeback (Kemeng Shi) https://lkml.kernel.org/r/20240327155751.3536-1-shikemeng@huaweicloud.com
 Kemeng posted a patchset that adds two new debugfs file, bdi/xxx/stats and bdi/xxx/wb_stats to show whole bdi and per-wb writeback information.
 [PATCH v10] zswap: replace RB tree with xarray (Chris Li) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.9-rc1/">LKML News v6.9-rc1</a></h2>
-    <div class="article-style">
-      
-      [GIT PULL] slab updates for 6.9 (Vlastimil Babka) https://lkml.kernel.org/r/c021631d-29e5-432f-bfcd-1d75ec28d065@suse.cz
-Vlastimil sent the slab pull request for 6.9 to Linus Torvalds.
-[PATCH v4 0/6] Swap-out mTHP without splitting (Ryan Roberts) https://lkml.kernel.org/r/20240311150058.1122862-1-ryan.roberts@arm.com
-Ryan sent the fourth version of the patchset to swap-out multi-sized THP without splitting first. The approach is similar to that for PMD-sized THP.
-[PATCH] vmstat: Keep count of the maximum page reached by the kernel stack (Pasha Tatashin) https://lkml.kernel.org/r/20240313033417.447216-1-pasha.tatashin@soleen.com
       
     </div>
   </div>

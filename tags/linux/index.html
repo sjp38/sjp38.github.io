@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-05-05T06:59:50-07:00">
+    <meta property="og:updated_time" content="2025-05-07T07:33:52-07:00">
   
 
   
@@ -525,14 +525,24 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.15-rc6/">LKML News v6.15-rc6</a></h2>
+    <div class="article-style">
+      
+      [PATCH v3] mm: Add CONFIG_PAGE_BLOCK_ORDER to select page block order (Juan Yescas) https://lore.kernel.org/20250506002319.513795-1-jyescas@google.com
+As a followup of the LSFMMBPF discussion, Juan posted a patch for the CMA alignment requirements issue on large page size configuration.
+[RFC PATCH 0/9] Intel RAR TLB invalidation (Rik van Riel) https://lore.kernel.org/20250506003811.92405-1-riel@surriel.com
+Rick posted an RFC patch series for reducing IPI for TLB invaludations on Intel machines using its RAR feature.
+[PATCH 0/1] prctl: allow overriding system THP policy to always (Usama Arif) https://lore.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.15-rc5/">LKML News v6.15-rc5</a></h2>
     <div class="article-style">
       
       Linux 6.15-rc5 (Linus Torvalds) https://lore.kernel.org/CAHk-=wgjwfsyPf3SfjrPhAMJqN6brBpajQ3F9qp_TatwOs56YQ@mail.gmail.com
 Linus released the fifth candidate for Linux 6.15. It is larger than the usual, but still in normal range. The big size was mainly due to selftest changes.
-[PATCH v3] mm: Add CONFIG_PAGE_BLOCK_ORDER to select page block order (Juan Yescas) https://lore.kernel.org/20250506002319.513795-1-jyescas@google.com
-As a followup of the LSFMMBPF discussion, Juan posted a patch for the CMA alignment requirements issue on large page size configuration.
-[RFC PATCH 0/9] Intel RAR TLB invalidation (Rik van Riel) https://lore.
       
     </div>
   </div>
@@ -634,18 +644,6 @@ Michal categorizes and wordsmith memcg deprecation warning messages.
 Nic posted an RFC patch series that adding a counter to track how many pages are reclaimed by the balloon driver.
 [PATCH 0/5] mm: reliable huge page allocator (Johannes Weiner) https://lore.kernel.org/20250313210647.1314586-1-hannes@cmpxchg.org
 Johannes posted a patch series for making huge page allocatioin more reliable by making allocator, reclaim, and compaction code try harder to avoid fragmentation.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.14-rc6/">LKML News v6.14-rc6</a></h2>
-    <div class="article-style">
-      
-      [PATCH v15 0/9] Rust support for mm_struct, vm_area_struct, and mmap (Alice Ryhl) https://lore.kernel.org/20250304-vma-v15-0-5c641b31980a@google.com
-Alice Ryhl posted the fiftennth version of Rust binding for major mm API.
-[RFC PATCH 0/4] Kernel daemon for detecting and promoting hot pages (Bharata B Rao) https://lore.kernel.org/20250306054532.221138-1-bharata@amd.com
-Bharata posted an RFC patch set for igniting discussion about one source that provides page access information with an example. The patch uses AMD IBS driver as the source.
       
     </div>
   </div>
