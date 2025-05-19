@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-05-07T07:33:52-07:00">
+    <meta property="og:updated_time" content="2025-05-19T06:45:43-07:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.1/">LKML News v6.1</a></h2>
+    <div class="article-style">
+      
+      [PATCH v3] [mm-unstable] mm: Fix memcg reclaim on memory tiered systems (Mina Almasry) https://lkml.kernel.org/r/20221206023406.3182800-1-almasrymina@google.com
+There was a patch for enabling demotion via memory.reclaim memcg file. It made try_to_free_mem_cgroup_pages() behavior changed. As the changed behavior is somewhat the users of the caller didn&rsquo;t expect, this patch fixes it.
+[PATCHv8 00/14] mm, x86/cc: Implement support for unaccepted memory (Kirill A. Shutemov) https://lkml.kernel.org/r/20221207014933.8435-1-kirill.shutemov@linux.intel.com
+Some confidential VM approaches like Intel TDX or AMD SEV-SNP requires the guests to accept memory that they will use before use.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.1-rc8/">LKML News v6.1-rc8</a></h2>
     <div class="article-style">
       
@@ -635,20 +647,6 @@ $ git log --author SeongJae --reverse commit cf174b0ef52ad8184779e1da4132e2d9d17
 This RFC patchset introduces a research project called Unikernel Linux which integrates application specific optimization to the Linux kernel. It links an application directly with kernel and runs it in the supervisor mode.
 [PATCH v6] mm: add zblock - new allocator for use via zpool API (Ananda) https://lkml.kernel.org/r/20221005053302.30387-1-a.badmaev@clicknet.pro
 This patchset introduces a new allocator for zpool API. The author says it is better than zsmalloc in terms of worst execution time and therefore good at real-time usage.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.0/">LKML News v6.0</a></h2>
-    <div class="article-style">
-      
-      [GIT PULL] hotfixes for 6.0[-rc8] (Andrew Morton) https://lkml.kernel.org/r/20220926123721.2a1edc734b4fc516a9a350b8@linux-foundation.org
-Andrew&rsquo;s mm hotfix patches pull request for Linux v6.0, or v6.0-rc8 has posted.
-[RFC PATCH] mm: sort kmemleak object via backtrace (Zhaoyang Huang) https://lkml.kernel.org/r/1664264570-3716-1-git-send-email-zhaoyang.huang@unisoc.com
-This RFC patch introduces a set of method to sort objects in kmemleak output by backtrace to make the report more easy to read.
-[PATCH 0/3] THP Shrinker (Alexander Zhu) https://lkml.kernel.org/r/cover.1664347167.git.alexlzhu@fb.com
-This patchset introduces a sysfs files for measuring THP utilization and a shrinker for splitting the under-utilized THPs.
       
     </div>
   </div>
