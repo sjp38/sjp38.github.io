@@ -28,12 +28,15 @@
   
     
   
-  <meta name="description" content="Kernel Programmer">
+  <meta name="description" content="[RFC PATCH v2 0/5] mm, bpf: BPF based THP adjustment (Yafang Shao) https://lore.kernel.org/20250520060504.20251-1-laoar.shao@gmail.com
+Yafang posted the second version of BPF-based THP policy adjustment patch series.
+[RFC PATCH 0/5] add process_madvise() flags to modify behaviour (Lorenzo Stoakes) https://lore.kernel.org/cover.1747686021.git.lorenzo.stoakes@oracle.com
+Lorenzo posted an RFC series for extending process_madvise() behavior using its flags option.
+[RFC v2 PATCH 0/9] Intel RAR TLB invalidation (Rik van Riel) https://lore.kernel.org/20250520010350.1740223-1-riel@surriel.com
+Rik posted the second version of his RFC patch series for Intel&rsquo;s h/w-based tlb invalidation optimization.">
 
   
-  <link rel="alternate" hreflang="ko" href="https://sjp38.github.io/ko/tags/kernel/">
-  
-  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/tags/kernel/">
+  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/lkml_news_v6.15/">
 
   
 
@@ -133,14 +136,12 @@
 
 
   
-  <link rel="alternate" href="/tags/kernel/index.xml" type="application/rss+xml" title="hacklog">
-  
 
   <link rel="manifest" href="/index.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon-32.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://sjp38.github.io/tags/kernel/">
+  <link rel="canonical" href="https://sjp38.github.io/post/lkml_news_v6.15/">
 
   
   
@@ -152,18 +153,70 @@
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="hacklog">
-  <meta property="og:url" content="https://sjp38.github.io/tags/kernel/">
-  <meta property="og:title" content="kernel | hacklog">
-  <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
+  <meta property="og:url" content="https://sjp38.github.io/post/lkml_news_v6.15/">
+  <meta property="og:title" content="LKML News v6.15 | hacklog">
+  <meta property="og:description" content="[RFC PATCH v2 0/5] mm, bpf: BPF based THP adjustment (Yafang Shao) https://lore.kernel.org/20250520060504.20251-1-laoar.shao@gmail.com
+Yafang posted the second version of BPF-based THP policy adjustment patch series.
+[RFC PATCH 0/5] add process_madvise() flags to modify behaviour (Lorenzo Stoakes) https://lore.kernel.org/cover.1747686021.git.lorenzo.stoakes@oracle.com
+Lorenzo posted an RFC series for extending process_madvise() behavior using its flags option.
+[RFC v2 PATCH 0/9] Intel RAR TLB invalidation (Rik van Riel) https://lore.kernel.org/20250520010350.1740223-1-riel@surriel.com
+Rik posted the second version of his RFC patch series for Intel&rsquo;s h/w-based tlb invalidation optimization."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-05-20T06:57:25-07:00">
+    
+      <meta property="article:published_time" content="2025-05-20T06:57:25-07:00">
+    
+    <meta property="article:modified_time" content="2025-05-20T06:57:25-07:00">
   
 
   
 
 
+    
 
+
+
+
+
+
+  
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://sjp38.github.io/post/lkml_news_v6.15/"
+  },
+  "headline": "LKML News v6.15",
+  
+  "datePublished": "2025-05-20T06:57:25-07:00",
+  "dateModified": "2025-05-20T06:57:25-07:00",
+  
+  "author": {
+    "@type": "Person",
+    "name": "SeongJae Park (SJ)"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "hacklog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://sjp38.github.io/img/icon-512.png"
+    }
+  },
+  "description": "[RFC PATCH v2 0/5] mm, bpf: BPF based THP adjustment (Yafang Shao) https://lore.kernel.org/20250520060504.20251-1-laoar.shao@gmail.com\nYafang posted the second version of BPF-based THP policy adjustment patch series.\n[RFC PATCH 0/5] add process_madvise() flags to modify behaviour (Lorenzo Stoakes) https://lore.kernel.org/cover.1747686021.git.lorenzo.stoakes@oracle.com\nLorenzo posted an RFC series for extending process_madvise() behavior using its flags option.\n[RFC v2 PATCH 0/9] Intel RAR TLB invalidation (Rik van Riel) https://lore.kernel.org/20250520010350.1740223-1-riel@surriel.com\nRik posted the second version of his RFC patch series for Intel\u0026rsquo;s h/w-based tlb invalidation optimization."
+}
+</script>
+
+  
 
   
 
@@ -171,10 +224,13 @@
   
 
 
+  
 
 
 
-  <title>kernel | hacklog</title>
+
+
+  <title>LKML News v6.15 | hacklog</title>
 
 </head>
 
@@ -396,7 +452,7 @@
         
 
         <li class="nav-item">
-          <a class="nav-link  active" href="/tags"><span>Tags</span></a>
+          <a class="nav-link " href="/tags"><span>Tags</span></a>
         </li>
 
         
@@ -466,22 +522,6 @@
       
 
       
-      <li class="nav-item dropdown i18n-dropdown">
-        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true">
-          <i class="fas fa-globe mr-1" aria-hidden="true"></i><span class="d-none d-lg-inline">English</span>
-        </a>
-        <div class="dropdown-menu">
-          <div class="dropdown-item i18n-active font-weight-bold">
-            <span>English</span>
-          </div>
-          
-          <a class="dropdown-item" href="/ko/tags/kernel/">
-            <span>한국어</span>
-          </a>
-          
-        </div>
-      </li>
-      
 
     </ul>
 
@@ -489,181 +529,356 @@
 </nav>
 
 
-  
-
-
-
-
-
-
-
-
-
-
-
+  <article class="article">
 
   
 
+
+
+
+
+
+
+
+
+
+
+
+  
+
   
   
+  
+<div class="article-container pt-3">
+  <h1>LKML News v6.15</h1>
+
+  
+
   
     
-  
-<div class="universal-wrapper pt-3">
-  <h1>kernel</h1>
+
+
+<div class="article-metadata">
 
   
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Tue, May 20, 2025
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   
 </div>
 
 
 
-<div class="universal-wrapper">
-  
+  <div class="article-container">
 
-  
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.13/">LKML News v5.13</a></h2>
     <div class="article-style">
-      
-      [PATCH v4] mm: introduce reference pages (Peter Collingbourne) https://lkml.kernel.org/r/20210619092002.1791322-1-pcc@google.com
-This patch introduces a new syscall, refpage_create(). This system creates a file descriptor which can be mmap-ed using mmap(), which will be similar to anonymous mapping but the memory will be backed by a reference page instead of the zero page.
-[PATCH 0/3] mm/page_reporting: Make page reporting work on arm64 with 64KB page size (Gavin Shan) https://lkml.kernel.org/r/20210621051152.305224-1-gshan@redhat.com
-This patchset makes the page reporting to work on ARM with more realistic threshold, which is 2MB instead of 512MB, when the system&rsquo;s page size is 64KB.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.13-rc7/">LKML News v5.13-rc7</a></h2>
-    <div class="article-style">
-      
-      [PATCH v11 00/33] Memory folios (&ldquo;Matthew Wilcox (Oracle)&quot;) (33+ msgs) (Matthew Wilcox) https://lkml.kernel.org/r/20210614201435.1379188-1-willy@infradead.org
-Eleventh version of the memory folios patchset. It helps easier handling of head and tails of compounded pages.
-[LSF/MM TOPIC] Tiered memory accounting and management (Tim Chen) https://lkml.kernel.org/r/475cbc62-a430-2c60-34cc-72ea8baebf2c@linux.intel.com
-Another LSF/MM topic for discussion of tiered memory accounting and management, including the DRAM to PMEM demotion and PMEM to DRAM promotion.
-[REMINDER] LSF/MM/BPF: 2021: Call for Proposals (Josef Bacik) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.13-rc6/">LKML News v5.13-rc6</a></h2>
-    <div class="article-style">
-      
-      [RFC PATCH V3] zram:calculate available memory when zram is used (wangyong) https://lkml.kernel.org/r/1623080354-21453-1-git-send-email-yongw.pur@gmail.com
-This patchset adds a new entry called SwapAvailable in /proc/meminfo. It shows the memory savings when swap devices are used. If zram is used, it considers the compression ratio.
-[PATCH v3 0/9] Remove DISCONTIGMEM memory model (Mike Rapoport) https://lkml.kernel.org/r/20210608091316.3622-1-rppt@kernel.org
-This patchset removes DISCONTIGMEM memory model, finally. There are no more architectures requiring it.
-[LSF/MM/BPF TOPIC] Consolidating representations of the physical memory (Mike Rapoport) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.13-rc5/">LKML News v5.13-rc5</a></h2>
-    <div class="article-style">
-      
-      [PATCH V3 0/2] mm: compaction: proactive compaction trigger by user (Charan Teja Reddy) https://lkml.kernel.org/r/cover.1622454385.git.charante@codeaurora.org
-This patchset introduces /proc/sys/vm/compaction_proactiveness file, which can trigger proactive compaction by writing it.
-[RFC PATCH] mm/page_reporting: Adjust threshold according to MAX_ORDER (Gavin Shan) https://lkml.kernel.org/r/20210601033319.100737-1-gshan@redhat.com
-The free pages reporting feature doesn&rsquo;t allow discontiguous pages that smaller than PAGE_REPORTING_MIN_ORDER. Current setting of it makes the feature to never work on specific environment, because it is set to be equal to pageblock_order.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.13-rc4/">LKML News v5.13-rc4</a></h2>
-    <div class="article-style">
-      
-      [PATCH 0/2] arm64: remove page granularity limitation from KFENCE (Jisheng Zhang) https://lkml.kernel.org/r/20210524172433.015b3b6b@xhacker.debian
-This patchset removes the page granularity mapping requirement for the KFENCE&rsquo;s linear map, to achieve both arm64&rsquo;s block level and contiguous mapping for non-KFENCE pool pages, by allocating the KFENCE pool before paging_init().
-[PATCH v2 00/21] Optimize list lru memory consumption (Muchun Song) https://lkml.kernel.org/r/20210527062148.9361-1-songmuchun@bytedance.com
-Muchun found kmalloc-32 slab cache consuming huge memory due to cgroups initialization, and posting this patchset which expected to fix the problem fundamentally.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.13-rc3/">LKML News v5.13-rc3</a></h2>
-    <div class="article-style">
-      
-      RCU tests for Maple Tree (Paul E. McKenney) https://lkml.kernel.org/r/20210517154048.GA2013926@paulmck-ThinkPad-P17-Gen-1
-Paul is asking if there are rcu-related tests for Maple Tree other than rcu_loop() and rcu_val() that Paul needs to looking for.
-[PATCH v20 0/7] mm: introduce memfd_secret system call to create &ldquo;secret&rdquo; memory areas (Mike Rapoport) https://lkml.kernel.org/r/20210518072034.31572-1-rppt@kernel.org
-The 20th version of the patchset that implements &lsquo;secret&rsquo; mappings backed by a file descriptor.
-[PATCH v3 00/14] Multigenerational LRU Framework (Yu Zhao) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.13-rc2/">LKML News v5.13-rc2</a></h2>
-    <div class="article-style">
-      
-      [RESEND] LSF/MM/BPF: 2021: Call for Proposals (Josef Bacik) https://lkml.kernel.org/r/60997079.1c69fb81.77f3f.a045@mx.google.com/
-CFG for LSF/MM/BPF 2021 posted. It will be held from 2021-12-06 to 2021-12-08 in Palm Springs, California. As of now, it is supposed to be an in-person conference!
-[LSF/MM/BPF TOPIC] Memory folios (Matthew Wilcox) https://lkml.kernel.org/r/YJlzwcADaxO/JHRE@casper.infradead.org
-Matthew expects the memory folios patchset will be merged soon, but he wants to discuss about it in the LSFMM, if there are something to discuss more.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.13-rc1/">LKML News v5.13-rc1</a></h2>
-    <div class="article-style">
-      
-      [PATCH v3] mm/compaction:let proactive compaction order configurable (chukaiping) https://lkml.kernel.org/r/1619313662-30356-1-git-send-email-chukaiping@baidu.com
-Third version of the patchset making compaction order lower than 9. Machines using 1GB hugetlbfs huge pages could be an example user of this feature.
-[PATCH v4] mm/compaction: let proactive compaction order configurable (chukaiping) https://lkml.kernel.org/r/1619576901-9531-1-git-send-email-chukaiping@baidu.com
-Fourth version of the patchset posted quite quickly.
-[PATCH 00/94] Introducing the Maple Tree (Liam Howlett) https://lkml.kernel.org/r/20210428153542.2814175-1-Liam.Howlett@Oracle.com
-This huge patchset introduces an RCU-safe range based B-tree called maple tree.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.12/">LKML News v5.12</a></h2>
-    <div class="article-style">
-      
-      [PATCH -next v3 1/2] mm/debug_vm_pgtable: Move {pmd/pud}_huge_tests out of CONFIG_TRANSPARENT_HUGEPAGE (Liu Shixin) The functions are not THP dependent in real, but made dependent. This patch moves it out.
-[PATCH v10 0/7] Make alloc_contig_range handle Hugetlb pages (Oscar Salvador) https://lkml.kernel.org/r/20210419075413.1064-1-osalvador@suse.de
-The 10th version of the patchset which allows Hugetlb pages allocated via alloc_contig_range(), dynamically.
-[PATCH v2 0/5] mm/madvise: introduce MADV_POPULATE_(READ|WRITE) to prefault page tables (David Hildenbrand) https://lkml.kernel.org/r/20210419135443.12822-1-david@redhat.com
-This is the second version of the patchset implementing MADV_POPULATE_(READ|WRITE) for madvise() system call.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.12-rc8/">LKML NEws v5.12-rc8</a></h2>
-    <div class="article-style">
-      
-      [PATCH v2 0/5] mm/memcg: Reduce kmemcache memory accounting overhead (Waiman Long) https://lkml.kernel.org/r/20210412225503.15119-1-longman@redhat.com
-Recently introduced new slab memory controller eliminates the need for separate kmemcaches for each memory cgroup and therefore reduce kernel memory usage. However, it also increases memory accouning overhead in kmem cache alloc and free functions. This patchset reduces unnecessary local_irq_save() and local_irq_restore() sequences in the code path as much as possible for minimal overhead.
-[PATCH v7 0/7] Make alloc_contig_range handle Hugetlb pages (Oscar Salvador) https://lkml.
-      
-    </div>
-  </div>
-  
+      <h2 id="rfc-patch-v2-05-mm-bpf-bpf-based-thp-adjustment-yafang-shao">[RFC PATCH v2 0/5] mm, bpf: BPF based THP adjustment (Yafang Shao)</h2>
+<p><a href="https://lore.kernel.org/20250520060504.20251-1-laoar.shao@gmail.com">https://lore.kernel.org/20250520060504.20251-1-laoar.shao@gmail.com</a></p>
+<p>Yafang posted the second version of BPF-based THP policy adjustment patch
+series.</p>
+<h2 id="rfc-patch-05-add-process_madvise-flags-to-modify-behaviour-lorenzo-stoakes">[RFC PATCH 0/5] add process_madvise() flags to modify behaviour (Lorenzo Stoakes)</h2>
+<p><a href="https://lore.kernel.org/cover.1747686021.git.lorenzo.stoakes@oracle.com">https://lore.kernel.org/cover.1747686021.git.lorenzo.stoakes@oracle.com</a></p>
+<p>Lorenzo posted an RFC series for extending <code>process_madvise()</code> behavior using
+its flags option.</p>
+<h2 id="rfc-v2-patch-09-intel-rar-tlb-invalidation-rik-van-riel">[RFC v2 PATCH 0/9] Intel RAR TLB invalidation (Rik van Riel)</h2>
+<p><a href="https://lore.kernel.org/20250520010350.1740223-1-riel@surriel.com">https://lore.kernel.org/20250520010350.1740223-1-riel@surriel.com</a></p>
+<p>Rik posted the second version of his RFC patch series for Intel&rsquo;s h/w-based tlb
+invalidation optimization.</p>
+<h2 id="patch-v3-07-prctl-introduce-pr_setget_thp_policy-usama-arif">[PATCH v3 0/7] prctl: introduce PR_SET/GET_THP_POLICY (Usama Arif)</h2>
+<p><a href="https://lore.kernel.org/20250519223307.3601786-1-usamaarif642@gmail.com">https://lore.kernel.org/20250519223307.3601786-1-usamaarif642@gmail.com</a></p>
+<p>Usama posted third RFC version of the patch series for making process-level THP
+policy control.</p>
 
+    </div>
+
+    
+
+
+
+
+
+<div class="article-tags">
   
-<nav>
-  <ul class="pagination justify-content-center">
+  <a class="badge badge-light" href="/tags/linux/">linux</a>
+  
+  <a class="badge badge-light" href="/tags/kernel/">kernel</a>
+  
+  <a class="badge badge-light" href="/tags/lkml/">lkml</a>
+  
+  <a class="badge badge-light" href="/tags/news/">news</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
     
-    <li class="page-item"><a class="page-link" href="/tags/kernel/page/19/">&laquo;</a></li>
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=https://sjp38.github.io/post/lkml_news_v6.15/&amp;text=LKML%20News%20v6.15" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
     
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=https://sjp38.github.io/post/lkml_news_v6.15/&amp;t=LKML%20News%20v6.15" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
     
-    <li class="page-item"><a class="page-link" href="/tags/kernel/page/21/">&raquo;</a></li>
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=LKML%20News%20v6.15&amp;body=https://sjp38.github.io/post/lkml_news_v6.15/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=https://sjp38.github.io/post/lkml_news_v6.15/&amp;title=LKML%20News%20v6.15" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=LKML%20News%20v6.15%20https://sjp38.github.io/post/lkml_news_v6.15/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=https://sjp38.github.io/post/lkml_news_v6.15/&amp;title=LKML%20News%20v6.15" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
     
   </ul>
-</nav>
-
-
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      <img class="portrait mr-3" src="https://s.gravatar.com/avatar/43dc5645c78e68fda997138380dfaaf4?s=200')" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="https://sjp38.github.io/">SeongJae Park (SJ)</a></h5>
+      <h6 class="card-subtitle">Kernel Programmer</h6>
+      <p class="card-text">SeongJae Park (SJ) is a programmer who loves to analyze and develop systems.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://social.kernel.org/sj" target="_blank" rel="noopener">
+        <i class="fab fa-linux"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/sjp38" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://www.linkedin.com/in/seongjae-park-1a5b9954/" target="_blank" rel="noopener">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.com/citations?user=jJIiF3AAAAAJ" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  
+  
+  <div class="article-widget content-widget-hr">
+    <h3>Related</h3>
+    <ul>
+      
+      <li><a href="/post/lkml_news_v6.15-rc7/">LKML News v6.15-rc7</a></li>
+      
+      <li><a href="/post/lkml_news_v6.15-rc6/">LKML News v6.15-rc6</a></li>
+      
+      <li><a href="/post/lkml_news_v6.15-rc5/">LKML News v6.15-rc5</a></li>
+      
+      <li><a href="/post/lkml_news_v6.15-rc4/">LKML News v6.15-rc4</a></li>
+      
+      <li><a href="/post/lkml_news_v6.15-rc3/">LKML News v6.15-rc3</a></li>
+      
+    </ul>
+  </div>
+  
+
+
+
+  </div>
+</article>
 
       
 

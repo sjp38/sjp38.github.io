@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-05-19T06:45:43-07:00">
+    <meta property="og:updated_time" content="2025-05-20T06:57:25-07:00">
   
 
   
@@ -525,6 +525,19 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.17-rc7/">LKML News v5.17-rc7</a></h2>
+    <div class="article-style">
+      
+      [PATCH/RESEND] mm: add ztree - new allocator for use via zpool API (Ananda) https://lkml.kernel.org/r/20220228110546.151513-1-a.badmaev@clicknet.pro
+Ztree is another zpool backend that superior with regard to the worst execution time.
+mmotm 2022-02-28-14-45 uploaded (Andrew Morton) https://lkml.kernel.org/r/20220228224600.44415C340EE@smtp.kernel.org
+mmotm has updated. It&rsquo;s rebased on 5.17-rc6, added 56 new patches, modified 85 patches, and dropped 55 patches. In total, 378 patches are in the queue.
+[PATCH -V14 0/3] NUMA balancing: optimize memory placement for memory tiering system (Huang Ying) https://lkml.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.17-rc6/">LKML News v5.17-rc6</a></h2>
     <div class="article-style">
       
@@ -630,18 +643,6 @@ MM of the moment has updated. It&rsquo;s rebased on v5.16-rc7, adds 32 new patch
 Fifth version of the patchset for reducing lru memory consumption. This version fixes a sleep-in-atomic-context bug which is reported by the kernel test robot, applies some requests from Johannes, and collect Acked-by from Johannes.
 [PATCH 0/2] Add a new scheme to support demotion on tiered memory system (Baolin Wang) https://lkml.kernel.org/r/cover.1640077468.git.baolin.wang@linux.alibaba.com
 This patchset makes DAMOS supports demotion of memory regions.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.16-rc6/">LKML News v5.16-rc6</a></h2>
-    <div class="article-style">
-      
-      [PATCH v4 00/17] Optimize list lru memory consumption (Muchun Song) https://lkml.kernel.org/r/20211213165342.74704-1-songmuchun@bytedance.com
-Muchun found 6GB of memory was consumed by kmalloc-32 slab cache on a machine having 952 super blocks. That was due to list_lru_one allocation from memcg_nr_cache_ids. This patchset aims to fix the issue. According to a simple test, this reduces memory consumption under a situation from 24GiB to 4GiB.
-mmotm 2021-12-13-21-28 uploaded (Andrew Morton) https://lkml.kernel.org/r/20211214052904.VfRYfitp0%akpm@linux-foundation.org
-Andrew Morton uploaded new mmotm.
       
     </div>
   </div>

@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-05-19T06:45:43-07:00">
+    <meta property="og:updated_time" content="2025-05-20T06:57:25-07:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.12-rc2/">LKML News v6.12-rc2</a></h2>
+    <div class="article-style">
+      
+      [PATCH v2 1/2] virt: pvmemcontrol: control guest physical memory properties (Yuanchu Xie) https://lore.kernel.org/20241001011328.2806686-1-yuanchu@google.com
+Yuanchu posted the second version of a patch series for pvmemcontrol, which allows VM guests control their physcial memory properties and enable security features optimizations.
+[Invitation] Linux MM Alignment Session on shared PTEs across processes on Wednesday (David Rientjes) https://lore.kernel.org/eb2ce2c1-9fbd-215b-9973-7ec515c14015@google.com
+Dadiv shares next Linux MM alignment session will be held this Wednesday. The topic will be &ldquo;Add support for shared PTEs across processes&rdquo;, aka mshare().
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.11/">LKML News v6.11</a></h2>
     <div class="article-style">
       
@@ -637,18 +649,6 @@ Barry posted the second version of their patchset for __GFP_NOFAIL clarification
 Mike Rapoport posted thi spatchset for moving numa_memblks from x86 to the generic code, as a followup of the discussion for CXL memory windows handling on arm64.
 [RFC PATCHv2] mm: introduce reclaim throttle in MGLRU (Zhaoyang Huang) https://lore.kernel.org/20240716094348.2451312-1-zhaoyang.huang@unisoc.com
 Zhaoyang sent a patch that makes direct reclaim of MGLRU be throttled by judging the number of isolated and inactive folios, to prevent issues similar to classic LRU.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.10/">LKML News v6.10</a></h2>
-    <div class="article-style">
-      
-      [RFC][PATCH 0/4] slab: Allow for type introspection during allocation (Kees Cook) https://lore.kernel.org/20240708190924.work.846-kees@kernel.org
-Kees posted this RFC patch, which allows kmalloc() be able to know the type of the object that it is requested to allocate memory for. It is done by letting kmalloc() optionally receives the pointer instead of the size.
-[Invitation] Linux MM Alignment Session on guest_memfd() mapping, hugepages, and page pinning on Wednesday https://lore.kernel.org/197a2f19-c71c-fbde-a62a-213dede1f4fd@google.com
-David invites MM community to another instance of the MM alignment.
       
     </div>
   </div>
