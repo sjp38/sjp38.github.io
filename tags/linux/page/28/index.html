@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-05-20T06:57:25-07:00">
+    <meta property="og:updated_time" content="2025-05-23T07:59:31-07:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.6-rc4/">LKML News v5.6-rc4</a></h2>
+    <div class="article-style">
+      
+      [LSF/MM ATTEND]: page fault and mmap_sem scalabity https://lkml.kernel.org/r/e67a9e90-5a64-b3cc-5014-2fd1e5bf3895@linux.ibm.com
+A short mail from Laurent saying he is interested in attending the discussions about the page fault and mmap_sem scalability issue.
+Linux 5.6-rc4 https://lkml.kernel.org/r/CAHk-=wgD3=ryAapzdpcZumMK2RQWBvWVE70qp_ft_cjdRX9htQ@mail.gmail.com
+Fourthe rc release. 5.6 official release is not so far. Torvalds says this is fairly reasonsable sized release.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.6-rc3/">LKML News v5.6-rc3</a></h2>
     <div class="article-style">
       
@@ -630,18 +642,6 @@ DAMON is a Data Access MONitoring framework subsystem for the Linux kernel devel
 This patchset adds tests for the page table helpers. Those tests covers basic page table entry transformations including old, young, dirty, clean, write, write protect etc. The tests are not using the kselftest or kunit, but implemented as a kernel module with new file, mm/debug_vm_pgtable.c.
 Linux 5.5-rc4 https://lkml.kernel.org/r/CAHk-=wjq2b9GkLzpaDE-Xryu5c0zMM72BqkJKeZVsX+4ymH6aA@mail.gmail.com
 Due to the holidays, last week was unsurprisingly quiet. Torvalds says it was hardly even worth making an rc release.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.5-rc3/">LKML News v5.5-rc3</a></h2>
-    <div class="article-style">
-      
-      PROBLEM: Large (256MB) CMA allocation fails from time to time when using Intel VT-d https://lkml.kernel.org/r/5e75d900cb50457784ee1d2050b511ec@MAILER13.tech.ceia
-The author reports a CMA allocation failure that occurs time to time if the system is using Intel VT-d.
-[PATCHv2 0/3] Allow ZRAM to use any zpool-compatible backend https://lkml.kernel.org/r/20191219151928.ad4ccf732b64b7f8a26116db@gmail.com
-ZRAM is an in-memory block device that compresses the content. Currently, ZRAM is used only with zsmalloc. However, the zsmalloc is not an optimal selection in some environment.
       
     </div>
   </div>

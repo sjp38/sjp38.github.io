@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-05-20T06:57:25-07:00">
+    <meta property="og:updated_time" content="2025-05-23T07:59:31-07:00">
   
 
   
@@ -525,6 +525,20 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.12-rc7/">LKML News v6.12-rc7</a></h2>
+    <div class="article-style">
+      
+      [PATCH 0/3] Introduce acctmem (Matthew Wilcox) https://lore.kernel.org/20241104210602.374975-1-willy@infradead.org
+Willy tries to split out page-&gt;memcg_data reference counting using a new abstract, acctmem.
+[linus:master] [mm, mmap] d4148aeab4: will-it-scale.per_process_ops 3888.9% improvement (kernel test robot) https://lore.kernel.org/202411072132.a8d2cf0f-oliver.sang@intel.com
+Kernel test robot reports huge improvement on will-it-scale benchmark, coming from commit d4148aeab412 (&ldquo;mm, mmap: limit THP alignment of anonymous mappings to PMD-aligned sizes&rdquo;).
+Linux 6.12-rc7 (Linus Torvalds) https://lore.kernel.org/CAHk-=wiWK-GCmFGNqknDZzWMZM-u58tmP=jZ9ooTo9b8NURvgQ@mail.gmail.com
+Linus released the seventh candidate for Linux v6.12. Linus says no big surprises found, so he anticipates final 6.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.12-rc6/">LKML News v6.12-rc6</a></h2>
     <div class="article-style">
       
@@ -636,19 +650,6 @@ Li proposes scope-based resource management for folio locking.
 [PATCH 0/2] get rid of PF_MEMALLOC_NORECLAIM (Michal Hocko) https://lore.kernel.org/20240826085347.1152675-1-mhocko@kernel.org
 Michal argues PF_MEMALLOC_NORECLAIM has merged even though MM people pushed it back, and attempts to get rid of it by updating its users to use explicit GFP_NOWAIT allocation context.
 [PATCH] bcachefs: Switch to memalloc_flags_do() for vmalloc allocations (Kent Overstreet) https://lore.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.11-rc5/">LKML News v6.11-rc5</a></h2>
-    <div class="article-style">
-      
-      [PATCH v4 0/6] mm: split underused THPs (Usama Arif) https://lore.kernel.org/20240819023145.2415299-1-usamaarif642@gmail.com
-Yusama posted the fourth version of the patch series for splitting underutilized THPs for keeping THP performance gain while reducing the huge page internal fragmentation-cuased memory usage bloat.
-[PATCH 0/5] page allocation tag compression (Suren Baghdasaryan) https://lore.kernel.org/20240819151512.2363698-1-surenb@google.com
-Suren sent a patch series for improving page allocation tagging.
-[PATCH 0/4] Increase the number of bits available in page_type (Matthew Wilcox) https://lore.kernel.org/20240821173914.2270383-1-willy@infradead.org
       
     </div>
   </div>
