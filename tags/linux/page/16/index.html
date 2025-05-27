@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-05-23T07:59:31-07:00">
+    <meta property="og:updated_time" content="2025-05-27T06:54:01-07:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.0-rc1/">LKML News v6.0-rc1</a></h2>
+    <div class="article-style">
+      
+      [PATCH] mm: vmscan: fix extreme overreclaim and swap floods (Johannes Weiner) https://lkml.kernel.org/r/20220802162811.39216-1-hannes@cmpxchg.org
+Johannes found proactive reclamation using memory.reclaim sometimes reclaim more pages than requested on specific cgroup use cases. This patch resolves the issue so that the proactive reclamation doesn&rsquo;t over-reclaim pages.
+[RFC PATCH 0/4] propose a auto-run mode for ksm (Xu Xin) https://lkml.kernel.org/r/20220803100306.1653382-1-xu.xin16@zte.con.cn
+KSM operation management is quite manual and sometimes inefficient if not well managed. This patchset introduces auto-run mode that can operate KSM in a better way.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/kernelsummit2022_talk/">I will have a talk at the Linux Kernel Summit 2022</a></h2>
     <div class="article-style">
       
@@ -630,20 +642,6 @@ Maintainer&rsquo;s / Kernel Summit 2022 CFP (Theodore Ts&rsquo;o) https://lkml.
 This patchset adds memory mirroring support, which relies on UEFI and used to separate memory into two separate channels, to arm64.
 [PATCH] mm: mempolicy: N:M interleave policy for tiered memory nodes (Johannes Weiner) https://lkml.kernel.org/r/20220607171949.85796-1-hannes@cmpxchg.org
 Current pages NUMA-interleaving policy is 1:1 mapping, 1 for CPU node, 1 for remote note. As more types of tiered memory systems having CPU-less memory nodes are coming, this patchset introduces an N:M interleave policy, which N pages are allocated from the top-tier node while M pages are allocated from low-tier nodes.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.19-rc1/">LKML News v5.19-rc1</a></h2>
-    <div class="article-style">
-      
-      [PATCH] arm64: enable THP_SWAP for arm64 (Barry Song) https://lkml.kernel.org/r/20220524071403.128644-1-21cnbao@gmail.com
-This patch enables THP_SWAP, which can help swap performance on systems having fast swap storages, for arm64.
-[CFP LPC 2022] Kernel Memory Management Microconference (Vlastimil Babka) https://lkml.kernel.org/r/d24e9ac9-0903-3c15-c446-2962f44a360f@suse.cz
-This year, LPC will have kernel memory management microconference. It will supplement the LSF/MM and lead by Matthew Wilcox and Vlastimil Babka.
-[PATCH v2] arm64: enable THP_SWAP for arm64 (Barry Song) https://lkml.kernel.org/r/20220527100644.293717-1-21cnbao@gmail.com
-Second version of the THP_SWAP enablement for arm64 has posted.
       
     </div>
   </div>

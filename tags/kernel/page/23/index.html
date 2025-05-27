@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-05-23T07:59:31-07:00">
+    <meta property="og:updated_time" content="2025-05-27T06:54:01-07:00">
   
 
   
@@ -525,6 +525,19 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.10-rc5/">Lkml_news_v5</a></h2>
+    <div class="article-style">
+      
+      [PATCH v9 0/9] mm: introduce memfd_secret system call to create &ldquo;secret&rdquo; memory areas (Mike Rapoport) https://lkml.kernel.org/r/20201117162932.13649-1-rppt@kernel.org
+The 9th version of the memfd_secret patchset.
+[patch V4 0/8] mm/highmem: Preemptible variant of kmap_atomic &amp; friends (Thomas Gleixner) https://lkml.kernel.org/r/20201118194838.753436396@linutronix.de
+As the name suggests, this patchset allow the code using kmap_atomic and similar things to be preemptible. This incur some overhead to highmem, but Thomas claims highmem was always slow.
+[PATCH 0/7] Split huge pages to any lower order pages and selftests.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.10-rc4/">LKML News v5.10-rc4</a></h2>
     <div class="article-style">
       
@@ -637,18 +650,6 @@ The 14th patchset for the KASAN and KUnit integration. From the v13, compile war
 The second version of the KFENCE posted.
 [PATCH 1/2] fs: Add a filesystem flag for THPs (Matthew Wilcox) https://lkml.kernel.org/r/20200916032717.22917-1-willy@infradead.org
 This patchset caches whether the backing filesystem support THP or not in an address space flags, so that the page cache can determine if it can send THP to the backing filesystem or not.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.9-rc5/">LKML News v5.9-rc5</a></h2>
-    <div class="article-style">
-      
-      [PATCH RFC 00/10] KFENCE: A low-overhead sampling-based memory safety error detector (Marco Elver) https://lkml.kernel.org/r/20200907134055.2878499-1-elver@google.com
-This patchset introduces another kernel use-after-free detection infrastructure, called Kernel Electric-Fence (KFENCE). Unlike KASAN, this trades the performance for precision and as a result it incurs near zero performance overhead so that it can be enabled in the production.
-[PATCH 00/11] Remove assumptions of THP size (Matthew Wilcox) https://lkml.kernel.org/r/20200908195539.25896-1-willy@infradead.org
-Matthew is working for variable sized THP. For start of the work, this patchset changes the assumption that THP will be PMD size by introducing thp_nr_pages() and let the other VM code to use it.
       
     </div>
   </div>

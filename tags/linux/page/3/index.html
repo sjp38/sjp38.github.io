@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-05-23T07:59:31-07:00">
+    <meta property="og:updated_time" content="2025-05-27T06:54:01-07:00">
   
 
   
@@ -525,6 +525,20 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.13/">LKML News v6.13</a></h2>
+    <div class="article-style">
+      
+      [LSF/MM/BPF TOPIC] Predictive readahead of dentries (Shyam Prasad N) https://lore.kernel.org/CANT5p=rxLH-D9qSoOWgjYeD87uahmZJMwXp8uNKW66mbv8hmDg@mail.gmail.com
+Shyam proposes an LSFMM topic for dentries readahead, like that of filesystems.
+[PATCH v9 00/17] reimplement per-vma lock as a refcount (Suren Baghdasaryan) https://lore.kernel.org/20250111042604.3230628-1-surenb@google.com
+Suren continues revisioning of his per-vma lock optimization, and posted the ninth version of it, with changed title.
+[Feedback Needed] Hypervisor live update biweekly meeting time (David Rientjes) https://lore.kernel.org/2908e4ab-abc4-ddd0-b191-fe820856cfb4@google.com
+David announces start of a bi-weekly syncup for hypervisor live update, which was a topic of last year&rsquo;s MM alignment session, and asking feedback about the time proposal.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.13-rc7/">LKML News v6.13-rc7</a></h2>
     <div class="article-style">
       
@@ -629,18 +643,6 @@ Andrew posted memory management subsystem pull request for v6.13-rc1 to Linus To
 Jens is continuing his work on support of buffered IO that isn&rsquo;t page cache persistent. The motivation is the fact that device speed is getting faster while reclaim is not.
 [RFCv1 0/6] Page Detective (Pasha Tatashin) https://lore.kernel.org/20241116175922.3265872-1-pasha.tatashin@soleen.com
 Pasha posted an RFC patch series for better debugging of page status.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.12/">LKML News v6.12</a></h2>
-    <div class="article-style">
-      
-      [PATCH 0/4] move per-vma lock into vm_area_struct (Suren Baghdasaryan) https://lore.kernel.org/20241111205506.3404479-1-surenb@google.com
-Suren posted a patch moving vm_lock back into vm_area_struct after confirming the performance regression found before happens only on limited cases (old Broadwell microarchitecture).
-[PATCH] lib/alloc_tag: Remove the sysctl configuration to prevent users from disabling it at runtime (Hao Ge) https://lore.kernel.org/20241108075004.131911-1-hao.ge@linux.dev
-Hao tries to remove runtime memory allocation profiling on/off knob, since he believes it is only making users confused.
       
     </div>
   </div>

@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-05-20T06:57:25-07:00">
+    <meta property="og:updated_time" content="2025-05-27T06:54:01-07:00">
   
 
   
@@ -525,6 +525,16 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.16-rc1/">LKML News v6.16-rc1</a></h2>
+    <div class="article-style">
+      
+      [PATCH RFC] mm: use per_vma lock for MADV_DONTNEED (Barry Song) https://lore.kernel.org/20250527044145.13153-1-21cnbao@gmail.com
+Barry posted an RFC to make MADV_DONTNEED madvise() calls to use per-vma lock when the region is in a signle vma.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.15/">LKML News v6.15</a></h2>
     <div class="article-style">
       
@@ -635,20 +645,6 @@ Pasha posted an RFC patch series for Linux kernel live update that uses kexec ha
 Vlastimil posted Slab pull request for Linux v6.15 to Linus.
 [PATCH v5 00/16] kexec: introduce Kexec HandOver (KHO) (Changyuan Lyu) https://lore.kernel.org/20250320015551.2157511-1-changyuanl@google.com
 Changyuan posted the fifth version of kexec handover patch series.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.14-rc7/">LKML News v6.14-rc7</a></h2>
-    <div class="article-style">
-      
-      [PATCH v2 00/11] cgroup v1 deprecation messages (Michal Kountny) https://lore.kernel.org/20250311123640.530377-1-mkoutny@suse.com
-Michal categorizes and wordsmith memcg deprecation warning messages.
-[RFC 0/5] track memory used by balloon drivers (Nico Pache) https://lore.kernel.org/20250312000700.184573-1-npache@redhat.com
-Nic posted an RFC patch series that adding a counter to track how many pages are reclaimed by the balloon driver.
-[PATCH 0/5] mm: reliable huge page allocator (Johannes Weiner) https://lore.kernel.org/20250313210647.1314586-1-hannes@cmpxchg.org
-Johannes posted a patch series for making huge page allocatioin more reliable by making allocator, reclaim, and compaction code try harder to avoid fragmentation.
       
     </div>
   </div>

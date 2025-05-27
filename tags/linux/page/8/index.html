@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-05-23T07:59:31-07:00">
+    <meta property="og:updated_time" content="2025-05-27T06:54:01-07:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.8-rc4/">LKML News v6.8-rc4</a></h2>
+    <div class="article-style">
+      
+      [PATCH] mm/cma: Add sysfs file &lsquo;release_pages_success&rsquo; (Anshuman Khandual) https://lkml.kernel.org/r/20240206045731.472759-1-anshuman.khandual@arm.com
+This patch adds a new sysfs file for tracking the number of successfully released pages from a given CMA heap area. It aims to be hulpful at determining available active CMA pages.
+[PATCH v2] mm/demotion: print demotion targets (Li Zhijian) https://lkml.kernel.org/r/20240206020151.605516-1-lizhijian@fujitsu.com
+Li Zhijian sent a patch for printing demotion target information in case of fallback for unmet requirements on the target node, directly to the kernel log.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.8-rc3/">LKML News v6.8-rc3</a></h2>
     <div class="article-style">
       
@@ -636,18 +648,6 @@ There are multiple scenarios for tasklist_lock that could lead to bad responsive
       [PATCH] mm/thp: add CONFIG_TRANSPARENT_HUGEPAGE_NEVER option (Dmytro Maluka) https://lkml.kernel.org/r/20231204163254.2636289-1-dmaluka@chromium.org
 Khugepaged has its own memory cost, and it increases vm.min_free_kbytes as it needs when it starts. On 4GB RAM, 3 mmzones and pageblock_order == MAX_ORDER, khugepaged increases vm.min_free_kbytes from 8MB to 132MB. This patch introduces a config to disallow khugepaged starts by default. It still allows the userspace to start khugepaged, though.
 [PATCH v4 0/2] KSM: support smart-scan feature (Stefan Roesch) https://lkml.kernel.org/r/20231205180952.3843711-1-shr@devkernel.io
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.7-rc4/">LKML News v6.7-rc4</a></h2>
-    <div class="article-style">
-      
-      [PATCH v2] prctl: Get private anonymous memory region name (Rong Tao) https://lkml.kernel.org/r/tencent_77E0BC1E8E9A21CA1B9009DD66555C72A90A@qq.com
-Now prctl() can set the name of anonymous vmas, but there is no option for getting the name. This patch implements the getter feature.
-[RFC PATCH 0/6] Supporting GMEM (generalized memory management) for external memory devices (Weixi Zhu) https://lkml.kernel.org/r/20231128125025.4449-1-weixi.zhu@huawei.com
-Because Linux kernels&rsquo; memory management system is mainly for only host DRAM, accelerator driver developers need to invent their own external memory management subsystems that feature similar functionality.
       
     </div>
   </div>
