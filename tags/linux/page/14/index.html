@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-06-10T06:52:11-07:00">
+    <meta property="og:updated_time" content="2025-06-17T07:29:23-07:00">
   
 
   
@@ -525,6 +525,20 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.2-rc3/">LKML News v6.2-rc3</a></h2>
+    <div class="article-style">
+      
+      [PATCH] zram: correctly handle all next_arg() cases (Sergey Senozhatsky) https://lkml.kernel.org/r/20230103030119.1496358-1-senozhatsky@chromium.org
+Handle NULL val pointer case from zram&rsquo;s arguments handling.
+[RFC PATCH 00/25] Upstream kvx Linux port (Yann Sionneau) https://lkml.kernel.org/r/20230103164359.24347-1-ysionneau@kalray.eu
+This patchset adds support of Kalray&rsquo;s kvx family kv3-1 CPU architecture.
+[PATCH 00/46] Based on latest mm-unstable (85b44c25cd1e). (James Houghton) https://lkml.kernel.org/r/20230105101844.1893104-1-jthoughton@google.com
+This patchset introduces HugeTLB high-Granularity Mapping (HGM), which teaches HugeTLB how to map HugeTLB pages at high granularity like how THPs PTE-mapped.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/my_opensource_commits_stat_2022/">My opensource commits statistics in 2022</a></h2>
     <div class="article-style">
       
@@ -632,20 +646,6 @@ Deprecating and removing SLOB (Vlastimil Babka) https://lkml.kernel.org/r/b35c3f
 Vlastimil is describing his proposal for removing SLOB, mainly for the code maintenance overhead, and trying to continue discussions for that.
 [PATCH 1/4] mm: introduce &lsquo;encoded&rsquo; page pointers with embedded extra bits (Linus Torvalds) https://lkml.kernel.org/r/20221109203051.1835763-1-torvalds@linux-foundation.org
 Linus Torvalds has posted a patchset for a new type called struct encoded_page, which is for struct page pointers having extra flags in it.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.1-rc4/">LKML News v6.1-rc4</a></h2>
-    <div class="article-style">
-      
-      [PATCH -next] mm/page_reporting: change page_reporting_param_ops to static (Yang Yingliang) https://lkml.kernel.org/r/20221101070022.1930028-1-yangyingliang@huawei.com
-This patch makes page_reporting_param_ops static, as it&rsquo;s used in only the c file.
-[RFC PATCH] mm: introduce accounting of page_owner via backtrace (Zhoyang Huang) https://lkml.kernel.org/r/1667390781-17515-1-git-send-email-zhaoyang.huang@unisoc.com
-This RFC patchset accounts and sorts page_owner output via its backtrace for simplifying it.
-[PATCH v6 0/5] THP Shrinker (Alexander Zhu) https://lkml.kernel.org/r/cover.1667454613.git.alexlzhu@fb.com
-The patchset for THP shrinking, which aims to reduce memory waste due to the THP underutilization, has revised again to the sixth version.
       
     </div>
   </div>

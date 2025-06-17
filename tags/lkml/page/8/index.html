@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-06-10T06:52:11-07:00">
+    <meta property="og:updated_time" content="2025-06-17T07:29:23-07:00">
   
 
   
@@ -525,6 +525,19 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.7-rc6/">LKML News v6.7-rc6</a></h2>
+    <div class="article-style">
+      
+      [Invitation] Linux MM Alignment Session on remap_file_pages on Wednesday (David Rientjes) https://lkml.kernel.org/r/46f97bec-3a48-e714-0a8d-b5206e1704ba@google.com
+There will be the last Linux MM Alignment Session for re-introducing remap_file_pages(), led by Matthew Wilcox, on 2023-11-13.
+[PATCH] kernel: Introduce a write lock/unlock wrapper for tasklist_lock (Maria Yu) https://lkml.kernel.org/r/20231213101745.4526-1-quic_aiquny@quicinc.com
+There are multiple scenarios for tasklist_lock that could lead to bad responsiveness. To mitigate the situation, this patch introduces a write lock/unlock wrapper for tasklist_lock.
+[PATCH 0/9] Finish two folio conversions (Matthew Wilcox) https://lkml.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.7-rc5/">LKML News v6.7-rc5</a></h2>
     <div class="article-style">
       
@@ -634,19 +647,6 @@ A patchset for making all page table entries accesses use READ_ONCE()/WRITE_ONCE
 A patchset introducing a new function for long-term pages pinning.
 [RFC PATCH v3 0/3] Introduce persistent memory pool (Stanislav Kinsburskii) https://lkml.kernel.org/r/169645773092.11424.7258549771090599226.stgit@skinsburskii.
 An RFC implementing a memory allocator in the kernel for persistent memory has posted.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.6-rc4/">LKML News v6.6-rc4</a></h2>
-    <div class="article-style">
-      
-      [PATCH v3 0/4] Smart scanning mode for KSM (Stefan Roesch) https://lkml.kernel.org/r/20230926040939.516161-1-shr@devkernel.io
-KSM scans pages without historic information, so pages that already found to be not eligible for deduplication are scanned unnecessarily. This patchset introduces smart scanning for KSM, which utilizes the historic information.
-[PATCH -V2 00/10] mm: PCP high auto-tuning (Huang Ying) https://lkml.kernel.org/r/20230926060911.266511-1-ying.huang@intel.com
-This patchset implements auto-tuning of Per-CPU Pageset high to optimize page allocation performance.
-[PATCH rfc 0/5] mm: improve performance of kernel memory accounting (Roman Gushchin) https://lkml.
       
     </div>
   </div>

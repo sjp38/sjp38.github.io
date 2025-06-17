@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-06-10T06:52:11-07:00">
+    <meta property="og:updated_time" content="2025-06-17T07:29:23-07:00">
   
 
   
@@ -525,6 +525,17 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.16/">LKML News v5.16</a></h2>
+    <div class="article-style">
+      
+      [PATCH v4 00/32] Separate struct slab from struct page (Vlastimil Babka) https://lkml.kernel.org/r/20220104001046.12263-1-vbabka@suse.cz
+The work for seperating struct slab from struct page for making the struct page simpler is updated to fourth version. As the patchset was in -next tree for a while, Vlastimil would sent a pull request of this to Linus.
+[PATCH 0000/2297] [ANNOUNCE, RFC] &ldquo;Fast Kernel Headers&rdquo; Tree -v1: Eliminate the Linux kernel&rsquo;s &ldquo;Dependency Hell&rdquo; (Ingo Molnar) https://lkml.kernel.org/r/YdIfz+LMewetSaEB@gmail.com
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/linux-mm-dev-stat-2021-short/">Linux Memory Management Subsystem Development Statistics in 2021 (Short)</a></h2>
     <div class="article-style">
       
@@ -630,18 +641,6 @@ This patchset introduces a new syscall that can be used to set a home node for t
 This RFC patchset fixes the migration stats that broken here and there.
 incoming (Andrew Morton) https://lkml.kernel.org/r/20211105133408.cccbb98b71a77d5e8430aba1@linux-foundation.org
 The first pull request for v5.16 from Andrew Morton. Patches for DAMON subsystem including DAMOS, physical address space support, and DAMON-based proactive reclamation are also included here.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.15/">LKML News v5.15</a></h2>
-    <div class="article-style">
-      
-      Dynamically allocated memory descriptors (Matthew Wilcox) https://lkml.kernel.org/r/YXcLqcFhDq3uUwIj@casper.infradead.org
-In this mail, Matthew explains his idea on making struct page only two words and how it could work with buddy allocator freelists.
-[RFC] mm: Disable NUMA_BALANCING_DEFAULT_ENABLED and TRANSPARENT_HUGEPAGE on PREEMPT_RT (Sebastian Andrzej Siewior) https://lkml.kernel.org/r/20211026165100.ahz5bkx44lrrw5pt@linutronix.de
-Mel told RT patchset could incur spikes on NUMA machines when NUMA_BALANCING and THP are turned on. Sebastian request comments on disabling those on RT enabled kernel by default, but still trying to find a good test for that.
       
     </div>
   </div>

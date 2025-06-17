@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-06-10T06:52:11-07:00">
+    <meta property="og:updated_time" content="2025-06-17T07:29:23-07:00">
   
 
   
@@ -525,6 +525,20 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.2-rc4/">LKML News v5.2-rc4</a></h2>
+    <div class="article-style">
+      
+      [PATCH 00/15] Slab Movable Objects (SMO) https://lkml.kernel.org/r/20190603042637.2018-1-tobin@kernel.org
+전에도 RFC 패치셋은 여기서도 소개했었죠. Slab 할당자에 할당받은 객체들의 이동이 가능하게끔 하는 패치셋의 정식 패치 버전이 나왔습니다. 변경된 인터페이스는 XArray 와 dcache 에 적용되는군요.
+[PATCH v1 0/4] Introduce MADV_COLD and MADV_PAGEOUT https://lkml.kernel.org/r/20190603053655.127730-1-minchan@kernel.org
+바로 지난주에도 소개한 external madvise 패치셋이 쪼개졌네요. MADV_COLD 와 MADV_PAGEOUT 두개의 새로운 advice 기능 추가 버전만 담은 패치셋입니다. 이게 더 일찍 머지될 가능성이 생겼군요.
+Linux 5.2-rc4 https://lkml.kernel.org/r/CAHk-=wjm7FQxdF=RKa8Xe23CLNNpbGDOACewgo8e-hwDJ8TyQg@mail.gmail.com
+메일을 받고 깜짝 놀랐습니다, 평소보다 빨랐기 때문이죠.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/linux_develop_visualization_youtube/">Linux Development History Visualization Youtube Channel</a></h2>
     <div class="article-style">
       
@@ -634,20 +648,6 @@ Linux 5.1 https://lkml.kernel.org/r/CAHk-=whsbDxdapMJGvy9OkVSrKMsKRJBTrH-Qj-qTbk
 전에 이 블로그에도 공유했던, walk_page_range() 함수가 커널에서 사용하는 페이지 테이블은 지원하지 않아서 아키텍쳐별로 page table walk 기능을 구현한 걸 walk_page_range() 의 개선을 통해 가능하게 하고자 하는 패치의 여덟번째 버전입니다.
 [PATCH] mm: add vm event for page cache miss https://lkml.kernel.org/r/1554185720-26404-1-git-send-email-laoar.shao@gmail.com
 Page cache miss 로 인해 사용중인 데이터베이스에 레이턴시가 증가하는 문제가 있는데, 기존 커널에는 페이지 캐시 미스 카운트를 세는 기능이 없기 때문에 만들어 봤다고 합니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.1-rc3/">LKML News v5.1-rc3</a></h2>
-    <div class="article-style">
-      
-      [PATCH tip/core/rcu 0/4] Documentation updates for v5.2 https://lkml.kernel.org/r/20190326230408.GA17069@linux.ibm.com
-v5.2 에 머지될 목적의 RCU 문서화 업데이트 패치셋입니다.
-[PATCH tip/core/rcu 0/18] Miscellaneous fixes for v5.2 https://lkml.kernel.org/r/20190326231253.GA18343@linux.ibm.com
-v5.2 를 위한 RCU 의 다양한 업데이트 패치셋입니다. rcu 를 위한 메일링 리스트도 추가되었군요. rcu@vger.kernel.org 입니다.
-[PATCH tip/core/rcu 0/9] Torture-test updates for v5.2 https://lkml.kernel.org/r/20190326233054.GA21523@linux.ibm.com
-v5.2 를 위한 torture test 의 업데이트 패치셋입니다. LKMM 이라던지 formal verification 도 많은 발전이 있었지만, torture test 도 없어질 순 없겠죠.
       
     </div>
   </div>

@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-06-10T06:52:11-07:00">
+    <meta property="og:updated_time" content="2025-06-17T07:29:23-07:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.5-rc2/">LKML News v6.5-rc2</a></h2>
+    <div class="article-style">
+      
+      [Invitation] Linux MM Alignment Session on mshare on Wednesday (David Rientjes) https://lkml.kernel.org/r/CAE-26VAZZ+buEX0wbqHTz0k1hshYzYP3KzMmXT6jc6=NucPa0Q@mail.gmail.com
+David from Google is hosting yet another Linux MM Alignment session on Wednesday. The topic of this week is the process page table sharing, which could be a clear efficiency win for situations where huge number of processes sharing same pages.
+[PATCH v3 0/7] Add support for memmap on memory feature on ppc64 (Aneesh Kumar K.V) https://lkml.kernel.org/r/20230711044834.72809-1-aneesh.kumar@linux.ibm.com
+This makes the memmap on memory feature more useful for ppc64-like architectures having alignment rules that different with 64K page size.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.5-rc1/">LKML News v6.5-rc1</a></h2>
     <div class="article-style">
       
@@ -636,18 +648,6 @@ This RFC patch adds working set size reporting structure for each node and total
 Ryan found large anonymous folios exposes some lock contention unlike large page cache folios, because anonymous mapping is allocated/freed more frequently. This patchset mitigates the lock contention by avoid acquiring queue lock unnecessarily, and allowing batched large folio list adds to lru list.
 [PATCH v2 0/3] fs: multigrain timestamps (Jeff Layton) https://lkml.kernel.org/r/20230424151104.175456-1-jlayton@kernel.org
 This patchset makes file system to support not single-gran timestamp but multi-gran timestamps.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.3/">LKML News v6.3</a></h2>
-    <div class="article-style">
-      
-      [PATCH 00/33] Split ptdesc from struct page (Vishal Moola) https://lkml.kernel.org/r/20230417205048.15870-1-vishal.moola@gmail.com
-To reduce the struct page overhead, which is about 1.5% of the whole system memory, people are working on to reduce some fileds in struct page. As one of the approach, this patchset prepares for splitting ptdesc from struct page.
-[RFC PATCH v1 0/5] Introduce objects folding mechanism (Alexey Romanov) https://lkml.kernel.org/r/20230418062503.62121-1-avromanov@sberdevices.ru
-This patchset adds a feature which allowing folding identical zsmalloc objects into single one.
       
     </div>
   </div>

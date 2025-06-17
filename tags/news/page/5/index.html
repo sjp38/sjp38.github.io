@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-06-10T06:52:11-07:00">
+    <meta property="og:updated_time" content="2025-06-17T07:29:23-07:00">
   
 
   
@@ -525,6 +525,20 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.11-rc3/">LKML News v6.11-rc3</a></h2>
+    <div class="article-style">
+      
+      [PATCH 00/10] mm: remove vma_merge() (Lorenzo Stoakes) https://lore.kernel.org/cover.1722849859.git.lorenzo.stoakes@oracle.com
+Lorenzo posted a patchset for removing the infamous vma_merge(), which caused too much complexity, and the prior attempt remove it was failed.
+[RFC PATCH 0/4] mm/arm64: re-enable HVO (Yu Zhao) https://lore.kernel.org/20240806022114.3320543-1-yuzhao@google.com
+Yu sent an RFC patchset for re-enabling HugeTLB Vmemmap Optimization on arm64.
+[PATCH 00/10] Introduce guestmemfs: persistent in-memory filesystem (James Gowans) https://lore.kernel.org/20240805093245.889357-1-jgowans@amazon.com
+James Gowans posted a patch series for a new in-memory filesystem that designed for live update.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.11-rc2/">LKML News v6.11-rc2</a></h2>
     <div class="article-style">
       
@@ -630,20 +644,6 @@ Björn posted the fourth version of the patchset for supporting memory hot-[un]p
 This patchset fixes two zswap issues coming from global shrinker, and add proactive shrinking of zswap which starts when zswap is 95% full, for 90% accept threshold.
 [PATCH v7 0/4] Memory management patches needed by Rust Binder (Alice Ryhl) https://lore.kernel.org/20240528-alice-mm-v7-0-78222c31b8f4@google.com
 Alice sent the seventh revision for making memory management subsystem changes that needed by Rust Binder implementation.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.10-rc1/">LKML News v6.10-rc1</a></h2>
-    <div class="article-style">
-      
-      [LSFMM] automating measuring memory fragmentation (Luis Chamberlain) https://lore.kernel.org/ZkUOXQvVjXP1T6Nk@bombadil.infradead.org
-Luis suggested yet another LSFMM session for memory fragmentation measurement aiming to be used to understand how bad the current kernel&rsquo;s defragmentation approach is, and how much improvement some new proposal is making.
-page-flags.rst (Matthew Wilcox) https://lore.kernel.org/ZkOu4yXP-sGGtwc4@casper.infradead.org
-Matthew posted the page-flags documentation that he wrote with LSFMM attendees on his session.
-[GIT PULL] MM updates for 6.10-rc1 (Andrew Morton) https://lore.kernel.org/20240517192239.9285edd85f8ef893bb508a61@linux-foundation.org
-Andrew sent the memory management part pull request for 6.
       
     </div>
   </div>

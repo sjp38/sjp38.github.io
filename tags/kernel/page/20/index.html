@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-06-10T06:52:11-07:00">
+    <meta property="og:updated_time" content="2025-06-17T07:29:23-07:00">
   
 
   
@@ -525,6 +525,19 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.14-rc3/">LKML News v5.14-rc3</a></h2>
+    <div class="article-style">
+      
+      [PATCH 0/7] Free user PTE page table pages (Qi Zheng) https://lkml.kernel.org/r/20210718043034.76431-1-zhengqi.arch@bytedance.com
+This patchset frees user PTE page table pages when all PTE entries are empty, to reduce the memory overhead due to page tables.
+[PATCH v15 00/17] Folio support in block + iomap layers (Matthew Wilcox) https://lkml.kernel.org/r/20210719184001.1750630-1-willy@infradead.org
+Seems memory folios patchset is now merged in -mm tree and -next tree. This patchset further updates iomap to use folios.
+Runtime Memory Validation in Intel-TDX and AMD-SNP (Joerg Roedel) https://lkml.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.14-rc2/">LKML News v5.14-rc2</a></h2>
     <div class="article-style">
       
@@ -635,20 +648,6 @@ The 20th version of the patchset that implements &lsquo;secret&rsquo; mappings b
 CFG for LSF/MM/BPF 2021 posted. It will be held from 2021-12-06 to 2021-12-08 in Palm Springs, California. As of now, it is supposed to be an in-person conference!
 [LSF/MM/BPF TOPIC] Memory folios (Matthew Wilcox) https://lkml.kernel.org/r/YJlzwcADaxO/JHRE@casper.infradead.org
 Matthew expects the memory folios patchset will be merged soon, but he wants to discuss about it in the LSFMM, if there are something to discuss more.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.13-rc1/">LKML News v5.13-rc1</a></h2>
-    <div class="article-style">
-      
-      [PATCH v3] mm/compaction:let proactive compaction order configurable (chukaiping) https://lkml.kernel.org/r/1619313662-30356-1-git-send-email-chukaiping@baidu.com
-Third version of the patchset making compaction order lower than 9. Machines using 1GB hugetlbfs huge pages could be an example user of this feature.
-[PATCH v4] mm/compaction: let proactive compaction order configurable (chukaiping) https://lkml.kernel.org/r/1619576901-9531-1-git-send-email-chukaiping@baidu.com
-Fourth version of the patchset posted quite quickly.
-[PATCH 00/94] Introducing the Maple Tree (Liam Howlett) https://lkml.kernel.org/r/20210428153542.2814175-1-Liam.Howlett@Oracle.com
-This huge patchset introduces an RCU-safe range based B-tree called maple tree.
       
     </div>
   </div>

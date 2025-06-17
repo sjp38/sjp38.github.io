@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-06-10T06:52:11-07:00">
+    <meta property="og:updated_time" content="2025-06-17T07:29:23-07:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.10/">LKML News v5.10</a></h2>
+    <div class="article-style">
+      
+      [RFC V2 00/37] Enhance memory utilization with DMEMFS (Yuley Zhang) https://lkml.kernel.org/r/cover.1607332046.git.yuleixzhang@tencent.com
+This patchset aims to remove the &lsquo;struct page&rsquo; from user-sepcified region of memory and use a file system called &lsquo;dmemfs&rsquo; to minimize the memory region dedicated for &lsquo;struct page&rsquo;s.
+[PATCH] mm: don&rsquo;t SetPageWorkingset unconditionally during swapin (Yu Zhao) https://lkml.kernel.org/r/20201209012400.1771150-1-yuzhao@google.com
+Unconditional &lsquo;SetPageWorkingset&rsquo; miscategorizes read-ahead pages or pages that never belong to the working set as working set because it&rsquo;s called unconditionally.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.10-rc7/">LKML News v5.10-rc7</a></h2>
     <div class="article-style">
       
@@ -641,18 +653,6 @@ The 4th version of the KFENCE patchset.
 [PATCH 0/5] Speed up mremap on large regions (Kalesh Singh) https://lkml.kernel.org/r/20200930222130.4175584-1-kaleshsingh@google.com
 This patchset optimizes mremap() by allowing memory regions to be able to mapped at PMD/PUD.
 [PATCH] selftests/vm: 10x speedup for hmm-tests https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.9-rc7/">LKML News v5.9-rc7</a></h2>
-    <div class="article-style">
-      
-      [PATCH v3 00/10] KFENCE: A low-overhead sampling-based memory safety error detector (Marco Elver) https://lkml.kernel.org/r/20200921132611.1700350-1-elver@google.com
-The third version of KFENCE patchset is uploaded.
-Machine lockups on extreme memory pressure (Shakeel Butt) https://lkml.kernel.org/r/CALvZod4FWLsV9byrKQojeus7tMDhHjQHFF5J_JpNsyB0HkaERA@mail.gmail.com
-Shakeel reports a machine lockup due to extreme memory pressure. It&rsquo;s locked up on memcg&rsquo;s vmpressure sr_lock, which is irq-unsafe. And the lockup made in IRQ. He proposes a solution simply changing the lock with irq-safe one, but he also admits it&rsquo;s not a maintainable solution.
       
     </div>
   </div>
