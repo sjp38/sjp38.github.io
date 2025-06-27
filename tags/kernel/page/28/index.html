@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-06-17T07:29:23-07:00">
+    <meta property="og:updated_time" content="2025-06-27T07:25:29-07:00">
   
 
   
@@ -525,6 +525,16 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.5-rc2/">LKML News v5.5-rc2</a></h2>
+    <div class="article-style">
+      
+      [PATCHSET 0/5] Support for RWF_UNCACHED https://lkml.kernel.org/r/20191210162454.8608-1-axboe@kernel.dk
+As the buffered IO uses the page cache, an intensive buffered IO workload using very huge file can cause memory pressure by inflating the page cache. Changing the workload to do direct IO can solve this problem, but the modification is not so simple. Jens Axboe thus implemented RWF_UNCACHED flag, which skips use of the page cache if the given IO target is not in the page cache already.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.5-rc1/">LKML News v5.5-rc1</a></h2>
     <div class="article-style">
       
@@ -624,17 +634,6 @@ Zswap 이THP 를 지원하도록 수정하는 패치입니다. 그냥 zswap_fron
       [PATCH v18 00/19] kunit: introduce KUnit, the Linux kernel unit testing framework https://lkml.kernel.org/r/20190923090249.127984-1-brendanhiggins@google.com
 어떻게 보면 별거 아닌 이유로 5.4 머지윈도우에서 튕겨나가고 만 kunit. 요청받은대로 파일 위치를 하위 디렉토리로 변경한 kunit 새 버전의 패치셋이 올라왔습니다. &lsquo;kunit/&rsquo; 디렉토리와 kunit 을 위한 &lsquo;Kconfig&rsquo; 파일을 &lsquo;lib/&rsquo; 아래로 옮겼군요.
 이후 벌어진 대화가 재미있는데요, 토발즈는 이걸 5.5에 넣을 예정인데, 가능하면 그동안 실제 테스트 코드도 추가되면 좋겠다고 했습니다. 근데 테스트 프레임웍이 머지안되었는데 테스트 코드를? 메인테이너 간에 일이 복잡해지고 컨플릭 날 확률이 높아지니 이걸로 꽤 많은 이야기가 있었습니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.4-rc1/">LKML News v5.4-rc1</a></h2>
-    <div class="article-style">
-      
-      [PATCH 0/2] introduce new perf-script page-reclaim https://lkml.kernel.org/r/1568817522-8754-1-git-send-email-laoar.shao@gmail.com
-Page reclaim 관련 성능 메트릭을 분석하기 위한 perf script 커맨드를 추가하는 패치입니다. Direct reclaim 으로 인한 응답시간 폭증, page reclaim 이 왜 일어났는지, page reclaim 의 효과는 어땠는지 등을 알 수 있다는군요.
-구체적으로는 direct reclaim 이 몇번 일어났는지, 그 latency 분포는 어땠는지, file / anon page 별로 reclaim, scan, sync write, async write 이 몇번 일어났는지, kswapd 는 몇번 일어났는지, kswapd latency 는 어땠는지 등등을 보입니다.
       
     </div>
   </div>

@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-06-17T07:29:23-07:00">
+    <meta property="og:updated_time" content="2025-06-27T07:25:29-07:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.11/">LKML News v6.11</a></h2>
+    <div class="article-style">
+      
+      [PATCH hotfix 6.11] minmax: reduce egregious min/max macro expansion (Lorenzo Stoakes) https://lore.kernel.org/20240911153457.1005227-1-lorenzo.stoakes@oracle.com
+Lorenzo sent a patch for resolving min()/max() expansions causing kernel build time issue by fixing a few known-bad cases of nested macro usages.
+[RFC PATCH 0/7] support for mm-local memory allocations and use it (Fares Mehanna) https://lore.kernel.org/20240911143421.85612-1-faresx@amazon.de
+Fares posted an RFC patch series for mm-local memory allocations for pushing those out of rach for possible speculation based cross-process attacks.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.11-rc7/">LKML News v6.11-rc7</a></h2>
     <div class="article-style">
       
@@ -636,18 +648,6 @@ Zhaoyang sent a patch that makes direct reclaim of MGLRU be throttled by judging
       I just made a DAMON logo using DAMON, like below.
 $ git clone https://github.com/sjp38/masim &amp;&amp; cd masim $ cat damon_pixel_2 11111111 11 11 111111 11111111 11 11 11111111 11111111 1111 11111111 11111111 11 11 11111111 11111111 1111 11111111 $ ./pixels_to_access_config.py ./damon_pixel_2 $((100*1024*1024)) 300 damon.cfg $ sudo damo record &quot;./masim ./configs/stairs.cfg&quot; $ sudo damo report heatmap --output damon.png The output is below:
 The cropped one:
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.10/">LKML News v6.10</a></h2>
-    <div class="article-style">
-      
-      [RFC][PATCH 0/4] slab: Allow for type introspection during allocation (Kees Cook) https://lore.kernel.org/20240708190924.work.846-kees@kernel.org
-Kees posted this RFC patch, which allows kmalloc() be able to know the type of the object that it is requested to allocate memory for. It is done by letting kmalloc() optionally receives the pointer instead of the size.
-[Invitation] Linux MM Alignment Session on guest_memfd() mapping, hugepages, and page pinning on Wednesday https://lore.kernel.org/197a2f19-c71c-fbde-a62a-213dede1f4fd@google.com
-David invites MM community to another instance of the MM alignment.
       
     </div>
   </div>

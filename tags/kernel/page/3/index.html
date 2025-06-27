@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-06-17T07:29:23-07:00">
+    <meta property="og:updated_time" content="2025-06-27T07:25:29-07:00">
   
 
   
@@ -525,6 +525,20 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.13/">LKML News v6.13</a></h2>
+    <div class="article-style">
+      
+      [LSF/MM/BPF TOPIC] Predictive readahead of dentries (Shyam Prasad N) https://lore.kernel.org/CANT5p=rxLH-D9qSoOWgjYeD87uahmZJMwXp8uNKW66mbv8hmDg@mail.gmail.com
+Shyam proposes an LSFMM topic for dentries readahead, like that of filesystems.
+[PATCH v9 00/17] reimplement per-vma lock as a refcount (Suren Baghdasaryan) https://lore.kernel.org/20250111042604.3230628-1-surenb@google.com
+Suren continues revisioning of his per-vma lock optimization, and posted the ninth version of it, with changed title.
+[Feedback Needed] Hypervisor live update biweekly meeting time (David Rientjes) https://lore.kernel.org/2908e4ab-abc4-ddd0-b191-fe820856cfb4@google.com
+David announces start of a bi-weekly syncup for hypervisor live update, which was a topic of last year&rsquo;s MM alignment session, and asking feedback about the time proposal.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.13-rc7/">LKML News v6.13-rc7</a></h2>
     <div class="article-style">
       
@@ -632,20 +646,6 @@ Pasha posted an RFC patch series for better debugging of page status.
 Suren posted a patch moving vm_lock back into vm_area_struct after confirming the performance regression found before happens only on limited cases (old Broadwell microarchitecture).
 [PATCH] lib/alloc_tag: Remove the sysctl configuration to prevent users from disabling it at runtime (Hao Ge) https://lore.kernel.org/20241108075004.131911-1-hao.ge@linux.dev
 Hao tries to remove runtime memory allocation profiling on/off knob, since he believes it is only making users confused.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.12-rc7/">LKML News v6.12-rc7</a></h2>
-    <div class="article-style">
-      
-      [PATCH 0/3] Introduce acctmem (Matthew Wilcox) https://lore.kernel.org/20241104210602.374975-1-willy@infradead.org
-Willy tries to split out page-&gt;memcg_data reference counting using a new abstract, acctmem.
-[linus:master] [mm, mmap] d4148aeab4: will-it-scale.per_process_ops 3888.9% improvement (kernel test robot) https://lore.kernel.org/202411072132.a8d2cf0f-oliver.sang@intel.com
-Kernel test robot reports huge improvement on will-it-scale benchmark, coming from commit d4148aeab412 (&ldquo;mm, mmap: limit THP alignment of anonymous mappings to PMD-aligned sizes&rdquo;).
-Linux 6.12-rc7 (Linus Torvalds) https://lore.kernel.org/CAHk-=wiWK-GCmFGNqknDZzWMZM-u58tmP=jZ9ooTo9b8NURvgQ@mail.gmail.com
-Linus released the seventh candidate for Linux v6.12. Linus says no big surprises found, so he anticipates final 6.
       
     </div>
   </div>

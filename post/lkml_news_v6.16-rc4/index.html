@@ -28,12 +28,13 @@
   
     
   
-  <meta name="description" content="Kernel Programmer">
+  <meta name="description" content="[PATCH 0/3] mm: introduce snapshot_page() (Luiz Capitulino) https://lore.kernel.org/cover.1750961812.git.luizcap@redhat.com
+Luiz introduces a helper functions for creating a snapshot of a page and its folio.
+[PATCH v4 0/2] fix MADV_COLLAPSE issue if THP settings are disabled (Baolin Wang) https://lore.kernel.org/cover.1750815384.git.baolin.wang@linux.alibaba.com
+Baolin posted a patch series for making THP never means never.">
 
   
-  <link rel="alternate" hreflang="ko" href="https://sjp38.github.io/ko/tags/kernel/">
-  
-  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/tags/kernel/">
+  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/lkml_news_v6.16-rc4/">
 
   
 
@@ -133,14 +134,12 @@
 
 
   
-  <link rel="alternate" href="/tags/kernel/index.xml" type="application/rss+xml" title="hacklog">
-  
 
   <link rel="manifest" href="/index.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon-32.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://sjp38.github.io/tags/kernel/">
+  <link rel="canonical" href="https://sjp38.github.io/post/lkml_news_v6.16-rc4/">
 
   
   
@@ -152,18 +151,68 @@
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="hacklog">
-  <meta property="og:url" content="https://sjp38.github.io/tags/kernel/">
-  <meta property="og:title" content="kernel | hacklog">
-  <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
+  <meta property="og:url" content="https://sjp38.github.io/post/lkml_news_v6.16-rc4/">
+  <meta property="og:title" content="LKML News v6.16-rc4 | hacklog">
+  <meta property="og:description" content="[PATCH 0/3] mm: introduce snapshot_page() (Luiz Capitulino) https://lore.kernel.org/cover.1750961812.git.luizcap@redhat.com
+Luiz introduces a helper functions for creating a snapshot of a page and its folio.
+[PATCH v4 0/2] fix MADV_COLLAPSE issue if THP settings are disabled (Baolin Wang) https://lore.kernel.org/cover.1750815384.git.baolin.wang@linux.alibaba.com
+Baolin posted a patch series for making THP never means never."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-06-27T07:25:29-07:00">
+    
+      <meta property="article:published_time" content="2025-06-27T07:25:29-07:00">
+    
+    <meta property="article:modified_time" content="2025-06-27T07:25:29-07:00">
   
 
   
 
 
+    
 
+
+
+
+
+
+  
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://sjp38.github.io/post/lkml_news_v6.16-rc4/"
+  },
+  "headline": "LKML News v6.16-rc4",
+  
+  "datePublished": "2025-06-27T07:25:29-07:00",
+  "dateModified": "2025-06-27T07:25:29-07:00",
+  
+  "author": {
+    "@type": "Person",
+    "name": "SeongJae Park (SJ)"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "hacklog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://sjp38.github.io/img/icon-512.png"
+    }
+  },
+  "description": "[PATCH 0/3] mm: introduce snapshot_page() (Luiz Capitulino) https://lore.kernel.org/cover.1750961812.git.luizcap@redhat.com\nLuiz introduces a helper functions for creating a snapshot of a page and its folio.\n[PATCH v4 0/2] fix MADV_COLLAPSE issue if THP settings are disabled (Baolin Wang) https://lore.kernel.org/cover.1750815384.git.baolin.wang@linux.alibaba.com\nBaolin posted a patch series for making THP never means never."
+}
+</script>
+
+  
 
   
 
@@ -171,10 +220,13 @@
   
 
 
+  
 
 
 
-  <title>kernel | hacklog</title>
+
+
+  <title>LKML News v6.16-rc4 | hacklog</title>
 
 </head>
 
@@ -396,7 +448,7 @@
         
 
         <li class="nav-item">
-          <a class="nav-link  active" href="/tags"><span>Tags</span></a>
+          <a class="nav-link " href="/tags"><span>Tags</span></a>
         </li>
 
         
@@ -466,22 +518,6 @@
       
 
       
-      <li class="nav-item dropdown i18n-dropdown">
-        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true">
-          <i class="fas fa-globe mr-1" aria-hidden="true"></i><span class="d-none d-lg-inline">English</span>
-        </a>
-        <div class="dropdown-menu">
-          <div class="dropdown-item i18n-active font-weight-bold">
-            <span>English</span>
-          </div>
-          
-          <a class="dropdown-item" href="/ko/tags/kernel/">
-            <span>한국어</span>
-          </a>
-          
-        </div>
-      </li>
-      
 
     </ul>
 
@@ -489,184 +525,347 @@
 </nav>
 
 
-  
-
-
-
-
-
-
-
-
-
-
-
+  <article class="article">
 
   
 
+
+
+
+
+
+
+
+
+
+
+
+  
+
   
   
+  
+<div class="article-container pt-3">
+  <h1>LKML News v6.16-rc4</h1>
+
+  
+
   
     
-  
-<div class="universal-wrapper pt-3">
-  <h1>kernel</h1>
+
+
+<div class="article-metadata">
 
   
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Fri, Jun 27, 2025
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   
 </div>
 
 
 
-<div class="universal-wrapper">
-  
+  <div class="article-container">
 
-  
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.15-rc6/">LKML News v5.15-rc6</a></h2>
     <div class="article-style">
-      
-      mmotm 2021-10-10-18-19 uploaded (Andrew Morton) https://lkml.kernel.org/r/20211011012001.mSbkDke0y%akpm@linux-foundation.org
-Update of mmotm. 33 new patches added and 7 old patches dropped. 285 patches in total.
-[PATCH v2 0/2] Introduce simple pidfd to task helper (Christian Brauner) https://lkml.kernel.org/r/20211011133245.1703103-1-brauner@kernel.org
-This patchset adds a simple helper to make code clean without duplications.
-[PATCH v0.7 0/5] sched,mm,x86/uaccess: implement User Managed Concurrency Groups (Peter Oskolkov) https://lkml.kernel.org/r/20211012232522.714898-1-posk@google.com
-This patchset implements the kernel parts for user-space m:n threading. If this is finalized and merged, user-space applications will be able to do the scheduling of their threads on their own.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.15-rc5/">LKML News v5.15-rc5</a></h2>
-    <div class="article-style">
-      
-      [PATCH 0/2] Introduce simple pidfd to task helper (Christian Brauner) https://lkml.kernel.org/r/20211004125050.1153693-1-christian.brauner@ubuntu.com
-This patchset adds a pidfd handling wrapper for removing duplications.
-[PATCH 00/62] Separate struct slab from struct page (Matthew Wilcox) https://lkml.kernel.org/r/20211004134650.4031813-1-willy@infradead.org
-This huge patchset separates struct slab from struct page to make struct page simple and therefore easier to handle.
-[PATCH v3 00/66] Introducing the Maple Tree (Liam Howlett) https://lkml.kernel.org/r/20211005012959.1110504-1-Liam.Howlett@oracle.com
-This patchset introduces Maple tree, which is intended to replace the rb tree for vmas, to improve the scalability.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.15-rc4/">LKML News v5.15-rc4</a></h2>
-    <div class="article-style">
-      
-      [RFC PATCH 0/8] mm/madvise: support process_madvise(MADV_DONTNEED) (Nadav Amit) https://lkml.kernel.org/r/20210926161259.238054-1-namit@vmware.com
-This patchset makes process_madvise() to support MADV_DONTNEED hint.
-mmotm 2021-09-28-19-05 uploaded (Andrew Morton) https://lkml.kernel.org/r/20210929020604.DyNimbxao%akpm@linux-foundation.org
-The mm-of-the-moment snapshot has been updated. 13 drop, 45 add, 37 modified. 184 patches in the broken/ in total.
-[PATCH 1/2] memcg: flush stats only if updated (Shakeel Butt) https://lkml.kernel.org/r/20210930044711.2892660-1-shakeelb@google.com
-This patchset makes memcg stats updated only when needed, as it is currently flushed on every refault and reclaim iteration.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.15-rc3/">LKML News v5.15-rc3</a></h2>
-    <div class="article-style">
-      
-      [RFC PATCH] Introducing lockless cache built on top of slab allocator (Hyeonggon Yoo) https://lkml.kernel.org/r/20210919164239.49905-1-42.hyeyoo@gmail.com
-The block layer now has a lockless cache, which increased its IOPS. This RFC generalizes it so that it can be used in some other area, such as NAPI.
-[PATCH v5 0/3] virtio-mem: disallow mapping virtio-mem memory via /dev/mem (David Hildenbrand) https://lkml.kernel.org/r/20210920142856.17758-1-david@redhat.com
-This patchset makes a basic infrastructure to exclude some physical memory regions that marked as IORESOURCE_SYSTEM_RAM from /dev/mem access, even though they are not marked as IORESOURCE_BUSY.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.15-rc2/">LKML News v5.15-rc2</a></h2>
-    <div class="article-style">
-      
-      [PATCH v1] vmpressure: wake up work only when there is registration event (wangyong) https://lkml.kernel.org/r/1631548441-2784-1-git-send-email-wang.yong12@zte.com.cn
-Currently, vmpressure works are awaken even though there are no vmpressure callbacks. This commit avoids such unnecessary wakeup by counting the number of registered events and skip waking up works if the number is zero.
-[PATCH v3 00/76] Optimize list lru memory consumption (Muchun Song) https://lkml.kernel.org/r/20210914072938.6440-1-songmuchun@bytedance.com
-Muchun found kmalloc-32 for list_lru_one allocation consuming 6 GiB of memory on their server.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.15-rc1/">LKML News v5.15-rc1</a></h2>
-    <div class="article-style">
-      
-      [RFC PATCH] mm/oom: detect and kill task which has allocation forbidden by cpuset limit (Feng Tang) https://lkml.kernel.org/r/1630399085-70431-1-git-send-email-feng.tang@intel.com
-Docker needs to allocate memory in non-movable zones for creation of an OS (e.g., GFP_HIGHUSER). However, if it is binded to a cpuset which has only movable zone, the allocation fails and OOM storm attacks other innocent processes. This patch detects the case and kill only the allocation failing process.
-Folios: Can we resolve this please?
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.14/">LKML News v5.14</a></h2>
-    <div class="article-style">
-      
-      [GIT PULL] Memory folios for v5.15 (Matthew Wilcox) https://lkml.kernel.org/r/YSPwmNNuuQhXNToQ@casper.infradead.org
-Matthew Wilcox sent a pull request for his page folio works to Linus Torvalds. Linus Torvalds replied he wants this to work in reverse. That is, calling head pages as normal pages but calling tail pages something other, as the term, page, is more common and de-facto standard in the industry.
-mmotm 2021-08-23-16-42 uploaded (Andrew Morton) https://lkml.kernel.org/r/20210823234329.H9WD-du1K%akpm@linux-foundation.org
-MMOTM is rebased on v5.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.14-rc7/">LKML News v5.14-rc7</a></h2>
-    <div class="article-style">
-      
-      [PATCH v2 0/3] virtio-mem: disallow mapping virtio-mem memory via /dev/mem (David Hildenbrand) https://lkml.kernel.org/r/20210816142505.28359-1-david@redhat.com
-Once the virtio-mem driver is plugging/unplugging memory of virtual machines, accessing the memory region via /dev/mem from the user space makes no sense. To avoid such insane use case, this patchset adds a basic infrastructure to exclude some physical memory regions completely from /dev/mem.
-[PATCH v2 00/61] Introducing the Maple Tree (Liam Howlett) https://lkml.kernel.org/r/20210817154651.1570984-1-Liam.Howlett@oracle.com
-This patchset introduces a new data structure called maple tree, which intended to replace the rbtree for vm_area_struct.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.14-rc6/">LKML News v5.14-rc6</a></h2>
-    <div class="article-style">
-      
-      [PATCH v9 1/2] mm: introduce process_mrelease system call (Suren Baghdasaryan) https://lkml.kernel.org/r/20210809185259.405936-1-surenb@google.com
-9th version of the patchset which introducing a new system call for releasing memory of a process in a speedy manner.
-mmotm 2021-08-09-19-18 uploaded (Andrew Morton) https://lkml.kernel.org/r/20210810021934.XcpwGUEMn%akpm@linux-foundation.org
--mm tree updated.
-[PATCH 0/5] x86: Impplement support for unaccepted memory (Kirill A. Shutemov) https://lkml.kernel.org/r/20210810062626.1012-1-kirill.shutemov@linux.intel.com
-Some platforms like Intel TDX or AMD SEV-SNP require memory to be accepted before it can be used by the guest.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.14-rc5/">LKML News v5.14-rc5</a></h2>
-    <div class="article-style">
-      
-      [PATCH 0/3] mm: optimize thp for reclaim and migration (Yu Zhao) https://lkml.kernel.org/r/20210731063938.1391602-1-yuzhao@google.com
-This patchset drops subpages of THPs which contain only zero contents when splitting those, to reduce memory pressure overheads due to THP internal fragmentations.
-[PATCH v4 1/2] mm: introduce process_mrelease system call (Suren Baghdasaryan) https://lkml.kernel.org/r/20210802221431.2251210-1-surenb@google.com
-This patchset introduces a new system call, namely process_mrelease(). It can be used to quickly release memory of a process.
-[PATCH v7 0/5] Introduce multi-preference mempolicy (Feng Tang) https://lkml.
-      
-    </div>
-  </div>
-  
+      <h2 id="patch-03-mm-introduce-snapshot_page-luiz-capitulino">[PATCH 0/3] mm: introduce snapshot_page() (Luiz Capitulino)</h2>
+<p><a href="https://lore.kernel.org/cover.1750961812.git.luizcap@redhat.com">https://lore.kernel.org/cover.1750961812.git.luizcap@redhat.com</a></p>
+<p>Luiz introduces a helper functions for creating a snapshot of a page and its
+folio.</p>
+<h2 id="patch-v4-02-fix-madv_collapse-issue-if-thp-settings-are-disabled-baolin-wang">[PATCH v4 0/2] fix MADV_COLLAPSE issue if THP settings are disabled (Baolin Wang)</h2>
+<p><a href="https://lore.kernel.org/cover.1750815384.git.baolin.wang@linux.alibaba.com">https://lore.kernel.org/cover.1750815384.git.baolin.wang@linux.alibaba.com</a></p>
+<p>Baolin posted a patch series for making THP never means never.</p>
 
+    </div>
+
+    
+
+
+
+
+
+<div class="article-tags">
   
-<nav>
-  <ul class="pagination justify-content-center">
+  <a class="badge badge-light" href="/tags/linux/">linux</a>
+  
+  <a class="badge badge-light" href="/tags/kernel/">kernel</a>
+  
+  <a class="badge badge-light" href="/tags/lkml/">lkml</a>
+  
+  <a class="badge badge-light" href="/tags/news/">news</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
     
-    <li class="page-item"><a class="page-link" href="/tags/kernel/page/18/">&laquo;</a></li>
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=https://sjp38.github.io/post/lkml_news_v6.16-rc4/&amp;text=LKML%20News%20v6.16-rc4" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
     
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=https://sjp38.github.io/post/lkml_news_v6.16-rc4/&amp;t=LKML%20News%20v6.16-rc4" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
     
-    <li class="page-item"><a class="page-link" href="/tags/kernel/page/20/">&raquo;</a></li>
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=LKML%20News%20v6.16-rc4&amp;body=https://sjp38.github.io/post/lkml_news_v6.16-rc4/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=https://sjp38.github.io/post/lkml_news_v6.16-rc4/&amp;title=LKML%20News%20v6.16-rc4" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=LKML%20News%20v6.16-rc4%20https://sjp38.github.io/post/lkml_news_v6.16-rc4/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=https://sjp38.github.io/post/lkml_news_v6.16-rc4/&amp;title=LKML%20News%20v6.16-rc4" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
     
   </ul>
-</nav>
-
-
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      <img class="portrait mr-3" src="https://s.gravatar.com/avatar/43dc5645c78e68fda997138380dfaaf4?s=200')" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="https://sjp38.github.io/">SeongJae Park (SJ)</a></h5>
+      <h6 class="card-subtitle">Kernel Programmer</h6>
+      <p class="card-text">SeongJae Park (SJ) is a programmer who loves to analyze and develop systems.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://social.kernel.org/sj" target="_blank" rel="noopener">
+        <i class="fab fa-linux"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/sjp38" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://www.linkedin.com/in/seongjae-park-1a5b9954/" target="_blank" rel="noopener">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.com/citations?user=jJIiF3AAAAAJ" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  
+  
+  <div class="article-widget content-widget-hr">
+    <h3>Related</h3>
+    <ul>
+      
+      <li><a href="/post/lkml_news_v6.16-rc3/">LKML News v6.16-rc3</a></li>
+      
+      <li><a href="/post/lkml_news_v6.16-rc2/">LKML News v6.16-rc2</a></li>
+      
+      <li><a href="/post/lkml_news_v6.16-rc1/">LKML News v6.16-rc1</a></li>
+      
+      <li><a href="/post/lkml_news_v6.15/">LKML News v6.15</a></li>
+      
+      <li><a href="/post/lkml_news_v6.15-rc7/">LKML News v6.15-rc7</a></li>
+      
+    </ul>
+  </div>
+  
+
+
+
+  </div>
+</article>
 
       
 
