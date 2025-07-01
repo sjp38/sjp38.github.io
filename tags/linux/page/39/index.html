@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-06-27T07:25:29-07:00">
+    <meta property="og:updated_time" content="2025-07-01T07:13:24-07:00">
   
 
   
@@ -525,6 +525,17 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v4.15-rc7/">LKML News after v4.15-rc7</a></h2>
+    <div class="article-style">
+      
+      Linux 4.15-rc7 https://lkml.kernel.org/r/CA+55aFwbmKznuQZe_VemxXJPSmB-9yy8uyWsMZcrkA4T=m8xkw@mail.gmail.com
+Meltdown 과 Spectre 로 떠들썩했던 시간을 지나 4.15 의 일곱번째 rc 버전이 릴리즈 되었습니다. 지난 여섯번째 릴리즈 때도 상당히 안정화에 신경써야 할 시점임에도 x86 pti (page table isolation) 업데이트 패치가 많이 머지되어 의아했는데, 이게 Meltdown 과 Spectre 버그 때문이었음도 밝혀졌죠. 그렇다곤 해도 그 외의 부분은 예상대로 상당히 안정화 되어가고 있다고 합니다.
+더불어, Thomas Geixner 등의 인텔쪽 커널 개발자들의 노력 덕에 pti 등 Meltdown 과 Spectre 버그를 위한 패치가 잘 관리되어 비교적 쉽게 머지될 수 있었음에 리누스가 감사를 표하네요.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v4.15-rc6/">LKML News after v4.15-rc6</a></h2>
     <div class="article-style">
       
@@ -637,19 +648,6 @@ Lockdep 의 cross release 기능은 너무 느렸고, false positive 가 많다�
 ![foo] (/img/osse_04/3.jpg)
 ![foo] (/img/osse_04/4.jpg)
 도착하니 7시 반 정도. 공식 스케쥴은 8시부터 시작이라 아직 한산합니다. 스폰서 부스도 아직 준비중인 곳이 많고, 아직 준비가 덜된 곳도 많습니다. 돌아다니며 인사도 하고 간단한 스몰토크도 하면서 시간을 보냈습니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.14/">LKML News after v4.14</a></h2>
-    <div class="article-style">
-      
-      Linux 4.14 htpps://lkml.kernel.org/r/CA+55aFwqXh4rgJJ3T98k8wa-JYF7t8mWuwUjdxkbZyOyDEcGzQ@mail.gmail.com
-드디어 v4.14 의 릴리즈입니다. 이번 버전은 또하나의 LTS 커널이 될 예정이군요.
-동시에, v4.15 를 위한 머지 윈도우가 열렸습니다. 이번 머지 윈도우는 thanks giving 이랑 겹치게 되었는데, 이때문에 머지 윈도우를 연장할지 아니면 아예 1주일 줄일지 토발즈는 고민중인 것 같네요.
-[RFC PATCH v11 for 4.15 01/24] Restartable sequences system call https://lkml.kernel.org/r/20171114200414.2188-2-mathieu.desnoyers@efficios.com
-몇년전부터 올라오고 있으나 아직 머지되지 못한, restartable sequence 패치의 최신 버전이 또 올라왔습니다. 유저스페이스의 크리티컬 섹션을 커널에게 제어할 수 있도록 도와주는 기능입니다.
       
     </div>
   </div>

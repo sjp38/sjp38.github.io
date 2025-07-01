@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-06-27T07:25:29-07:00">
+    <meta property="og:updated_time" content="2025-07-01T07:13:24-07:00">
   
 
   
@@ -525,6 +525,19 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.5-rc4/">LKML News v6.5-rc4</a></h2>
+    <div class="article-style">
+      
+      [PATCH v5 0/7] Add support for memmap on memory feature on ppc64 (Aneesh Kumar K.V) https://lkml.kernel.org/r/20230725100212.531277-1-aneesh.kumar@linux.ibm.com
+Aneesh continues adding support of memmap_on_memory for more architectures.
+[PATCH mm-unstable v7 00/31] Split ptdesc from struct page (Vishal Moola) https://lkml.kernel.org/r/20230725042051.36691-1-vishal.moola@gmail.com
+The seventh revision of the patchset for splitting page table tracking information out of struct page for making it smaller.
+[PATCH v3 00/49] use refcount+RCU method to implement lockless slab shrink (Qi Zheng) https://lkml.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.5-rc3/">LKML News v6.5-rc3</a></h2>
     <div class="article-style">
       
@@ -633,20 +646,6 @@ For madvise(MADV_PAGEOUT) is called for folios, PSI for the folio is not always 
 Uladzislau sent a patchset for vmap lock contention mitigation, as suggested at LSFMM+BPF.
 [PATCH] mm: deduct the number of pages reclaimed by madvise from workingset (Zhaoyang Huang) https://lkml.kernel.org/r/1684919574-28368-1-git-send-email-zhaoyang.huang@unisoc.com
 Pages reclaimed by madvise() with MADV_PAGEOUT hint doesn&rsquo;t handle the workingset, hence leads to large refault distance than it should be. This patch addresses the case by making reclaim_pages() to receive mm_struct and deduct the pages from workingset.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.4-rc3/">LKML News v6.4-rc3</a></h2>
-    <div class="article-style">
-      
-      [PATCH v3 00/11] Introduce cmpxchg128() &ndash; aka. the demise of cmpxchg_double() (Peter Zijlstra) https://lkml.kernel.org/r/20230515075659.118447996@infradead.org
-This patchset introduces an alternative for cmpxchg_double(), namely cmpxchg128(), and replace the old usages of cmpxchg_double(). This is because Linus hates cmpxchg_double()[1].
-[1] https://lore.kernel.org/all/Y2U3WdU61FvYlpUh@hirez.programming.kicks-ass.net/T/#u
-[PATCH 0/6] Memory Mapping (VMA) protection using PKU - set 1 (Jeff Xu) https://lkml.kernel.org/r/20230515130553.2311248-1-jeffxu@chromium.org
-[Invitation] Linux MM Alignment Session on Code Tagging on Wednesday (David Rientjes) https://lkml.kernel.org/r/CAE-26VDomF_pZybGjgCBJZuWusX0z3MTEJmkwtuQXx3PyrN6fw@mail.gmail.com
-Google is hosting Linux MM alignment session.
       
     </div>
   </div>

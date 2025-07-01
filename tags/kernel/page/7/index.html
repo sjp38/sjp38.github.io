@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-06-27T07:25:29-07:00">
+    <meta property="og:updated_time" content="2025-07-01T07:13:24-07:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.9-rc3/">LKML News v6.9-rc3</a></h2>
+    <div class="article-style">
+      
+      [PATCH v3 0/7] mm/kvm: Improve parallelism for access bit harvesting (James Houghton) https://lkml.kernel.org/r/20240401232946.1837665-1-jthoughton@google.com
+James posted the third version of the patchset for adding KVM&rsquo;s test-and-clear-access-bits fast path that doesn&rsquo;t take mmu_lock. It is RFC because the author wants to do more performance tests, and unusre if the arm64 part is correct.
+[PATCH] mm, mmap: remove vma_merge() (Vlastimil Babka) https://lkml.kernel.org/r/20240401192623.18575-2-vbabka@suse.cz
+After the successful removal of SLAB, Vlastimil suggests to remove vma_merge(). But the patch has sent on 2024-04-01 :)
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.9-rc2/">LKML News v6.9-rc2</a></h2>
     <div class="article-style">
       
@@ -636,18 +648,6 @@ Matthew introduces an idea to improve the PCP allocator, roughly saying, keeping
 Zi enables larger than zero order folio compaction, which is the prerequisite for large folio support.
 [PATCH v2 1/3] mm: make vm_area_struct anon_name field RCU-safe (Suren Baghdasaryan) https://lkml.kernel.org/r/20240123231014.3801041-1-surenb@google.com
 For lockless /proc/pid/maps reads, this patch makes anon_name field of vm_area_struct, which is the only one field that need to be accessed for reading the file but not RCU-protected, to be protected by RCU.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.8-rc1/">LKML News v6.8-rc1</a></h2>
-    <div class="article-style">
-      
-      [GIT PULL] MM updates for 6.8-rc1 (Andrew Morton) https://lkml.kernel.org/r/20240108155039.fd2798712a2a93a108b710ce@linux-foundation.org/
-Andrew Morton sent the memory management subsystem side pull request for Linux v6.8-rc1 to Linus Torvalds. The request has many interesting changes including zswap writeback improvement, Feedback-based DAMOS autotuning, Multi-size anon THP, KSM advisor and many more.
-[GIT PULL] non-MM updates for 6.8-rc1 (Andrew Morton) https://lkml.kernel.org/r/20240109110420.dcdefe80d76257d9ff645a32@linux-foundation.org
-Andrew sent yet another pull request for out of memory management subsystem changes to Linus Torvalds.
       
     </div>
   </div>

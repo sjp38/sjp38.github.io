@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-06-27T07:25:29-07:00">
+    <meta property="og:updated_time" content="2025-07-01T07:13:24-07:00">
   
 
   
@@ -525,6 +525,20 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.18-rc4/">LKML News v5.18-rc4</a></h2>
+    <div class="article-style">
+      
+      LSF/MM/BPF 2022: Running BOF (Matthew Wilcox) https://lkml.kernel.org/r/Yl7TUDtLcrhXcp1g@casper.infradead.org
+Matthew is proposing a running BOF, which would do discussions while running after a breakfast.
+mmotm 2022-04-20-17-12 uploaded (Andrew Morton) https://lkml.kernel.org/r/20220421001235.5F4E0C385A0@smtp.kernel.org
+-mm tree has updated. It&rsquo;s rebased on 5.18-rc3, added 69 patches modified 126 patches, and dropped 35 patches. In total, 291 patches in the queue.
+[PATCH v2] mm: make minimum slab alignment a runtime property (Peter Collingbourne) https://lkml.kernel.org/r/20220421211549.3884453-1-pcc@google.com
+This makes slab alignment a runtime property and only align to 16 if KASAN is enabled at runtime.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.18-rc3/">LKML News v5.18-rc3</a></h2>
     <div class="article-style">
       
@@ -635,18 +649,6 @@ mmotm has updated. It&rsquo;s rebased on 5.17-rc4, added 20 new patches, modifie
 When a contiguous HugeTLB page is mapped, set_pte_at() is called CONT_PTES / CONT_PMDS times. Because the first flushing covers subsequent flushes, this is unnecessary overhead, so this patchset avoids it.
 [PATCH v7 00/12] Multigenerational LRU Framework (Yu Zhao) https://lkml.kernel.org/r/20220208081902.3550911-1-yuzhao@google.com
 Seventh version of the MGLRU patchset, which aims to reduce performance overhead and improve eviction target pages selection of reclamation logic is posted.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.17-rc3/">LKML News v5.17-rc3</a></h2>
-    <div class="article-style">
-      
-      [PATCH] selftests: kselftest framework: Provide &ldquo;finished&rdquo; helper (Kees Cook) https://lkml.kernel.org/r/20220201013717.2464392-1-keescook@chromium.org
-Users who want to use ksft_exit() need to figure out the internals of kselftest. This commit adds a helper function for that purpose, namely, ksft_finished().
-[LSF/MM/BPF TOPIC] Handling of VMAs (Liam Howlett) https://lkml.kernel.org/r/20220201150521.owa5axfsmpdvc7uo@revolver
-Liam is pointing out the VMAs are quite complicately managed with their cache, tree, linked list, and even reverse mapping. As it now shows its limit with the lock contention and complexity of the handling code, he wants to propose a simpler new way for their management.
       
     </div>
   </div>

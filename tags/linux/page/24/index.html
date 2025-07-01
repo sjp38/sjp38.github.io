@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-06-27T07:25:29-07:00">
+    <meta property="og:updated_time" content="2025-07-01T07:13:24-07:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.11-rc5/">LKML News v5.11-rc5</a></h2>
+    <div class="article-style">
+      
+      [PATCH v2 00/27] Page folios (Matthew Wilcox) https://lkml.kernel.org/r/20210118170148.3126186-1-willy@infradead.org
+This is the second version of the page folios patchset. This introduces a new struct named folio. Functions that receive folio as an argument always receives head page, so the function don&rsquo;t need to do compound_head().
+[PATCH -V9 0/3] numa balancing: Migrate on fault among multiple bound nodes (Huang Ying) https://lkml.kernek.org/r/20210120061235.148637-1-ying.huang@intel.com
+This patch make optimization of cross-socket memory accesses for AutoNUMA in case of application is bound to multiple NUMA nodes possible.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.11-rc4/">LKML News v5.11-rc4</a></h2>
     <div class="article-style">
       
@@ -639,18 +651,6 @@ This patchset makes AutoNUMA&rsquo;s cross-socket memory access optimization pos
 [PATCH] kfence: Avoid stalling work queue task without allocations (Marco Elver) https://lkml.kernel.org/r/20201110135320.3309507-1-elver@google.com
 This commit makes the toggle allocation gate of kfence to have 1 second timeout, to be prepared for allocation stallings.
 [RFC PATCH 0/6] Split huge pages to any lower order pages.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.10-rc3/">LKML News v5.10-rc3</a></h2>
-    <div class="article-style">
-      
-      [PATCH v7 0/9] KFENCE: A low-overhead sampling-based memory safety error detector (Marco Elver) https://lkml.kernel.org/r/20201103175841.3495947-1-elver@google.com
-The 7th version of KFENCE. Now the authors say they believe this is ready to be included in the mm tree. And, it has now merged in the -mm tree.
-[PATCH] page_frag: Recover from memory pressure (Matthew Wilcox) https://lkml.kernel.org/r/20201105042140.5253-1-willy@infradead.org
-After an extreme memory pressure, some non-essential packets can be dropped because the &lsquo;page_frag&rsquo; allocator do the drops to recover from the memory pressure but it doesn&rsquo;t change back the behavior even after the recovery.
       
     </div>
   </div>

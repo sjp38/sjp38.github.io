@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-06-27T07:25:29-07:00">
+    <meta property="og:updated_time" content="2025-07-01T07:13:24-07:00">
   
 
   
@@ -525,6 +525,20 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.10-rc5/">LKML News v6.10-rc5</a></h2>
+    <div class="article-style">
+      
+      [GIT PULL] hotfixes for 6.10-rc5 (Andrew Morton) https://lore.kernel.org/20240617114712.45d4743f8bacb832dea4b5a9@linux-foundation.org
+Andrew posted hotfixes pull request to Linus Torvalds.
+[PATCH] Add accumulated call counter for memory allocation profiling (David Wang) https://lore.kernel.org/20240617153250.9079-1-00107082@163.com
+David sent a patch for adding accumulated call counter for memory allocation profiling. He argues this could help performance behaviors analysis.
+[RFC PATCH v1 0/5] Alternative mTHP swap allocator improvements (Ryan Roberts) https://lore.kernel.org/20240618232648.4090299-1-ryan.roberts@arm.com
+Ryan posted this proof-of-concept patchset for achieving 0% fallback at mTHP swap.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.10-rc4/">LKML News v6.10-rc4</a></h2>
     <div class="article-style">
       
@@ -638,18 +652,6 @@ Alex sent the first patchset for making KSM uses folios.
 Marco sent a patch for adding a new tracepoint. The tracepoint is for tracing a case where new exec starts while having original state including the mm.
 Announcing Community Engagement Working Group (Nikolai Kondrashov) https://lkml.kernel.org/r/bf81be70-61ec-4169-b66a-5c3136869107@gmail.com/
 KernelCI project announces Community Engagement Working Group which will purpose to connect with kernel maintainers and discuss test quality improvement for their subsystems.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.9-rc3/">LKML News v6.9-rc3</a></h2>
-    <div class="article-style">
-      
-      [PATCH v3 0/7] mm/kvm: Improve parallelism for access bit harvesting (James Houghton) https://lkml.kernel.org/r/20240401232946.1837665-1-jthoughton@google.com
-James posted the third version of the patchset for adding KVM&rsquo;s test-and-clear-access-bits fast path that doesn&rsquo;t take mmu_lock. It is RFC because the author wants to do more performance tests, and unusre if the arm64 part is correct.
-[PATCH] mm, mmap: remove vma_merge() (Vlastimil Babka) https://lkml.kernel.org/r/20240401192623.18575-2-vbabka@suse.cz
-After the successful removal of SLAB, Vlastimil suggests to remove vma_merge(). But the patch has sent on 2024-04-01 :)
       
     </div>
   </div>
