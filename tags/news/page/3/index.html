@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-07-01T07:13:24-07:00">
+    <meta property="og:updated_time" content="2025-07-14T06:38:42-07:00">
   
 
   
@@ -525,6 +525,20 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.14-rc2/">LKML News v6.14-rc2</a></h2>
+    <div class="article-style">
+      
+      [LSF/MM/BPF TOPIC] Integrate Swap Cache, Swap Maps with Swap Allocator (Kairui Song) https://lore.kernel.org/CAMgjq7BvQ0ZXvyLGp2YP96+i+6COCBBJCYmjXHGBnfisCAb8VA@mail.gmail.com
+Kairui proposes yet another LSFMMBPF topic for redesigning and integrating multiple swap data into the swap allocator.
+[PATCH v4 00/14] kexec: introduce Kexec HandOver (KHO) (Mike Rapoport) https://lore.kernel.org/20250206132754.2596694-1-rppt@kernel.org
+Mike posted the fourth version of the kexec handover patch series.
+Linux 6.14-rc2 (Linus Torvalds) https://lore.kernel.org/CAHk-=wiGR6aB2oE7VsDkpnSbHaUnxVqtMvcEB0JzdvS-YmT_Lg@mail.gmail.com
+Linus Torvalds released the second candidate of Linux 6.14. It is a small rc2 following the small rc1 pattern.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.14-rc1/">LKML News v6.14-rc1</a></h2>
     <div class="article-style">
       
@@ -636,18 +650,6 @@ Andrew posted memory management subsystem pull request for v6.13-rc1 to Linus To
 Jens is continuing his work on support of buffered IO that isn&rsquo;t page cache persistent. The motivation is the fact that device speed is getting faster while reclaim is not.
 [RFCv1 0/6] Page Detective (Pasha Tatashin) https://lore.kernel.org/20241116175922.3265872-1-pasha.tatashin@soleen.com
 Pasha posted an RFC patch series for better debugging of page status.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.12/">LKML News v6.12</a></h2>
-    <div class="article-style">
-      
-      [PATCH 0/4] move per-vma lock into vm_area_struct (Suren Baghdasaryan) https://lore.kernel.org/20241111205506.3404479-1-surenb@google.com
-Suren posted a patch moving vm_lock back into vm_area_struct after confirming the performance regression found before happens only on limited cases (old Broadwell microarchitecture).
-[PATCH] lib/alloc_tag: Remove the sysctl configuration to prevent users from disabling it at runtime (Hao Ge) https://lore.kernel.org/20241108075004.131911-1-hao.ge@linux.dev
-Hao tries to remove runtime memory allocation profiling on/off knob, since he believes it is only making users confused.
       
     </div>
   </div>

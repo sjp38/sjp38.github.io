@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-07-01T07:13:24-07:00">
+    <meta property="og:updated_time" content="2025-07-14T06:38:42-07:00">
   
 
   
@@ -525,6 +525,17 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v4.20-rc2/">LKML News by v4.20-rc2</a></h2>
+    <div class="article-style">
+      
+      [PATCH 0/5] Fragmentation avoidance improvements v2 https://lkml.kernel.org/r/20181107183822.15567-1-mgorman@techsingularity.net
+장시간 운영되는 시스템은 결국 메모리가 단편화 (fragmentation) 되게 되어 있습니다. 페이징을 사용하면 단일 페이지 단위 할당은 문제가 없지만, 물리적으로 연속적인 페이지를 할당받기가 어려워지죠. Mel Gorman 의 이 패치는 이런 메모리 분절화를 좀 더 잘 막을 수 있는 방법을 포함하고 있습니다.
+첫번째 패치는 단일 페이지 또는 적은 물리적 연속 페이지들의 할당 시에 불필요하게 higher order free page zone 을 사용하지 않게 하고, 두번째와 세번째 패치는 kswapd 와 kcompactd 를 사용한 defragmentation 을 좀 더 적극적으로 하게 합니다.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v4.20-rc1/">LKML News by v4.20-rc1</a></h2>
     <div class="article-style">
       
@@ -627,16 +638,6 @@ Plumbers 2018 - Performance and Scalability Microconference https://lkml.
 이주일의 머지 윈도우가 끝나고 리눅스 4.19 버전을 향한 안정화 단계가 시작되었습니다.
 토발즈에겐 결코 즐겁지 않은 머지 윈도우였습니다 (frustrating merge window 였다고 표현하는군요). 일단 머지 윈도우 초기부터 L1TF 취약점 이슈가 나왔죠. 하지만 이슈가 처음 발견된 건 아니고 공식 보고된 거다보니 그 전부터 수정은 하고 있었기에 머지만 하면 됐습니다. 토발즈는 -next 트리와 다양한 커널 테스트 시스템들이 잘 갖추어져 있다는 증거라고 이야기 합니다.
 또, TLB 슛다운 버그에 대한 보고가 있었군요. 결국은 큰 문제는 아니었다고 결론났음에도 토발즈의 신경을 많이 긁었다고 합니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.18/">Lkml_news_v4.18</a></h2>
-    <div class="article-style">
-      
-      Linux 4.18 https://lkml.kernel.org/r/CA+55aFzos7tr=OLju10Oe-z7r=eB2dSaFa7vwz2ApGO13B=z_g@mail.gmail.com
-자, 오랫만에 rc 버전을 8개나 내며 긴 안정화 기간을 거친 4.18 버전이 릴리즈 되었습니다. 따라서 지난주는 조용해야 했고 실제로 조용했지만 그럼에도 불구하고 vfs 레이스 컨디션 문제 수정 등의 변경도 있긴 했습니다. 이번 정식 릴리즈로 포함된 기능 중 개인적으로는 Restartable Sequence 가 눈에 띄고 흥미롭군요. 아마 2015년? 인가에 서울에서 커널 서밋 열려서 거기서 발표 들었을 때부터 관심있었거든요. 유저스페이스에서 이 기능을 잘 사용하면 멀티코어 성능확장성에 큰 개선이 가능할 것 같습니다.
       
     </div>
   </div>

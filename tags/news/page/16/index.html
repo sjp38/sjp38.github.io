@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-07-01T07:13:24-07:00">
+    <meta property="og:updated_time" content="2025-07-14T06:38:42-07:00">
   
 
   
@@ -525,6 +525,20 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.18-rc5/">LKML News v5.18-rc5</a></h2>
+    <div class="article-style">
+      
+      [PATCH v5 0/4] memcg: introduce per-memcg proactive reclaim (Yosry Ahmed) https://lkml.kernel.org/r/20220425190040.2475377-1-yosryahmed@google.com
+The fifth version of the patchset for adding per-memch proactive reclamation trigger interface.
+mmotm 2022-04-25-17-59 uploaded (Andrew Morton) https://lkml.kernel.org/r/20220426005932.848CBC385A4@smtp.kernel.org
+The mmotm has updated. It has rebased on 5.18-rc4, added 62 new patches, modified 8 patches, and dropped 19 patches. In total, 334 patches in the queue.
+[PATCH -V2 0/3] memory tiering: hot page selection (Huang Ying) https://lkml.kernel.org/r/20220426085105.60822-1-ying.huang@intel.com
+This patchset adds hot pages selection to the tiered memory promotion mechanism for better performance.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.18-rc4/">LKML News v5.18-rc4</a></h2>
     <div class="article-style">
       
@@ -637,18 +651,6 @@ MADV_DONTNEED can be used for hugetlb but currently prohibits it with a simple c
 mmotm 2022-02-14-17-46 uploaded (Andrew Morton) https://lkml.kernel.org/r/20220215014633.9CD9CC340E9@smtp.kernel.org
 mmotm has updated. It&rsquo;s rebased on 5.17-rc4, added 20 new patches, modified 295 patches, and dropped 10 patches. In total, 316 patches in the queue.
 [PATCH v6 00/71] Introducing the Maple Tree (Liam Howlett) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.17-rc4/">LKML News v5.17-rc4</a></h2>
-    <div class="article-style">
-      
-      [PATCH v2 1/2] arm64: avoid flushing icache multiple times on contiguous HugeTLB (Muchun Song) https://lkml.kernel.org/r/20220208054632.66534-1-songmuchun@bytedance.com
-When a contiguous HugeTLB page is mapped, set_pte_at() is called CONT_PTES / CONT_PMDS times. Because the first flushing covers subsequent flushes, this is unnecessary overhead, so this patchset avoids it.
-[PATCH v7 00/12] Multigenerational LRU Framework (Yu Zhao) https://lkml.kernel.org/r/20220208081902.3550911-1-yuzhao@google.com
-Seventh version of the MGLRU patchset, which aims to reduce performance overhead and improve eviction target pages selection of reclamation logic is posted.
       
     </div>
   </div>

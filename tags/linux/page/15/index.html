@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-07-01T07:13:24-07:00">
+    <meta property="og:updated_time" content="2025-07-14T06:38:42-07:00">
   
 
   
@@ -525,6 +525,19 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.1-rc7/">LKML News v6.1-rc7</a></h2>
+    <div class="article-style">
+      
+      [PATCH 00/12] Introduce CONFIG_SLUB_TINY and deprecate SLOB (Vlastimil Babka) https://lkml.kernel.org/r/20221121171202.22080-1-vbabka@suse.cz
+Vlastimil has posted a mail[1] for a discussion about SLOB deprecation. As no one has objected at the idea so far, Vlastimil has sent a patchset for that.
+[1] https://lore.kernel.org/all/b35c3f82-f67b-2103-7d82-7a7ba7521439@suse.cz/
+[RFC PATCH v1 0/4] Introduce merge identical pages mechanism (Alexey Romanov) https://lkml.kernel.org/r/20221121190020.66548-1-avromanov@sberdevices.ru
+This RFC patchset introduces a mechanism for merging identical compressed pages, which could be common in zram like use cases.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.1-rc6/">LKML News v6.1-rc6</a></h2>
     <div class="article-style">
       
@@ -636,18 +649,6 @@ This RFC patch makes bad pages to be tracked via kmemleak.
 [PATCH v1 0/3] coding-style.rst: document BUG() and WARN() rules (David Hildenbrand) https://lkml.kernel.org/r/20220920122302.99195-1-david@redhat.com
 There was a recent discussion on when to use BUG() and WARN() and the variants. This patch tries to make it clearly described in coding-style doc and checkpatch script.
 [RFC 0/6] migrate_pages(): batch TLB flushing (Huang Ying) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.0-rc6/">LKML News v6.0-rc6</a></h2>
-    <div class="article-style">
-      
-      [PATCH mm-unstable v15 00/14] Multi-Gen LRU Framework (Yu Zhao) https://lkml.kernel.org/r/20220918080010.2920238-1-yuzhao@google.com
-A new version of MGLRU patchset has posted. Among the changes in this new version, fix of long-tailed direct reclaim latency looks interesting.
-Linux 6.0-rc6 (Linus Torvalds) https://lkml.kernel.org/r/CAHk-=wi=gtuSO8Yz8LDubkMk7TiMsZxpypt9S10jeZRkyaBFnA@mail.gmail.com
-The sixth release candidate for Linux v6.0 has out. Maybe due to the LPC/OSS EU/Maintainers summit which all were held in last week, this release is quite small. Torvalds says it might mean that seventh release will be bigger than usual and therefore it might need one more week for v6.
       
     </div>
   </div>

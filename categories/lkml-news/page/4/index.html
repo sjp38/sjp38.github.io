@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-07-01T07:13:24-07:00">
+    <meta property="og:updated_time" content="2025-07-14T06:38:42-07:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.12/">LKML News v6.12</a></h2>
+    <div class="article-style">
+      
+      [PATCH 0/4] move per-vma lock into vm_area_struct (Suren Baghdasaryan) https://lore.kernel.org/20241111205506.3404479-1-surenb@google.com
+Suren posted a patch moving vm_lock back into vm_area_struct after confirming the performance regression found before happens only on limited cases (old Broadwell microarchitecture).
+[PATCH] lib/alloc_tag: Remove the sysctl configuration to prevent users from disabling it at runtime (Hao Ge) https://lore.kernel.org/20241108075004.131911-1-hao.ge@linux.dev
+Hao tries to remove runtime memory allocation profiling on/off knob, since he believes it is only making users confused.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.12-rc7/">LKML News v6.12-rc7</a></h2>
     <div class="article-style">
       
@@ -637,19 +649,6 @@ Vlastimil sent the slab pull request for Linux 6.12-rc1. Apparently the title is
 Boqun posted a patch series for introducing hazard pointers for kernel space, which is &ldquo;a scalable reference counting mechanism with RCU-like API&rdquo;.
 [GIT PULL] hotfixes for 6.12-rc1 (Andrew Morton) https://lore.kernel.org/20240919003557.1777673c0f759f9e4ebaa328@linux-foundation.org
 Andrew sent a hotfixes pull request for 6.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.11-rc6/">LKML News v6.11-rc6</a></h2>
-    <div class="article-style">
-      
-      [RFC PATCH -next 0/3] fs: Introduce the scope-based resource management for folio_lock/unlock (Li Zetao) https://lore.kernel.org/20240826071036.2445717-1-lizetao1@huawei.com
-Li proposes scope-based resource management for folio locking.
-[PATCH 0/2] get rid of PF_MEMALLOC_NORECLAIM (Michal Hocko) https://lore.kernel.org/20240826085347.1152675-1-mhocko@kernel.org
-Michal argues PF_MEMALLOC_NORECLAIM has merged even though MM people pushed it back, and attempts to get rid of it by updating its users to use explicit GFP_NOWAIT allocation context.
-[PATCH] bcachefs: Switch to memalloc_flags_do() for vmalloc allocations (Kent Overstreet) https://lore.
       
     </div>
   </div>

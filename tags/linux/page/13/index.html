@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-07-01T07:13:24-07:00">
+    <meta property="og:updated_time" content="2025-07-14T06:38:42-07:00">
   
 
   
@@ -525,6 +525,19 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.3-rc4/">LKML News v6.3-rc4</a></h2>
+    <div class="article-style">
+      
+      [PATCH 00/15] mm: move core MM initialization to mm/mm_init.c (Mike Rapoport) https://lkml.kernel.org/r/20230319220008.2138576-1-rppt@kernel.org
+This patchset consolidates MM initialization code to mm/mm_init.c file for better maintainability.
+[PATCH -next v6 0/2] Delay the initialization of zswap (Liu Shixin) https://lkml.kernel.org/r/20230322102006.780624-1-liushixin2@huawei.com
+This patchset delays zswap initialization until it gets enabled to save about 18MB of memory, which is allocated during the initialization.
+[PATCH V6 1/2] mm: compaction: move compaction sysctl to its own file (Minhao Chi) https://lkml.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/ossummit_na_2023_talk/">I will have a talk at the Open Source Summit North America 2023</a></h2>
     <div class="article-style">
       
@@ -629,17 +642,6 @@ A patch for not ignoring fast_find_migrateblock() found pageblocks made compacti
 Qualcomm&rsquo;s Linux memory team asks upstream&rsquo;s opinion about their userspace deamon approach for controlling VM memory size based on memory demands via monitoring PSI.
 [PATCH v1 0/3] Introduce per NUMA node memory error statistics (Jiaqi Yan) https://lkml.kernel.org/r/20230116193902.1315236-1-jiaqiyan@google.com
 On huge memory systems, memory error is inevitable, so detailed statistics of it helps administrators to operate systems more efficiently.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/damon_optimization_guide/">DAMON-based System Optimization Guide</a></h2>
-    <div class="article-style">
-      
-      This document helps you estimating the amount of benefit that you could get from DAMON-based system optimizations, and describes how you could achieve it.
-Check The Signs No optimization can provide same extent of benefit to every case. Therefore you should first guess how much improvements you could get using DAMON. If some of below conditions match your situation, you could consider using DAMON.
- Low IPC and High Cache Miss Ratios.
       
     </div>
   </div>
