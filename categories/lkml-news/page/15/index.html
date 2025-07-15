@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-07-14T06:38:42-07:00">
+    <meta property="og:updated_time" content="2025-07-15T06:46:58-07:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.19-rc7/">LKML News v5.19-rc7</a></h2>
+    <div class="article-style">
+      
+      [PATCH 0/4] add struct page and Direct I/O support to reserved memory (Li Chen) https://lkml.kernel.org/r/20220711122459.13773-1-me@linux.beauty
+Only buffered I/O is available to reserved memory for ZONE_DEVICE and mhp. This patchset enables direct I/O to the memory for better throughput.
+[PATCH -V4 RESEND 0/3] memory tiering: hot page selection (Huang Ying) https://lkml.kernel.org/r/20220713083954.34196-1-ying.huang@intel.com
+This patchset implements a new hot page identification algorithm based on the latency between NUMA balancing page table scanning and hit page fault, so that it can be somewhat LFU algorithm instead of MRU algorithm.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.19-rc6/">LKML News v5.19-rc6</a></h2>
     <div class="article-style">
       
@@ -634,20 +646,6 @@ For PTE-cont or PMD-cont size hugetlb pages, migration or unmapping of poisoned 
 There was a discussion about allocating memory inside RCU read critical section with GFP_KERNEL during LSFMM. Paul is summing up his points about it in this mail.
 [PATCH] mm,doc: Add new documentation structure (Matthew Wilcox) https://lkml.kernel.org/r/20220503063032.3680308-1-willy@infradead.org
 There was a session for MM documentation in the LSFMM. Matthew is restructuring the Documentation files to be more similar to Mel Gorman&rsquo;s &ldquo;Understanding the Linux Virtual Memory Manager&rdquo;.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.18-rc5/">LKML News v5.18-rc5</a></h2>
-    <div class="article-style">
-      
-      [PATCH v5 0/4] memcg: introduce per-memcg proactive reclaim (Yosry Ahmed) https://lkml.kernel.org/r/20220425190040.2475377-1-yosryahmed@google.com
-The fifth version of the patchset for adding per-memch proactive reclamation trigger interface.
-mmotm 2022-04-25-17-59 uploaded (Andrew Morton) https://lkml.kernel.org/r/20220426005932.848CBC385A4@smtp.kernel.org
-The mmotm has updated. It has rebased on 5.18-rc4, added 62 new patches, modified 8 patches, and dropped 19 patches. In total, 334 patches in the queue.
-[PATCH -V2 0/3] memory tiering: hot page selection (Huang Ying) https://lkml.kernel.org/r/20220426085105.60822-1-ying.huang@intel.com
-This patchset adds hot pages selection to the tiered memory promotion mechanism for better performance.
       
     </div>
   </div>
