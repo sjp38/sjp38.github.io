@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-07-15T06:46:58-07:00">
+    <meta property="og:updated_time" content="2025-07-22T06:39:23-07:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.13-rc2/">LKML News v6.13-rc2</a></h2>
+    <div class="article-style">
+      
+      [PATCH] MAINTAINERS: group all VMA-related files into the VMA section (Lorenzo Stoakes) https://lore.kernel.org/20241206191600.45119-1-lorenzo.stoakes@oracle.com
+Lorenzo posted a patch adding more source files for VMA section of MAINTAINERS file, to avoid people sending patches without Cc-ing VMA maintainers.
+Linux 6.13-rc2 (Linus Torvalds) https://lore.kernel.org/CAHk-=wgDe9JfGynY9KQ1exkL0DM-cyLYdeYdOxbCXNHm=qAgSQ@mail.gmail.com
+Linus released the second candidate of Linux v6.13. Some autoamted cleanup changes made the diff bit noisy, and there are some real fixes for drivers, networking and bpf.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.13-rc1/">LKML News v6.13-rc1</a></h2>
     <div class="article-style">
       
@@ -636,19 +648,6 @@ Dadiv shares next Linux MM alignment session will be held this Wednesday. The to
 Lorenzo sent a patch for resolving min()/max() expansions causing kernel build time issue by fixing a few known-bad cases of nested macro usages.
 [RFC PATCH 0/7] support for mm-local memory allocations and use it (Fares Mehanna) https://lore.kernel.org/20240911143421.85612-1-faresx@amazon.de
 Fares posted an RFC patch series for mm-local memory allocations for pushing those out of rach for possible speculation based cross-process attacks.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.11-rc7/">LKML News v6.11-rc7</a></h2>
-    <div class="article-style">
-      
-      [PATCH 00/15] timers: Cleanup delay/sleep related mess (Anna-Maria Behnsen) https://lore.kernel.org/20240904-devel-anna-maria-b4-timers-flseep-v1-0-e98760256370@linutronix.de
-A discussion started from a question about acpi_os_sleep() concluded the documentation is outdated, and same for some code for the same reason. This patchset tries to update the documents and code.
-[PATCH 0/2 v2] remove PF_MEMALLOC_NORECLAIM (Michal Hocko) https://lore.kernel.org/20240902095203.1559361-1-mhocko@kernel.org
-Michal sent the second revision of PF_MEMALLOC_NORECLAIM removal patchset with Reviewed-by: tags in a more formal version.
-[GIT PULL] hotfixes for 6.
       
     </div>
   </div>

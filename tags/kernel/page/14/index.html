@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-07-15T06:46:58-07:00">
+    <meta property="og:updated_time" content="2025-07-22T06:39:23-07:00">
   
 
   
@@ -525,6 +525,19 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.1-rc8/">LKML News v6.1-rc8</a></h2>
+    <div class="article-style">
+      
+      [PATCH 1/2] lockdep: allow instrumenting lockdep.c with KMSAN (Alexander Potapenko) https://lkml.kernel.org/r/20221128094541.2645890-1-glider@google.com
+Lockdep and KMSAN are known to work together nowadays, though it could make kernel run slower. This patch fixes KMSAN&rsquo;s false positives on wq_head-&gt;lock-&gt;dep_map.
+[PATCH] mm/huge_memory: add TRANSPARENT_HUGEPAGE_NEVER for THP (ye xingchen) https://lkml.kernel.org/r/202211301651462590168@zte.com.cn
+This patch adds a new kernel config called TRANSPARENT_HUGEPAGE_NEVER, which will set the value of /sys/kernel/mm/transparent_hugepage/enabled [never].
+[RFC PATCH v2] mm: Add nodes= arg to memory.reclaim (Mina Almasry) https://lkml.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.1-rc7/">LKML News v6.1-rc7</a></h2>
     <div class="article-style">
       
@@ -636,19 +649,6 @@ Andrew&rsquo;s mm hotfix patches pull request for Linux v6.0, or v6.0-rc8 has po
 This RFC patch introduces a set of method to sort objects in kmemleak output by backtrace to make the report more easy to read.
 [PATCH 0/3] THP Shrinker (Alexander Zhu) https://lkml.kernel.org/r/cover.1664347167.git.alexlzhu@fb.com
 This patchset introduces a sysfs files for measuring THP utilization and a shrinker for splitting the under-utilized THPs.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.0-rc7/">LKML News v6.0-rc6</a></h2>
-    <div class="article-style">
-      
-      [RFC PATCH] mm: track bad page via kmemleak (Zhaoyang Huang) https://lkml.kernel.org/r/1663679468-16757-1-git-send-email-zhaoyang.huang@unisoc.com
-This RFC patch makes bad pages to be tracked via kmemleak.
-[PATCH v1 0/3] coding-style.rst: document BUG() and WARN() rules (David Hildenbrand) https://lkml.kernel.org/r/20220920122302.99195-1-david@redhat.com
-There was a recent discussion on when to use BUG() and WARN() and the variants. This patch tries to make it clearly described in coding-style doc and checkpatch script.
-[RFC 0/6] migrate_pages(): batch TLB flushing (Huang Ying) https://lkml.
       
     </div>
   </div>

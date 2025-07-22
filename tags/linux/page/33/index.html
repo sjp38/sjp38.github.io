@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-07-15T06:46:58-07:00">
+    <meta property="og:updated_time" content="2025-07-22T06:39:23-07:00">
   
 
   
@@ -525,6 +525,19 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.1/">LKML News v5.1</a></h2>
+    <div class="article-style">
+      
+      [RFC PATCH v4 00/15] Slab Movable Objects (SMO) https://lkml.kernel.org/r/20190430030746.26102-1-tobin@kernel.org
+앞서 이 블로그에서도 공유한 SMO 패치의 새 버전입니다. 이번 버전은 dcache 쪽 코드를 많이 수정했군요.
+Linux 5.1 https://lkml.kernel.org/r/CAHk-=whsbDxdapMJGvy9OkVSrKMsKRJBTrH-Qj-qTbkMUGnWUw@mail.gmail.com
+5.1 릴리즈입니다. 일요일 오후 릴리즈란 점은 평소와 같지만 평소보다 조금 늦은 시간이긴 했는데요, 오늘 갑자기 받은 풀 리퀘스트도 있었고, 이번 머지윈도우 기간에 졸업식에 참석해야 해서 조금 망설였다는군요.
+하지만 풀리퀘스트도 그렇게 크진 않고, 몇일 머지윈도우에 자리 비우는 정도는 어떻게든 할 수 있을거라 생각해서 5.1 릴리즈가 이뤄졌습니다!
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.1-rc7/">LKML News v5.1-rc7</a></h2>
     <div class="article-style">
       
@@ -633,19 +646,6 @@ MM 의 오랜 숙원 중 하나는 mmap_sem 으로 인한 확장성 문제 해�
 앞서 몇번 소개했던, persistent memory 를 좀 많이 느린 numa node 인 것처럼 해서 시스템이 사용할 수 있게 하는 접근법의 패치 다섯번째 버전입니다. 이제 개선은 어느정도 된 것 같으니 슬슬 머지되야하지 않겠냐고 주장하는군요.
 Linux v5.0 https://lkml.kernel.org/r/CAHk-=wjuG6HiGbD7DCGfvDvhr_1WZUR-eYF2qWGbYyn9k6unvg@mail.gmail.com
 마침내 5.0 릴리즈입니다! 제 랩톱에도 바로 받아다가 설치했습니다!
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.0-rc8/">LKML News v5.0-rc8</a></h2>
-    <div class="article-style">
-      
-      Linux v5.0-rc7 릴리즈 (2019년 2월 17일) 부터 v5.0-rc8 릴리즈 (2019년 2월 24일) 사이의 기간에 LKML 에 올라온 흥미로운 메일들을 소개합니다.
-[LSF/MM ATTEND] MM track: NUMA, THP locality, reclaim https://lkml.kernel.org/r/20190218143203.GW9565@techsingularity.net
-Mel Gorman 의 LSF/MM 참여 메일입니다. NUMA remote THP vs NUMA local non-THP, NUMA, 메모리 계층 그리고 디바이스 메모리, NUMA rebalancing 과 메모리 reclaim 에 참여하고 싶다고 이야기 하는군요.
-[LSF/MM TOPIC ][LSF/MM ATTEND] Read-only Mapping of Program Text https://lkml.kernel.org/r/379F21DD-006F-4E33-9BD5-F81F9BA75C10@oracle.com
-THP 를 활용해 read-only text 를 매핑함으로써 성능을 높이려는 시도를 해오고 있는데, 하나의 base page 를 먼저 읽고 이어서 추가적인 page 를 읽는게 진짜로 사용될지 모르는 readahead 때문에 의논을 해보고 싶다고 하네요.
       
     </div>
   </div>
