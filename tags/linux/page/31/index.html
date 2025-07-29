@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-07-22T06:39:23-07:00">
+    <meta property="og:updated_time" content="2025-07-29T07:03:05-07:00">
   
 
   
@@ -525,6 +525,17 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.4-rc1/">LKML News v5.4-rc1</a></h2>
+    <div class="article-style">
+      
+      [PATCH 0/2] introduce new perf-script page-reclaim https://lkml.kernel.org/r/1568817522-8754-1-git-send-email-laoar.shao@gmail.com
+Page reclaim 관련 성능 메트릭을 분석하기 위한 perf script 커맨드를 추가하는 패치입니다. Direct reclaim 으로 인한 응답시간 폭증, page reclaim 이 왜 일어났는지, page reclaim 의 효과는 어땠는지 등을 알 수 있다는군요.
+구체적으로는 direct reclaim 이 몇번 일어났는지, 그 latency 분포는 어땠는지, file / anon page 별로 reclaim, scan, sync write, async write 이 몇번 일어났는지, kswapd 는 몇번 일어났는지, kswapd latency 는 어땠는지 등등을 보입니다.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.3/">LKML News v5.3</a></h2>
     <div class="article-style">
       
@@ -628,15 +639,6 @@ sysctl 이나 procfs 를 통한 hugetlb 페이지 할당은 수분이나 수시�
 일곱번째 버전도 빠르게 올라왔군요: https://lkml.kernel.org/r/20190726023435.214162-1-minchan@kernel.org 단순히 mmotm 최신 버전 위로 리베이스 한 것 같네요.
 [PATCH v9 00/21] Generic page walk and ptdump https://lkml.kernel.org/r/20190722154210.42799-1-steven.price@arm.com
 x86 과 arm64 가 범용적 페이지 테이블 워킹을 하도록 했던 해치셋을 조금 더 확장한 버전입니다. 기존 대비 페이지 테이블 덤프 기능도 일반화 시킨게 차이군요.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/kernelsummit2019_talk/">I will have a talk at the Linux Kernel Summit 2019</a></h2>
-    <div class="article-style">
-      
-      My talk proposal to the Linux Kernel Summit of this year which is co-located with the Linux Plumbers has accepted! Hope to see you in Lisbon. The title of the talk is, &ldquo;Tracing Data Access Pattern with Bounded Overhead and Best-effort Accuracy&rdquo;.
       
     </div>
   </div>

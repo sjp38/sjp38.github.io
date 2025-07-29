@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-07-22T06:39:23-07:00">
+    <meta property="og:updated_time" content="2025-07-29T07:03:05-07:00">
   
 
   
@@ -525,6 +525,20 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.8-rc2/">LKML News v6.8-rc2</a></h2>
+    <div class="article-style">
+      
+      Project: Improving the PCP allocator (Matthew Wilcox) https://lkml.kernel.org/r/Za6RXtSE_TSdrRm_@casper.infradead.org
+Matthew introduces an idea to improve the PCP allocator, roughly saying, keeping only compound memory on the PCP list.
+[PATCH v2 0/3] Enable &gt;0 order folio memory compaction (Zi Yan) https://lkml.kernel.org/r/20240123034636.1095672-1-zi.yan@sent.com
+Zi enables larger than zero order folio compaction, which is the prerequisite for large folio support.
+[PATCH v2 1/3] mm: make vm_area_struct anon_name field RCU-safe (Suren Baghdasaryan) https://lkml.kernel.org/r/20240123231014.3801041-1-surenb@google.com
+For lockless /proc/pid/maps reads, this patch makes anon_name field of vm_area_struct, which is the only one field that need to be accessed for reading the file but not RCU-protected, to be protected by RCU.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.8-rc1/">LKML News v6.8-rc1</a></h2>
     <div class="article-style">
       
@@ -633,21 +647,6 @@ This patchset introduces a new read-only file page_owner_stacks. This can be use
 [PATCH v3 0/8] riscv: ASID-related and UP-related TLB flush enhancements (Samuel Holland) https://lkml.kerenl.org/r/20231122010815.3545294-1-samuel.holland@sifive.com
 A patchset for improving some TLB flush inefficiencies in risc-v.
 [RFC] mm: Multi-gen LRU: fix use of mm/page_idle/bitmap (Henry Huang) https://lkml.kernel.org/r/cover.1700719508.git.henry.hj@antgroup.com
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.7-rc2/">LKML News v6.7-rc2</a></h2>
-    <div class="article-style">
-      
-      [PATCH v7 00/10] Small-sized THP for anonymous memory (Ryan Roberts) https://lkml.kernel.org/r/20231115132734.931023-1-ryan.roberts@arm.com
-The seventh revision of small-sized anonymout memory THP is posted.
-[PATCH v2 00/14] Transparent Contiguous PTEs for User Mappings (Ryan Roberts) https://lkml.kernel.org/r/20231115163018.1303287-1-ryan.roberts@arm.com
-This patchset makes opportunistic and transparent contpte mappings for user memory when it meets the requirement.
-[GIT PULL] hotfixes for 6.7-rc2 (Andrew Morton) https://lkml.kernel.org/r/20231117140848.02adcf56c301bb3ab85ae75a@linux-foundation.org
-MM subsystem hotfixes for rc2 has sent to Linus Torvalds.
-Linux 6.7-rc2 (Linus Torvalds) https://lkml.
       
     </div>
   </div>

@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-07-22T06:39:23-07:00">
+    <meta property="og:updated_time" content="2025-07-29T07:03:05-07:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.9-rc5/">LKML News v6.9-rc5</a></h2>
+    <div class="article-style">
+      
+      [RFC 0/3] Improve memory statistics for virtio balloon (zhenwei pi) https://lkml.kernel.org/r/20240415084113.1203428-1-pizhenwei@bytedance.com
+This RFC patchset exposes six new VM statistics in the guest to the host via virtio-balloon. The statistics include oom-kill, alloc-stall, scan-async, scan-direct, reclaim-async, and reclaim-direct.
+[PATCH] Documentation: coding-style: don&rsquo;t encourage WARN*() (Alex Elder) https://lkml.kernel.org/r/20240414170850.148122-1-elder@linaro.org
+Due to the panic_on_warn setting, even WARN() and its friends are not that welcomed in multiple situations. Alex posted a patchset to make this point clearer.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.9-rc4/">LKML News v6.9-rc4</a></h2>
     <div class="article-style">
       
@@ -634,20 +646,6 @@ Unlike cgroup v1, which was able to find effective memory limit using hierarchic
 This patch adds a new sysfs file for tracking the number of successfully released pages from a given CMA heap area. It aims to be hulpful at determining available active CMA pages.
 [PATCH v2] mm/demotion: print demotion targets (Li Zhijian) https://lkml.kernel.org/r/20240206020151.605516-1-lizhijian@fujitsu.com
 Li Zhijian sent a patch for printing demotion target information in case of fallback for unmet requirements on the target node, directly to the kernel log.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.8-rc3/">LKML News v6.8-rc3</a></h2>
-    <div class="article-style">
-      
-      [GIT PULL] hotfixes for 6.8-rc3 (Andrew Morton) https://lkml.kernel.org/r/20240128232759.7535e6774bec152556fb9730@linux-foundation.org
-Andrew Morton sent a hotfixes pull request to Linus Torvalds.
-[LSF/MM/BPF TOPIC] Reclaiming &amp; documenting page flags (Matthew Wilcox) https://lkml.kernel.org/r/Zbcn-P4QKgBhyxdO@casper.infradead.org
-Matthew proposes yet another LSFMM topic for discussing what page flags actually mean altogether, for better documentation.
-[PATCH v7 0/1] mm: report per-page metadata information (Sourav Panda) https://lkml.kernel.org/r/20240129224204.1812062-1-souravpanda@google.com
-Sourav from Google posted a patch for adding a new field on /proc/meminfo and /sys/devices/system/node/nodeN/vmstat called PageMetadata and nr_page_metadata respectively, which can helps understand how much memory are being used for page metadata.
       
     </div>
   </div>

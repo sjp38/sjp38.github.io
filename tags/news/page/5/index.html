@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-07-22T06:39:23-07:00">
+    <meta property="og:updated_time" content="2025-07-29T07:03:05-07:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.11/">LKML News v6.11</a></h2>
+    <div class="article-style">
+      
+      [PATCH hotfix 6.11] minmax: reduce egregious min/max macro expansion (Lorenzo Stoakes) https://lore.kernel.org/20240911153457.1005227-1-lorenzo.stoakes@oracle.com
+Lorenzo sent a patch for resolving min()/max() expansions causing kernel build time issue by fixing a few known-bad cases of nested macro usages.
+[RFC PATCH 0/7] support for mm-local memory allocations and use it (Fares Mehanna) https://lore.kernel.org/20240911143421.85612-1-faresx@amazon.de
+Fares posted an RFC patch series for mm-local memory allocations for pushing those out of rach for possible speculation based cross-process attacks.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.11-rc7/">LKML News v6.11-rc7</a></h2>
     <div class="article-style">
       
@@ -637,18 +649,6 @@ Zhaoyang sent a patch that makes direct reclaim of MGLRU be throttled by judging
 Kees posted this RFC patch, which allows kmalloc() be able to know the type of the object that it is requested to allocate memory for. It is done by letting kmalloc() optionally receives the pointer instead of the size.
 [Invitation] Linux MM Alignment Session on guest_memfd() mapping, hugepages, and page pinning on Wednesday https://lore.kernel.org/197a2f19-c71c-fbde-a62a-213dede1f4fd@google.com
 David invites MM community to another instance of the MM alignment.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.10-rc7/">LKML News v6.10-rc7</a></h2>
-    <div class="article-style">
-      
-      [RFC PATCH 0/4] Introduce PMC(PER-MEMCG-CACHE) (Huan Yang) https://lore.kernel.org/20240702084423.1717904-1-link@vivo.com
-Huan posted an RFC for per-memcg-cache, which is for utilizing per-memcg cache of certain rules. The goal is allowing memory that released by an application be allocated with high priority within the application, to improve locality and performance while avoiding unnecessary memory reclamation.
-[PATCH] mm: remove CONFIG_MEMCG_KMEM (Johannes Weiner) https://lore.kernel.org/20240701153148.452230-1-hannes@cmpxchg.org
-Since CONFIG_MEMCG_KMEM was default-enabled and equivalent to CONFIG_MEMCG for almost a decade, Johannes tries to remove the config option.
       
     </div>
   </div>
