@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-07-29T07:03:05-07:00">
+    <meta property="og:updated_time" content="2025-08-12T07:15:20-07:00">
   
 
   
@@ -525,6 +525,19 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v4.20-rc6/">LKML News by v4.20-rc6</a></h2>
+    <div class="article-style">
+      
+      [PATCH memory-model 0/3] Updates to the formal memory model https://lkml.kernel.org/r/20181203230411.GA27476@linux.ibm.com
+리눅스 커널 메모리 모델의 업데이트 입니다.
+smp_mb__after_unlock_lock() 을 추가로 모델링했고, github 리트머스 테스트를 체크하기 위한 스크립트가 추가되었으며, -j 옵션을 서포트 하게 되었습니다.
+[tip:core/rcu] tracing: Replace synchronize_sched() and call_rcu_sched() https://lkml.kernel.org/r/tip-7440172974e85b1828bdd84ac6b23b5bcad9c5eb@git.kernel.org
+synchronize_rcu() 가 이제는 RCU read-side 크리티컬 섹션 만이 아니라 preempt-disable 코드 영역도 기다리므로, synchronize_sched() 를 대체할 수 있고, call_rcu_sched() 도 call_rcu() 로 대체될 수 있습니다. 이 패치는 이 대체를 진행하고 있습니다.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v4.20-rc5/">LKML News by 4.20-rc5</a></h2>
     <div class="article-style">
       
@@ -625,18 +638,6 @@ THP 를 한방에 swap out / swap in 하는 Huang Ying 의 패치, 여섯번째 
 사회적으로야 이런저런 일이 많았지만 (토발즈의 휴가, Code of Conduct 머지에 관련해 갑론을박이 많군요.) 기술적으로는 별 일 없었던 한주라 평가되는군요.
 사소하지만 재밌는 건 Greg 의 자기 서명. greg &quot;keeping the seat warm for a few weeks&quot; k-h 라고 하는군요. 토발즈가 휴가 가있는 동안 의자를 뎁혀 두는 역할이라는 겸손함이 눈에 띄네요.
 [PATCH -V5 RESEND 00/21] swap: Swapout/swapin THP in one piece https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v4.19-rc4/">LKML News after v4.19-rc4</a></h2>
-    <div class="article-style">
-      
-      Linux 4.19-rc4 released, an apology, and a maintainership note https://lkml.kernel.org/r/CA+55aFy+Hv9O5citAawS+mVZO+ywCKd9NQ2wxUmGsz9ZJzqgJQ@mail.gmail.com
-한국시간 새벽 네시 좀 넘어 이 메일을 받았습니다. 평범한 릴리즈 메일이겠거니 했는데 제목이 뭔가 심상치 않군요.
-일단 4.19를 위한 네번째 release candidate 릴리즈가 되었습니다. 약 3주 후 정식 4.19 버전이 릴리즈 되겠군요. 하지만 이 메일은 그보다 많은 내용을 담고 있습니다.
-자유분방하고 형식에 구애되지 않는 해커 문화에 기원을 두고 있는 리눅스 커뮤니티는 조금 거친 언어 문화로 유명했습니다. 예를 들어 이상한 코드를 보내면 리누스 토발즈와 커뮤니티의 일부 사람들이 이 코드를 꾸짖을 수 있는데 그 과정에서 욕설도 있을 수 있다는 거죠.
       
     </div>
   </div>
