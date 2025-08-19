@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-08-12T07:15:20-07:00">
+    <meta property="og:updated_time" content="2025-08-19T06:53:57-07:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.3-rc7/">LKML News v6.3-rc7</a></h2>
+    <div class="article-style">
+      
+      [PATCH v5] mm: oom: introduce cpuset oom (Gang Li) https://lkml.kernel.org/r/20230411134539.45046-1-ligang.bdlg@bytedance.com
+This patch makes oomkiller to aware of numa nodes of processes that assigned via cpuset so that real memory pressure tirggeered process can be picked as victim of the pressure.
+[LSF/MM/BPF TOPIC] Reducing zombie memcgs (T.J. Mercier) https://lkml.kernel.org/r/CABdmKX2M6koq4Q0Cmp_-=wbP0Qa190HdEGGaHfxNS05gAkUtPA@mail.gmail.com
+Memcg lives in the kernel until the reference count drops to zero, even if it&rsquo;s removed by userspace. This zombie-like memcg consumes system resource and makes kernel operations that get affected by the total number of memcg less efficient.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.3-rc6/">LKML News v6.3-rc6</a></h2>
     <div class="article-style">
       
@@ -633,18 +645,6 @@ A topic suggestion for LSF/MM/BPF. It suggests to discuss about Fabric Manager (
 [PATCH V2 0/3] sched/numa: Enhance vma scanning (Ragghavendra K T) https://lkml.kernel.org/r/cover.1675159422.git.raghavendra.kt@amd.com
 A patchset for improving access scanning for NUMA balancing. This uses per-thread VMA scanning idea from Mel.
 LSFMMBPF proposal [MM]: Lazy RCU memory reclaim (Joel Fernandes) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.2-rc6/">LKML News v6.2-rc6</a></h2>
-    <div class="article-style">
-      
-      [RFC PATCH 00/19] mm: Introduce a cgroup to limit the amount of locked and pinned memory (Alistair Popple) https://lkml.kernel.org/r/cover.f52b9eb2792bccb8a9ecd6bc95055705cfe2ae03.1674538665.git-series.apopple@nvidia.com
-This RFC patchset introduces a cgroup limit like RLIMIT_MEMLOCKED but that for pinned pages.
-[RFC PATCH 0/4] Fix excessive CPU usage during compaction (Mel Gorman) https://lkml.kernel.org/r/20230125134434.18017-1-mgorman@techsingularity.net
-A patch for not ignoring fast_find_migrateblock() found pageblocks made compaction shows high CPU and stalls. It therefore once merged in mainline, than reverted, and again merged in mm-unstable.
       
     </div>
   </div>

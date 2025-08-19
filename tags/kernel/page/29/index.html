@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-08-12T07:15:20-07:00">
+    <meta property="og:updated_time" content="2025-08-19T06:53:57-07:00">
   
 
   
@@ -525,6 +525,17 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.4-rc8/">LKML News v5.4-rc8</a></h2>
+    <div class="article-style">
+      
+      [PATCH 00/13] Finish off [smp_]read_barrier_depends() https://lkml.kernel.org/r/20191108170120.22331-1-will@kernel.org
+The memory model element which is depends only on Alpha, smp_read_barrier_depends() is built into READ_ONCE(), so that you don&rsquo;t have to worry about Alpha in non-alpha-specific kernel code. Nevertheless, the author of this patchset concerned about the continuing uploads of the code that cares it. This patchset removes the description of the feature from all documentation and comments in the kernel code.
+[PATCH v4 00/10] Add Kernel Concurrency Sanitizer (KCSAN) https://lkml.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.4-rc7/">LKML News v5.4-rc7</a></h2>
     <div class="article-style">
       
@@ -625,16 +636,6 @@ LPC 와 커널 서밋 등으로 인해 한주 늦춰진 5.
 슬랩 할당자의 실제 메모리 활용률이 대부분 45-65 퍼센트에 불과했다고 합니다. 이는 슬랩 페이지가 각 메모리 cgroup 마다 배타적으로 사용되기 때문입니다. 적은 메모리만 사용하는 cgroup 여러개가 존재하면 슬랩에서 크게 받아놓은 메모리에서 조금씩만 실제 사용되니까 전체 활용률은 낮게 되는거죠. 이 RFC 패치셋은 서로 다른 cgroup 들이 슬랩 페이지를 공유할 수 있게 함으로써 이 문제를 해결합니다.
 Linux 5.3-rc8 https://lkml.kernel.org/r/CAHk-=whBQ+6c-h+htiv6pp8ndtv97+45AH9WvdZougDRM6M4VQ@mail.gmail.com
 평소대로라면 5.3 정식 릴리즈가 되었을테고 별다른 문제는 없었지만, rc7 릴리즈에서 이야기된대로 LPC 와 커널 서밋도 있고 한 이유로, -rc8 이 릴리즈 되었습니다.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.3-rc7/">LKML News v5.3-rc7</a></h2>
-    <div class="article-style">
-      
-      평소보다 늦은 월요일 아침 릴리즈가 이뤄졌습니다. 일요일에 토발즈가 컴퓨터로부터 떨어져 있었다는군요.
-늦어진 릴리즈 덕분에 뒤늦게 들어온 풀리퀘스트를 더 받을 수 있었고, 이로 인해 이번 rc 릴리즈는 평소보다 좀 사이즈가 큽니다. 따라서 이번 릴리즈의 크기가 불안정성을 의미하는 게 아니라 5.3 정식 릴리즈를 늦출 필요는 없습니다만, 공교롭게도 또한 다음주는 LPC 와 커널 서밋이 있죠. 토발즈도 그렇고 많은 다른 개발자들도 이때 LPC 와 커널 서밋에 참가할 거라, rc7 을 마지막으로 5.3 릴리즈를 하면 5.
       
     </div>
   </div>

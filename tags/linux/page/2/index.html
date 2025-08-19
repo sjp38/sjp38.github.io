@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-08-12T07:15:20-07:00">
+    <meta property="og:updated_time" content="2025-08-19T06:53:57-07:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.16-rc1/">LKML News v6.16-rc1</a></h2>
+    <div class="article-style">
+      
+      [PATCH RFC] mm: use per_vma lock for MADV_DONTNEED (Barry Song) https://lore.kernel.org/20250527044145.13153-1-21cnbao@gmail.com
+Barry posted an RFC to make MADV_DONTNEED madvise() calls to use per-vma lock when the region is in a signle vma.
+[PATCH v4] tools/mm: Add script to display page state for a given PID and VADDR (Ye Liu) https://lore.kernel.org/20250528091543.355386-1-ye.liu@linux.dev
+Ye posted fourth version of a patch for drgn script that shows detailed information of page for a given virtual address.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/kernel_recipes_2025_talk/">I will have a talk at the Kernel Recipes 2025</a></h2>
     <div class="article-style">
       
@@ -625,20 +637,6 @@ Nhat proposes virtual swap space, which was also presented at LSFMMBPF a few wee
     <div class="article-style">
       
       DAMON talk for OSSummit North America 2025 has been accepted and scheduled. The title of the talk is &ldquo;Self-Driving DAMON/S: Controlled and Automated Access-aware Efficient Systems&rdquo;. It will present DAMON&rsquo;s two auto-tuning features for access monitoring and access-aware system operations.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.15-rc1/">LKML News v6.15-rc1</a></h2>
-    <div class="article-style">
-      
-      [GIT PULL] MM updates for 6.15-rc1 (Andrew Morton) https://lore.kernel.org/20250330165732.f4c1493615375623f67e38eb@linux-foundation.org
-Andrew Morton sent MM pull requests for 6.15-rc1 to Linus Torvalds.
-mm.git grew a branch (Andrew Morton) https://lore.kernel.org/20250401030418.6b9e3b048eacc05d1cdeeffd@linux-foundation.org
-Andrew announces a new branch on mm.git, called mm-new. He explains what it will be, and asks Stephen to continue adding mm-unstable to next while not adding mm-new.
-[PATCH 0/2] Implement numa node notifier (Oscar Salvador) https://lore.kernel.org/20250401092716.537512-1-osalvador@suse.de
-Oscar posted a patchset for extending memory notifier for only NUMA state changes.
       
     </div>
   </div>

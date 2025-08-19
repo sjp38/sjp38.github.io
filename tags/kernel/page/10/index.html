@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-08-12T07:15:20-07:00">
+    <meta property="og:updated_time" content="2025-08-19T06:53:57-07:00">
   
 
   
@@ -525,6 +525,20 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.6-rc5/">LKML News v6.6-rc5</a></h2>
+    <div class="article-style">
+      
+      [PATCH 0/5] riscv: Use READ_ONCE()/WRITE_ONCE() for pte accesses (Alexandre Ghiti) https://lkml.kernel.org/r/20231002151031.110551-1-alexghiti@rivosinc.com
+A patchset for making all page table entries accesses use READ_ONCE()/WRITE_ONCE(), to avoid compiler reordering of the accesses.
+[PATCH v1 0/3] mm/gup: Introduce pin_user_pages_fd() for pinning shmem/hugetlbfs file pages (Vivek Kasireddy) https://lkml.kernel.org/r/20231003074447.3245729-1-vivek.kasireddy@intel.com
+A patchset introducing a new function for long-term pages pinning.
+[RFC PATCH v3 0/3] Introduce persistent memory pool (Stanislav Kinsburskii) https://lkml.kernel.org/r/169645773092.11424.7258549771090599226.stgit@skinsburskii.
+An RFC implementing a memory allocator in the kernel for persistent memory has posted.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.6-rc4/">LKML News v6.6-rc4</a></h2>
     <div class="article-style">
       
@@ -635,20 +649,6 @@ Aneesh continues adding support of memmap_on_memory for more architectures.
 [PATCH mm-unstable v7 00/31] Split ptdesc from struct page (Vishal Moola) https://lkml.kernel.org/r/20230725042051.36691-1-vishal.moola@gmail.com
 The seventh revision of the patchset for splitting page table tracking information out of struct page for making it smaller.
 [PATCH v3 00/49] use refcount+RCU method to implement lockless slab shrink (Qi Zheng) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.5-rc3/">LKML News v6.5-rc3</a></h2>
-    <div class="article-style">
-      
-      [PATCH v4 0/6] Add support for memmap on memory feature on ppc64 (Aneesh Kumar K.V) https://lkml.kernel.org/r/20230718024409.95742-1-aneesh.kumar@linux.ibm.com
-The fourth version of the patchset for support of memmap on memory on ppc64 has posted.
-[GIT PULL] hotfixes for 6.5-rc2 (Andrew Morton) https://lkml.kernel.org/r/20230718123131.5ec065527c2127a568e5754c@linux-foundation.org
-Andrew sent mm subsystem hotfixes for 6.5 rc2 to Linus.
-[PATCH v2 0/5] Invalidate secondary IOMMU TLB on permission upgrade (Alistair Popple) https://lkml.kernel.org/r/cover.de78568883814904b78add6317c263bf5bc20234.1689768831.git-series.apopple@nvidia.com
-This patch moves secondary TLB invcalidation mmu notifier callbacks to architecture specific TLB flushing functions.
       
     </div>
   </div>
