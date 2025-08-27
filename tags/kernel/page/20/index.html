@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-08-19T06:53:57-07:00">
+    <meta property="og:updated_time" content="2025-08-27T07:11:03-07:00">
   
 
   
@@ -525,6 +525,20 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.15-rc4/">LKML News v5.15-rc4</a></h2>
+    <div class="article-style">
+      
+      [RFC PATCH 0/8] mm/madvise: support process_madvise(MADV_DONTNEED) (Nadav Amit) https://lkml.kernel.org/r/20210926161259.238054-1-namit@vmware.com
+This patchset makes process_madvise() to support MADV_DONTNEED hint.
+mmotm 2021-09-28-19-05 uploaded (Andrew Morton) https://lkml.kernel.org/r/20210929020604.DyNimbxao%akpm@linux-foundation.org
+The mm-of-the-moment snapshot has been updated. 13 drop, 45 add, 37 modified. 184 patches in the broken/ in total.
+[PATCH 1/2] memcg: flush stats only if updated (Shakeel Butt) https://lkml.kernel.org/r/20210930044711.2892660-1-shakeelb@google.com
+This patchset makes memcg stats updated only when needed, as it is currently flushed on every refault and reclaim iteration.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.15-rc3/">LKML News v5.15-rc3</a></h2>
     <div class="article-style">
       
@@ -635,20 +649,6 @@ This patchset frees user PTE page table pages when all PTE entries are empty, to
 [PATCH v15 00/17] Folio support in block + iomap layers (Matthew Wilcox) https://lkml.kernel.org/r/20210719184001.1750630-1-willy@infradead.org
 Seems memory folios patchset is now merged in -mm tree and -next tree. This patchset further updates iomap to use folios.
 Runtime Memory Validation in Intel-TDX and AMD-SNP (Joerg Roedel) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.14-rc2/">LKML News v5.14-rc2</a></h2>
-    <div class="article-style">
-      
-      [PATCH v6 0/6] Introduce multi-preference mempolicy (Feng Tang) https://lkml.kernel.org/r/1626077374-81682-1-git-send-email-feng.tang@intel.com
-Six version of the patchset that allows applications to set multiple preferred memory policy.
-[PATCH v1] madvise.2: Document MADV_POPULATE_READ and MADV_POPULATE_WRITE (David Hildenbrand) https://lkml.kernel.org/r/20210712083917.16361-1-david@redhat.com
-This patch documents the new madvise() options, MADV_POPULATE_(READ|WRITE).
-Request for folios (David Howells) https://lkml.kernel.org/r/3398985.1626104609@warthog.procyon.org.uk
-David is working for improving local filesystem&rsquo;s caching and network filesystem support library. He thinks the folio work would make his work easier, though it also makes some of his work challenging.
       
     </div>
   </div>

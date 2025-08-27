@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-08-19T06:53:57-07:00">
+    <meta property="og:updated_time" content="2025-08-27T07:11:03-07:00">
   
 
   
@@ -525,6 +525,19 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.7-rc8/">LKML News v6.7-rc8</a></h2>
+    <div class="article-style">
+      
+      [PATCH] kernel: Introduce a write lock/unlock wrapper for tasklist_lock (Maria Yu) https://lkml.kernel.org/r/20231225081932.17752-1-quic_aiquny@quicinc.com
+A patch introducing a write lock/unlock wrapper for tasklist_lock, to overcome bad responsive performance of system that coming from scenarios that acquiring read lock which wrote lock needed to be waiting for.
+[PATCH v3 00/10] IOMMU memory observability (Pasha Tatashin) https://lkml.kernel.org/r/20231226200205.562565-1-pasha.tatashin@soleen.com
+Third version of patchset to allow monitoring and limiting IOMMU memory usage is posted.
+[GIT PULL] hotfixes for 6.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.7-rc7/">LKML News v6.7-rc7</a></h2>
     <div class="article-style">
       
@@ -636,17 +649,6 @@ Andrew sent mm hotfixes for v6.6 to Linus Torvalds. One for DAMON also contained
 Kernel can panic when less than 4MB NUMA node is configured. The commit which introduced the 4MB limit doesn&rsquo;t clearly explain the reason. This patch drops the limit.
 [Invitation] Linux MM Alignment Session on Small-sized THPs on Wednesday (David Rientjes) https://lkml.kernel.org/r/76c2f454-5ab2-61db-a41f-a30f08a4aa1e@google.com
 The next MM alignment session sill be lead by Ryan Roberts from ARM, for small-sized THP.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.6-rc6/">LKML News v6.6-rc6</a></h2>
-    <div class="article-style">
-      
-      [RFC PATCH 0/5] hot page swap to zram, cold page swap to swapfile directly (Lincheng Yang) https://lkml.kernel.org/r/20231008095924.1165106-1-lincheng.yang@transsion.com
-The team has made the kernel feature that swaps hot page to zram and cold pages to swapfile, directly. It aims to reduce zram compression/decompression overhead under memory pressure on Android v4.19 linux kernel, and trying to make it upstreamed due to the GKI limitation.
-[RFC PATCH] zswap: add writeback_time_threshold interface to shrink zswap pool (Zhongkun He) https://lkml.
       
     </div>
   </div>
