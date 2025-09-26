@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-08-27T07:11:03-07:00">
+    <meta property="og:updated_time" content="2025-09-09T20:06:10-07:00">
   
 
   
@@ -525,6 +525,33 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.16-rc4/">LKML News v6.16-rc4</a></h2>
+    <div class="article-style">
+      
+      [PATCH 0/3] mm: introduce snapshot_page() (Luiz Capitulino) https://lore.kernel.org/cover.1750961812.git.luizcap@redhat.com
+Luiz introduces a helper functions for creating a snapshot of a page and its folio.
+[PATCH v4 0/2] fix MADV_COLLAPSE issue if THP settings are disabled (Baolin Wang) https://lore.kernel.org/cover.1750815384.git.baolin.wang@linux.alibaba.com
+Baolin posted a patch series for making THP never means never.
+Linux 6.16-rc4 (Linus Torvalds) https://lore.kernel.org/CAHk-=wjqJeFHs_CsO2MeFLi-qceFM7_dVfKBMH4B7oVJaH6tHQ@mail.gmail.com
+Linus released the fourth candidate for Linux 6.16. Linus mentions things look fairly normal despite of the large merge window.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v6.16-rc3/">LKML News v6.16-rc3</a></h2>
+    <div class="article-style">
+      
+      [RFC 0/3] mm: introduce snapshot_page() (Luiz Capitulino) https://lore.kernel.org/cover.1750170418.git.luizcap@redhat.com
+Luiz posted an RFC patch series for introducing a helper function for showing consistent view of a folio, and using it from kpagecount and stable_page_flags().
+[RFC PATCH v1 0/4] Kernel thread based async batch migration (Bharata B Rao) https://lore.kernel.org/20250616133931.206626-1-bharata@amd.com
+Bharata posted an RFC patch series for doing pages migration in an asynchronous and batched way.
+[Linux Memory Hotness and Promotion] Notes from June 5, 2025 (David Rientjes) https://lore.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.16-rc2/">LKML News v6.16-rc2</a></h2>
     <div class="article-style">
       
@@ -615,33 +642,6 @@ Zhongkun posted a patch series for fine tuning memory.reclaim and lru_gen for re
 [PATCH] MAINTAINERS: add core mm section (Lorenzo Stoakes) https://lore.kernel.org/20250423123042.59082-1-lorenzo.stoakes@oracle.com
 Lorenzo posted a patch for splitting MM section on MAINTAINER further, for the core part.
 [PATCH v3] tools/mm: Add script to display page state for a given PID and VADDR (Ye Liu) https://lore.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.15-rc3/">LKML News v6.15-rc3</a></h2>
-    <div class="article-style">
-      
-      [PATCH] tools/drgn: Add script to display page state for a given PID and VADDR (Ye Liu) https://lore.kernel.org/20250415075024.248232-1-ye.liu@linux.dev
-Ye Liu introduces a drgn script for showing page information for specific virtual address range.
-[RFC PATCH v4 0/6] Promotion of Unmapped Page Cache Folios. (Gregory Price) https://lore.kernel.org/20250411221111.493193-1-gourry@gourry.net
-Gregory continues his unmapped page cache folios promotion work and sent the fourth version.
-[PATCH v2 0/2] separate out mmap_lock/VMA locking and update MAINTAINERS (Lorenzo Stoakes) https://lore.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.15-rc2/">LKML News v6.15-rc2</a></h2>
-    <div class="article-style">
-      
-      [PATCH v2 0/3] Implement numa node notifier (Oscar Salvador) https://lore.kernel.org/20250408084153.255762-1-osalvador@suse.de
-Oscar found 5/10 memory notifier users are actually interested in only NUMA level change, and proposes numa node notifier.
-[RFC PATCH v2] Introduce Hierarchical Per-CPU Counters (Mathiew Desnoyers) https://lore.kernel.org/20250408160508.991738-1-mathieu.desnoyers@efficios.com
-Mathiew proposes a hierarchical per-cpu counter that can provide better scalability on multi CPU machines.
-[RFC PATCH 00/14] Virtual Swap Space (Nhat Pham) https://lore.kernel.org/20250407234223.1059191-1-nphamcs@gmail.com
-Nhat proposes virtual swap space, which was also presented at LSFMMBPF a few weeks ago.
       
     </div>
   </div>

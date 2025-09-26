@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-08-27T07:11:03-07:00">
+    <meta property="og:updated_time" content="2025-09-09T20:06:10-07:00">
   
 
   
@@ -525,6 +525,31 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.6/">LKML News v6.6</a></h2>
+    <div class="article-style">
+      
+      Virtual Scanning Considered Harmful (Matthew Wilcox) https://lkml.kernel.org/r/ZTc7SHQ4RbPkD3eZ@casper.infradead.org
+Matthew shares his benchmark program that simulates speeds of LRU pages traversal using an linked list, an array, and direct physical addresses. As can expect, the physical address based traversal is fastest.
+[GIT PULL] hotfixes for 6.6 (Andrew Morton) https://lkml.kernel.org/r/20231024094608.f2dc0ca5ed2619d411a31df5@linux-foundation.org
+Andrew sent mm hotfixes for v6.6 to Linus Torvalds. One for DAMON also contained.
+[PATCH v4 0/5] workload-specific and memory pressure-driven zswap writeback (Nhat Pham) https://lkml.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v6.6-rc7/">LKML News v6.6-rc7</a></h2>
+    <div class="article-style">
+      
+      [PATCH] x86/mm: drop 4MB restriction on minimal NUMA node size (Mike Rapoport) https://lkml.kernel.org/r/20231017062215.171670-1-rppt@kernel.org
+Kernel can panic when less than 4MB NUMA node is configured. The commit which introduced the 4MB limit doesn&rsquo;t clearly explain the reason. This patch drops the limit.
+[Invitation] Linux MM Alignment Session on Small-sized THPs on Wednesday (David Rientjes) https://lkml.kernel.org/r/76c2f454-5ab2-61db-a41f-a30f08a4aa1e@google.com
+The next MM alignment session sill be lead by Ryan Roberts from ARM, for small-sized THP.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.6-rc6/">LKML News v6.6-rc6</a></h2>
     <div class="article-style">
       
@@ -621,32 +646,6 @@ Mateusz is suggesting another idea for scalable and almost-waste-free percpu cou
       [MAINTAINERS SUMMIT] Handling of embargoed security issues &ndash; security@korg vs. linux-distros@ (Jiri Kosina) https://lkml.kernel.org/r/nycvar.YFH.7.76.2308150927190.14207@cbobk.fhfr.pm
 Yet another maintainers summit agenda proposal about security issue handling has posted. There are securitiy@korg and linux-distros@. The kernel community wants to do handling of the security fixes from only security@, without being bothered by linux-distros@. Jiri proposes to discuss about if it could eventually better handled with linux-distros@.
 Maintainers Summit 2023 Call for Topics (Theodore Ts&rsquo;o) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.5-rc6/">LKML News v6.5-rc6</a></h2>
-    <div class="article-style">
-      
-      [RFC PATCH 0/3] Reduce NUMA balance caused TLB-shootdowns in a VM (Yan Zhao) https://lkml.kernel.org/r/20230808071329.19995-1-yan.y.zhao@intel.com
-For virtual machines having assigned devices or VFIO mediated devices, all or part of its memory are pinned for long-term. Auto NUMA balancing can cause unnecessary TLB-shootdowns. This RFC patchset proposes a solution for that.
-[PATCH v2] cma: introduce CMA_ALLOC_DEBUG config (Bibek Kumar Patro) https://lkml.kernel.org/r/20230809131640.18791-1-quic_bibekkum@quicinc.com
-CONFIG_CMA_DEBUG makes all CMA debugging message enabled. This can results in flooding the dmesg buffer.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.5-rc5/">LKML News v6.5-rc5</a></h2>
-    <div class="article-style">
-      
-      [PATCH] MAINTAINERS: Add maple tree mailing list (Liam R. Howlett) https://lkml.kernel.org/r/20230731175542.1653200-1-Liam.Howlett@oracle.com
-Maple tree has its own development mailing list at infradead.org. This patch adds it on the MAINTAINERS file.
-Maple Tree Work 2023/08 (Laim R. Howlett) https://lkml.kernel.org/r/20230801194820.alch3ot7pvrgig5v@revolver
-Liam shares monthlee update of maple tree work progress and todo for avoid conflict.
-[RFC PATCH 0/2] vmrd: dynamic guest VM memory resizing daemon (Sudarshan Rajagopalan) https://lkml.kernel.org/r/cover.1690836010.git.quic_sudaraja@quicinc.com
-Sudarshan posted an RFC for dynamic guest VM memory resizing based on the guest&rsquo;s memory demand.
       
     </div>
   </div>

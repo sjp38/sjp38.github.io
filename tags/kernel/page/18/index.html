@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-08-27T07:11:03-07:00">
+    <meta property="og:updated_time" content="2025-09-09T20:06:10-07:00">
   
 
   
@@ -525,6 +525,30 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.17/">LKML News v5.17</a></h2>
+    <div class="article-style">
+      
+      mmotm 2022-03-14-22-42 uploaded (Andrew Morton) https://lkml.kernel.org/r/20220315054352.5B187C340E8@smtp.kernel.org
+The -mm tree is updated. It is rebased on 5.17-rc8, added 20 new patches, modified 10 patches, and dropped 2 patches. In total, 475 patches in the queue.
+[LSF/MM TOPIC] Better handling of negative dentries (Mattew Wilcox) https://lkml.kernel.org/r/YjDvRPuxPN0GsxLB@casper.infradead.org
+There could be millions of negative dentries on a system having large memory and no memory pressure, because the number of negative dentries is constrained only by memory size.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v5.17-rc8/">LKML News v5.17-rc8</a></h2>
+    <div class="article-style">
+      
+      mmotm 2022-03-06-20-33 uploaded (Andrew Morton) https://lkml.kernel.org/r/20220307043435.251DBC340E9@smtp.kernel.org
+The -mm tree has updated. It&rsquo;s based on v5.17-rc6, added 19 patches, modified 6 patches, and dropped 19 patches. In totla, 428 patches in the queue.
+[PATCH v3] mm: add ztree - new allocator for use via zpool API (Ananda) https://lkml.kernel.org/r/20220307142724.14519-1-a.badmaev@clicknet.pro
+Third version of ztree, which is intended to be used for storing compressed objects per ztree block. Comparing to the previous version, compiler warnings have fixed.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.17-rc7/">LKML News v5.17-rc7</a></h2>
     <div class="article-style">
       
@@ -619,30 +643,6 @@ UEFI spec 2.9 introduces a concept of memory acceptance. It requires virtual mac
       [PATCH v4 00/32] Separate struct slab from struct page (Vlastimil Babka) https://lkml.kernel.org/r/20220104001046.12263-1-vbabka@suse.cz
 The work for seperating struct slab from struct page for making the struct page simpler is updated to fourth version. As the patchset was in -next tree for a while, Vlastimil would sent a pull request of this to Linus.
 [PATCH 0000/2297] [ANNOUNCE, RFC] &ldquo;Fast Kernel Headers&rdquo; Tree -v1: Eliminate the Linux kernel&rsquo;s &ldquo;Dependency Hell&rdquo; (Ingo Molnar) https://lkml.kernel.org/r/YdIfz+LMewetSaEB@gmail.com
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.16-rc8/">LKML News v5.16-rc8</a></h2>
-    <div class="article-style">
-      
-      [RFC v2] mm: introduce page pin owner (Minchan Kim) https://lkml.kernel.org/r/20211228175904.3739751-1-minchan@kernel.org
-Second version of the RFC for page pinning owner feature, which can be useful for tracking down who pins which page and therefore why contiguous pages allocation or migration fails.
-mmotm 2021-12-29-20-07 uploaded (Andrew Morton) https://lkml.kernel.org/r/20211230040740.SbquJAFf5%akpm@linux-foundation.org
-MM of the moment has updated. It&rsquo;s rebased on v5.16-rc7, adds 32 new patches to the queue, drops 11 patches from the queue, and modifies 100 existing patches.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.16-rc7/">LKML News v5.16-rc7</a></h2>
-    <div class="article-style">
-      
-      [PATCH v5 00/16] Optimize list lru memory consumption (Muchun Song) https://lkml.kernel.org/r/20211220085649.8196-1-songmuchun@bytedance.com
-Fifth version of the patchset for reducing lru memory consumption. This version fixes a sleep-in-atomic-context bug which is reported by the kernel test robot, applies some requests from Johannes, and collect Acked-by from Johannes.
-[PATCH 0/2] Add a new scheme to support demotion on tiered memory system (Baolin Wang) https://lkml.kernel.org/r/cover.1640077468.git.baolin.wang@linux.alibaba.com
-This patchset makes DAMOS supports demotion of memory regions.
       
     </div>
   </div>

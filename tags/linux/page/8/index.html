@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-08-27T07:11:03-07:00">
+    <meta property="og:updated_time" content="2025-09-09T20:06:10-07:00">
   
 
   
@@ -525,6 +525,34 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.9/">LKML News v6.9</a></h2>
+    <div class="article-style">
+      
+      [LSF/MM/BPF TOPIC] Locally attached memory tiering (David Rientjes) https://lore.kernel.org/e90dc785-c4e6-47e4-8eda-d35325c82ff9@google.com
+David suggests a new LSFMM topic for local-attached memory tiering.
+[LSF/MM/BPF TOPIC] CXL Development Discussions (Adam Manzanares) https://lore.kernel.org/9bf86b97-319f-4f58-b658-1fe3ed0b1993@nmtadam.samsung
+Adam suggests a new LSFMM topic for general CXL development.
+kdevops BoF at LSFMM (Luis Chamberlain) https://lore.kernel.org/CAB=NE6XyLS1TaAcgzSWa=1pgezRjFoy8nuVtSWSfB8Qsdsx_xQ@mail.gmail.com
+Luis suggests to have a time slot for sharing ongoing developments and changes for kdevops, which automates complex kernel development workflows.
+[RFC PATCH 0/2] introduce budgt control in readahead (Zhaoyang Huang) https://lore.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v6.9-rc7/">LKML News v6.9-rc7</a></h2>
+    <div class="article-style">
+      
+      [PATCH] thp: Remove HPAGE_PMD_ORDER minimum assertion (Matthew Wilcox) https://lkml.kernel.org/r/20240429190114.3126789-1-willy@infradead.org
+Willy removes the assumption that THP order is always two or more, since we now handle order-1 folios correctly.
+[LSF/MM/BPF TOPIC] SLUB: what&rsquo;s next? (Vlastimil Babka) https://lkml.kernel.org/r/b929d5fb-8e88-4f23-8ec7-6bdaf61f84f9@suse.cz
+Vlastimil proposes an LSFMM session to retrospect the SLAB deprecation, share ongoing works, and discuss possible future works for reducing similar allocators such as objpool or mempool.
+[LSF/MM/BPF TOPIC] Maple Tree Proposed Features (Liam R.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.9-rc6/">LKML News v6.9-rc6</a></h2>
     <div class="article-style">
       
@@ -622,28 +650,6 @@ Lance improves madvise_free_pte_range() to handle large folios that smaller than
 [RFC PATCH] mm: Add reclaim type to memory.reclaim (Yafang Shao) https://lkml.kernel.org/r/20240225114204.50459-1-laoar.shao@gmail.com
 This RFC patch extends memory.reclaim memcg file to receive type of memory to reclaim. It supports pagecache only, slabs only, and both.
 [LSF/MM/BPF TOPIC] mm/mempolicy extentions for heterogeneous memory systems (Gregory Price) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.8-rc6/">LKML News v6.8-rc6</a></h2>
-    <div class="article-style">
-      
-      [PATCH V2 0/2] Introduce slabinfo version 2.2 (Fangzheng Zhang) https://lkml.kernel.org/r/20240219031911.10372-1-fangzheng.zhang@unisoc.com
-This patchset updates slabinfo to version 2.2 and adds slabreclaim column for recording whether each slab pool is reclaim type.
-[RFC PATCH 0/3] make the hugetlb migration strategy consistent (Baolin Wang) https://lkml.kernel.org/r/cover.1708507022.git.baolin.wang@linux.alibaba.com
-Falling back to other NUMA nodes when migrating freed hugetlb is prevented while it is allowed for in-use hugetlb. This patchset make it more clear and consistent.
-[Invitation] Linux MM Alignment Session on Cold Page Detection on Wednesday (David Rientjes) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/ossummit_na_2024_talk/">I will have a talk at the Open Source Summit North America 2024</a></h2>
-    <div class="article-style">
-      
-      DAMON talk for OSSummit North America 2024 has been accepted and scheduled. The talk will present DAMOS auto-tuning and hopefully, more new DAMO features. The features are still under development, but hopefully, the power of presentation-driven development will make it. ;) Looking forward to meeting you there!
       
     </div>
   </div>

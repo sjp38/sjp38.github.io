@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-08-27T07:11:03-07:00">
+    <meta property="og:updated_time" content="2025-09-09T20:06:10-07:00">
   
 
   
@@ -525,6 +525,33 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.2-rc4/">LKML News v6.2-rc4</a></h2>
+    <div class="article-style">
+      
+      [PATCH 00/41] Per-VMA locks (Suren Baghdasaryan) https://lkml.kernel.org/r/20230109205336.3665937-1-surenb@google.com
+For the mmap_lock scalability issue, yet another approach called per-VMA locks has posted.
+[PATCH v2 0/2] docs/mm: start filling out new structure (Mike Rapoport) https://lkml.kernel.org/r/20230110152358.2641910-1-rppt@kernel.org
+MM kernel documentation has restructured to be somewhat more like textbook that can better explaining overall concept and how it manage memory, but the content is empty. Mike starts filling the content.
+LSFMMBPF proposal [General/MM]: SRCU: a case study in memory ordering (Joel Fernandes) https://lkml.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v6.2-rc3/">LKML News v6.2-rc3</a></h2>
+    <div class="article-style">
+      
+      [PATCH] zram: correctly handle all next_arg() cases (Sergey Senozhatsky) https://lkml.kernel.org/r/20230103030119.1496358-1-senozhatsky@chromium.org
+Handle NULL val pointer case from zram&rsquo;s arguments handling.
+[RFC PATCH 00/25] Upstream kvx Linux port (Yann Sionneau) https://lkml.kernel.org/r/20230103164359.24347-1-ysionneau@kalray.eu
+This patchset adds support of Kalray&rsquo;s kvx family kv3-1 CPU architecture.
+[PATCH 00/46] Based on latest mm-unstable (85b44c25cd1e). (James Houghton) https://lkml.kernel.org/r/20230105101844.1893104-1-jthoughton@google.com
+This patchset introduces HugeTLB high-Granularity Mapping (HGM), which teaches HugeTLB how to map HugeTLB pages at high granularity like how THPs PTE-mapped.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/my_opensource_commits_stat_2022/">My opensource commits statistics in 2022</a></h2>
     <div class="article-style">
       
@@ -618,34 +645,6 @@ This RFC patchset introduces a mechanism for merging identical compressed pages,
 drop_caches works in somewhat loop-until-no-progress manner. It could result in not so aggressive reclamation. This patch makes it to continue reclamation on other node until every node makes no progress.
 [RFC][PATCH 0/4] cachestat: a new syscall for page cache state of files (Nha Pham) https://lkml.kernel.org/r/20221115182901.2755368-1-nphamcs@gmail.com
 Users can know the cache state of files using mincore() system call, but it scales bad for large files.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.1-rc5/">LKML News v6.1-rc5</a></h2>
-    <div class="article-style">
-      
-      [PATCH v2] mm: anonymous shared memory naming (Pasha Tatashin) https://lkml.kernel.org/r/20221107184715.3950621-1-pasha.tatashin@soleen.com
-Second version of the patch for allowing shared anonymous memory mapping naming has posted.
-Deprecating and removing SLOB (Vlastimil Babka) https://lkml.kernel.org/r/b35c3f82-f67b-2103-7d82-7a7ba7521439@suse.cz
-Vlastimil is describing his proposal for removing SLOB, mainly for the code maintenance overhead, and trying to continue discussions for that.
-[PATCH 1/4] mm: introduce &lsquo;encoded&rsquo; page pointers with embedded extra bits (Linus Torvalds) https://lkml.kernel.org/r/20221109203051.1835763-1-torvalds@linux-foundation.org
-Linus Torvalds has posted a patchset for a new type called struct encoded_page, which is for struct page pointers having extra flags in it.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.1-rc4/">LKML News v6.1-rc4</a></h2>
-    <div class="article-style">
-      
-      [PATCH -next] mm/page_reporting: change page_reporting_param_ops to static (Yang Yingliang) https://lkml.kernel.org/r/20221101070022.1930028-1-yangyingliang@huawei.com
-This patch makes page_reporting_param_ops static, as it&rsquo;s used in only the c file.
-[RFC PATCH] mm: introduce accounting of page_owner via backtrace (Zhoyang Huang) https://lkml.kernel.org/r/1667390781-17515-1-git-send-email-zhaoyang.huang@unisoc.com
-This RFC patchset accounts and sorts page_owner output via its backtrace for simplifying it.
-[PATCH v6 0/5] THP Shrinker (Alexander Zhu) https://lkml.kernel.org/r/cover.1667454613.git.alexlzhu@fb.com
-The patchset for THP shrinking, which aims to reduce memory waste due to the THP underutilization, has revised again to the sixth version.
       
     </div>
   </div>

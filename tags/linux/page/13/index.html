@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-08-27T07:11:03-07:00">
+    <meta property="og:updated_time" content="2025-09-09T20:06:10-07:00">
   
 
   
@@ -525,6 +525,32 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.4-rc2/">LKML News v6.4-rc2</a></h2>
+    <div class="article-style">
+      
+      [PATCH 0/2] Optimization of CMA allocation and reclaiming (Zhaoyang Huang) https://lkml.kernel.org/r/1683538383-19685-1-git-send-email-zhaoyang.huang@unisoc.com
+This patchset avoids being OOMed when all free pages are composed of CMA.
+[RFC PATCH 0/2] mm: Working Set Reporting (Yuanchu Xie) https://lkml.kernel.org/r/20230509185419.1088297-1-yuanchu@google.com
+This RFC patch adds working set size reporting structure for each node and total, using MGLRU as its core, and extends virtio-balloon for letting the host get the information.
+[PATCH] MAINTAINERS: repair pattern in DIALOG SEMICONDUCTOR DRIVERS (Lukas Bulwahn) https://lkml.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/damon_news/">DAMON News List</a></h2>
+    <div class="article-style">
+      
+      !! NOTE !!
+This post has migrated to https://damonitor.github.io/posts/damon_news. This out-dated post will be removed soon.
+ Below is a list of news around DAMON project.
+This list is not exhaustive but just a DAMON maintainer&rsquo;s collection of news. If you find a news that should be added to this list, please let us know at sj@kernel.org and/or damon@lists.linux.dev.
+ 2024 2024-10-15: DAMON debugfs interface removal RFC patch has posted.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lsfmmbpf_2023_talk/">I will have a session for DAMON at the LSFMM 2023</a></h2>
     <div class="article-style">
       
@@ -614,31 +640,6 @@ This patchset delays zswap initialization until it gets enabled to save about 18
       
       I will present DAMON, DAMOS, and DAMO in Open Source Summit North America 2023. The title of the talk is &ldquo;DAMON, DAMOS, and DAMO: Kernel Subsystems and User-Space Tools for Data Access-Aware System Analysis/Optimizations&rdquo;.
 https://sched.co/1K5HS
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.3-rc3/">LKML News v6.3-rc3</a></h2>
-    <div class="article-style">
-      
-      [LSF/MM/BPF TOPIC] SLOB+SLAB allocators removal and future SLUB improvements (Vlastimil Babka) https://lkml.kernel.org/r/4b9fc9c6-b48c-198f-5f80-811a44737e5f@suse.cz
-Linux kernel has three objects allocators, namely SLOB, SLAB, and SLUB. Vlastimil and many developers have tried to make it only one single allocator. Deprecation of SLOB has made some progress so far. Vlastimil proposes an LSF/MM/BPF topic for discussing deprecation of SLAB and SLUB futur eimprovement.
-[GIT PULL] hotfixes for 6.3-rc1 (Andrew Morton) https://lkml.kernel.org/r/20230314165437.a2d992731a970582fe36aaba@linux-foundation.org
-Yet another mm subsystem hotfixes pull request has sent to Linus Torvalds.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.3-rc2/">LKML News v6.3-rc2</a></h2>
-    <div class="article-style">
-      
-      [Invitation] Linux MM Alignment Session on Wednesday (David Rientjes) https://lkml.kernel.org/r/CAE-26VAFJtSu5xEbzNUgPVn3W13-B1bGvvU8-+i-hkS4GtupCw@mail.gmail.com
-David is hosting biweekly meetings for Linux memory management developments called Linux MM Alignment, and he is publicly inviting people to the meetings.
-The next instance will be held on 10:00 PST, 2023-03-08, at https://meet.google.com/csb-wcds-xya
-THP backed thread stacks (Mike Kravetz) https://lkml.kernel.org/r/20230306235730.GA31451@monkey
-Mike found THP-always&rsquo;s memory bloat issue due to THP usage for threads&rsquo; stacks. Mike feels it might make no sense to use THP for stacks even if the THP policy is &lsquo;always&rsquo;, and starting discussions on improvment of the situation.
       
     </div>
   </div>

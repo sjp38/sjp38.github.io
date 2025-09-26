@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-08-27T07:11:03-07:00">
+    <meta property="og:updated_time" content="2025-09-09T20:06:10-07:00">
   
 
   
@@ -525,6 +525,33 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.15-rc3/">LKML News v6.15-rc3</a></h2>
+    <div class="article-style">
+      
+      [PATCH] tools/drgn: Add script to display page state for a given PID and VADDR (Ye Liu) https://lore.kernel.org/20250415075024.248232-1-ye.liu@linux.dev
+Ye Liu introduces a drgn script for showing page information for specific virtual address range.
+[RFC PATCH v4 0/6] Promotion of Unmapped Page Cache Folios. (Gregory Price) https://lore.kernel.org/20250411221111.493193-1-gourry@gourry.net
+Gregory continues his unmapped page cache folios promotion work and sent the fourth version.
+[PATCH v2 0/2] separate out mmap_lock/VMA locking and update MAINTAINERS (Lorenzo Stoakes) https://lore.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v6.15-rc2/">LKML News v6.15-rc2</a></h2>
+    <div class="article-style">
+      
+      [PATCH v2 0/3] Implement numa node notifier (Oscar Salvador) https://lore.kernel.org/20250408084153.255762-1-osalvador@suse.de
+Oscar found 5/10 memory notifier users are actually interested in only NUMA level change, and proposes numa node notifier.
+[RFC PATCH v2] Introduce Hierarchical Per-CPU Counters (Mathiew Desnoyers) https://lore.kernel.org/20250408160508.991738-1-mathieu.desnoyers@efficios.com
+Mathiew proposes a hierarchical per-cpu counter that can provide better scalability on multi CPU machines.
+[RFC PATCH 00/14] Virtual Swap Space (Nhat Pham) https://lore.kernel.org/20250407234223.1059191-1-nphamcs@gmail.com
+Nhat proposes virtual swap space, which was also presented at LSFMMBPF a few weeks ago.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/ossummit_na_2025_talk/">I will have a talk at the Open Source Summit North America 2025</a></h2>
     <div class="article-style">
       
@@ -622,34 +649,6 @@ Andrew posted mm hotfixes for 6.14-rc4 to Linus Torvalds.
 Rust kernel policy (Miguel Ojeda) https://lore.kernel.org/CANiq72m-R0tOakf=j7BZ78jDHdy=9-fvZbAT8j91Je2Bxy0sFg@mail.gmail.com
 Miguel posted a mail about his blog post for the policy around Rust for Linux kernel. Long discussion is following.
 [PATCH 0/2] Add a command line option that enables control of how many threads per NUMA node should be used to allocate huge pages.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.14-rc3/">LKML News v6.14-rc3</a></h2>
-    <div class="article-style">
-      
-      [PATCH v10 00/12] AMD broadcast TLB invalidation (Rik van Riel) https://lore.kernel.org/20250211210823.242681-1-riel@surriel.com
-Rik posted the tenth versin of the TLB invalication broadcasting patch series for AMD.
-[PATCH v14 0/8] Rust support for mm_struct, vm_area_struct, and mmap (Alice Ryhl) https://lore.kernel.org/20250213-vma-v14-0-b29c47ab21f5@google.com
-Alice posted 14th version of the patch series for adding Rust support to mm_struct, vm_rea_struct and mmap.
-[LSF/MM/BPF TOPIC] Rust in FS, Storage, MM (Andreas Mindborg) https://lore.kernel.org/87ldu9uiyo.fsf@kernel.org
-Andreas proposes an LSFMMBPF topic for discussing status and experience of Rust adoption for the subsystems.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.14-rc2/">LKML News v6.14-rc2</a></h2>
-    <div class="article-style">
-      
-      [LSF/MM/BPF TOPIC] Integrate Swap Cache, Swap Maps with Swap Allocator (Kairui Song) https://lore.kernel.org/CAMgjq7BvQ0ZXvyLGp2YP96+i+6COCBBJCYmjXHGBnfisCAb8VA@mail.gmail.com
-Kairui proposes yet another LSFMMBPF topic for redesigning and integrating multiple swap data into the swap allocator.
-[PATCH v4 00/14] kexec: introduce Kexec HandOver (KHO) (Mike Rapoport) https://lore.kernel.org/20250206132754.2596694-1-rppt@kernel.org
-Mike posted the fourth version of the kexec handover patch series.
-Linux 6.14-rc2 (Linus Torvalds) https://lore.kernel.org/CAHk-=wiGR6aB2oE7VsDkpnSbHaUnxVqtMvcEB0JzdvS-YmT_Lg@mail.gmail.com
-Linus Torvalds released the second candidate of Linux 6.14. It is a small rc2 following the small rc1 pattern.
       
     </div>
   </div>

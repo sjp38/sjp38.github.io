@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-08-27T07:11:03-07:00">
+    <meta property="og:updated_time" content="2025-09-09T20:06:10-07:00">
   
 
   
@@ -525,6 +525,33 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.13/">LKML News v6.13</a></h2>
+    <div class="article-style">
+      
+      [LSF/MM/BPF TOPIC] Predictive readahead of dentries (Shyam Prasad N) https://lore.kernel.org/CANT5p=rxLH-D9qSoOWgjYeD87uahmZJMwXp8uNKW66mbv8hmDg@mail.gmail.com
+Shyam proposes an LSFMM topic for dentries readahead, like that of filesystems.
+[PATCH v9 00/17] reimplement per-vma lock as a refcount (Suren Baghdasaryan) https://lore.kernel.org/20250111042604.3230628-1-surenb@google.com
+Suren continues revisioning of his per-vma lock optimization, and posted the ninth version of it, with changed title.
+[Feedback Needed] Hypervisor live update biweekly meeting time (David Rientjes) https://lore.kernel.org/2908e4ab-abc4-ddd0-b191-fe820856cfb4@google.com
+David announces start of a bi-weekly syncup for hypervisor live update, which was a topic of last year&rsquo;s MM alignment session, and asking feedback about the time proposal.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/lkml_news_v6.13-rc7/">LKML News v6.13-rc7</a></h2>
+    <div class="article-style">
+      
+      [PATCH] tools/mm: Introduce a tool to handle entries in allocinfo (Hao Ge) https://lore.kernel.org/20250106112103.25401-1-hao.ge@linux.dev
+Hao posted a patch adding a tool for handling of the kernel&rsquo;s memory allocation profilier output.
+[Invitation] Linux MM Alignment Session on Cgroup-based THP Control on Wednesday (David Rientjes) https://lore.kernel.org/5535fc79-c566-93a0-6134-bfdf1cf5171a@google.com
+David invites people for next Linux MM Alignment session. The topic will be cgroup-based THP control, led by Gutierez Asier, who proposed the idea.
+Swap Min Odrer (Daniel Gomez) https://lore.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.13-rc6/">LKML News v6.13-rc6</a></h2>
     <div class="article-style">
       
@@ -622,34 +649,6 @@ Willy tries to split out page-&gt;memcg_data reference counting using a new abst
 Kernel test robot reports huge improvement on will-it-scale benchmark, coming from commit d4148aeab412 (&ldquo;mm, mmap: limit THP alignment of anonymous mappings to PMD-aligned sizes&rdquo;).
 Linux 6.12-rc7 (Linus Torvalds) https://lore.kernel.org/CAHk-=wiWK-GCmFGNqknDZzWMZM-u58tmP=jZ9ooTo9b8NURvgQ@mail.gmail.com
 Linus released the seventh candidate for Linux v6.12. Linus says no big surprises found, so he anticipates final 6.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.12-rc6/">LKML News v6.12-rc6</a></h2>
-    <div class="article-style">
-      
-      [GIT PULL] hotfixes for 6.12-rc6 (Andrew Morton) https://lore.kernel.org/20241028203743.3fe4d95463aaafe23a239b51@linux-foundation.org
-Andrew posted mm hotfixes for v6.12-rc6.
-[PATCH v2 0/4] mm: add more kernel parameters to control mTHP (Maíra Canal) https://lore.kernel.org/20241029002324.1062723-1-mcanal@igalia.com
-Maira posted a patch series for adding kernel parameters to control mTHP for shmem.
-[Invitation] Linux MM Alignment Session on Memory Error Detector on Wednesday (David Rientjes) https://lore.kernel.org/9242f7cc-6b9d-b807-9079-db0ca81f3c6d@google.com
-David invites kernel developers to another MM alignment session. The topic is how to make user-space control memory failure recovery.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.12-rc5/">LKML News v6.12-rc5</a></h2>
-    <div class="article-style">
-      
-      [PATCH v1 0/6] mm/arm64: re-enable HVO (Yu Zhao) https://lore.kernel.org/20241021042218.746659-1-yuzhao@google.com
-There were a few attempts to enable hugetlb vmemmap optimization (HVO) on arm64. Yu posted another approach.
-linus-next: improving functional testing for to-be-merged pull requests (Sasha Levin) https://lore.kernel.org/ZxZ8MStt4e8JXeJb@sashalap
-Sasha proposes having a new test-purpose tree for Linus&rsquo; concern about testing.
-Re: [GIT PULL] bcachefs fixes for 6.12-rc5 (Sasha Levin) https://lore.kernel.org/Zxf3vp82MfPTWNLx@sashalap
-Following the feedback to linus-next proposal, Sasha implemented a bot for simple pre-merge check of pull requests, and showcase it on a random pull request.
       
     </div>
   </div>
