@@ -28,12 +28,11 @@
   
     
   
-  <meta name="description" content="Kernel Programmer">
+  <meta name="description" content="Linux 6.17 (Linus Torvalds) https://lore.kernel.org/CAHk-=wiX38oG6=xFBNLO0pnjqHfxzjd6-1kZ5Nv9HfqNC2PoFA@mail.gmail.com
+Linus released Linux 6.17, mentioning there were no huge surprises this past week.">
 
   
-  <link rel="alternate" hreflang="ko" href="https://sjp38.github.io/ko/tags/lkml/">
-  
-  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/tags/lkml/">
+  <link rel="alternate" hreflang="en-us" href="https://sjp38.github.io/post/lkml_news_v6.17/">
 
   
 
@@ -133,14 +132,12 @@
 
 
   
-  <link rel="alternate" href="/tags/lkml/index.xml" type="application/rss+xml" title="hacklog">
-  
 
   <link rel="manifest" href="/index.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon-32.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://sjp38.github.io/tags/lkml/">
+  <link rel="canonical" href="https://sjp38.github.io/post/lkml_news_v6.17/">
 
   
   
@@ -152,18 +149,66 @@
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="hacklog">
-  <meta property="og:url" content="https://sjp38.github.io/tags/lkml/">
-  <meta property="og:title" content="lkml | hacklog">
-  <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
+  <meta property="og:url" content="https://sjp38.github.io/post/lkml_news_v6.17/">
+  <meta property="og:title" content="LKML News v6.17 | hacklog">
+  <meta property="og:description" content="Linux 6.17 (Linus Torvalds) https://lore.kernel.org/CAHk-=wiX38oG6=xFBNLO0pnjqHfxzjd6-1kZ5Nv9HfqNC2PoFA@mail.gmail.com
+Linus released Linux 6.17, mentioning there were no huge surprises this past week."><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-09-29T06:38:01-07:00">
+    
+      <meta property="article:published_time" content="2025-09-29T06:38:01-07:00">
+    
+    <meta property="article:modified_time" content="2025-09-29T06:38:01-07:00">
   
 
   
 
 
+    
 
+
+
+
+
+
+  
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://sjp38.github.io/post/lkml_news_v6.17/"
+  },
+  "headline": "LKML News v6.17",
+  
+  "datePublished": "2025-09-29T06:38:01-07:00",
+  "dateModified": "2025-09-29T06:38:01-07:00",
+  
+  "author": {
+    "@type": "Person",
+    "name": "SeongJae Park (SJ)"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "hacklog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://sjp38.github.io/img/icon-512.png"
+    }
+  },
+  "description": "Linux 6.17 (Linus Torvalds) https://lore.kernel.org/CAHk-=wiX38oG6=xFBNLO0pnjqHfxzjd6-1kZ5Nv9HfqNC2PoFA@mail.gmail.com\nLinus released Linux 6.17, mentioning there were no huge surprises this past week."
+}
+</script>
+
+  
 
   
 
@@ -171,10 +216,13 @@
   
 
 
+  
 
 
 
-  <title>lkml | hacklog</title>
+
+
+  <title>LKML News v6.17 | hacklog</title>
 
 </head>
 
@@ -396,7 +444,7 @@
         
 
         <li class="nav-item">
-          <a class="nav-link  active" href="/tags"><span>Tags</span></a>
+          <a class="nav-link " href="/tags"><span>Tags</span></a>
         </li>
 
         
@@ -466,22 +514,6 @@
       
 
       
-      <li class="nav-item dropdown i18n-dropdown">
-        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true">
-          <i class="fas fa-globe mr-1" aria-hidden="true"></i><span class="d-none d-lg-inline">English</span>
-        </a>
-        <div class="dropdown-menu">
-          <div class="dropdown-item i18n-active font-weight-bold">
-            <span>English</span>
-          </div>
-          
-          <a class="dropdown-item" href="/ko/tags/lkml/">
-            <span>한국어</span>
-          </a>
-          
-        </div>
-      </li>
-      
 
     </ul>
 
@@ -489,177 +521,344 @@
 </nav>
 
 
-  
-
-
-
-
-
-
-
-
-
-
-
+  <article class="article">
 
   
 
+
+
+
+
+
+
+
+
+
+
+
+  
+
   
   
+  
+<div class="article-container pt-3">
+  <h1>LKML News v6.17</h1>
+
+  
+
   
     
-  
-<div class="universal-wrapper pt-3">
-  <h1>lkml</h1>
+
+
+<div class="article-metadata">
 
   
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Mon, Sep 29, 2025
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/categories/lkml-news/">lkml news</a></span>
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   
 </div>
 
 
 
-<div class="universal-wrapper">
-  
+  <div class="article-container">
 
-  
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.17-rc2/">LKML News v5.17-rc2</a></h2>
     <div class="article-style">
-      
-      [PATCH 0/7] Allocate module text and data separately (Christophe Leroy) https://lkml.kernel.org/r/cover.1643015752.git.christophe.leroy@csgroup.eu
-Powerpc book3s/32 can set execute permission in 256 MiB segments granularity instead of page granularity. This patchset therefore allow module data be allocated in vmalloc rea instead of module area.
-[PATCH 0/4] mm/memcg: Address PREEMPT_RT problems instead of disabling it. (Sebastian Adrzej Siewior) https://lkml.kernel.org/r/20220125164337.2071854-1-bigeasy@linutronix.de
-This patchset enables MEMCG for PREEMPT_RT instead of disabling it.
-[LSF/MM/BPF TOPIC] Folios (Matthew Wilcox) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.17-rc1/">LKML News v5.17-rc1</a></h2>
-    <div class="article-style">
-      
-      [PATCH 0/3] usable memory range fixes (arm64/fdt/efi) (Frank van der Linden) https://lkml.kernel.org/r/20220110210809.3528-1-fllinden@amazon.com
-This patchset fixes the usable memory range behavior when both DT and EFI are given.
-[PATCHv2 0/7] Implement support for unaccepted memory (Kirill A. Shutemov) https://lkml.kernel.org/r/20220111113314.27173-1-kirill.shutemov@linux.intel.com
-UEFI spec 2.9 introduces a concept of memory acceptance. It requires virtual machine platforms such as Intel TDX or AMD SEV-SNP to accept memory before use it. This patchset makes Linux kernel to support it, and therefore be able to reduce VM booting time by optimizing the acceptance.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.16/">LKML News v5.16</a></h2>
-    <div class="article-style">
-      
-      [PATCH v4 00/32] Separate struct slab from struct page (Vlastimil Babka) https://lkml.kernel.org/r/20220104001046.12263-1-vbabka@suse.cz
-The work for seperating struct slab from struct page for making the struct page simpler is updated to fourth version. As the patchset was in -next tree for a while, Vlastimil would sent a pull request of this to Linus.
-[PATCH 0000/2297] [ANNOUNCE, RFC] &ldquo;Fast Kernel Headers&rdquo; Tree -v1: Eliminate the Linux kernel&rsquo;s &ldquo;Dependency Hell&rdquo; (Ingo Molnar) https://lkml.kernel.org/r/YdIfz+LMewetSaEB@gmail.com
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.16-rc8/">LKML News v5.16-rc8</a></h2>
-    <div class="article-style">
-      
-      [RFC v2] mm: introduce page pin owner (Minchan Kim) https://lkml.kernel.org/r/20211228175904.3739751-1-minchan@kernel.org
-Second version of the RFC for page pinning owner feature, which can be useful for tracking down who pins which page and therefore why contiguous pages allocation or migration fails.
-mmotm 2021-12-29-20-07 uploaded (Andrew Morton) https://lkml.kernel.org/r/20211230040740.SbquJAFf5%akpm@linux-foundation.org
-MM of the moment has updated. It&rsquo;s rebased on v5.16-rc7, adds 32 new patches to the queue, drops 11 patches from the queue, and modifies 100 existing patches.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.16-rc7/">LKML News v5.16-rc7</a></h2>
-    <div class="article-style">
-      
-      [PATCH v5 00/16] Optimize list lru memory consumption (Muchun Song) https://lkml.kernel.org/r/20211220085649.8196-1-songmuchun@bytedance.com
-Fifth version of the patchset for reducing lru memory consumption. This version fixes a sleep-in-atomic-context bug which is reported by the kernel test robot, applies some requests from Johannes, and collect Acked-by from Johannes.
-[PATCH 0/2] Add a new scheme to support demotion on tiered memory system (Baolin Wang) https://lkml.kernel.org/r/cover.1640077468.git.baolin.wang@linux.alibaba.com
-This patchset makes DAMOS supports demotion of memory regions.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.16-rc6/">LKML News v5.16-rc6</a></h2>
-    <div class="article-style">
-      
-      [PATCH v4 00/17] Optimize list lru memory consumption (Muchun Song) https://lkml.kernel.org/r/20211213165342.74704-1-songmuchun@bytedance.com
-Muchun found 6GB of memory was consumed by kmalloc-32 slab cache on a machine having 952 super blocks. That was due to list_lru_one allocation from memcg_nr_cache_ids. This patchset aims to fix the issue. According to a simple test, this reduces memory consumption under a situation from 24GiB to 4GiB.
-mmotm 2021-12-13-21-28 uploaded (Andrew Morton) https://lkml.kernel.org/r/20211214052904.VfRYfitp0%akpm@linux-foundation.org
-Andrew Morton uploaded new mmotm.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.16-rc5/">LKML News v5.16-rc5</a></h2>
-    <div class="article-style">
-      
-      [RFC] mm: introduce page pinner (Minchan Kim) https://lkml.kernel.org/r/20211206184730.858850-1-minchan@kernel.org
-Page migrations commonly fails from temporal referenc count elevation. Worse yet, it&rsquo;s hard to know which kernel subsystem has made the temporal reference count increase. To tracking it available, Minchan is proposing a new feature called page pinner. It tracks page put operations for pages that migration failed.
-mmotm 2021-12-06-22-21 uploaded (Andrew Morton) https://lkml.kernel.org/r/20211207062141.pMgbjXQXy%akpm@linux-foundation.org
-mmotm based on v5.16-rc4 has uploaded. 14 new patches are added, 3 existign patches modified, and 1 existing patch has dropped from the queue.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.16-rc4/">LKML News v5.16-rc4</a></h2>
-    <div class="article-style">
-      
-      mmotm 2021-11-29-18-58 uploaded (Andrew Morton) https://lkml.kernel.org/r/20211130025839.ZhVoO1W_7%akpm@linux-foundation.org
-mmotm has updated. It&rsquo;s based on v5.16-rc3, adds 52 new patches, modifies 18 existing patches, and drops 2 patches. In total, 224 patches in the queue.
-[QUESTION] “place pages to tail” regress memory read bandwidth about 10% under our test cases (liupeng) https://lkml.kernel.org/r/3c6349ddd9a34732a251467b7fa4fe93@huawei.com
-Liu Peng found David&rsquo;s patch 7fef431be9c9(mm/page_alloc: place pages to tail in __free_pages_core()) incurring performance regression, and asking some suggestions.
-[RFC PATCH] mm: count zram read/write into PSI_IO_WAIT (Huangzhaoyang) https://lkml.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.16-rc3/">LKML News v5.16-rc3</a></h2>
-    <div class="article-style">
-      
-      [PATCH 0/3] page table check (Pasha Tatashin) https://lkml.kernel.org/r/20211123214814.3756047-1-pasha.tatashin@soleen.com
-Due to reference count of struct page handling issue, some memory were leak from a process and moved in another process. This commit avoids such type of bugs by checking page table at the time of entrieds insertion.
-[PATCH 0/5] *** Transparent Page Placement for Tiered-Memory *** (Hasan Al Maruf) https://lkml.kernel.org/r/20211124163608.33015-1-hasanalmaruf@fb.com
-This patchset augment AutoNUMA mechanism to promote pages from slow tier nodes to toptier nodes.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.16-rc2/">LKML News v5.16-rc2</a></h2>
-    <div class="article-style">
-      
-      [PATCH -V10 0/6] NUMA balancing: optimize memory placement for memory tiering system (Huang Ying) https://lkml.kernel.org/r/20211116013522.140575-1-ying.huang@intel.com
-This patchset optimizes the pages placement on tiered memory systems using DRAM and PMEM.
-[RFC 0/3] page table check (Pasha Tatashin) https://lkml.kernel.org/r/20211116220038.116484-1-pasha.tatashin@soleen.com
-Pasha found broken page ref issue in 4.14 kernel. The page was leaked into another process, so they were able to find the issue by examining the page tables. This patchset tries to prevent this kind of memory corruption issues by checking the page tables in time of inserting entries into user page tables.
-      
-    </div>
-  </div>
-  
+      <h2 id="linux-617-linus-torvalds">Linux 6.17 (Linus Torvalds)</h2>
+<p><a href="https://lore.kernel.org/CAHk-=wiX38oG6=xFBNLO0pnjqHfxzjd6-1kZ5Nv9HfqNC2PoFA@mail.gmail.com">https://lore.kernel.org/CAHk-=wiX38oG6=xFBNLO0pnjqHfxzjd6-1kZ5Nv9HfqNC2PoFA@mail.gmail.com</a></p>
+<p>Linus released Linux 6.17, mentioning there were no huge surprises this past
+week.</p>
 
+    </div>
+
+    
+
+
+
+
+
+<div class="article-tags">
   
-<nav>
-  <ul class="pagination justify-content-center">
+  <a class="badge badge-light" href="/tags/linux/">linux</a>
+  
+  <a class="badge badge-light" href="/tags/kernel/">kernel</a>
+  
+  <a class="badge badge-light" href="/tags/lkml/">lkml</a>
+  
+  <a class="badge badge-light" href="/tags/news/">news</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
     
-    <li class="page-item"><a class="page-link" href="/tags/lkml/page/17/">&laquo;</a></li>
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=https://sjp38.github.io/post/lkml_news_v6.17/&amp;text=LKML%20News%20v6.17" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
     
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=https://sjp38.github.io/post/lkml_news_v6.17/&amp;t=LKML%20News%20v6.17" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
     
-    <li class="page-item"><a class="page-link" href="/tags/lkml/page/19/">&raquo;</a></li>
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=LKML%20News%20v6.17&amp;body=https://sjp38.github.io/post/lkml_news_v6.17/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=https://sjp38.github.io/post/lkml_news_v6.17/&amp;title=LKML%20News%20v6.17" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=LKML%20News%20v6.17%20https://sjp38.github.io/post/lkml_news_v6.17/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=https://sjp38.github.io/post/lkml_news_v6.17/&amp;title=LKML%20News%20v6.17" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
     
   </ul>
-</nav>
-
-
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      <img class="portrait mr-3" src="https://s.gravatar.com/avatar/43dc5645c78e68fda997138380dfaaf4?s=200')" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="https://sjp38.github.io/">SeongJae Park (SJ)</a></h5>
+      <h6 class="card-subtitle">Kernel Programmer</h6>
+      <p class="card-text">SeongJae Park (SJ) is a programmer who loves to analyze and develop systems.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://social.kernel.org/sj" target="_blank" rel="noopener">
+        <i class="fab fa-linux"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/sjp38" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://www.linkedin.com/in/seongjae-park-1a5b9954/" target="_blank" rel="noopener">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.com/citations?user=jJIiF3AAAAAJ" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  
+  
+  <div class="article-widget content-widget-hr">
+    <h3>Related</h3>
+    <ul>
+      
+      <li><a href="/post/lkml_news_v6.17-rc6/">LKML News v6.17-rc6</a></li>
+      
+      <li><a href="/post/lkml_news_v6.17-rc5/">LKML News v6.17-rc5</a></li>
+      
+      <li><a href="/post/lkml_news_v6.17-rc4/">LKML News v6.17-rc4</a></li>
+      
+      <li><a href="/post/lkml_news_v6.17-rc3/">LKML News v6.17-rc3</a></li>
+      
+      <li><a href="/post/lkml_news_v6.17-rc2/">LKML News v6.17-rc2</a></li>
+      
+    </ul>
+  </div>
+  
+
+
+
+  </div>
+</article>
 
       
 

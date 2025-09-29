@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-09-09T20:06:10-07:00">
+    <meta property="og:updated_time" content="2025-09-29T06:38:01-07:00">
   
 
   
@@ -525,6 +525,19 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.9-rc1/">LKML News v6.9-rc1</a></h2>
+    <div class="article-style">
+      
+      [GIT PULL] slab updates for 6.9 (Vlastimil Babka) https://lkml.kernel.org/r/c021631d-29e5-432f-bfcd-1d75ec28d065@suse.cz
+Vlastimil sent the slab pull request for 6.9 to Linus Torvalds.
+[PATCH v4 0/6] Swap-out mTHP without splitting (Ryan Roberts) https://lkml.kernel.org/r/20240311150058.1122862-1-ryan.roberts@arm.com
+Ryan sent the fourth version of the patchset to swap-out multi-sized THP without splitting first. The approach is similar to that for PMD-sized THP.
+[PATCH] vmstat: Keep count of the maximum page reached by the kernel stack (Pasha Tatashin) https://lkml.kernel.org/r/20240313033417.447216-1-pasha.tatashin@soleen.com
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.8/">LKML News v6.8</a></h2>
     <div class="article-style">
       
@@ -636,19 +649,6 @@ The thrid version of hugetlb initialization prallelization patchset has posted.
 Third version of vmap lock contention mitigation patch has posted.
 [PATCH v6 0/2] Add swappiness argument to memory.reclaim (Dan Schatzberg) https://lkml.kernel.org/r/20240103164841.2800183-1-schatzberg.dan@gmail.com
 Sixth version of the patchset for letting memory.reclaim memcg file be used with swappiness argument has posted.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.7-rc8/">LKML News v6.7-rc8</a></h2>
-    <div class="article-style">
-      
-      [PATCH] kernel: Introduce a write lock/unlock wrapper for tasklist_lock (Maria Yu) https://lkml.kernel.org/r/20231225081932.17752-1-quic_aiquny@quicinc.com
-A patch introducing a write lock/unlock wrapper for tasklist_lock, to overcome bad responsive performance of system that coming from scenarios that acquiring read lock which wrote lock needed to be waiting for.
-[PATCH v3 00/10] IOMMU memory observability (Pasha Tatashin) https://lkml.kernel.org/r/20231226200205.562565-1-pasha.tatashin@soleen.com
-Third version of patchset to allow monitoring and limiting IOMMU memory usage is posted.
-[GIT PULL] hotfixes for 6.
       
     </div>
   </div>

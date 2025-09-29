@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-09-09T20:06:10-07:00">
+    <meta property="og:updated_time" content="2025-09-29T06:38:01-07:00">
   
 
   
@@ -525,6 +525,19 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v5.8/">LKML News v5.8</a></h2>
+    <div class="article-style">
+      
+      [PATCH v2 0/7] mm: introduce memfd_secret system call to create &ldquo;secret&rdquo; memory areas (Mike Rapoport) https://lkml.kernel.org/r/20200727162935.31714-1-rppt@kernel.org
+This is the second version of the secretmemfd. In this version, the system call has renamed to &lsquo;memfd_secret&rsquo;.
+[RFC PATCH 0/5] madvise MADV_DOEXEC (Anthony Yznaga) https://lkml.kernel.org/r/1595869887-23307-1-git-send-email-anthony.yznaga@oracle.com
+This patch introduces another madvise hint, MADV_DOEXEC. It preserves an anonymous memory range across exec.
+[RFC PATCH 0/6] decrease unnecessary gap due to pmem kmem alignment (Jia He) https://lkml.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v5.8-rc7/">LKML News v5.8-rc7</a></h2>
     <div class="article-style">
       
@@ -631,18 +644,6 @@ For further analysis of the mmap_sem overhead from both kernel space and user sp
 The 5th version of the proactive compaction. This patchset make the compaction more proactive to make THP allocation easily success.
 [PATCH -V2] swap: Reduce lock contention on swap cache from swap slots allocation (Huang Ying) https://lkml.kernel.org/r/20200520031502.175659-1-ying.huang@intel.com
 After swap device is fragmented, there&rsquo;s no free swap cluster. Therefore, each swap logic of each CPU will linearly scan each swap cluster to find a free slot.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v5.7-rc6/">LKML News v5.7-rc6</a></h2>
-    <div class="article-style">
-      
-      [PATCH v4 00/36] Large pages in the page cache (Matthew Wilcox) https://lkml.kernel.org/r/20200515131656.12890-1-willy@infradead.org
-This is the fourth version of the patchset for the huge pages in the page cache. Still it fails xfstests.
-Maintainers / Kernel Summit 2020 planning kick-off (Theodore Y. Ts&rsquo;o) https://lkml.kernel.org/r/20200515163956.GA2158595@mit.edu
-Ted annouced that the Maintainers / Kernel Summit will be held in virtual this year, of course due to the COVID19. With this announcement, the CFP for the kernel summit is also opened.
       
     </div>
   </div>
