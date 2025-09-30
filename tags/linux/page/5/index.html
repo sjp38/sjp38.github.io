@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-09-29T06:38:01-07:00">
+    <meta property="og:updated_time" content="2025-09-30T06:45:43-07:00">
   
 
   
@@ -525,6 +525,20 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.13-rc4/">LKML News v6.13-rc4</a></h2>
+    <div class="article-style">
+      
+      [RFC PATCH 00/12] khugepaged: Asynchronous mTHP collapse (Dev Jain) https://lore.kernel.org/20241216165105.56185-1-dev.jain@arm.com
+Dev Jain posted an RFC patch series that makes khugepaged collapses multi-sized THP.
+[PATCH] mm/page_idle: Constify &lsquo;struct bin_attribute&rsquo; (Thomas Weißschuh) https://lore.kernel.org/20241216-sysfs-const-bin_attr-page_idle-v1-1-cc01ecc55196@weissschuh.net
+Thomas marks struct bin_attribute objects that used in page_idle to be marked as const, since it is now supported.
+Slow-tier Page Promotion discussion recap and open questions (David Rientjes) https://lore.kernel.org/6d582bb6-3ba5-1768-92f2-6025340a3cd4@google.com
+David shares his summary of the discussions around asynchronous page promotion approach from AMD that was held on last MM alignment session.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/fosdem2025_talk/">I will have a talk at the FOSDEM 2025</a></h2>
     <div class="article-style">
       
@@ -633,18 +647,6 @@ Following the feedback to linus-next proposal, Sasha implemented a bot for simpl
 David starts a bi-weekly call series for discussing guest_memfd. The first instance will be held on 2024-10-17 9am PT.
 [Invitation] Linux MM Alignment Session on IOMMU(fd) persistence and Kexec Hand Over (KHO) on Wednesday (David Rientjes) https://lore.kernel.org/c85a45fb-7b21-4f9f-568a-e86debbd001a@google.com
 David invites people to next MM alignment session. The topic will be Amazon&rsquo;s kexec hand-over for making iommu persistent during live update of kernel.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.12-rc3/">LKML News v6.12-rc3</a></h2>
-    <div class="article-style">
-      
-      [RFC PATCH v3 0/4] sched+mm: Track lazy active mm existence with hazard pointers (Mathew Desnoyers) https://lore.kernel.org/20241008135034.1982519-1-mathieu.desnoyers@efficios.com
-Mathiew Desnoyers posted the third version of his hazard pointer patch series for optimizing active_mm tracking following comments from Peter Zijlstra and Paul E. McKenney on the previous versions of the patch series.
-[RFC PATCH 0/1] Buddy allocator like folio split (Zi Yan) https://lore.kernel.org/20241008223748.555845-1-ziy@nvidia.com
-Zi Yan posted an RFC patch for making folio split behaves like the Buddy allocator, to reduce total number of folios after splits.
       
     </div>
   </div>

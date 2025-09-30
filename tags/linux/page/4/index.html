@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-09-29T06:38:01-07:00">
+    <meta property="og:updated_time" content="2025-09-30T06:45:43-07:00">
   
 
   
@@ -525,6 +525,20 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.14-rc5/">LKML News v6.14-rc5</a></h2>
+    <div class="article-style">
+      
+      [RFC PATCH 0/3] sched/numa: Introduce per cgroup numa balance control (Chen Yu) https://lore.kernel.org/cover.1740483690.git.yu.c.chen@intel.com
+Chen posted an RFC for cgroup based numa balancing control, following recent approach from Kaiyang Zhao.
+[LSF/MM/BPF TOPIC] SLUB allocator, mainly the sheaves caching layer (Vlastimil Babka) https://lore.kernel.org/14422cf1-4a63-4115-87cb-92685e7dd91b@suse.cz
+Vlastimil proposes an LSFMMBPF topic for his SLUB sheaves patch series.
+[RFC PATCH 0/2] SKSM: Synchronous Kernel Samepage Merging (Mathieu Desnoyers) https://lore.kernel.org/20250228023043.83726-1-mathieu.desnoyers@efficios.com
+Matthieu proposes a variant of KSM that works in synchronous manner, unlike KSM.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.14-rc4/">LKML News v6.14-rc4</a></h2>
     <div class="article-style">
       
@@ -638,20 +652,6 @@ In short, I made 7th and 2nd biggest changes to Linux kernel memory management s
       
       Linus 6.13-rc5 (Linus Torvalds) https://lore.kernel.org/&lt;CAHk-=wh=sk+uzFj5edCwdSmUuhfe40mH+G04XQXZtzbx_XBnvQ@mail.gmail.com
 After yet another calm week of holidays, Linus released the fifth candidate for Linux 6.13. It it again a tiny one, having less than a hundred non-merge commits.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.13-rc4/">LKML News v6.13-rc4</a></h2>
-    <div class="article-style">
-      
-      [RFC PATCH 00/12] khugepaged: Asynchronous mTHP collapse (Dev Jain) https://lore.kernel.org/20241216165105.56185-1-dev.jain@arm.com
-Dev Jain posted an RFC patch series that makes khugepaged collapses multi-sized THP.
-[PATCH] mm/page_idle: Constify &lsquo;struct bin_attribute&rsquo; (Thomas Weißschuh) https://lore.kernel.org/20241216-sysfs-const-bin_attr-page_idle-v1-1-cc01ecc55196@weissschuh.net
-Thomas marks struct bin_attribute objects that used in page_idle to be marked as const, since it is now supported.
-Slow-tier Page Promotion discussion recap and open questions (David Rientjes) https://lore.kernel.org/6d582bb6-3ba5-1768-92f2-6025340a3cd4@google.com
-David shares his summary of the discussions around asynchronous page promotion approach from AMD that was held on last MM alignment session.
       
     </div>
   </div>

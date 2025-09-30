@@ -157,7 +157,7 @@
   <meta property="og:description" content="Kernel Programmer"><meta property="og:image" content="https://sjp38.github.io/img/tux.png">
   <meta property="twitter:image" content="https://sjp38.github.io/img/tux.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2025-09-29T06:38:01-07:00">
+    <meta property="og:updated_time" content="2025-09-30T06:45:43-07:00">
   
 
   
@@ -525,6 +525,18 @@
   
   
   <div>
+    <h2><a href="/post/lkml_news_v6.12-rc3/">LKML News v6.12-rc3</a></h2>
+    <div class="article-style">
+      
+      [RFC PATCH v3 0/4] sched+mm: Track lazy active mm existence with hazard pointers (Mathew Desnoyers) https://lore.kernel.org/20241008135034.1982519-1-mathieu.desnoyers@efficios.com
+Mathiew Desnoyers posted the third version of his hazard pointer patch series for optimizing active_mm tracking following comments from Peter Zijlstra and Paul E. McKenney on the previous versions of the patch series.
+[RFC PATCH 0/1] Buddy allocator like folio split (Zi Yan) https://lore.kernel.org/20241008223748.555845-1-ziy@nvidia.com
+Zi Yan posted an RFC patch for making folio split behaves like the Buddy allocator, to reduce total number of folios after splits.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/lkml_news_v6.12-rc2/">LKML News v6.12-rc2</a></h2>
     <div class="article-style">
       
@@ -637,18 +649,6 @@ James Gowans posted a patch series for a new in-memory filesystem that designed 
 Nico found increased memory footprint from THP after their customers switching from RHEL7 to RHEL8. To mitigate the issue, Nico is proposing adding a new THP configuration called deferred. It is same to madvise but allows khugepaged to do the work.
 [PATCH v2 0/4] mm: clarify nofail memory allocation (Barry Song) https://lore.kernel.org/20240731000155.109583-1-21cnbao@gmail.com
 Barry posted the second version of their patchset for __GFP_NOFAIL clarification.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/lkml_news_v6.11-rc1/">LKML News v6.11-rc1</a></h2>
-    <div class="article-style">
-      
-      [PATCH 00/17] mm: introduce numa_memblks (Mike Rapoport) https://lore.kernel.org/20240716111346.3676969-1-rppt@kernel.org
-Mike Rapoport posted thi spatchset for moving numa_memblks from x86 to the generic code, as a followup of the discussion for CXL memory windows handling on arm64.
-[RFC PATCHv2] mm: introduce reclaim throttle in MGLRU (Zhaoyang Huang) https://lore.kernel.org/20240716094348.2451312-1-zhaoyang.huang@unisoc.com
-Zhaoyang sent a patch that makes direct reclaim of MGLRU be throttled by judging the number of isolated and inactive folios, to prevent issues similar to classic LRU.
       
     </div>
   </div>
