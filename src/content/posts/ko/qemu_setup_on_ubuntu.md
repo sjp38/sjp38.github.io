@@ -1,0 +1,277 @@
+---
+# Documentation: https://sourcethemes.com/academic/docs/managing-content/
+
+title: "Ubuntu 환경에서 QEMU 빌드 / 설치 / 사용하는 법"
+subtitle: ""
+summary: ""
+authors: []
+tags: ["qemu", "kvm", "tips", "virtualization", "setup"]
+categories: ["setup"]
+date: 2019-12-12T00:46:05+01:00
+lastmod: 2019-12-12T00:46:05+01:00
+featured: false
+draft: false
+
+# Featured image
+# To use, add an image named `featured.jpg/png` to your page's folder.
+# Focal points: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight.
+image:
+  caption: ""
+  focal_point: ""
+  preview_only: false
+
+# Projects (optional).
+#   Associate this post with one or more of your projects.
+#   Simply enter your project's folder or file name without extension.
+#   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
+#   Otherwise, set `projects = []`.
+projects: []
+---
+
+Ubuntu 에서 QEMU 를 빌드, 설치, 사용하는 법을 설명합니다.
+기본적으로 http://wiki.qemu.org/Hosts/Linux 문서를 참고했습니다.
+테스트는 Ubuntu 18.04 머신 위에서 진행되었습니다.
+
+
+QEMU Build
+==========
+
+```
+sudo apt install libglib2.0-dev libfdt-dev libpixman-1-dev zlib1g-dev \
+		libgtk-3-dev
+git clone git://git.qemu-project.org/qemu.git
+cd qemu
+git checkout v4.2.0
+mkdir -p $HOME/qemu.sandbox/bin
+cd $HOME/qemu.sandbox/bin
+../../qemu/configure --enable-debug --enable-gtk
+time make -j143
+./x86_64-softmmu/qemu-system-x86_64 -L pc-bios
+```
+
+
+Guest OS Install
+================
+
+Ubuntu 서버 이미지를 가져오고,
+```
+$ wget http://releases.ubuntu.com/18.04/ubuntu-18.04.3-live-server-amd64.iso
+```
+
+qcow2 포맷으로 스토리지를 만들고,
+```
+cd ..
+$ ./bin/qemu-img create -f qcow2 qc2img 32G
+Formatting 'qc2img', fmt=qcow2 size=34359738368 encryption=off cluster_size=65536 lazy_refcounts=off refcount_bits=16
+$ ls -alh
+total 830M
+drwxrwxr-x  3 sjpark sjpark 4.0K Jun  1 20:34 .
+drwxr-xr-x 28 sjpark sjpark 4.0K Jun  1 20:15 ..
+drwxrwxr-x 94 sjpark sjpark  12K Jun  1 20:19 bin
+-rw-r--r--  1 sjpark sjpark 193K Jun  1 20:34 qc2img
+-rw-rw-r--  1 sjpark sjpark 848M Feb 16 05:37 ubuntu-18.04.3-live-server-amd64.iso
+```
+
+다운로드 받은 서버 이미지로 부팅을 합니다:
+```
+$ sudo ./bin/x86_64-softmmu/qemu-system-x86_64 -m 8G -enable-kvm \
+	-drive if=virtio,file=qc2img,cache=none \
+	-cdrom ubuntu-18.04.3-live-server-amd64.iso
+```
+
+X 연결이 되어있다면 곧바로 qemu GUI 가 뜨며, 여기에 우분투 서버 이미지로 부팅된
+화면이 나옵니다.  여기서 평소에 하던대로 ubuntu 서버 설치를 진행하면 됩니다.
+OpenSSH 패키지도 이 과정에서 미리 설치해 줍시다.
+
+이제, 다음과 같이 우분투 가상머신을 가동할 수 있습니다.
+```
+$ sudo ./bin/x86_64-softmmu/qemu-system-x86_64 -m 20G -smp 32 -enable-kvm \
+	-drive if=virtio,file=qc2img,cache=none \
+	-net user,hostfwd=tcp::2242-:22 -net nic \
+	-nographic
+```
+
+여기선 `-nographic` 옵션을 줬으므로 GUI 인터페이스가 뜨지 않으며, `Booting from
+Hard Disk...` 라는 메세지 후로 화면에 아무것도 나오지 않습니다.  하지만 잘
+부팅되어 있습니다.  2242 포트에 ssh 로 접속할 수 있습니다:
+```
+$ ssh localhost -p 2242
+```
+
+호스트에서 qemu 를 수행한 터미널은 그대로 심심하게 있으므로, 여기에 VM 의
+콘솔을 붙이겠습니다.
+VM 에 설치된 grub 설정을 수정해 부팅 시 커널에 줄 옵션을 바꿔 줍니다.
+Guest os 의 ``/etc/default/grub`` 의 ``GRUB_CMDLINE_LINUX_DEFAULT`` 를
+``"console=ttyS0 earlyprintk=ttyS0 ftrace_dump_on_oops"``
+로 바꿔주고 다음 명령을 수행합니다.
+```
+$ sudo update-grub
+$ sudo shutdown -h now
+```
+
+이후 다시 qemu 를 통해 시작하면 qemu 커맨드 날린 호스트의 터미널에 콘솔이
+연결되어 부팅 로그 등이 뜨고 로그인 프롬프트까지 나옵니다.
+
+
+Monitor Console 돌아가기
+========================
+
+VM 의 콘솔에서 QEMU 모니터 콘솔로 돌아가고자 한다면 `Ctrl+a c` 를 입력합니다.
+다시 게스트 콘솔로 돌아가려면 `Ctrl+a c enter` 를 입력합니다.
+
+참고:  https://serverfault.com/questions/471719/how-to-start-qemu-directly-in-the-console-not-in-curses-or-sdl
+
+
+Boot with Kernel in Host
+========================
+
+`-kernel`, `-append` 옵션을 주면 호스트 머신의 파일시스템 상에 존재하는 커널을
+이용해 vm을 부팅시킬 수 있습니다.  호스트에서 개발과 빌드를 하고자 하면 이게
+간편합니다.  `-kernel` 옵션은 커널 이미지 파일을, `-append` 옵션은 커널
+패러미터를 넣어주면 되며, 패러미터중 `root=` 을 통해 게스트 vm 의 파일시스템을
+사용하도록 하면 됩니다.  예를 들면 다음과 같습니다:
+```
+$ sudo ../qemu/build/x86_64-softmmu/qemu-system-x86_64 -m 2048 -smp 2 \
+-enable-kvm -drive if=virtio,file=debian.img,cache=none \
+-net user,hostfwd=tcp::2242-:22 -net nic -nographic
+-kernel /linux.out/arch/x86/boot/bzImage \
+-append “root=/dev/vda1 console=ttyS0 earlyprintk=ttyS0 debug ignore_loglevel ftrace_dump_on_oops”
+```
+
+커널 패러미터의 ``root=`` 값은 실제 게스트 OS가 어떤 디바이스 파일을 마운트
+하고 있는지 미리 확인하고 적어줍시다.
+
+또한, 이렇게 부팅되면 module 을 사용할 수가 없습니다.  주요한 모듈은 static
+으로 빌드하도록 합시다.  이 글에서는 ssh 로 붙는걸 가정하고 있으므로, 이더넷
+드라이버를 static 으로 빌드해야 합니다.
+
+
+Image Resize
+============
+
+뭐 이거저거 하다보면 guest os 디스크 용량이 금방 꽉차버립니다.  아래 커맨드는 기존에 사용하던 qcow2 이미지의 크기를 키워줍니다.
+```
+$ qemu-img resize qc2img +160G
+$ sudo apt install libguestfs-tools
+$ cp qc2img qc2img.bak
+$ sudo virt-resize --expand /dev/sda1 qc2img.bak qc2img
+$ sudo virt-resize --expand /dev/sda1 qc2img.bak qc2img
+[   0.0] Examining qc2img.bak
+◓ 25% ⟦▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒═════════════════════════════════════════════════════════════════════⟧ --:--
+ 100% ⟦▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒⟧ 00:00
+******
+
+Summary of changes:
+
+/dev/sda1: This partition will be resized from 24.0G to 184.0G.  The
+filesystem ext4 on /dev/sda1 will be expanded using the 'resize2fs' method.
+
+/dev/sda2: This partition will be left alone.
+
+******
+[  49.9] Setting up initial partition table on qc2img
+[  56.7] Copying /dev/sda1
+ 100% ⟦▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒⟧ 00:00
+[ 594.9] Copying /dev/sda2
+ 100% ⟦▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒⟧ 00:00
+ 100% ⟦▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒⟧ 00:00
+[ 767.4] Expanding /dev/sda1 using the 'resize2fs' method
+
+Resize operation completed with no errors.  Before deleting the old disk,
+carefully check that the resized disk boots and works correctly.
+$
+$
+$ ./bin/qemu-img info qc2img
+image: qc2img
+file format: qcow2
+virtual size: 192G (206158430208 bytes)
+disk size: 32G
+cluster_size: 65536
+Format specific information:
+    compat: 1.1
+    lazy refcounts: false
+    refcount bits: 16
+    corrupt: false
+$ 
+$
+$ virt-filesystems --long -h --all -a qc2img
+libguestfs: warning: current user is not a member of the KVM group (group ID 117). This user cannot access /dev/kvm, so libguestfs may run very slowly. It is recommended that you 'chmod 0666 /dev/kvm' or add the current user to the KVM group (you might need to log out and log in again).
+Name       Type        VFS      Label  MBR  Size  Parent
+/dev/sda1  filesystem  ext4     -      -    184G  -
+/dev/sda2  filesystem  unknown  -      -    1.0K  -
+/dev/sda5  filesystem  swap     -      -    8.0G  -
+/dev/sda1  partition   -        -      83   184G  /dev/sda
+/dev/sda2  partition   -        -      05   1.0K  /dev/sda
+/dev/sda5  partition   -        -      82   8.0G  /dev/sda
+/dev/sda   device      -        -      -    192G  -
+```
+
+그러고나서 guest vm 을 다시 켜고 확인해 보면, 용량이 넉넉해져 있습니다:
+```
+$ df -h
+Filesystem      Size  Used Avail Use% Mounted on
+udev            9.7G     0  9.7G   0% /dev
+tmpfs           2.0G  8.6M  2.0G   1% /run
+/dev/vda1       181G   24G  149G  14% /
+tmpfs           9.8G     0  9.8G   0% /dev/shm
+tmpfs           5.0M     0  5.0M   0% /run/lock
+tmpfs           9.8G     0  9.8G   0% /sys/fs/cgroup
+tmpfs           2.0G     0  2.0G   0% /run/user/1000
+```
+
+참고 사이트: https://fatmin.com/2016/12/20/how-to-resize-a-qcow2-image-and-filesystem-with-virt-resize/
+
+
+QCOW2 Image Mount
+=================
+
+이런저런 이유로 host 에서 qcow2 이미지에 직접 접근하고자 할 때가 있습니다.
+qemu 의 qemu-nbd 도구를 사용해 곧바로 host system 에서 mount 해 접근할 수
+있습니다.
+
+먼저, nbd 커널 모듈을 로드하고 qemu-nbd 로 qcow2 이미지를 디바이스로
+연결합니다.
+```
+$ cd qemu.sandbox
+$ sudo modprobe nbd max_part=8
+$ sudo ./bin/qemu-nbd --connect=/dev/nbd0 ./qc2img.bak
+```
+
+이제 fdisk 로 해당 이미지 파일의 파티션을 볼 수 있습니다:
+```
+$ sudo fdisk -l /dev/nbd0
+Disk /dev/nbd0: 192 GiB, 206158430208 bytes, 402653184 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: dos
+Disk identifier: 0xe513ef69
+
+Device      Boot     Start       End   Sectors  Size Id Type
+/dev/nbd0p1 *         2048 385877631 385875584  184G 83 Linux
+/dev/nbd0p2      385877632 402650753  16773122    8G  5 Extended
+/dev/nbd0p5      385877634 402650753  16773120    8G 82 Linux swap / Solaris
+```
+
+원하는 파티션을 다음과 같이 마운트합니다.  여기선 리눅스가 설치된 root 파티션을
+마운트 합니다:
+```
+$ sudo mount /dev/nbd0p1 ./mnt/
+$ cd mnt/
+$ ls
+bin   etc         initrd.img.old  lib64       media  proc  sbin  sys  var
+boot  home        lib             libx32      mnt    root  snap  tmp  vmlinuz
+dev   initrd.img  lib32           lost+found  opt    run   srv   usr  vmlinuz.old
+```
+
+사용이 끝났다면 언마운트, qemu-nbd 를 통한 디바이스 연결 해제 순서로
+정리합니다.
+```
+$ sudo umount ./mnt
+$ sudo ./bin/qemu-nbd --disconnect /dev/nbd
+nbd0    nbd0p2  nbd1    nbd11   nbd13   nbd15   nbd3    nbd5    nbd7    nbd9
+nbd0p1  nbd0p5  nbd10   nbd12   nbd14   nbd2    nbd4    nbd6    nbd8
+$ sudo ./bin/qemu-nbd --disconnect /dev/nbd0
+/dev/nbd0 disconnected
+$
+```

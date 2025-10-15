@@ -1,0 +1,97 @@
++++
+title = "Fetching linux kernel source code"
+subtitle = ""
+date = "2017-03-20T22:37:03+09:00"
+bigimg = ""
+tags = ["linux", "kernel", "open-source", "git"]
+categories = ["linux-kernel-hack"]
+
++++
+
+리눅스 커널은 오픈 소스 소프트웨어이므로 그 소스코드가 공개되어 있어 누구나
+인터넷을 통해 쉽게 얻을 수 있습니다.  이 글에서는 리눅스 커널 소스코드를 받아올
+수 있는 몇가지 방법을 설명합니다.
+
+
+kernel.org
+==========
+
+리눅스 커널 소스 코드를 받아오기 위한 기본적 공식 사이트는
+[kernel.org] (https://www.kernel.org) 라 할 수 있겠는데, 이 사이트에는 소스
+코드를 포함해 리눅스 커널을 위한 다양한 리소스가 정리되어 있습니다.  이
+사이트에 웹브라우저를 통해 들어가보면 첫페이지에서부터 가장 최근에 릴리즈된
+버전의 소스코드, 가장 최근의 안정화된 버전의 소스코드 등을 `tar.xz` 포맷의 압축
+파일 또는 `patch` 등 다양한 형태로 다운받을 수 있는 링크가 있습니다.
+
+한가지 유의할 것은 kernel.org 는 공식적 사이트일 뿐으로 비슷하게 소스코드를
+호스팅 하는 사이트는 github 을 포함해 여럿 있을 수 있다는 점입니다.  또한,
+특정한 회사나 개인이 수정한 버전의 커널의 소스코드는 kernel.org 에서 받을 수
+없을 수 있습니다.  하지만, 리눅스 커널의 라이센스가 GPL 인만큼, 그들도 자신이
+수정한 버전을 상품 등으로 배포하고 있다면 소스코드를 공개해야 하므로, 해당
+버전을 만든 사람 또는 회사에 문의해 보면 그 소스코드를 받을 수 있을 겁니다.
+예를 들어 안드로이드의 경우 자신들이 수정한 커널을 사용하며, 그렇게 수정된
+커널의 소스코드를 자신들의 소스코드 [호스팅 사이트]
+(https://android.googlesource.com/) 에 공개하고 있습니다.
+
+
+Specific Version
+----------------
+
+kernel.org 첫 페이지에는 몇가지 버전의 소스코드만 존재하므로 찾고 있는 버전은
+해당 페이지에 링크가 존재하지 않을 수 있습니다.  특정 버전을 찾기 위한 페이지
+역시 kernel.org 는 제공하는데, https://www.kernel.org/pub/linux/kernel/ 주소로
+들어가면 특정 버전의 커널 소스코드를 받을 수 있습니다.
+
+예를 들어 4.2.1 버전을 받고 싶다면, 다음 커맨드를 셸에서 수행해 받아올 수
+있습니다:
+```
+$ wget https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.2.1.tar.xz
+$ tar xvf linux-4.2.1.tar.xz
+$ ls linux-4.2.1
+```
+
+
+Git Repository Cloning
+======================
+
+주요 리눅스 개발자들은 각자의 git repository 로 자신이 개발중인 버전의 리눅스
+커널 소스코드를 관리하는데, 이 역시 남들이 볼 수 있게 공유해 두고 있습니다.
+따라서, 원한다면 특정 리눅스 개발자의 개발중인 리눅스 커널 소스코드를 git 으로
+clone 해올 수 있습니다.  많은 주요 개발자들이 kernel.org 위에 자신의 git
+repository 를 호스팅 하고 있으며, github 을 사용하는 사람들도 많습니다.  예를
+들어 리누스 토발즈는 kernel.org 위에 자신의 git repository 를 호스팅 하면서
+github 에 미러링도 하고 있습니다.  각각의 repository 의 주소는 다음과 같습니다:
+
+- https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+- https://github.com/torvalds/linux.git
+
+다음과 같은 명령을 통해 리누스 토발즈의 개발중인 리눅스 커널 소스코드를 clone
+해올 수 있습니다:
+```
+$ git clone https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+$ ls linux
+```
+
+개발자의 repository 를 클론해 오는 방식의 장점은, 일단 아직 릴리즈 되지 않은
+따끈따끈한 버전의 소스코드를 그 commit history 와 함께 볼 수 있다는 점일
+겁니다.  리눅스 커널 개발에 참여하고 싶다면 현재 어떤 기능이 구현되고 있고 어떤
+버그가 아직 고쳐지지 않았는지 등을 알 수 있으므로 필수적입니다.  또하나의
+장점은 git repository 에는 그동안 해당 repository 에서 릴리즈한 버전들이 모두
+포함되어 있어, 해당 버전을 언제든지 `checkout` 할 수 있다는 점입니다.
+
+단점은, commit history 와 개발중인 코드를 원하는게 아니라면 불필요하게 많은
+용량의 데이터를 다운로드 받아야 한다는 것입니다.  현재 소스코드를 필요로 하는
+목적에 맞춰, 특정 버전의 코드가 필요할 뿐이라면 압축 파일을, 그렇지 않다면 git
+repository 를 사용한 접근을 하는 편이 옳을 겁니다.
+
+
+Conclusion
+==========
+
+리눅스 커널의 소스코드를 얻어오는 몇가지 방법을 알아봤습니다.  리눅스 커널은
+오픈소스 형태라 그 소스코드를 쉽게 구할 수 있으며, kernel.org 또는 github 등의
+호스팅 사이트에서 압축 파일, 패치, 또는 git repository 의 형태로 얻을 수
+있습니다.  개발중인 repository 의 clone 을 통한 형태는 commit history 와
+개발중인 코드의 정보를 알 수 있다는 장점이 있지만 그만큼 다운로드 받아야 하는
+데이터의 양이 크다는 단점도 존재합니다.  자신이 현재 소스코드를 얻고자 하는
+목적에 맞춰 적합한 방법으로 소스코드를 얻어오는 것이 좋을 겁니다.
