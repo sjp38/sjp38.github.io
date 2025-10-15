@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Virtualization on hacklog</title>
+    <link>https://sjp38.github.io/tags/virtualization/</link>
+    <description>Recent content in Virtualization on hacklog</description>
+    <image>
+      <title>hacklog</title>
+      <url>https://sjp38.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://sjp38.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.131.0</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 12 Dec 2019 00:46:05 +0100</lastBuildDate>
+    <atom:link href="https://sjp38.github.io/tags/virtualization/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Build, Install, and Use QEMU on Ubuntu</title>
+      <link>https://sjp38.github.io/posts/en/qemu_setup_on_ubuntu/</link>
+      <pubDate>Thu, 12 Dec 2019 00:46:05 +0100</pubDate>
+      <guid>https://sjp38.github.io/posts/en/qemu_setup_on_ubuntu/</guid>
+      <description>This post describes how you can build, install, and use QEMU on an Ubuntu machine. I basically refererenced http://wiki.qemu.org/Hosts/Linux. The test has proceeded on an Ubuntu 18.04 server machine.
+QEMU Build sudo apt install libglib2.0-dev libfdt-dev libpixman-1-dev zlib1g-dev \ libgtk-3-dev git clone git://git.qemu-project.org/qemu.git cd qemu git checkout v4.2.0 mkdir -p $HOME/qemu.sandbox/bin cd $HOME/qemu.sandbox/bin ../../qemu/configure --enable-debug --enable-gtk time make -j143 ./x86_64-softmmu/qemu-system-x86_64 -L pc-bios Guest OS Install Get an Ubuntu server install image:</description>
+    </item>
+    <item>
+      <title>Ubuntu 환경에서 QEMU 빌드 / 설치 / 사용하는 법</title>
+      <link>https://sjp38.github.io/posts/ko/qemu_setup_on_ubuntu/</link>
+      <pubDate>Thu, 12 Dec 2019 00:46:05 +0100</pubDate>
+      <guid>https://sjp38.github.io/posts/ko/qemu_setup_on_ubuntu/</guid>
+      <description>Ubuntu 에서 QEMU 를 빌드, 설치, 사용하는 법을 설명합니다. 기본적으로 http://wiki.qemu.org/Hosts/Linux 문서를 참고했습니다. 테스트는 Ubuntu 18.04 머신 위에서 진행되었습니다.
+QEMU Build sudo apt install libglib2.0-dev libfdt-dev libpixman-1-dev zlib1g-dev \ libgtk-3-dev git clone git://git.qemu-project.org/qemu.git cd qemu git checkout v4.2.0 mkdir -p $HOME/qemu.sandbox/bin cd $HOME/qemu.sandbox/bin ../../qemu/configure --enable-debug --enable-gtk time make -j143 ./x86_64-softmmu/qemu-system-x86_64 -L pc-bios Guest OS Install Ubuntu 서버 이미지를 가져오고,
+$ wget http://releases.ubuntu.com/18.04/ubuntu-18.04.3-live-server-amd64.iso qcow2 포맷으로 스토리지를 만들고,
+cd .. $ ./bin/qemu-img create -f qcow2 qc2img 32G Formatting &amp;#39;qc2img&amp;#39;, fmt=qcow2 size=34359738368 encryption=off cluster_size=65536 lazy_refcounts=off refcount_bits=16 $ ls -alh total 830M drwxrwxr-x 3 sjpark sjpark 4.</description>
+    </item>
+  </channel>
+</rss>
