@@ -5,7 +5,7 @@ title: "A mini desktop as a local kernel hacking machine"
 subtitle: ""
 summary: ""
 authors: []
-tags: []
+tags: ["minipc", "debian", "kcbench", "development environment setup"]
 categories: []
 date: 2025-10-10T17:21:24-07:00
 lastmod: 2025-10-10T17:21:24-07:00
