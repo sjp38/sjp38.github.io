@@ -5,7 +5,7 @@ tags = ["about"]
 categories = ["about"]
 +++
 
-- [DAMON: Data Access Monitor](post/damon)
+- [DAMON: Data Access Monitor](https://damonitor.github.io)
 - [damo](https://github.com/damonitor/damo)
 - [hackermail](https://github.com/sjp38/hackermail)
 - [stream-track](https://github.com/sjp38/stream-track)
