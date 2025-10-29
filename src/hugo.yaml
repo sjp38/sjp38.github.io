@@ -56,21 +56,30 @@ params:
 
   # profile-mode
   profileMode:
-    enabled: false # needs to be explicitly set
-    title: ExampleSite
-    subtitle: "This is subtitle"
-    imageUrl: "<img location>"
-    imageWidth: 120
-    imageHeight: 120
-    imageTitle: my image
+    enabled: true # needs to be explicitly set
+    title: SJ's hacking log
+    subtitle: "SeongJae Park (SJ) is a Linux kernel programmer who maintains
+    [DAMON](https://damonitor.github.io), which is a Linux kernel subsystem for
+    efficient data access monitoring and access-awares system operations.. His
+    Linux kernel contribution history is available at LWN
+    [DB](https://lwn.net/ksdb/developers/show?dev=587). He enjoys analyzing and
+    developing systems, and is particularly interested in operating system
+    kernels, parallel computing, and memory management."
+    # imageUrl: "<img location>"
+    # imageWidth: 120
+    # imageHeight: 120
+    # imageTitle: ""
     buttons:
-      - name: Posts
-        url: posts
-      - name: Tags
-        url: tags
+      - name: Recent & Upcoming Talks
+        url: talks
+      - name: Recent Publications
+        url: publications
+      - name: Ongoing & Past Projects
+        url: projects
 
   # home-info mode
   homeInfoParams:
+    enabled: false
     Title: "SJ's hacking log"
     Content: "SeongJae Park (SJ) is a Linux kernel programmer who maintains
     [DAMON](https://damonitor.github.io), a data access monitoring framework
@@ -122,6 +131,10 @@ params:
     keys: ["title", "permalink", "summary", "content"]
 menu:
   main:
+    - identifier: posts
+      name: posts
+      url: /posts/en/
+      weight: 9
     - identifier: categories
       name: categories
       url: /categories/
