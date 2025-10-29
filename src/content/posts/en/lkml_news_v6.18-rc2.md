@@ -1,5 +1,5 @@
 +++
-title = 'Lkml_news_v6.18 Rc2'
+title = 'LKML News v6.18-rc2'
 date = 2025-10-16T09:20:04-07:00
 draft = false
 tags = ["linux", "kernel", "lkml", "news"]
