@@ -31,13 +31,6 @@ Github 은 모든 Github page 들이 Jekyll[4] 에 기반하고 있다고 생각
     </item>
     <item>
       <title>Integrate external git repository with its history</title>
-      <link>https://sjp38.github.io/posts/en/integrate_external_git_repository_with_history/</link>
-      <pubDate>Thu, 27 Jun 2019 17:02:49 +0900</pubDate>
-      <guid>https://sjp38.github.io/posts/en/integrate_external_git_repository_with_history/</guid>
-      <description>프로젝트 a 와 프로젝트 b 를 병렬로 진행하고 있었는데, 두개의 리포지토리를 합치고 싶어지는 경우가 있습니다. 예컨대 프로젝트 a 의 성격이 보다 범용이 되었고 프로젝트 b 는 프로젝트 a 를 위한 도구적 성격이 되는 경우가 있겠죠. a 프로젝트에 &amp;lsquo;b&amp;rsquo; 디렉토리를 만들고 그 아래 기존 프로젝트 b 의 파일들을 위치하고 싶습니다. 하지만 기존 b 프로젝트의 git 히스토리들도 유지하고 싶습니다. 비슷한 사례로 리눅스 커널 메모리 모델 프로젝트는 별도의 리포지토리[1] 로 개발되었지만 리눅스 업스트림 리포지토리의 tools/ 디렉토리 아래로 머지[2] 되었는데, 이 때 기존 개발 히스토리를 유지했죠.</description>
-    </item>
-    <item>
-      <title>Integrate external git repository with its history</title>
       <link>https://sjp38.github.io/posts/ko/integrate_external_git_repository_with_history/</link>
       <pubDate>Thu, 27 Jun 2019 17:02:49 +0900</pubDate>
       <guid>https://sjp38.github.io/posts/ko/integrate_external_git_repository_with_history/</guid>
@@ -75,14 +68,6 @@ Call Trace 커널은 문제가 발생하거나 하면 문제의 원인을 찾을
       <guid>https://sjp38.github.io/posts/ko/kernel-text-addresses-removed-from-calltrace/</guid>
       <description>최근 커널은 stakc dump 에서 콜 트레이스(Call Trace) 에 각 코드의 메모리 어드레스를 찍어주지 않습니다. 이에 대해 포스팅을 해봅니다.
 Call Trace 커널은 문제가 발생하거나 하면 문제의 원인을 찾을 수 있는 다양한 정보를 담고 있는 stack dump 를 로그로 뿌려 줍니다. 문제의 원인을 찾는데 매우 소중한 정보입니다. 그 정보 중에서도 중요한 것 중 하나가 콜 트레이스로, 이 문제의 순간에 오기까지 어느 함수의 어느 지점에서 어느 함수를 호출해서 여기까지 왔는가를 담는 정보입니다.</description>
-    </item>
-    <item>
-      <title>원격 데스크탑의 clipboard 를 ssh 와 xclip 으로 복사해오기</title>
-      <link>https://sjp38.github.io/posts/en/xclip_copy_remote_clipboard/</link>
-      <pubDate>Fri, 31 Mar 2017 13:53:54 +0900</pubDate>
-      <guid>https://sjp38.github.io/posts/en/xclip_copy_remote_clipboard/</guid>
-      <description>여러개의 리눅스 데스크탑 PC 를 한 책상 위에서 사용하는 경우가 있다. 이 때, 한 PC 에서 Ctrl-C 해서 clipboard 에 복사한 내용을 다른쪽 PC 에서 Ctrl-V 로 붙여넣고 싶은 경우가 있다. 여러가지 해결책이 있겠으나, 다음과 같이 ssh 와 xclip 을 사용해서 해결할 수도 있다:
-$ ssh &amp;lt;username&amp;gt;@&amp;lt;remote host&amp;gt; &amp;#39;DISPLAY=:0 xclip -o -selection clipboard&amp;#39; | \ xclip -i -selection clipboard 참고: http://askubuntu.com/questions/513442/can-two-pcs-with-ubuntu-share-the-clipboard-buffer</description>
     </item>
     <item>
       <title>원격 데스크탑의 clipboard 를 ssh 와 xclip 으로 복사해오기</title>
@@ -125,15 +110,6 @@ $ arping -I eth0 10.0.0.1 ARPING 10.0.0.1 from 10.0.0.2 eth0 Unicast reply from 
       <description>로컬 네트워크에서 어떤 IP 주소가 어떤 MAC 어드레스에 매핑되는지 알기 위해 arping 을 사용할 수 있습니다. 사용법은 간단합니다:
 arping [-AbDfhqUV] [-c count] [-w deadline] [-s source] -I interface destination 예를 들면, 다음과 같습니다:
 $ arping -I eth0 10.0.0.1 ARPING 10.0.0.1 from 10.0.0.2 eth0 Unicast reply from 10.0.0.1 [11:22:33:44:55:66] 0.123ms Unicast reply from 10.0.0.1 [11:22:33:44:55:66] 0.251ms ... 이 툴의 동작 원리는 ARP 프로토콜 [1] 입니다. IP 프로토콜 레이어는 이 프로토콜을 사용해 특정 IP 주소를 사용하는 기계의 MAC 어드레스를 파악하고 이 주소를 아랫단의 Ethernet 레이어에 보냅니다.</description>
-    </item>
-    <item>
-      <title>uninstall kernel</title>
-      <link>https://sjp38.github.io/posts/en/uninstall-kernel/</link>
-      <pubDate>Fri, 20 Jan 2017 13:18:56 +0900</pubDate>
-      <guid>https://sjp38.github.io/posts/en/uninstall-kernel/</guid>
-      <description>테스트 등을 위해 소스코드로부터 커널을 직접 빌드, 설치하기 시작하면 어느새 수많은 커널이 설치되어 있는 것을 확인할 수 있다. 삭제를 위해선 make install 로 만들어진 파일들을 직접 제거하고 grub 을 업데이트 해줘야 한다.
-예를 들어 시스템이 현재 부팅되어 있는 버전의 커널을 언인스톨하고자 한다면 다음의 일련의 커맨드를 입력하면 된다:
-# rm /boot/vmlinuz-$(uname -r) # rm /boot/initrd.img-$(uname -r) # rm /boot/System.map-$(uname -r) # rm /boot/config-$(uname -r) # rm -fr /lib/modules/$(uname -r) # rm /var/lib/initramfs-tools/$(uname -r) # update-grub2 다른 버전의 설치되어있는 커널을 제거하고 싶다면 위의 $(uname -r) 부분을 제거하고자 하는 커널 버전으로 대체하면 된다.</description>
     </item>
     <item>
       <title>uninstall kernel</title>

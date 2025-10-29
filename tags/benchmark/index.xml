@@ -15,27 +15,11 @@
     <atom:link href="https://sjp38.github.io/tags/benchmark/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Linux Kernel Performance (LKP) Tests</title>
-      <link>https://sjp38.github.io/posts/en/lkp-tests/</link>
-      <pubDate>Thu, 02 Aug 2018 17:20:10 +0900</pubDate>
-      <guid>https://sjp38.github.io/posts/en/lkp-tests/</guid>
-      <description>리눅스 커널의 개발은 커뮤니티 주도입니다. 개발의 한 부분인 테스트 역시 커뮤니티 주도적입니다. 여러 개인 또는 단체가 커널을 각자의 방식으로 테스트 하고 그 결과를 공유합니다. 인텔에서는 0-day 서비스[1] 라는 서비스를 자체적으로 돌리는데, 이 서비스는 최신 리눅스 커널을 가져다가 빌드하고 다양한 기능 / 성능 테스트를 돌리고 그 결과 발견된 regression 을 LKML 에 메일로 보내주는 일을 합니다. 말하자면 Continuous Integration (CI) 이죠.
-Linux Kernel Performance (LKP) Tests[2] 는 0-day 서비스에서 기능 / 성능 테스트를 수행하는데 사용되는 도구입니다.</description>
-    </item>
-    <item>
-      <title>Linux Kernel Performance (LKP) Tests</title>
       <link>https://sjp38.github.io/posts/ko/lkp-tests/</link>
       <pubDate>Thu, 02 Aug 2018 17:20:10 +0900</pubDate>
       <guid>https://sjp38.github.io/posts/ko/lkp-tests/</guid>
       <description>리눅스 커널의 개발은 커뮤니티 주도입니다. 개발의 한 부분인 테스트 역시 커뮤니티 주도적입니다. 여러 개인 또는 단체가 커널을 각자의 방식으로 테스트 하고 그 결과를 공유합니다. 인텔에서는 0-day 서비스[1] 라는 서비스를 자체적으로 돌리는데, 이 서비스는 최신 리눅스 커널을 가져다가 빌드하고 다양한 기능 / 성능 테스트를 돌리고 그 결과 발견된 regression 을 LKML 에 메일로 보내주는 일을 합니다. 말하자면 Continuous Integration (CI) 이죠.
 Linux Kernel Performance (LKP) Tests[2] 는 0-day 서비스에서 기능 / 성능 테스트를 수행하는데 사용되는 도구입니다.</description>
-    </item>
-    <item>
-      <title>spec cpu2006 벤치마크 수정하기</title>
-      <link>https://sjp38.github.io/posts/en/spec_cpu2006_modification/</link>
-      <pubDate>Sun, 24 Dec 2017 17:30:12 +0900</pubDate>
-      <guid>https://sjp38.github.io/posts/en/spec_cpu2006_modification/</guid>
-      <description>경우에 따라서 SPEC CPU2006 의 벤치마크 중 일부의 소스코드를 수정하고 싶을 수 있습니다. 예를 들어 특정 벤치마크가 구체적으로 어떻게 동작하는지 알아보기 위해 디버깅 메세지를 추가하고자 할수도 있고, 코드 변경을 통해 성능을 높인다거나 해볼 수도 있겠죠. 그러나, SPEC CPU2006 은 엄정한 벤치마크 수트이기 때문에 소스코드는 물론, 소스코드를 사용하는 도구가 변경된 경우 에러 메세지를 내고 수행을 거부합니다. 수정된 소스코드로 얻어진 결과는 벤치마크 결과로 적합하지 않기 때문이죠.
-때문에, 어쩔 수 없이 수정이 필요하면서도 기존의 수행 방법을 따르려면 이 에러를 내는 곳을 없애는 게 한가지 방법이 될 수 있습니다.</description>
     </item>
     <item>
       <title>spec cpu2006 벤치마크 수정하기</title>
@@ -62,14 +46,6 @@ Ubuntu 16.04.2 Server MariaDB 10.2.8 TPC-H toolkit 2.17.2 Automated Scripts 아�
       <description>Benchmarks for Database can be roughly divided into two kinds, OLTP and OLAP[1]. One of the most popular OLTP benchamrks is TPC-C, while that of OLAP is TPC-H[2]. This post describes how you can run TPC-H against MariaDB.
 Environment Setup The versions of the OS and programs I used for writeup of this post are as below.
 Ubuntu 16.04.2 Server MariaDB 10.2.8 TPC-H toolkit 2.17.2 Automated Scripts I automated whole things I will describe below using scripts and uploaded the scripts to the Github: https://github.</description>
-    </item>
-    <item>
-      <title>Parsec 3.0 설치 / 사용법</title>
-      <link>https://sjp38.github.io/posts/en/parsec_3_howto/</link>
-      <pubDate>Fri, 19 May 2017 06:23:15 +0900</pubDate>
-      <guid>https://sjp38.github.io/posts/en/parsec_3_howto/</guid>
-      <description>PARSEC 은 멀티쓰레드 프로그램들로 구성된 benchmark suite 입니다. 멀티쓰레드로 구성되어 있기 때문에 멀티코어 시스템에서의 multi core scalability 를 테스트 하기에도 적합합니다. 이 글에선 현재 최신 버전인 3.0 버전의 PARSEC 을 Ubuntu 16.04 server 에 설치하면서 겪는 문제의 해결법과 간단한 사용법을 정리해 봅니다.
-Toolbox for PARSEC 3.0 on Ubuntu Xenial 아래의 내용을 하나하나 읽어가면서 따라하는 것도 귀찮은 일입니다. 그래서 아래에서 설명하는, Ubuntu Xenial 에서 PARSEC 3.0 을 돌리기 위해 필요한 작업을 대부분 자동으로 해주는 도구들을 만들어 두었습니다.</description>
     </item>
     <item>
       <title>Parsec 3.0 설치 / 사용법</title>

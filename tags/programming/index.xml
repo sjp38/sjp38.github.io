@@ -15,15 +15,6 @@
     <atom:link href="https://sjp38.github.io/tags/programming/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hooking Library Function Calls</title>
-      <link>https://sjp38.github.io/posts/en/hooking_library_calls/</link>
-      <pubDate>Wed, 10 Apr 2019 11:39:06 +0900</pubDate>
-      <guid>https://sjp38.github.io/posts/en/hooking_library_calls/</guid>
-      <description>LD_PRELOAD 환경변수를 사용하면 로더가 프로그램을 로드할 때 동적 로드해야 할 바이너리 코드를 해당 변수의 값의 디렉토리에서부터 뒤지도록 합니다. 따라서 이를 이용해 malloc(), free() 등의 일반적으로 사용하는 라이브러리 함수를 우리의 구현으로 대체하거나 후킹할 수 있습니다. 이 글은 이런 방법으로 malloc() 을 후킹하는 방법을 예제를 통해 간단히 설명합니다.
-Original Program 먼저 다음과 같은 프로그램이 있을 수 있을 겁니다:
-#include &amp;lt;stdio.h&amp;gt; #include &amp;lt;stdlib.h&amp;gt; int main(void) { char *abc; abc = (char *)malloc(8); printf(&amp;#34;malloced address: %p\n&amp;#34;, abc); sprintf(abc, &amp;#34;hello\n&amp;#34;); printf(&amp;#34;%s\n&amp;#34;, abc); free(abc); return 0; } 단순히 malloc() 을 통해 8바이트 메모리를 할당받아 그 영역을 표시하고 종료하는 프로그램입니다.</description>
-    </item>
-    <item>
-      <title>Hooking Library Function Calls</title>
       <link>https://sjp38.github.io/posts/ko/hooking_library_calls/</link>
       <pubDate>Wed, 10 Apr 2019 11:39:06 +0900</pubDate>
       <guid>https://sjp38.github.io/posts/ko/hooking_library_calls/</guid>

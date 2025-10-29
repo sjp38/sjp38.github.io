@@ -3483,16 +3483,6 @@ Linux 5.3-rc8 https://lkml.kernel.org/r/CAHk-=whBQ+6c-h+htiv6pp8ndtv97+45AH9WvdZ
 sysctl 이나 procfs 를 통한 hugetlb 페이지 할당은 수분이나 수시간까지도 오래 걸릴 수 있습니다.</description>
     </item>
     <item>
-      <title>Memory: the flat, the discontiguous, and the sparse (Korean)</title>
-      <link>https://sjp38.github.io/posts/en/lwn_memory_flat_discontiguous_sparse/</link>
-      <pubDate>Wed, 31 Jul 2019 07:45:17 +0900</pubDate>
-      <guid>https://sjp38.github.io/posts/en/lwn_memory_flat_discontiguous_sparse/</guid>
-      <description>LWN 의 &amp;ldquo;Memory: the flat, the discontiguous, and the sparse&amp;rdquo; 라는 제목의 글의 한글 번역입니다. 원문은 LWN 에서 볼 수 있습니다: https://lwn.net/Articles/789304/
-May 27, 2019
-이 기사는 Mike Rapoport 에 의해 기여되었습니다.
-컴퓨터 시스템에서 물리 메모리는 소중한 자원이어서, 이를 효율적으로 관리하기 위한 많은 노력이 기울여져왔습니다. 이 일은 현대의 시스템에서의 메모리 구조가 복잡해짐에 따라 더 어려워졌습니다. 물리 메모리가 실제로 어떻게 위치해 있는가를 다루기 위한 여러 계층의 추상화가 존재합니다; 그런 추상화 중 하나는 &amp;ldquo;메모리 모델&amp;rdquo; 이라고 불립니다.</description>
-    </item>
-    <item>
       <title>LKML News v5.3-rc2</title>
       <link>https://sjp38.github.io/posts/en/lkml_news_v5.3-rc2/</link>
       <pubDate>Fri, 26 Jul 2019 08:41:19 +0900</pubDate>
@@ -3530,13 +3520,6 @@ PAGE_SIZE &amp;lt;&amp;lt; compound_order(page) 는 page_size(page) 가, PAGE_SH
 다양한 보안 측정을 위한 공용 인터페이스를 제공하는 스택 기반의 리눅스 보안 모듈입니다. 이름이 재밌네요. S.A.R.A 는 S.A.R.A is Another Recursive Acronym 의 약자라고 합니다.
 Linux 5.2 https://lkml.kernel.org/r/CAHk-=whtW3FdruS-q2zehJPSan1SKtHoFHKX28A3J_1gfTFUMw@mail.gmail.com
 이번 릴리즈 중간엔 토발즈의 여행이 있었죠. 초반엔 예상 외로 큰 rc 릴리즈도 있었구요. 해서 이번주는 rc8 이 릴리즈 될지 5.2가 릴리즈 될지 저도 좀 궁금했는데, 최종적으로 5.2 릴리즈가 되었습니다. 토발즈도 rc8 을 릴리즈 할까 망설였다고 하네요.</description>
-    </item>
-    <item>
-      <title>Integrate external git repository with its history</title>
-      <link>https://sjp38.github.io/posts/en/integrate_external_git_repository_with_history/</link>
-      <pubDate>Thu, 27 Jun 2019 17:02:49 +0900</pubDate>
-      <guid>https://sjp38.github.io/posts/en/integrate_external_git_repository_with_history/</guid>
-      <description>프로젝트 a 와 프로젝트 b 를 병렬로 진행하고 있었는데, 두개의 리포지토리를 합치고 싶어지는 경우가 있습니다. 예컨대 프로젝트 a 의 성격이 보다 범용이 되었고 프로젝트 b 는 프로젝트 a 를 위한 도구적 성격이 되는 경우가 있겠죠. a 프로젝트에 &amp;lsquo;b&amp;rsquo; 디렉토리를 만들고 그 아래 기존 프로젝트 b 의 파일들을 위치하고 싶습니다. 하지만 기존 b 프로젝트의 git 히스토리들도 유지하고 싶습니다. 비슷한 사례로 리눅스 커널 메모리 모델 프로젝트는 별도의 리포지토리[1] 로 개발되었지만 리눅스 업스트림 리포지토리의 tools/ 디렉토리 아래로 머지[2] 되었는데, 이 때 기존 개발 히스토리를 유지했죠.</description>
     </item>
     <item>
       <title>LKML News v5.2-rc7</title>
@@ -3696,15 +3679,6 @@ sudo dnf downgrade ibus-hangul-1.5.0-12.fc28.x86_64 [1] http://www.fedoralinux.o
 아키텍쳐별로 별도 구현을 하지 않고도 전체 mmap 레이아웃을 접근할 수 있게 해주는 범용 함수들을 구현하는 패치셋입니다.</description>
     </item>
     <item>
-      <title>Hooking Library Function Calls</title>
-      <link>https://sjp38.github.io/posts/en/hooking_library_calls/</link>
-      <pubDate>Wed, 10 Apr 2019 11:39:06 +0900</pubDate>
-      <guid>https://sjp38.github.io/posts/en/hooking_library_calls/</guid>
-      <description>LD_PRELOAD 환경변수를 사용하면 로더가 프로그램을 로드할 때 동적 로드해야 할 바이너리 코드를 해당 변수의 값의 디렉토리에서부터 뒤지도록 합니다. 따라서 이를 이용해 malloc(), free() 등의 일반적으로 사용하는 라이브러리 함수를 우리의 구현으로 대체하거나 후킹할 수 있습니다. 이 글은 이런 방법으로 malloc() 을 후킹하는 방법을 예제를 통해 간단히 설명합니다.
-Original Program 먼저 다음과 같은 프로그램이 있을 수 있을 겁니다:
-#include &amp;lt;stdio.h&amp;gt; #include &amp;lt;stdlib.h&amp;gt; int main(void) { char *abc; abc = (char *)malloc(8); printf(&amp;#34;malloced address: %p\n&amp;#34;, abc); sprintf(abc, &amp;#34;hello\n&amp;#34;); printf(&amp;#34;%s\n&amp;#34;, abc); free(abc); return 0; } 단순히 malloc() 을 통해 8바이트 메모리를 할당받아 그 영역을 표시하고 종료하는 프로그램입니다.</description>
-    </item>
-    <item>
       <title>Backtrace on C language program</title>
       <link>https://sjp38.github.io/posts/en/backtrace_c_language/</link>
       <pubDate>Tue, 09 Apr 2019 17:33:50 +0900</pubDate>
@@ -3751,17 +3725,6 @@ v5.2 를 위한 torture test 의 업데이트 패치셋입니다. LKMM 이라던
       <pubDate>Wed, 20 Mar 2019 15:32:29 +0900</pubDate>
       <guid>https://sjp38.github.io/posts/en/kunit_intro/</guid>
       <description>Update (2020-01-01): KUnit has merged in v5.5 merge window. From the writing of this post, it had some changes, so below content, especially the test setup and running will not work. Recommend you to refer to the official document in the kernel for detailed tutorial. It also has a python version dependency now, so you would encounter a problem with Ubuntu 16.04. Recommend you to use later Python or Ubuntu 18.</description>
-    </item>
-    <item>
-      <title>Gitlab docker install</title>
-      <link>https://sjp38.github.io/posts/en/gitlab_docker_install/</link>
-      <pubDate>Tue, 19 Mar 2019 16:39:48 +0900</pubDate>
-      <guid>https://sjp38.github.io/posts/en/gitlab_docker_install/</guid>
-      <description>연구실 내부 사용을 위한 Gitlab 을 Docker 를 사용해서 구축하고 사용하고 있습니다만, 하도 예전이라 Gitlab official docker image 가 아니었고, docker 버전도 2.x 대라서 최신 버전으로 바로 업그레이드가 불가능하군요.
-지금은 gitlab 에서 자체적으로 정식 docker 이미지를 제공합니다. 이 포스트에서는 Ubuntu 18.04 서버 위에 gitlab 정식 docker 이미지를 사용해 설치하는 방법을 기록합니다.
-Docker 설치 먼저 Docker 를 설치해야죠. 문서[1]를 참고해서 설치를 진행해 봅니다.
-먼저 apt 업데이트 후 종속 패키지들을 깔아줍니다:
-sudo apt update sudo apt install apt-transport-https ca-certificates curl software-properties-common 이제 최신 docker 를 깔기 위해 docker repository 를 apt 에 추가해 주고요:</description>
     </item>
     <item>
       <title>LKML News v5.1-rc2</title>
@@ -3892,14 +3855,6 @@ vmalloc 의 성능과 스트레스 테스트를 위한 모듈을 구현한 패�
 특정 노드의 메모리에 접근이 많이 되고 있는 상황에서 해당 메모리가 fragment 되어 있고 이 시점에서 high order allocation 이 요청되면 이걸 위해 compaction 등이 작동하니까 다른 태스크의 latency 가 떨어질 수 있습니다. 이런 상황을 모니터링 할 수 있게끔, 이 패치는 vm.</description>
     </item>
     <item>
-      <title>Perf symbol problem on Linux 4.19</title>
-      <link>https://sjp38.github.io/posts/en/perf_symbol_problem_4.19/</link>
-      <pubDate>Fri, 21 Dec 2018 17:00:22 +0900</pubDate>
-      <guid>https://sjp38.github.io/posts/en/perf_symbol_problem_4.19/</guid>
-      <description>4.19 커널에서 오랫만에 perf 를 다시 빌드하고 써보려고 하니, perf report 가 아래와 같이 제대로 된 symbol name 을 찾질 못합니다.
-$ sudo perf record -g ls arch builtin-ftrace.c builtin-report.c Documentation perf.data.old bench builtin.h builtin-sched.c examples perf.h Build builtin-help.c builtin-script.c include perf-read-vdso.c builtin-annotate.c builtin-inject.c builtin-stat.c jvmti perf-sys.h builtin-bench.c builtin-kallsyms.c builtin-timechart.c Makefile perf-with-kcore.sh builtin-buildid-cache.c builtin-kmem.c builtin-top.c Makefile.config pmu-events builtin-buildid-list.c builtin-kvm.c builtin-trace.c Makefile.perf python builtin-c2c.c builtin-list.c builtin-version.c MANIFEST scripts builtin-config.c builtin-lock.c check-headers.sh perf-archive.</description>
-    </item>
-    <item>
       <title>LKML News for v4.20</title>
       <link>https://sjp38.github.io/posts/en/lkml_news_v4.20/</link>
       <pubDate>Fri, 21 Dec 2018 08:35:03 +0900</pubDate>
@@ -3980,14 +3935,6 @@ Transparent Huge Page 를 쪼개지 않고 swap out / swap in 함으로써 스�
 [1] https://lists.linuxfoundation.org/pipermail/ksummit-discuss/2018-November/006238.html</description>
     </item>
     <item>
-      <title>LKMM Setup and Usage</title>
-      <link>https://sjp38.github.io/posts/en/lkmm-install/</link>
-      <pubDate>Thu, 08 Nov 2018 04:30:42 +0900</pubDate>
-      <guid>https://sjp38.github.io/posts/en/lkmm-install/</guid>
-      <description>리눅스 커널은 Formalised and executable memory consistent model 을 제공합니다. 줄여서 linux kernel memory model (LKMM) 이라고 하죠. 이 글은 4.19 버전을 기준으로 LKMM 을 실제로 수행해 보기 위한 환경 셋업 과정과 간단한 실행 방법을 정리해 봅니다. 글 작성을 위한 테스트는 Ubuntu 16.04 서버가 설치된 가상머신에서 진행되었습니다.
-herd7 install LKMM 은 버전 7.49 의 &amp;ldquo;herd7&amp;rdquo; 과 &amp;ldquo;klitmus7&amp;rdquo; 을 필요로 합니다. 하지만 herd7 은 또 Ocaml 을 위한 패키지 매니저인 OPAM 을 설치할 것을 필요로 하죠.</description>
-    </item>
-    <item>
       <title>LKML News by v4.20-rc1</title>
       <link>https://sjp38.github.io/posts/en/lkml_news_v4.20-rc1/</link>
       <pubDate>Wed, 07 Nov 2018 14:43:56 +0900</pubDate>
@@ -4066,22 +4013,6 @@ THP 를 한방에 swap out / swap in 하는 Huang Ying 의 패치, 여섯번째 
 올해 LSF/MM 서밋에서도 이야기되었던, lru_lock 의 확장성을 개선하기 위한 노력의 정리입니다. LRU 리스트에 여러 쓰레드가 실제 데이터를 겹쳐 쓰지 않는다면 동시에 접근할 수 있는 새로운 오퍼레이션 세개 (smp_list_del(), smp_list_splice(), smp_list_add())을 추가했구요. 두번째로, lru_lock 을 spinlock 에서 rwlock 으로 교체했군요.</description>
     </item>
     <item>
-      <title>Linux Kernel Build</title>
-      <link>https://sjp38.github.io/posts/en/linux-kernel-build/</link>
-      <pubDate>Fri, 07 Sep 2018 16:00:23 +0900</pubDate>
-      <guid>https://sjp38.github.io/posts/en/linux-kernel-build/</guid>
-      <description>제가 새 기계에서 리눅스 커널 빌드 환경을 셋업하고 실제 빌드, 설치하는 과정을 정리해 봅니다. 글 작성 과정에서 실제 커맨드를 수행한 환경은 Ubuntu 16.04.3 Server OS 를 설치한 x86_64 가상머신입니다.
-Install Dependent Packages $ sudo apt install build-essential libncurses5-dev libssl-dev bc bison flex \ libelf-dev 커널을 빌드하려면 컴파일러와 라이브러리 등이 필요하겠죠. 위 커맨드는 우분투에서 커널 빌드에 필요한 패키지들을 깔아줍니다. 커널 트리의 Documentation/process/changes.rst 에도 커널 빌드에 필요한 패키지들이 나열되어 있으므로, 다른 환경이라면 이를 참고해 필요한 패키지를 설치합시다.</description>
-    </item>
-    <item>
-      <title>Chromebook Plus Purchase (크롬북 플러스 구매 결정기)</title>
-      <link>https://sjp38.github.io/posts/en/chromebook-plus-purchase/</link>
-      <pubDate>Mon, 03 Sep 2018 13:52:00 +0900</pubDate>
-      <guid>https://sjp38.github.io/posts/en/chromebook-plus-purchase/</guid>
-      <description>크롬북을 구매했습니다. 구매 결정 과정부터 사용기까지 내용을 정리해볼까 합니다. 이번 글에서는 크롬북을 구매하기까지의 고민과 과정을 정리합니다.
-기본적으로 저는 글을 읽는걸 좋아하기도 하고 읽어야만 하기도 합니다. 그러다보니 여행을 가더라도 항상 어떤 책을 들고갈까 고르는게 설레기도 하지만 짜증나기도 하고, 마음만 앞서서 캐리어 무게를 책으로 꽉 채우기도 합니다. 그래서 예전부터 이북을 고려해 봤지만 너무 반응속도가 느리기도 하고 인쇄된 것에 비해선 가독성도 떨어지고 그 특유의 책을 넘겨가며 보는 반응은 아닌 것 같아 구매하지 않고 있었습니다.</description>
-    </item>
-    <item>
       <title>LKML News after v4.19-rc2</title>
       <link>https://sjp38.github.io/posts/en/lkml_news_v4.19-rc2/</link>
       <pubDate>Mon, 03 Sep 2018 11:34:35 +0900</pubDate>
@@ -4101,23 +4032,6 @@ Plumbers 2018 - Performance and Scalability Microconference https://lkml.</descr
 [1] https://www.computer.org/web/tc</description>
     </item>
     <item>
-      <title>Git Origin Story in Korean</title>
-      <link>https://sjp38.github.io/posts/en/git_origin_story_ko/</link>
-      <pubDate>Wed, 29 Aug 2018 21:15:13 +0900</pubDate>
-      <guid>https://sjp38.github.io/posts/en/git_origin_story_ko/</guid>
-      <description>최근 흥미롭게 보았던 Git Origin Story 라는 제목의 LinuxJournal.com 기사를 번역해 봅니다. 원본 기사는 https://www.linuxjournal.com/content/git-origin-story 에서 보실 수 있습니다.
-수년간 리눅스 커널 개발자들이 사용해온 다양한 리비전 컨트롤 방법, Linus Torvalds가 Bit keeper 를 사용하기로 한 결정과 그에 뒤따른 논쟁, 그리고 어떻게 Git 이 만들어졌는가에 대한 글입니다.
-처음에, Linus Torvalds는 리비전 컨트롤을 아예 사용하지 않았습니다. 커널에 코드를 기여하고자 하는 사람은 Usenet 그룹에, 나중에는 메일링 리스트에 패치를 올렸고, Linus는 자신의 소스 트리에 그걸 적용했습니다.</description>
-    </item>
-    <item>
-      <title>Raspberry Pi 3 Serial Connection</title>
-      <link>https://sjp38.github.io/posts/en/rasp3-serial/</link>
-      <pubDate>Mon, 27 Aug 2018 17:16:35 +0900</pubDate>
-      <guid>https://sjp38.github.io/posts/en/rasp3-serial/</guid>
-      <description>라즈베리 파이를 메인 컴퓨터로 사용하려는게 아니라면, 라즈베리 파이에 모니터와 키보드, 마우스를 연결하고 사용하는게 아무래도 번거롭습니다. ssh 로 붙어서 작업하는 것도 한 방법이지만, 그게 여의치 않은 상황도 있습니다. 그저 터미널만 연결되면 되는 상황이라면, 가장 간단한 건 UART Serial 통신을 사용하는 겁니다.
-라즈베리 파이는 UART 통신을 지원하고 있는데, GPIO 핀 중 14번과 15번이[2] 각각 TX, RX 입니다. 호스트 컴퓨터와 이 두개의 핀을 연결하면 UART 통신을 할 수 있어서 라즈베리 파이의 터미널에 바로 접근할 수 있습니다.</description>
-    </item>
-    <item>
       <title>LKML News after v4.19-rc1</title>
       <link>https://sjp38.github.io/posts/en/lkml_news_v4.19-rc1/</link>
       <pubDate>Mon, 27 Aug 2018 17:11:28 +0900</pubDate>
@@ -4126,16 +4040,6 @@ Plumbers 2018 - Performance and Scalability Microconference https://lkml.</descr
 이주일의 머지 윈도우가 끝나고 리눅스 4.19 버전을 향한 안정화 단계가 시작되었습니다.
 토발즈에겐 결코 즐겁지 않은 머지 윈도우였습니다 (frustrating merge window 였다고 표현하는군요). 일단 머지 윈도우 초기부터 L1TF 취약점 이슈가 나왔죠. 하지만 이슈가 처음 발견된 건 아니고 공식 보고된 거다보니 그 전부터 수정은 하고 있었기에 머지만 하면 됐습니다. 토발즈는 -next 트리와 다양한 커널 테스트 시스템들이 잘 갖추어져 있다는 증거라고 이야기 합니다.
 또, TLB 슛다운 버그에 대한 보고가 있었군요. 결국은 큰 문제는 아니었다고 결론났음에도 토발즈의 신경을 많이 긁었다고 합니다.</description>
-    </item>
-    <item>
-      <title>Raspberry Pi 3 Model B Setup</title>
-      <link>https://sjp38.github.io/posts/en/rasp3-modelb-setup/</link>
-      <pubDate>Mon, 27 Aug 2018 16:03:42 +0900</pubDate>
-      <guid>https://sjp38.github.io/posts/en/rasp3-modelb-setup/</guid>
-      <description>OSSE 2016 에서 받아온 라즈베리 파이3 셋업을 해봅니다. 셋업에 사용된 호스트 환경은 Ubuntu 16.04 데스크탑입니다.
-라즈베리 파이는 SD 카드를 저장소로 사용합니다. 따라서 여기에 운영체제를 깔아야 합니다. 다만, 라즈베리 파이를 구매하면 SD 카드는 따라오지 않습니다. 각자 알아서 사야 합니다. 전 예전에 사둔 16 GiB 짜리 SD 카드를 사용하겠습니다.
-라즈베리 파이를 지원하는 운영체제는 여러가지 있는데, 데비안 계열의 Raspbian 이 공식 운영체제입니다. 다운로드 페이지 에서 Raspbian stretch lite 를 다운받고 압축을 풀어줍니다.
-$ ls 2018-06-27-raspbian-stretch-lite.</description>
     </item>
     <item>
       <title>Lkml_news_v4.18</title>
@@ -4153,14 +4057,6 @@ $ ls 2018-06-27-raspbian-stretch-lite.</description>
       <description>Linux 4.18-rc8 https://lkml.kernel.org/r/CA+55aFw49Bh9u3KvGsMbnSLfHvevpWPuqgrWQT0tC0XCajNwzA@mail.gmail.com
 원래대로라면 오늘 4.18 정식 릴리즈가 있어야 했지만, 지난주 동안 여러 일이 있었고, 결국 여덟번째 rc 버전이 나오고 말았습니다. VM 쪽 이슈가 큰 이유였고, 그것만 문제였으면 그냥 정식 릴리즈를 하려 했지만 네트워킹 쪽에서도 뒤늦은 문제가 터지고 VFS 쪽에도 이슈가 있었던 관계로 정식 릴리즈를 미루기로 결심했다고 합니다.
 8월에 휴가를 많이 떠나는 유럽 개발자들을 고려해서 토발즈는 휴가가 예정되어 있다면 그냥 원래 예상된 스케쥴대로 이번주부터 머지 윈도우 열렸다고 생각하고 풀리퀘스트 보내고 휴가 가라고 대인배라면 대인배 같은 면모를 보이는군요.</description>
-    </item>
-    <item>
-      <title>Linux Kernel Performance (LKP) Tests</title>
-      <link>https://sjp38.github.io/posts/en/lkp-tests/</link>
-      <pubDate>Thu, 02 Aug 2018 17:20:10 +0900</pubDate>
-      <guid>https://sjp38.github.io/posts/en/lkp-tests/</guid>
-      <description>리눅스 커널의 개발은 커뮤니티 주도입니다. 개발의 한 부분인 테스트 역시 커뮤니티 주도적입니다. 여러 개인 또는 단체가 커널을 각자의 방식으로 테스트 하고 그 결과를 공유합니다. 인텔에서는 0-day 서비스[1] 라는 서비스를 자체적으로 돌리는데, 이 서비스는 최신 리눅스 커널을 가져다가 빌드하고 다양한 기능 / 성능 테스트를 돌리고 그 결과 발견된 regression 을 LKML 에 메일로 보내주는 일을 합니다. 말하자면 Continuous Integration (CI) 이죠.
-Linux Kernel Performance (LKP) Tests[2] 는 0-day 서비스에서 기능 / 성능 테스트를 수행하는데 사용되는 도구입니다.</description>
     </item>
     <item>
       <title>Linux Release History</title>
@@ -4283,15 +4179,6 @@ RCU 의 -&amp;gt;gpnum 과 -&amp;gt;completed 필드를 하나의 -&amp;gt;gp_se
 4.17 버전 리눅스 릴리즈입니다. 지난주에 토발즈가 이야기한 것처럼 별다른 지연 없이 릴리즈 되었군요.
 git object 의 갯수라던지 릴리즈를 위한 스크립트 등이 리눅스 5.x 버전으로의 메이저 버전 업데이트가 될 준비가 되었다고 하지만 토발즈는 딱히 5.x 로 아직은 넘어갈 생각이 없군요. 너무 멀지 않은 미래에 넘어가겠지만, 적어도 지금은 아니라고 합니다.
 항상 그렇듯 이 릴리즈는 4.18을 위한 머지 윈도우의 시작이기도 한데, 토발즈는 두번째 주에 여행을 갈거라 가능하면 첫째주에 중요한 머지를 마무리 했으면 한다고 하네요.</description>
-    </item>
-    <item>
-      <title>머신러닝 학습/실습 환경 (Jupyter Notebook &amp; Google Colab)</title>
-      <link>https://sjp38.github.io/posts/en/ml-study-env/</link>
-      <pubDate>Mon, 28 May 2018 19:51:49 +0900</pubDate>
-      <guid>https://sjp38.github.io/posts/en/ml-study-env/</guid>
-      <description>이 글은 머신러닝 학습 환경으로도 널리 사용되는 Jupyter Notebook 과 Google Colab 에 대해 간단히 설명합니다.
-Jupyter Notebook Jupyter Notebook [1] 은 대화형으로 프로그래밍 언어를 공부하고 실습해 볼 수 있도록 만들어진 개발 / 학습 환경입니다. 이 환경은 크게 노트북 문서, Jupyter Notebook App, Notebook kernel, 그리고 Notebook Dashboard 로 구성됩니다.
-노트북 문서 노트북 문서는 프로그램 코드 조각들과 Rich text (이걸 한글로 뭐라 해야 할지&amp;hellip;), 그리고 각 코드 조각의 수행 결과 로 구성됩니다.</description>
     </item>
     <item>
       <title>LKML News after 4.17-rc7</title>
@@ -4496,14 +4383,6 @@ Meltdown 과 Spectre 로 떠들썩했던 시간을 지나 4.15 의 일곱번째 
 지난주는 크리스마스 등의 연휴 때문인지 참 조용했죠. 덕분에 이번 릴리즈의 변경사항도 많지 않습니다. 다만 x86 pti 쪽 업데이트가 있었기 때문에 이번엔 rc8 까지 릴리즈 할수도 있을 것 같다고 하는군요.</description>
     </item>
     <item>
-      <title>spec cpu2006 벤치마크 수정하기</title>
-      <link>https://sjp38.github.io/posts/en/spec_cpu2006_modification/</link>
-      <pubDate>Sun, 24 Dec 2017 17:30:12 +0900</pubDate>
-      <guid>https://sjp38.github.io/posts/en/spec_cpu2006_modification/</guid>
-      <description>경우에 따라서 SPEC CPU2006 의 벤치마크 중 일부의 소스코드를 수정하고 싶을 수 있습니다. 예를 들어 특정 벤치마크가 구체적으로 어떻게 동작하는지 알아보기 위해 디버깅 메세지를 추가하고자 할수도 있고, 코드 변경을 통해 성능을 높인다거나 해볼 수도 있겠죠. 그러나, SPEC CPU2006 은 엄정한 벤치마크 수트이기 때문에 소스코드는 물론, 소스코드를 사용하는 도구가 변경된 경우 에러 메세지를 내고 수행을 거부합니다. 수정된 소스코드로 얻어진 결과는 벤치마크 결과로 적합하지 않기 때문이죠.
-때문에, 어쩔 수 없이 수정이 필요하면서도 기존의 수행 방법을 따르려면 이 에러를 내는 곳을 없애는 게 한가지 방법이 될 수 있습니다.</description>
-    </item>
-    <item>
       <title>LKML News after v4.15-rc5</title>
       <link>https://sjp38.github.io/posts/en/lkml_news_v4.14-rc4/</link>
       <pubDate>Sun, 24 Dec 2017 14:24:13 +0900</pubDate>
@@ -4567,33 +4446,6 @@ Lockdep 의 cross release 기능은 너무 느렸고, false positive 가 많다�
 4.14 가 LTS 였기에 이번 머지윈도우에는 변화가 크지 않을 것으로 예상했는데 생각보다 많은 풀리퀘스트가 있었다고 합니다.</description>
     </item>
     <item>
-      <title>OSSummit 2017 Attendence - 05</title>
-      <link>https://sjp38.github.io/posts/en/osse2017_05/</link>
-      <pubDate>Sun, 26 Nov 2017 12:40:11 +0900</pubDate>
-      <guid>https://sjp38.github.io/posts/en/osse2017_05/</guid>
-      <description>컨퍼런스 둘째날부터는 kernel summit track 이 시작됩니다. 이번 컨퍼런스 참가는 아무래도 kernel summit 에서의 시끄럽고 정신없는 토론에 참여하고 싶기 때문이었기에 오늘부터가 제게는 가장 재밌는 시간입니다.
-![foo] (/img/osse_05/1.jpg)
-아침 일찍 일어나 컨퍼런스 장소로 출발합니다. 10명이 함께 묵는 방을 사용하고 있기에 일찍 일어나지 않으면 샤워를 제시간에 하기 어려우므로 조금 일찍 일어났습니다.
-![foo] (/img/osse_05/2.jpg)
-![foo] (/img/osse_05/3.jpg)
-![foo] (/img/osse_05/4.jpg)
-일찍 출발한 만큼 일찍 도착. 아직 부스에 사람도 없고 조용하네요. 한동안 부스 한켠에 준비된 휴식 공간에 앉아 커널 메일링 리스트도 읽고 코드도 보고 했습니다.</description>
-    </item>
-    <item>
-      <title>OSSummit 2017 Attendence - 04</title>
-      <link>https://sjp38.github.io/posts/en/osse2017_04/</link>
-      <pubDate>Sun, 26 Nov 2017 12:13:00 +0900</pubDate>
-      <guid>https://sjp38.github.io/posts/en/osse2017_04/</guid>
-      <description>드디어 컨퍼런스 첫날입니다. 아침 8시부터 아침식사와 등록이 시작되므로, 7시에 숙소에서 나왔습니다.
-![foo] (/img/osse_04/1.jpg)
-어제는 날이 흐리더니, 오늘은 비도 옵니다. 우산을 챙겨 나옵니다. 그래도 어제 미리 학회장에 들렀던 덕에 길을 헤매지 않고 찾아갈 수 있었습니다.
-![foo] (/img/osse_04/2.jpg)
-빗길을 따라 한참을 걸어서 도착했습니다.
-![foo] (/img/osse_04/3.jpg)
-![foo] (/img/osse_04/4.jpg)
-도착하니 7시 반 정도. 공식 스케쥴은 8시부터 시작이라 아직 한산합니다. 스폰서 부스도 아직 준비중인 곳이 많고, 아직 준비가 덜된 곳도 많습니다. 돌아다니며 인사도 하고 간단한 스몰토크도 하면서 시간을 보냈습니다.</description>
-    </item>
-    <item>
       <title>LKML News after v4.14</title>
       <link>https://sjp38.github.io/posts/en/lkml_news_v4.14/</link>
       <pubDate>Mon, 13 Nov 2017 17:07:44 +0900</pubDate>
@@ -4615,24 +4467,6 @@ v4.14 를 향한 (아마도) 마지막 rc 버전의 릴리즈입니다.
 이번 릴리즈에 포함된 변경은 대부분 드라이버 쪽 변경이고, SPDK 관련 소스코드에 라이센스 추가 등을 한 사소하지만 커다란 양의 변경이 있습니다.</description>
     </item>
     <item>
-      <title>OSSummit 2017 Attendence - 03</title>
-      <link>https://sjp38.github.io/posts/en/osse2017_03/</link>
-      <pubDate>Sat, 04 Nov 2017 10:20:16 +0900</pubDate>
-      <guid>https://sjp38.github.io/posts/en/osse2017_03/</guid>
-      <description>OSSummit 등록도 마쳤고, 남은 하루는 프라하 성 쪽을 둘러보기로 했습니다. 내일부터는 OSSummit 발표를 아침부터 오후까지 들어야 하므로, 프라하 관광을 해가 떠있을 때 하는건 오늘이 마지막이니 부지런히 걸어야 합니다. 어떻게 생각해 보면 꽤 강행군이기도 하고, 아침 일찍 도착하길 다행이다 싶습니다.
-Vltava[1] ![foo] (/img/osse_03/4.jpg)
-OSSummit 컨퍼런스 회장인 힐튼 프라하 호텔은 프라하 시내의 동북쪽에 위치해 있어서 조금만 걸으면 아침에 심카드 사고 나서 걸었던 블타바 강이 나옵니다. 아까 지나갔던 코스지만 한번 더 걸어가기로 합니다.</description>
-    </item>
-    <item>
-      <title>OSSummit 2017 Attendence - 02</title>
-      <link>https://sjp38.github.io/posts/en/osse2017_02/</link>
-      <pubDate>Sat, 04 Nov 2017 04:58:24 +0900</pubDate>
-      <guid>https://sjp38.github.io/posts/en/osse2017_02/</guid>
-      <description>Immigration ![immigration] (/img/osse_02/14.jpg)
-먼저 공항에서 입국심사를 거쳐야 합니다. 한글 표지판이 많이 있어서 영어에 익숙지 않은 분들도 비교적 쉽게 적응할 수 있겠다 싶었습니다.
-제가 가장 많이 다녀온 외국은 미국인데요. 대한민국 여권 소지자는 미국에 갈 때 비자가 필요없지만 E-SATA 로 등록을 해야 하고, 언젠가부터 E-SATA 등록비도 몇만원 정도 생겼죠. 또, 미국은 입국심사가 왠지 날카롭다는 인상입니다. 입국할 때 입국심사 카드도 써야하고 여기 숙소 주소 등도 적어야 하고, 지문도 찍어야 하죠. 공항 보안검색대에선 투시카메라로 사진도 찍고.</description>
-    </item>
-    <item>
       <title>LKML News after v4.14-rc7</title>
       <link>https://sjp38.github.io/posts/en/lkml_news_v4.14-rc7/</link>
       <pubDate>Fri, 03 Nov 2017 14:51:35 +0900</pubDate>
@@ -4642,15 +4476,6 @@ OSSummit 컨퍼런스 회장인 힐튼 프라하 호텔은 프라하 시내의 �
 OSSE 와 kernel summit 으로 프라하를 방문했던 토발즈인데, 집에 잘 돌아왔다는군요. 이번 rc 버전은 기존의 rc7 보다도 작은 편에 가깝다고 합니다만, 다음 한주간이 정말 조용하지 않는한은 rc8 릴리즈를 할 생각이라는군요.
 Re: Page allocator bottleneck https://lkml.kernel.org/r/1c218381-067e-7757-ccc2-4e5befd2bfc3@mellanox.com
 멜라녹스의 빠른 네트워크 카드를 사용하는 환경에서는 page allocator 의 속도가 bottleneck 이 된다는 이야기에 대한 업데이트입니다. 여전히 해당 부분이 bottleneck 이며, queued_spin_lock_slowpath() 가 85 % 가까이 CPU 를 차지하고 있군요.</description>
-    </item>
-    <item>
-      <title>OSSummit 2017 Attendence - 01</title>
-      <link>https://sjp38.github.io/posts/en/osse2017_01/</link>
-      <pubDate>Sun, 29 Oct 2017 16:55:24 +0900</pubDate>
-      <guid>https://sjp38.github.io/posts/en/osse2017_01/</guid>
-      <description>![pargue!] (/img/osse_01/8.jpg)
-Open Source Summit Europe 과 Embedded Linux Conference Europe, 그리고 Annual Kernel Summit 이 합동으로 열린 프라하에 다녀왔습니다. 이에 대한 기록을 남겨봅니다.
-The Event 리눅스 재단에서는 다양한 컨퍼런스를 개최합니다. 2015년까지는 한국에서도 Korea Linux Forum 이라는 행사를 매년 열었죠. 특히 2015년에는 커널 서밋도 함께해서 특히 특별했던 기억입니다. 이런 이벤트들 중에서도 가장 큰 이벤트는 오픈소스 서밋이 아닐까 싶습니다. 이 이벤트는 기존의 리눅스콘 등 행사들이 합쳐진 행사입니다. 가장 큰 이벤트가 오픈소스 서밋이라면 가장 중요한 행사는 커널 서밋이라 할 수 있지 않을까 싶습니다.</description>
     </item>
     <item>
       <title>LKML News after v4.14-rc6</title>
@@ -4703,25 +4528,6 @@ Environment Setup The versions of the OS and programs I used for writeup of this
 Ubuntu 16.04.2 Server MariaDB 10.2.8 TPC-H toolkit 2.17.2 Automated Scripts I automated whole things I will describe below using scripts and uploaded the scripts to the Github: https://github.</description>
     </item>
     <item>
-      <title>Ubuntu 16.04 Server 위에 MariaDB 설치/사용하기</title>
-      <link>https://sjp38.github.io/posts/en/mariadb_setup/</link>
-      <pubDate>Thu, 31 Aug 2017 14:37:07 +0900</pubDate>
-      <guid>https://sjp38.github.io/posts/en/mariadb_setup/</guid>
-      <description>악의 조직 Oracle 에서 Sun 을 인수한 후 이어진 반 open source 적 행보에 MySQL 개발자는 MySQL 을 fork 해서 MariaDB 를 개발하고 있습니다. 저작권을 악용해 중요한 기능은 천천히 릴리즈 하거나 유료 라이센스로만 공개하기도 하는 Oracle 의 MySQL 과 달리 MariaDB 는 예전 MySQL 처럼 공개적으로 개발되고 있어 새롭고 진보적인 기능도 많이 있는 편인 것 같습니다.
-이 글에서는 Ubuntu 16.04 서버에 MariaDB 를 소스코드부터 가져와서 설치하고 사용하는 간단한 사용법을 정리해 봅니다.</description>
-    </item>
-    <item>
-      <title>Golang 1.9 install on Fedora 26</title>
-      <link>https://sjp38.github.io/posts/en/golang1.9_fedora26/</link>
-      <pubDate>Sat, 26 Aug 2017 10:54:24 +0900</pubDate>
-      <guid>https://sjp38.github.io/posts/en/golang1.9_fedora26/</guid>
-      <description>현재 사용중인 랩탑에 설치한 OS 는 Fedora 24 였는데, 너무 오래되었고 지원도 얼마전 끝났기에[0] 이번에 Fedora 26 으로 새로 설치했습니다. 마침 go 언어도 1.9 가 최근에 릴리즈 되었기에 개인적으로 go 언어를 설치하는 방법을 기록해 둡니다.
-여기선 소스 코드만 가지고 빌드, 설치하는 방법을 기록합니다.
-Get Source Code go 언어는 오픈소스입니다. 다음 커맨드를 통해 구글로부터 소스코드를 받아올 수 있습니다.
-$ git clone https://go.googlesource.com/go 기다리면 go/ 디렉토리에 소스코드가 딸려옵니다.
-golang 1.4 Build &amp;amp; Install go 언어를 빌드한다는 건 go 언어 컴파일러와 기본 라이브러리 등과 같은, go 언어로 짠 프로그램을 빌드하고 수행하는데 필요한 도구들을 빌드한다는 이야기입니다.</description>
-    </item>
-    <item>
       <title>Kernel text addresses removed from calltrace</title>
       <link>https://sjp38.github.io/posts/en/kernel-text-addresses-removed-from-calltrace/</link>
       <pubDate>Fri, 16 Jun 2017 16:46:09 +0900</pubDate>
@@ -4737,22 +4543,6 @@ Call Trace 커널은 문제가 발생하거나 하면 문제의 원인을 찾을
       <description>I wrote a simple, stupid program[1] that showing LKML[2] mails in terminal briefly like twitter livestream in Go language. It is just an early version and so many things to be complemented exists, though. Nevertheless, now it just works as I wanted at first.
 References [1] https://github.com/sjp38/lkml
 [2] https://en.wikipedia.org/wiki/Linux_kernel_mailing_list</description>
-    </item>
-    <item>
-      <title>Parsec 3.0 설치 / 사용법</title>
-      <link>https://sjp38.github.io/posts/en/parsec_3_howto/</link>
-      <pubDate>Fri, 19 May 2017 06:23:15 +0900</pubDate>
-      <guid>https://sjp38.github.io/posts/en/parsec_3_howto/</guid>
-      <description>PARSEC 은 멀티쓰레드 프로그램들로 구성된 benchmark suite 입니다. 멀티쓰레드로 구성되어 있기 때문에 멀티코어 시스템에서의 multi core scalability 를 테스트 하기에도 적합합니다. 이 글에선 현재 최신 버전인 3.0 버전의 PARSEC 을 Ubuntu 16.04 server 에 설치하면서 겪는 문제의 해결법과 간단한 사용법을 정리해 봅니다.
-Toolbox for PARSEC 3.0 on Ubuntu Xenial 아래의 내용을 하나하나 읽어가면서 따라하는 것도 귀찮은 일입니다. 그래서 아래에서 설명하는, Ubuntu Xenial 에서 PARSEC 3.0 을 돌리기 위해 필요한 작업을 대부분 자동으로 해주는 도구들을 만들어 두었습니다.</description>
-    </item>
-    <item>
-      <title>원격 데스크탑의 clipboard 를 ssh 와 xclip 으로 복사해오기</title>
-      <link>https://sjp38.github.io/posts/en/xclip_copy_remote_clipboard/</link>
-      <pubDate>Fri, 31 Mar 2017 13:53:54 +0900</pubDate>
-      <guid>https://sjp38.github.io/posts/en/xclip_copy_remote_clipboard/</guid>
-      <description>여러개의 리눅스 데스크탑 PC 를 한 책상 위에서 사용하는 경우가 있다. 이 때, 한 PC 에서 Ctrl-C 해서 clipboard 에 복사한 내용을 다른쪽 PC 에서 Ctrl-V 로 붙여넣고 싶은 경우가 있다. 여러가지 해결책이 있겠으나, 다음과 같이 ssh 와 xclip 을 사용해서 해결할 수도 있다:
-$ ssh &amp;lt;username&amp;gt;@&amp;lt;remote host&amp;gt; &amp;#39;DISPLAY=:0 xclip -o -selection clipboard&amp;#39; | \ xclip -i -selection clipboard 참고: http://askubuntu.com/questions/513442/can-two-pcs-with-ubuntu-share-the-clipboard-buffer</description>
     </item>
     <item>
       <title>Install / execute spec cpu2006 benchmark</title>
@@ -4792,51 +4582,6 @@ $ sudo dnf update google-chrome-stable ... $ sudo killall chrome $ google-chrome
       <description>You can use arping to know IP address to MAC address mapping of your local network. Usage is simple:
 arping [-AbDfhqUV] [-c count] [-w deadline] [-s source] -I interface destination For example, you may use the command as below:
 $ arping -I eth0 10.0.0.1 ARPING 10.0.0.1 from 10.0.0.2 eth0 Unicast reply from 10.0.0.1 [11:22:33:44:55:66] 0.123ms Unicast reply from 10.0.0.1 [11:22:33:44:55:66] 0.251ms ... Secret of the tool is ARP protocol [1]. To know the MAC address of the machine that has a specific IP address, IP protocol layer uses the protocol.</description>
-    </item>
-    <item>
-      <title>beautifulhugo 테마 tags 기능 구현</title>
-      <link>https://sjp38.github.io/posts/en/beautifulhugo_contribute/</link>
-      <pubDate>Fri, 24 Feb 2017 22:58:25 +0900</pubDate>
-      <guid>https://sjp38.github.io/posts/en/beautifulhugo_contribute/</guid>
-      <description>꽤 맘에 드는 hugo 테마[1]를 찾았다. 하지만 tag 기능이 빠져있어 너무 아쉬워하다가 이대로 포기하기엔 너무 맘에 들어 이래저래 찾아보니 과거에 tag 기능 관련 이슈가 올라왔지만 close 처리된 상태. 이대로는 암만 기다려도 tag 기능을 구현해주진 않겠구나 싶어서 이것저것 보고 낑낑대며 서툴고 간단하게나마 tag 기능을 구현[2]. Pull request[3] 도 보냈는데 과연 받아들여줄런지.
-업데이트: 별다른 discussion 없이 머지됐다 ;)
-[1] http://themes.gohugo.io/beautifulhugo/
-[2] https://github.com/sjp38/beautifulhugo-sj
-[3] https://github.com/halogenica/beautifulhugo/pull/15</description>
-    </item>
-    <item>
-      <title>1990년대의 palmtop, HP 95LX 를 득템</title>
-      <link>https://sjp38.github.io/posts/en/hp_95lx/</link>
-      <pubDate>Thu, 02 Feb 2017 16:24:02 +0900</pubDate>
-      <guid>https://sjp38.github.io/posts/en/hp_95lx/</guid>
-      <description>이사로 생긴 쓰레기 정리를 돕다가 보니 한 물건이 유난히 눈에 띄었다. 자그마한 크기에 왠지 모르게 90년대 감성. 자세히 살펴 보니 전자사전 같이 생겼는데 왠지 옛날에 유행하던 palmtop[1] 같은 느낌. 어차피 버릴 물건이기에 따로 챙겨두고 컴퓨터로 검색을 해보았다.
-![HP 95LX] (/img/hp95lx/1.jpg)
-모델명인 HP 95LX 로 검색해보니[2] 한때 스프레드시트 프로그램의 대명사였던 Lotus 123 을 탑재한 것으로 유명한 palmtop PC 로, MS-DOS 를 장착한 모델이다. 당연하게도 바로는 안켜지지만 잘 살펴보니 전용 배터리가 아니라 2A 건전지를 사용하고 있기에 건전지를 끼고 파워 버튼을 눌러봤지만 역시 잠잠.</description>
-    </item>
-    <item>
-      <title>uninstall kernel</title>
-      <link>https://sjp38.github.io/posts/en/uninstall-kernel/</link>
-      <pubDate>Fri, 20 Jan 2017 13:18:56 +0900</pubDate>
-      <guid>https://sjp38.github.io/posts/en/uninstall-kernel/</guid>
-      <description>테스트 등을 위해 소스코드로부터 커널을 직접 빌드, 설치하기 시작하면 어느새 수많은 커널이 설치되어 있는 것을 확인할 수 있다. 삭제를 위해선 make install 로 만들어진 파일들을 직접 제거하고 grub 을 업데이트 해줘야 한다.
-예를 들어 시스템이 현재 부팅되어 있는 버전의 커널을 언인스톨하고자 한다면 다음의 일련의 커맨드를 입력하면 된다:
-# rm /boot/vmlinuz-$(uname -r) # rm /boot/initrd.img-$(uname -r) # rm /boot/System.map-$(uname -r) # rm /boot/config-$(uname -r) # rm -fr /lib/modules/$(uname -r) # rm /var/lib/initramfs-tools/$(uname -r) # update-grub2 다른 버전의 설치되어있는 커널을 제거하고 싶다면 위의 $(uname -r) 부분을 제거하고자 하는 커널 버전으로 대체하면 된다.</description>
-    </item>
-    <item>
-      <title>donate mozilla</title>
-      <link>https://sjp38.github.io/posts/en/donate-mozilla/</link>
-      <pubDate>Thu, 19 Jan 2017 18:06:54 +0900</pubDate>
-      <guid>https://sjp38.github.io/posts/en/donate-mozilla/</guid>
-      <description>나는 보통의 경우 크롬으로 웹브라우징을 한다. 하지만 몇달 전부터 몇가지 예외에 대해서는 파이어폭스를 함께 쓰고 있다.
-부족한 하드웨어 스펙 나의 데스크탑 환경은 모니터 세대를 연결한 PC 하나로 구성되어 있었는데, FHD 모니터 세대를 돌리기는 벅찼는지 간헐적 입력 랙이 자주 발생했다. 또, 모니터를 한대 정도 더 늘리고 싶었다. 해서 집에서 놀고있던 5년된 HP 랩탑에 모니터 하나를 연결시키고 이 랩탑과 PC 를 키보드/마우스 하나로 제어하는 환경을 구축했다. PC 에 연결되는 모니터는 두대로 줄어드니까 입력 랙도 줄어들 것이라 생각한것.</description>
-    </item>
-    <item>
-      <title>us sues oracle</title>
-      <link>https://sjp38.github.io/posts/en/us-sues-oracle/</link>
-      <pubDate>Thu, 19 Jan 2017 10:17:09 +0900</pubDate>
-      <guid>https://sjp38.github.io/posts/en/us-sues-oracle/</guid>
-      <description>오라클이 백인 남성에게 더 많은 월급을 지불하고 아시아인, 그중에서도 인도 사람을 많이 개발직에 채용했다는 이유로 미국 정부가 오라클을 고소.
-http://www.reuters.com/article/us-oracle-usa-labor-idUSKBN1522O6?il=0</description>
     </item>
     <item>
       <title>GCMA: Guaranteed Contiguous Memory Allocator</title>
