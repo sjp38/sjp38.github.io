@@ -10,6 +10,7 @@ tags = [
 thumbnail = ""
 title = "About"
 description = ""
+draft = "true"
 
 +++
 
