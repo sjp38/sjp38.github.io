@@ -6,6 +6,11 @@ hugo_site_dir="$bindir/hugo_site"
 if [ ! -d "$hugo_site_dir" ]
 then
 	hugo new site "$hugo_site_dir" --format yaml
+else
+	rm -fr "$hugo_site_dir/content"
+	rm -fr "$hugo_site_dir/static"
+	rm -fr "$hugo_site_dir/assets"
+	rm -fr "$hugo_site_dir/public"
 fi
 
 cp "$bindir/hugo.yaml" "$hugo_site_dir/"
