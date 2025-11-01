@@ -56,7 +56,7 @@ params:
 
   # profile-mode
   profileMode:
-    enabled: true # needs to be explicitly set
+    enabled: false # needs to be explicitly set
     title: SJ's hacking log
     subtitle: "SeongJae Park (SJ) is a Linux kernel programmer who maintains
     [DAMON](https://damonitor.github.io), which is a Linux kernel subsystem for
@@ -131,6 +131,10 @@ params:
     keys: ["title", "permalink", "summary", "content"]
 menu:
   main:
+    - identifier: about
+      name: about
+      url: about
+      weight: 9
     - identifier: posts
       name: posts
       url: /posts/
@@ -147,9 +151,6 @@ menu:
       name: search
       url: /search/
       weight: 30
-    - identifier: cv
-      name: cv
-      url: /files/resume_sjpark.pdf
 # Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
 pygmentsUseClasses: true
 markup:
