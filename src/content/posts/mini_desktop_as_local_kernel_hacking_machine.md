@@ -87,11 +87,11 @@ Run 3 (-j 10):       214.39 seconds / 16.79 kernels/hour [P:744%, 133 maj. pagef
 Run 4 (-j 10):       214.73 seconds / 16.77 kernels/hour [P:744%, 134 maj. pagefaults]
 ```
 
-I have used this mini machine for last three weeks, and quite satisfied so far.
-I even traveled with it.  I brought bluetooth keyboard (having a trackpoint
-like Thinkpad laptops) and an HCMI cable together, and connected the machine
-with a tv in the hotel room.  It was weird to code on the bad, but anyway it
-worked with no problem.
+I have used this mini machine as my DAMON hacking environment for last three
+weeks, and quite satisfied so far.  I even traveled with it.  I brought
+bluetooth keyboard (having a trackpoint like Thinkpad laptops) and an HCMI
+cable together, and connected the machine with a tv in the hotel room.  It was
+weird to code on the bad, but anyway it worked with no problem.
 
 So my take on these results I got so far is that the world has been much more
 kind for hobbyist kernel hackers.  And I can continue kernel hacking without
