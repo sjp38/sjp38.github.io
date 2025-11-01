@@ -28,15 +28,5 @@ image:
 projects: []
 ---
 
-DAMON contains a number of tests based on the kselftest and kunit in its
-patchset itself.  As it is preferred to contain only tests having short runtime
-in kernel tree, I organized time consuming tests in a package and used it in my
-company only.  Tests could be used as a good document and essential for
-contributors.  For the reason, I promised I will make it open source in the
-last kernel summit talk
-(https://linuxplumbersconf.org/event/7/contributions/659/).
-
-Yesterday, I finally publicly released the
-[package](https://github.com/damonitor/damon-tests) under GPL v2.  Now you can
-use the package to understand the DAMON interface and test it on your machine
-by yourself.
+This post has migrated to
+https://damonitor.github.io/posts/damon-tests_open_sourced.

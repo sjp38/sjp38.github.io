@@ -28,20 +28,4 @@ image:
 projects: []
 ---
 
-A summary of DAMON development in 2022 has posted:
-https://lore.kernel.org/damon/20221229171209.162356-1-sj@kernel.org/
-
-2022 was a year of active and healthy DAMON development.
-
-Seven new DAMON major features were delivered to users. Some of those were
-featured in articles and academic papers.
-
-It was possible thanks to the DAMON community. The community has expanded with
-its own mailing list and an open bi-weekly chat series. 40 people contributed
-their great code to DAMON via making their 275 commits merged into the
-mainline. About 33% of the commits were made by Amazon-external contributors.
-
-The amount of DAMON changes in 2022 (v5.15..v6.2-rc1) was not that tiny
-compared to other subsystems. About 0.2% of the commits for whole Linux tree
-was for DAMON. Among the changes for DAMON's parent subsystem, mm, about 8% of
-commits and 14% of lines of changes were made for DAMON.
+This post has migrated to https://damonitor.github.io/posts/damon_stat_2022.
