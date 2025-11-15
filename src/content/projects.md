@@ -8,6 +8,8 @@ categories = ["about"]
 Active
 ------
 
+Below are actively being developed.
+
 - [DAMON: Data Access Monitor](https://damonitor.github.io)
 - [damo](https://github.com/damonitor/damo)
 - [hackermail](https://github.com/sjp38/hackermail)
@@ -15,6 +17,8 @@ Active
 
 Inactive
 --------
+
+Below are not actively being developed at the moment.
 
 - [Translation of "Is Parallel Programming Hard, And, If So, What Can You Do About It?"](
   {{< relref "posts/perfbook-kokr.md" >}})
