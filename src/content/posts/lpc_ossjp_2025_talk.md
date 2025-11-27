@@ -1,6 +1,7 @@
 +++
 title = 'I will have four talks at Linux Plumbers and Open Source Summit Japan 2025'
-tags = ["linux", "kernel recipes", "kernel recipes 2025", "talk", "damon", "damos", "damo"]
+tags = ["linux", "linux plumbers", "lpc", "linux plumbers 2025", "ossummit jp",
+"open source summit japan", "open source summit japan 2025"]
 categories = ["talks"]
 date = 2025-11-26T17:59:26-08:00
 draft = false
