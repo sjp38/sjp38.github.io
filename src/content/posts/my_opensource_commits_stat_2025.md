@@ -77,11 +77,11 @@ $ ./authors.py ~/linux --commits linus/master \
         --skip_merge_commits --sortby lines --max_nr_authors 400 \
         --pr_for_plot |
     ../format_data/plot/plot.py 2025_changed_lines_per_author_linux_mm.png \
-        --ylog --pointsize 0.3 --gnuplot_arrow 20 8000 2 6667
+        --xlog --ylog --pointsize 0.3 --gnuplot_arrow 20 8000 2 6667
 ```
 
 The resuling plot is like below.  The arrow is showing where I am.  Note that
-the y axis is in logscale.
+both x and y axes are in logscale.
 
 ![number of changed lines per author for mm in
 2025](/img/2025_open_source_commits_stat/2025_changed_lines_per_author_linux_mm.png)
@@ -113,11 +113,11 @@ $ ./authors.py ~/linux --commits linus/master \
         --skip_merge_commits --sortby commits --max_nr_authors 400 \
         --pr_for_plot |
     ../format_data/plot/plot.py 2025_commits_per_author_linux_mm.png \
-        --ylog --pointsize 0.3 --gnuplot_arrow 20 8000 2 6667
+        --xlog --ylog --pointsize 0.3 --gnuplot_arrow 2 300 1 199
 ```
 
 The resuling plot is like below.  The arrow is showing where I am.  Note that
-the y axis is in logscale.
+both x and y axes are in logscale.
 
 ![number of commits per author for mm in
 2025](/img/2025_open_source_commits_stat/2025_commits_per_author_linux_mm.png)
