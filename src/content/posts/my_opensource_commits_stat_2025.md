@@ -77,7 +77,7 @@ $ ./authors.py ~/linux --commits linus/master \
         --skip_merge_commits --sortby lines --max_nr_authors 400 \
         --pr_for_plot |
     ../format_data/plot/plot.py 2025_changed_lines_per_author_linux_mm.png \
-        --xlog --ylog --pointsize 0.3 --gnuplot_arrow 2 8000 1 6661
+        --xlog --ylog --pointsize 0.3 --gnuplot_arrow 4 12000 2 6661
 ```
 
 The resuling plot is like below.  The arrow is showing where I am.  Note that
