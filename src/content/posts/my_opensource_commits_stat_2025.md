@@ -46,7 +46,7 @@ subsystems, I mostly work on DAMON and memory management subsystems.  DAMON is
 also a part of memory management subsystem.  Let's see the statistics for
 memory mangement subsystem, first.
 
-I ran my buggy script[1] to show some 2024 statistics for memory management
+I ran my script to show some 2024 statistics for memory management
 subsystem and whole tree of Linux kernel as below.
 
 #### In terms of the number of changed lines
