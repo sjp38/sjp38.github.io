@@ -5,6 +5,29 @@ categories = ["about"]
 tags = ["about"]
 +++
 
+__2026__
+
+- SeongJae Park, __DAMON Updates: Tiering, Pagel Level Monitoring and
+  DAMON-X.__ In _Linux Storage | Filesystem | MM & BPF Summit_, May 2026.
+  [LWN article](https://lwn.net/Articles/1071256/),
+  [Slides](https://github.com/damonitor/talks/blob/master/2026/lsfmmbpf/damon_lsfmmbpf_2026.pdf),
+  [Link 1](https://lore.kernel.org/20260307210250.204245-1-sj@kernel.org/),
+  [Link 2](https://docs.google.com/spreadsheets/d/1mGEdDrWskp7Ua91jGXzquQGinorcD58DAVXhOiRp2Gg/edit?gid=1852749899#gid=1852749899)
+- SeongJae Park, __Allowing NUMA hinting faults or alternatives to DAMON.__ In
+  _Linux Storage | Filesystem | MM & BPF Summit_, May 2026.
+  [LWN article](https://lwn.net/Articles/1071256/),
+  [Slides](https://github.com/damonitor/talks/blob/master/2026/lsfmmbpf/damon_lsfmmbpf_2026.pdf),
+  [Link 1](https://lore.kernel.org/20260218054320.4570-1-sj@kernel.org/),
+  [Link 2](https://docs.google.com/spreadsheets/d/1mGEdDrWskp7Ua91jGXzquQGinorcD58DAVXhOiRp2Gg/edit?gid=1852749899#gid=1852749899)
+- SeongJae Park, __Data Access-aware Transparent Hugepages.__ In _Linux Storage
+  | Filesystem | MM & BPF Summit_, May 2026.
+  [LWN article](https://lwn.net/Articles/1071256/),
+  [Slides](https://github.com/damonitor/talks/blob/master/2026/lsfmmbpf/damon_lsfmmbpf_2026.pdf),
+  [Link 1](https://lore.kernel.org/20260211022845.68865-1-sj@kernel.org/),
+  [Link 2](https://docs.google.com/spreadsheets/d/1mGEdDrWskp7Ua91jGXzquQGinorcD58DAVXhOiRp2Gg/edit?gid=1852749899#gid=1852749899)
+
+__2025__
+
 - SeongJae Park, __Page-level and Fleet-wide Data Access Monitoring for Meta.__
   In _Linux Plumbers Refereed Track_, Dec 2025.
   [Slides](https://lpc.events/event/19/contributions/2075/attachments/1914/4138/damon_pagelevel_fleetwide_observability_lpc25.pdf),
@@ -54,6 +77,9 @@ tags = ["about"]
   [Slides](https://fosdem.org/2025/events/attachments/fosdem-2025-4572-hkml-a-tool-for-working-on-mailing-lists-driven-projects-without-subscribing/slides/237496/hkml_fosd_pRCmXeW.pdf),
   [Video](https://video.fosdem.org/2025/h2215/fosdem-2025-4572-hkml-a-tool-for-working-on-mailing-lists-driven-projects-without-subscribing.av1.webm),
   [Link](https://fosdem.org/2025/schedule/event/fosdem-2025-4572-hkml-a-tool-for-working-on-mailing-lists-driven-projects-without-subscribing/)
+
+__2024__
+
 - SeongJae Park, __DAMON: Long-term Plans for Kernel That {Just
   Works,Extensible}.__ In Linux Kernel Memory Management Microconferenct at
   Linux Plumbers, Sep 2024.
@@ -77,6 +103,9 @@ tags = ["about"]
   [Slides](https://static.sched.com/hosted_files/ossna2024/ff/damo_damon_damos_ossummit_na_2024.pdf),
   [Video](https://youtu.be/vP5x5P47S1U?feature=shared),
   [Link](https://sched.co/1aBOg)
+
+__2023__
+
 - SeongJae Park, __DAMON: Current Status and Future Plans.__
   In Kernel Summit, Nov 2023.
   [Slides](https://lpc.events/event/17/contributions/1624/attachments/1340/2732/damon_status_and_plans_kernel_summit_2023_11_15.pdf),
@@ -100,22 +129,34 @@ tags = ["about"]
   [Slides](https://github.com/damonitor/talks/blob/master/2023/lsfmmbpf/damon_lsfmmbpf_2023.pdf),
   [Video](https://www.youtube.com/watch?v=bbC23ApPvow),
   [Link](https://events.linuxfoundation.org/lsfmm/program/schedule-at-a-glance/)
+
+__2022__
+
 - SeongJae Park, __Current Status and Future Plans of DAMON.__
   In _The Linux Kernel Summit_, September 2022.
   [Slides](https://lpc.events/event/16/contributions/1224/attachments/1107/2137/damon_status_plan_ksummit_2022.pdf),
   [Video](https://youtu.be/e2SZoUPhDRg?t=13245),
   [Link](https://lpc.events/event/16/contributions/1224/)
+
+__2021__
+
 - SeongJae Park, __Writing a fine-grained access pattern oriented lightweight
   kernel module using DAMON/DAMOS in 10 minutes.__
   In _The Linux Kernel Summit_, September 2021.
   [Slides](https://linuxplumbersconf.org/event/11/contributions/984/attachments/870/1670/daos_ksummit_2021.pdf),
   [Video](https://youtu.be/gpFfJkrrEEs?t=5290),
   [Link](https://linuxplumbersconf.org/event/11/contributions/984/)
+
+__2020__
+
 - SeongJae Park, __DAMON: Data Access Monitoring Framework for Fun and Memory
   Management Optimizations,__ In _The Linux Kernel Summit_, August 2020.
   [Slides](https://www.linuxplumbersconf.org/event/7/contributions/659/attachments/503/1195/damon_ksummit_2020.pdf),
   [Video](https://youtu.be/jOBkKMA0uF0?t=10696),
   [Link](https://www.linuxplumbersconf.org/event/7/contributions/659/)
+
+__2019__
+
 - SeongJae Park, __Tracing Data Access Pattern with Bounded Overhead and
   Best-effort Accuracy.__ In _The Linux Kernel Summit_, September 2019.
   [Slides](https://linuxplumbersconf.org/event/4/contributions/548/attachments/311/590/damon_ksummit19.pdf),
@@ -129,6 +170,9 @@ tags = ["about"]
   Storages.__ (WiP) In _17th USENIX Conference on File and Storage Technologies
   (FAST)_, February 2019.
   [Link](https://www.usenix.org/conference/fast19/wips)
+
+__2018__
+
 - SeongJae Park, __GCMA: Guaranteed Contiguous Memory Allocator.__ In _The
   Linux Kernel Summit_, November 2018.
   [Slides](https://linuxplumbersconf.org/event/2/contributions/247/attachments/74/85/gcma_ksummit2018.pdf),
@@ -140,12 +184,18 @@ tags = ["about"]
 - SeongJae Park, __An Introduction to the Formalised Memory Model for Linux
   Kernel.__ In _Korea Open Source Software Conference (KOSSCON)_, August 2018.
   [Slides](https://www.slideshare.net/SeongJaePark1/an-introduction-to-the-formalised-memory-model-for-linux-kernel)
+
+__2017__
+
 - SeongJae Park, __Design Choices of Golang for High Scalability.__ In _GDG
   Korea Meeup_, September 2017.
   [Slides](https://www.slideshare.net/SeongJaePark1/design-choices-of-golang-for-high-scalability)
 - SeongJae Park, __Brief Introduction to Kselftest.__ In _2nd Korea Linux Kernel
   Conference_, July 2017.
   [Slides](https://www.slideshare.net/SeongJaePark1/brief-introduction-to-kselftest)
+
+__2015__
+
 - SeongJae Park, __Understanding of Linux Kernel Memory Model.__ In _Korea Open
   Source Software Conference (KOSSCON)_, November 2016.
   [Slides](https://www.slideshare.net/SeongJaePark1/understanding-of-linux-kernel-memory-model)
@@ -155,12 +205,18 @@ tags = ["about"]
 - SeongJae Park, __Hello Android.go__ In _GDG Android Korea Conference (GKAC)_, April 2015.
   [Slides](https://www.slideshare.net/SeongJaePark1/hello-androidgo),
   [Video](https://www.youtube.com/watch?v=vMZFjDipaK8)
+
+__2014__
+
 - SeongJae Park, Minchan Kim, __GCMA: Guaranteed Contiguous Memory Allocator.__
   In _Linux Foundation Korea Linux Forum (LFKLF)_, October 2014.
   [Slides](http://events.linuxfoundation.org/sites/events/files/slides/gcma-guaranteed_contiguous_memory_allocator-lfklf2014_0.pdf)
 - SeongJae Park, __How GIT Works Internally.__ In _Samsung Open-source Software
   Conference (SOSCON)_, September 2014.
   [Slides](https://www.slideshare.net/SeongJaePark1/deep-darkside-ofgit)
+
+__2013__
+
 - SeongJae Park, __Let The Contribution Begin.__ In Google Developers Group
   DevFest W, March 2013.
   [Slides](https://www.slideshare.net/SeongJaePark1/let-the-contribution-begin)
