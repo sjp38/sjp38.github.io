@@ -7,6 +7,12 @@ tags = ["about"]
 
 __2026__
 
+- SJ Park, __You're Measuring Memory Wrong: The Right Ways With DAMON.__ In
+  _Open Source Summit Europe_, Oct 2026.
+  [Link](https://sched.co/2RaXh)
+- SJ Park, __DAMOS: The Smart Cruise Control for RAM.__ In _Kernel Recipes_, Sep
+  2026.
+  [Link](https://kernel-recipes.org/en/2026/schedule/damos-the-smart-cruise-control-for-ram/)
 - SeongJae Park, __DAMON Updates: Tiering, Pagel Level Monitoring and
   DAMON-X.__ In _Linux Storage | Filesystem | MM & BPF Summit_, May 2026.
   [LWN article](https://lwn.net/Articles/1071256/),
