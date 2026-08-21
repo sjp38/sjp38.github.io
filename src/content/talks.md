@@ -10,6 +10,22 @@ __2026__
 - SJ Park, __You're Measuring Memory Wrong: The Right Ways With DAMON.__ In
   _Open Source Summit Europe_, Oct 2026.
   [Link](https://sched.co/2RaXh)
+- __DAMON (nano) Conference.__ In _Linux Plumbers_, Oct 2026.
+  [Link](https://lpc.events/event/20/contributions/2453/)
+  - __Breaking through Accessed Bit Limits of DAMON.__ SJ Park, Ravi
+    Jonnalagadda, Akinobu Mita
+  - __Beyond Weighted Interleaving: Bandwidth-Driven Memory Tiering with
+    DAMON.__ Ravi Jonnalagadda
+  - __Guiding THP Decisions with DAMON Memory Monitoring.__ Asier Gutierrez
+  - __Host-side DAMON Hotness under KVM/THP: Granularity Gaps and Evidence for
+    Demotion.__ Lian Wang, Kunwu Chan
+  - __DAMON in the AI Cloud: Monitoring Real-World GPU Workloads.__ Krishna
+    Iyer
+  [Link](https://sched.co/2RaXh)
+- SJ Park, __DAMON (Data Attributes Monitoring/Operations Engine)-based
+  {C,G,X}PU [un]attached NUMA Pages Migration.__ In _Device and Specific
+  PurposeMemory MC at Linux Plumbers_, Oct 2026.
+  [Link](https://lpc.events/event/20/contributions/2518/)
 - SJ Park, __DAMOS: The Smart Cruise Control for RAM.__ In _Kernel Recipes_, Sep
   2026.
   [Link](https://kernel-recipes.org/en/2026/schedule/damos-the-smart-cruise-control-for-ram/)
