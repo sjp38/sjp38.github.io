@@ -1,7 +1,7 @@
 ---
 # Documentation: https://sourcethemes.com/academic/docs/managing-content/
 
-title: "I will have a few talks at Kernel Recipes, LPC, and Open Source Summit EU 2026"
+title: "I will have four talks at Kernel Recipes, LPC, and Open Source Summit EU 2026"
 subtitle: ""
 summary: ""
 authors: []
@@ -41,9 +41,10 @@ In Linux Plumbers 26 in the week of 2026-10-05, I will have two sessions.
 
 In the Device and Specific Purpose Memory Management Micro-conference (Monday),
 I will [present](https://lpc.events/event/20/contributions/2518/) and discuss
-DAMON extension project for memory tiering and general NUMA memory management.
-The title of the session is "DAMON (Data Attributes Monitoring/Operations
-Engine)-based {C,G,X}PU [un]attached NUMA Pages Migration".
+the DAMON extension project for memory tiering and general NUMA memory
+management.  The title of the session is "DAMON (Data Attributes
+Monitoring/Operations Engine)-based {C,G,X}PU [un]attached NUMA Pages
+Migration".
 
 In the DAMON (nano) Conference (Tuesday), I will
 [co-present](https://lpc.events/event/20/contributions/2453/) the status and
@@ -52,7 +53,7 @@ primitives.  The title of the session is "Breaking through Accessed Bit Limits
 of DAMON".
 
 In Open Source Summit EU in the same week, Wednesday, I will
-[present](https://sched.co/2RaXh) how DAMON can more effectively used.  The
+[present](https://sched.co/2RaXh) how DAMON can be more effectively used.  The
 title of the session is "You're Measuring Memory Wrong: The Right Ways With
 DAMON".
 
