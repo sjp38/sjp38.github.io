@@ -45,9 +45,11 @@ DAMON extension project for memory tiering and general NUMA memory management.
 The title of the session is "DAMON (Data Attributes Monitoring/Operations
 Engine)-based {C,G,X}PU [un]attached NUMA Pages Migration".
 
-In the DAMON (nano) Conference (Tuesday), I will co-present the status and plan
-of the works on extending DAMON to work with multiple access check primitives.
-The title of the session is "Breaking through Accessed Bit Limits of DAMON".
+In the DAMON (nano) Conference (Tuesday), I will
+[co-present](https://lpc.events/event/20/contributions/2453/) the status and
+plan of the works on extending DAMON to work with multiple access check
+primitives.  The title of the session is "Breaking through Accessed Bit Limits
+of DAMON".
 
 In Open Source Summit EU in the same week, Wednesday, I will
 [present](https://sched.co/2RaXh) how DAMON can more effectively used.  The
