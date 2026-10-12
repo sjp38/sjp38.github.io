@@ -9,25 +9,22 @@ __2026__
 
 - SJ Park, __You're Measuring Memory Wrong: The Right Ways With DAMON.__ In
   _Open Source Summit Europe_, Oct 2026.
+  [Slides](https://hosted-files.sched.co/osselceu2026/67/damon_howto.pdf?_gl=1*1dml5iu*_gcl_au*MTM5ODk2ODM5LjE3OTE1Mzg3NDA.*FPAU*MTM5ODk2ODM5LjE3OTE1Mzg3NDA.),
   [Link](https://sched.co/2RaXh)
-- __DAMON (nano) Conference.__ In _Linux Plumbers_, Oct 2026.
+- SJ Park, Ravi Jonnalagadda, Akinobu Mita, __Breaking through Accessed Bit
+  Limits of DAMON.__ In _DAMON (nano) Conference_, Oct 2026.
+  [Slides](https://hosted-files.sched.co/osselceu2026/67/damon_howto.pdf?_gl=1*1dml5iu*_gcl_au*MTM5ODk2ODM5LjE3OTE1Mzg3NDA.*FPAU*MTM5ODk2ODM5LjE3OTE1Mzg3NDA.),
   [Link](https://lpc.events/event/20/contributions/2453/)
-  - __Breaking through Accessed Bit Limits of DAMON.__ SJ Park, Ravi
-    Jonnalagadda, Akinobu Mita
-  - __Beyond Weighted Interleaving: Bandwidth-Driven Memory Tiering with
-    DAMON.__ Ravi Jonnalagadda
-  - __Guiding THP Decisions with DAMON Memory Monitoring.__ Asier Gutierrez
-  - __Host-side DAMON Hotness under KVM/THP: Granularity Gaps and Evidence for
-    Demotion.__ Lian Wang, Kunwu Chan
-  - __DAMON in the AI Cloud: Monitoring Real-World GPU Workloads.__ Krishna
-    Iyer
-  [Link](https://sched.co/2RaXh)
 - SJ Park, __DAMON (Data Attributes Monitoring/Operations Engine)-based
   {C,G,X}PU [un]attached NUMA Pages Migration.__ In _Device and Specific
   PurposeMemory MC at Linux Plumbers_, Oct 2026.
+  [Video](https://www.youtube.com/live/OPRciCSsdS4?si=ntGw388L3eEqHfbQ&t=10526),
+  [Slides](https://lpc.events/event/20/contributions/2518/attachments/2107/4676/damon_for_cgxpu_numa.pdf),
   [Link](https://lpc.events/event/20/contributions/2518/)
 - SJ Park, __DAMOS: The Smart Cruise Control for RAM.__ In _Kernel Recipes_, Sep
   2026.
+  [Video](https://youtu.be/cFGxYJ_oeVM?si=27MtCfYyCl9UHlPq),
+  [Slides](https://speakerdeck.com/ennael/damos-the-smart-cruise-control-for-ram),
   [Link](https://kernel-recipes.org/en/2026/schedule/damos-the-smart-cruise-control-for-ram/)
 - SeongJae Park, __DAMON Updates: Tiering, Pagel Level Monitoring and
   DAMON-X.__ In _Linux Storage | Filesystem | MM & BPF Summit_, May 2026.
