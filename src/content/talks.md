@@ -9,6 +9,7 @@ __2026__
 
 - SJ Park, __You're Measuring Memory Wrong: The Right Ways With DAMON.__ In
   _Open Source Summit Europe_, Oct 2026.
+  [Video](https://youtu.be/aFyYgHy_g50?si=64oaGXBvq8ythqC_),
   [Slides](https://hosted-files.sched.co/osselceu2026/67/damon_howto.pdf?_gl=1*1dml5iu*_gcl_au*MTM5ODk2ODM5LjE3OTE1Mzg3NDA.*FPAU*MTM5ODk2ODM5LjE3OTE1Mzg3NDA.),
   [Link](https://sched.co/2RaXh)
 - SJ Park, Ravi Jonnalagadda, Akinobu Mita, __Breaking through Accessed Bit
